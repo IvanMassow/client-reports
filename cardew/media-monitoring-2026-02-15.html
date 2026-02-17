@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardew Group — Media Monitoring & Corporate Strategy Report — 15 February 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #4a4f5c;
+  background: #FFF1E5;
+  padding-top: 56px;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+a { color: #1a6b6e; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== CONTAINER ===== */
+.container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+
+/* ===== FIXED HEADER ===== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #262a33;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.site-header__brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.site-header__nav {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.site-header__nav::-webkit-scrollbar { display: none; }
+.site-header__nav a {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.site-header__nav a:hover { color: #fff; text-decoration: none; }
+.site-header__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  white-space: nowrap;
+}
+
+/* ===== REPORT TYPE BANNER ===== */
+.report-banner {
+  background: #1a6b6e;
+  text-align: center;
+  padding: 0.55rem 1rem;
+}
+.report-banner span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: #262a33;
+  padding: 4rem 0 0;
+}
+.hero__category {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #1a6b6e;
+  margin-bottom: 1.2rem;
+}
+.hero__headline {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.18;
+  color: #fff;
+  max-width: 860px;
+  margin-bottom: 1.1rem;
+}
+.hero__subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.55;
+  color: rgba(255,255,255,0.62);
+  max-width: 740px;
+  margin-bottom: 1.3rem;
+}
+.hero__meta {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.03em;
+  margin-bottom: 2.5rem;
+}
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+.hero__stat-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  padding: 1.3rem 1.2rem;
+  text-align: center;
+}
+.hero__stat-number {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+.hero__stat-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.52);
+  line-height: 1.4;
+}
+
+/* ===== SECTION LABELS ===== */
+.section-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #1a6b6e;
+  margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #262a33;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+}
+.section-intro {
+  font-size: 1.05rem;
+  color: #4a4f5c;
+  max-width: 740px;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* ===== BAND BACKGROUNDS ===== */
+.band-cream { background: #FFF1E5; padding: 4rem 0; }
+.band-grey { background: #f7f8fa; padding: 4rem 0; }
+.band-dark { background: #262a33; padding: 4rem 0; }
+
+/* ===== SECTION DIVIDERS ===== */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 0 2rem;
+}
+.divider__line {
+  flex-grow: 1;
+  height: 1px;
+  background: #e0ddd8;
+}
+.divider__text {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #9ea2b0;
+  white-space: nowrap;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: #fff;
+  border: 1px solid #eef0f3;
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+}
+.card--bordered {
+  border-left: 4px solid;
+}
+
+/* ===== COVERAGE / SIGNAL CARDS ===== */
+.signal-card {
+  background: #fff;
+  border: 1px solid #eef0f3;
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #1a6b6e;
+}
+.signal-card__pill {
+  display: inline-block;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.7rem;
+  border-radius: 10px;
+  color: #fff;
+  margin-bottom: 0.7rem;
+}
+.signal-card__headline {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: #262a33;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+.signal-card__body {
+  font-size: 0.95rem;
+  color: #4a4f5c;
+  line-height: 1.65;
+}
+
+/* ===== PULL QUOTES ===== */
+.pull-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.5;
+  border-left: 3px solid #1a6b6e;
+  padding-left: 1.5rem;
+  max-width: 600px;
+  color: #262a33;
+  margin: 2rem 0;
+}
+
+/* ===== DROP CAP ===== */
+.drop-cap::first-letter {
+  font-family: 'Playfair Display', serif;
+  float: left;
+  font-size: 4rem;
+  line-height: 0.8;
+  padding-right: 0.5rem;
+  color: #1a6b6e;
+  font-weight: 700;
+}
+
+/* ===== TABLES ===== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.data-table thead th {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1a6b6e;
+  text-align: left;
+  padding: 0.8rem 1rem;
+  border-bottom: 2px solid #eef0f3;
+}
+.data-table tbody td {
+  font-size: 0.92rem;
+  color: #4a4f5c;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #eef0f3;
+  vertical-align: top;
+}
+.data-table tbody td:first-child {
+  font-weight: 700;
+  color: #262a33;
+  white-space: nowrap;
+}
+
+/* ===== BAR CHART ===== */
+.bar-chart { margin: 1.5rem 0; }
+.bar-chart__row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  gap: 1rem;
+}
+.bar-chart__label {
+  font-size: 0.88rem;
+  color: #262a33;
+  min-width: 240px;
+  text-align: right;
+  font-weight: 400;
+}
+.bar-chart__bar-wrap {
+  flex: 1;
+  background: #eef0f3;
+  border-radius: 3px;
+  height: 28px;
+  overflow: hidden;
+}
+.bar-chart__bar {
+  height: 100%;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding-left: 0.7rem;
+  transition: width 0.6s ease;
+}
+.bar-chart__value {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+}
+.bar-chart__source {
+  font-size: 0.72rem;
+  color: #9ea2b0;
+  margin-top: 0.5rem;
+}
+
+/* ===== INDUSTRY NOTES GRID ===== */
+.industry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.industry-card {
+  background: #fff;
+  border: 1px solid #eef0f3;
+  border-radius: 6px;
+  padding: 1.3rem 1.6rem;
+  border-left: 4px solid #1a6b6e;
+}
+.industry-card__headline {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #262a33;
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+.industry-card__body {
+  font-size: 0.88rem;
+  color: #4a4f5c;
+  line-height: 1.6;
+}
+
+/* ===== ANALYTICS SUMMARY CARDS ===== */
+.analytics-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.analytics-card {
+  background: #fff;
+  border: 1px solid #eef0f3;
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+.analytics-card__number {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 2.6rem;
+  color: #262a33;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.analytics-card__title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #262a33;
+  margin-bottom: 0.3rem;
+}
+.analytics-card__sub {
+  font-size: 0.78rem;
+  color: #9ea2b0;
+  line-height: 1.4;
+}
+
+/* ===== ENTITY BUBBLES ===== */
+.entity-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+.entity-bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  line-height: 1.15;
+  padding: 0.3rem;
+}
+
+/* ===== WATCH LIST ===== */
+.watch-list { list-style: none; padding: 0; }
+.watch-list li {
+  padding: 0.6rem 0 0.6rem 1.4rem;
+  position: relative;
+  font-size: 1rem;
+  color: #4a4f5c;
+  line-height: 1.65;
+}
+.watch-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a6b6e;
+}
+
+/* ===== DIAGNOSTICS ===== */
+.diagnostics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.diag-box {
+  background: #fff;
+  border: 1px solid #eef0f3;
+  border-radius: 6px;
+  padding: 1.2rem;
+  text-align: center;
+}
+.diag-box__number {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #262a33;
+  line-height: 1;
+}
+.diag-box__label {
+  font-size: 0.78rem;
+  color: #9ea2b0;
+  margin-top: 0.3rem;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: #262a33;
+  padding: 3rem 0 2rem;
+  text-align: center;
+}
+.site-footer__brand {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.site-footer__tagline {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.site-footer hr {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  margin: 1.5rem 0;
+}
+.site-footer__nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.site-footer__nav a {
+  font-size: 0.72rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.45);
+  transition: color 0.2s;
+}
+.site-footer__nav a:hover { color: #fff; text-decoration: none; }
+.site-footer__legal {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===== BACKGROUND MONITORING CARDS ===== */
+.bg-card {
+  background: #fff;
+  border: 1px solid #eef0f3;
+  border-radius: 6px;
+  padding: 1.3rem 1.8rem;
+  margin-bottom: 0.8rem;
+}
+.bg-card__headline {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #262a33;
+  margin-bottom: 0.3rem;
+}
+.bg-card__source {
+  font-size: 0.78rem;
+  color: #9ea2b0;
+}
+
+/* ===== CONTEXT SECTION ===== */
+.context-text {
+  max-width: 740px;
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .site-header { position: static; }
+  body { padding-top: 0; background: #fff; }
+  .band-cream, .band-grey { background: #fff; }
+  .report-banner { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .site-header { padding: 0 1rem; }
+  .site-header__nav { gap: 1rem; }
+  .container { padding: 0 1rem; }
+  .hero__stats { grid-template-columns: repeat(2, 1fr); }
+  .industry-grid { grid-template-columns: 1fr; }
+  .analytics-pair { grid-template-columns: 1fr; }
+  .diagnostics { grid-template-columns: repeat(2, 1fr); }
+  .bar-chart__label { min-width: 140px; font-size: 0.78rem; }
+  .data-table { font-size: 0.85rem; }
+  .data-table tbody td:first-child { white-space: normal; }
+  .pull-quote { font-size: 1.15rem; }
+  .hero { padding: 2.5rem 0 0; }
+  .band-cream, .band-grey { padding: 2.5rem 0; }
+  .entity-bubbles { gap: 0.5rem; }
+}
+@media (max-width: 480px) {
+  .hero__stats { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .diagnostics { grid-template-columns: 1fr 1fr; }
+  .site-header__label { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="site-header__brand">Cardew Group</div>
+  <nav class="site-header__nav">
+    <a href="#intelligence">Intelligence</a>
+    <a href="#people-moves">People Moves</a>
+    <a href="#gaining-attention">Gaining Attention</a>
+    <a href="#industry-notes">Industry Notes</a>
+    <a href="#analytics">Analytics</a>
+    <a href="#what-to-watch">What to Watch</a>
+    <a href="#background">Background</a>
+  </nav>
+  <div class="site-header__label">Client Confidential</div>
+</header>
+
+<!-- ===== REPORT TYPE BANNER ===== -->
+<div class="report-banner">
+  <span>Media Monitoring &amp; Corporate Strategy Report &mdash; Strategic Communications Intelligence</span>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__category">Strategic Communications Intelligence Brief</div>
+    <h1 class="hero__headline">Regulators Punish Process Failures While Holding Companies Reshuffle Leadership</h1>
+    <p class="hero__subtitle">Compliance mechanics and organisational churn dominate the comms-relevant risk surface across UK, Europe, and the US.</p>
+    <div class="hero__meta">Sunday 15 February 2026 &middot; UK / Europe / US &middot; v3.4-MI</div>
+    <div class="hero__stats">
+      <div class="hero__stat-card">
+        <div class="hero__stat-number">&pound;473k</div>
+        <div class="hero__stat-label">CMA fine for a procedural lapse</div>
+      </div>
+      <div class="hero__stat-card">
+        <div class="hero__stat-number">3</div>
+        <div class="hero__stat-label">Major leadership changes in 24 hours</div>
+      </div>
+      <div class="hero__stat-card">
+        <div class="hero__stat-number">13</div>
+        <div class="hero__stat-label">Articles in two dominant coverage clusters</div>
+      </div>
+      <div class="hero__stat-card">
+        <div class="hero__stat-number">6</div>
+        <div class="hero__stat-label">Priority intelligence items</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider" style="padding-top:2rem;padding-bottom:0;">
+  <span class="divider__line"></span>
+  <span class="divider__text">Priority Intelligence</span>
+  <span class="divider__line"></span>
+</div>
+
+<!-- ===== SECTION: PRIORITY INTELLIGENCE ===== -->
+<section id="intelligence" class="band-cream">
+  <div class="container">
+    <div class="section-label">Priority Intelligence</div>
+    <h2 class="section-title">Today&rsquo;s Signals</h2>
+
+    <blockquote class="pull-quote">
+      Procedural lapses are becoming headline regulatory outcomes in their own right &mdash; compliance discipline is now a reputational discipline.
+    </blockquote>
+
+    <!-- Signal 1 -->
+    <div class="signal-card" style="border-left-color:#3b6ea5;">
+      <span class="signal-card__pill" style="background:#3b6ea5;">Holding Company Restructure</span>
+      <div class="signal-card__headline">Omnicom moves to consolidate PR agencies following the IPG merger</div>
+      <div class="signal-card__body">A holding-company restructure of this size typically forces rapid decisions on client conflict management, brand architecture, and senior talent retention.</div>
+    </div>
+
+    <!-- Signal 2 -->
+    <div class="signal-card" style="border-left-color:#cc0000;">
+      <span class="signal-card__pill" style="background:#cc0000;">Government Comms</span>
+      <div class="signal-card__headline">Downing Street communications leadership turns over as Tim Allan resigns</div>
+      <div class="signal-card__body">A high-visibility government comms departure can reset media handling, briefing discipline, and stakeholder engagement rhythms for policy-facing corporates.</div>
+    </div>
+
+    <!-- Signal 3 -->
+    <div class="signal-card" style="border-left-color:#1a6b6e;">
+      <span class="signal-card__pill" style="background:#1a6b6e;">Regulatory Governance</span>
+      <div class="signal-card__headline">CJEU decision opens a clearer route to challenge EDPB binding decisions</div>
+      <div class="signal-card__body">The ruling is being treated as a meaningful governance shift under GDPR, with implications for how firms sequence regulator engagement versus litigation.</div>
+    </div>
+
+    <!-- Signal 4 -->
+    <div class="signal-card" style="border-left-color:#cc0000;">
+      <span class="signal-card__pill" style="background:#cc0000;">Enforcement Action</span>
+      <div class="signal-card__headline">UK CMA fines Euro Car Parks &pound;473,000 for failing to respond to an information notice</div>
+      <div class="signal-card__body">The case reinforces a compliance-as-reputation dynamic: procedural lapses are becoming headline regulatory outcomes in their own right.</div>
+    </div>
+
+    <!-- Signal 5 -->
+    <div class="signal-card" style="border-left-color:#b45309;">
+      <span class="signal-card__pill" style="background:#c9926b;">Leadership Change</span>
+      <div class="signal-card__headline">Dentsu appoints Takeshi Sano as global CEO after dropping an international sale process</div>
+      <div class="signal-card__body">Leadership change under financial pressure tends to accelerate portfolio decisions that ripple into client coverage models and senior adviser demand.</div>
+    </div>
+
+    <!-- Signal 6 -->
+    <div class="signal-card" style="border-left-color:#1a6b6e;">
+      <span class="signal-card__pill" style="background:#16a34a;">AI Governance</span>
+      <div class="signal-card__headline">xAI acknowledges a wave of exits as Elon Musk frames departures as restructuring-driven</div>
+      <div class="signal-card__body">AI-lab governance narratives remain live, keeping executive communications, employee messaging, and investor scrutiny tightly linked.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
+  <span class="divider__line"></span>
+  <span class="divider__text">Analysis</span>
+  <span class="divider__line"></span>
+</div>
+
+<!-- ===== SECTION: GAINING ATTENTION ===== -->
+<section id="gaining-attention" class="band-cream">
+  <div class="container">
+    <div class="section-label">Analysis</div>
+    <h2 class="section-title">What&rsquo;s Gaining Attention</h2>
+
+    <p class="context-text drop-cap">Regulatory outcomes are increasingly being driven by process failures and governance mechanics, not just headline misconduct. The CMA&rsquo;s Euro Car Parks enforcement and the CJEU&rsquo;s EDPB decision route both point to a world where information-handling discipline, response timelines, and escalation paths can become reputational flashpoints.</p>
+
+    <p class="context-text">Large-network and platform-adjacent restructures are compressing decision cycles for communicators. Omnicom&rsquo;s PR consolidation, Dentsu&rsquo;s top-level change, and xAI&rsquo;s acknowledged departures keep questions of leadership credibility, internal narrative coherence, and client-facing continuity under immediate scrutiny.</p>
+
+    <p class="context-text">Earned-media integrity and distribution mechanics are being discussed alongside search visibility tactics. The CIPR/PRCA push on source verification sits next to ongoing operator debate about paid placement marketplaces and &lsquo;authority&rsquo; signalling for AI-mediated discovery, raising brand-safety and disclosure questions for comms teams.</p>
+
+    <!-- Bar Chart Card -->
+    <div class="card" style="margin: 2.5rem 0;">
+      <div style="font-family:'Lato',sans-serif;font-weight:700;font-size:1.05rem;color:#262a33;margin-bottom:0.2rem;">Three themes dominating the comms risk surface</div>
+      <div style="font-size:0.82rem;color:#9ea2b0;margin-bottom:1.5rem;">Signal count by thematic cluster in the current reporting window</div>
+
+      <div class="bar-chart">
+        <div class="bar-chart__row">
+          <div class="bar-chart__label">Regulatory process &amp; governance</div>
+          <div class="bar-chart__bar-wrap">
+            <div class="bar-chart__bar" style="width:100%;background:#3b6ea5;">
+              <span class="bar-chart__value">4 signals</span>
+            </div>
+          </div>
+        </div>
+        <div class="bar-chart__row">
+          <div class="bar-chart__label">Organisational churn &amp; leadership</div>
+          <div class="bar-chart__bar-wrap">
+            <div class="bar-chart__bar" style="width:75%;background:#1a6b6e;">
+              <span class="bar-chart__value">3 signals</span>
+            </div>
+          </div>
+        </div>
+        <div class="bar-chart__row">
+          <div class="bar-chart__label">Earned-media integrity</div>
+          <div class="bar-chart__bar-wrap">
+            <div class="bar-chart__bar" style="width:50%;background:#c9926b;">
+              <span class="bar-chart__value">2 signals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bar-chart__source">Source: Noah Wire Services</div>
+    </div>
+
+    <blockquote class="pull-quote">
+      For advisory teams, the near-term opportunity set looks concentrated around regulator-facing preparedness, leadership transition support, and earned-media provenance controls.
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
+  <span class="divider__line"></span>
+  <span class="divider__text">People Moves</span>
+  <span class="divider__line"></span>
+</div>
+
+<!-- ===== SECTION: PEOPLE MOVES ===== -->
+<section id="people-moves" class="band-grey">
+  <div class="container">
+    <div class="section-label">People Moves</div>
+    <h2 class="section-title">Leadership Changes</h2>
+    <p class="section-intro">Five senior appointments and departures with implications for stakeholder engagement and advisory relationships.</p>
+
+    <div class="card" style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Organisation</th>
+            <th>Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tim Allan</td>
+            <td>Departing Director of Communications</td>
+            <td>UK Government / Downing Street</td>
+            <td>Resignation reported amid political pressure and staff churn.</td>
+          </tr>
+          <tr>
+            <td>Takeshi Sano</td>
+            <td>Global CEO</td>
+            <td>Dentsu Group Inc.</td>
+            <td>Appointed as the group resets strategy following reported losses and a halted sale process.</td>
+          </tr>
+          <tr>
+            <td>Francesca Nardi</td>
+            <td>Global Communications Director</td>
+            <td>Balenciaga</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td>Tim Mortimer</td>
+            <td>Chief Executive</td>
+            <td>TL Dallas</td>
+            <td>UK appointment; regional business leadership change with local stakeholder implications.</td>
+          </tr>
+          <tr>
+            <td>Yuvraj Narayan</td>
+            <td>CEO</td>
+            <td>DP World</td>
+            <td>Named CEO alongside board-level chair appointment; potential knock-on for corporate positioning and government engagement.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider" style="background:#FFF1E5;padding-top:0;padding-bottom:0;">
+  <span class="divider__line"></span>
+  <span class="divider__text">Industry Notes</span>
+  <span class="divider__line"></span>
+</div>
+
+<!-- ===== SECTION: INDUSTRY NOTES ===== -->
+<section id="industry-notes" class="band-cream">
+  <div class="container">
+    <div class="section-label">Industry Notes</div>
+    <h2 class="section-title">Sector Activity</h2>
+    <p class="section-intro">Eight developments across the communications, technology, and advisory landscape worth tracking.</p>
+
+    <div class="industry-grid">
+      <div class="industry-card" style="border-left-color:#1a6b6e;">
+        <div class="industry-card__headline">CIPR and PRCA urge journalists to verify PR sources</div>
+        <div class="industry-card__body">Earned-media provenance and outreach hygiene are being pulled into public view after a fake-expert fallout.</div>
+      </div>
+      <div class="industry-card" style="border-left-color:#1a6b6e;">
+        <div class="industry-card__headline">Wimbart launches &lsquo;Wimbart Lite&rsquo;</div>
+        <div class="industry-card__body">A lower-friction PR support offer aimed at African startups and scaleups.</div>
+      </div>
+      <div class="industry-card" style="border-left-color:#b45309;">
+        <div class="industry-card__headline">Rekor Systems signals deepfake detection push in H1 2026</div>
+        <div class="industry-card__body">Positions synthetic-media risk tooling as a commercial category adjacent to comms assurance needs.</div>
+      </div>
+      <div class="industry-card" style="border-left-color:#16a34a;">
+        <div class="industry-card__headline">ARCON warns Nigerian state signage agencies</div>
+        <div class="industry-card__body">A federal regulator draws a boundary on who can set pre-exposure clearance requirements for advertisement vetting.</div>
+      </div>
+      <div class="industry-card" style="border-left-color:#b45309;">
+        <div class="industry-card__headline">Aon partners with SecurityScorecard</div>
+        <div class="industry-card__body">Cyber-risk scoring and assurance messaging are being bundled more directly into broker-led client programmes.</div>
+      </div>
+      <div class="industry-card" style="border-left-color:#b45309;">
+        <div class="industry-card__headline">Supreme Group acquires Broth</div>
+        <div class="industry-card__body">Healthcare marketing platform consolidation continues, with potential spillover into regulated-sector comms budgets.</div>
+      </div>
+      <div class="industry-card" style="border-left-color:#16a34a;">
+        <div class="industry-card__headline">Bond reports progress toward enterprise-wide deployment</div>
+        <div class="industry-card__body">Employee engagement and internal communications tooling remains an active procurement lane after a paid pilot.</div>
+      </div>
+      <div class="industry-card" style="border-left-color:#1a6b6e;">
+        <div class="industry-card__headline">Silverline Technologies outlines growth-capital raise</div>
+        <div class="industry-card__body">Cross-border capital activity remains a steady backdrop for transaction communications work, with acquisition interest referenced.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
+  <span class="divider__line"></span>
+  <span class="divider__text">Coverage Analytics</span>
+  <span class="divider__line"></span>
+</div>
+
+<!-- ===== SECTION: COVERAGE ANALYTICS ===== -->
+<section id="analytics" class="band-grey">
+  <div class="container">
+    <div class="section-label">Coverage Analytics</div>
+    <h2 class="section-title">Activity Clusters</h2>
+    <p class="section-intro">Activity over the past 24 hours concentrated in two distinct clusters.</p>
+
+    <!-- Cluster Bar Chart -->
+    <div class="card" style="margin-bottom:1.5rem;">
+      <div style="font-family:'Lato',sans-serif;font-weight:700;font-size:1.05rem;color:#262a33;margin-bottom:0.2rem;">Coverage cluster volume comparison</div>
+      <div style="font-size:0.82rem;color:#9ea2b0;margin-bottom:1.5rem;">Article count by dominant cluster in the past 24 hours</div>
+      <div class="bar-chart">
+        <div class="bar-chart__row">
+          <div class="bar-chart__label">DHS / Platform Governance</div>
+          <div class="bar-chart__bar-wrap">
+            <div class="bar-chart__bar" style="width:100%;background:#3b6ea5;">
+              <span class="bar-chart__value">7 articles</span>
+            </div>
+          </div>
+        </div>
+        <div class="bar-chart__row">
+          <div class="bar-chart__label">Wasserman / Epstein / LA28</div>
+          <div class="bar-chart__bar-wrap">
+            <div class="bar-chart__bar" style="width:86%;background:#1a6b6e;">
+              <span class="bar-chart__value">6 articles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bar-chart__source">Source: Noah Wire Services</div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="analytics-pair">
+      <div class="analytics-card">
+        <div class="analytics-card__number">7</div>
+        <div class="analytics-card__title">US DHS-linked platform governance and surveillance discussion</div>
+        <div class="analytics-card__sub">Key entities: U.S. Department of Homeland Security, Meta, Google, Reddit, Discord, ICE</div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-card__number">6</div>
+        <div class="analytics-card__title">Casey Wasserman / Jeffrey Epstein reputational coverage</div>
+        <div class="analytics-card__sub">Key entities: Casey Wasserman, Jeffrey Epstein, Ghislaine Maxwell, LA28</div>
+      </div>
+    </div>
+
+    <!-- Entity Bubbles -->
+    <div class="card" style="margin-top:1.5rem;">
+      <div style="font-family:'Lato',sans-serif;font-weight:700;font-size:1.05rem;color:#262a33;margin-bottom:0.2rem;">Named entities across both coverage clusters</div>
+      <div style="font-size:0.82rem;color:#9ea2b0;margin-bottom:1rem;">Sized by frequency of mention in the past 24 hours</div>
+      <div class="entity-bubbles">
+        <div class="entity-bubble" style="width:90px;height:90px;background:#3b6ea5;font-size:0.55rem;">DHS</div>
+        <div class="entity-bubble" style="width:82px;height:82px;background:#1a6b6e;font-size:0.55rem;">Casey<br>Wasserman</div>
+        <div class="entity-bubble" style="width:74px;height:74px;background:#3b6ea5;font-size:0.55rem;">Meta</div>
+        <div class="entity-bubble" style="width:74px;height:74px;background:#cc0000;font-size:0.55rem;">Jeffrey<br>Epstein</div>
+        <div class="entity-bubble" style="width:66px;height:66px;background:#3b6ea5;font-size:0.55rem;">Google</div>
+        <div class="entity-bubble" style="width:66px;height:66px;background:#1a6b6e;font-size:0.55rem;">LA28</div>
+        <div class="entity-bubble" style="width:58px;height:58px;background:#3b6ea5;font-size:0.5rem;">ICE</div>
+        <div class="entity-bubble" style="width:58px;height:58px;background:#3b6ea5;font-size:0.5rem;">Reddit</div>
+        <div class="entity-bubble" style="width:54px;height:54px;background:#3b6ea5;font-size:0.5rem;">Discord</div>
+        <div class="entity-bubble" style="width:54px;height:54px;background:#cc0000;font-size:0.48rem;">Ghislaine<br>Maxwell</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider" style="background:#FFF1E5;padding-top:0;padding-bottom:0;">
+  <span class="divider__line"></span>
+  <span class="divider__text">Forward Look</span>
+  <span class="divider__line"></span>
+</div>
+
+<!-- ===== SECTION: WHAT TO WATCH ===== -->
+<section id="what-to-watch" class="band-cream">
+  <div class="container">
+    <div class="section-label">Forward Look</div>
+    <h2 class="section-title">What to Watch</h2>
+
+    <ul class="watch-list">
+      <li>Omnicom&rsquo;s next consolidation steps &mdash; agency brand changes, leadership assignments, and client conflict decisions over the next 2&ndash;6 weeks.</li>
+      <li>Downing Street&rsquo;s successor appointment &mdash; and any further UK government communications turnover before the next policy set-pieces.</li>
+      <li>CJEU route operationalisation &mdash; how companies and counsel use the new EDPB binding-decision challenge route in active GDPR disputes this quarter.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
+  <span class="divider__line"></span>
+  <span class="divider__text">Context and Detail</span>
+  <span class="divider__line"></span>
+</div>
+
+<!-- ===== SECTION: CONTEXT AND DETAIL ===== -->
+<section class="band-grey">
+  <div class="container">
+    <div class="section-label">Context and Detail</div>
+    <h2 class="section-title">Extended Analysis</h2>
+
+    <p class="context-text drop-cap">The convergence of enforcement mechanics and leadership instability across multiple sectors creates a compressed advisory window for communications firms. When regulatory penalties are tied to procedural lapses rather than substantive misconduct, the remediation narrative shifts from legal defence to operational credibility &mdash; a space where strategic communications has a direct role. The CMA&rsquo;s approach to information-notice compliance, combined with the CJEU&rsquo;s opening of a new judicial route for challenging EDPB decisions, suggests a regulatory environment in which preparedness and escalation discipline will be scrutinised as closely as the underlying conduct.</p>
+
+    <p class="context-text">Meanwhile, the holding-company restructures at Omnicom and Dentsu, alongside the acknowledged talent attrition at xAI, point to a period in which internal narrative coherence and external positioning will be tested simultaneously. For advisory teams, the practical implication is that retainer briefs are likely to be reframed around transition support, stakeholder reassurance, and media-handling continuity &mdash; rather than the campaign-driven mandates that characterise more stable periods.</p>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider" style="background:#FFF1E5;padding-top:0;padding-bottom:0;">
+  <span class="divider__line"></span>
+  <span class="divider__text">Background Monitoring</span>
+  <span class="divider__line"></span>
+</div>
+
+<!-- ===== SECTION: BACKGROUND MONITORING ===== -->
+<section id="background" class="band-cream">
+  <div class="container">
+    <div class="section-label">Background Monitoring</div>
+    <h2 class="section-title">On the Radar</h2>
+    <p class="section-intro">Lower-priority items tracked for context. These are not driving immediate action but may escalate.</p>
+
+    <div class="bg-card">
+      <div class="bg-card__headline">Prince Harry phone-hacking litigation and UK press scrutiny</div>
+      <div class="bg-card__source">Covered by: BBC</div>
+    </div>
+    <div class="bg-card">
+      <div class="bg-card__headline">U.S. DHS / ICE-linked scrutiny of tech platforms and protest surveillance themes</div>
+      <div class="bg-card__source">Covered by: The New York Times</div>
+    </div>
+    <div class="bg-card">
+      <div class="bg-card__headline">Casey Wasserman / Jeffrey Epstein reputational coverage around LA28 ecosystem</div>
+      <div class="bg-card__source">Covered by: Mixed coverage (clustered in last 24 hours)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIVIDER ===== -->
+<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
+  <span class="divider__line"></span>
+  <span class="divider__text">Report Diagnostics</span>
+  <span class="divider__line"></span>
+</div>
+
+<!-- ===== REPORT DIAGNOSTICS ===== -->
+<section class="band-grey" style="padding:3rem 0;">
+  <div class="container" style="text-align:center;">
+    <div class="diagnostics">
+      <div class="diag-box">
+        <div class="diag-box__number">6</div>
+        <div class="diag-box__label">Primary items</div>
+      </div>
+      <div class="diag-box">
+        <div class="diag-box__number">3</div>
+        <div class="diag-box__label">Background items</div>
+      </div>
+      <div class="diag-box">
+        <div class="diag-box__number">8</div>
+        <div class="diag-box__label">Industry notes</div>
+      </div>
+      <div class="diag-box">
+        <div class="diag-box__number">2</div>
+        <div class="diag-box__label">Analytics clusters</div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:#9ea2b0;max-width:620px;margin:0 auto;line-height:1.6;">Upstream sources included Reuters, FT, BBC, NYT, and selected trade and web publications. Assertion mode: restrained digest. Items dropped as unchanged from prior reporting: 3.</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__brand">Cardew Group</div>
+    <p class="site-footer__tagline">Media monitoring and corporate strategy intelligence &mdash; powered by Noah Wire Services.</p>
+    <hr>
+    <nav class="site-footer__nav">
+      <a href="#intelligence">Intelligence</a>
+      <a href="#people-moves">People Moves</a>
+      <a href="#gaining-attention">Gaining Attention</a>
+      <a href="#industry-notes">Industry Notes</a>
+      <a href="#analytics">Analytics</a>
+      <a href="#what-to-watch">What to Watch</a>
+      <a href="#background">Background</a>
+    </nav>
+    <p class="site-footer__legal">
+      &copy; Cardew Group. All analysis is based on open-source intelligence and does not constitute legal, financial, or strategic advice.<br>
+      Client Confidential &middot; v3.4-MI &middot; 2026-02-15
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
