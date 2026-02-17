@@ -102,7 +102,7 @@ body {
     position: relative;
     width: 100%;
     min-height: 500px;
-    background: var(--peach);
+    background: #3a1525;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -113,11 +113,11 @@ body {
 .hero-bg img {
     width: 100%; height: 100%;
     object-fit: cover; object-position: center;
-    opacity: 0.2;
+    opacity: 0.35;
 }
 .hero-overlay {
     position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, rgba(254,239,224,0.9) 0%, rgba(254,239,224,0.7) 50%, rgba(254,239,224,0.4) 100%);
+    background: linear-gradient(to right, rgba(58,21,37,0.88) 0%, rgba(58,21,37,0.6) 55%, rgba(58,21,37,0.35) 100%);
 }
 .hero-content {
     position: relative; z-index: 2;
@@ -128,9 +128,9 @@ body {
 .hero-content .label {
     font-size: 0.62rem; font-weight: 600;
     letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--burgundy);
+    color: var(--salmon);
     margin-bottom: 1rem;
-    background: rgba(135,40,75,0.1);
+    background: rgba(255,185,160,0.15);
     display: inline-block;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -138,27 +138,27 @@ body {
 .hero-content h1 {
     font-size: 2.6rem; font-weight: 800;
     font-style: italic;
-    line-height: 1.15; color: var(--burgundy);
+    line-height: 1.15; color: var(--white);
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
 }
 .hero-content .subtitle {
-    font-size: 0.92rem; color: var(--ink-mid);
+    font-size: 0.92rem; color: rgba(255,255,255,0.7);
     line-height: 1.7; margin-bottom: 1.5rem;
     font-weight: 400;
 }
 .hero-content .meta-row {
     display: flex; gap: 1.5rem; flex-wrap: wrap;
     padding-top: 1rem;
-    border-top: 2px solid var(--salmon);
+    border-top: 2px solid rgba(255,185,160,0.3);
 }
 .hero-content .meta-item {
-    font-size: 0.65rem; color: var(--ink-light);
+    font-size: 0.65rem; color: rgba(255,255,255,0.45);
     text-transform: uppercase; letter-spacing: 0.06em;
     font-weight: 500;
 }
 .hero-content .meta-item strong {
-    color: var(--dark); font-weight: 700;
+    color: var(--white); font-weight: 700;
     display: block; font-size: 0.78rem;
     margin-bottom: 0.1rem;
 }
