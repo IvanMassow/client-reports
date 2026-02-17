@@ -428,11 +428,87 @@ body {
 }
 .diag-item span { color: var(--teal-light); font-weight: 600; }
 
+/* ─── SVG GAUGE CARDS ─── */
+.gauge-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-bottom: 3rem;
+}
+.gauge-card {
+    background: var(--white); border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    padding: 1.5rem 1.2rem 1.2rem; text-align: center;
+    position: relative; overflow: hidden;
+}
+.gauge-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+}
+.gauge-card.gc-critical::before { background: var(--red); }
+.gauge-card.gc-elevated::before { background: var(--orange); }
+.gauge-card.gc-watch::before { background: var(--teal); }
+.gauge-svg { width: 160px; height: 90px; margin: 0 auto 0.8rem; display: block; }
+.gauge-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 0.95rem; font-weight: 600; margin-bottom: 0.2rem;
+}
+.gauge-sub {
+    font-size: 0.72rem; color: var(--grey-500); letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.gauge-badges { margin-top: 0.6rem; display: flex; justify-content: center; gap: 0.4rem; }
+
+/* ─── HERO IMAGE SECTION ─── */
+.hero-image-strip {
+    width: 100%; height: 200px; object-fit: cover;
+    display: block; filter: brightness(0.7);
+}
+.hero-image-placeholder {
+    width: 100%; height: 120px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-mid) 40%, var(--navy-light) 70%, rgba(0,161,170,0.15) 100%);
+    position: relative;
+}
+.hero-image-placeholder::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent, transparent 60px,
+        rgba(255,255,255,0.02) 60px, rgba(255,255,255,0.02) 61px
+    );
+}
+
+/* ─── CONFIDENCE BAND RANGE VIZ ─── */
+.band-viz {
+    position: relative; height: 28px; margin: 0.8rem 0;
+    background: var(--grey-100); border-radius: 4px; overflow: hidden;
+}
+.band-viz-track {
+    position: absolute; top: 0; bottom: 0;
+    border-radius: 4px; opacity: 0.25;
+}
+.band-viz-marker {
+    position: absolute; top: -2px; bottom: -2px; width: 3px;
+    border-radius: 2px; z-index: 2;
+}
+.band-viz-labels {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 0.5rem; font-size: 0.65rem; color: var(--grey-500);
+    z-index: 3;
+}
+.band-viz-labels .bv-pct {
+    font-family: 'Roboto Slab', serif;
+    font-weight: 700; font-size: 0.75rem; color: var(--ink);
+}
+
 /* Print styles */
 @media print {
     .header { position: static; }
     body { padding-top: 0; }
     .hero { margin-top: 0; }
+}
+@media (max-width: 768px) {
+    .gauge-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -646,6 +722,86 @@ body {
                 </tbody>
             </table>
         </div>
+        <!-- ─── SVG GAUGE ROW ─── -->
+        <div class="gauge-row">
+
+            <!-- Gauge 1: GLP-1 74% -->
+            <div class="gauge-card gc-critical">
+                <svg class="gauge-svg" viewBox="0 0 160 90">
+                    <defs>
+                        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#00a1aa"/>
+                            <stop offset="100%" stop-color="#ef4644"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Track -->
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="#e5e7eb" stroke-width="10" stroke-linecap="round"/>
+                    <!-- Fill: 74% of 180deg arc -->
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="url(#g1)" stroke-width="10" stroke-linecap="round"
+                          stroke-dasharray="204" stroke-dashoffset="53"/>
+                    <!-- Percentage text -->
+                    <text x="80" y="72" text-anchor="middle" font-family="Roboto Slab, serif" font-size="28" font-weight="700" fill="#ef4644">74%</text>
+                    <!-- Band range -->
+                    <text x="80" y="88" text-anchor="middle" font-family="Roboto, sans-serif" font-size="10" fill="#989898">63 &ndash; 83%</text>
+                </svg>
+                <div class="gauge-title">GLP-1 Liability Adjacency</div>
+                <div class="gauge-sub">Federal consolidation &middot; 90 days</div>
+                <div class="gauge-badges">
+                    <span class="badge badge-rising">Rising</span>
+                    <span class="tier-badge tier-1">Tier 1</span>
+                </div>
+            </div>
+
+            <!-- Gauge 2: J&J 61% -->
+            <div class="gauge-card gc-elevated">
+                <svg class="gauge-svg" viewBox="0 0 160 90">
+                    <defs>
+                        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#00a1aa"/>
+                            <stop offset="100%" stop-color="#f66c24"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="#e5e7eb" stroke-width="10" stroke-linecap="round"/>
+                    <!-- Fill: 61% of arc -->
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="url(#g2)" stroke-width="10" stroke-linecap="round"
+                          stroke-dasharray="204" stroke-dashoffset="80"/>
+                    <text x="80" y="72" text-anchor="middle" font-family="Roboto Slab, serif" font-size="28" font-weight="700" fill="#f66c24">61%</text>
+                    <text x="80" y="88" text-anchor="middle" font-family="Roboto, sans-serif" font-size="10" fill="#989898">44 &ndash; 76%</text>
+                </svg>
+                <div class="gauge-title">J&amp;J Mass-Tort Signal</div>
+                <div class="gauge-sub">Court ruling &middot; 30 days</div>
+                <div class="gauge-badges">
+                    <span class="badge badge-rising">Rising</span>
+                    <span class="tier-badge tier-2">Tier 2</span>
+                </div>
+            </div>
+
+            <!-- Gauge 3: TPLF 59% -->
+            <div class="gauge-card gc-watch">
+                <svg class="gauge-svg" viewBox="0 0 160 90">
+                    <defs>
+                        <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#00a1aa"/>
+                            <stop offset="100%" stop-color="#f66c24"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="#e5e7eb" stroke-width="10" stroke-linecap="round"/>
+                    <!-- Fill: 59% of arc -->
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="url(#g3)" stroke-width="10" stroke-linecap="round"
+                          stroke-dasharray="204" stroke-dashoffset="84"/>
+                    <text x="80" y="72" text-anchor="middle" font-family="Roboto Slab, serif" font-size="28" font-weight="700" fill="#f66c24">59%</text>
+                    <text x="80" y="88" text-anchor="middle" font-family="Roboto, sans-serif" font-size="10" fill="#989898">51 &ndash; 69%</text>
+                </svg>
+                <div class="gauge-title">TPLF Disclosure Pressure</div>
+                <div class="gauge-sub">State-level rule &middot; 90 days</div>
+                <div class="gauge-badges">
+                    <span class="badge badge-rising">Rising</span>
+                    <span class="tier-badge tier-2">Tier 2</span>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </section>
 
