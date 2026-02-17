@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Strain & Endurance Assessment | Zinc Network</title>
+<link href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --navy: #00103e;
+    --navy-mid: #0a1f5c;
+    --navy-light: #1a2f6c;
+    --yellow: #ffe14d;
+    --yellow-light: #fff7cc;
+    --coral: #ff4632;
+    --coral-dark: #d93025;
+    --ink: #2a2a2a;
+    --ink-mid: #555555;
+    --ink-light: #696969;
+    --grey-bg: #f4f6f8;
+    --grey-light: #e5e5e5;
+    --grey-mid: #999999;
+    --white: #ffffff;
+    --amber: #e87722;
+    --green: #2e7d32;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* --- TOP BAR --- */
+.top-bar {
+    background: var(--navy);
+    padding: 0.9rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.top-bar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+.top-bar-mark {
+    width: 32px; height: 32px;
+}
+.top-bar-mark svg {
+    width: 100%; height: 100%;
+}
+.top-bar-name {
+    font-weight: 700; font-size: 0.95rem; color: var(--white);
+    letter-spacing: 0.08em; text-transform: uppercase;
+}
+.top-bar-right {
+    font-size: 0.72rem; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* --- HERO --- */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+    background: var(--navy);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+}
+.hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    opacity: 0.2;
+}
+.hero-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to right, rgba(0,16,62,0.92) 0%, rgba(0,16,62,0.65) 55%, rgba(0,16,62,0.4) 100%);
+}
+.hero-card {
+    position: relative; z-index: 2;
+    background: var(--white);
+    max-width: 540px;
+    margin: 3rem 0 3rem 5%;
+    padding: 2.5rem 2.5rem 2rem;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+}
+.hero-card-accent {
+    width: 100%; height: 5px;
+    background: var(--yellow);
+    position: absolute;
+    left: 0; top: 0;
+}
+.hero-card .label {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 0.8rem;
+}
+.hero-card h1 {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.75rem; font-weight: 400;
+    line-height: 1.3; color: var(--navy);
+    margin-bottom: 0.8rem;
+}
+.hero-card .subtitle {
+    font-size: 0.92rem; color: var(--ink-mid);
+    line-height: 1.6; margin-bottom: 1.2rem;
+}
+.hero-card .date {
+    font-size: 0.78rem; color: var(--grey-mid);
+    border-top: 1px solid var(--grey-light);
+    padding-top: 0.8rem;
+}
+
+/* --- NAVY BAND (Pull Quote) --- */
+.navy-band {
+    background: var(--navy);
+    color: var(--white);
+    padding: 3.5rem 5%;
+    text-align: center;
+    position: relative;
+}
+.navy-band::before {
+    content: '';
+    display: block;
+    width: 60px; height: 4px;
+    background: var(--yellow);
+    margin: 0 auto 1.5rem;
+}
+.navy-band p {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- EDITORIAL SECTIONS --- */
+.editorial {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+}
+.editorial-wide {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+}
+
+.statement {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--navy);
+    margin-bottom: 1.2rem;
+}
+.body-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-mid);
+    margin-bottom: 1.2rem;
+}
+.body-text strong { color: var(--ink); }
+
+.highlight-text {
+    background: linear-gradient(180deg, transparent 55%, var(--yellow) 55%);
+    padding: 0 2px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+/* --- GREY SECTION --- */
+.grey-section {
+    background: var(--grey-bg);
+    padding: 3.5rem 0;
+}
+
+/* --- TWO-COL LAYOUT --- */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    min-height: 400px;
+}
+.two-col-image {
+    position: relative;
+    overflow: hidden;
+    background: #ddd;
+    min-height: 400px;
+}
+.two-col-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+.two-col-content {
+    background: var(--grey-bg);
+    padding: 3rem 3rem;
+    display: flex; flex-direction: column; justify-content: center;
+}
+.two-col-content .stat-row {
+    display: flex; gap: 2rem; margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+.stat-block .stat-num {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 2.8rem; font-weight: 400;
+    color: var(--navy); line-height: 1;
+}
+.stat-block .stat-num.accent { color: var(--coral); }
+.stat-block .stat-label {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-light); margin-top: 0.4rem;
+}
+
+/* --- SIGNAL TABLE (editorial style) --- */
+.risk-table-editorial {
+    width: 100%; border-collapse: collapse;
+    margin: 2rem 0;
+}
+.risk-table-editorial thead th {
+    text-align: left; padding: 0.8rem 1rem;
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-light);
+    border-bottom: 2px solid var(--navy);
+}
+.risk-table-editorial tbody td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--grey-light);
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+.risk-table-editorial tbody tr:hover {
+    background: rgba(0,16,62,0.03);
+}
+.risk-table-editorial .risk-name {
+    font-weight: 700; color: var(--navy);
+}
+.risk-table-editorial .risk-desc {
+    font-size: 0.8rem; color: var(--ink-light);
+    margin-top: 0.15rem;
+}
+
+.dir-badge {
+    display: inline-block; padding: 0.2rem 0.65rem;
+    border-radius: 3px; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.04em; text-transform: uppercase;
+}
+.dir-rising { background: var(--coral); color: var(--white); }
+.dir-stable { background: var(--grey-light); color: var(--ink-mid); }
+.dir-persistent { background: var(--navy); color: var(--white); }
+
+.conf-badge {
+    display: inline-block; padding: 0.15rem 0.5rem;
+    border-radius: 3px; font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.04em;
+}
+.conf-high { background: var(--navy); color: var(--white); }
+.conf-medium { background: var(--grey-light); color: var(--ink); }
+
+/* --- BAR CHART (horizontal) --- */
+.bar-chart { margin: 1.5rem 0; }
+.bar-row {
+    display: flex; align-items: center;
+    margin-bottom: 0.6rem; gap: 0.8rem;
+}
+.bar-label {
+    flex: 0 0 200px; font-size: 0.82rem;
+    font-weight: 700; color: var(--navy);
+    text-align: right;
+}
+.bar-track {
+    flex: 1; height: 28px;
+    background: var(--grey-light);
+    border-radius: 2px; overflow: hidden;
+    position: relative;
+}
+.bar-fill {
+    height: 100%; border-radius: 2px;
+    display: flex; align-items: center;
+    padding-left: 0.6rem;
+    font-size: 0.75rem; font-weight: 700;
+    color: var(--white);
+    transition: width 0.6s ease;
+}
+
+/* --- ANALYSIS CARDS --- */
+.analysis-card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+.analysis-card-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--grey-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ac-title {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.15rem; font-weight: 400;
+    color: var(--navy);
+}
+.ac-subtitle {
+    font-size: 0.78rem; color: var(--ink-light);
+    margin-top: 0.2rem;
+}
+.ac-code {
+    font-family: 'Inter', monospace;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+    background: var(--yellow-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+}
+.analysis-card-body {
+    padding: 1.5rem 2rem;
+}
+.analysis-card-body h4 {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 0.6rem;
+    margin-top: 1.2rem;
+}
+.analysis-card-body h4:first-child { margin-top: 0; }
+.calibration-box {
+    background: var(--grey-bg); padding: 1rem 1.2rem;
+    border-left: 3px solid var(--yellow);
+    font-size: 0.88rem; color: var(--ink-mid);
+    line-height: 1.7; margin-top: 0.8rem;
+}
+
+/* --- STRAIN DOMAIN CARDS --- */
+.strain-card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid var(--navy);
+    position: relative;
+}
+.strain-card.elevated { border-left-color: var(--coral); }
+.strain-card.moderate { border-left-color: var(--amber); }
+.strain-card .strain-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 0.8rem;
+}
+.strain-card .strain-title {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.05rem; font-weight: 400;
+    color: var(--navy);
+}
+.strain-card .strain-body {
+    font-size: 0.9rem; color: var(--ink-mid);
+    line-height: 1.7;
+}
+.strain-card .strain-meta {
+    display: flex; gap: 0.6rem; margin-top: 0.8rem;
+    flex-wrap: wrap;
+}
+
+/* --- TRIGGER CARDS --- */
+.trigger-card {
+    margin-bottom: 2rem;
+}
+.trigger-card h3 {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.05rem; font-weight: 400;
+    margin-bottom: 0.3rem; color: var(--navy);
+}
+.trigger-card .current {
+    font-size: 0.78rem; color: var(--grey-mid);
+    margin-bottom: 1rem;
+}
+.trigger-directions {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.trigger-box {
+    padding: 1.2rem; font-size: 0.88rem;
+    line-height: 1.7; color: var(--ink-mid);
+    border-top: 3px solid;
+}
+.trigger-box.escalates { background: #fef2f2; border-color: var(--coral); }
+.trigger-box.deescalates { background: #f0fdf4; border-color: var(--green); }
+.trigger-box .trigger-label {
+    font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+}
+.trigger-box.escalates .trigger-label { color: var(--coral); }
+.trigger-box.deescalates .trigger-label { color: var(--green); }
+
+/* --- SECTION HEADERS --- */
+.section-header {
+    margin-bottom: 1.5rem;
+}
+.section-header .section-label {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 0.4rem;
+    position: relative;
+    display: inline-block;
+}
+.section-header .section-label::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -1px;
+    width: 100%; height: 3px;
+    background: var(--yellow);
+}
+.section-header h2 {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 400; color: var(--navy);
+    margin-bottom: 0.4rem;
+    margin-top: 0.5rem;
+}
+.section-header p {
+    font-size: 0.95rem; color: var(--ink-light);
+    max-width: 620px;
+}
+
+/* --- GAUGE SVG --- */
+.gauge-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2rem; margin: 2rem 0;
+}
+.gauge-card {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+}
+.gauge-svg { width: 150px; height: 85px; margin: 0 auto 0.8rem; display: block; }
+.gauge-title {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 0.92rem; font-weight: 400;
+    margin-bottom: 0.15rem; color: var(--navy);
+}
+.gauge-sub {
+    font-size: 0.7rem; color: var(--grey-mid);
+    letter-spacing: 0.04em; text-transform: uppercase;
+}
+.gauge-badges { margin-top: 0.6rem; display: flex; justify-content: center; gap: 0.4rem; }
+
+/* --- METHODOLOGY --- */
+.method-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+.method-item {
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--yellow);
+}
+.method-item dt {
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--navy); margin-bottom: 0.4rem;
+}
+.method-item dd {
+    font-size: 0.88rem; color: var(--ink-mid);
+    line-height: 1.7;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+.footer-logo {
+    font-weight: 800; font-size: 1rem;
+    color: var(--white); margin-bottom: 0.5rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+}
+.footer p { font-size: 0.78rem; line-height: 1.8; max-width: 600px; margin: 0 auto; }
+.footer .disclaimer {
+    font-size: 0.68rem; color: rgba(255,255,255,0.3);
+    margin-top: 1rem;
+}
+
+/* --- DIVIDER --- */
+.divider {
+    width: 60px; height: 3px;
+    background: var(--yellow);
+    margin: 0 0 2rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; }
+    .two-col-image { min-height: 260px; }
+    .hero-card { margin: 2rem 1rem; max-width: none; }
+    .trigger-directions { grid-template-columns: 1fr; }
+    .gauge-row { grid-template-columns: 1fr; }
+    .method-grid { grid-template-columns: 1fr; }
+    .editorial, .editorial-wide { padding: 2.5rem 1.2rem; }
+    .bar-label { flex: 0 0 120px; font-size: 0.75rem; }
+}
+@media print {
+    .top-bar { position: static; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+    <div class="top-bar-logo">
+        <div class="top-bar-mark">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 4L20 16L32 4" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 16L20 28" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M32 16L20 28" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="20" y1="28" x2="20" y2="36" stroke="white" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <span class="top-bar-name">Zinc Network</span>
+    </div>
+    <div class="top-bar-right">Defence Intelligence</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg">
+        <img src="hero.png" alt="">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-card">
+        <div class="hero-card-accent"></div>
+        <div class="label">System Strain & Endurance Intelligence</div>
+        <h1>Russia: Systemic Strain Watch Assessment</h1>
+        <p class="subtitle">Administrative buffering and compliance friction are displacing strain into less transparent channels. Five clustered signals tracked across fuel, logistics and infrastructure domains.</p>
+        <p class="date">17 February 2026 &middot; 48&ndash;72h horizon &middot; Systemic Strain Watch 1200Z</p>
+    </div>
+</section>
+
+<!-- NAVY BAND - Pull Quote -->
+<div class="navy-band">
+    <p>All five findings show rising momentum with high analytic confidence. Strain is clustering around fuel-cost containment, export compliance, and infrastructure maintenance throughput.</p>
+</div>
+
+<!-- EDITORIAL INTRO -->
+<div class="editorial">
+    <p class="statement">Russia's fuel and logistics systems are entering a phase where administrative controls are masking underlying strain rather than resolving it. Three pressure points demand attention.</p>
+    <p class="body-text"><strong><span class="highlight-text">Domestic affordability</span></strong> is being managed through purchase limits and tariff controls, shifting pressure into arrears and enforcement rather than transparent price signals. Regulated suppliers face cost floors while end-user prices remain administratively capped.</p>
+    <p class="body-text"><strong><span class="highlight-text">Export continuity</span></strong> increasingly depends on insurer tolerance and compliant routing, not upstream production availability. Compliance tightening and screening friction are constricting options around cargo destinations and routing constraints.</p>
+    <p class="body-text"><strong><span class="highlight-text">Infrastructure maintenance</span></strong> throughput at ports and roads is lagging asset-risk accumulation, pushing operations from routine upkeep into risk-managed continuity. Inspection cadence and remediation capacity limit logistics optionality.</p>
+</div>
+
+<!-- TWO-COL: IMAGE + STATS -->
+<div class="two-col">
+    <div class="two-col-image">
+        <img src="office.png" alt="">
+    </div>
+    <div class="two-col-content">
+        <div class="stat-row">
+            <div class="stat-block">
+                <div class="stat-num accent">5</div>
+                <div class="stat-label">Active strain signals</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-num">5/5</div>
+                <div class="stat-label">Rising momentum</div>
+            </div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-block">
+                <div class="stat-num accent">3</div>
+                <div class="stat-label">High confidence</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-num">48&ndash;72h</div>
+                <div class="stat-label">Assessment horizon</div>
+            </div>
+        </div>
+        <p class="body-text" style="margin-top:1rem;">All five findings are classified as Clustered Strain with Persistent Cluster synthesis state. No cascade behaviour observed; containment remains mechanism-dependent.</p>
+    </div>
+</div>
+
+<!-- SIGNAL PRIORITY DASHBOARD -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Signal Priority Dashboard</div>
+            <h2>Strain Signal Assessment Matrix</h2>
+            <p>Five active strain signals ranked by analytic priority. All show rising momentum with clustered strain classification and persistent synthesis state.</p>
+        </div>
+
+        <!-- Horizontal bar chart -->
+        <div class="bar-chart">
+            <div class="bar-row">
+                <div class="bar-label">Cost Floor / Fiscal Tolerance</div>
+                <div class="bar-track"><div class="bar-fill" style="width:90%;background:var(--coral)">SSF-004 &middot; High</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Export Compliance / Routing</div>
+                <div class="bar-track"><div class="bar-fill" style="width:85%;background:var(--coral)">SSF-001 &middot; High</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Maintenance Infrastructure</div>
+                <div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--coral)">SSF-002 &middot; High</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Workforce Continuity</div>
+                <div class="bar-track"><div class="bar-fill" style="width:70%;background:var(--amber)">SSF-003 &middot; Medium</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Port Incident Exposure</div>
+                <div class="bar-track"><div class="bar-fill" style="width:60%;background:var(--amber)">SSF-005 &middot; Medium</div></div>
+            </div>
+        </div>
+
+        <!-- Full table -->
+        <table class="risk-table-editorial">
+            <thead>
+                <tr>
+                    <th>Finding ID</th>
+                    <th>Strain Domain</th>
+                    <th>Classification</th>
+                    <th>Momentum</th>
+                    <th>Confidence</th>
+                    <th>Synthesis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="ac-code">SSF-004</span></td>
+                    <td><div class="risk-name">Cost Floor / Fiscal Tolerance</div><div class="risk-desc">Fuel Energy</div></td>
+                    <td>Clustered Strain</td>
+                    <td><span class="dir-badge dir-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-high">High</span></td>
+                    <td>Persistent Cluster</td>
+                </tr>
+                <tr>
+                    <td><span class="ac-code">SSF-001</span></td>
+                    <td><div class="risk-name">Export Compliance & Routing</div><div class="risk-desc">Fuel Energy; Logistics Routing Compliance</div></td>
+                    <td>Clustered Strain</td>
+                    <td><span class="dir-badge dir-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-high">High</span></td>
+                    <td>Persistent Cluster</td>
+                </tr>
+                <tr>
+                    <td><span class="ac-code">SSF-002</span></td>
+                    <td><div class="risk-name">Maintenance Infrastructure</div><div class="risk-desc">Maintenance Infrastructure; Logistics Routing</div></td>
+                    <td>Clustered Strain</td>
+                    <td><span class="dir-badge dir-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-high">High</span></td>
+                    <td>Persistent Cluster</td>
+                </tr>
+                <tr>
+                    <td><span class="ac-code">SSF-003</span></td>
+                    <td><div class="risk-name">Workforce Continuity</div><div class="risk-desc">Labour; Fuel Energy</div></td>
+                    <td>Clustered Strain</td>
+                    <td><span class="dir-badge dir-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-medium">Medium</span></td>
+                    <td>Persistent Cluster</td>
+                </tr>
+                <tr>
+                    <td><span class="ac-code">SSF-005</span></td>
+                    <td><div class="risk-name">Port Incident Exposure</div><div class="risk-desc">Maintenance Infrastructure</div></td>
+                    <td>Clustered Strain</td>
+                    <td><span class="dir-badge dir-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-medium">Medium</span></td>
+                    <td>Persistent Cluster</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- SVG Gauges for top 3 signals -->
+        <div class="gauge-row">
+            <div class="gauge-card">
+                <svg class="gauge-svg" viewBox="0 0 160 90">
+                    <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#e87722"/><stop offset="100%" stop-color="#ff4632"/></linearGradient></defs>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="#e5e5e5" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-dasharray="204" stroke-dashoffset="20"/>
+                    <text x="80" y="65" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="22" font-weight="400" fill="#ff4632">HIGH</text>
+                    <text x="80" y="85" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">SSF-004</text>
+                </svg>
+                <div class="gauge-title">Cost Floor Strain</div>
+                <div class="gauge-sub">Fiscal Tolerance &middot; Rising</div>
+                <div class="gauge-badges"><span class="dir-badge dir-rising">Rising</span> <span class="conf-badge conf-high">High</span></div>
+            </div>
+            <div class="gauge-card">
+                <svg class="gauge-svg" viewBox="0 0 160 90">
+                    <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#e87722"/><stop offset="100%" stop-color="#ff4632"/></linearGradient></defs>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="#e5e5e5" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="url(#g2)" stroke-width="8" stroke-linecap="round" stroke-dasharray="204" stroke-dashoffset="35"/>
+                    <text x="80" y="65" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="22" font-weight="400" fill="#ff4632">HIGH</text>
+                    <text x="80" y="85" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">SSF-001</text>
+                </svg>
+                <div class="gauge-title">Export Compliance</div>
+                <div class="gauge-sub">Routing Constraints &middot; Rising</div>
+                <div class="gauge-badges"><span class="dir-badge dir-rising">Rising</span> <span class="conf-badge conf-high">High</span></div>
+            </div>
+            <div class="gauge-card">
+                <svg class="gauge-svg" viewBox="0 0 160 90">
+                    <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#00103e"/><stop offset="100%" stop-color="#e87722"/></linearGradient></defs>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="#e5e5e5" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="url(#g3)" stroke-width="8" stroke-linecap="round" stroke-dasharray="204" stroke-dashoffset="45"/>
+                    <text x="80" y="65" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="22" font-weight="400" fill="#e87722">HIGH</text>
+                    <text x="80" y="85" text-anchor="middle" font-family="Inter, sans-serif" font-size="9" fill="#999">SSF-002</text>
+                </svg>
+                <div class="gauge-title">Infrastructure</div>
+                <div class="gauge-sub">Maintenance Throughput &middot; Rising</div>
+                <div class="gauge-badges"><span class="dir-badge dir-rising">Rising</span> <span class="conf-badge conf-high">High</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- NAVY BAND 2 -->
+<div class="navy-band">
+    <p>Resolution remains mechanism-dependent rather than headline-dependent. A headline reader might assume administrative controls equal stabilisation &mdash; that assumption is unsafe.</p>
+</div>
+
+<!-- PRIMARY STRAIN FINDINGS -->
+<div class="editorial-wide" style="padding-top:3.5rem;padding-bottom:1rem;">
+    <div class="section-header">
+        <div class="section-label">Primary Strain Findings</div>
+        <h2>Detailed Signal Analysis</h2>
+        <p>In-depth assessment for each active strain signal, including pressure points, observable indicators, and downgrade conditions.</p>
+    </div>
+</div>
+
+<div class="editorial-wide" style="padding-top:0;">
+
+    <!-- SSF-004 -->
+    <div class="analysis-card" style="border-left: 4px solid var(--coral);">
+        <div class="analysis-card-header">
+            <div>
+                <div class="ac-title">Domestic Affordability via Administrative Controls</div>
+                <div class="ac-subtitle">Cost Floor / Fiscal Tolerance &middot; Fuel Energy</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.8rem;">
+                <span class="dir-badge dir-rising">Rising</span>
+                <span class="conf-badge conf-high">High</span>
+                <span class="ac-code">SSF-004</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <h4>Pressure Point</h4>
+            <p class="body-text" style="margin-bottom:0.8rem;">Administrative price containment is operating as the binding constraint on service and retail continuity. Strain is displaced into enforcement, rationing-by-proxy, and deferred settlement dynamics rather than transparent pass-through pricing.</p>
+            <h4>What Is Observed</h4>
+            <div class="calibration-box">
+                Regional fuel purchase ceilings and tariff-stabilisation directives are being maintained or extended. Consumer access points reference volume constraints and queue-management language. Enforcement and penalty references have risen without corresponding complaint-resolution disclosure.
+            </div>
+            <h4>What Is Not Observed</h4>
+            <div class="calibration-box">
+                Public-facing constraints show formal traces, yet informal complaint volume remains unexpectedly sparse. No transparent pass-through of costs to end-users, and no relaxation of administrative ceilings.
+            </div>
+            <h4>Downgrade Condition</h4>
+            <p class="body-text" style="margin-bottom:0;">This downgrades if consumer-facing service markers normalise alongside tariff or ceiling relaxation within 48&ndash;72 hours.</p>
+        </div>
+    </div>
+
+    <!-- SSF-001 -->
+    <div class="analysis-card" style="border-left: 4px solid var(--coral);">
+        <div class="analysis-card-header">
+            <div>
+                <div class="ac-title">Export Routing & Compliance Friction</div>
+                <div class="ac-subtitle">Fuel Energy; Logistics Routing Compliance</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.8rem;">
+                <span class="dir-badge dir-rising">Rising</span>
+                <span class="conf-badge conf-high">High</span>
+                <span class="ac-code">SSF-001</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <h4>Pressure Point</h4>
+            <p class="body-text" style="margin-bottom:0.8rem;">Export continuity is increasingly dependent on insurer tolerance and compliant routing rather than upstream production availability. Compliance tightening and screening friction are constricting options around cargo destinations and routing constraints.</p>
+            <h4>What Is Observed</h4>
+            <div class="calibration-box">
+                Screening-friction and service-denial language around cargo destinations and compliance-framed routing constraints. Insurance and trade-finance coverage adjustments narrowing acceptable counterparties or route-service coverage for specific corridors.
+            </div>
+            <h4>Downgrade Condition</h4>
+            <p class="body-text" style="margin-bottom:0;">This downgrades if flow indicators normalise within 48&ndash;72 hours while voyage patterns shorten and service-availability language relaxes.</p>
+        </div>
+    </div>
+
+    <!-- SSF-002 -->
+    <div class="analysis-card" style="border-left: 4px solid var(--amber);">
+        <div class="analysis-card-header">
+            <div>
+                <div class="ac-title">Maintenance & Inspection Throughput</div>
+                <div class="ac-subtitle">Maintenance Infrastructure; Logistics Routing</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.8rem;">
+                <span class="dir-badge dir-rising">Rising</span>
+                <span class="conf-badge conf-high">High</span>
+                <span class="ac-code">SSF-002</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <h4>Pressure Point</h4>
+            <p class="body-text" style="margin-bottom:0.8rem;">Transport infrastructure strain is expressing as inspection and remediation throughput lagging asset-risk accumulation across critical nodes. Operations are shifting from routine upkeep into risk-managed continuity.</p>
+            <h4>What Is Observed</h4>
+            <div class="calibration-box">
+                Inspection reports reference increasing backlogs. Port and road maintenance schedules show deferred remediation timelines. Capacity bottlenecks at critical nodes are producing queueing and downtime sensitivity.
+            </div>
+            <h4>Downgrade Condition</h4>
+            <p class="body-text" style="margin-bottom:0;">This downgrades if inspection throughput evidence clears within 48&ndash;72 hours and backlog references diminish alongside normalised port-servicing language.</p>
+        </div>
+    </div>
+
+    <!-- SSF-003 -->
+    <div class="analysis-card" style="border-left: 4px solid var(--navy);">
+        <div class="analysis-card-header">
+            <div>
+                <div class="ac-title">Workforce Continuity & Labour Capacity</div>
+                <div class="ac-subtitle">Labour; Fuel Energy</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.8rem;">
+                <span class="dir-badge dir-rising">Rising</span>
+                <span class="conf-badge conf-medium">Medium</span>
+                <span class="ac-code">SSF-003</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <h4>Pressure Point</h4>
+            <p class="body-text" style="margin-bottom:0.8rem;">Workforce-level strain is visible through recruitment incentive escalation and retention language tightening, with fuel-sector operators competing for skilled labour against broader industrial demand.</p>
+            <h4>What Is Observed</h4>
+            <div class="calibration-box">
+                Recruitment bonuses, shift-premium adjustments, and regional labour-mobility incentives referenced in sector-specific employment postings. Retention concerns evident in contract-extension language and penalty-clause adjustments.
+            </div>
+            <h4>Downgrade Condition</h4>
+            <p class="body-text" style="margin-bottom:0;">This downgrades if recruitment-incentive and retention-pressure language subsides within the assessment window without compensating wage-floor adjustments.</p>
+        </div>
+    </div>
+
+    <!-- SSF-005 -->
+    <div class="analysis-card" style="border-left: 4px solid var(--navy);">
+        <div class="analysis-card-header">
+            <div>
+                <div class="ac-title">Port Incident & Single-Node Exposure</div>
+                <div class="ac-subtitle">Maintenance Infrastructure</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:0.8rem;">
+                <span class="dir-badge dir-rising">Rising</span>
+                <span class="conf-badge conf-medium">Medium</span>
+                <span class="ac-code">SSF-005</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <h4>Pressure Point</h4>
+            <p class="body-text" style="margin-bottom:0.8rem;">Single-node incident visibility without independent queueing or repeat-detention evidence. Port-level exposure remains concentrated at specific nodes with limited redundancy.</p>
+            <h4>What Is Observed</h4>
+            <div class="calibration-box">
+                Incident reporting at specific port facilities with language referencing inspection delays, vessel detention, and throughput constraints. Coverage concentrated at known bottleneck nodes rather than distributed across the network.
+            </div>
+            <h4>Downgrade Condition</h4>
+            <p class="body-text" style="margin-bottom:0;">This downgrades if incident references remain isolated to a single node without independent corroboration or repeat-detention patterns within 48&ndash;72 hours.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CONTEXTUAL OVERLAYS -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Contextual Overlays</div>
+            <h2>What Would Change the Assessment</h2>
+            <p>Key escalation triggers and de-escalation indicators for each primary strain domain. Use these as monitoring tripwires.</p>
+        </div>
+
+        <div class="trigger-card">
+            <h3>Cost Floor / Fiscal Tolerance (SSF-004)</h3>
+            <p class="current">Status: Rising &middot; High Confidence &middot; Persistent Cluster</p>
+            <div class="trigger-directions">
+                <div class="trigger-box escalates">
+                    <div class="trigger-label">Escalation Indicators</div>
+                    Municipal utility arrears data surfaces showing deferred payments expanding beyond seasonal norms. Enforcement language shifts from warning to penalty-collection references.
+                </div>
+                <div class="trigger-box deescalates">
+                    <div class="trigger-label">De-escalation Indicators</div>
+                    Consumer-facing service markers normalise. Tariff or ceiling relaxation language appears in official channels alongside reduced enforcement activity references.
+                </div>
+            </div>
+        </div>
+
+        <div class="trigger-card">
+            <h3>Export Compliance & Routing (SSF-001)</h3>
+            <p class="current">Status: Rising &middot; High Confidence &middot; Persistent Cluster</p>
+            <div class="trigger-directions">
+                <div class="trigger-box escalates">
+                    <div class="trigger-label">Escalation Indicators</div>
+                    Insurer or trade-finance screening notes narrow acceptable counterparties or route-service coverage for specific corridors. Service-denial references multiply across multiple routing channels.
+                </div>
+                <div class="trigger-box deescalates">
+                    <div class="trigger-label">De-escalation Indicators</div>
+                    Flow indicators normalise. Voyage patterns shorten and service-availability language relaxes across the primary export corridors.
+                </div>
+            </div>
+        </div>
+
+        <div class="trigger-card">
+            <h3>Maintenance Infrastructure (SSF-002)</h3>
+            <p class="current">Status: Rising &middot; High Confidence &middot; Persistent Cluster</p>
+            <div class="trigger-directions">
+                <div class="trigger-box escalates">
+                    <div class="trigger-label">Escalation Indicators</div>
+                    Inspection backlog references accelerate. Multiple nodes report concurrent throughput constraints. Emergency-maintenance language appears in routine reporting channels.
+                </div>
+                <div class="trigger-box deescalates">
+                    <div class="trigger-label">De-escalation Indicators</div>
+                    Inspection throughput evidence clears. Backlog references diminish alongside normalised port-servicing language and resumed routine maintenance schedules.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ASSESSMENT SUMMARY -->
+<div class="editorial-wide">
+    <div class="section-header">
+        <div class="section-label">Assessment Summary</div>
+        <h2>Integrated Strain Overview</h2>
+        <p>Summary mapping all active strain signals to momentum state and confidence level for operational decision-making.</p>
+    </div>
+
+    <table class="risk-table-editorial">
+        <thead>
+            <tr>
+                <th>Signal ID</th>
+                <th>Domain</th>
+                <th>Momentum</th>
+                <th>Confidence</th>
+                <th>Synthesis State</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="font-weight:700"><span class="ac-code">SSF-004</span></td>
+                <td>Cost Floor / Fiscal Tolerance</td>
+                <td><span class="dir-badge dir-rising">Rising</span></td>
+                <td><span class="conf-badge conf-high">High</span></td>
+                <td>Persistent Cluster</td>
+            </tr>
+            <tr>
+                <td style="font-weight:700"><span class="ac-code">SSF-001</span></td>
+                <td>Export Compliance & Routing</td>
+                <td><span class="dir-badge dir-rising">Rising</span></td>
+                <td><span class="conf-badge conf-high">High</span></td>
+                <td>Persistent Cluster</td>
+            </tr>
+            <tr>
+                <td style="font-weight:700"><span class="ac-code">SSF-002</span></td>
+                <td>Maintenance Infrastructure</td>
+                <td><span class="dir-badge dir-rising">Rising</span></td>
+                <td><span class="conf-badge conf-high">High</span></td>
+                <td>Persistent Cluster</td>
+            </tr>
+            <tr>
+                <td style="font-weight:700"><span class="ac-code">SSF-003</span></td>
+                <td>Workforce Continuity</td>
+                <td><span class="dir-badge dir-rising">Rising</span></td>
+                <td><span class="conf-badge conf-medium">Medium</span></td>
+                <td>Persistent Cluster</td>
+            </tr>
+            <tr>
+                <td style="font-weight:700"><span class="ac-code">SSF-005</span></td>
+                <td>Port Incident Exposure</td>
+                <td><span class="dir-badge dir-rising">Rising</span></td>
+                <td><span class="conf-badge conf-medium">Medium</span></td>
+                <td>Persistent Cluster</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="background:var(--navy);border-radius:6px;padding:1rem 1.5rem;display:flex;gap:2rem;flex-wrap:wrap;margin-top:1.5rem;">
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);">Active signals: <span style="color:#fff;font-weight:700">5</span></div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);">Rising momentum: <span style="color:#fff;font-weight:700">5 / 5</span></div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);">High confidence: <span style="color:#fff;font-weight:700">3</span></div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);">Cascade observed: <span style="color:#fff;font-weight:700">None</span></div>
+        <div style="font-size:0.78rem;color:rgba(255,255,255,0.5);">Resolution: <span style="color:#fff;font-weight:700">Mechanism-dependent</span></div>
+    </div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Methodology</div>
+            <h2>Assessment Framework & Definitions</h2>
+            <p>How to interpret the strain classifications, confidence levels, and synthesis states used throughout this assessment.</p>
+        </div>
+        <div class="method-grid">
+            <div class="method-item">
+                <dl>
+                    <dt>Clustered Strain</dt>
+                    <dd>Multiple corroborating signals observed within a single strain domain, indicating systemic rather than isolated pressure. Requires at least two independent evidence streams.</dd>
+                </dl>
+            </div>
+            <div class="method-item">
+                <dl>
+                    <dt>Persistent Cluster</dt>
+                    <dd>Synthesis state indicating that clustered signals have maintained coherence across multiple assessment cycles without resolution or dissipation.</dd>
+                </dl>
+            </div>
+            <div class="method-item">
+                <dl>
+                    <dt>Momentum State</dt>
+                    <dd>Directional assessment of whether strain is intensifying (Rising), holding steady (Stable), or diminishing (Falling). Based on signal density and language-shift analysis.</dd>
+                </dl>
+            </div>
+            <div class="method-item">
+                <dl>
+                    <dt>Analytic Confidence</dt>
+                    <dd>High: multiple independent sources with consistent language. Medium: corroborating signals with some ambiguity. Low: single-source or contradictory evidence.</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-logo">Zinc Network</div>
+    <p>System Strain & Endurance Assessment &middot; Russia &middot; 17 February 2026<br>Systemic Strain Watch 1200Z &middot; 48&ndash;72h horizon</p>
+    <p class="disclaimer">This report is produced for authorised recipients only. It does not reproduce headlines or verbatim source material. Evidence references are used for validation and audit purposes only. Unverified claims are explicitly labelled and are not treated as fact. &copy; 2026 Zinc Network. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
