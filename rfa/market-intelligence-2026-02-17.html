@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Market Intelligence Briefing — 17 February 2026 | RFA</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --midnight: #0f0e23;
+    --navy: #1e1d3f;
+    --navy-mid: #2a2860;
+    --navy-light: #37347a;
+    --deep-blue: #0d324e;
+    --blue-accent: #116dff;
+    --green: #009e73;
+    --green-light: #00c48c;
+    --green-dark: #007a58;
+    --green-glow: rgba(0,158,115,0.25);
+    --green-subtle: rgba(0,158,115,0.08);
+    --red: #e63946;
+    --red-dark: #c1121f;
+    --amber: #f7a325;
+    --amber-light: #ffd166;
+    --ink: #e8e8f0;
+    --ink-mid: #a0a0b8;
+    --ink-dark: #1a1a2e;
+    --ink-body: #2a2a3e;
+    --grey-bg: #f5f5fa;
+    --grey-light: #e5e5ef;
+    --grey-mid: #8888a0;
+    --white: #ffffff;
+    --surface: #16152e;
+    --surface-light: #1c1b38;
+    --card-dark: rgba(30,29,63,0.6);
+    --glass: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--ink-body);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* --- ANIMATED GRID BACKGROUND --- */
+.cyber-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        linear-gradient(rgba(0,158,115,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,158,115,0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: gridPulse 8s ease-in-out infinite;
+    pointer-events: none;
+}
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+}
+
+/* Scan line effect */
+.scan-line {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    animation: scanMove 6s linear infinite;
+    pointer-events: none;
+    opacity: 0.4;
+}
+@keyframes scanMove {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* --- TOP BAR --- */
+.top-bar {
+    background: var(--midnight);
+    padding: 0.9rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+}
+.top-bar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+.top-bar-mark {
+    width: 36px; height: 36px;
+}
+.top-bar-mark svg {
+    width: 100%; height: 100%;
+}
+.top-bar-name {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400; font-size: 1.3rem; color: var(--white);
+    letter-spacing: 0.04em;
+}
+.top-bar-separator {
+    width: 1px; height: 20px;
+    background: rgba(255,255,255,0.15);
+    margin: 0 0.5rem;
+}
+.top-bar-subtitle {
+    font-size: 0.68rem; color: var(--green);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 700;
+}
+.top-bar-right {
+    font-size: 0.68rem; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Space Mono', monospace;
+}
+
+/* --- HERO --- */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 540px;
+    background: var(--midnight);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+}
+.hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 30%;
+    opacity: 0.55;
+}
+.hero-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(15,14,35,0.92) 0%, rgba(15,14,35,0.6) 40%, rgba(0,158,115,0.1) 100%);
+}
+.hero-card {
+    position: relative; z-index: 2;
+    max-width: 600px;
+    margin: 3.5rem 0 3.5rem 5%;
+    padding: 2.8rem 2.8rem 2.2rem;
+    background: rgba(15,14,35,0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-left: 4px solid var(--green);
+}
+.hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+}
+.hero-eyebrow .pulse-dot {
+    width: 8px; height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 8px var(--green-glow);
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+}
+.hero-card h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem; font-weight: 400;
+    line-height: 1.2; color: var(--white);
+    margin-bottom: 1rem;
+}
+.hero-card .subtitle {
+    font-size: 1rem; color: var(--ink-mid);
+    line-height: 1.6;
+    max-width: 500px;
+}
+.hero-meta {
+    display: flex; gap: 2rem;
+    margin-top: 1.8rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+}
+.hero-meta-item {
+    display: flex; flex-direction: column; gap: 0.2rem;
+}
+.hero-meta-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--green);
+}
+.hero-meta-value {
+    font-size: 0.88rem; color: var(--white);
+    font-weight: 500;
+}
+
+/* --- SECTION: EXECUTIVE SUMMARY BANNER --- */
+.exec-banner {
+    background: var(--navy);
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.exec-banner .cyber-grid { opacity: 0.2; }
+.exec-banner-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative; z-index: 2;
+}
+.exec-banner h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem; color: var(--white);
+    margin-bottom: 1.2rem;
+}
+.exec-banner p {
+    font-size: 0.95rem; color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    max-width: 750px;
+}
+
+/* --- EDITORIAL SECTIONS --- */
+.editorial {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+}
+.editorial-wide {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+}
+.section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.8rem;
+}
+.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: var(--ink-dark);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+}
+.section-title-light {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+}
+.divider {
+    width: 50px; height: 3px;
+    background: var(--green);
+    margin: 0 0 2rem;
+}
+.divider-light {
+    width: 50px; height: 3px;
+    background: var(--green);
+    margin: 0 0 2rem;
+    opacity: 0.6;
+}
+.body-text {
+    font-size: 0.95rem; color: var(--ink-body);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+}
+.body-text-light {
+    font-size: 0.95rem; color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+}
+
+/* --- STAT BANNER --- */
+.stat-banner {
+    background: var(--midnight);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+.stat-banner .cyber-grid { background-size: 30px 30px; }
+.stat-row {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 1040px;
+    margin: 0 auto;
+    position: relative; z-index: 2;
+    flex-wrap: wrap;
+}
+.stat-item {
+    text-align: center;
+    padding: 1rem 1.5rem;
+}
+.stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    color: var(--green);
+    line-height: 1.1;
+    text-shadow: 0 0 30px var(--green-glow);
+}
+.stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-top: 0.5rem;
+    font-weight: 700;
+}
+
+/* --- TWO-COL LAYOUT --- */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+}
+.two-col-image {
+    background-size: cover;
+    background-position: center;
+    min-height: 420px;
+    position: relative;
+}
+.two-col-image-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to right, transparent 60%, rgba(15,14,35,0.3) 100%);
+}
+.two-col-content {
+    padding: 3rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.two-col-dark {
+    background: var(--navy);
+}
+.two-col-dark .section-title {
+    color: var(--white);
+}
+.two-col-dark .body-text {
+    color: rgba(255,255,255,0.7);
+}
+
+/* --- IMAGE BREAK --- */
+.image-break {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+}
+.image-break img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+}
+.image-break-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(15,14,35,0.15) 0%, rgba(15,14,35,0.5) 100%);
+}
+.image-break-text {
+    position: absolute; bottom: 2rem; left: 2.5rem;
+    z-index: 2;
+}
+.image-break-text h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; color: var(--white);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.image-break-text p {
+    font-size: 0.82rem; color: rgba(255,255,255,0.7);
+    margin-top: 0.3rem;
+}
+
+/* --- THREAT MATRIX / ANALYSIS CARDS --- */
+.analysis-card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+.analysis-card:hover {
+    box-shadow: 0 4px 24px rgba(0,158,115,0.08);
+}
+.analysis-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.8rem;
+    border-bottom: 1px solid var(--grey-light);
+    background: var(--grey-bg);
+}
+.analysis-card-id {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; color: var(--green);
+}
+.analysis-card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem; color: var(--ink-dark);
+    margin-top: 0.2rem;
+}
+.analysis-card-badges {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+.badge {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+}
+.badge-critical { background: var(--red); color: var(--white); }
+.badge-high { background: var(--amber); color: var(--ink-dark); }
+.badge-medium { background: #f0c040; color: var(--ink-dark); }
+.badge-low { background: var(--green); color: var(--white); }
+.badge-info { background: var(--blue-accent); color: var(--white); }
+.badge-outline {
+    background: transparent;
+    border: 1px solid var(--grey-light);
+    color: var(--grey-mid);
+}
+.analysis-card-body {
+    padding: 1.5rem 1.8rem;
+}
+.analysis-card-body p {
+    font-size: 0.9rem; color: var(--ink-body);
+    line-height: 1.7;
+}
+.analysis-card-body .finding-detail {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    margin-top: 0.8rem;
+}
+.finding-detail dt {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--grey-mid);
+}
+.finding-detail dd {
+    color: var(--ink-body);
+}
+
+/* --- DARK ANALYSIS CARDS (on navy bg) --- */
+.analysis-card-dark {
+    background: var(--surface);
+    border: 1px solid var(--glass-border);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+.analysis-card-dark .analysis-card-header {
+    background: var(--surface-light);
+    border-bottom-color: var(--glass-border);
+}
+.analysis-card-dark .analysis-card-id { color: var(--green); }
+.analysis-card-dark .analysis-card-title { color: var(--white); }
+.analysis-card-dark .analysis-card-body p { color: rgba(255,255,255,0.7); }
+.analysis-card-dark .finding-detail dt { color: var(--ink-mid); }
+.analysis-card-dark .finding-detail dd { color: rgba(255,255,255,0.8); }
+
+/* --- GAUGE / RISK METERS --- */
+.gauge-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+}
+.gauge-card {
+    background: var(--surface);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.gauge-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--green);
+}
+.gauge-card.severity-critical::before { background: var(--red); }
+.gauge-card.severity-high::before { background: var(--amber); }
+.gauge-card.severity-medium::before { background: #f0c040; }
+.gauge-card.severity-low::before { background: var(--green); }
+.gauge-svg {
+    width: 140px; height: 80px;
+    margin: 0.5rem auto;
+}
+.gauge-track {
+    fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 8;
+    stroke-linecap: round;
+}
+.gauge-fill {
+    fill: none; stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s ease;
+}
+.gauge-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: var(--white);
+}
+.gauge-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-top: 0.5rem;
+}
+.gauge-sub {
+    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+    margin-top: 0.3rem;
+}
+
+/* --- RISK TABLE --- */
+.risk-table-editorial {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+.risk-table-editorial thead th {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--green);
+    padding: 0.8rem 1rem;
+    border-bottom: 2px solid var(--green);
+    text-align: left;
+    background: var(--surface);
+}
+.risk-table-editorial tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--glass-border);
+    color: rgba(255,255,255,0.8);
+    background: var(--surface-light);
+    vertical-align: top;
+}
+.risk-table-editorial tbody tr:hover td {
+    background: rgba(0,158,115,0.05);
+}
+
+/* Light table variant */
+.risk-table-light {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+.risk-table-light thead th {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--green-dark);
+    padding: 0.8rem 1rem;
+    border-bottom: 2px solid var(--green);
+    text-align: left;
+    background: var(--grey-bg);
+}
+.risk-table-light tbody td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--grey-light);
+    color: var(--ink-body);
+    vertical-align: top;
+}
+.risk-table-light tbody tr:hover td {
+    background: var(--green-subtle);
+}
+
+/* --- BAR CHART --- */
+.bar-chart {
+    margin: 1.5rem 0;
+}
+.bar-row {
+    display: flex; align-items: center;
+    margin-bottom: 0.6rem;
+}
+.bar-label {
+    flex: 0 0 180px;
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--ink-body);
+    padding-right: 1rem;
+}
+.bar-track {
+    flex: 1;
+    height: 22px;
+    background: var(--grey-light);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+.bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.8s ease;
+    position: relative;
+}
+.bar-fill-critical { background: linear-gradient(90deg, var(--red-dark), var(--red)); }
+.bar-fill-high { background: linear-gradient(90deg, #e08600, var(--amber)); }
+.bar-fill-medium { background: linear-gradient(90deg, #d4a800, #f0c040); }
+.bar-fill-low { background: linear-gradient(90deg, var(--green-dark), var(--green)); }
+.bar-fill-info { background: linear-gradient(90deg, #0d50cc, var(--blue-accent)); }
+.bar-value {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; font-weight: 700;
+    margin-left: 0.6rem;
+    color: var(--grey-mid);
+    white-space: nowrap;
+}
+
+/* --- NAVY BAND --- */
+.navy-band {
+    background: var(--navy);
+    padding: 3.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+.navy-band .cyber-grid { opacity: 0.15; }
+.navy-band-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    position: relative; z-index: 2;
+}
+
+/* --- DARK BAND --- */
+.midnight-band {
+    background: var(--midnight);
+    padding: 3.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+.midnight-band-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+    position: relative; z-index: 2;
+}
+
+/* --- THREAT LEVEL INDICATOR --- */
+.threat-level {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.8rem 1.2rem;
+    border-left: 4px solid var(--green);
+    background: var(--green-subtle);
+    margin-bottom: 1.5rem;
+}
+.threat-level.level-critical {
+    border-left-color: var(--red);
+    background: rgba(230,57,70,0.06);
+}
+.threat-level.level-high {
+    border-left-color: var(--amber);
+    background: rgba(247,163,37,0.06);
+}
+.threat-level.level-elevated {
+    border-left-color: #f0c040;
+    background: rgba(240,192,64,0.06);
+}
+.threat-level-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+}
+.threat-level-value {
+    font-weight: 700; font-size: 0.82rem;
+}
+
+/* --- SCENARIO CARDS --- */
+.scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.scenario-card {
+    background: var(--surface);
+    border: 1px solid var(--glass-border);
+    padding: 1.8rem;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.scenario-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,158,115,0.1);
+}
+.scenario-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green), var(--green-light));
+}
+.scenario-timeframe {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.8rem;
+}
+.scenario-card h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem; color: var(--white);
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+.scenario-card p {
+    font-size: 0.85rem; color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+}
+.scenario-probability {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--glass-border);
+}
+.prob-bar {
+    flex: 1; height: 4px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 2px;
+    overflow: hidden;
+}
+.prob-fill {
+    height: 100%; border-radius: 2px;
+    background: var(--green);
+}
+.prob-value {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; font-weight: 700;
+    color: var(--green);
+}
+
+/* --- METHODOLOGY --- */
+.method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.method-item {
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--green);
+    background: var(--grey-bg);
+}
+.method-item dt {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--green-dark);
+    margin-bottom: 0.4rem;
+}
+.method-item dd {
+    font-size: 0.85rem; color: var(--ink-body);
+    line-height: 1.7;
+}
+
+/* --- KEY FINDINGS PULLOUT --- */
+.pullout {
+    border-left: 4px solid var(--green);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    background: var(--green-subtle);
+}
+.pullout p {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--ink-body);
+    line-height: 1.7;
+}
+.pullout-dark {
+    border-left: 4px solid var(--green);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(0,158,115,0.08);
+}
+.pullout-dark p {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background: var(--midnight);
+    color: rgba(255,255,255,0.4);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.footer .cyber-grid { opacity: 0.1; }
+.footer-inner {
+    position: relative; z-index: 2;
+}
+.footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400; font-size: 1.3rem;
+    color: var(--white); margin-bottom: 0.3rem;
+}
+.footer-tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 1.2rem;
+}
+.footer p { font-size: 0.78rem; line-height: 1.8; max-width: 600px; margin: 0 auto; }
+.footer .disclaimer {
+    font-size: 0.65rem; color: rgba(255,255,255,0.2);
+    margin-top: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.05em;
+}
+
+/* --- MOBILE SLIDER --- */
+.mobile-scroll-wrapper {
+    position: relative;
+}
+.mobile-scroll-inner {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.mobile-scroll-inner::-webkit-scrollbar { display: none; }
+
+.gauge-slider {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+.gauge-slider::-webkit-scrollbar { display: none; }
+
+.scroll-dots {
+    display: none;
+    justify-content: center;
+    gap: 8px;
+    padding: 1rem 0 0.5rem;
+}
+.scroll-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: none; cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    padding: 0;
+}
+.scroll-dot.active {
+    background: var(--green);
+    transform: scale(1.3);
+    box-shadow: 0 0 8px var(--green-glow);
+}
+.scroll-hint {
+    display: none;
+    text-align: center;
+    padding: 0.5rem 0;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+}
+.scroll-hint::after {
+    content: ' \2192';
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .top-bar { padding: 0.7rem 1rem; }
+    .top-bar-name { font-size: 1rem; }
+    .top-bar-right { font-size: 0.55rem; }
+    .top-bar-subtitle { font-size: 0.55rem; display: none; }
+    .top-bar-separator { display: none; }
+
+    .hero { min-height: 380px; }
+    .hero-card { margin: 1.5rem 1rem; max-width: none; padding: 1.8rem 1.5rem 1.5rem; }
+    .hero-card h1 { font-size: 1.5rem; }
+    .hero-card .subtitle { font-size: 0.85rem; }
+    .hero-meta { gap: 1rem; flex-wrap: wrap; }
+
+    .two-col { grid-template-columns: 1fr; }
+    .two-col-image { min-height: 240px; }
+
+    .editorial, .editorial-wide { padding: 2.5rem 1.2rem; }
+    .navy-band, .midnight-band { padding: 2.5rem 1.2rem; }
+    .exec-banner { padding: 2.5rem 1.2rem; }
+
+    .stat-row { gap: 1rem; }
+    .stat-number { font-size: 2rem; }
+
+    .method-grid { grid-template-columns: 1fr; }
+    .scenario-grid { grid-template-columns: 1fr; }
+
+    /* Bar chart: horizontal scroll */
+    .bar-chart-scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: 0 -1.2rem;
+        padding: 0 1.2rem;
+    }
+    .bar-chart-scroll::-webkit-scrollbar { display: none; }
+    .bar-chart-scroll .bar-chart { min-width: 500px; }
+    .bar-label { flex: 0 0 140px; font-size: 0.75rem; }
+
+    /* Table: horizontal scroll */
+    .table-scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin: 0 -1.2rem;
+        padding: 0 1.2rem;
+    }
+    .table-scroll::-webkit-scrollbar { display: none; }
+    .table-scroll .risk-table-editorial,
+    .table-scroll .risk-table-light { min-width: 700px; }
+
+    /* Gauge: horizontal slider with snap */
+    .gauge-row {
+        display: flex;
+        gap: 1rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        padding-bottom: 0.5rem;
+    }
+    .gauge-row::-webkit-scrollbar { display: none; }
+    .gauge-card {
+        min-width: 260px;
+        flex: 0 0 260px;
+        scroll-snap-align: center;
+    }
+
+    /* Show dots and hints on mobile */
+    .scroll-dots { display: flex; }
+    .scroll-hint { display: block; }
+
+    /* Analysis cards tighten */
+    .analysis-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    .analysis-card-body { padding: 1.2rem 1.2rem; }
+    .analysis-card-header { padding: 1.2rem 1.2rem; }
+
+    /* Image breaks smaller */
+    .image-break { height: 200px; }
+
+    /* Flex wraps */
+    .editorial-wide > div[style*="display:flex"] {
+        flex-direction: column;
+        gap: 0.5rem !important;
+    }
+}
+@media print {
+    .top-bar { position: static; }
+    .cyber-grid, .scan-line { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="top-bar">
+    <div class="top-bar-logo">
+        <div class="top-bar-mark" style="width: 90px; height: 40px;">
+            <svg preserveAspectRatio="xMidYMid meet" viewBox="0 -0.003 341.747 151.093" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+                <g>
+                    <path d="M228.1 0c71.52 27.67 52.13 90.05 40 118.76h68.59C341.43 100.73 367.82-.64 228.1 0" fill="#ffffff"/>
+                    <path d="M54.88 90.27h9.86c11.46 0 16.82-4.07 16.82-14.5V58.24c0-10.43-5.36-14.5-16.82-14.5H.68v74.77h17.11V90.27h16.53l30.14 28.24h24.92L54.89 90.27Zm-37.1-12.75V56.66h39.14c5.36 0 7.82 1.01 7.82 5.93v9c0 4.93-2.46 5.93-7.82 5.93z" fill="#ffffff"/>
+                    <path fill="#ffffff" d="M94.3 43.75h86.88l-7.07 13.03H111.7v19.71h51.16l-7.67 13.64h-43.5v28.39H94.3z"/>
+                    <path d="M215.42 43.75h-16.85l-42.31 74.8h17.39l8.71-16.39h47.38l9 16.39h19.57l-42.88-74.8Zm-25.64 44.91 16.68-30.42 16.07 30.42z" fill="#ffffff"/>
+                    <path d="M333.86 125.26.64 127.51c-.29.02-.53.24-.57.53 0 0-.07 1.32-.07 1.37 0 .14.04.29.14.39.1.11.24.17.39.18 0 0 314.68 4.43 316.27 4.43-.5 1.36-5.93 15.93-5.93 15.93-.03.05-.04.12-.04.18 0 .19.1.38.25.5.09.04.19.06.28.07.16 0 .31-.07.43-.18l22.46-24.67c.14-.17.18-.4.11-.61a.56.56 0 0 0-.5-.36Z" fill="#ffffff"/>
+                </g>
+            </svg>
+        </div>
+        <div class="top-bar-separator"></div>
+        <span class="top-bar-subtitle">Market Intelligence</span>
+    </div>
+    <div class="top-bar-right">Prepared by Noah Wire Services</div>
+</div>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+    <div class="hero-bg">
+        <img src="rfa-screens.png" alt="Cyber threat landscape">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="cyber-grid"></div>
+    <div class="scan-line"></div>
+    <div class="hero-card">
+        <div class="hero-eyebrow">
+            <span class="pulse-dot"></span>
+            DAILY MARKET INTELLIGENCE
+        </div>
+        <h1>Cybersecurity Market Intelligence Briefing</h1>
+        <p class="subtitle">Daily scan of cyber threat, vulnerability, and industry activity across the global landscape — 24-hour operational coverage with prioritised attention signals</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Classification</span>
+                <span class="hero-meta-value">Client Confidential</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Report Date</span>
+                <span class="hero-meta-value">17 February 2026</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Threat Level</span>
+                <span class="hero-meta-value">Elevated</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ EXECUTIVE SUMMARY BANNER ============ -->
+<div class="exec-banner">
+    <div class="cyber-grid"></div>
+    <div class="exec-banner-inner">
+        <div class="section-label" style="color: var(--green);">Executive Summary</div>
+        <h2 style="color: var(--white); font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1rem;">High-Tempo Patching and Consumer Breach Governance Dominate the Cycle</h2>
+        <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.95rem;">The past 24 hours have been marked by two dominant operational pressures: emergency patching for widely deployed browser software following active exploitation reports, and governance questions arising from consumer-scale data breach disclosures. Google issued an emergency Chrome patch for CVE-2026-2441, while CISA imposed a three-day federal patching deadline on BeyondTrust CVE-2026-1731. Dutch operator Odido confirmed customer-data exposure via social engineering tactics, raising questions around data retention and notification handling.</p>
+    </div>
+</div>
+
+<!-- ============ KEY STATS BANNER ============ -->
+<div class="stat-banner">
+    <div class="cyber-grid"></div>
+    <div class="stat-row">
+        <div class="stat-item">
+            <div class="stat-number">12</div>
+            <div class="stat-label">Browser Patch Articles</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Telecom Breach Reports</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Watch Items (48-96h)</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">24h</div>
+            <div class="stat-label">Coverage Window</div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ SECTION 1: EDITORIAL INTRO ============ -->
+<div class="editorial">
+    <div class="section-label">Section I</div>
+    <h2 class="section-title">Operational Tempo and Attention Signals</h2>
+    <div class="divider"></div>
+    <p class="body-text">This briefing captures the primary intelligence threads from the past 24 hours, organised by operational significance rather than chronological order. The cycle is characterised by compressed remediation timelines for browser and enterprise software vulnerabilities, alongside incident response communications following consumer-scale breaches. Practitioner discussion has been notably focused on actual installed footprints and viable fix paths across software versions rather than advisory messaging alone.</p>
+    <div class="pullout">
+        <p>The dominant operational pressure this cycle centres on patch execution — moving from advisory acknowledgement to verified deployment across real-world estate inventories.</p>
+    </div>
+    <p class="body-text">Governance discussion has shifted from intrusion narrative toward data-retention policy and identity-fraud exposure consequences. AI security is also emerging as a distinct thread, with infostealer targeting of AI agent configurations — tokens, keys, and config files — appearing alongside operator tooling discussions.</p>
+</div>
+
+<!-- ============ TWO-COL: IMAGE + TEXT ============ -->
+<div class="two-col">
+    <div class="two-col-image" style="background-image: url('rfa-analyst.png');">
+        <div class="two-col-image-overlay"></div>
+    </div>
+    <div class="two-col-content two-col-dark">
+        <div class="section-label">Priority Focus</div>
+        <h2 class="section-title">Chrome Zero-Day Emergency Patch</h2>
+        <div class="divider-light"></div>
+        <p class="body-text" style="color: rgba(255,255,255,0.7);">Google issued an emergency patch for CVE-2026-2441 following confirmed in-the-wild exploitation. The vulnerability carries immediate patch-and-verify priority for endpoint and browser-management teams, given the widespread dependency on the Chromium engine across enterprise browsers. Early practitioner detail on rollout mechanics remains thin, with defensive artefacts and mass-scanning visibility expected by 19 February.</p>
+    </div>
+</div>
+
+<!-- ============ SECTION 2: THREAT FINDINGS ============ -->
+<div class="editorial-wide">
+    <div class="section-label">Section II</div>
+    <h2 class="section-title">Key Findings</h2>
+    <div class="divider"></div>
+
+    <!-- FINDING 1 -->
+    <div class="analysis-card">
+        <div class="analysis-card-header">
+            <div>
+                <div class="analysis-card-id">CVE-2026-2441</div>
+                <div class="analysis-card-title">Google Chrome Emergency Zero-Day Patch</div>
+            </div>
+            <div class="analysis-card-badges">
+                <span class="badge badge-critical">Critical</span>
+                <span class="badge badge-outline">Browser / Endpoint</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <p>Emergency patch issued for actively exploited Chrome vulnerability. Immediate patch-and-verify priority for endpoint and browser-management teams due to widespread Chromium dependency across enterprise environments.</p>
+            <dl class="finding-detail">
+                <dt>Vector</dt><dd>In-the-wild exploitation (browser)</dd>
+                <dt>Impact</dt><dd>Full endpoint compromise potential</dd>
+                <dt>Confidence</dt><dd>High — confirmed active exploitation</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- FINDING 2 -->
+    <div class="analysis-card">
+        <div class="analysis-card-header">
+            <div>
+                <div class="analysis-card-id">CVE-2026-1731</div>
+                <div class="analysis-card-title">CISA BeyondTrust Federal Patching Deadline</div>
+            </div>
+            <div class="analysis-card-badges">
+                <span class="badge badge-high">High</span>
+                <span class="badge badge-outline">Access Management</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <p>Federal agencies face three-day patching deadline, elevating advisory status to operational urgency. Downstream knock-on pressure on vendors and customers over patch availability and version certainty creates additional operational complexity.</p>
+            <dl class="finding-detail">
+                <dt>Vector</dt><dd>Privileged access management exploitation</dd>
+                <dt>Impact</dt><dd>Federal infrastructure and downstream vendor risk</dd>
+                <dt>Confidence</dt><dd>High — binding federal directive</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- FINDING 3 -->
+    <div class="analysis-card">
+        <div class="analysis-card-header">
+            <div>
+                <div class="analysis-card-id">BREACH-ODI-2026</div>
+                <div class="analysis-card-title">Odido Customer Data Breach Disclosure</div>
+            </div>
+            <div class="analysis-card-badges">
+                <span class="badge badge-medium">Medium</span>
+                <span class="badge badge-outline">Telecom / Data Privacy</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <p>Dutch telecom operator Odido confirmed customer-data exposure via social engineering and IT-impersonation tactics. The breach raises questions about data retention practices, customer-notification handling, and governance around identity-fraud exposure consequences.</p>
+            <dl class="finding-detail">
+                <dt>Vector</dt><dd>Social engineering / IT impersonation</dd>
+                <dt>Impact</dt><dd>Customer PII exposure, regulatory risk</dd>
+                <dt>Confidence</dt><dd>Medium — disclosed, scope clarifying</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- FINDING 4 -->
+    <div class="analysis-card">
+        <div class="analysis-card-header">
+            <div>
+                <div class="analysis-card-id">FUND-OPAQUE-2026</div>
+                <div class="analysis-card-title">OPAQUE Series B Funding — Confidential AI Platform</div>
+            </div>
+            <div class="analysis-card-badges">
+                <span class="badge badge-low">Low</span>
+                <span class="badge badge-outline">Capital Markets</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <p>OPAQUE raised $24 million in Series B funding for its confidential AI platform, reinforcing investor appetite for security positioned around AI governance, cryptographic verification, and sensitive-data workloads. Signal for market direction rather than immediate operational concern.</p>
+            <dl class="finding-detail">
+                <dt>Vector</dt><dd>N/A — market intelligence</dd>
+                <dt>Impact</dt><dd>Signals investment direction in AI security</dd>
+                <dt>Confidence</dt><dd>Confirmed — public funding announcement</dd>
+            </dl>
+        </div>
+    </div>
+
+    <!-- FINDING 5 -->
+    <div class="analysis-card">
+        <div class="analysis-card-header">
+            <div>
+                <div class="analysis-card-id">INFRA-CF-2026</div>
+                <div class="analysis-card-title">Cloudflare Newark Data Centre Outage</div>
+            </div>
+            <div class="analysis-card-badges">
+                <span class="badge badge-info">Info</span>
+                <span class="badge badge-outline">Infrastructure / Resilience</span>
+            </div>
+        </div>
+        <div class="analysis-card-body">
+            <p>Data centre incident at Cloudflare's Newark facility highlights third-party dependency risk and the importance of resilience runbooks for edge-delivered security services. No confirmed malicious cause but underscores concentration risk in cloud-delivered security infrastructure.</p>
+            <dl class="finding-detail">
+                <dt>Vector</dt><dd>Infrastructure failure / dependency</dd>
+                <dt>Impact</dt><dd>Service availability for edge security</dd>
+                <dt>Confidence</dt><dd>Low — cause under investigation</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<!-- ============ IMAGE BREAK ============ -->
+<div class="image-break">
+    <img src="rfa-conference.png" alt="Tech conference">
+    <div class="image-break-overlay"></div>
+    <div class="image-break-text">
+        <h3>Industry Notes & Adjacent Signals</h3>
+        <p>Meta 2FA harvesting, Canada Goose data publication, North Korea developer targeting</p>
+    </div>
+</div>
+
+<!-- ============ SECTION 3: RISK GAUGES (DARK) ============ -->
+<div class="midnight-band">
+    <div class="cyber-grid"></div>
+    <div class="midnight-band-inner">
+        <div class="section-label">Section III</div>
+        <h2 class="section-title-light">Coverage Volume Indicators</h2>
+        <div class="divider-light"></div>
+        <p class="body-text-light" style="margin-bottom: 2rem;">Article volume and topic clustering across the 24-hour coverage window, weighted by operational significance and practitioner engagement.</p>
+
+        <div class="scroll-hint">Swipe to explore</div>
+        <div class="gauge-row" id="gaugeSlider">
+            <!-- Gauge 1 -->
+            <div class="gauge-card severity-critical">
+                <svg class="gauge-svg" viewBox="0 0 140 80">
+                    <path class="gauge-track" d="M 15 75 A 55 55 0 0 1 125 75"/>
+                    <path class="gauge-fill" d="M 15 75 A 55 55 0 0 1 125 75" stroke="var(--red)" stroke-dasharray="173" stroke-dashoffset="17"/>
+                </svg>
+                <div class="gauge-value" style="color: var(--red);">12</div>
+                <div class="gauge-label">Browser Patch / Zero-Day</div>
+                <div class="gauge-sub">Primary cluster this cycle</div>
+            </div>
+            <!-- Gauge 2 -->
+            <div class="gauge-card severity-high">
+                <svg class="gauge-svg" viewBox="0 0 140 80">
+                    <path class="gauge-track" d="M 15 75 A 55 55 0 0 1 125 75"/>
+                    <path class="gauge-fill" d="M 15 75 A 55 55 0 0 1 125 75" stroke="var(--amber)" stroke-dasharray="173" stroke-dashoffset="43"/>
+                </svg>
+                <div class="gauge-value" style="color: var(--amber);">5</div>
+                <div class="gauge-label">Telecom Breach</div>
+                <div class="gauge-sub">Odido-focused coverage</div>
+            </div>
+            <!-- Gauge 3 -->
+            <div class="gauge-card severity-medium">
+                <svg class="gauge-svg" viewBox="0 0 140 80">
+                    <path class="gauge-track" d="M 15 75 A 55 55 0 0 1 125 75"/>
+                    <path class="gauge-fill" d="M 15 75 A 55 55 0 0 1 125 75" stroke="#f0c040" stroke-dasharray="173" stroke-dashoffset="69"/>
+                </svg>
+                <div class="gauge-value" style="color: #f0c040;">3</div>
+                <div class="gauge-label">Watch Items</div>
+                <div class="gauge-sub">Next 48-96 hours</div>
+            </div>
+            <!-- Gauge 4 -->
+            <div class="gauge-card severity-low">
+                <svg class="gauge-svg" viewBox="0 0 140 80">
+                    <path class="gauge-track" d="M 15 75 A 55 55 0 0 1 125 75"/>
+                    <path class="gauge-fill" d="M 15 75 A 55 55 0 0 1 125 75" stroke="var(--green)" stroke-dasharray="173" stroke-dashoffset="121"/>
+                </svg>
+                <div class="gauge-value" style="color: var(--green);">0</div>
+                <div class="gauge-label">People Moves</div>
+                <div class="gauge-sub">None reported this cycle</div>
+            </div>
+        </div>
+        <div class="scroll-dots" id="gaugeDots">
+            <button class="scroll-dot active" data-index="0"></button>
+            <button class="scroll-dot" data-index="1"></button>
+            <button class="scroll-dot" data-index="2"></button>
+            <button class="scroll-dot" data-index="3"></button>
+        </div>
+    </div>
+</div>
+
+<!-- ============ SECTION 4: DATA TABLE ============ -->
+<div class="editorial-wide">
+    <div class="section-label">Section IV</div>
+    <h2 class="section-title">48–96 Hour Watch Items</h2>
+    <div class="divider"></div>
+
+    <div class="table-scroll">
+        <table class="risk-table-light">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Expected By</th>
+                    <th>Focus</th>
+                    <th>Significance</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CVE-2026-2441 Defensive Artefacts</td>
+                    <td>19 Feb 2026</td>
+                    <td>IoCs, detections, mass-scanning visibility</td>
+                    <td>Patch verification and exploitation scope</td>
+                    <td><span class="badge badge-critical">Critical</span></td>
+                </tr>
+                <tr>
+                    <td>BeyondTrust Patch Availability</td>
+                    <td>16–19 Feb 2026</td>
+                    <td>Federal three-day deadline compliance</td>
+                    <td>Vendor patch readiness and downstream exposure</td>
+                    <td><span class="badge badge-high">High</span></td>
+                </tr>
+                <tr>
+                    <td>Odido Regulatory Follow-up</td>
+                    <td>17–24 Feb 2026</td>
+                    <td>Expanded impact clarification</td>
+                    <td>Data retention and notification governance</td>
+                    <td><span class="badge badge-medium">Medium</span></td>
+                </tr>
+                <tr>
+                    <td>Meta Extension 2FA Harvest</td>
+                    <td>Ongoing</td>
+                    <td>Chrome extension credential theft</td>
+                    <td>Business admin account compromise vector</td>
+                    <td><span class="badge badge-low">Low</span></td>
+                </tr>
+                <tr>
+                    <td>North Korea Graphalgo Campaign</td>
+                    <td>Monitoring</td>
+                    <td>Developer-targeted malicious packages</td>
+                    <td>Supply chain and developer environment risk</td>
+                    <td><span class="badge badge-info">Info</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ============ TWO-COL: TEXT + IMAGE (REVERSED) ============ -->
+<div class="two-col">
+    <div class="two-col-content two-col-dark">
+        <div class="section-label">Emerging Thread</div>
+        <h2 class="section-title">AI Security Expansion</h2>
+        <div class="divider-light"></div>
+        <p class="body-text" style="color: rgba(255,255,255,0.7);">A distinct and emerging thread this cycle is the targeting of AI agent configurations by infostealers — including tokens, API keys, and configuration files. This sits alongside broader operator tooling discussions around AI governance and cryptographic verification, suggesting that AI security is transitioning from theoretical concern to active operational priority.</p>
+    </div>
+    <div class="two-col-image" style="background-image: url('rfa-hero.png');">
+        <div class="two-col-image-overlay" style="background: linear-gradient(to left, transparent 60%, rgba(15,14,35,0.3) 100%);"></div>
+    </div>
+</div>
+
+<!-- ============ SECTION 5: BAR CHART ============ -->
+<div class="editorial-wide" style="background: var(--grey-bg); max-width: none;">
+    <div style="max-width: 1040px; margin: 0 auto;">
+        <div class="section-label">Section V</div>
+        <h2 class="section-title">Coverage Distribution by Category</h2>
+        <div class="divider"></div>
+
+        <div class="bar-chart-scroll">
+            <div class="bar-chart">
+                <div class="bar-row">
+                    <div class="bar-label">Browser Patch / Zero-Day</div>
+                    <div class="bar-track"><div class="bar-fill bar-fill-critical" style="width: 48%;"></div></div>
+                    <div class="bar-value">12 articles</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Telecom Breach Reporting</div>
+                    <div class="bar-track"><div class="bar-fill bar-fill-high" style="width: 20%;"></div></div>
+                    <div class="bar-value">5 articles</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Credential Theft / Infostealers</div>
+                    <div class="bar-track"><div class="bar-fill bar-fill-medium" style="width: 12%;"></div></div>
+                    <div class="bar-value">3 articles</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Capital Markets / Funding</div>
+                    <div class="bar-track"><div class="bar-fill bar-fill-low" style="width: 8%;"></div></div>
+                    <div class="bar-value">2 articles</div>
+                </div>
+                <div class="bar-row">
+                    <div class="bar-label">Infrastructure / Resilience</div>
+                    <div class="bar-track"><div class="bar-fill bar-fill-info" style="width: 12%;"></div></div>
+                    <div class="bar-value">3 articles</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ IMAGE BREAK 2 ============ -->
+<div class="image-break">
+    <img src="rfa-markets.png" alt="Market intelligence screens">
+    <div class="image-break-overlay"></div>
+    <div class="image-break-text">
+        <h3>Governance Shift in Progress</h3>
+        <p>Incident response moving from intrusion narrative toward data-retention policy</p>
+    </div>
+</div>
+
+<!-- ============ SECTION 6: SCENARIOS (DARK) ============ -->
+<div class="navy-band">
+    <div class="cyber-grid"></div>
+    <div class="navy-band-inner">
+        <div class="section-label">Section VI</div>
+        <h2 class="section-title-light">Forward-Looking Scenarios</h2>
+        <div class="divider-light"></div>
+        <p class="body-text-light" style="margin-bottom: 2rem;">Probability-weighted scenarios for the near-term operational environment, based on current intelligence threads and historical pattern analysis.</p>
+
+        <div class="scenario-grid">
+            <div class="scenario-card">
+                <div class="scenario-timeframe">Next 48 Hours</div>
+                <h4>CVE-2026-2441 Exploitation Expands Before Defensive Coverage</h4>
+                <p>Mass-scanning and secondary exploitation attempts emerge before enterprise patch rollouts achieve meaningful coverage, particularly in environments with complex Chromium dependency chains.</p>
+                <div class="scenario-probability">
+                    <div class="prob-bar"><div class="prob-fill" style="width: 68%;"></div></div>
+                    <span class="prob-value">68%</span>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-timeframe">Next 72 Hours</div>
+                <h4>BeyondTrust Deadline Drives Emergency Vendor Coordination</h4>
+                <p>Federal three-day deadline triggers emergency patch coordination between BeyondTrust, downstream vendors, and agency IT teams, potentially exposing inventory gaps and version uncertainty.</p>
+                <div class="scenario-probability">
+                    <div class="prob-bar"><div class="prob-fill" style="width: 52%;"></div></div>
+                    <span class="prob-value">52%</span>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-timeframe">Next 7 Days</div>
+                <h4>Odido Breach Scope Widens Under Regulatory Scrutiny</h4>
+                <p>Dutch regulatory follow-up reveals expanded scope of customer data exposure, triggering broader notification requirements and governance review across telecom sector data retention practices.</p>
+                <div class="scenario-probability">
+                    <div class="prob-bar"><div class="prob-fill" style="width: 35%;"></div></div>
+                    <span class="prob-value">35%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ============ SECTION 7: DEEP ANALYSIS (DARK CARDS ON MIDNIGHT) ============ -->
+<div class="midnight-band">
+    <div class="cyber-grid"></div>
+    <div class="midnight-band-inner">
+        <div class="section-label">Section VII</div>
+        <h2 class="section-title-light">Industry Activity & Adjacent Signals</h2>
+        <div class="divider-light"></div>
+
+        <!-- Dark table variant -->
+        <div class="table-scroll">
+            <table class="risk-table-editorial">
+                <thead>
+                    <tr>
+                        <th>Signal</th>
+                        <th>Sector</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Meta Business 2FA Extension Harvest</td>
+                        <td>Social Media / AdTech</td>
+                        <td>Credential Theft</td>
+                        <td>Active</td>
+                        <td>High — targets business admin accounts</td>
+                    </tr>
+                    <tr>
+                        <td>Canada Goose 600k Records Published</td>
+                        <td>Retail / Consumer</td>
+                        <td>Data Breach</td>
+                        <td>Disclosed</td>
+                        <td>Medium — threat actor data publication</td>
+                    </tr>
+                    <tr>
+                        <td>Spirent/ESA PNT Resilience Testing</td>
+                        <td>Aerospace / Defence</td>
+                        <td>Partnership</td>
+                        <td>Announced</td>
+                        <td>Low — resilience capability expansion</td>
+                    </tr>
+                    <tr>
+                        <td>OpenVPN 2.7 Security Release</td>
+                        <td>Network Infrastructure</td>
+                        <td>Software Update</td>
+                        <td>Released</td>
+                        <td>Medium — security improvement deployment</td>
+                    </tr>
+                    <tr>
+                        <td>Vista Equity AlertMedia Sale ($1bn+)</td>
+                        <td>Emergency Comms</td>
+                        <td>M&A</td>
+                        <td>Exploring</td>
+                        <td>Low — capital markets signal</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ============ SECTION 8: EDITORIAL CLOSING ============ -->
+<div class="editorial">
+    <div class="section-label">Section VIII</div>
+    <h2 class="section-title">Outlook and Attention Priorities</h2>
+    <div class="divider"></div>
+    <p class="body-text">The next 48–96 hours will be shaped by the interplay between patch deployment velocity and exploitation tempo. Chrome CVE-2026-2441 represents the highest immediate priority, with defensive artefact availability and mass-scanning visibility expected to clarify exploitation scope by 19 February. The BeyondTrust federal deadline creates a parallel urgency track that will test vendor readiness and agency inventory clarity.</p>
+    <p class="body-text">Beyond the immediate patch cycle, the Odido breach represents a governance test case — whether incident response communications can transition from intrusion narrative toward actionable data-retention and identity-fraud exposure management. The emergence of AI agent configuration targeting by infostealers warrants early attention from security operations teams managing automated tooling and API-key estates.</p>
+</div>
+
+<!-- ============ METHODOLOGY ============ -->
+<div class="editorial-wide" style="background: var(--grey-bg); max-width: none;">
+    <div style="max-width: 1040px; margin: 0 auto;">
+        <div class="section-label">Methodology</div>
+        <h2 class="section-title">Intelligence Collection & Analysis</h2>
+        <div class="divider"></div>
+        <div class="method-grid">
+            <dl class="method-item">
+                <dt>Source Collection</dt>
+                <dd>Continuous 24-hour automated monitoring of cybersecurity news feeds, vulnerability databases, regulatory announcements, and practitioner discussion forums across global sources.</dd>
+            </dl>
+            <dl class="method-item">
+                <dt>Clustering & Priority</dt>
+                <dd>Articles are clustered by topic and assessed for operational significance using volume, coherence, and practitioner engagement metrics to determine attention priority.</dd>
+            </dl>
+            <dl class="method-item">
+                <dt>Coverage Scope</dt>
+                <dd>UK-first bias with global scan. Coverage spans vulnerability disclosures, breach reports, regulatory actions, capital markets activity, and industry partnerships.</dd>
+            </dl>
+            <dl class="method-item">
+                <dt>Classification</dt>
+                <dd>Client Confidential. Prepared exclusively for RFA by Noah Wire Services. Distribution restricted to authorised personnel.</dd>
+            </dl>
+        </div>
+    </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<div class="footer">
+    <div class="cyber-grid"></div>
+    <div class="footer-inner">
+        <div class="footer-logo"><img src="rfa-logo-white.png" alt="RFA" style="height: 36px; width: auto; margin-bottom: 0.5rem;"></div>
+        <div class="footer-tagline">The Trusted Technology Partner</div>
+        <p>This report was prepared exclusively for RFA by Noah Wire Services. It contains proprietary intelligence analysis and is intended for internal use only.</p>
+        <p class="disclaimer">Classification: Client Confidential &nbsp;|&nbsp; Distribution: Restricted &nbsp;|&nbsp; &copy; 2026 Noah Wire Services</p>
+    </div>
+</div>
+
+<!-- ============ GAUGE SLIDER JS ============ -->
+<script>
+(function(){
+    function initSlider(sliderId, dotsId) {
+        const slider = document.getElementById(sliderId);
+        const dotsContainer = document.getElementById(dotsId);
+        if (!slider || !dotsContainer) return;
+        const dots = dotsContainer.querySelectorAll('.scroll-dot');
+        const cards = slider.children;
+        if (!cards.length) return;
+
+        function updateDots() {
+            const scrollLeft = slider.scrollLeft;
+            const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(slider).gap || 16);
+            const activeIndex = Math.round(scrollLeft / cardWidth);
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === activeIndex);
+            });
+        }
+
+        slider.addEventListener('scroll', updateDots, { passive: true });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(slider).gap || 16);
+                slider.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+            });
+        });
+
+        updateDots();
+    }
+
+    initSlider('gaugeSlider', 'gaugeDots');
+})();
+</script>
+
+</body>
+</html>
