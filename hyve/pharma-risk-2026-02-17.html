@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pharmaceutical Litigation Risk Outlook | Hyve Intelligence</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+:root {
+    --burgundy: #87284B;
+    --burgundy-dark: #6b1f3c;
+    --burgundy-deep: #A00037;
+    --salmon: #FFB9A0;
+    --salmon-light: #ffd4c4;
+    --peach: #FEEFE0;
+    --peach-mid: #FDE4D0;
+    --blush: #E3ACBB;
+    --dark: #222222;
+    --ink: #333333;
+    --ink-mid: #5a5a5a;
+    --ink-light: #888888;
+    --grey-bg: #f9f6f4;
+    --grey-light: #e8e4e0;
+    --grey-mid: #999;
+    --white: #ffffff;
+    --green: #2e7d52;
+    --green-light: #eef7f0;
+    --red-alert: #c44040;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* ─── TOP BAR ─── */
+.top-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--grey-light);
+    padding: 0.8rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.top-bar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+.top-bar-hex {
+    width: 38px; height: 38px;
+    background: var(--burgundy-deep);
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+.top-bar-hex span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--white);
+    margin-top: 1px;
+}
+.top-bar-brand {
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--burgundy);
+    letter-spacing: 0.01em;
+}
+.top-bar-brand-sub {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.65rem;
+    color: var(--ink-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: -0.1rem;
+}
+.top-bar-right {
+    font-size: 0.65rem;
+    color: var(--ink-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: var(--peach);
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+}
+
+/* ─── HERO ─── */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    background: var(--peach);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+}
+.hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    opacity: 0.2;
+}
+.hero-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(254,239,224,0.9) 0%, rgba(254,239,224,0.7) 50%, rgba(254,239,224,0.4) 100%);
+}
+.hero-content {
+    position: relative; z-index: 2;
+    max-width: 620px;
+    margin: 3.5rem 0 3.5rem 5%;
+    padding: 0;
+}
+.hero-content .label {
+    font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 1rem;
+    background: rgba(135,40,75,0.1);
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+.hero-content h1 {
+    font-size: 2.6rem; font-weight: 800;
+    font-style: italic;
+    line-height: 1.15; color: var(--burgundy);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+.hero-content .subtitle {
+    font-size: 0.92rem; color: var(--ink-mid);
+    line-height: 1.7; margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+.hero-content .meta-row {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 2px solid var(--salmon);
+}
+.hero-content .meta-item {
+    font-size: 0.65rem; color: var(--ink-light);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    font-weight: 500;
+}
+.hero-content .meta-item strong {
+    color: var(--dark); font-weight: 700;
+    display: block; font-size: 0.78rem;
+    margin-bottom: 0.1rem;
+}
+
+/* ─── STAT BAND ─── */
+.stat-band {
+    background: var(--burgundy);
+    padding: 2rem 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+.stat-band-item {
+    text-align: center;
+    color: var(--white);
+}
+.stat-band-num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+}
+.stat-band-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+/* ─── EDITORIAL ─── */
+.editorial {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+}
+.editorial-wide {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+}
+.statement {
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--burgundy);
+    margin-bottom: 1.2rem;
+}
+.body-text {
+    font-size: 0.92rem;
+    line-height: 1.85;
+    color: var(--ink-mid);
+    margin-bottom: 1.2rem;
+}
+.body-text strong { color: var(--ink); }
+
+/* ─── PULL QUOTE BAND ─── */
+.quote-band {
+    background: var(--peach);
+    color: var(--burgundy);
+    padding: 3.5rem 5%;
+    text-align: center;
+    position: relative;
+}
+.quote-band::before,
+.quote-band::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--salmon), var(--burgundy), var(--salmon));
+}
+.quote-band::before { top: 0; }
+.quote-band::after { bottom: 0; }
+.quote-band p {
+    font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 880px;
+    margin: 0 auto;
+}
+.quote-band p span { color: var(--burgundy-deep); font-weight: 800; }
+
+/* ─── IMAGE BREAK ─── */
+.image-break {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+.image-break img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+.image-break-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(135,40,75,0.05) 0%, rgba(135,40,75,0.55) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem 5%;
+}
+.image-break-text {
+    color: var(--white);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* ─── WARM SECTION ─── */
+.warm-section {
+    background: var(--grey-bg);
+    padding: 3.5rem 0;
+}
+
+/* ─── SECTION HEADERS ─── */
+.section-header {
+    margin-bottom: 1.8rem;
+}
+.section-header .section-label {
+    font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--burgundy); margin-bottom: 0.5rem;
+    background: rgba(135,40,75,0.08);
+    display: inline-block;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+}
+.section-header h2 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 800;
+    font-style: italic;
+    color: var(--burgundy);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+    margin-top: 0.5rem;
+}
+.section-header p {
+    font-size: 0.88rem; color: var(--ink-light);
+    max-width: 620px;
+}
+
+/* ─── BAR CHART ─── */
+.bar-chart { margin: 1.5rem 0; }
+.bar-row {
+    display: flex; align-items: center;
+    margin-bottom: 0.5rem; gap: 0.8rem;
+}
+.bar-label {
+    flex: 0 0 160px; font-size: 0.78rem;
+    font-weight: 600; color: var(--dark);
+    text-align: right;
+}
+.bar-track {
+    flex: 1; height: 24px;
+    background: var(--grey-light);
+    border-radius: 12px; overflow: hidden;
+    position: relative;
+}
+.bar-fill {
+    height: 100%; border-radius: 12px;
+    display: flex; align-items: center;
+    padding-left: 0.7rem;
+    font-size: 0.7rem; font-weight: 700;
+    color: var(--white);
+    transition: width 0.6s ease;
+}
+
+/* ─── RISK TABLE ─── */
+.risk-table {
+    width: 100%; border-collapse: collapse;
+    margin: 2rem 0;
+}
+.risk-table thead th {
+    text-align: left; padding: 0.7rem 1rem;
+    font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-light);
+    border-bottom: 2px solid var(--burgundy);
+}
+.risk-table tbody td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--grey-light);
+    font-size: 0.85rem;
+    vertical-align: middle;
+}
+.risk-table tbody tr:hover {
+    background: rgba(135,40,75,0.03);
+}
+.risk-name { font-weight: 600; color: var(--dark); }
+.risk-desc { font-size: 0.72rem; color: var(--ink-light); margin-top: 0.1rem; }
+.pct { font-weight: 800; font-style: italic; font-size: 1.05rem; }
+.pct-high { color: var(--burgundy); }
+.pct-mid { color: #c47a20; }
+.pct-low { color: var(--ink-light); }
+
+.dir-badge {
+    display: inline-block; padding: 0.18rem 0.6rem;
+    border-radius: 12px; font-size: 0.6rem; font-weight: 600;
+    letter-spacing: 0.03em; text-transform: uppercase;
+}
+.dir-rising { background: var(--burgundy); color: var(--white); }
+.dir-flat { background: var(--grey-light); color: var(--ink-mid); }
+.dir-conflicting { background: #c47a20; color: var(--white); }
+
+.tier-badge {
+    display: inline-block; padding: 0.12rem 0.5rem;
+    border-radius: 10px; font-size: 0.58rem; font-weight: 600;
+    letter-spacing: 0.03em;
+}
+.tier-1 { background: var(--dark); color: var(--white); }
+.tier-2 { background: var(--peach-mid); color: var(--burgundy); }
+.tier-3 { background: var(--grey-light); color: var(--ink-light); }
+
+/* ─── GAUGE SVG ─── */
+.gauge-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin: 2rem 0;
+}
+.gauge-card {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    border-radius: 12px;
+}
+.gauge-svg { width: 150px; height: 85px; margin: 0 auto 0.8rem; display: block; }
+.gauge-title {
+    font-size: 0.85rem; font-weight: 700;
+    font-style: italic;
+    margin-bottom: 0.15rem; color: var(--burgundy);
+}
+.gauge-sub {
+    font-size: 0.62rem; color: var(--grey-mid);
+    letter-spacing: 0.04em; text-transform: uppercase;
+}
+.gauge-badges { margin-top: 0.6rem; display: flex; justify-content: center; gap: 0.4rem; }
+
+/* ─── ANALYSIS CARDS ─── */
+.analysis-card {
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+.analysis-card-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--grey-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ac-title {
+    font-size: 1.05rem; font-weight: 700;
+    font-style: italic;
+    color: var(--burgundy);
+}
+.ac-subtitle {
+    font-size: 0.7rem; color: var(--ink-light);
+    margin-top: 0.2rem; font-style: normal;
+}
+.ac-pct {
+    font-size: 2.2rem; font-weight: 800;
+    font-style: italic;
+    line-height: 1;
+}
+.analysis-card-body {
+    padding: 1.5rem 2rem;
+}
+.analysis-card-body h4 {
+    font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--burgundy); margin-bottom: 0.6rem;
+    margin-top: 1.2rem;
+}
+.analysis-card-body h4:first-child { margin-top: 0; }
+.prop-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.82rem; margin-bottom: 0.5rem;
+}
+.prop-table td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid #f0ece8;
+    vertical-align: top;
+}
+.prop-table td:first-child { color: var(--ink-mid); }
+.prop-table td:nth-child(2),
+.prop-table td:nth-child(3) {
+    text-align: center; width: 60px;
+    font-weight: 700;
+}
+.calibration-box {
+    background: var(--peach); padding: 1rem 1.2rem;
+    border-left: 3px solid var(--burgundy);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.82rem; color: var(--ink-mid);
+    line-height: 1.7; margin-top: 0.8rem;
+}
+
+/* ─── SCENARIO ─── */
+.scenario-block { margin-bottom: 2.5rem; }
+.scenario-block h3 {
+    font-size: 1rem; font-weight: 700;
+    font-style: italic;
+    margin-bottom: 1rem; color: var(--burgundy);
+}
+.scenario-row {
+    display: flex; align-items: center;
+    gap: 0.8rem; margin-bottom: 0.5rem;
+}
+.scenario-text {
+    flex: 1; font-size: 0.82rem; color: var(--ink-mid);
+    line-height: 1.5;
+}
+.scenario-text.leading { font-weight: 600; color: var(--ink); }
+.scenario-bar {
+    width: 120px; height: 6px;
+    background: var(--grey-light);
+    border-radius: 3px; overflow: hidden;
+    flex-shrink: 0;
+}
+.scenario-bar-fill { height: 100%; border-radius: 3px; }
+.scenario-pct {
+    font-size: 0.82rem; font-weight: 700;
+    font-style: italic;
+    min-width: 36px; text-align: right;
+}
+.scenario-note {
+    font-size: 0.72rem; color: var(--grey-mid);
+    font-style: italic; margin-top: 0.6rem;
+    padding-top: 0.6rem; border-top: 1px solid var(--grey-light);
+}
+
+/* ─── TRIGGER CARDS ─── */
+.trigger-card { margin-bottom: 2rem; }
+.trigger-card h3 {
+    font-size: 1rem; font-weight: 700;
+    font-style: italic;
+    margin-bottom: 0.3rem; color: var(--burgundy);
+}
+.trigger-card .current {
+    font-size: 0.7rem; color: var(--grey-mid);
+    margin-bottom: 1rem;
+}
+.trigger-directions {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+.trigger-box {
+    padding: 1.2rem; font-size: 0.82rem;
+    line-height: 1.7; color: var(--ink-mid);
+    border-top: 3px solid;
+    border-radius: 0 0 10px 10px;
+}
+.trigger-box.up { background: var(--green-light); border-color: var(--green); }
+.trigger-box.down { background: #fef2f2; border-color: var(--red-alert); }
+.trigger-box .trigger-label {
+    font-size: 0.6rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+}
+.trigger-box.up .trigger-label { color: var(--green); }
+.trigger-box.down .trigger-label { color: var(--red-alert); }
+
+/* ─── METHODOLOGY ─── */
+.method-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+}
+.method-item {
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--salmon);
+    background: var(--white);
+    border-radius: 0 10px 10px 0;
+}
+.method-item dt {
+    font-size: 0.62rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--burgundy); margin-bottom: 0.4rem;
+}
+.method-item dd {
+    font-size: 0.82rem; color: var(--ink-mid);
+    line-height: 1.7;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+}
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--salmon), var(--burgundy), var(--salmon));
+}
+.footer-logo {
+    font-weight: 800; font-size: 1.1rem;
+    font-style: italic;
+    color: var(--white); margin-bottom: 0.5rem;
+}
+.footer-logo .accent { color: var(--salmon); font-style: normal; font-weight: 500; }
+.footer p { font-size: 0.72rem; line-height: 1.8; max-width: 600px; margin: 0 auto; }
+.footer .disclaimer {
+    font-size: 0.62rem; color: rgba(255,255,255,0.3);
+    margin-top: 1rem;
+}
+
+/* ─── SUMMARY BAR ─── */
+.summary-bar {
+    background: var(--burgundy);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    display: flex; gap: 2rem; flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+.summary-bar div {
+    font-size: 0.7rem; color: rgba(255,255,255,0.6);
+}
+.summary-bar div span {
+    color: var(--white); font-weight: 700;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+    .stat-band { grid-template-columns: repeat(2, 1fr); }
+    .hero-content { margin: 2rem 1rem; max-width: none; }
+    .trigger-directions { grid-template-columns: 1fr; }
+    .gauge-row { grid-template-columns: 1fr; }
+    .method-grid { grid-template-columns: 1fr; }
+    .editorial, .editorial-wide { padding: 2.5rem 1.2rem; }
+    .bar-label { flex: 0 0 100px; font-size: 0.72rem; }
+    .image-break { height: 200px; }
+}
+@media print {
+    .top-bar { position: static; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOP BAR ═══ -->
+<header class="top-bar">
+    <div class="top-bar-logo">
+        <div class="top-bar-hex"><span>Hyve</span></div>
+        <div>
+            <div class="top-bar-brand">Hyve</div>
+            <div class="top-bar-brand-sub">Intelligence</div>
+        </div>
+    </div>
+    <div class="top-bar-right">Risk Intelligence Report</div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+    <div class="hero-bg">
+        <img src="hero.png" alt="">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="label">Pharmaceutical Litigation Risk Intelligence</div>
+        <h1>Executive Panel Risk Outlook Summary</h1>
+        <p class="subtitle">Probability-scored risk assessment across 15 propositions spanning GLP-1 liability, mass-tort signals, litigation funding and regulatory horizon.</p>
+        <div class="meta-row">
+            <div class="meta-item"><strong>17 Feb 2026</strong> Report date</div>
+            <div class="meta-item"><strong>24 hours</strong> Horizon</div>
+            <div class="meta-item"><strong>Short-tail</strong> Underwriting</div>
+            <div class="meta-item"><strong>15</strong> Propositions</div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ STAT BAND ═══ -->
+<div class="stat-band">
+    <div class="stat-band-item">
+        <div class="stat-band-num">74%</div>
+        <div class="stat-band-label">Highest probability</div>
+    </div>
+    <div class="stat-band-item">
+        <div class="stat-band-num">15</div>
+        <div class="stat-band-label">Propositions scored</div>
+    </div>
+    <div class="stat-band-item">
+        <div class="stat-band-num">4</div>
+        <div class="stat-band-label">Rising signals</div>
+    </div>
+    <div class="stat-band-item">
+        <div class="stat-band-num">13</div>
+        <div class="stat-band-label">Contradiction signals</div>
+    </div>
+</div>
+
+<!-- ═══ PULL QUOTE ═══ -->
+<div class="quote-band">
+    <p>Four of 15 risk propositions show rising signals. <span>GLP-1 liability adjacency leads at 74%</span> &mdash; the highest probability score in this assessment cycle.</p>
+</div>
+
+<!-- ═══ EDITORIAL INTRO ═══ -->
+<div class="editorial">
+    <p class="statement">The pharmaceutical litigation landscape is entering a period of accelerated signal convergence. Three risk clusters now command attention.</p>
+    <p class="body-text"><strong>GLP-1 liability adjacency</strong> has risen to 74% probability for US federal consolidation within 90 days &mdash; the highest score in this assessment. Compounding channel disputes are driving discovery broadening, and plaintiff intake is scaling through consumer channels.</p>
+    <p class="body-text"><strong>Johnson &amp; Johnson mass-tort signals</strong> sit at 61%, with procedural rulings expected to increase settlement pressure. The evidence band remains wide (44&ndash;76%), reflecting live uncertainty around venue-specific developments.</p>
+    <p class="body-text"><strong>Third-party litigation funding disclosure</strong> is building momentum at 59%. State-level legislative activity and judicial case-management shifts are combining to push the probability upward.</p>
+</div>
+
+<!-- ═══ IMAGE BREAK ═══ -->
+<div class="image-break">
+    <img src="office.png" alt="">
+    <div class="image-break-overlay">
+        <div class="image-break-text">Hyve Intelligence &middot; Pharmaceutical Litigation Risk Monitor</div>
+    </div>
+</div>
+
+<!-- ═══ RISK DASHBOARD ═══ -->
+<div class="warm-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Risk Probability Dashboard</div>
+            <h2>Per-Risk Likelihood Matrix</h2>
+            <p>All 15 risk propositions ranked by assessed probability. Direction indicates whether the risk is becoming more likely, holding steady, or showing conflicting signals.</p>
+        </div>
+
+        <div class="bar-chart">
+            <div class="bar-row">
+                <div class="bar-label">GLP-1 Adjacency</div>
+                <div class="bar-track"><div class="bar-fill" style="width:74%;background:var(--burgundy)">74%</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">J&amp;J Mass-Tort</div>
+                <div class="bar-track"><div class="bar-fill" style="width:61%;background:#c47a20">61%</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">TPLF Disclosure</div>
+                <div class="bar-track"><div class="bar-fill" style="width:59%;background:#c47a20">59%</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">GLP-1 Injunction</div>
+                <div class="bar-track"><div class="bar-fill" style="width:54%;background:var(--salmon)"><span style="color:var(--burgundy)">54%</span></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">J&amp;J Venue Shift</div>
+                <div class="bar-track"><div class="bar-fill" style="width:46%;background:var(--blush)"><span style="color:var(--burgundy)">46%</span></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">TPLF Template</div>
+                <div class="bar-track"><div class="bar-fill" style="width:44%;background:var(--blush)"><span style="color:var(--burgundy)">44%</span></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">FDA Regulatory</div>
+                <div class="bar-track"><div class="bar-fill" style="width:41%;background:var(--grey-light)"><span style="color:var(--ink)">41%</span></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Coverage Drift</div>
+                <div class="bar-track"><div class="bar-fill" style="width:39%;background:var(--grey-light)"><span style="color:var(--ink)">39%</span></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Product Safety</div>
+                <div class="bar-track"><div class="bar-fill" style="width:37%;background:var(--grey-light)"><span style="color:var(--ink)">37%</span></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Claims AI</div>
+                <div class="bar-track"><div class="bar-fill" style="width:34%;background:var(--grey-light)"><span style="color:var(--ink)">34%</span></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Lit. Finance / Re</div>
+                <div class="bar-track"><div class="bar-fill" style="width:32%;background:var(--grey-light)"><span style="color:var(--ink-light)">32%</span></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Securities Fraud</div>
+                <div class="bar-track"><div class="bar-fill" style="width:31%;background:var(--grey-light)"><span style="color:var(--ink-light)">31%</span></div></div>
+            </div>
+        </div>
+
+        <table class="risk-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Risk Category</th>
+                    <th>Probability</th>
+                    <th>Direction</th>
+                    <th>Band</th>
+                    <th>Confidence</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td><div class="risk-name">GLP-1 Liability Adjacency</div><div class="risk-desc">US federal consolidation within 90 days</div></td><td><span class="pct pct-high">74%</span></td><td><span class="dir-badge dir-rising">Rising</span></td><td style="font-size:0.75rem;color:var(--ink-light)">63&ndash;83%</td><td><span class="tier-badge tier-1">Tier 1</span></td></tr>
+                <tr><td>2</td><td><div class="risk-name">J&amp;J Mass-Tort Signal</div><div class="risk-desc">Material court ruling within 30 days</div></td><td><span class="pct pct-mid">61%</span></td><td><span class="dir-badge dir-rising">Rising</span></td><td style="font-size:0.75rem;color:var(--ink-light)">44&ndash;76%</td><td><span class="tier-badge tier-2">Tier 2</span></td></tr>
+                <tr><td>3</td><td><div class="risk-name">TPLF Disclosure Pressure</div><div class="risk-desc">State-level disclosure rule within 90 days</div></td><td><span class="pct pct-mid">59%</span></td><td><span class="dir-badge dir-rising">Rising</span></td><td style="font-size:0.75rem;color:var(--ink-light)">51&ndash;69%</td><td><span class="tier-badge tier-2">Tier 2</span></td></tr>
+                <tr><td>4</td><td><div class="risk-name">GLP-1: Court-Ordered Injunction</div><div class="risk-desc">Preliminary injunction on compounded GLP-1</div></td><td><span class="pct pct-mid">54%</span></td><td><span class="dir-badge dir-rising">Rising</span></td><td style="font-size:0.75rem;color:var(--ink-light)">39&ndash;69%</td><td><span class="tier-badge tier-2">Tier 2</span></td></tr>
+                <tr><td>5</td><td><div class="risk-name">J&amp;J Venue-Specific Shift</div><div class="risk-desc">Procedural shift increasing claim inventory</div></td><td><span class="pct pct-low">46%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">44&ndash;76%</td><td><span class="tier-badge tier-2">Tier 2</span></td></tr>
+                <tr><td>6</td><td><div class="risk-name">TPLF: Standing Order/Template</div><div class="risk-desc">Case-management template requiring disclosure</div></td><td><span class="pct pct-low">44%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">28&ndash;59%</td><td><span class="tier-badge tier-2">Tier 2</span></td></tr>
+                <tr><td>7</td><td><div class="risk-name">FDA Regulatory Moves</div><div class="risk-desc">Observable action changing drug risk narratives</div></td><td><span class="pct pct-low">41%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">22&ndash;60%</td><td><span class="tier-badge tier-2">Tier 2</span></td></tr>
+                <tr><td>8</td><td><div class="risk-name">Coverage Interpretation Drift</div><div class="risk-desc">Development affecting pharma liability pricing</div></td><td><span class="pct pct-low">39%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">24&ndash;54%</td><td><span class="tier-badge tier-2">Tier 2</span></td></tr>
+                <tr><td>9</td><td><div class="risk-name">Product Safety Signals</div><div class="risk-desc">Consumer-safety action within 30 days</div></td><td><span class="pct pct-low">37%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">22&ndash;53%</td><td><span class="tier-badge tier-2">Tier 2</span></td></tr>
+                <tr><td>10</td><td><div class="risk-name">Claims Automation Litigation</div><div class="risk-desc">AI-driven claim decision development</div></td><td><span class="pct pct-low">34%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">20&ndash;50%</td><td><span class="tier-badge tier-2">Tier 2</span></td></tr>
+                <tr><td>11</td><td><div class="risk-name">Litigation Finance in Reinsurance</div><div class="risk-desc">Funding expands into re/insurance claims</div></td><td><span class="pct pct-low">32%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">17&ndash;49%</td><td><span class="tier-badge tier-3">Tier 3</span></td></tr>
+                <tr><td>12</td><td><div class="risk-name">Securities Fraud Filings</div><div class="risk-desc">Securities litigation intersects pharma issuers</div></td><td><span class="pct pct-low">31%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">16&ndash;48%</td><td><span class="tier-badge tier-3">Tier 3</span></td></tr>
+                <tr><td>13</td><td><div class="risk-name">Plaintiff Firm Strategy</div><div class="risk-desc">Coordinated filing in non-traditional category</div></td><td><span class="pct pct-low">29%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">14&ndash;46%</td><td><span class="tier-badge tier-3">Tier 3</span></td></tr>
+                <tr><td>14</td><td><div class="risk-name">SEC Litigation Chatter</div><div class="risk-desc">SEC enforcement shifts litigation cadence</div></td><td><span class="pct pct-low">27%</span></td><td><span class="dir-badge dir-flat">Flat</span></td><td style="font-size:0.75rem;color:var(--ink-light)">12&ndash;44%</td><td><span class="tier-badge tier-3">Tier 3</span></td></tr>
+                <tr><td>15</td><td><div class="risk-name">Single-Domain Suit Burst</div><div class="risk-desc">Legal-notice bursts translate to multi-source signals</div></td><td><span class="pct pct-low">23%</span></td><td><span class="dir-badge dir-conflicting">Conflicting</span></td><td style="font-size:0.75rem;color:var(--ink-light)">10&ndash;45%</td><td><span class="tier-badge tier-3">Tier 3</span></td></tr>
+            </tbody>
+        </table>
+
+        <div class="gauge-row">
+            <div class="gauge-card">
+                <svg class="gauge-svg" viewBox="0 0 160 90">
+                    <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFB9A0"/><stop offset="100%" stop-color="#87284B"/></linearGradient></defs>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="#e8e4e0" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round" stroke-dasharray="204" stroke-dashoffset="53"/>
+                    <text x="80" y="70" text-anchor="middle" font-family="Poppins, sans-serif" font-size="26" font-weight="800" font-style="italic" fill="#87284B">74%</text>
+                    <text x="80" y="87" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#999">63 &ndash; 83%</text>
+                </svg>
+                <div class="gauge-title">GLP-1 Liability</div>
+                <div class="gauge-sub">Federal consolidation &middot; 90 days</div>
+                <div class="gauge-badges"><span class="dir-badge dir-rising">Rising</span> <span class="tier-badge tier-1">Tier 1</span></div>
+            </div>
+            <div class="gauge-card">
+                <svg class="gauge-svg" viewBox="0 0 160 90">
+                    <defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#c47a20"/><stop offset="100%" stop-color="#c47a20"/></linearGradient></defs>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="#e8e4e0" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="url(#g2)" stroke-width="8" stroke-linecap="round" stroke-dasharray="204" stroke-dashoffset="80"/>
+                    <text x="80" y="70" text-anchor="middle" font-family="Poppins, sans-serif" font-size="26" font-weight="800" font-style="italic" fill="#c47a20">61%</text>
+                    <text x="80" y="87" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#999">44 &ndash; 76%</text>
+                </svg>
+                <div class="gauge-title">J&amp;J Mass-Tort</div>
+                <div class="gauge-sub">Court ruling &middot; 30 days</div>
+                <div class="gauge-badges"><span class="dir-badge dir-rising">Rising</span> <span class="tier-badge tier-2">Tier 2</span></div>
+            </div>
+            <div class="gauge-card">
+                <svg class="gauge-svg" viewBox="0 0 160 90">
+                    <defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FFB9A0"/><stop offset="100%" stop-color="#c47a20"/></linearGradient></defs>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="#e8e4e0" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M 15 80 A 65 65 0 0 1 145 80" fill="none" stroke="url(#g3)" stroke-width="8" stroke-linecap="round" stroke-dasharray="204" stroke-dashoffset="84"/>
+                    <text x="80" y="70" text-anchor="middle" font-family="Poppins, sans-serif" font-size="26" font-weight="800" font-style="italic" fill="#c47a20">59%</text>
+                    <text x="80" y="87" text-anchor="middle" font-family="Poppins, sans-serif" font-size="9" fill="#999">51 &ndash; 69%</text>
+                </svg>
+                <div class="gauge-title">TPLF Disclosure</div>
+                <div class="gauge-sub">State-level rule &middot; 90 days</div>
+                <div class="gauge-badges"><span class="dir-badge dir-rising">Rising</span> <span class="tier-badge tier-2">Tier 2</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ PULL QUOTE 2 ═══ -->
+<div class="quote-band">
+    <p>The GLP-1 risk cluster is now the single most closely watched proposition in pharmaceutical underwriting. <span>Evidence coherence is high, and the signal is accelerating.</span></p>
+</div>
+
+<!-- ═══ RISK ANALYSIS ═══ -->
+<div class="editorial-wide" style="padding-top:3.5rem;padding-bottom:1rem;">
+    <div class="section-header">
+        <div class="section-label">Risk Analysis</div>
+        <h2>Top-Tier Risk Assessment</h2>
+        <p>Detailed proposition analysis for the highest-probability risk categories, including calibration methodology and evidence quality.</p>
+    </div>
+</div>
+
+<div class="editorial-wide" style="padding-top:0;">
+    <div class="analysis-card" style="border-left: 4px solid var(--burgundy);">
+        <div class="analysis-card-header">
+            <div><div class="ac-title">GLP-1 Liability Adjacency</div><div class="ac-subtitle">Highest-probability risk &middot; Strong evidence cluster</div></div>
+            <div style="display:flex;align-items:center;gap:0.8rem;"><span class="dir-badge dir-rising">Rising</span><span class="tier-badge tier-1">Tier 1</span><span class="ac-pct" style="color:var(--burgundy)">74%</span></div>
+        </div>
+        <div class="analysis-card-body">
+            <h4>Propositions</h4>
+            <table class="prop-table">
+                <tr><td>US federal consolidation (JPML petition/transfer) within 90 days</td><td><strong>74%</strong></td><td>26%</td><td><span class="dir-badge dir-rising">Rising</span></td></tr>
+                <tr><td>Court-ordered preliminary injunction on compounded GLP-1 within 90 days</td><td><strong>54%</strong></td><td>46%</td><td><span class="dir-badge dir-rising">Rising</span></td></tr>
+            </table>
+            <h4>Calibration</h4>
+            <div class="calibration-box"><strong>P1:</strong> High-coherence cluster plus direct mechanism clarification; +13 adjustment from initial 61%<br><strong>P2:</strong> Enforcement-adjacent signal strengthened; +6 adjustment from initial 48%</div>
+        </div>
+    </div>
+
+    <div class="analysis-card" style="border-left: 4px solid #c47a20;">
+        <div class="analysis-card-header">
+            <div><div class="ac-title">J&amp;J Mass-Tort Signal</div><div class="ac-subtitle">High-density mass-tort cluster &middot; Moderate evidence</div></div>
+            <div style="display:flex;align-items:center;gap:0.8rem;"><span class="dir-badge dir-rising">Rising</span><span class="tier-badge tier-2">Tier 2</span><span class="ac-pct" style="color:#c47a20">61%</span></div>
+        </div>
+        <div class="analysis-card-body">
+            <h4>Propositions</h4>
+            <table class="prop-table">
+                <tr><td>Material court ruling or procedural order within 30 days</td><td><strong>61%</strong></td><td>39%</td><td><span class="dir-badge dir-rising">Rising (wide)</span></td></tr>
+                <tr><td>Venue-specific procedural shift increasing claim inventory within 90 days</td><td><strong>46%</strong></td><td>54%</td><td><span class="dir-badge dir-flat">Flat (wide)</span></td></tr>
+            </table>
+            <h4>Calibration</h4>
+            <div class="calibration-box">High-density mass-tort cluster with recent procedural anchor; widened band under validation silence. Band: 44&ndash;76% (moderate evidence).</div>
+        </div>
+    </div>
+
+    <div class="analysis-card" style="border-left: 4px solid var(--salmon);">
+        <div class="analysis-card-header">
+            <div><div class="ac-title">TPLF Disclosure Pressure</div><div class="ac-subtitle">Policy momentum &middot; State-law anchor</div></div>
+            <div style="display:flex;align-items:center;gap:0.8rem;"><span class="dir-badge dir-rising">Rising</span><span class="tier-badge tier-2">Tier 2</span><span class="ac-pct" style="color:#c47a20">59%</span></div>
+        </div>
+        <div class="analysis-card-body">
+            <h4>Propositions</h4>
+            <table class="prop-table">
+                <tr><td>US state-level litigation-funding disclosure rule advancement within 90 days</td><td><strong>59%</strong></td><td>41%</td><td><span class="dir-badge dir-rising">Rising</span></td></tr>
+                <tr><td>New standing order/case-management template requiring funding disclosure within 90 days</td><td><strong>44%</strong></td><td>56%</td><td><span class="dir-badge dir-flat">Flat</span></td></tr>
+            </table>
+            <h4>Calibration</h4>
+            <div class="calibration-box">Policy momentum plus state-law anchor; uplift applied. Bands: 51&ndash;69% and 28&ndash;59% respectively.</div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ SCENARIO OUTLOOK ═══ -->
+<div class="warm-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Scenario Outlook</div>
+            <h2>Pathway Distribution Analysis</h2>
+            <p>How each top risk might unfold. Scenario weights represent the relative probability of each pathway dominating.</p>
+        </div>
+
+        <div class="scenario-block">
+            <h3>GLP-1 Liability Adjacency</h3>
+            <div class="scenario-row"><span class="scenario-text leading">Compounding channel disputes trigger discovery broadening core theories</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:35%;background:var(--burgundy)"></div></div><span class="scenario-pct" style="color:var(--burgundy)">35%</span></div>
+            <div class="scenario-row"><span class="scenario-text">Plaintiff intake scales via consumer channels before consolidation</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:34%;background:#c47a20"></div></div><span class="scenario-pct">34%</span></div>
+            <div class="scenario-row"><span class="scenario-text">Adverse-event narratives fragment into multiple small suits</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:20%;background:var(--blush)"></div></div><span class="scenario-pct">20%</span></div>
+            <div class="scenario-row"><span class="scenario-text">Regulatory actions narrow marketing and reduce claim scalability</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:11%;background:var(--grey-light)"></div></div><span class="scenario-pct">11%</span></div>
+            <div class="scenario-note">Calibration shift: Compounding-driven discovery pathway increased from 28% (scaffold) to 35%.</div>
+        </div>
+
+        <div class="scenario-block">
+            <h3>J&amp;J Mass-Tort Signal</h3>
+            <div class="scenario-row"><span class="scenario-text leading">Procedural rulings increase settlement pressure and accelerate monetisation</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:34%;background:var(--burgundy)"></div></div><span class="scenario-pct" style="color:var(--burgundy)">34%</span></div>
+            <div class="scenario-row"><span class="scenario-text">Plaintiff advertising/referral networks expand inventory</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:30%;background:#c47a20"></div></div><span class="scenario-pct">30%</span></div>
+            <div class="scenario-row"><span class="scenario-text">Defence causation wins narrow theories and slow intake</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:20%;background:var(--blush)"></div></div><span class="scenario-pct">20%</span></div>
+            <div class="scenario-row"><span class="scenario-text">New product allegations emerge and compete for attention</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:16%;background:var(--grey-light)"></div></div><span class="scenario-pct">16%</span></div>
+            <div class="scenario-note">Calibration status: confirmed; no downstream redistribution trigger.</div>
+        </div>
+
+        <div class="scenario-block">
+            <h3>TPLF Disclosure Pressure</h3>
+            <div class="scenario-row"><span class="scenario-text leading">Disclosure rules tighten, slowing intake but maintaining claim interest</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:40%;background:var(--burgundy)"></div></div><span class="scenario-pct" style="color:var(--burgundy)">40%</span></div>
+            <div class="scenario-row"><span class="scenario-text">Rules remain fragmented; funders adapt via portfolio structures</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:32%;background:#c47a20"></div></div><span class="scenario-pct">32%</span></div>
+            <div class="scenario-row"><span class="scenario-text">Courts resist disclosure; funding becomes stronger amplifier</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:19%;background:var(--blush)"></div></div><span class="scenario-pct">19%</span></div>
+            <div class="scenario-row"><span class="scenario-text">Major adverse compliance event triggers self-regulation</span><div class="scenario-bar"><div class="scenario-bar-fill" style="width:9%;background:var(--grey-light)"></div></div><span class="scenario-pct">9%</span></div>
+            <div class="scenario-note">Calibration shift: Tightening-disclosure outcomes increased from 33% (scaffold) to 40%.</div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ TRIGGERS ═══ -->
+<div class="editorial-wide">
+    <div class="section-header">
+        <div class="section-label">Trigger Analysis</div>
+        <h2>What Would Change the Odds</h2>
+        <p>Key contradicting evidence and specific developments that would push each top risk higher or lower.</p>
+    </div>
+
+    <div class="trigger-card">
+        <h3>GLP-1 Liability Adjacency</h3>
+        <p class="current">Current estimate: 74% &middot; Rising &middot; Contradicting evidence IDs: 70, 74, 80</p>
+        <div class="trigger-directions">
+            <div class="trigger-box up"><div class="trigger-label">Upward pressure</div>A visible JPML petition or multiple coordinated federal filings within 14&ndash;30 days would push likelihood toward ~80%+</div>
+            <div class="trigger-box down"><div class="trigger-label">Downward pressure</div>Clear regulatory or judicial push channeling discovery away from compounding mechanisms, or early dismissal activity linked to the core mechanism, would materially reduce consolidation probability</div>
+        </div>
+    </div>
+
+    <div class="trigger-card">
+        <h3>J&amp;J Mass-Tort Signal</h3>
+        <p class="current">Current estimate: 61% &middot; Rising &middot; Contradicting evidence IDs: 74, 253</p>
+        <div class="trigger-directions">
+            <div class="trigger-box up"><div class="trigger-label">Upward pressure</div>Court-issued material procedural order (transfer, bellwether scheduling, broad discovery directive) in major venue would push estimate materially higher</div>
+            <div class="trigger-box down"><div class="trigger-label">Downward pressure</div>Publicly available indications of discovery constraints or lead plaintiff withdrawal would lower probability</div>
+        </div>
+    </div>
+
+    <div class="trigger-card">
+        <h3>TPLF Disclosure Pressure</h3>
+        <p class="current">Current estimate: 59% &middot; Rising &middot; Contradicting evidence IDs: 167, 203</p>
+        <div class="trigger-directions">
+            <div class="trigger-box up"><div class="trigger-label">Upward pressure</div>New state-law enactment or high-profile administration-led policy statement committing to disclosure timelines would push likelihood materially upward</div>
+            <div class="trigger-box down"><div class="trigger-label">Downward pressure</div>Fragmentation of legislative momentum or explicit judicial resistance to funding disclosure would lower near-term probability</div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ DECISION MATRIX ═══ -->
+<div class="warm-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Decision Matrix</div>
+            <h2>Integrated Risk Categories</h2>
+            <p>Summarised view mapping internal risk identifiers to likelihood and directional assessment for portfolio-level decisions.</p>
+        </div>
+
+        <table class="risk-table">
+            <thead><tr><th>Risk ID</th><th>Category</th><th>Likelihood</th><th>Direction</th></tr></thead>
+            <tbody>
+                <tr><td style="font-weight:700">IR-002</td><td>Mass Tort MDLs</td><td><span class="pct pct-high">74%</span></td><td><span class="dir-badge dir-rising">Rising</span></td></tr>
+                <tr><td style="font-weight:700">IR-001</td><td>Litigation Velocity</td><td><span class="pct pct-mid">61%</span></td><td><span class="dir-badge dir-rising">Rising</span></td></tr>
+                <tr><td style="font-weight:700">IR-003</td><td>Litigation Finance</td><td><span class="pct pct-mid">59%</span></td><td><span class="dir-badge dir-rising">Rising</span></td></tr>
+                <tr><td style="font-weight:700">IR-004</td><td>Regulatory Horizon</td><td><span class="pct pct-low">41%</span></td><td><span class="dir-badge dir-flat">Flat</span></td></tr>
+            </tbody>
+        </table>
+
+        <div class="summary-bar">
+            <div>Propositions scored: <span>15</span></div>
+            <div>Scenarios rendered: <span>3</span></div>
+            <div>Propositions blocked: <span>3</span></div>
+            <div>Contradiction signals: <span>13</span></div>
+            <div>Resolution outlook: <span>Present</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- ═══ METHODOLOGY ═══ -->
+<div class="editorial-wide" style="padding-bottom:2rem;">
+    <div class="section-header">
+        <div class="section-label">Methodology</div>
+        <h2>Score and Confidence Legend</h2>
+        <p>How to interpret the probability scores, direction bands, and confidence tiers used throughout this report.</p>
+    </div>
+    <div class="method-grid">
+        <div class="method-item"><dl><dt>Risk Probability</dt><dd>Assessed likelihood (0&ndash;100%) that a specific outcome will occur within the stated horizon. Higher numbers indicate stronger evidence pointing toward that outcome.</dd></dl></div>
+        <div class="method-item"><dl><dt>Scenario Outlook</dt><dd>Distribution across multiple possible pathways. Percentages represent relative likelihood of each pathway dominating; they sum to 100%.</dd></dl></div>
+        <div class="method-item"><dl><dt>Direction Band</dt><dd>Whether the risk is becoming more likely (rising), less likely (falling), or flat. Band width shows directional certainty.</dd></dl></div>
+        <div class="method-item"><dl><dt>Confidence Tier</dt><dd><strong>Tier 1</strong> = evidence directly addresses the question. <strong>Tier 2</strong> = adjacent evidence requiring inference. <strong>Tier 3</strong> = thin or indirect evidence.</dd></dl></div>
+    </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+    <div class="footer-logo">Hyve <span class="accent">Intelligence</span></div>
+    <p>Precision risk analysis for pharmaceutical underwriting &mdash; delivering probability-scored signals to support informed decision making.</p>
+    <p class="disclaimer">All predictions are probability-scored analytical signals, not guarantees. Pharmaceutical underwriting (short-tail) &middot; 24-hour horizon &middot; Report generated 17 February 2026</p>
+</footer>
+
+</body>
+</html>
