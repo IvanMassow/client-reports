@@ -64,21 +64,6 @@ body {
     50% { opacity: 0.7; }
 }
 
-/* Scan line effect */
-.scan-line {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--green), transparent);
-    animation: scanMove 6s linear infinite;
-    pointer-events: none;
-    opacity: 0.4;
-}
-@keyframes scanMove {
-    0% { top: 0; }
-    100% { top: 100%; }
-}
-
 /* --- TOP BAR --- */
 .top-bar {
     background: var(--midnight);
@@ -207,14 +192,35 @@ body {
     font-weight: 500;
 }
 
+/* --- REPORT TYPE BAND --- */
+.report-type-band {
+    background: var(--green);
+    padding: 1rem 2.5rem;
+    text-align: center;
+}
+.report-type-inner {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0.8rem; max-width: 900px; margin: 0 auto;
+}
+.report-type-icon { font-size: 1.4rem; }
+.report-type-label {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; color: var(--white);
+}
+.report-type-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(255,255,255,0.8);
+}
+
 /* --- SECTION: EXECUTIVE SUMMARY BANNER --- */
 .exec-banner {
-    background: var(--navy);
+    background: #f2f2f7;
     padding: 3rem 2.5rem;
     position: relative;
     overflow: hidden;
+    border-top: 3px solid var(--green);
 }
-.exec-banner .cyber-grid { opacity: 0.2; }
 .exec-banner-inner {
     max-width: 900px;
     margin: 0 auto;
@@ -222,11 +228,11 @@ body {
 }
 .exec-banner h2 {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.6rem; color: var(--white);
+    font-size: 1.6rem; color: var(--ink-dark);
     margin-bottom: 1.2rem;
 }
 .exec-banner p {
-    font-size: 0.95rem; color: rgba(255,255,255,0.7);
+    font-size: 0.95rem; color: var(--ink-body);
     line-height: 1.8;
     max-width: 750px;
 }
@@ -285,12 +291,12 @@ body {
 
 /* --- STAT BANNER --- */
 .stat-banner {
-    background: var(--midnight);
+    background: var(--white);
     padding: 2.5rem 2rem;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--grey-light);
 }
-.stat-banner .cyber-grid { background-size: 30px 30px; }
 .stat-row {
     display: flex;
     justify-content: center;
@@ -307,16 +313,15 @@ body {
 .stat-number {
     font-family: 'DM Serif Display', serif;
     font-size: 2.8rem;
-    color: var(--green);
+    color: var(--ink-dark);
     line-height: 1.1;
-    text-shadow: 0 0 30px var(--green-glow);
 }
 .stat-label {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--ink-mid);
+    color: var(--grey-mid);
     margin-top: 0.5rem;
     font-weight: 700;
 }
@@ -480,8 +485,8 @@ body {
     gap: 1.2rem;
 }
 .gauge-card {
-    background: var(--surface);
-    border: 1px solid var(--glass-border);
+    background: var(--white);
+    border: 1px solid var(--grey-light);
     padding: 1.5rem;
     text-align: center;
     position: relative;
@@ -502,7 +507,7 @@ body {
     margin: 0.5rem auto;
 }
 .gauge-track {
-    fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 8;
+    fill: none; stroke: #e5e5ef; stroke-width: 8;
     stroke-linecap: round;
 }
 .gauge-fill {
@@ -518,11 +523,11 @@ body {
     font-family: 'Space Mono', monospace;
     font-size: 0.62rem; font-weight: 700;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--ink-mid);
+    color: var(--ink-body);
     margin-top: 0.5rem;
 }
 .gauge-sub {
-    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+    font-size: 0.78rem; color: var(--grey-mid);
     margin-top: 0.3rem;
 }
 
@@ -536,21 +541,21 @@ body {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem; font-weight: 700;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--green);
+    color: var(--green-dark);
     padding: 0.8rem 1rem;
     border-bottom: 2px solid var(--green);
     text-align: left;
-    background: var(--surface);
+    background: var(--grey-bg);
 }
 .risk-table-editorial tbody td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--glass-border);
-    color: rgba(255,255,255,0.8);
-    background: var(--surface-light);
+    border-bottom: 1px solid var(--grey-light);
+    color: var(--ink-body);
+    background: var(--white);
     vertical-align: top;
 }
 .risk-table-editorial tbody tr:hover td {
-    background: rgba(0,158,115,0.05);
+    background: var(--green-subtle);
 }
 
 /* Light table variant */
@@ -622,12 +627,11 @@ body {
 
 /* --- NAVY BAND --- */
 .navy-band {
-    background: var(--navy);
+    background: #f2f2f7;
     padding: 3.5rem 2rem;
     position: relative;
     overflow: hidden;
 }
-.navy-band .cyber-grid { opacity: 0.15; }
 .navy-band-inner {
     max-width: 1040px;
     margin: 0 auto;
@@ -636,7 +640,7 @@ body {
 
 /* --- DARK BAND --- */
 .midnight-band {
-    background: var(--midnight);
+    background: #f7f7fc;
     padding: 3.5rem 2rem;
     position: relative;
     overflow: hidden;
@@ -683,8 +687,8 @@ body {
     gap: 1.5rem;
 }
 .scenario-card {
-    background: var(--surface);
-    border: 1px solid var(--glass-border);
+    background: var(--white);
+    border: 1px solid var(--grey-light);
     padding: 1.8rem;
     position: relative;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -708,23 +712,23 @@ body {
 }
 .scenario-card h4 {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem; color: var(--white);
+    font-size: 1.1rem; color: var(--ink-dark);
     margin-bottom: 0.8rem;
     line-height: 1.3;
 }
 .scenario-card p {
-    font-size: 0.85rem; color: rgba(255,255,255,0.65);
+    font-size: 0.85rem; color: var(--ink-body);
     line-height: 1.7;
 }
 .scenario-probability {
     display: flex; align-items: center; gap: 0.5rem;
     margin-top: 1rem;
     padding-top: 0.8rem;
-    border-top: 1px solid var(--glass-border);
+    border-top: 1px solid var(--grey-light);
 }
 .prob-bar {
     flex: 1; height: 4px;
-    background: rgba(255,255,255,0.08);
+    background: var(--grey-light);
     border-radius: 2px;
     overflow: hidden;
 }
@@ -852,7 +856,7 @@ body {
 .scroll-dot {
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.15);
+    background: var(--grey-light);
     border: none; cursor: pointer;
     transition: background 0.3s, transform 0.3s;
     padding: 0;
@@ -871,7 +875,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ink-mid);
+    color: var(--grey-mid);
 }
 .scroll-hint::after {
     content: ' \2192';
@@ -969,7 +973,7 @@ body {
 }
 @media print {
     .top-bar { position: static; }
-    .cyber-grid, .scan-line { display: none; }
+    .cyber-grid { display: none; }
 }
 </style>
 </head>
@@ -1002,7 +1006,6 @@ body {
     </div>
     <div class="hero-overlay"></div>
     <div class="cyber-grid"></div>
-    <div class="scan-line"></div>
     <div class="hero-card">
         <div class="hero-eyebrow">
             <span class="pulse-dot"></span>
@@ -1027,19 +1030,26 @@ body {
     </div>
 </div>
 
+<!-- ============ REPORT TYPE BAND ============ -->
+<div class="report-type-band">
+    <div class="report-type-inner">
+        <span class="report-type-icon">📈</span>
+        <span class="report-type-label">Trend &amp; Probability Report</span>
+        <span class="report-type-sub">Ransomware Landscape Assessment</span>
+    </div>
+</div>
+
 <!-- ============ EXECUTIVE SUMMARY BANNER ============ -->
 <div class="exec-banner">
-    <div class="cyber-grid"></div>
     <div class="exec-banner-inner">
         <div class="section-label" style="color: var(--green);">Executive Summary</div>
-        <h2 style="color: var(--white); font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1rem;">RMM Tool Abuse Accelerating &mdash; State-Crime Overlap Persistent at 50%</h2>
-        <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.95rem;">This cycle identifies 5 top trends with 7 high-conviction signals and 1 accelerating trend. RMM tool abuse (T-008) is the only accelerating trend with momentum at 70/100, as ransomware operators increasingly hide deployment inside legitimate remote administration flows. State-sponsored intrusion tradecraft (T-005) leads by trajectory at 78/100 but is stabilising. The system maintains informational lead on 7 of 9 monitored discourse threads, with only RMM tools and Apple CVEs showing active public awareness.</p>
+        <h2 style="color: var(--ink-dark); font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1rem;">RMM Tool Abuse Accelerating &mdash; State-Crime Overlap Persistent at 50%</h2>
+        <p style="color: var(--ink-body); line-height: 1.8; font-size: 0.95rem;">This cycle identifies 5 top trends with 7 high-conviction signals and 1 accelerating trend. RMM tool abuse (T-008) is the only accelerating trend with momentum at 70/100, as ransomware operators increasingly hide deployment inside legitimate remote administration flows. State-sponsored intrusion tradecraft (T-005) leads by trajectory at 78/100 but is stabilising. The system maintains informational lead on 7 of 9 monitored discourse threads, with only RMM tools and Apple CVEs showing active public awareness.</p>
     </div>
 </div>
 
 <!-- ============ KEY STATS BANNER ============ -->
 <div class="stat-banner">
-    <div class="cyber-grid"></div>
     <div class="stat-row">
         <div class="stat-item">
             <div class="stat-number">16</div>
@@ -1212,14 +1222,13 @@ body {
     </div>
 </div>
 
-<!-- ============ SECTION 3: RISK GAUGES (DARK) ============ -->
+<!-- ============ SECTION 3: RISK GAUGES (LIGHT) ============ -->
 <div class="midnight-band">
-    <div class="cyber-grid"></div>
     <div class="midnight-band-inner">
         <div class="section-label">Section III</div>
-        <h2 class="section-title-light">Top Predictions by Probability</h2>
-        <div class="divider-light"></div>
-        <p class="body-text-light" style="margin-bottom: 2rem;">Highest-probability event predictions from the calibrated dashboard, ranked by Yes% with directional momentum indicators.</p>
+        <h2 class="section-title">Top Predictions by Probability</h2>
+        <div class="divider"></div>
+        <p class="body-text" style="margin-bottom: 2rem;">Highest-probability event predictions from the calibrated dashboard, ranked by Yes% with directional momentum indicators.</p>
 
         <div class="scroll-hint">Swipe to explore</div>
         <div class="gauge-row" id="gaugeSlider">
@@ -1399,14 +1408,13 @@ body {
     </div>
 </div>
 
-<!-- ============ SECTION 6: SCENARIOS (DARK) ============ -->
+<!-- ============ SECTION 6: SCENARIOS (LIGHT) ============ -->
 <div class="navy-band">
-    <div class="cyber-grid"></div>
     <div class="navy-band-inner">
         <div class="section-label">Section VI</div>
-        <h2 class="section-title-light">Scenario Outlook</h2>
-        <div class="divider-light"></div>
-        <p class="body-text-light" style="margin-bottom: 2rem;">Probability-weighted outcome distributions for the three highest-conviction scenarios across the 90-day assessment horizon.</p>
+        <h2 class="section-title">Scenario Outlook</h2>
+        <div class="divider"></div>
+        <p class="body-text" style="margin-bottom: 2rem;">Probability-weighted outcome distributions for the three highest-conviction scenarios across the 90-day assessment horizon.</p>
 
         <div class="scenario-grid">
             <div class="scenario-card">
@@ -1440,15 +1448,13 @@ body {
     </div>
 </div>
 
-<!-- ============ SECTION 7: DEEP ANALYSIS (DARK CARDS ON MIDNIGHT) ============ -->
+<!-- ============ SECTION 7: SIGNAL ADJUSTMENTS (LIGHT TABLE) ============ -->
 <div class="midnight-band">
-    <div class="cyber-grid"></div>
     <div class="midnight-band-inner">
         <div class="section-label">Section VII</div>
-        <h2 class="section-title-light">Significant Signal Adjustments This Cycle</h2>
-        <div class="divider-light"></div>
+        <h2 class="section-title">Significant Signal Adjustments This Cycle</h2>
+        <div class="divider"></div>
 
-        <!-- Dark table variant -->
         <div class="table-scroll">
             <table class="risk-table-editorial">
                 <thead>

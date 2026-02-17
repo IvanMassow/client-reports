@@ -64,21 +64,6 @@ body {
     50% { opacity: 0.7; }
 }
 
-/* Scan line effect */
-.scan-line {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--green), transparent);
-    animation: scanMove 6s linear infinite;
-    pointer-events: none;
-    opacity: 0.4;
-}
-@keyframes scanMove {
-    0% { top: 0; }
-    100% { top: 100%; }
-}
-
 /* --- TOP BAR --- */
 .top-bar {
     background: var(--midnight);
@@ -207,14 +192,43 @@ body {
     font-weight: 500;
 }
 
+/* --- REPORT TYPE BANNER --- */
+.report-type-band {
+    background: var(--green);
+    padding: 1rem 2.5rem;
+    text-align: center;
+}
+.report-type-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.report-type-icon { font-size: 1.4rem; }
+.report-type-label {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--white);
+    font-weight: 400;
+}
+.report-type-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+}
+
 /* --- SECTION: EXECUTIVE SUMMARY BANNER --- */
 .exec-banner {
-    background: var(--navy);
+    background: #f2f2f7;
     padding: 3rem 2.5rem;
     position: relative;
     overflow: hidden;
+    border-top: 3px solid var(--green);
 }
-.exec-banner .cyber-grid { opacity: 0.2; }
 .exec-banner-inner {
     max-width: 900px;
     margin: 0 auto;
@@ -222,11 +236,11 @@ body {
 }
 .exec-banner h2 {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.6rem; color: var(--white);
+    font-size: 1.6rem; color: var(--ink-dark);
     margin-bottom: 1.2rem;
 }
 .exec-banner p {
-    font-size: 0.95rem; color: rgba(255,255,255,0.7);
+    font-size: 0.95rem; color: var(--ink-body);
     line-height: 1.8;
     max-width: 750px;
 }
@@ -257,7 +271,7 @@ body {
 }
 .section-title-light {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem; color: var(--white);
+    font-size: 1.8rem; color: var(--ink-dark);
     line-height: 1.25;
     margin-bottom: 1rem;
 }
@@ -270,7 +284,7 @@ body {
     width: 50px; height: 3px;
     background: var(--green);
     margin: 0 0 2rem;
-    opacity: 0.6;
+    opacity: 1;
 }
 .body-text {
     font-size: 0.95rem; color: var(--ink-body);
@@ -278,19 +292,19 @@ body {
     margin-bottom: 1.2rem;
 }
 .body-text-light {
-    font-size: 0.95rem; color: rgba(255,255,255,0.7);
+    font-size: 0.95rem; color: var(--ink-body);
     line-height: 1.8;
     margin-bottom: 1.2rem;
 }
 
 /* --- STAT BANNER --- */
 .stat-banner {
-    background: var(--midnight);
+    background: var(--white);
     padding: 2.5rem 2rem;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid var(--grey-light);
 }
-.stat-banner .cyber-grid { background-size: 30px 30px; }
 .stat-row {
     display: flex;
     justify-content: center;
@@ -307,16 +321,15 @@ body {
 .stat-number {
     font-family: 'DM Serif Display', serif;
     font-size: 2.8rem;
-    color: var(--green);
+    color: var(--ink-dark);
     line-height: 1.1;
-    text-shadow: 0 0 30px var(--green-glow);
 }
 .stat-label {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--ink-mid);
+    color: var(--grey-mid);
     margin-top: 0.5rem;
     font-weight: 700;
 }
@@ -480,8 +493,8 @@ body {
     gap: 1.2rem;
 }
 .gauge-card {
-    background: var(--surface);
-    border: 1px solid var(--glass-border);
+    background: var(--white);
+    border: 1px solid var(--grey-light);
     padding: 1.5rem;
     text-align: center;
     position: relative;
@@ -502,7 +515,7 @@ body {
     margin: 0.5rem auto;
 }
 .gauge-track {
-    fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 8;
+    fill: none; stroke: #e5e5ef; stroke-width: 8;
     stroke-linecap: round;
 }
 .gauge-fill {
@@ -512,17 +525,17 @@ body {
 }
 .gauge-value {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem; color: var(--white);
+    font-size: 1.8rem;
 }
 .gauge-label {
     font-family: 'Space Mono', monospace;
     font-size: 0.62rem; font-weight: 700;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--ink-mid);
+    color: var(--ink-body);
     margin-top: 0.5rem;
 }
 .gauge-sub {
-    font-size: 0.78rem; color: rgba(255,255,255,0.5);
+    font-size: 0.78rem; color: var(--grey-mid);
     margin-top: 0.3rem;
 }
 
@@ -536,17 +549,17 @@ body {
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem; font-weight: 700;
     letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--green);
+    color: var(--green-dark);
     padding: 0.8rem 1rem;
     border-bottom: 2px solid var(--green);
     text-align: left;
-    background: var(--surface);
+    background: var(--grey-bg);
 }
 .risk-table-editorial tbody td {
     padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--glass-border);
-    color: rgba(255,255,255,0.8);
-    background: var(--surface-light);
+    border-bottom: 1px solid var(--grey-light);
+    color: var(--ink-body);
+    background: var(--white);
     vertical-align: top;
 }
 .risk-table-editorial tbody tr:hover td {
@@ -629,12 +642,11 @@ body {
 
 /* --- NAVY BAND --- */
 .navy-band {
-    background: var(--navy);
+    background: #f2f2f7;
     padding: 3.5rem 2rem;
     position: relative;
     overflow: hidden;
 }
-.navy-band .cyber-grid { opacity: 0.15; }
 .navy-band-inner {
     max-width: 1040px;
     margin: 0 auto;
@@ -643,7 +655,7 @@ body {
 
 /* --- DARK BAND --- */
 .midnight-band {
-    background: var(--midnight);
+    background: #f7f7fc;
     padding: 3.5rem 2rem;
     position: relative;
     overflow: hidden;
@@ -690,8 +702,8 @@ body {
     gap: 1.5rem;
 }
 .scenario-card {
-    background: var(--surface);
-    border: 1px solid var(--glass-border);
+    background: var(--white);
+    border: 1px solid var(--grey-light);
     padding: 1.8rem;
     position: relative;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -715,23 +727,23 @@ body {
 }
 .scenario-card h4 {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem; color: var(--white);
+    font-size: 1.1rem; color: var(--ink-dark);
     margin-bottom: 0.8rem;
     line-height: 1.3;
 }
 .scenario-card p {
-    font-size: 0.85rem; color: rgba(255,255,255,0.65);
+    font-size: 0.85rem; color: var(--ink-body);
     line-height: 1.7;
 }
 .scenario-probability {
     display: flex; align-items: center; gap: 0.5rem;
     margin-top: 1rem;
     padding-top: 0.8rem;
-    border-top: 1px solid var(--glass-border);
+    border-top: 1px solid var(--grey-light);
 }
 .prob-bar {
     flex: 1; height: 4px;
-    background: rgba(255,255,255,0.08);
+    background: var(--grey-light);
     border-radius: 2px;
     overflow: hidden;
 }
@@ -859,7 +871,7 @@ body {
 .scroll-dot {
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.15);
+    background: var(--grey-light);
     border: none; cursor: pointer;
     transition: background 0.3s, transform 0.3s;
     padding: 0;
@@ -878,7 +890,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ink-mid);
+    color: var(--grey-mid);
 }
 .scroll-hint::after {
     content: ' \2192';
@@ -976,7 +988,7 @@ body {
 }
 @media print {
     .top-bar { position: static; }
-    .cyber-grid, .scan-line { display: none; }
+    .cyber-grid { display: none; }
 }
 </style>
 </head>
@@ -1009,7 +1021,6 @@ body {
     </div>
     <div class="hero-overlay"></div>
     <div class="cyber-grid"></div>
-    <div class="scan-line"></div>
     <div class="hero-card">
         <div class="hero-eyebrow">
             <span class="pulse-dot"></span>
@@ -1034,19 +1045,26 @@ body {
     </div>
 </div>
 
+<!-- ============ REPORT TYPE BANNER ============ -->
+<div class="report-type-band">
+    <div class="report-type-inner">
+        <span class="report-type-icon">🛡️</span>
+        <span class="report-type-label">Insurance Risk Intelligence Report</span>
+        <span class="report-type-sub">Risk Outlook &amp; Scenario Analysis</span>
+    </div>
+</div>
+
 <!-- ============ EXECUTIVE SUMMARY BANNER ============ -->
 <div class="exec-banner">
-    <div class="cyber-grid"></div>
     <div class="exec-banner-inner">
         <div class="section-label" style="color: var(--green);">Executive Summary</div>
-        <h2 style="color: var(--white); font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1rem;">Zero-Days and Patch Tempo Lead at 76% — Ransomware-Driven BI at 44% Scenario Weight</h2>
-        <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.95rem;">The calibrated risk resolution board identifies zero-days and patch tempo as the highest-probability risk at 76% likelihood (Rising, Tier 1). Breach disclosures and spillover follow at 73% (Rising, Tier 2). Within the scenario distribution, ransomware-driven business interruption commands the largest share of reported loss severity at 44%, up from an initial estimate of 38%. Cyber directives and compliance register at 58% but are decelerating.</p>
+        <h2 style="color: var(--ink-dark); font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1rem;">Zero-Days and Patch Tempo Lead at 76% — Ransomware-Driven BI at 44% Scenario Weight</h2>
+        <p style="color: var(--ink-body); line-height: 1.8; font-size: 0.95rem;">The calibrated risk resolution board identifies zero-days and patch tempo as the highest-probability risk at 76% likelihood (Rising, Tier 1). Breach disclosures and spillover follow at 73% (Rising, Tier 2). Within the scenario distribution, ransomware-driven business interruption commands the largest share of reported loss severity at 44%, up from an initial estimate of 38%. Cyber directives and compliance register at 58% but are decelerating.</p>
     </div>
 </div>
 
 <!-- ============ KEY STATS BANNER ============ -->
 <div class="stat-banner">
-    <div class="cyber-grid"></div>
     <div class="stat-row">
         <div class="stat-item">
             <div class="stat-number">76%</div>
@@ -1219,9 +1237,8 @@ body {
     </div>
 </div>
 
-<!-- ============ SECTION 3: RISK GAUGES (DARK) ============ -->
+<!-- ============ SECTION 3: RISK GAUGES (LIGHT) ============ -->
 <div class="midnight-band">
-    <div class="cyber-grid"></div>
     <div class="midnight-band-inner">
         <div class="section-label">Section III</div>
         <h2 class="section-title-light">Calibrated Probability Dashboard</h2>
@@ -1400,9 +1417,8 @@ body {
     </div>
 </div>
 
-<!-- ============ SECTION 6: SCENARIOS (DARK) ============ -->
+<!-- ============ SECTION 6: SCENARIOS (LIGHT) ============ -->
 <div class="navy-band">
-    <div class="cyber-grid"></div>
     <div class="navy-band-inner">
         <div class="section-label">Section VI</div>
         <h2 class="section-title-light">Zero-Days &amp; Patch Tempo — Scenario Outlook</h2>
@@ -1441,15 +1457,13 @@ body {
     </div>
 </div>
 
-<!-- ============ SECTION 7: DEEP ANALYSIS (DARK CARDS ON MIDNIGHT) ============ -->
+<!-- ============ SECTION 7: DEEP ANALYSIS (LIGHT TABLE) ============ -->
 <div class="midnight-band">
-    <div class="cyber-grid"></div>
     <div class="midnight-band-inner">
         <div class="section-label">Section VII</div>
         <h2 class="section-title-light">Resolution Board — Decision Matrix</h2>
         <div class="divider-light"></div>
 
-        <!-- Dark table variant -->
         <div class="table-scroll">
             <table class="risk-table-editorial">
                 <thead>
