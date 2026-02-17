@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cardew Group — Media Monitoring & Corporate Strategy Report — 15 February 2026</title>
+<title>Cardew Group — BIFFA Media Monitoring Report — 13 February 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ===== RESET & BASE ===== */
@@ -14,7 +14,7 @@ body {
   font-size: 17px;
   line-height: 1.7;
   color: #4a4f5c;
-  background: #FFF1E5;
+  background: #f0f3f8;
   padding-top: 56px;
   -webkit-font-smoothing: antialiased;
 }
@@ -50,1030 +50,1387 @@ a:hover { text-decoration: underline; }
 }
 .site-header__nav {
   display: flex;
-  gap: 1.4rem;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  gap: 1.8rem;
 }
-.site-header__nav::-webkit-scrollbar { display: none; }
 .site-header__nav a {
   font-family: 'Lato', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.7);
   text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
-  white-space: nowrap;
+  letter-spacing: 0.08em;
   transition: color 0.2s;
 }
 .site-header__nav a:hover { color: #fff; text-decoration: none; }
-.site-header__label {
+.site-header__client {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: #1a6b6e;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  white-space: nowrap;
+  background: rgba(26,107,110,0.12);
+  padding: 0.25rem 0.85rem;
+  border-radius: 3px;
 }
 
 /* ===== REPORT TYPE BANNER ===== */
 .report-banner {
   background: #1a6b6e;
-  text-align: center;
-  padding: 0.55rem 1rem;
-}
-.report-banner span {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: #fff;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 /* ===== HERO ===== */
 .hero {
   background: #262a33;
-  padding: 4rem 0 0;
+  padding: 4rem 2rem 3.5rem;
+  text-align: center;
 }
-.hero__category {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
+.hero__cat {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
   color: #1a6b6e;
   margin-bottom: 1.2rem;
 }
 .hero__headline {
   font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
   font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  line-height: 1.18;
   color: #fff;
-  max-width: 860px;
-  margin-bottom: 1.1rem;
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
 }
 .hero__subtitle {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 1.55;
-  color: rgba(255,255,255,0.62);
-  max-width: 740px;
-  margin-bottom: 1.3rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.6rem;
 }
 .hero__meta {
   font-family: 'Lato', sans-serif;
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.38);
-  letter-spacing: 0.03em;
-  margin-bottom: 2.5rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.8rem;
 }
-.hero__stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  padding-bottom: 3rem;
+.hero__pills {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
-.hero__stat-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 6px;
-  padding: 1.3rem 1.2rem;
-  text-align: center;
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  text-transform: uppercase;
 }
-.hero__stat-number {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: #fff;
-  line-height: 1.1;
+.pill--green { background: rgba(22,163,74,0.15); color: #16a34a; }
+.pill--grey { background: rgba(158,162,176,0.15); color: #9ea2b0; }
+.pill--amber { background: rgba(180,83,9,0.15); color: #b45309; }
+.pill--teal { background: rgba(26,107,110,0.15); color: #1a6b6e; }
+.pill--red { background: rgba(204,0,0,0.12); color: #cc0000; }
+.pill--blue { background: rgba(59,110,165,0.12); color: #3b6ea5; }
+.pill--gold { background: rgba(201,146,107,0.15); color: #c9926b; }
+.pill--dark { background: rgba(38,42,51,0.9); color: #fff; }
+.pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.pill-dot--green { background: #16a34a; }
+.pill-dot--grey { background: #9ea2b0; }
+.pill-dot--amber { background: #b45309; }
+.pill-dot--teal { background: #1a6b6e; }
+.pill-dot--blue { background: #3b6ea5; }
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 3.5rem 0;
+}
+.section--alt {
+  background: #f7f8fc;
+}
+.section--default {
+  background: #f0f3f8;
+}
+.section__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1a6b6e;
   margin-bottom: 0.4rem;
 }
-.hero__stat-label {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.52);
-  line-height: 1.4;
-}
-
-/* ===== SECTION LABELS ===== */
-.section-label {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.72rem;
+.section__title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #1a6b6e;
+  color: #262a33;
   margin-bottom: 0.6rem;
 }
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: #262a33;
-  line-height: 1.2;
-  margin-bottom: 0.8rem;
-}
-.section-intro {
-  font-size: 1.05rem;
-  color: #4a4f5c;
-  max-width: 740px;
-  margin-bottom: 2rem;
-  line-height: 1.7;
-}
-
-/* ===== BAND BACKGROUNDS ===== */
-.band-cream { background: #FFF1E5; padding: 4rem 0; }
-.band-grey { background: #f7f8fa; padding: 4rem 0; }
-.band-dark { background: #262a33; padding: 4rem 0; }
-
-/* ===== SECTION DIVIDERS ===== */
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 0 auto;
-  max-width: 1080px;
-  padding: 0 2rem;
-}
-.divider__line {
-  flex-grow: 1;
-  height: 1px;
-  background: #e0ddd8;
-}
-.divider__text {
+.section__subtitle {
   font-family: 'Lato', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #9ea2b0;
-  white-space: nowrap;
+  font-size: 1rem;
+  color: #4a4f5c;
+  margin-bottom: 2rem;
+  max-width: 760px;
+}
+.section__divider {
+  width: 50px;
+  height: 3px;
+  background: #1a6b6e;
+  margin-bottom: 2rem;
+  border: none;
 }
 
 /* ===== CARDS ===== */
 .card {
-  background: #fff;
-  border: 1px solid #eef0f3;
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
   border-radius: 6px;
-  padding: 1.5rem 2rem;
-  margin-bottom: 1rem;
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.2rem;
+  transition: box-shadow 0.2s;
 }
-.card--bordered {
-  border-left: 4px solid;
+.card:hover {
+  box-shadow: 0 4px 20px rgba(38,42,51,0.06);
 }
+.card--border-teal { border-left: 4px solid #1a6b6e; }
+.card--border-amber { border-left: 4px solid #b45309; }
+.card--border-blue { border-left: 4px solid #3b6ea5; }
+.card--border-grey { border-left: 4px solid #9ea2b0; }
+.card--border-gold { border-left: 4px solid #c9926b; }
+.card--border-green { border-left: 4px solid #16a34a; }
+.card--border-red { border-left: 4px solid #cc0000; }
 
-/* ===== COVERAGE / SIGNAL CARDS ===== */
-.signal-card {
-  background: #fff;
-  border: 1px solid #eef0f3;
-  border-radius: 6px;
-  padding: 1.5rem 2rem;
-  margin-bottom: 1rem;
-  border-left: 4px solid #1a6b6e;
-}
-.signal-card__pill {
-  display: inline-block;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.3rem 0.7rem;
-  border-radius: 10px;
-  color: #fff;
-  margin-bottom: 0.7rem;
-}
-.signal-card__headline {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-size: 1.08rem;
-  color: #262a33;
-  margin-bottom: 0.5rem;
-  line-height: 1.35;
-}
-.signal-card__body {
-  font-size: 0.95rem;
-  color: #4a4f5c;
-  line-height: 1.65;
-}
-
-/* ===== PULL QUOTES ===== */
-.pull-quote {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.35rem;
-  line-height: 1.5;
-  border-left: 3px solid #1a6b6e;
-  padding-left: 1.5rem;
-  max-width: 600px;
-  color: #262a33;
-  margin: 2rem 0;
-}
-
-/* ===== DROP CAP ===== */
-.drop-cap::first-letter {
-  font-family: 'Playfair Display', serif;
-  float: left;
-  font-size: 4rem;
-  line-height: 0.8;
-  padding-right: 0.5rem;
-  color: #1a6b6e;
-  font-weight: 700;
-}
-
-/* ===== TABLES ===== */
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-}
-.data-table thead th {
-  font-family: 'Lato', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #1a6b6e;
-  text-align: left;
-  padding: 0.8rem 1rem;
-  border-bottom: 2px solid #eef0f3;
-}
-.data-table tbody td {
-  font-size: 0.92rem;
-  color: #4a4f5c;
-  padding: 0.9rem 1rem;
-  border-bottom: 1px solid #eef0f3;
-  vertical-align: top;
-}
-.data-table tbody td:first-child {
-  font-weight: 700;
-  color: #262a33;
-  white-space: nowrap;
-}
-
-/* ===== BAR CHART ===== */
-.bar-chart { margin: 1.5rem 0; }
-.bar-chart__row {
+.card__pills {
   display: flex;
-  align-items: center;
+  gap: 0.5rem;
   margin-bottom: 0.8rem;
-  gap: 1rem;
+  flex-wrap: wrap;
 }
-.bar-chart__label {
-  font-size: 0.88rem;
-  color: #262a33;
-  min-width: 240px;
-  text-align: right;
-  font-weight: 400;
-}
-.bar-chart__bar-wrap {
-  flex: 1;
-  background: #eef0f3;
-  border-radius: 3px;
-  height: 28px;
-  overflow: hidden;
-}
-.bar-chart__bar {
-  height: 100%;
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  padding-left: 0.7rem;
-  transition: width 0.6s ease;
-}
-.bar-chart__value {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
+.card__headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #fff;
-}
-.bar-chart__source {
-  font-size: 0.72rem;
-  color: #9ea2b0;
-  margin-top: 0.5rem;
-}
-
-/* ===== INDUSTRY NOTES GRID ===== */
-.industry-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
-.industry-card {
-  background: #fff;
-  border: 1px solid #eef0f3;
-  border-radius: 6px;
-  padding: 1.3rem 1.6rem;
-  border-left: 4px solid #1a6b6e;
-}
-.industry-card__headline {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-size: 0.95rem;
   color: #262a33;
-  margin-bottom: 0.4rem;
-  line-height: 1.35;
-}
-.industry-card__body {
-  font-size: 0.88rem;
-  color: #4a4f5c;
-  line-height: 1.6;
-}
-
-/* ===== ANALYTICS SUMMARY CARDS ===== */
-.analytics-pair {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
-.analytics-card {
-  background: #fff;
-  border: 1px solid #eef0f3;
-  border-radius: 6px;
-  padding: 1.5rem 2rem;
-  text-align: center;
-}
-.analytics-card__number {
-  font-family: 'Space Mono', monospace;
-  font-weight: 700;
-  font-size: 2.6rem;
-  color: #262a33;
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.analytics-card__title {
-  font-weight: 700;
-  font-size: 0.92rem;
-  color: #262a33;
-  margin-bottom: 0.3rem;
-}
-.analytics-card__sub {
-  font-size: 0.78rem;
-  color: #9ea2b0;
+  margin-bottom: 0.6rem;
   line-height: 1.4;
 }
-
-/* ===== ENTITY BUBBLES ===== */
-.entity-bubbles {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem 0;
-}
-.entity-bubble {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.6rem;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  line-height: 1.15;
-  padding: 0.3rem;
-}
-
-/* ===== WATCH LIST ===== */
-.watch-list { list-style: none; padding: 0; }
-.watch-list li {
-  padding: 0.6rem 0 0.6rem 1.4rem;
-  position: relative;
-  font-size: 1rem;
-  color: #4a4f5c;
+.card__body {
+  font-size: 0.92rem;
   line-height: 1.65;
+  color: #4a4f5c;
+  margin-bottom: 0.8rem;
 }
-.watch-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 1rem;
+.card__source {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: #9ea2b0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ===== PULL QUOTE ===== */
+.pull-quote {
+  border-left: 3px solid #1a6b6e;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.8rem;
+  background: rgba(26,107,110,0.03);
+  border-radius: 0 4px 4px 0;
+}
+.pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #262a33;
+}
+
+/* ===== FLASHPOINT ===== */
+.flashpoint {
+  background: rgba(180,83,9,0.06);
+  border: 1px solid rgba(180,83,9,0.18);
+  border-left: 5px solid #b45309;
+  border-radius: 6px;
+  padding: 2rem 2rem;
+  margin-bottom: 1.2rem;
+}
+.flashpoint__header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b45309;
+  margin-bottom: 0.5rem;
+}
+.flashpoint__pills {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.flashpoint__headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #262a33;
+  margin-bottom: 0.7rem;
+  line-height: 1.4;
+}
+.flashpoint__body {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #4a4f5c;
+  margin-bottom: 0.8rem;
+}
+.flashpoint__source {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: #9ea2b0;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ===== MONITORING LANES ===== */
+.lanes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+.lane {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 5px;
+  padding: 0.85rem 1.2rem;
+}
+.lane__name {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #262a33;
+}
+.lane__status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: #4a4f5c;
+}
+.lane__dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #1a6b6e;
 }
+.lane__dot--teal { background: #1a6b6e; }
+.lane__dot--blue { background: #3b6ea5; }
+.lane__dot--green { background: #16a34a; }
 
-/* ===== DIAGNOSTICS ===== */
-.diagnostics {
+/* ===== STAT CARDS ===== */
+.stats-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  margin: 2rem 0;
+  margin-bottom: 1.5rem;
 }
-.diag-box {
-  background: #fff;
-  border: 1px solid #eef0f3;
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
   border-radius: 6px;
-  padding: 1.2rem;
+  padding: 1.5rem;
   text-align: center;
 }
-.diag-box__number {
+.stat-card__number {
   font-family: 'Space Mono', monospace;
+  font-size: 2.2rem;
   font-weight: 700;
-  font-size: 1.8rem;
-  color: #262a33;
+  color: #1a6b6e;
   line-height: 1;
+  margin-bottom: 0.3rem;
 }
-.diag-box__label {
+.stat-card__label {
+  font-family: 'Lato', sans-serif;
   font-size: 0.78rem;
   color: #9ea2b0;
-  margin-top: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ===== DEPARTMENT CARDS ===== */
+.dept-card {
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 6px;
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1rem;
+}
+.dept-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.dept-card__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #262a33;
+}
+.dept-card__badge {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.dept-card__badge--teal { background: rgba(26,107,110,0.12); color: #1a6b6e; }
+.dept-card__badge--blue { background: rgba(59,110,165,0.12); color: #3b6ea5; }
+.dept-card__badge--gold { background: rgba(201,146,107,0.15); color: #c9926b; }
+.dept-card__badge--navy { background: rgba(38,42,51,0.1); color: #262a33; }
+
+.dept-card ul {
+  list-style: none;
+  padding: 0;
+}
+.dept-card li {
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #4a4f5c;
+  border-bottom: 1px solid #e2e6ed;
+}
+.dept-card li:last-child { border-bottom: none; }
+.dept-card li::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+  vertical-align: middle;
+}
+.dept-card--teal li::before { background: #1a6b6e; }
+.dept-card--navy li::before { background: #262a33; }
+.dept-card--gold li::before { background: #c9926b; }
+.dept-card--blue li::before { background: #3b6ea5; }
+
+.dept-clear {
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 6px;
+  padding: 1.5rem 1.8rem;
+  margin-top: 1.2rem;
+}
+.dept-clear__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #16a34a;
+  margin-bottom: 0.8rem;
+}
+.dept-clear ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem;
+}
+.dept-clear li {
+  font-size: 0.85rem;
+  color: #9ea2b0;
+  padding: 0.3rem 0;
+}
+.dept-clear li::before {
+  content: '\2713';
+  color: #16a34a;
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+/* ===== COMPETITOR LANDSCAPE ===== */
+.competitor-stable {
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 6px;
+  padding: 1.3rem 1.8rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.competitor-stable__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #16a34a;
+  flex-shrink: 0;
+}
+.competitor-stable__text {
+  font-size: 0.92rem;
+  color: #4a4f5c;
+}
+.competitor-stable__label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #262a33;
+}
+
+/* ===== DECISION MATRIX TABLE ===== */
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.matrix-table th {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9ea2b0;
+  background: #f7f8fc;
+  padding: 0.85rem 1.2rem;
+  text-align: left;
+  border-bottom: 2px solid #d0d5de;
+}
+.matrix-table td {
+  padding: 1rem 1.2rem;
+  font-size: 0.9rem;
+  color: #4a4f5c;
+  border-bottom: 1px solid #e2e6ed;
+}
+.matrix-table tr:last-child td { border-bottom: none; }
+.matrix-table td:first-child {
+  font-weight: 700;
+  color: #262a33;
+}
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.badge--amber { background: rgba(180,83,9,0.12); color: #b45309; }
+.badge--green { background: rgba(22,163,74,0.12); color: #16a34a; }
+.badge--red { background: rgba(204,0,0,0.12); color: #cc0000; }
+
+/* ===== EVIDENCE TABLE ===== */
+.evidence-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.evidence-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 6px;
+  overflow: hidden;
+  font-size: 0.82rem;
+}
+.evidence-table th {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9ea2b0;
+  background: #f7f8fc;
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  border-bottom: 2px solid #d0d5de;
+  white-space: nowrap;
+}
+.evidence-table td {
+  padding: 0.6rem 0.9rem;
+  color: #4a4f5c;
+  border-bottom: 1px solid #e2e6ed;
+  vertical-align: top;
+}
+.evidence-table tr:hover { background: #f7f8fc; }
+.evidence-table tr:last-child td { border-bottom: none; }
+.evidence-table td:first-child {
+  font-weight: 600;
+  color: #262a33;
+  min-width: 240px;
+}
+
+/* ===== ENTITY SUMMARY ===== */
+.entity-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.entity-card {
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 6px;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.entity-card__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #262a33;
+  margin-bottom: 0.2rem;
+}
+.entity-card__status {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.entity-card__count {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* ===== EVIDENCE ROOM SUBSECTIONS ===== */
+.evidence-sub {
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 6px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 0.8rem;
+}
+.evidence-sub__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #262a33;
+  margin-bottom: 0.4rem;
+}
+.evidence-sub__body {
+  font-size: 0.88rem;
+  color: #4a4f5c;
+}
+.evidence-stable {
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-radius: 6px;
+  padding: 1.2rem 1.5rem;
+  margin-top: 1rem;
+}
+.evidence-stable__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #9ea2b0;
+  margin-bottom: 0.6rem;
+}
+.evidence-stable ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.2rem;
+}
+.evidence-stable li {
+  font-size: 0.82rem;
+  color: #9ea2b0;
+  padding: 0.2rem 0;
+}
+.evidence-stable li::before {
+  content: '\2014';
+  margin-right: 0.4rem;
+}
+
+/* ===== TREND CARDS ===== */
+.theme-card {
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-left: 4px solid #1a6b6e;
+  border-radius: 6px;
+  padding: 1rem 1.3rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.92rem;
+  color: #262a33;
+  font-weight: 600;
+}
+.watch-list {
+  list-style: none;
+  padding: 0;
+}
+.watch-list li {
+  padding: 0.55rem 0;
+  font-size: 0.9rem;
+  color: #4a4f5c;
+  border-bottom: 1px solid #e2e6ed;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.watch-list li:last-child { border-bottom: none; }
+.watch-list__num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1a6b6e;
+  min-width: 1.5rem;
 }
 
 /* ===== FOOTER ===== */
 .site-footer {
   background: #262a33;
-  padding: 3rem 0 2rem;
+  padding: 3rem 2rem 2rem;
   text-align: center;
 }
 .site-footer__brand {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   letter-spacing: 0.18em;
   color: #fff;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
 }
-.site-footer__tagline {
-  font-size: 0.85rem;
+.site-footer__desc {
+  font-size: 0.82rem;
   color: rgba(255,255,255,0.5);
-  margin-bottom: 1.5rem;
-  max-width: 500px;
+  margin-bottom: 1.2rem;
+  max-width: 560px;
   margin-left: auto;
   margin-right: auto;
-}
-.site-footer hr {
-  border: none;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  margin: 1.5rem 0;
 }
 .site-footer__nav {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  flex-wrap: wrap;
   margin-bottom: 1.5rem;
 }
 .site-footer__nav a {
-  font-size: 0.72rem;
-  font-weight: 400;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: rgba(255,255,255,0.45);
-  transition: color 0.2s;
 }
 .site-footer__nav a:hover { color: #fff; text-decoration: none; }
 .site-footer__legal {
   font-size: 0.72rem;
   color: rgba(255,255,255,0.3);
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 640px;
+  margin: 0 auto 0.8rem;
+  line-height: 1.6;
+}
+.site-footer__version {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.2);
 }
 
-/* ===== BACKGROUND MONITORING CARDS ===== */
-.bg-card {
-  background: #fff;
-  border: 1px solid #eef0f3;
+/* ===== POLICY CARDS ===== */
+.policy-card {
+  background: #ffffff;
+  border: 1px solid #e2e6ed;
+  border-left: 4px solid #1a6b6e;
   border-radius: 6px;
-  padding: 1.3rem 1.8rem;
-  margin-bottom: 0.8rem;
-}
-.bg-card__headline {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #262a33;
-  margin-bottom: 0.3rem;
-}
-.bg-card__source {
-  font-size: 0.78rem;
-  color: #9ea2b0;
-}
-
-/* ===== CONTEXT SECTION ===== */
-.context-text {
-  max-width: 740px;
-  margin-bottom: 1.5rem;
-  line-height: 1.75;
-}
-
-/* ===== PRINT STYLES ===== */
-@media print {
-  .site-header { position: static; }
-  body { padding-top: 0; background: #fff; }
-  .band-cream, .band-grey { background: #fff; }
-  .report-banner { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1rem;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+  body { font-size: 15px; }
   .site-header { padding: 0 1rem; }
-  .site-header__nav { gap: 1rem; }
+  .site-header__nav {
+    overflow-x: auto;
+    gap: 1rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .site-header__nav a { font-size: 0.7rem; white-space: nowrap; }
   .container { padding: 0 1rem; }
-  .hero__stats { grid-template-columns: repeat(2, 1fr); }
-  .industry-grid { grid-template-columns: 1fr; }
-  .analytics-pair { grid-template-columns: 1fr; }
-  .diagnostics { grid-template-columns: repeat(2, 1fr); }
-  .bar-chart__label { min-width: 140px; font-size: 0.78rem; }
-  .data-table { font-size: 0.85rem; }
-  .data-table tbody td:first-child { white-space: normal; }
-  .pull-quote { font-size: 1.15rem; }
-  .hero { padding: 2.5rem 0 0; }
-  .band-cream, .band-grey { padding: 2.5rem 0; }
-  .entity-bubbles { gap: 0.5rem; }
-}
-@media (max-width: 480px) {
-  .hero__stats { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
-  .diagnostics { grid-template-columns: 1fr 1fr; }
-  .site-header__label { display: none; }
+  .hero__headline { font-size: 2.4rem; }
+  .hero__subtitle { font-size: 1rem; }
+  .section { padding: 2.5rem 0; }
+  .section__title { font-size: 1.4rem; }
+  .lanes-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .entity-row { grid-template-columns: 1fr; }
+  .dept-clear ul { grid-template-columns: 1fr; }
+  .evidence-stable ul { grid-template-columns: 1fr; }
+  .evidence-wrap { margin: 0 -1rem; padding: 0 1rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== FIXED HEADER ===== -->
 <header class="site-header">
   <div class="site-header__brand">Cardew Group</div>
   <nav class="site-header__nav">
+    <a href="#dashboard">Dashboard</a>
+    <a href="#coverage">Coverage</a>
     <a href="#intelligence">Intelligence</a>
-    <a href="#people-moves">People Moves</a>
-    <a href="#gaining-attention">Gaining Attention</a>
-    <a href="#industry-notes">Industry Notes</a>
-    <a href="#analytics">Analytics</a>
-    <a href="#what-to-watch">What to Watch</a>
-    <a href="#background">Background</a>
+    <a href="#landscape">Landscape</a>
+    <a href="#evidence">Evidence</a>
   </nav>
-  <div class="site-header__label">Client Confidential</div>
+  <div class="site-header__client">BIFFA</div>
 </header>
 
 <!-- ===== REPORT TYPE BANNER ===== -->
 <div class="report-banner">
-  <span>Media Monitoring &amp; Corporate Strategy Report &mdash; Strategic Communications Intelligence</span>
+  &#x1F4CA; Media Monitoring &amp; Corporate Strategy Report &mdash; BIFFA
 </div>
 
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="container">
-    <div class="hero__category">Strategic Communications Intelligence Brief</div>
-    <h1 class="hero__headline">Regulators Punish Process Failures While Holding Companies Reshuffle Leadership</h1>
-    <p class="hero__subtitle">Compliance mechanics and organisational churn dominate the comms-relevant risk surface across UK, Europe, and the US.</p>
-    <div class="hero__meta">Sunday 15 February 2026 &middot; UK / Europe / US &middot; v3.4-MI</div>
-    <div class="hero__stats">
-      <div class="hero__stat-card">
-        <div class="hero__stat-number">&pound;473k</div>
-        <div class="hero__stat-label">CMA fine for a procedural lapse</div>
-      </div>
-      <div class="hero__stat-card">
-        <div class="hero__stat-number">3</div>
-        <div class="hero__stat-label">Major leadership changes in 24 hours</div>
-      </div>
-      <div class="hero__stat-card">
-        <div class="hero__stat-number">13</div>
-        <div class="hero__stat-label">Articles in two dominant coverage clusters</div>
-      </div>
-      <div class="hero__stat-card">
-        <div class="hero__stat-number">6</div>
-        <div class="hero__stat-label">Priority intelligence items</div>
-      </div>
+    <p class="hero__cat">Confidential Intelligence Briefing</p>
+    <h1 class="hero__headline">BIFFA</h1>
+    <p class="hero__subtitle">Media Monitoring &amp; Strategy Update &mdash; 72-Hour Window</p>
+    <p class="hero__meta">13 February 2026 &middot; UK Geography &middot; Primary focus: last 24 hours</p>
+    <div class="hero__pills">
+      <span class="pill pill--green"><span class="pill-dot pill-dot--green"></span> Net Risk: Stable</span>
+      <span class="pill pill--grey"><span class="pill-dot pill-dot--grey"></span> Market Pulse: Quiet</span>
+      <span class="pill pill--amber"><span class="pill-dot pill-dot--amber"></span> Policy: Active</span>
     </div>
   </div>
 </section>
 
-<!-- ===== DIVIDER ===== -->
-<div class="divider" style="padding-top:2rem;padding-bottom:0;">
-  <span class="divider__line"></span>
-  <span class="divider__text">Priority Intelligence</span>
-  <span class="divider__line"></span>
-</div>
-
-<!-- ===== SECTION: PRIORITY INTELLIGENCE ===== -->
-<section id="intelligence" class="band-cream">
+<!-- ===== SECTION 1: EXECUTIVE BRIEF ===== -->
+<section class="section section--alt" id="dashboard">
   <div class="container">
-    <div class="section-label">Priority Intelligence</div>
-    <h2 class="section-title">Today&rsquo;s Signals</h2>
+    <p class="section__label">Section 1</p>
+    <h2 class="section__title">Executive Brief</h2>
+    <hr class="section__divider">
 
-    <blockquote class="pull-quote">
-      Procedural lapses are becoming headline regulatory outcomes in their own right &mdash; compliance discipline is now a reputational discipline.
-    </blockquote>
-
-    <!-- Signal 1 -->
-    <div class="signal-card" style="border-left-color:#3b6ea5;">
-      <span class="signal-card__pill" style="background:#3b6ea5;">Holding Company Restructure</span>
-      <div class="signal-card__headline">Omnicom moves to consolidate PR agencies following the IPG merger</div>
-      <div class="signal-card__body">A holding-company restructure of this size typically forces rapid decisions on client conflict management, brand architecture, and senior talent retention.</div>
+    <div class="pull-quote">
+      <p>Net risk this cycle: stable. BIFFA coverage skews toward performance and collaboration positioning, with no enforcement actions detected. The policy backdrop &mdash; Welsh DRS regulations and UKIMA exclusion decisions &mdash; continues to shape future sorting and collection economics.</p>
     </div>
 
-    <!-- Signal 2 -->
-    <div class="signal-card" style="border-left-color:#cc0000;">
-      <span class="signal-card__pill" style="background:#cc0000;">Government Comms</span>
-      <div class="signal-card__headline">Downing Street communications leadership turns over as Tim Allan resigns</div>
-      <div class="signal-card__body">A high-visibility government comms departure can reset media handling, briefing discipline, and stakeholder engagement rhythms for policy-facing corporates.</div>
-    </div>
-
-    <!-- Signal 3 -->
-    <div class="signal-card" style="border-left-color:#1a6b6e;">
-      <span class="signal-card__pill" style="background:#1a6b6e;">Regulatory Governance</span>
-      <div class="signal-card__headline">CJEU decision opens a clearer route to challenge EDPB binding decisions</div>
-      <div class="signal-card__body">The ruling is being treated as a meaningful governance shift under GDPR, with implications for how firms sequence regulator engagement versus litigation.</div>
-    </div>
-
-    <!-- Signal 4 -->
-    <div class="signal-card" style="border-left-color:#cc0000;">
-      <span class="signal-card__pill" style="background:#cc0000;">Enforcement Action</span>
-      <div class="signal-card__headline">UK CMA fines Euro Car Parks &pound;473,000 for failing to respond to an information notice</div>
-      <div class="signal-card__body">The case reinforces a compliance-as-reputation dynamic: procedural lapses are becoming headline regulatory outcomes in their own right.</div>
-    </div>
-
-    <!-- Signal 5 -->
-    <div class="signal-card" style="border-left-color:#b45309;">
-      <span class="signal-card__pill" style="background:#c9926b;">Leadership Change</span>
-      <div class="signal-card__headline">Dentsu appoints Takeshi Sano as global CEO after dropping an international sale process</div>
-      <div class="signal-card__body">Leadership change under financial pressure tends to accelerate portfolio decisions that ripple into client coverage models and senior adviser demand.</div>
-    </div>
-
-    <!-- Signal 6 -->
-    <div class="signal-card" style="border-left-color:#1a6b6e;">
-      <span class="signal-card__pill" style="background:#16a34a;">AI Governance</span>
-      <div class="signal-card__headline">xAI acknowledges a wave of exits as Elon Musk frames departures as restructuring-driven</div>
-      <div class="signal-card__body">AI-lab governance narratives remain live, keeping executive communications, employee messaging, and investor scrutiny tightly linked.</div>
-    </div>
+    <p class="card__body" style="max-width:760px;">This cycle is characterised by BIFFA-specific narrative centred on FY performance, acquisition-led growth framing, and circularity partnership visibility. A policy execution signal &mdash; Welsh Deposit Return Scheme regulations and UK Internal Market Act exclusion updates &mdash; has surfaced as a near-term operational planning factor. Evidence volumes were lower than typical, consistent with a sector-quiet publication window rather than a shift in underlying fundamentals.</p>
   </div>
 </section>
 
-<!-- ===== DIVIDER ===== -->
-<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
-  <span class="divider__line"></span>
-  <span class="divider__text">Analysis</span>
-  <span class="divider__line"></span>
-</div>
-
-<!-- ===== SECTION: GAINING ATTENTION ===== -->
-<section id="gaining-attention" class="band-cream">
+<!-- ===== SECTION 2: COVERAGE ===== -->
+<section class="section section--default" id="coverage">
   <div class="container">
-    <div class="section-label">Analysis</div>
-    <h2 class="section-title">What&rsquo;s Gaining Attention</h2>
+    <p class="section__label">Section 2</p>
+    <h2 class="section__title">Your Coverage This Cycle</h2>
+    <p class="section__subtitle">What's being said about BIFFA &mdash; Seven mentions across trade, news, and reference sources. Coverage is concentrated on performance messaging and collaboration positioning, with one local-authority service narrative to monitor.</p>
+    <hr class="section__divider">
 
-    <p class="context-text drop-cap">Regulatory outcomes are increasingly being driven by process failures and governance mechanics, not just headline misconduct. The CMA&rsquo;s Euro Car Parks enforcement and the CJEU&rsquo;s EDPB decision route both point to a world where information-handling discipline, response timelines, and escalation paths can become reputational flashpoints.</p>
-
-    <p class="context-text">Large-network and platform-adjacent restructures are compressing decision cycles for communicators. Omnicom&rsquo;s PR consolidation, Dentsu&rsquo;s top-level change, and xAI&rsquo;s acknowledged departures keep questions of leadership credibility, internal narrative coherence, and client-facing continuity under immediate scrutiny.</p>
-
-    <p class="context-text">Earned-media integrity and distribution mechanics are being discussed alongside search visibility tactics. The CIPR/PRCA push on source verification sits next to ongoing operator debate about paid placement marketplaces and &lsquo;authority&rsquo; signalling for AI-mediated discovery, raising brand-safety and disclosure questions for comms teams.</p>
-
-    <!-- Bar Chart Card -->
-    <div class="card" style="margin: 2.5rem 0;">
-      <div style="font-family:'Lato',sans-serif;font-weight:700;font-size:1.05rem;color:#262a33;margin-bottom:0.2rem;">Three themes dominating the comms risk surface</div>
-      <div style="font-size:0.82rem;color:#9ea2b0;margin-bottom:1.5rem;">Signal count by thematic cluster in the current reporting window</div>
-
-      <div class="bar-chart">
-        <div class="bar-chart__row">
-          <div class="bar-chart__label">Regulatory process &amp; governance</div>
-          <div class="bar-chart__bar-wrap">
-            <div class="bar-chart__bar" style="width:100%;background:#3b6ea5;">
-              <span class="bar-chart__value">4 signals</span>
-            </div>
-          </div>
-        </div>
-        <div class="bar-chart__row">
-          <div class="bar-chart__label">Organisational churn &amp; leadership</div>
-          <div class="bar-chart__bar-wrap">
-            <div class="bar-chart__bar" style="width:75%;background:#1a6b6e;">
-              <span class="bar-chart__value">3 signals</span>
-            </div>
-          </div>
-        </div>
-        <div class="bar-chart__row">
-          <div class="bar-chart__label">Earned-media integrity</div>
-          <div class="bar-chart__bar-wrap">
-            <div class="bar-chart__bar" style="width:50%;background:#c9926b;">
-              <span class="bar-chart__value">2 signals</span>
-            </div>
-          </div>
-        </div>
+    <!-- Card 1 -->
+    <div class="card card--border-teal">
+      <div class="card__pills">
+        <span class="pill pill--teal">Trade</span>
+        <span class="pill pill--grey">48-72h</span>
       </div>
-      <div class="bar-chart__source">Source: Noah Wire Services</div>
+      <h3 class="card__headline">BIFFA revenue increases 9.4% as acquisitions drive growth</h3>
+      <p class="card__body">Trade coverage frames BIFFA's FY performance around acquisition-led growth and portfolio integration. This sets the external narrative on strategic direction and is relevant for stakeholder positioning, tender conversations, and investor confidence.</p>
+      <p class="card__source">Source: Lets Recycle</p>
     </div>
 
-    <blockquote class="pull-quote">
-      For advisory teams, the near-term opportunity set looks concentrated around regulator-facing preparedness, leadership transition support, and earned-media provenance controls.
-    </blockquote>
+    <!-- Card 2 -->
+    <div class="card card--border-teal">
+      <div class="card__pills">
+        <span class="pill pill--teal">Trade</span>
+        <span class="pill pill--grey">24-48h</span>
+      </div>
+      <h3 class="card__headline">BIFFA joins circularity design and skills initiative with sector partners</h3>
+      <p class="card__body">BIFFA referenced alongside peers in a CIWM-led initiative on design-for-circularity and workforce skills. Positions the company within the policy-adjacent collaboration space &mdash; useful for sustainability narrative and stakeholder mapping.</p>
+      <p class="card__source">Sources: Circular Online, FMJ</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card card--border-teal">
+      <div class="card__pills">
+        <span class="pill pill--teal">Trade</span>
+        <span class="pill pill--grey">Existence signal</span>
+      </div>
+      <h3 class="card__headline">Biffa agrees &pound;12m upgrade to Ipswich MRF with council</h3>
+      <p class="card__body">Infrastructure upgrade visibility with a local authority partner. The &pound;12m MRF investment signals commitment to sorting capacity and strengthens the local-authority relationship narrative.</p>
+      <p class="card__source">Source: ENDS Waste &amp; Bioenergy</p>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card card--border-amber">
+      <div class="card__pills">
+        <span class="pill pill--amber">Monitor</span>
+        <span class="pill pill--grey">24-48h</span>
+      </div>
+      <h3 class="card__headline">Local report references complaint about BIFFA collection and service issues</h3>
+      <p class="card__body">A local news report references service complaints linked to BIFFA collection operations. While isolated, local-authority service narratives can escalate into council scrutiny and reputational drag if repeated across outlets or council meetings. This is a watch item for Communications.</p>
+      <p class="card__source">Source: Wales Online</p>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card card--border-blue">
+      <div class="card__pills">
+        <span class="pill pill--blue">News</span>
+        <span class="pill pill--grey">0-24h</span>
+      </div>
+      <h3 class="card__headline">Council discussion highlights profit-sharing cashflows tied to BIFFA landfill operations</h3>
+      <p class="card__body">Local-authority scrutiny narrative around landfill profit-sharing arrangements. Monitor for follow-on council actions or replication across other authorities.</p>
+      <p class="card__source">Source: Yahoo News UK</p>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card card--border-teal">
+      <div class="card__pills">
+        <span class="pill pill--teal">Web</span>
+        <span class="pill pill--grey">0-24h</span>
+      </div>
+      <h3 class="card__headline">BIFFA executive referenced speaking on design-for-end-of-life at packaging event</h3>
+      <p class="card__body">Executive positioning contributes to sustainability and innovation narrative continuity. Positive visibility for thought leadership.</p>
+      <p class="card__source">Source: Factory &amp; Handling Solutions</p>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="card card--border-grey">
+      <div class="card__pills">
+        <span class="pill pill--grey">Reference</span>
+        <span class="pill pill--grey">&mdash;</span>
+      </div>
+      <h3 class="card__headline">BIFFA Wikipedia entry &mdash; stability check</h3>
+      <p class="card__body">Your Wikipedia profile was scanned and shows no recent edits, vandalism, or controversy flags this cycle. Reference profile remains clean.</p>
+      <p class="card__source">Source: Wikipedia</p>
+    </div>
   </div>
 </section>
 
-<!-- ===== DIVIDER ===== -->
-<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
-  <span class="divider__line"></span>
-  <span class="divider__text">People Moves</span>
-  <span class="divider__line"></span>
-</div>
-
-<!-- ===== SECTION: PEOPLE MOVES ===== -->
-<section id="people-moves" class="band-grey">
+<!-- ===== SECTION 3: ACTIVE FLASHPOINT ===== -->
+<section class="section section--alt">
   <div class="container">
-    <div class="section-label">People Moves</div>
-    <h2 class="section-title">Leadership Changes</h2>
-    <p class="section-intro">Five senior appointments and departures with implications for stakeholder engagement and advisory relationships.</p>
+    <p class="section__label">Section 3</p>
+    <h2 class="section__title">Active Flashpoint</h2>
+    <hr class="section__divider">
 
-    <div class="card" style="overflow-x:auto;">
-      <table class="data-table">
+    <div class="flashpoint">
+      <p class="flashpoint__header">Active Flashpoint</p>
+      <div class="flashpoint__pills">
+        <span class="pill pill--amber">Elevated Signal</span>
+        <span class="pill pill--amber">Medium Signal</span>
+        <span class="pill pill--grey">Medium-term horizon</span>
+      </div>
+      <h3 class="flashpoint__headline">Plastics recycling capacity build-out signalled &mdash; Sunderland pyrolysis facility timeline</h3>
+      <p class="flashpoint__body">A Sunderland-based plastics pyrolysis facility has confirmed a 2028 timeline, signalling continued investment in advanced plastics processing capacity. This matters because it could affect feedstock competition, gate fees, and contracting narratives around hard-to-recycle streams &mdash; areas where BIFFA's sorting and processing operations have direct exposure.</p>
+      <p class="flashpoint__source">Source: Lets Recycle</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: MONITORING LANES ===== -->
+<section class="section section--default" id="intelligence">
+  <div class="container">
+    <p class="section__label">Section 4</p>
+    <h2 class="section__title">Situational Dashboard</h2>
+    <p class="section__subtitle">Monitoring Lanes</p>
+    <hr class="section__divider">
+
+    <div class="lanes-grid">
+      <div class="lane">
+        <span class="lane__name">About You (Direct Coverage)</span>
+        <span class="lane__status"><span class="lane__dot lane__dot--teal"></span> 4 items</span>
+      </div>
+      <div class="lane">
+        <span class="lane__name">About You (Light / Context)</span>
+        <span class="lane__status"><span class="lane__dot lane__dot--teal"></span> 3 items</span>
+      </div>
+      <div class="lane">
+        <span class="lane__name">Strategic Interest</span>
+        <span class="lane__status"><span class="lane__dot lane__dot--blue"></span> 3 items</span>
+      </div>
+      <div class="lane">
+        <span class="lane__name">Capital &amp; Funding</span>
+        <span class="lane__status"><span class="lane__dot lane__dot--blue"></span> 3 items</span>
+      </div>
+      <div class="lane">
+        <span class="lane__name">Competitor Watch</span>
+        <span class="lane__status"><span class="lane__dot lane__dot--green"></span> All Clear</span>
+      </div>
+      <div class="lane">
+        <span class="lane__name">Social &amp; Public Discourse</span>
+        <span class="lane__status"><span class="lane__dot lane__dot--green"></span> All Clear</span>
+      </div>
+      <div class="lane">
+        <span class="lane__name">Reputation Risk</span>
+        <span class="lane__status"><span class="lane__dot lane__dot--green"></span> All Clear</span>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-card__number">8</div>
+        <div class="stat-card__label">Media signals</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__number">1</div>
+        <div class="stat-card__label">Active flashpoint</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__number">2</div>
+        <div class="stat-card__label">Official records</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__number">0</div>
+        <div class="stat-card__label">Reputation risks</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.82rem; color:#9ea2b0; text-align:center; max-width:680px; margin:0 auto;">Reduced evidence volumes this cycle are consistent with a sector-quiet publication window. Absence of new enforcement actions does not imply absence of underlying regulatory pressure.</p>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: DEPARTMENTAL INTELLIGENCE ===== -->
+<section class="section section--alt">
+  <div class="container">
+    <p class="section__label">Section 5</p>
+    <h2 class="section__title">Departmental Intelligence</h2>
+    <p class="section__subtitle">Who needs to know what &mdash; Active signals routed to the departments that need to act. Departments with no signals confirmed as scanned and clear.</p>
+    <hr class="section__divider">
+
+    <!-- Communications -->
+    <div class="dept-card dept-card--teal">
+      <div class="dept-card__header">
+        <span class="dept-card__name">Communications</span>
+        <span class="dept-card__badge dept-card__badge--teal">3 Signals</span>
+      </div>
+      <ul>
+        <li>Trade coverage frames BIFFA FY performance and acquisition-led growth. External narrative on integration and portfolio direction is being shaped in trade channels.</li>
+        <li>BIFFA referenced in circularity skills initiative with sector partners. Positions BIFFA in policy-adjacent collaboration.</li>
+        <li>Local report references a complaint about BIFFA collection/service issues. Service reliability narratives can escalate into council scrutiny.</li>
+      </ul>
+    </div>
+
+    <!-- Legal -->
+    <div class="dept-card dept-card--navy">
+      <div class="dept-card__header">
+        <span class="dept-card__name">Legal</span>
+        <span class="dept-card__badge dept-card__badge--navy">1 Signal</span>
+      </div>
+      <ul>
+        <li>Welsh DRS regulations and UKIMA exclusion policy update surfaced. Policy execution can shift compliance obligations, scope, and cost-to-serve. The UKIMA exclusion enables Wales to include glass in its DRS approach.</li>
+      </ul>
+    </div>
+
+    <!-- Operations -->
+    <div class="dept-card dept-card--navy">
+      <div class="dept-card__header">
+        <span class="dept-card__name">Operations</span>
+        <span class="dept-card__badge dept-card__badge--navy">2 Signals</span>
+      </div>
+      <ul>
+        <li>DRS execution detail continues to move. Container flows, glass handling, and sorting requirements may change.</li>
+        <li>Biffa agrees &pound;12m upgrade to Ipswich MRF with council. Infrastructure upgrade visibility.</li>
+      </ul>
+    </div>
+
+    <!-- Finance -->
+    <div class="dept-card dept-card--gold">
+      <div class="dept-card__header">
+        <span class="dept-card__name">Finance</span>
+        <span class="dept-card__badge dept-card__badge--gold">1 Signal</span>
+      </div>
+      <ul>
+        <li>Reported revenue growth and acquisition contribution framing in FY coverage. The 9.4% revenue increase narrative is being set in trade channels.</li>
+      </ul>
+    </div>
+
+    <!-- Commercial & Sales -->
+    <div class="dept-card dept-card--gold">
+      <div class="dept-card__header">
+        <span class="dept-card__name">Commercial &amp; Sales</span>
+        <span class="dept-card__badge dept-card__badge--gold">1 Signal</span>
+      </div>
+      <ul>
+        <li>Acquisition-led growth narrative surfaced in trade press. Supports tender and commercial positioning.</li>
+      </ul>
+    </div>
+
+    <!-- Strategy & Corporate Development -->
+    <div class="dept-card dept-card--blue">
+      <div class="dept-card__header">
+        <span class="dept-card__name">Strategy &amp; Corporate Development</span>
+        <span class="dept-card__badge dept-card__badge--blue">1 Signal</span>
+      </div>
+      <ul>
+        <li>Waste infrastructure ownership movement. The confirmed Urbaser acquisition by Blackstone Infrastructure and EQT signals ongoing investor appetite.</li>
+      </ul>
+    </div>
+
+    <!-- Departments All Clear -->
+    <div class="dept-clear">
+      <p class="dept-clear__title">Departments &mdash; All Clear</p>
+      <ul>
+        <li>Safety &amp; HSE &mdash; no incidents, prosecutions, or alerts</li>
+        <li>HR &amp; People &mdash; no industrial action or workforce signals</li>
+        <li>IT &amp; Data &mdash; no cyber, outage, or data incidents</li>
+        <li>Procurement &mdash; no supplier disruption or contract disputes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: COMPETITIVE LANDSCAPE ===== -->
+<section class="section section--default" id="landscape">
+  <div class="container">
+    <p class="section__label">Section 6</p>
+    <h2 class="section__title">Competitive Landscape</h2>
+    <p class="section__subtitle">Competitor Watch &amp; Sector Capital</p>
+    <hr class="section__divider">
+
+    <div class="competitor-stable">
+      <span class="competitor-stable__dot"></span>
+      <div>
+        <p class="competitor-stable__label">Competitors: Stable</p>
+        <p class="competitor-stable__text">No operational or reputational stumbles detected across monitored competitors this cycle.</p>
+      </div>
+    </div>
+
+    <div class="card card--border-blue">
+      <div class="card__pills">
+        <span class="pill pill--blue">Confirmed</span>
+        <span class="pill pill--grey">24-48h</span>
+      </div>
+      <h3 class="card__headline">Urbaser Acquisition &mdash; Blackstone Infrastructure &amp; EQT</h3>
+      <p class="card__body">Multiple definitive announcements confirm that Blackstone Infrastructure and EQT will acquire Urbaser from Platinum Equity. This demonstrates continued investor appetite for scaled waste infrastructure platforms.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 7: POLICY & REGULATORY SIGNALS ===== -->
+<section class="section section--alt">
+  <div class="container">
+    <p class="section__label">Section 7</p>
+    <h2 class="section__title">Policy &amp; Regulatory Signals</h2>
+    <hr class="section__divider">
+
+    <div class="policy-card">
+      <div class="card__pills">
+        <span class="pill pill--teal">Primary</span>
+        <span class="pill pill--grey">24-48h</span>
+      </div>
+      <h3 class="card__headline">Welsh Government confirms DRS regulations laid &mdash; implementation pathway clarified</h3>
+      <p class="card__body">The Welsh Government has laid Deposit Return Scheme regulations, clarifying the implementation pathway. This affects container flows, sorting economics, and infrastructure planning for waste operators with Welsh exposure. The regulatory detail shapes operational readiness timelines and capital allocation decisions.</p>
+      <p class="card__source">Source: Gov.wales</p>
+    </div>
+
+    <div class="policy-card">
+      <div class="card__pills">
+        <span class="pill pill--teal">Primary</span>
+        <span class="pill pill--grey">24-48h</span>
+      </div>
+      <h3 class="card__headline">UKIMA exclusion policy update enables Wales glass-in-DRS approach</h3>
+      <p class="card__body">The UK Internal Market Act exclusion update enables Wales to proceed with its glass-inclusive DRS design. This has direct implications for collection and sorting requirements, material routing, and the cost-to-serve model for operators handling Welsh container streams.</p>
+      <p class="card__source">Source: GOV.UK</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 8: STRATEGIC ASSESSMENT ===== -->
+<section class="section section--default">
+  <div class="container">
+    <p class="section__label">Section 8</p>
+    <h2 class="section__title">Strategic Assessment</h2>
+    <p class="section__subtitle">Decision Matrix</p>
+    <hr class="section__divider">
+
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Risk Area</th>
+          <th>Level</th>
+          <th>Recommendation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Policy execution &mdash; DRS and UKIMA</td>
+          <td><span class="badge badge--amber">Medium</span></td>
+          <td>Monitor implementation detail and timelines</td>
+        </tr>
+        <tr>
+          <td>Narrative management &mdash; performance and service</td>
+          <td><span class="badge badge--amber">Medium</span></td>
+          <td>Monitor for repeat patterns or amplification</td>
+        </tr>
+        <tr>
+          <td>Capital dynamics &mdash; platform ownership</td>
+          <td><span class="badge badge--green">Low</span></td>
+          <td>Track consolidation acceleration signals</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== SECTION 9: EVIDENCE ROOM ===== -->
+<section class="section section--alt" id="evidence">
+  <div class="container">
+    <p class="section__label">Section 9</p>
+    <h2 class="section__title">Evidence Room</h2>
+    <p class="section__subtitle">Monitoring Sections</p>
+    <hr class="section__divider">
+
+    <div class="evidence-sub">
+      <p class="evidence-sub__title" style="color:#1a6b6e;">Active: Political &amp; Regulatory Heat</p>
+      <p class="evidence-sub__body">Two primary-tier official publications surfaced. No new enforcement actions naming BIFFA.</p>
+    </div>
+
+    <div class="evidence-sub">
+      <p class="evidence-sub__title" style="color:#3b6ea5;">Active: Deal Flow</p>
+      <p class="evidence-sub__body">One definitive transaction: Urbaser acquisition by Blackstone Infrastructure and EQT.</p>
+    </div>
+
+    <div class="evidence-sub">
+      <p class="evidence-sub__title" style="color:#3b6ea5;">Active: Investor &amp; Capital Activity</p>
+      <p class="evidence-sub__body">Infrastructure capital rotation patterns. Continued investor appetite for scaled waste infrastructure platforms.</p>
+    </div>
+
+    <div class="evidence-stable">
+      <p class="evidence-stable__title">Monitored and Stable</p>
+      <ul>
+        <li>People Moves</li>
+        <li>Emerging Players</li>
+        <li>Reputation Radar</li>
+        <li>Rumour Radar</li>
+        <li>Social Discourse</li>
+        <li>Competitor Stumbles</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 10: TREND ANALYSIS ===== -->
+<section class="section section--default">
+  <div class="container">
+    <p class="section__label">Section 10</p>
+    <h2 class="section__title">Themes &amp; What to Watch</h2>
+    <p class="section__subtitle">Trend Analysis</p>
+    <hr class="section__divider">
+
+    <div style="margin-bottom:2rem;">
+      <p class="section__label" style="margin-bottom:1rem;">Identified Themes</p>
+      <div class="theme-card">DRS execution detail shaping future waste flows</div>
+      <div class="theme-card">Selective BIFFA visibility through performance and collaboration messaging</div>
+      <div class="theme-card">Infrastructure and capacity signals &mdash; Sunderland 2028, Ipswich MRF &pound;12m</div>
+    </div>
+
+    <div>
+      <p class="section__label" style="margin-bottom:1rem;">What to Watch Next</p>
+      <ul class="watch-list">
+        <li><span class="watch-list__num">1</span> Further DRS implementation detail affecting glass handling and sorting economics</li>
+        <li><span class="watch-list__num">2</span> Any BIFFA-named Environment Agency or DEFRA references</li>
+        <li><span class="watch-list__num">3</span> Repeat local-authority service narratives</li>
+        <li><span class="watch-list__num">4</span> Follow-on bolt-on acquisitions from Urbaser's new owners</li>
+        <li><span class="watch-list__num">5</span> Financing and capex announcements tied to DRS/EPR readiness</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 11: SIGNAL VAULT ===== -->
+<section class="section section--alt">
+  <div class="container">
+    <p class="section__label">Section 11</p>
+    <h2 class="section__title">Signal Vault</h2>
+    <p class="section__subtitle">Full Evidence Index</p>
+    <hr class="section__divider">
+
+    <div class="evidence-wrap">
+      <table class="evidence-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Organisation</th>
-            <th>Context</th>
+            <th>Headline</th>
+            <th>Source</th>
+            <th>Entity</th>
+            <th>Window</th>
+            <th>Lane</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Tim Allan</td>
-            <td>Departing Director of Communications</td>
-            <td>UK Government / Downing Street</td>
-            <td>Resignation reported amid political pressure and staff churn.</td>
+            <td>BIFFA revenue increases 9.4% as acquisitions drive growth</td>
+            <td>Lets Recycle</td>
+            <td>BIFFA</td>
+            <td>48-72h</td>
+            <td>About You</td>
           </tr>
           <tr>
-            <td>Takeshi Sano</td>
-            <td>Global CEO</td>
-            <td>Dentsu Group Inc.</td>
-            <td>Appointed as the group resets strategy following reported losses and a halted sale process.</td>
+            <td>BIFFA joins circularity design and skills initiative</td>
+            <td>Circular Online</td>
+            <td>BIFFA</td>
+            <td>24-48h</td>
+            <td>About You</td>
           </tr>
           <tr>
-            <td>Francesca Nardi</td>
-            <td>Global Communications Director</td>
-            <td>Balenciaga</td>
+            <td>Local report references complaint about BIFFA collection</td>
+            <td>Wales Online</td>
+            <td>BIFFA</td>
+            <td>24-48h</td>
+            <td>About You</td>
+          </tr>
+          <tr>
+            <td>Biffa agrees &pound;12m upgrade to Ipswich MRF with council</td>
+            <td>ENDS Waste &amp; Bioenergy</td>
+            <td>BIFFA</td>
             <td>&mdash;</td>
+            <td>About You</td>
           </tr>
           <tr>
-            <td>Tim Mortimer</td>
-            <td>Chief Executive</td>
-            <td>TL Dallas</td>
-            <td>UK appointment; regional business leadership change with local stakeholder implications.</td>
+            <td>Council discussion highlights profit-sharing cashflows</td>
+            <td>Yahoo News UK</td>
+            <td>BIFFA</td>
+            <td>0-24h</td>
+            <td>Context</td>
           </tr>
           <tr>
-            <td>Yuvraj Narayan</td>
-            <td>CEO</td>
-            <td>DP World</td>
-            <td>Named CEO alongside board-level chair appointment; potential knock-on for corporate positioning and government engagement.</td>
+            <td>BIFFA executive referenced speaking at packaging event</td>
+            <td>Factory &amp; Handling Solutions</td>
+            <td>BIFFA</td>
+            <td>0-24h</td>
+            <td>Context</td>
+          </tr>
+          <tr>
+            <td>BIFFA joins circularity (additional pickup)</td>
+            <td>FMJ</td>
+            <td>BIFFA</td>
+            <td>0-24h</td>
+            <td>Context</td>
+          </tr>
+          <tr>
+            <td>BIFFA Wikipedia entry &mdash; stability check</td>
+            <td>Wikipedia</td>
+            <td>BIFFA</td>
+            <td>&mdash;</td>
+            <td>Reference</td>
+          </tr>
+          <tr>
+            <td>Welsh Government confirms DRS regulations laid</td>
+            <td>Gov.wales</td>
+            <td>UK Policy</td>
+            <td>24-48h</td>
+            <td>Strategic</td>
+          </tr>
+          <tr>
+            <td>UKIMA exclusion policy update</td>
+            <td>GOV.UK</td>
+            <td>UK Policy</td>
+            <td>24-48h</td>
+            <td>Strategic</td>
+          </tr>
+          <tr>
+            <td>Sunderland plastics plant 2028 timeline</td>
+            <td>Lets Recycle</td>
+            <td>Sector</td>
+            <td>24-48h</td>
+            <td>Strategic</td>
+          </tr>
+          <tr>
+            <td>Blackstone &amp; EQT to acquire Urbaser</td>
+            <td>Blackstone</td>
+            <td>Sector Capital</td>
+            <td>24-48h</td>
+            <td>Capital</td>
+          </tr>
+          <tr>
+            <td>Platinum Equity confirms Urbaser sale</td>
+            <td>Platinum Equity</td>
+            <td>Sector Capital</td>
+            <td>24-48h</td>
+            <td>Capital</td>
           </tr>
         </tbody>
       </table>
     </div>
-  </div>
-</section>
 
-<!-- ===== DIVIDER ===== -->
-<div class="divider" style="background:#FFF1E5;padding-top:0;padding-bottom:0;">
-  <span class="divider__line"></span>
-  <span class="divider__text">Industry Notes</span>
-  <span class="divider__line"></span>
-</div>
-
-<!-- ===== SECTION: INDUSTRY NOTES ===== -->
-<section id="industry-notes" class="band-cream">
-  <div class="container">
-    <div class="section-label">Industry Notes</div>
-    <h2 class="section-title">Sector Activity</h2>
-    <p class="section-intro">Eight developments across the communications, technology, and advisory landscape worth tracking.</p>
-
-    <div class="industry-grid">
-      <div class="industry-card" style="border-left-color:#1a6b6e;">
-        <div class="industry-card__headline">CIPR and PRCA urge journalists to verify PR sources</div>
-        <div class="industry-card__body">Earned-media provenance and outreach hygiene are being pulled into public view after a fake-expert fallout.</div>
-      </div>
-      <div class="industry-card" style="border-left-color:#1a6b6e;">
-        <div class="industry-card__headline">Wimbart launches &lsquo;Wimbart Lite&rsquo;</div>
-        <div class="industry-card__body">A lower-friction PR support offer aimed at African startups and scaleups.</div>
-      </div>
-      <div class="industry-card" style="border-left-color:#b45309;">
-        <div class="industry-card__headline">Rekor Systems signals deepfake detection push in H1 2026</div>
-        <div class="industry-card__body">Positions synthetic-media risk tooling as a commercial category adjacent to comms assurance needs.</div>
-      </div>
-      <div class="industry-card" style="border-left-color:#16a34a;">
-        <div class="industry-card__headline">ARCON warns Nigerian state signage agencies</div>
-        <div class="industry-card__body">A federal regulator draws a boundary on who can set pre-exposure clearance requirements for advertisement vetting.</div>
-      </div>
-      <div class="industry-card" style="border-left-color:#b45309;">
-        <div class="industry-card__headline">Aon partners with SecurityScorecard</div>
-        <div class="industry-card__body">Cyber-risk scoring and assurance messaging are being bundled more directly into broker-led client programmes.</div>
-      </div>
-      <div class="industry-card" style="border-left-color:#b45309;">
-        <div class="industry-card__headline">Supreme Group acquires Broth</div>
-        <div class="industry-card__body">Healthcare marketing platform consolidation continues, with potential spillover into regulated-sector comms budgets.</div>
-      </div>
-      <div class="industry-card" style="border-left-color:#16a34a;">
-        <div class="industry-card__headline">Bond reports progress toward enterprise-wide deployment</div>
-        <div class="industry-card__body">Employee engagement and internal communications tooling remains an active procurement lane after a paid pilot.</div>
-      </div>
-      <div class="industry-card" style="border-left-color:#1a6b6e;">
-        <div class="industry-card__headline">Silverline Technologies outlines growth-capital raise</div>
-        <div class="industry-card__body">Cross-border capital activity remains a steady backdrop for transaction communications work, with acquisition interest referenced.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== DIVIDER ===== -->
-<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
-  <span class="divider__line"></span>
-  <span class="divider__text">Coverage Analytics</span>
-  <span class="divider__line"></span>
-</div>
-
-<!-- ===== SECTION: COVERAGE ANALYTICS ===== -->
-<section id="analytics" class="band-grey">
-  <div class="container">
-    <div class="section-label">Coverage Analytics</div>
-    <h2 class="section-title">Activity Clusters</h2>
-    <p class="section-intro">Activity over the past 24 hours concentrated in two distinct clusters.</p>
-
-    <!-- Cluster Bar Chart -->
-    <div class="card" style="margin-bottom:1.5rem;">
-      <div style="font-family:'Lato',sans-serif;font-weight:700;font-size:1.05rem;color:#262a33;margin-bottom:0.2rem;">Coverage cluster volume comparison</div>
-      <div style="font-size:0.82rem;color:#9ea2b0;margin-bottom:1.5rem;">Article count by dominant cluster in the past 24 hours</div>
-      <div class="bar-chart">
-        <div class="bar-chart__row">
-          <div class="bar-chart__label">DHS / Platform Governance</div>
-          <div class="bar-chart__bar-wrap">
-            <div class="bar-chart__bar" style="width:100%;background:#3b6ea5;">
-              <span class="bar-chart__value">7 articles</span>
-            </div>
-          </div>
+    <!-- Entity Signal Summary -->
+    <div class="entity-row">
+      <div class="entity-card">
+        <div>
+          <p class="entity-card__name">BIFFA</p>
+          <p class="entity-card__status" style="color:#16a34a;">Stable</p>
         </div>
-        <div class="bar-chart__row">
-          <div class="bar-chart__label">Wasserman / Epstein / LA28</div>
-          <div class="bar-chart__bar-wrap">
-            <div class="bar-chart__bar" style="width:86%;background:#1a6b6e;">
-              <span class="bar-chart__value">6 articles</span>
-            </div>
-          </div>
+        <div style="text-align:right;">
+          <p class="entity-card__count" style="color:#16a34a;">7</p>
+          <p style="font-size:0.72rem; color:#9ea2b0;">items</p>
         </div>
       </div>
-      <div class="bar-chart__source">Source: Noah Wire Services</div>
-    </div>
-
-    <!-- Summary Cards -->
-    <div class="analytics-pair">
-      <div class="analytics-card">
-        <div class="analytics-card__number">7</div>
-        <div class="analytics-card__title">US DHS-linked platform governance and surveillance discussion</div>
-        <div class="analytics-card__sub">Key entities: U.S. Department of Homeland Security, Meta, Google, Reddit, Discord, ICE</div>
+      <div class="entity-card">
+        <div>
+          <p class="entity-card__name">UK Policy / Regulators</p>
+          <p class="entity-card__status" style="color:#b45309;">Rising</p>
+        </div>
+        <div style="text-align:right;">
+          <p class="entity-card__count" style="color:#b45309;">2</p>
+          <p style="font-size:0.72rem; color:#9ea2b0;">items</p>
+        </div>
       </div>
-      <div class="analytics-card">
-        <div class="analytics-card__number">6</div>
-        <div class="analytics-card__title">Casey Wasserman / Jeffrey Epstein reputational coverage</div>
-        <div class="analytics-card__sub">Key entities: Casey Wasserman, Jeffrey Epstein, Ghislaine Maxwell, LA28</div>
-      </div>
-    </div>
-
-    <!-- Entity Bubbles -->
-    <div class="card" style="margin-top:1.5rem;">
-      <div style="font-family:'Lato',sans-serif;font-weight:700;font-size:1.05rem;color:#262a33;margin-bottom:0.2rem;">Named entities across both coverage clusters</div>
-      <div style="font-size:0.82rem;color:#9ea2b0;margin-bottom:1rem;">Sized by frequency of mention in the past 24 hours</div>
-      <div class="entity-bubbles">
-        <div class="entity-bubble" style="width:90px;height:90px;background:#3b6ea5;font-size:0.55rem;">DHS</div>
-        <div class="entity-bubble" style="width:82px;height:82px;background:#1a6b6e;font-size:0.55rem;">Casey<br>Wasserman</div>
-        <div class="entity-bubble" style="width:74px;height:74px;background:#3b6ea5;font-size:0.55rem;">Meta</div>
-        <div class="entity-bubble" style="width:74px;height:74px;background:#cc0000;font-size:0.55rem;">Jeffrey<br>Epstein</div>
-        <div class="entity-bubble" style="width:66px;height:66px;background:#3b6ea5;font-size:0.55rem;">Google</div>
-        <div class="entity-bubble" style="width:66px;height:66px;background:#1a6b6e;font-size:0.55rem;">LA28</div>
-        <div class="entity-bubble" style="width:58px;height:58px;background:#3b6ea5;font-size:0.5rem;">ICE</div>
-        <div class="entity-bubble" style="width:58px;height:58px;background:#3b6ea5;font-size:0.5rem;">Reddit</div>
-        <div class="entity-bubble" style="width:54px;height:54px;background:#3b6ea5;font-size:0.5rem;">Discord</div>
-        <div class="entity-bubble" style="width:54px;height:54px;background:#cc0000;font-size:0.48rem;">Ghislaine<br>Maxwell</div>
+      <div class="entity-card">
+        <div>
+          <p class="entity-card__name">Sector Capital</p>
+          <p class="entity-card__status" style="color:#3b6ea5;">Active</p>
+        </div>
+        <div style="text-align:right;">
+          <p class="entity-card__count" style="color:#3b6ea5;">3</p>
+          <p style="font-size:0.72rem; color:#9ea2b0;">items</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===== DIVIDER ===== -->
-<div class="divider" style="background:#FFF1E5;padding-top:0;padding-bottom:0;">
-  <span class="divider__line"></span>
-  <span class="divider__text">Forward Look</span>
-  <span class="divider__line"></span>
-</div>
-
-<!-- ===== SECTION: WHAT TO WATCH ===== -->
-<section id="what-to-watch" class="band-cream">
-  <div class="container">
-    <div class="section-label">Forward Look</div>
-    <h2 class="section-title">What to Watch</h2>
-
-    <ul class="watch-list">
-      <li>Omnicom&rsquo;s next consolidation steps &mdash; agency brand changes, leadership assignments, and client conflict decisions over the next 2&ndash;6 weeks.</li>
-      <li>Downing Street&rsquo;s successor appointment &mdash; and any further UK government communications turnover before the next policy set-pieces.</li>
-      <li>CJEU route operationalisation &mdash; how companies and counsel use the new EDPB binding-decision challenge route in active GDPR disputes this quarter.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===== DIVIDER ===== -->
-<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
-  <span class="divider__line"></span>
-  <span class="divider__text">Context and Detail</span>
-  <span class="divider__line"></span>
-</div>
-
-<!-- ===== SECTION: CONTEXT AND DETAIL ===== -->
-<section class="band-grey">
-  <div class="container">
-    <div class="section-label">Context and Detail</div>
-    <h2 class="section-title">Extended Analysis</h2>
-
-    <p class="context-text drop-cap">The convergence of enforcement mechanics and leadership instability across multiple sectors creates a compressed advisory window for communications firms. When regulatory penalties are tied to procedural lapses rather than substantive misconduct, the remediation narrative shifts from legal defence to operational credibility &mdash; a space where strategic communications has a direct role. The CMA&rsquo;s approach to information-notice compliance, combined with the CJEU&rsquo;s opening of a new judicial route for challenging EDPB decisions, suggests a regulatory environment in which preparedness and escalation discipline will be scrutinised as closely as the underlying conduct.</p>
-
-    <p class="context-text">Meanwhile, the holding-company restructures at Omnicom and Dentsu, alongside the acknowledged talent attrition at xAI, point to a period in which internal narrative coherence and external positioning will be tested simultaneously. For advisory teams, the practical implication is that retainer briefs are likely to be reframed around transition support, stakeholder reassurance, and media-handling continuity &mdash; rather than the campaign-driven mandates that characterise more stable periods.</p>
-  </div>
-</section>
-
-<!-- ===== DIVIDER ===== -->
-<div class="divider" style="background:#FFF1E5;padding-top:0;padding-bottom:0;">
-  <span class="divider__line"></span>
-  <span class="divider__text">Background Monitoring</span>
-  <span class="divider__line"></span>
-</div>
-
-<!-- ===== SECTION: BACKGROUND MONITORING ===== -->
-<section id="background" class="band-cream">
-  <div class="container">
-    <div class="section-label">Background Monitoring</div>
-    <h2 class="section-title">On the Radar</h2>
-    <p class="section-intro">Lower-priority items tracked for context. These are not driving immediate action but may escalate.</p>
-
-    <div class="bg-card">
-      <div class="bg-card__headline">Prince Harry phone-hacking litigation and UK press scrutiny</div>
-      <div class="bg-card__source">Covered by: BBC</div>
-    </div>
-    <div class="bg-card">
-      <div class="bg-card__headline">U.S. DHS / ICE-linked scrutiny of tech platforms and protest surveillance themes</div>
-      <div class="bg-card__source">Covered by: The New York Times</div>
-    </div>
-    <div class="bg-card">
-      <div class="bg-card__headline">Casey Wasserman / Jeffrey Epstein reputational coverage around LA28 ecosystem</div>
-      <div class="bg-card__source">Covered by: Mixed coverage (clustered in last 24 hours)</div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== DIVIDER ===== -->
-<div class="divider" style="background:#f7f8fa;padding-top:0;padding-bottom:0;">
-  <span class="divider__line"></span>
-  <span class="divider__text">Report Diagnostics</span>
-  <span class="divider__line"></span>
-</div>
-
-<!-- ===== REPORT DIAGNOSTICS ===== -->
-<section class="band-grey" style="padding:3rem 0;">
-  <div class="container" style="text-align:center;">
-    <div class="diagnostics">
-      <div class="diag-box">
-        <div class="diag-box__number">6</div>
-        <div class="diag-box__label">Primary items</div>
-      </div>
-      <div class="diag-box">
-        <div class="diag-box__number">3</div>
-        <div class="diag-box__label">Background items</div>
-      </div>
-      <div class="diag-box">
-        <div class="diag-box__number">8</div>
-        <div class="diag-box__label">Industry notes</div>
-      </div>
-      <div class="diag-box">
-        <div class="diag-box__number">2</div>
-        <div class="diag-box__label">Analytics clusters</div>
-      </div>
-    </div>
-    <p style="font-size:0.78rem;color:#9ea2b0;max-width:620px;margin:0 auto;line-height:1.6;">Upstream sources included Reuters, FT, BBC, NYT, and selected trade and web publications. Assertion mode: restrained digest. Items dropped as unchanged from prior reporting: 3.</p>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
-  <div class="container">
-    <div class="site-footer__brand">Cardew Group</div>
-    <p class="site-footer__tagline">Media monitoring and corporate strategy intelligence &mdash; powered by Noah Wire Services.</p>
-    <hr>
-    <nav class="site-footer__nav">
-      <a href="#intelligence">Intelligence</a>
-      <a href="#people-moves">People Moves</a>
-      <a href="#gaining-attention">Gaining Attention</a>
-      <a href="#industry-notes">Industry Notes</a>
-      <a href="#analytics">Analytics</a>
-      <a href="#what-to-watch">What to Watch</a>
-      <a href="#background">Background</a>
-    </nav>
-    <p class="site-footer__legal">
-      &copy; Cardew Group. All analysis is based on open-source intelligence and does not constitute legal, financial, or strategic advice.<br>
-      Client Confidential &middot; v3.4-MI &middot; 2026-02-15
-    </p>
-  </div>
+  <p class="site-footer__brand">Cardew Group</p>
+  <p class="site-footer__desc">Media monitoring and corporate strategy intelligence &mdash; powered by Noah Wire Services.</p>
+  <nav class="site-footer__nav">
+    <a href="#dashboard">Dashboard</a>
+    <a href="#coverage">Coverage</a>
+    <a href="#intelligence">Intelligence</a>
+    <a href="#landscape">Landscape</a>
+    <a href="#evidence">Evidence</a>
+  </nav>
+  <p class="site-footer__legal">&copy; Cardew Group. All analysis is based on open-source intelligence and does not constitute legal, financial, or strategic advice.</p>
+  <p class="site-footer__version">Client Confidential &middot; v3.4-MI &middot; 2026-02-13</p>
 </footer>
 
 </body>
