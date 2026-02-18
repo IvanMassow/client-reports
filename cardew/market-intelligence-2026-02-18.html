@@ -476,10 +476,21 @@ a:hover { text-decoration: underline; }
     border-color: rgba(0,153,154,0.3);
 }
 .signal-map__node-icon {
-    font-size: 1.6rem;
-    margin-bottom: 0.7rem;
-    display: block;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.7rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
 }
+.signal-map__node-icon--red { background: rgba(204,0,0,0.2); color: #f07070; }
+.signal-map__node-icon--teal { background: rgba(0,153,154,0.2); color: var(--cardew-teal-light); }
+.signal-map__node-icon--blue { background: rgba(59,110,165,0.2); color: #7db1e0; }
+.signal-map__node-icon--amber { background: rgba(180,83,9,0.2); color: #e8a44a; }
 .signal-map__node-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.72rem; font-weight: 700;
@@ -932,17 +943,19 @@ a:hover { text-decoration: underline; }
                 <span class="pill pill--grey">Today</span>
             </div>
             <h3 class="card__headline">PRCA AI Green Paper Launch</h3>
-            <p class="card__body">The PRCA released guidance formalizing governance standards for responsible AI use. Establishes accountability benchmarks for procurement, client service delivery, and risk management.</p>
+            <p class="card__body">The Public Relations and Communications Association published its AI Green Paper on responsible AI standards for the PR and communications sector. The document formalises governance and accountability expectations that agencies and in-house teams may be asked to evidence in procurement, client servicing, and risk discussions. This converts previously voluntary best practice into structured accountability &mdash; creating both compliance obligations and differentiation opportunities for firms that can demonstrate governance maturity to enterprise clients.</p>
+            <p class="card__source">Operational impact: Senior review timelines for AI-assisted outputs extending; IP/ownership uncertainty and client-material use restrictions becoming active friction points</p>
         </div>
 
         <!-- Card 2 -->
         <div class="card card--border-teal">
             <div class="card__pills">
                 <span class="pill pill--blue">Appointment</span>
-                <span class="pill pill--grey">Today</span>
+                <span class="pill pill--teal">AI Sector</span>
             </div>
-            <h3 class="card__headline">UKAI Appoints Centropy PR</h3>
-            <p class="card__body">UK AI industry trade association retained Centropy PR for external communications. Connects mainstream media visibility and policy engagement to broader ecosystem visibility.</p>
+            <h3 class="card__headline">UKAI Appoints Centropy PR as Agency of Record</h3>
+            <p class="card__body">UKAI, the UK&rsquo;s trade association for the AI industry representing companies of all sizes, has appointed Centropy PR (London and San Diego, founded 2017) as its communications agency of record. The mandate covers communication services, media strategy, and policy guidance. Recent UKAI activities include policy sessions with UK government officials, and this appointment aims to support broader AI sector growth and visibility through mainstream media engagement.</p>
+            <p class="card__source">Context: Appointment connects a tech-focused global agency to policy-engaged trade body at a moment of heightened AI regulatory scrutiny</p>
         </div>
 
         <!-- Card 3 -->
@@ -950,19 +963,23 @@ a:hover { text-decoration: underline; }
             <div class="card__pills">
                 <span class="pill pill--amber">Regulatory</span>
                 <span class="pill pill--amber">Cross-Border</span>
+                <span class="pill pill--grey">9 Articles</span>
             </div>
             <h3 class="card__headline">DPC Ireland Investigates xAI / X over Grok</h3>
-            <p class="card__body">Ireland&rsquo;s data protection regulator examining xAI and X regarding Grok-related content concerns. Cross-border privacy enforcement around generative AI becoming an active reputational and regulatory issue.</p>
+            <p class="card__body">Ireland&rsquo;s Data Protection Commission has opened an investigation into xAI and X regarding Grok-related content and privacy concerns. This is the highest-volume signal today with 9 supporting articles, clustering across privacy and online-safety dimensions. Cross-border privacy enforcement around generative AI is becoming a live reputational and regulatory-management issue for platform operators and their advisers. UK/EU oversight is repeatedly referenced across the reporting, suggesting coordinated multi-jurisdiction attention.</p>
+            <p class="card__source">Practitioner burden: Shift toward disciplined incident narratives, clear governance artefacts, and rapid legal/policy/communications alignment</p>
         </div>
 
         <!-- Card 4 -->
         <div class="card card--border-red">
             <div class="card__pills">
                 <span class="pill pill--red">FCA Rules</span>
-                <span class="pill pill--red">Implementation</span>
+                <span class="pill pill--red">15 Jul 2026</span>
+                <span class="pill pill--dark">Deadline</span>
             </div>
-            <h3 class="card__headline">FCA BNPL Final Rules &mdash; 15 July 2026</h3>
-            <p class="card__body">Financial Conduct Authority published final BNPL regulations with 15 July 2026 go-live. Accelerates compliance communications, investor positioning, and customer messaging for lending and retail organisations.</p>
+            <h3 class="card__headline">FCA BNPL Final Rules &mdash; 15 July 2026 Go-Live</h3>
+            <p class="card__body">The Financial Conduct Authority has published its final Buy Now, Pay Later regulations with a firm 15 July 2026 implementation date. This triggers an immediate compliance communications workstream for affected lenders and retailers: investor positioning, customer messaging, and internal readiness programmes. The timeline is tight &mdash; organisations that have not already begun compliance-led communications planning face compressed delivery windows for stakeholder engagement and regulatory readiness documentation.</p>
+            <p class="card__source">Action required: Accelerate client readiness communications; compliance and investor messaging timelines are now fixed</p>
         </div>
     </div>
 </section>
@@ -977,7 +994,7 @@ a:hover { text-decoration: underline; }
 
     <div class="signal-map__flow">
         <div class="signal-map__node">
-            <span class="signal-map__node-icon">&#x2696;</span>
+            <span class="signal-map__node-icon signal-map__node-icon--red">01</span>
             <p class="signal-map__node-title">Regulatory Signal</p>
             <p class="signal-map__node-detail">DPC Ireland opens Grok/X investigation; FCA finalises BNPL rules</p>
             <span class="signal-map__node-badge signal-map__node-badge--red">High Activity</span>
@@ -986,7 +1003,7 @@ a:hover { text-decoration: underline; }
         <div class="signal-map__arrow">&rarr;</div>
 
         <div class="signal-map__node">
-            <span class="signal-map__node-icon">&#x1F4DC;</span>
+            <span class="signal-map__node-icon signal-map__node-icon--teal">02</span>
             <p class="signal-map__node-title">Governance Response</p>
             <p class="signal-map__node-detail">PRCA green paper formalises AI standards; UKAI appoints comms support</p>
             <span class="signal-map__node-badge signal-map__node-badge--teal">Accelerating</span>
@@ -995,7 +1012,7 @@ a:hover { text-decoration: underline; }
         <div class="signal-map__arrow">&rarr;</div>
 
         <div class="signal-map__node">
-            <span class="signal-map__node-icon">&#x1F91D;</span>
+            <span class="signal-map__node-icon signal-map__node-icon--blue">03</span>
             <p class="signal-map__node-title">Advisory M&amp;A</p>
             <p class="signal-map__node-detail">SLR/SB&amp;CO acquisition; Antaris-Pragmatica merger; Bastion expansion</p>
             <span class="signal-map__node-badge signal-map__node-badge--blue">Consolidating</span>
@@ -1004,7 +1021,7 @@ a:hover { text-decoration: underline; }
         <div class="signal-map__arrow">&rarr;</div>
 
         <div class="signal-map__node">
-            <span class="signal-map__node-icon">&#x1F3AF;</span>
+            <span class="signal-map__node-icon signal-map__node-icon--amber">04</span>
             <p class="signal-map__node-title">Market Positioning</p>
             <p class="signal-map__node-detail">Leadership hires at Ruder Finn, Havas Red, Anthem signal capability build</p>
             <span class="signal-map__node-badge signal-map__node-badge--amber">Emerging</span>
@@ -1043,15 +1060,15 @@ a:hover { text-decoration: underline; }
             <!-- Person 1 -->
             <div class="card card--border-teal">
                 <h3 class="card__headline">Jeremy Guterl</h3>
-                <p class="card__subtitle">SVP, Research &amp; Analytics &mdash; Ruder Finn</p>
-                <p class="card__body">Senior appointment strengthening Ruder Finn&rsquo;s research and analytics capability. Signals continued investment in measurement-substantiated communications work.</p>
+                <p class="card__subtitle">SVP, Research &amp; Analytics &mdash; Ruder Finn (New York)</p>
+                <p class="card__body">Senior appointment driving data-driven thinking, predictive analytics, performance measurement, and strategic AI deployment across the organisation. Guterl will integrate analytics capabilities firm-wide, lead custom research initiatives, and embed AI technologies into Ruder Finn&rsquo;s workflow. The firm operates rf.TechLab and other technology incubators, reinforcing its positioning around innovation-led communications.</p>
             </div>
 
             <!-- Person 2 -->
             <div class="card card--border-teal">
                 <h3 class="card__headline">Erin Sing</h3>
                 <p class="card__subtitle">Executive Director (Melbourne) &mdash; Havas Red</p>
-                <p class="card__body">Executive appointment expanding Havas Red&rsquo;s Asia-Pacific leadership footprint. Melbourne market visibility for integrated communications offerings.</p>
+                <p class="card__body">Executive appointment expanding Havas Red&rsquo;s Asia-Pacific leadership footprint and local growth alignment in the Melbourne market. Strengthens the network&rsquo;s integrated communications offering across the APAC region at a time of growing cross-border mandate demand.</p>
             </div>
 
             <!-- Person 3 -->
@@ -1071,8 +1088,8 @@ a:hover { text-decoration: underline; }
             <!-- Person 5 -->
             <div class="card card--border-amber">
                 <h3 class="card__headline">Coby Shuman</h3>
-                <p class="card__subtitle">Departing Managing Director &mdash; We Are Social</p>
-                <p class="card__body">Managing Director departure from We Are Social. Departure at this level may signal strategic direction shifts or create talent availability for competitors.</p>
+                <p class="card__subtitle">Departing Managing Director &mdash; We Are Social (UK)</p>
+                <p class="card__body">Managing Director departure from We Are Social&rsquo;s UK operation. Successor and destination currently unclear. MD-level departures at this scale of agency may signal strategic direction shifts, create senior talent availability for competitors, or precede broader restructuring. Worth monitoring for follow-on appointment announcements.</p>
             </div>
         </div>
     </div>
@@ -1090,17 +1107,17 @@ a:hover { text-decoration: underline; }
 
         <div class="card card--border-blue">
             <h3 class="card__headline">SLR Consulting Acquires SB&amp;CO (UK)</h3>
-            <p class="card__body">Sustainability services expansion through strategic acquisition. SLR Consulting deepens UK sustainability advisory capability, extending its integrated environmental and ESG offering.</p>
+            <p class="card__body">SLR Consulting acquires SB&amp;CO to deepen UK sustainability advisory capability and extend its integrated environmental and ESG offering. The acquisition adds sustainability services capacity and geographic footprint, following established consolidation patterns where smaller specialist firms are absorbed into larger platforms seeking integrated capability across governance, sustainability, and compliance advisory.</p>
         </div>
 
         <div class="card card--border-blue">
             <h3 class="card__headline">Antaris + Pragmatica Merge (Ireland)</h3>
-            <p class="card__body">Sustainability and compliance advisory consolidation in the Irish market. Combined entity targets growing demand for integrated governance, risk, and sustainability advisory services.</p>
+            <p class="card__body">Two Limerick-based sustainability and compliance advisory firms merge under the Antaris name. The combined entity targets growing demand for integrated governance, risk, and sustainability advisory services for Irish businesses navigating evolving global regulations. Leadership cite longstanding personal and professional connections and a shared strategic vision of embedding sustainability as a competitive advantage.</p>
         </div>
 
         <div class="card card--border-blue">
             <h3 class="card__headline">Bastion Opens North American Arm</h3>
-            <p class="card__body">Australian-origin communications group establishes US presence for client and media work. Geographic expansion reflecting client demand for cross-border integrated communications support.</p>
+            <p class="card__body">Australian-origin communications group establishes US presence, led by Rebekah Nicodemus. First North American client is Amazon Games Studios. Active US recruitment is planned as the agency builds its cross-border integrated communications capability. Geographic expansion reflects growing client demand for agencies that can operate across APAC, EMEA, and North American markets simultaneously.</p>
         </div>
 
         <!-- Technology & Consulting Launches -->
@@ -1108,12 +1125,12 @@ a:hover { text-decoration: underline; }
 
         <div class="card card--border-teal">
             <h3 class="card__headline">Lightouch Consulting Launch</h3>
-            <p class="card__body">GenAI-native management consultancy launched in the UK. Positions itself at the intersection of generative AI capability and traditional strategic consulting, targeting enterprise transformation mandates.</p>
+            <p class="card__body">GenAI-native management consultancy launched in the UK with AI integrated across its delivery model from inception. Operates a network-based talent model using independent senior consultants rather than traditional staffing. Targets faster, smaller, senior-led engagements focused on outcomes &mdash; positioning itself as a direct challenge to traditional consultancy models for enterprise transformation mandates.</p>
         </div>
 
         <div class="card card--border-teal">
             <h3 class="card__headline">Lightworks &mdash; $12m Funding Round</h3>
-            <p class="card__body">$12m funding secured for AI deployment in regulated enterprises. Capital injection supports scaling of compliance-grade AI tooling for financial services, healthcare, and government sectors.</p>
+            <p class="card__body">Canadian AI firm secures up to $12m in funding led by Round13 Capital. Capital supports scaling AI deployment for highly regulated enterprises &mdash; targeting the transition from pilot programmes to full deployment with safety, transparency, and compliance guardrails. Plans include building industry standards and fostering partnerships with major regulated entities across financial services, healthcare, and government sectors.</p>
         </div>
 
         <!-- Data & Marketing / Regulatory -->
@@ -1121,7 +1138,7 @@ a:hover { text-decoration: underline; }
 
         <div class="card card--border-amber">
             <h3 class="card__headline">StackAdapt + Experian UK Partnership</h3>
-            <p class="card__body">First-party data activation partnership combining StackAdapt&rsquo;s programmatic platform with Experian UK&rsquo;s consumer data assets. Signals continued shift toward privacy-compliant audience targeting infrastructure.</p>
+            <p class="card__body">First-party data activation partnership integrating StackAdapt&rsquo;s programmatic platform with Experian UK&rsquo;s consumer data assets. Experian&rsquo;s ID Resolution covers 80% of UK households, delivering higher match rates and richer audience insights. The partnership signals continued market shift toward privacy-compliant audience targeting infrastructure as third-party cookie deprecation reshapes the adtech landscape.</p>
         </div>
 
         <div class="card card--border-amber">
@@ -1147,12 +1164,12 @@ a:hover { text-decoration: underline; }
 
         <div class="card card--border-magenta">
             <h3 class="card__headline">Platform Regulation &amp; AI Governance</h3>
-            <p class="card__body">Regulator activity around Grok/X clustering across privacy and online-safety dimensions. The DPC Ireland investigation, combined with the PRCA&rsquo;s governance green paper and UKAI&rsquo;s appointment of communications support, indicates the AI governance narrative is moving from principle-setting to active enforcement and compliance infrastructure. Organisations with AI-adjacent operations face growing scrutiny from multiple directions simultaneously.</p>
+            <p class="card__body">Regulator activity around Grok/X is clustering across both privacy and online-safety dimensions, led by the Irish DPC with UK/EU oversight repeatedly referenced. Combined with the PRCA&rsquo;s governance green paper and UKAI&rsquo;s appointment of communications support, the AI governance narrative is clearly moving from principle-setting to active enforcement and compliance infrastructure. The practitioner burden is shifting toward disciplined incident narratives, clear governance artefacts, and rapid legal/policy/communications alignment. Organisations with AI-adjacent operations face growing scrutiny from multiple regulators simultaneously.</p>
         </div>
 
         <div class="card card--border-magenta">
             <h3 class="card__headline">Responsible AI in Communications Practice</h3>
-            <p class="card__body">The conversation has shifted from tooling demonstration to governance-centered discussion. The PRCA green paper formalizes what was previously voluntary best practice into structured accountability. This creates both compliance obligations and differentiation opportunities for communications firms that can demonstrate governance maturity to enterprise clients.</p>
+            <p class="card__body">The industry conversation has shifted decisively from tooling showcase to governance-first discussion. The PRCA green paper formalises what was previously voluntary best practice into structured accountability frameworks. Open friction points include IP and ownership uncertainty, client-material use restrictions, and extended senior review timelines for AI-assisted outputs. For communications firms, this creates both compliance obligations and clear differentiation opportunities &mdash; those that can demonstrate governance maturity to enterprise clients will hold a competitive advantage in procurement processes.</p>
         </div>
 
         <div class="card card--border-magenta">
@@ -1173,6 +1190,21 @@ a:hover { text-decoration: underline; }
             <li><span class="watch-list__num">1</span> FCA BNPL rules approaching 15 July 2026 implementation &mdash; compliance communications timelines narrowing for lending and retail organisations</li>
             <li><span class="watch-list__num">2</span> Irish DPC and EU authorities on Grok/X matters &mdash; enforcement trajectory and potential cross-border coordination with UK regulators</li>
             <li><span class="watch-list__num">3</span> Whether PRCA advances AI Green Paper into member-facing implementation guidance in Q2 2026 &mdash; would convert principles into operational compliance requirements</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== KEY DATES TIMELINE ===== -->
+<section class="section section--alt">
+    <div class="container">
+        <p class="section__label">Key Dates</p>
+        <h2 class="section__title">Timeline</h2>
+        <hr class="section__divider">
+
+        <ul class="watch-list">
+            <li><span class="watch-list__num" style="color: var(--red);">&#x1F534;</span> <strong>15 July 2026</strong> &mdash; FCA BNPL rules go-live. Compliance communications and investor positioning deadlines fixed.</li>
+            <li><span class="watch-list__num" style="color: var(--amber);">&#x1F7E0;</span> <strong>Q2 2026</strong> &mdash; Expected PRCA member-facing implementation guidance rollout (training, disclosure norms, vendor due diligence).</li>
+            <li><span class="watch-list__num" style="color: var(--cardew-teal);">&#x1F7E2;</span> <strong>Feb 2026 onwards</strong> &mdash; DPC Ireland Grok/X regulatory investigation proceeding; watch for procedural updates and broader EU-facing enforcement coordination.</li>
         </ul>
     </div>
 </section>
@@ -1214,6 +1246,16 @@ a:hover { text-decoration: underline; }
                 </tr>
             </tbody>
         </table>
+
+        <div style="margin-top: 2.5rem;">
+            <h3 class="subsection-heading" style="color: rgba(255,255,255,0.5); border-bottom-color: rgba(255,255,255,0.1);">Operational Pressure Points</h3>
+            <ul class="watch-list" style="margin-top: 1rem;">
+                <li style="color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.06);"><span class="watch-list__num">&#x26A0;</span> Clients want faster output but are intolerant of provenance, privacy, and disclosure errors</li>
+                <li style="color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.06);"><span class="watch-list__num">&#x26A0;</span> Senior verification effort increasing; approval workflows formalising across regulated-sector mandates</li>
+                <li style="color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.06);"><span class="watch-list__num">&#x26A0;</span> Particular pressure in sanctions exposure, high-scrutiny technology, and ESG-adjacent advisory work</li>
+                <li style="color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.06);"><span class="watch-list__num">&#x26A0;</span> Partnerships and cross-referrals in sustainability/compliance lanes becoming strategically important for agencies</li>
+            </ul>
+        </div>
     </div>
 </section>
 
@@ -1228,15 +1270,19 @@ a:hover { text-decoration: underline; }
         <div class="reported-list">
             <div class="reported-item">
                 <p>Omnicom PR agency consolidation following IPG merger &mdash; major holding company restructuring reshaping the global agency landscape and competitive positioning.</p>
+                <p style="font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--grey-mid); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Source: Axios</p>
             </div>
             <div class="reported-item">
                 <p>Unilever sustainability oversight moving to corporate affairs &mdash; governance realignment placing sustainability reporting under communications leadership.</p>
+                <p style="font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--grey-mid); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Source: ESG Today</p>
             </div>
             <div class="reported-item">
                 <p>PRCA review of UK Public Affairs Code (evidence-gathering) &mdash; industry self-regulation review running in parallel with AI governance green paper activity.</p>
+                <p style="font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--grey-mid); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Source: Mynewsdesk</p>
             </div>
             <div class="reported-item">
                 <p>Ofcom online safety guidance on harms affecting women and girls &mdash; regulatory enforcement expanding scope of platform accountability obligations.</p>
+                <p style="font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--grey-mid); margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Source: Ofcom</p>
             </div>
         </div>
     </div>
@@ -1262,6 +1308,7 @@ a:hover { text-decoration: underline; }
                     <strong>Entities</strong>
                     Grok, xAI, X, DPC Ireland, Ofcom, UK Gov, European Commission
                 </div>
+                <p style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--grey-mid); margin-top: 0.8rem;">IDs: 147, 179, 208, 216, 269, 271, 278, 300, 360</p>
             </div>
 
             <!-- Cluster 2 -->
@@ -1275,6 +1322,7 @@ a:hover { text-decoration: underline; }
                     <strong>Entities</strong>
                     Ruder Finn, PRCA, UKAI, Centropy PR, Bastion, SLR Consulting
                 </div>
+                <p style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--grey-mid); margin-top: 0.8rem;">IDs: 16, 23, 318, 66, 11, 38, 305</p>
             </div>
         </div>
     </div>
