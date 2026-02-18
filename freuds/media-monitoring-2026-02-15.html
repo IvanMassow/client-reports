@@ -67,8 +67,8 @@ a:hover { text-decoration: underline; }
 .site-header__brand {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.4em;
+    font-size: 1.15rem;
+    letter-spacing: 0.45em;
     color: #fff;
     text-transform: uppercase;
     white-space: nowrap;
@@ -192,7 +192,7 @@ a:hover { text-decoration: underline; }
     color: var(--freuds-pink);
 }
 .hero-meta-value {
-    font-size: 0.85rem; color: var(--charcoal);
+    font-size: 1.15rem; color: var(--charcoal);
     font-weight: 500;
 }
 
@@ -591,7 +591,7 @@ a:hover { text-decoration: underline; }
     grid-template-columns: 1fr 1fr;
     gap: 0.3rem;
 }
-.dept-clear li { font-size: 0.85rem; color: var(--beige-mid); padding: 0.3rem 0; }
+.dept-clear li { font-size: 1.15rem; color: var(--beige-mid); padding: 0.3rem 0; }
 .dept-clear li::before {
     content: '\2713';
     color: var(--green);
@@ -840,8 +840,8 @@ a:hover { text-decoration: underline; }
 }
 .site-footer__brand {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 700; font-size: 0.85rem;
-    letter-spacing: 0.4em; color: #fff;
+    font-weight: 700; font-size: 1.15rem;
+    letter-spacing: 0.45em; color: #fff;
     text-transform: uppercase;
     margin-bottom: 0.6rem;
 }
@@ -888,19 +888,65 @@ a:hover { text-decoration: underline; }
 .feature-break {
     background: var(--white);
     padding: 0;
-    text-align: center;
     position: relative;
     overflow: hidden;
-    max-height: 280px;
+    display: flex;
+    align-items: stretch;
+    min-height: 260px;
 }
 .feature-break__image {
-    max-width: 500px;
-    margin: 0 auto;
+    flex: 0 0 40%;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
 }
 .feature-break__image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
     display: block;
+}
+.feature-break__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem 3rem;
+    background: var(--beige-bg);
+    position: relative;
+}
+.feature-break__content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    background: var(--freuds-pink);
+}
+.feature-break__label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--freuds-pink);
+    margin-bottom: 0.75rem;
+}
+.feature-break__quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--ink-dark);
+    margin-bottom: 1rem;
+}
+.feature-break__source {
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-light);
 }
 
 /* ===== RESPONSIVE ===== */
@@ -919,7 +965,9 @@ a:hover { text-decoration: underline; }
     .hero__content::after { display: none; }
     .hero__content h1 { font-size: 1.7rem; }
     .hero-meta { flex-wrap: wrap; gap: 1rem; }
-    .feature-break { max-height: 200px; }
+    .feature-break { flex-direction: column; min-height: auto; }
+    .feature-break__image { flex: none; height: 200px; }
+    .feature-break__content { padding: 1.5rem; }
     .section { padding: 2.5rem 0; }
     .section__title { font-size: 1.4rem; }
     .lanes-grid { grid-template-columns: 1fr; }
@@ -1277,6 +1325,11 @@ a:hover { text-decoration: underline; }
 <div class="feature-break">
     <div class="feature-break__image">
         <img src="feature-woman.png" alt="Pop art illustration">
+    </div>
+    <div class="feature-break__content">
+        <p class="feature-break__label">Coming Up Next</p>
+        <p class="feature-break__quote">&ldquo;Net risk this cycle: stable. Coverage skews toward performance positioning, with policy execution as the primary forward variable.&rdquo;</p>
+        <p class="feature-break__source">Section 6 &mdash; Competitive Landscape</p>
     </div>
 </div>
 
