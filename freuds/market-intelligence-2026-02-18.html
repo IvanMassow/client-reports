@@ -104,44 +104,38 @@ a:hover { text-decoration: underline; }
     position: relative;
     width: 100%;
     min-height: 520px;
-    background: var(--charcoal);
+    background: var(--white);
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
-.hero-bg {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+.hero__image {
+    flex: 0 0 45%;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
 }
-.hero-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: center 35%;
-    opacity: 0.45;
+.hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
 }
-.hero-overlay {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(35,31,32,0.92) 0%,
-        rgba(255,45,111,0.2) 45%,
-        rgba(123,47,190,0.15) 70%,
-        rgba(0,85,255,0.08) 100%
-    );
+.hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3.5rem 4rem 3.5rem 3rem;
+    background: var(--white);
+    position: relative;
 }
-.hero-vignette {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at 70% 50%, transparent 40%, rgba(35,31,32,0.55) 100%);
-}
-.hero-card {
-    position: relative; z-index: 2;
-    max-width: 580px;
-    margin: 3rem 0 3rem 5%;
-    padding: 2.5rem 2.5rem 2rem;
-    background: rgba(35,31,32,0.72);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-left: 4px solid var(--freuds-pink);
-    border-radius: 0px;
+.hero__content::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 4px;
+    background: var(--freuds-pink);
 }
 .hero-eyebrow {
     font-family: 'JetBrains Mono', monospace;
@@ -162,24 +156,24 @@ a:hover { text-decoration: underline; }
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.4); }
 }
-.hero-card h1 {
+.hero__content h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.1rem; font-weight: 700;
-    line-height: 1.2; color: #fff;
-    margin-bottom: 0.5rem;
+    font-size: 2.6rem; font-weight: 700;
+    line-height: 1.15; color: var(--charcoal);
+    margin-bottom: 0.6rem;
 }
-.hero-card .hero-subtitle-line {
+.hero__content .hero-subtitle-line {
     font-family: 'DM Sans', sans-serif;
-    font-size: 1rem; font-weight: 400;
-    color: rgba(255,255,255,0.7);
+    font-size: 1.05rem; font-weight: 500;
+    color: var(--freuds-pink);
     letter-spacing: 0.04em;
     margin-bottom: 0.8rem;
 }
-.hero-card .subtitle {
+.hero__content .subtitle {
     font-family: 'Archivo', sans-serif;
-    font-size: 1.02rem; font-weight: 300;
-    color: rgba(255,255,255,0.72);
-    line-height: 1.6;
+    font-size: 1rem; font-weight: 300;
+    color: var(--ink-body);
+    line-height: 1.65;
     max-width: 500px;
     margin-bottom: 0.4rem;
 }
@@ -187,7 +181,7 @@ a:hover { text-decoration: underline; }
     display: flex; gap: 2rem;
     margin-top: 1.6rem;
     padding-top: 1.3rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid var(--beige-border);
 }
 .hero-meta-item {
     display: flex; flex-direction: column; gap: 0.15rem;
@@ -199,8 +193,19 @@ a:hover { text-decoration: underline; }
     color: var(--freuds-pink);
 }
 .hero-meta-value {
-    font-size: 0.85rem; color: #fff;
+    font-size: 0.85rem; color: var(--charcoal);
     font-weight: 500;
+}
+
+/* ===== HALFTONE DOT PATTERN (Lichtenstein motif) ===== */
+.section--dotted {
+    background-image: radial-gradient(circle, var(--freuds-pink) 0.5px, transparent 0.5px);
+    background-size: 12px 12px;
+    background-position: 0 0;
+}
+.section--dotted-subtle {
+    background-image: radial-gradient(circle, rgba(255,45,111,0.06) 0.8px, transparent 0.8px);
+    background-size: 14px 14px;
 }
 
 /* ===== REPORT TYPE BAND ===== */
@@ -843,6 +848,25 @@ a:hover { text-decoration: underline; }
     color: rgba(246,240,232,0.2);
 }
 
+/* ===== POP ART FEATURE BREAK ===== */
+.feature-break {
+    background: var(--white);
+    padding: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+}
+.feature-break__image {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.feature-break__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     body { font-size: 15px; }
@@ -853,10 +877,12 @@ a:hover { text-decoration: underline; }
     }
     .site-header__nav a { font-size: 0.7rem; white-space: nowrap; }
     .container { padding: 0 1rem; }
-    .hero { min-height: 420px; }
-    .hero-card { margin: 2rem 1rem; max-width: 100%; padding: 2rem 1.5rem 1.5rem; }
-    .hero-card h1 { font-size: 1.5rem; }
+    .hero { flex-direction: column; min-height: auto; }
+    .hero__image { flex: none; height: 300px; }
+    .hero__content { padding: 2rem 1.5rem; }
+    .hero__content h1 { font-size: 1.8rem; }
     .hero-meta { flex-wrap: wrap; gap: 1rem; }
+    .feature-break { max-height: 200px; }
     .section { padding: 2.5rem 0; }
     .section__title { font-size: 1.4rem; }
     .people-grid { grid-template-columns: 1fr; }
@@ -885,11 +911,11 @@ a:hover { text-decoration: underline; }
 
 <!-- ===== HERO WITH IMAGE ===== -->
 <section class="hero">
-    <div class="hero-bg"><img src="cityscape.png" alt="Two silhouettes at a desk with London skyline"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-vignette"></div>
-    <div class="hero-card">
-        <div class="hero-eyebrow"><span class="pulse-dot"></span> Freuds &mdash; Intelligence</div>
+    <div class="hero__image">
+        <img src="hero-blonde.png" alt="Pop art illustration">
+    </div>
+    <div class="hero__content">
+        <div class="hero-eyebrow"><span class="pulse-dot"></span> Freuds — Intelligence</div>
         <h1>Market Intelligence Briefing</h1>
         <p class="hero-subtitle-line">Strategic Communications &amp; Public Affairs</p>
         <p class="subtitle">Daily intelligence scan covering regulatory signals, leadership moves, advisory consolidation, and emerging market dynamics.</p>
@@ -1154,6 +1180,13 @@ a:hover { text-decoration: underline; }
     <p class="insight-banner__text">Two simultaneous forces are reshaping the sector: governance requirements intensifying around AI and platform accountability, and communications delivery pivoting toward measurement-substantiated work.</p>
 </div>
 
+<!-- ===== POP ART FEATURE BREAK ===== -->
+<div class="feature-break">
+    <div class="feature-break__image">
+        <img src="feature-woman.png" alt="Pop art illustration">
+    </div>
+</div>
+
 <!-- ===== SECTION 4: WHAT'S GAINING ATTENTION ===== -->
 <section class="section section--default" id="analysis">
     <div class="container">
@@ -1260,7 +1293,7 @@ a:hover { text-decoration: underline; }
 </section>
 
 <!-- ===== SECTION 7: BACKGROUND & CONTEXT ===== -->
-<section class="section section--pink-accent">
+<section class="section section--pink-accent section--dotted-subtle">
     <div class="container">
         <p class="section__label">Section 7</p>
         <h2 class="section__title">Background &amp; Context</h2>

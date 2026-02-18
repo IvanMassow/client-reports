@@ -104,44 +104,38 @@ a:hover { text-decoration: underline; }
     position: relative;
     width: 100%;
     min-height: 520px;
-    background: var(--charcoal);
+    background: var(--white);
     overflow: hidden;
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
-.hero-bg {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+.hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3.5rem 3rem 3.5rem 4rem;
+    background: var(--white);
+    position: relative;
 }
-.hero-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: center 35%;
-    opacity: 0.5;
+.hero__content::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; right: 0;
+    width: 4px;
+    background: var(--freuds-pink);
 }
-.hero-overlay {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(35,31,32,0.90) 0%,
-        rgba(123,47,190,0.30) 45%,
-        rgba(255,45,111,0.20) 70%,
-        rgba(255,45,111,0.08) 100%
-    );
+.hero__image {
+    flex: 0 0 40%;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
 }
-.hero-vignette {
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at 70% 50%, transparent 40%, rgba(35,31,32,0.5) 100%);
-}
-.hero-card {
-    position: relative; z-index: 2;
-    max-width: 560px;
-    margin: 3rem 0 3rem 5%;
-    padding: 2.5rem 2.5rem 2rem;
-    background: rgba(35,31,32,0.72);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-left: 4px solid var(--freuds-pink);
-    border-radius: 2px;
+.hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
 }
 .hero-eyebrow {
     font-family: 'JetBrains Mono', monospace;
@@ -162,38 +156,31 @@ a:hover { text-decoration: underline; }
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.4); }
 }
-.hero-card h1 {
+.hero__content h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.1rem; font-weight: 700;
-    line-height: 1.2; color: #fff;
+    font-size: 2.4rem; font-weight: 700;
+    line-height: 1.15; color: var(--charcoal);
     margin-bottom: 0.5rem;
 }
-.hero-client-label {
+.hero__content .client-name {
     font-family: 'DM Sans', sans-serif;
-    font-size: 1.1rem; font-weight: 400;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.04em;
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--freuds-pink);
     margin-bottom: 0.8rem;
 }
-.hero-client-label strong {
-    font-weight: 700;
-    color: var(--freuds-pink-light);
-    font-size: 1.2rem;
-    letter-spacing: 0.06em;
-}
-.hero-card .subtitle {
+.hero__content .subtitle {
     font-family: 'Archivo', sans-serif;
-    font-size: 1.05rem; font-weight: 300;
-    color: rgba(255,255,255,0.72);
-    line-height: 1.6;
-    max-width: 460px;
+    font-size: 0.95rem; font-weight: 300;
+    color: var(--ink-body);
+    line-height: 1.65;
+    max-width: 480px;
     margin-bottom: 0.4rem;
 }
 .hero-meta {
     display: flex; gap: 2rem;
     margin-top: 1.6rem;
     padding-top: 1.3rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid var(--beige-border);
 }
 .hero-meta-item {
     display: flex; flex-direction: column; gap: 0.15rem;
@@ -205,7 +192,7 @@ a:hover { text-decoration: underline; }
     color: var(--freuds-pink);
 }
 .hero-meta-value {
-    font-size: 0.85rem; color: #fff;
+    font-size: 0.85rem; color: var(--charcoal);
     font-weight: 500;
 }
 
@@ -891,6 +878,31 @@ a:hover { text-decoration: underline; }
     color: rgba(255,255,255,0.2);
 }
 
+/* ===== HALFTONE DOT PATTERN (Lichtenstein motif) ===== */
+.section--dotted-subtle {
+    background-image: radial-gradient(circle, rgba(255,45,111,0.06) 0.8px, transparent 0.8px);
+    background-size: 14px 14px;
+}
+
+/* ===== POP ART FEATURE BREAK ===== */
+.feature-break {
+    background: var(--white);
+    padding: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    max-height: 280px;
+}
+.feature-break__image {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.feature-break__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     body { font-size: 15px; }
@@ -901,10 +913,13 @@ a:hover { text-decoration: underline; }
     }
     .site-header__nav a { font-size: 0.7rem; white-space: nowrap; }
     .container { padding: 0 1rem; }
-    .hero { min-height: 420px; }
-    .hero-card { margin: 2rem 1rem; max-width: 100%; padding: 2rem 1.5rem 1.5rem; }
-    .hero-card h1 { font-size: 1.5rem; }
+    .hero { flex-direction: column-reverse; min-height: auto; }
+    .hero__image { flex: none; height: 280px; }
+    .hero__content { padding: 2rem 1.5rem; }
+    .hero__content::after { display: none; }
+    .hero__content h1 { font-size: 1.7rem; }
     .hero-meta { flex-wrap: wrap; gap: 1rem; }
+    .feature-break { max-height: 200px; }
     .section { padding: 2.5rem 0; }
     .section__title { font-size: 1.4rem; }
     .lanes-grid { grid-template-columns: 1fr; }
@@ -934,14 +949,11 @@ a:hover { text-decoration: underline; }
 
 <!-- ===== HERO WITH IMAGE ===== -->
 <section class="hero">
-    <div class="hero-bg"><img src="london-cityscape.png" alt="London cityscape"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-vignette"></div>
-    <div class="hero-card">
-        <div class="hero-eyebrow"><span class="pulse-dot"></span> Freuds &mdash; Intelligence</div>
+    <div class="hero__content">
+        <div class="hero-eyebrow"><span class="pulse-dot"></span> Freuds — Intelligence</div>
         <h1>Media Monitoring &amp; Strategy Report</h1>
-        <p class="hero-client-label">Client: <strong>BIFFA</strong></p>
-        <p class="subtitle">72-hour media intelligence window &mdash; Coverage, risk signals, and strategic positioning across trade, news, and regulatory channels.</p>
+        <p class="client-name">Client: BIFFA</p>
+        <p class="subtitle">72-hour media intelligence window — Coverage, risk signals, and strategic positioning across trade, news, and regulatory channels.</p>
         <div class="hero-meta">
             <div class="hero-meta-item">
                 <span class="hero-meta-label">Report Date</span>
@@ -956,6 +968,9 @@ a:hover { text-decoration: underline; }
                 <span class="hero-meta-value">Client Confidential</span>
             </div>
         </div>
+    </div>
+    <div class="hero__image">
+        <img src="hero-brunette.png" alt="Pop art illustration">
     </div>
 </section>
 
@@ -1256,6 +1271,13 @@ a:hover { text-decoration: underline; }
 <div class="insight-banner">
     <p class="insight-banner__label">Strategic Insight</p>
     <p class="insight-banner__text">Net risk this cycle: stable. Coverage skews toward performance and collaboration positioning, with policy execution on DRS and UKIMA as the primary forward-looking variable.</p>
+</div>
+
+<!-- ===== POP ART FEATURE BREAK ===== -->
+<div class="feature-break">
+    <div class="feature-break__image">
+        <img src="feature-woman.png" alt="Pop art illustration">
+    </div>
 </div>
 
 <!-- ===== SECTION 6: COMPETITIVE LANDSCAPE ===== -->
