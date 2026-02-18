@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardew Group — Market Intelligence Briefing — 18 February 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+    --cardew-teal: #00999a;
+    --cardew-teal-dark: #007d7e;
+    --cardew-teal-light: #4db8b8;
+    --cardew-teal-glow: rgba(0,153,154,0.25);
+    --cardew-teal-subtle: rgba(0,153,154,0.08);
+    --magenta: #c43d7a;
+    --magenta-light: #e06aa0;
+    --magenta-subtle: rgba(196,61,122,0.08);
+    --navy: #1c2130;
+    --navy-light: #262a33;
+    --ink-dark: #1a1a2e;
+    --ink-body: #3d4250;
+    --ink-light: #6b7085;
+    --grey-bg: #f4f5f9;
+    --grey-alt: #eceef3;
+    --grey-border: #dde0e8;
+    --grey-mid: #9298a8;
+    --white: #ffffff;
+    --amber: #b45309;
+    --green: #16a34a;
+    --red: #cc0000;
+    --blue: #3b6ea5;
+}
+
+body {
+    font-family: 'Lato', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-body);
+    background: var(--grey-bg);
+    padding-top: 56px;
+    -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; }
+a { color: var(--cardew-teal); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== CONTAINER ===== */
+.container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+
+/* ===== FIXED HEADER ===== */
+.site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 56px;
+    background: var(--navy);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    border-bottom: 2px solid var(--cardew-teal);
+}
+.site-header__brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    color: #fff;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.site-header__nav {
+    display: flex;
+    gap: 1.8rem;
+}
+.site-header__nav a {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+}
+.site-header__nav a:hover { color: var(--cardew-teal-light); text-decoration: none; }
+.site-header__pill {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--cardew-teal);
+    text-transform: uppercase;
+    background: rgba(0,153,154,0.12);
+    padding: 0.25rem 0.85rem;
+    border-radius: 3px;
+}
+
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    background: var(--navy);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+}
+.hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center 35%;
+    opacity: 0.5;
+}
+.hero-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(28,33,48,0.88) 0%,
+        rgba(140,40,90,0.35) 45%,
+        rgba(196,61,122,0.2) 70%,
+        rgba(0,153,154,0.12) 100%
+    );
+}
+.hero-vignette {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 70% 50%, transparent 40%, rgba(28,33,48,0.5) 100%);
+}
+.hero-card {
+    position: relative; z-index: 2;
+    max-width: 580px;
+    margin: 3rem 0 3rem 5%;
+    padding: 2.5rem 2.5rem 2rem;
+    background: rgba(28,33,48,0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 4px solid var(--cardew-teal);
+    border-radius: 2px;
+}
+.hero-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cardew-teal);
+    margin-bottom: 0.9rem;
+    display: flex; align-items: center; gap: 0.5rem;
+}
+.pulse-dot {
+    width: 8px; height: 8px;
+    background: var(--cardew-teal);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 0 8px var(--cardew-teal-glow);
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+}
+.hero-card h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem; font-weight: 700;
+    line-height: 1.2; color: #fff;
+    margin-bottom: 0.5rem;
+}
+.hero-card .hero-subtitle-line {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem; font-weight: 400;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.8rem;
+}
+.hero-card .subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.02rem; font-weight: 300;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.6;
+    max-width: 500px;
+    margin-bottom: 0.4rem;
+}
+.hero-meta {
+    display: flex; gap: 2rem;
+    margin-top: 1.6rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hero-meta-item {
+    display: flex; flex-direction: column; gap: 0.15rem;
+}
+.hero-meta-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--cardew-teal);
+}
+.hero-meta-value {
+    font-size: 0.85rem; color: #fff;
+    font-weight: 500;
+}
+
+/* ===== REPORT TYPE BAND ===== */
+.report-band {
+    background: var(--cardew-teal);
+    padding: 0.85rem 2rem;
+    text-align: center;
+}
+.report-band-inner {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0.8rem;
+}
+.report-band-icon { font-size: 1.2rem; }
+.report-band-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: #fff;
+}
+
+/* ===== STATUS PILLS ===== */
+.pills-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--grey-border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+.pill--green { background: rgba(22,163,74,0.12); color: #16a34a; }
+.pill--grey { background: rgba(146,152,168,0.12); color: #6b7085; }
+.pill--amber { background: rgba(180,83,9,0.12); color: #b45309; }
+.pill--teal { background: rgba(0,153,154,0.12); color: var(--cardew-teal); }
+.pill--red { background: rgba(204,0,0,0.1); color: #cc0000; }
+.pill--blue { background: rgba(59,110,165,0.1); color: #3b6ea5; }
+.pill--gold { background: rgba(201,146,107,0.12); color: #c9926b; }
+.pill--dark { background: rgba(28,33,48,0.9); color: #fff; }
+.pill--magenta { background: rgba(196,61,122,0.1); color: var(--magenta); }
+.pill-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.pill-dot--green { background: #16a34a; }
+.pill-dot--grey { background: #9298a8; }
+.pill-dot--amber { background: #b45309; }
+.pill-dot--teal { background: var(--cardew-teal); }
+.pill-dot--blue { background: #3b6ea5; }
+.pill-dot--red { background: #cc0000; }
+
+/* ===== SECTIONS ===== */
+.section { padding: 3.5rem 0; }
+.section--alt { background: var(--white); }
+.section--default { background: var(--grey-bg); }
+.section--dark {
+    background: var(--navy);
+    color: #fff;
+}
+.section--dark .section__label { color: var(--cardew-teal-light); }
+.section--dark .section__title { color: #fff; }
+.section--dark .section__subtitle { color: rgba(255,255,255,0.7); }
+.section--teal-accent {
+    background: linear-gradient(180deg, var(--white) 0%, rgba(0,153,154,0.04) 100%);
+}
+.section__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cardew-teal);
+    margin-bottom: 0.4rem;
+}
+.section__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 700;
+    color: var(--navy-light);
+    margin-bottom: 0.6rem;
+}
+.section__subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: var(--ink-body);
+    margin-bottom: 2rem;
+    max-width: 760px;
+}
+.section__divider {
+    width: 50px; height: 3px;
+    background: var(--cardew-teal);
+    margin-bottom: 2rem;
+    border: none;
+}
+.section--dark .section__divider { background: var(--cardew-teal-light); }
+
+/* ===== SECTION ACCENT STRIPE ===== */
+.section-stripe {
+    height: 4px;
+    background: linear-gradient(90deg, var(--cardew-teal) 0%, var(--magenta) 50%, var(--cardew-teal) 100%);
+    opacity: 0.5;
+}
+
+/* ===== INSIGHT BANNER ===== */
+.insight-banner {
+    background: var(--navy);
+    padding: 2.8rem 2rem;
+    text-align: center;
+}
+.insight-banner__label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cardew-teal);
+    margin-bottom: 0.8rem;
+}
+.insight-banner__text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 400;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ===== CARDS ===== */
+.card {
+    background: var(--white);
+    border: 1px solid var(--grey-border);
+    border-radius: 6px;
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 1.2rem;
+    transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: 0 4px 20px rgba(28,33,48,0.06); }
+.card--border-teal { border-left: 4px solid var(--cardew-teal); }
+.card--border-amber { border-left: 4px solid var(--amber); }
+.card--border-blue { border-left: 4px solid var(--blue); }
+.card--border-grey { border-left: 4px solid var(--grey-mid); }
+.card--border-gold { border-left: 4px solid #c9926b; }
+.card--border-green { border-left: 4px solid var(--green); }
+.card--border-red { border-left: 4px solid var(--red); }
+.card--border-magenta { border-left: 4px solid var(--magenta); }
+
+.card__pills {
+    display: flex; gap: 0.5rem;
+    margin-bottom: 0.8rem; flex-wrap: wrap;
+}
+.card__headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--navy-light);
+    margin-bottom: 0.6rem; line-height: 1.4;
+}
+.card__body {
+    font-size: 0.92rem; line-height: 1.65;
+    color: var(--ink-body);
+    margin-bottom: 0.8rem;
+}
+.card__source {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--grey-mid);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.card__subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* ===== PULL QUOTE ===== */
+.pull-quote {
+    border-left: 4px solid var(--cardew-teal);
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.8rem;
+    background: linear-gradient(135deg, var(--cardew-teal-subtle) 0%, rgba(196,61,122,0.03) 100%);
+    border-radius: 0 4px 4px 0;
+    position: relative;
+}
+.pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: 0.3rem; left: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--cardew-teal);
+    opacity: 0.2;
+    line-height: 1;
+}
+.pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.08rem; line-height: 1.7;
+    color: var(--navy-light);
+    padding-left: 1rem;
+}
+
+/* ===== IMAGE BAND ===== */
+.image-band {
+    width: 100%;
+    position: relative;
+}
+.image-band::before,
+.image-band::after {
+    content: '';
+    display: block;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cardew-teal) 0%, var(--magenta) 50%, var(--cardew-teal) 100%);
+    opacity: 0.6;
+}
+.image-band img {
+    width: 100%;
+    display: block;
+}
+.image-band__caption {
+    background: var(--navy);
+    padding: 1rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+.image-band__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cardew-teal);
+}
+.image-band__caption span:last-child {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+    max-width: 640px;
+}
+
+/* ===== PEOPLE MOVES GRID ===== */
+.people-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* ===== SUBSECTION HEADING ===== */
+.subsection-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--navy-light);
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--grey-border);
+}
+.subsection-heading:first-child { margin-top: 0; }
+
+/* ===== DECISION MATRIX TABLE ===== */
+.matrix-table {
+    width: 100%; border-collapse: collapse;
+    background: var(--white);
+    border: 1px solid var(--grey-border);
+    border-radius: 6px; overflow: hidden;
+}
+.matrix-table th {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    background: var(--navy);
+    padding: 0.85rem 1.2rem;
+    text-align: left;
+    border-bottom: 2px solid var(--cardew-teal);
+}
+.matrix-table td {
+    padding: 1rem 1.2rem;
+    font-size: 0.9rem;
+    color: var(--ink-body);
+    border-bottom: 1px solid var(--grey-border);
+}
+.matrix-table tr:last-child td { border-bottom: none; }
+.matrix-table td:first-child { font-weight: 700; color: var(--navy-light); }
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.68rem; font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.badge--amber { background: rgba(180,83,9,0.1); color: var(--amber); }
+.badge--green { background: rgba(22,163,74,0.1); color: var(--green); }
+.badge--red { background: rgba(204,0,0,0.1); color: var(--red); }
+
+/* ===== STAT CARDS ===== */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.stat-card {
+    background: var(--navy);
+    border: 1px solid rgba(0,153,154,0.2);
+    border-radius: 6px;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--cardew-teal);
+}
+.stat-card__number {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--cardew-teal-light);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+}
+.stat-card__label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* ===== WATCH LIST ===== */
+.watch-list { list-style: none; padding: 0; }
+.watch-list li {
+    padding: 0.55rem 0;
+    font-size: 0.9rem;
+    color: var(--ink-body);
+    border-bottom: 1px solid var(--grey-border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+.watch-list li:last-child { border-bottom: none; }
+.watch-list__num {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem; font-weight: 700;
+    color: var(--cardew-teal);
+    min-width: 1.5rem;
+}
+
+/* ===== CLUSTER CARDS ===== */
+.cluster-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+.cluster-card {
+    background: var(--white);
+    border: 1px solid var(--grey-border);
+    border-radius: 6px;
+    padding: 1.5rem 1.8rem;
+    border-left: 4px solid var(--cardew-teal);
+    transition: box-shadow 0.2s;
+}
+.cluster-card:hover { box-shadow: 0 4px 20px rgba(28,33,48,0.06); }
+.cluster-card__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem; font-weight: 700;
+    color: var(--navy-light);
+    margin-bottom: 0.8rem; line-height: 1.4;
+}
+.cluster-card__stat {
+    display: flex; align-items: baseline; gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+.cluster-card__stat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--cardew-teal);
+}
+.cluster-card__stat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem; font-weight: 600;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.cluster-card__entities {
+    font-size: 0.82rem;
+    color: var(--ink-light);
+    line-height: 1.6;
+}
+.cluster-card__entities strong {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--navy-light);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+/* ===== WIDELY REPORTED CARDS ===== */
+.reported-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.reported-item {
+    background: var(--white);
+    border: 1px solid var(--grey-border);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--grey-mid);
+    transition: box-shadow 0.2s;
+}
+.reported-item:hover { box-shadow: 0 2px 12px rgba(28,33,48,0.04); }
+.reported-item p {
+    font-size: 0.9rem;
+    color: var(--ink-body);
+    line-height: 1.55;
+}
+
+/* ===== ENTITY CARDS ===== */
+.entity-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.entity-card {
+    background: var(--white);
+    border: 1px solid var(--grey-border);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+}
+.entity-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--cardew-teal);
+}
+.entity-card:hover { box-shadow: 0 4px 20px rgba(28,33,48,0.06); }
+.entity-card__name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 700;
+    color: var(--navy-light);
+    margin-bottom: 0.2rem;
+}
+.entity-card__status {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem; font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.entity-card__count {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.6rem; font-weight: 700;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+    background: var(--navy);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    border-top: 3px solid var(--cardew-teal);
+}
+.site-footer__brand {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.18em; color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+.site-footer__desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1.2rem;
+    max-width: 560px;
+    margin-left: auto; margin-right: auto;
+}
+.site-footer__nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.site-footer__nav a {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.site-footer__nav a:hover { color: var(--cardew-teal-light); text-decoration: none; }
+.site-footer__legal {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.3);
+    max-width: 640px;
+    margin: 0 auto 0.8rem;
+    line-height: 1.6;
+}
+.site-footer__version {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: rgba(255,255,255,0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    body { font-size: 15px; }
+    .site-header { padding: 0 1rem; }
+    .site-header__nav {
+        overflow-x: auto; gap: 1rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    .site-header__nav a { font-size: 0.7rem; white-space: nowrap; }
+    .container { padding: 0 1rem; }
+    .hero { min-height: 420px; }
+    .hero-card { margin: 2rem 1rem; max-width: 100%; padding: 2rem 1.5rem 1.5rem; }
+    .hero-card h1 { font-size: 1.5rem; }
+    .hero-meta { flex-wrap: wrap; gap: 1rem; }
+    .section { padding: 2.5rem 0; }
+    .section__title { font-size: 1.4rem; }
+    .people-grid { grid-template-columns: 1fr; }
+    .cluster-grid { grid-template-columns: 1fr; }
+    .reported-list { grid-template-columns: 1fr; }
+    .entity-row { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .pills-bar { padding: 0.8rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== FIXED HEADER ===== -->
+<header class="site-header">
+    <div class="site-header__brand">Cardew Group</div>
+    <nav class="site-header__nav">
+        <a href="#intelligence">Intelligence</a>
+        <a href="#people">People</a>
+        <a href="#industry">Industry</a>
+        <a href="#analysis">Analysis</a>
+        <a href="#assessment">Assessment</a>
+    </nav>
+    <div class="site-header__pill">Market Briefing</div>
+</header>
+
+<!-- ===== HERO WITH IMAGE ===== -->
+<section class="hero">
+    <div class="hero-bg"><img src="cityscape.png" alt="Two silhouettes at a desk with London skyline"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-card">
+        <div class="hero-eyebrow"><span class="pulse-dot"></span> Cardew Group &mdash; Intelligence</div>
+        <h1>Market Intelligence Briefing</h1>
+        <p class="hero-subtitle-line">Strategic Communications &amp; Public Affairs</p>
+        <p class="subtitle">Daily intelligence scan covering regulatory signals, leadership moves, advisory consolidation, and emerging market dynamics.</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Report Date</span>
+                <span class="hero-meta-value">18 Feb 2026</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Geography</span>
+                <span class="hero-meta-value">UK / Europe / US</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="hero-meta-label">Classification</span>
+                <span class="hero-meta-value">Client Confidential</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== REPORT TYPE BAND ===== -->
+<div class="report-band">
+    <div class="report-band-inner">
+        <span class="report-band-icon">&#x1F4CA;</span>
+        <span class="report-band-label">Market Intelligence Briefing</span>
+    </div>
+</div>
+
+<!-- ===== STATUS PILLS BAR ===== -->
+<div class="pills-bar">
+    <span class="pill pill--teal"><span class="pill-dot pill-dot--teal"></span> AI Governance: Active</span>
+    <span class="pill pill--amber"><span class="pill-dot pill-dot--amber"></span> Advisory M&amp;A: Consolidating</span>
+    <span class="pill pill--red"><span class="pill-dot pill-dot--red"></span> FCA BNPL: Deadline 15 Jul</span>
+</div>
+
+<!-- ===== SECTION 1: TODAY'S INTELLIGENCE ===== -->
+<section class="section section--alt" id="intelligence">
+    <div class="container">
+        <p class="section__label">Section 1</p>
+        <h2 class="section__title">Today&rsquo;s Intelligence</h2>
+        <hr class="section__divider">
+
+        <div class="pull-quote">
+            <p>Four primary signals today across AI governance, platform regulation, advisory appointments, and financial services compliance. The regulatory posture around generative AI is hardening across multiple jurisdictions, while advisory sector consolidation continues to accelerate through M&amp;A and appointment activity.</p>
+        </div>
+
+        <!-- Card 1 -->
+        <div class="card card--border-teal">
+            <div class="card__pills">
+                <span class="pill pill--teal">AI Governance</span>
+                <span class="pill pill--grey">Today</span>
+            </div>
+            <h3 class="card__headline">PRCA AI Green Paper Launch</h3>
+            <p class="card__body">The PRCA released guidance formalizing governance standards for responsible AI use. Establishes accountability benchmarks for procurement, client service delivery, and risk management.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card card--border-teal">
+            <div class="card__pills">
+                <span class="pill pill--blue">Appointment</span>
+                <span class="pill pill--grey">Today</span>
+            </div>
+            <h3 class="card__headline">UKAI Appoints Centropy PR</h3>
+            <p class="card__body">UK AI industry trade association retained Centropy PR for external communications. Connects mainstream media visibility and policy engagement to broader ecosystem visibility.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card card--border-amber">
+            <div class="card__pills">
+                <span class="pill pill--amber">Regulatory</span>
+                <span class="pill pill--amber">Cross-Border</span>
+            </div>
+            <h3 class="card__headline">DPC Ireland Investigates xAI / X over Grok</h3>
+            <p class="card__body">Ireland&rsquo;s data protection regulator examining xAI and X regarding Grok-related content concerns. Cross-border privacy enforcement around generative AI becoming an active reputational and regulatory issue.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card card--border-red">
+            <div class="card__pills">
+                <span class="pill pill--red">FCA Rules</span>
+                <span class="pill pill--red">Implementation</span>
+            </div>
+            <h3 class="card__headline">FCA BNPL Final Rules &mdash; 15 July 2026</h3>
+            <p class="card__body">Financial Conduct Authority published final BNPL regulations with 15 July 2026 go-live. Accelerates compliance communications, investor positioning, and customer messaging for lending and retail organisations.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FULL-WIDTH IMAGE BAND ===== -->
+<div class="image-band">
+    <img src="escalation-map.jpg" alt="The Tightening Cycle: Governance Escalation in AI & Platform Accountability">
+    <div class="image-band__caption">
+        <span class="image-band__label">Intelligence Graphic</span>
+        <span>The Tightening Cycle &mdash; Governance escalation from client friction to cross-referral partnerships</span>
+    </div>
+</div>
+
+<!-- ===== SECTION 2: PEOPLE MOVES ===== -->
+<section class="section section--default" id="people">
+    <div class="container">
+        <p class="section__label">Section 2</p>
+        <h2 class="section__title">People Moves</h2>
+        <p class="section__subtitle">Leadership appointments and departures across the communications and advisory sector.</p>
+        <hr class="section__divider">
+
+        <div class="people-grid">
+            <!-- Person 1 -->
+            <div class="card card--border-teal">
+                <h3 class="card__headline">Jeremy Guterl</h3>
+                <p class="card__subtitle">SVP, Research &amp; Analytics &mdash; Ruder Finn</p>
+                <p class="card__body">Senior appointment strengthening Ruder Finn&rsquo;s research and analytics capability. Signals continued investment in measurement-substantiated communications work.</p>
+            </div>
+
+            <!-- Person 2 -->
+            <div class="card card--border-teal">
+                <h3 class="card__headline">Erin Sing</h3>
+                <p class="card__subtitle">Executive Director (Melbourne) &mdash; Havas Red</p>
+                <p class="card__body">Executive appointment expanding Havas Red&rsquo;s Asia-Pacific leadership footprint. Melbourne market visibility for integrated communications offerings.</p>
+            </div>
+
+            <!-- Person 3 -->
+            <div class="card card--border-teal">
+                <h3 class="card__headline">Conor Roberts</h3>
+                <p class="card__subtitle">Executive Director &mdash; Anthem (NZ)</p>
+                <p class="card__body">Leadership hire at Anthem New Zealand. Reflects continued growth investment in the Australasian advisory and communications market.</p>
+            </div>
+
+            <!-- Person 4 -->
+            <div class="card card--border-teal">
+                <h3 class="card__headline">Alicia Lemmer</h3>
+                <p class="card__subtitle">Account Executive &mdash; Anthem (NZ)</p>
+                <p class="card__body">Account-level hire at Anthem New Zealand. Adds capacity alongside executive leadership appointment, signalling client pipeline growth.</p>
+            </div>
+
+            <!-- Person 5 -->
+            <div class="card card--border-amber">
+                <h3 class="card__headline">Coby Shuman</h3>
+                <p class="card__subtitle">Departing Managing Director &mdash; We Are Social</p>
+                <p class="card__body">Managing Director departure from We Are Social. Departure at this level may signal strategic direction shifts or create talent availability for competitors.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SECTION 3: INDUSTRY NOTES ===== -->
+<section class="section section--alt" id="industry">
+    <div class="container">
+        <p class="section__label">Section 3</p>
+        <h2 class="section__title">Industry Notes</h2>
+        <hr class="section__divider">
+
+        <!-- Advisory Sector M&A -->
+        <h3 class="subsection-heading">Advisory Sector M&amp;A</h3>
+
+        <div class="card card--border-blue">
+            <h3 class="card__headline">SLR Consulting Acquires SB&amp;CO (UK)</h3>
+            <p class="card__body">Sustainability services expansion through strategic acquisition. SLR Consulting deepens UK sustainability advisory capability, extending its integrated environmental and ESG offering.</p>
+        </div>
+
+        <div class="card card--border-blue">
+            <h3 class="card__headline">Antaris + Pragmatica Merge (Ireland)</h3>
+            <p class="card__body">Sustainability and compliance advisory consolidation in the Irish market. Combined entity targets growing demand for integrated governance, risk, and sustainability advisory services.</p>
+        </div>
+
+        <div class="card card--border-blue">
+            <h3 class="card__headline">Bastion Opens North American Arm</h3>
+            <p class="card__body">Australian-origin communications group establishes US presence for client and media work. Geographic expansion reflecting client demand for cross-border integrated communications support.</p>
+        </div>
+
+        <!-- Technology & Consulting Launches -->
+        <h3 class="subsection-heading">Technology &amp; Consulting Launches</h3>
+
+        <div class="card card--border-teal">
+            <h3 class="card__headline">Lightouch Consulting Launch</h3>
+            <p class="card__body">GenAI-native management consultancy launched in the UK. Positions itself at the intersection of generative AI capability and traditional strategic consulting, targeting enterprise transformation mandates.</p>
+        </div>
+
+        <div class="card card--border-teal">
+            <h3 class="card__headline">Lightworks &mdash; $12m Funding Round</h3>
+            <p class="card__body">$12m funding secured for AI deployment in regulated enterprises. Capital injection supports scaling of compliance-grade AI tooling for financial services, healthcare, and government sectors.</p>
+        </div>
+
+        <!-- Data & Marketing / Regulatory -->
+        <h3 class="subsection-heading">Data &amp; Marketing / Regulatory</h3>
+
+        <div class="card card--border-amber">
+            <h3 class="card__headline">StackAdapt + Experian UK Partnership</h3>
+            <p class="card__body">First-party data activation partnership combining StackAdapt&rsquo;s programmatic platform with Experian UK&rsquo;s consumer data assets. Signals continued shift toward privacy-compliant audience targeting infrastructure.</p>
+        </div>
+
+        <div class="card card--border-amber">
+            <h3 class="card__headline">OFSI Enforcement Process Reforms</h3>
+            <p class="card__body">UK sanctions compliance update from the Office of Financial Sanctions Implementation. Enforcement process reforms affect compliance communications and risk frameworks for regulated entities and their advisors.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DARK INSIGHT BANNER ===== -->
+<div class="insight-banner">
+    <p class="insight-banner__label">Strategic Insight</p>
+    <p class="insight-banner__text">Two simultaneous forces are reshaping the sector: governance requirements intensifying around AI and platform accountability, and communications delivery pivoting toward measurement-substantiated work.</p>
+</div>
+
+<!-- ===== SECTION 4: WHAT'S GAINING ATTENTION ===== -->
+<section class="section section--default" id="analysis">
+    <div class="container">
+        <p class="section__label">Section 4</p>
+        <h2 class="section__title">What&rsquo;s Gaining Attention</h2>
+        <p class="section__subtitle">Thematic analysis of emerging patterns across today&rsquo;s intelligence signals.</p>
+        <hr class="section__divider">
+
+        <div class="card card--border-magenta">
+            <h3 class="card__headline">Platform Regulation &amp; AI Governance</h3>
+            <p class="card__body">Regulator activity around Grok/X clustering across privacy and online-safety dimensions. The DPC Ireland investigation, combined with the PRCA&rsquo;s governance green paper and UKAI&rsquo;s appointment of communications support, indicates the AI governance narrative is moving from principle-setting to active enforcement and compliance infrastructure. Organisations with AI-adjacent operations face growing scrutiny from multiple directions simultaneously.</p>
+        </div>
+
+        <div class="card card--border-magenta">
+            <h3 class="card__headline">Responsible AI in Communications Practice</h3>
+            <p class="card__body">The conversation has shifted from tooling demonstration to governance-centered discussion. The PRCA green paper formalizes what was previously voluntary best practice into structured accountability. This creates both compliance obligations and differentiation opportunities for communications firms that can demonstrate governance maturity to enterprise clients.</p>
+        </div>
+
+        <div class="card card--border-magenta">
+            <h3 class="card__headline">Advisory Consolidation Across Sustainability &amp; Compliance</h3>
+            <p class="card__body">The advisory sector supporting sustainability continues tightening through M&amp;A. SLR Consulting&rsquo;s acquisition of SB&amp;CO and the Antaris-Pragmatica merger in Ireland follow established consolidation patterns. Smaller specialist firms are being absorbed into larger platforms seeking integrated capability across governance, sustainability, and compliance advisory.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SECTION 5: WHAT TO WATCH ===== -->
+<section class="section section--alt">
+    <div class="container">
+        <p class="section__label">Section 5</p>
+        <h2 class="section__title">What to Watch</h2>
+        <hr class="section__divider">
+
+        <ul class="watch-list">
+            <li><span class="watch-list__num">1</span> FCA BNPL rules approaching 15 July 2026 implementation &mdash; compliance communications timelines narrowing for lending and retail organisations</li>
+            <li><span class="watch-list__num">2</span> Irish DPC and EU authorities on Grok/X matters &mdash; enforcement trajectory and potential cross-border coordination with UK regulators</li>
+            <li><span class="watch-list__num">3</span> Whether PRCA advances AI Green Paper into member-facing implementation guidance in Q2 2026 &mdash; would convert principles into operational compliance requirements</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ===== ACCENT STRIPE ===== -->
+<div class="section-stripe"></div>
+
+<!-- ===== SECTION 6: STRATEGIC ASSESSMENT ===== -->
+<section class="section section--dark" id="assessment">
+    <div class="container">
+        <p class="section__label">Section 6</p>
+        <h2 class="section__title">Strategic Assessment</h2>
+        <p class="section__subtitle">Decision Matrix</p>
+        <hr class="section__divider">
+
+        <table class="matrix-table">
+            <thead>
+                <tr>
+                    <th>Risk Area</th>
+                    <th>Level</th>
+                    <th>Recommendation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AI Governance &amp; Platform Risk</td>
+                    <td><span class="badge badge--amber">Medium</span></td>
+                    <td>Monitor PRCA implementation and DPC enforcement trajectory</td>
+                </tr>
+                <tr>
+                    <td>Advisory Consolidation</td>
+                    <td><span class="badge badge--green">Low</span></td>
+                    <td>Track referral network shifts and capability gaps</td>
+                </tr>
+                <tr>
+                    <td>FCA BNPL Compliance</td>
+                    <td><span class="badge badge--red">High</span></td>
+                    <td>Accelerate client readiness communications before July deadline</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ===== SECTION 7: BACKGROUND & CONTEXT ===== -->
+<section class="section section--teal-accent">
+    <div class="container">
+        <p class="section__label">Section 7</p>
+        <h2 class="section__title">Background &amp; Context</h2>
+        <p class="section__subtitle">Widely reported this week &mdash; sector-level developments providing context for today&rsquo;s intelligence.</p>
+        <hr class="section__divider">
+
+        <div class="reported-list">
+            <div class="reported-item">
+                <p>Omnicom PR agency consolidation following IPG merger &mdash; major holding company restructuring reshaping the global agency landscape and competitive positioning.</p>
+            </div>
+            <div class="reported-item">
+                <p>Unilever sustainability oversight moving to corporate affairs &mdash; governance realignment placing sustainability reporting under communications leadership.</p>
+            </div>
+            <div class="reported-item">
+                <p>PRCA review of UK Public Affairs Code (evidence-gathering) &mdash; industry self-regulation review running in parallel with AI governance green paper activity.</p>
+            </div>
+            <div class="reported-item">
+                <p>Ofcom online safety guidance on harms affecting women and girls &mdash; regulatory enforcement expanding scope of platform accountability obligations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SECTION 8: ACTIVITY ANALYTICS ===== -->
+<section class="section section--default">
+    <div class="container">
+        <p class="section__label">Section 8</p>
+        <h2 class="section__title">Activity Analytics</h2>
+        <p class="section__subtitle">Signal clustering and entity mapping across today&rsquo;s intelligence intake.</p>
+        <hr class="section__divider">
+
+        <div class="cluster-grid">
+            <!-- Cluster 1 -->
+            <div class="cluster-card">
+                <h3 class="cluster-card__title">Grok/X &amp; Privacy Regulator Activity</h3>
+                <div class="cluster-card__stat">
+                    <span class="cluster-card__stat-num">9</span>
+                    <span class="cluster-card__stat-label">Article Count</span>
+                </div>
+                <div class="cluster-card__entities">
+                    <strong>Entities</strong>
+                    Grok, xAI, X, DPC Ireland, Ofcom, UK Gov, European Commission
+                </div>
+            </div>
+
+            <!-- Cluster 2 -->
+            <div class="cluster-card">
+                <h3 class="cluster-card__title">Agency &amp; Consultancy Moves</h3>
+                <div class="cluster-card__stat">
+                    <span class="cluster-card__stat-num">7</span>
+                    <span class="cluster-card__stat-label">Article Count</span>
+                </div>
+                <div class="cluster-card__entities">
+                    <strong>Entities</strong>
+                    Ruder Finn, PRCA, UKAI, Centropy PR, Bastion, SLR Consulting
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ACCENT STRIPE ===== -->
+<div class="section-stripe"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <p class="site-footer__brand">Cardew Group</p>
+    <p class="site-footer__desc">Market intelligence for strategic communications &mdash; powered by Noah Wire Services.</p>
+    <nav class="site-footer__nav">
+        <a href="#intelligence">Intelligence</a>
+        <a href="#people">People</a>
+        <a href="#industry">Industry</a>
+        <a href="#analysis">Analysis</a>
+        <a href="#assessment">Assessment</a>
+    </nav>
+    <p class="site-footer__legal">&copy; Cardew Group. All analysis is based on open-source intelligence and does not constitute legal, financial, or strategic advice.</p>
+    <p class="site-footer__version">Client Confidential &middot; v3.4-MI &middot; 2026-02-18</p>
+</footer>
+
+</body>
+</html>
