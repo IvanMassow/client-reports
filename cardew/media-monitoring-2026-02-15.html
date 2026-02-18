@@ -273,6 +273,16 @@ a:hover { text-decoration: underline; }
 .section { padding: 3.5rem 0; }
 .section--alt { background: var(--white); }
 .section--default { background: var(--grey-bg); }
+.section--dark {
+    background: var(--navy);
+    color: #fff;
+}
+.section--dark .section__label { color: var(--cardew-teal-light); }
+.section--dark .section__title { color: #fff; }
+.section--dark .section__subtitle { color: rgba(255,255,255,0.7); }
+.section--teal-accent {
+    background: linear-gradient(180deg, var(--white) 0%, rgba(0,153,154,0.04) 100%);
+}
 .section__label {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.65rem; font-weight: 600;
@@ -298,6 +308,37 @@ a:hover { text-decoration: underline; }
     background: var(--cardew-teal);
     margin-bottom: 2rem;
     border: none;
+}
+.section--dark .section__divider { background: var(--cardew-teal-light); }
+
+/* ===== SECTION ACCENT STRIPE ===== */
+.section-stripe {
+    height: 4px;
+    background: linear-gradient(90deg, var(--cardew-teal) 0%, var(--magenta) 50%, var(--cardew-teal) 100%);
+    opacity: 0.5;
+}
+
+/* ===== INSIGHT BANNER (dark mid-report callout) ===== */
+.insight-banner {
+    background: var(--navy);
+    padding: 2.8rem 2rem;
+    text-align: center;
+}
+.insight-banner__label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--cardew-teal);
+    margin-bottom: 0.8rem;
+}
+.insight-banner__text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 400;
+    font-style: italic;
+    color: rgba(255,255,255,0.85);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
 }
 
 /* ===== CARDS ===== */
@@ -344,27 +385,48 @@ a:hover { text-decoration: underline; }
 
 /* ===== PULL QUOTE ===== */
 .pull-quote {
-    border-left: 3px solid var(--cardew-teal);
+    border-left: 4px solid var(--cardew-teal);
     padding: 1.5rem 2rem;
     margin-bottom: 1.8rem;
-    background: var(--cardew-teal-subtle);
+    background: linear-gradient(135deg, var(--cardew-teal-subtle) 0%, rgba(196,61,122,0.03) 100%);
     border-radius: 0 4px 4px 0;
+    position: relative;
+}
+.pull-quote::before {
+    content: '\201C';
+    position: absolute;
+    top: 0.3rem; left: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--cardew-teal);
+    opacity: 0.2;
+    line-height: 1;
 }
 .pull-quote p {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 1.08rem; line-height: 1.7;
     color: var(--navy-light);
+    padding-left: 1rem;
 }
 
 /* ===== FLASHPOINT ===== */
 .flashpoint {
-    background: rgba(180,83,9,0.05);
+    background: linear-gradient(135deg, rgba(180,83,9,0.05) 0%, rgba(180,83,9,0.02) 100%);
     border: 1px solid rgba(180,83,9,0.16);
     border-left: 5px solid var(--amber);
     border-radius: 6px;
     padding: 2rem;
     margin-bottom: 1.2rem;
+    position: relative;
+    overflow: hidden;
+}
+.flashpoint::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 60px;
+    background: radial-gradient(circle at center, rgba(180,83,9,0.08) 0%, transparent 70%);
 }
 .flashpoint__header {
     font-family: 'Montserrat', sans-serif;
@@ -406,7 +468,9 @@ a:hover { text-decoration: underline; }
     border: 1px solid var(--grey-border);
     border-radius: 5px;
     padding: 0.85rem 1.2rem;
+    transition: box-shadow 0.2s;
 }
+.lane:hover { box-shadow: 0 2px 12px rgba(28,33,48,0.04); }
 .lane__name {
     font-family: 'Lato', sans-serif;
     font-size: 0.88rem; font-weight: 700;
@@ -431,23 +495,32 @@ a:hover { text-decoration: underline; }
     margin-bottom: 1.5rem;
 }
 .stat-card {
-    background: var(--white);
-    border: 1px solid var(--grey-border);
+    background: var(--navy);
+    border: 1px solid rgba(0,153,154,0.2);
     border-radius: 6px;
     padding: 1.5rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--cardew-teal);
 }
 .stat-card__number {
     font-family: 'Space Mono', monospace;
     font-size: 2.2rem; font-weight: 700;
-    color: var(--cardew-teal);
+    color: var(--cardew-teal-light);
     line-height: 1;
     margin-bottom: 0.3rem;
 }
 .stat-card__label {
     font-family: 'Lato', sans-serif;
     font-size: 0.78rem;
-    color: var(--grey-mid);
+    color: rgba(255,255,255,0.55);
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
@@ -459,7 +532,13 @@ a:hover { text-decoration: underline; }
     border-radius: 6px;
     padding: 1.5rem 1.8rem;
     margin-bottom: 1rem;
+    transition: box-shadow 0.2s, border-color 0.2s;
 }
+.dept-card:hover { box-shadow: 0 4px 20px rgba(28,33,48,0.06); }
+.dept-card--teal { border-left: 4px solid var(--cardew-teal); }
+.dept-card--navy { border-left: 4px solid var(--navy-light); }
+.dept-card--gold { border-left: 4px solid #c9926b; }
+.dept-card--blue { border-left: 4px solid var(--blue); }
 .dept-card__header {
     display: flex;
     justify-content: space-between;
@@ -568,11 +647,11 @@ a:hover { text-decoration: underline; }
     font-family: 'Montserrat', sans-serif;
     font-size: 0.72rem; font-weight: 600;
     letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--grey-mid);
-    background: var(--grey-alt);
+    color: rgba(255,255,255,0.7);
+    background: var(--navy);
     padding: 0.85rem 1.2rem;
     text-align: left;
-    border-bottom: 2px solid var(--grey-border);
+    border-bottom: 2px solid var(--cardew-teal);
 }
 .matrix-table td {
     padding: 1rem 1.2rem;
@@ -608,11 +687,11 @@ a:hover { text-decoration: underline; }
     font-family: 'Montserrat', sans-serif;
     font-size: 0.65rem; font-weight: 600;
     letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--grey-mid);
-    background: var(--grey-alt);
-    padding: 0.7rem 0.9rem;
+    color: rgba(255,255,255,0.7);
+    background: var(--navy);
+    padding: 0.85rem 0.9rem;
     text-align: left;
-    border-bottom: 2px solid var(--grey-border);
+    border-bottom: 2px solid var(--cardew-teal);
     white-space: nowrap;
 }
 .evidence-table td {
@@ -644,7 +723,18 @@ a:hover { text-decoration: underline; }
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
 }
+.entity-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--cardew-teal);
+}
+.entity-card:hover { box-shadow: 0 4px 20px rgba(28,33,48,0.06); }
 .entity-card__name {
     font-family: 'Playfair Display', serif;
     font-size: 1rem; font-weight: 700;
@@ -669,7 +759,12 @@ a:hover { text-decoration: underline; }
     border-radius: 6px;
     padding: 1.2rem 1.5rem;
     margin-bottom: 0.8rem;
+    border-left: 3px solid transparent;
+    transition: border-left-color 0.2s;
 }
+.evidence-sub:nth-child(1) { border-left-color: var(--cardew-teal); }
+.evidence-sub:nth-child(2) { border-left-color: var(--blue); }
+.evidence-sub:nth-child(3) { border-left-color: var(--magenta); }
 .evidence-sub__title {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem; font-weight: 600;
@@ -703,7 +798,7 @@ a:hover { text-decoration: underline; }
 
 /* ===== TREND CARDS ===== */
 .theme-card {
-    background: var(--white);
+    background: linear-gradient(135deg, var(--white) 0%, rgba(0,153,154,0.04) 100%);
     border: 1px solid var(--grey-border);
     border-left: 4px solid var(--cardew-teal);
     border-radius: 6px;
@@ -712,6 +807,11 @@ a:hover { text-decoration: underline; }
     font-size: 0.92rem;
     color: var(--navy-light);
     font-weight: 600;
+    transition: border-left-color 0.2s, box-shadow 0.2s;
+}
+.theme-card:hover {
+    border-left-color: var(--magenta);
+    box-shadow: 0 2px 12px rgba(196,61,122,0.08);
 }
 .watch-list { list-style: none; padding: 0; }
 .watch-list li {
@@ -739,7 +839,10 @@ a:hover { text-decoration: underline; }
     border-radius: 6px;
     padding: 1.5rem 1.8rem;
     margin-bottom: 1rem;
+    position: relative;
+    transition: box-shadow 0.2s;
 }
+.policy-card:hover { box-shadow: 0 4px 20px rgba(28,33,48,0.06); }
 
 /* ===== FOOTER ===== */
 .site-footer {
@@ -973,6 +1076,9 @@ a:hover { text-decoration: underline; }
     </div>
 </section>
 
+<!-- ===== ACCENT STRIPE ===== -->
+<div class="section-stripe"></div>
+
 <!-- ===== SECTION 3: ACTIVE FLASHPOINT ===== -->
 <section class="section section--alt">
     <div class="container">
@@ -1146,6 +1252,12 @@ a:hover { text-decoration: underline; }
     </div>
 </section>
 
+<!-- ===== INSIGHT BANNER ===== -->
+<div class="insight-banner">
+    <p class="insight-banner__label">Strategic Insight</p>
+    <p class="insight-banner__text">Net risk this cycle: stable. Coverage skews toward performance and collaboration positioning, with policy execution on DRS and UKIMA as the primary forward-looking variable.</p>
+</div>
+
 <!-- ===== SECTION 6: COMPETITIVE LANDSCAPE ===== -->
 <section class="section section--default" id="landscape">
     <div class="container">
@@ -1202,8 +1314,11 @@ a:hover { text-decoration: underline; }
     </div>
 </section>
 
+<!-- ===== ACCENT STRIPE ===== -->
+<div class="section-stripe"></div>
+
 <!-- ===== SECTION 8: STRATEGIC ASSESSMENT ===== -->
-<section class="section section--default">
+<section class="section section--dark">
     <div class="container">
         <p class="section__label">Section 8</p>
         <h2 class="section__title">Strategic Assessment</h2>
@@ -1240,7 +1355,7 @@ a:hover { text-decoration: underline; }
 </section>
 
 <!-- ===== SECTION 9: EVIDENCE ROOM ===== -->
-<section class="section section--alt" id="evidence">
+<section class="section section--teal-accent" id="evidence">
     <div class="container">
         <p class="section__label">Section 9</p>
         <h2 class="section__title">Evidence Room</h2>
@@ -1303,6 +1418,9 @@ a:hover { text-decoration: underline; }
         </div>
     </div>
 </section>
+
+<!-- ===== ACCENT STRIPE ===== -->
+<div class="section-stripe"></div>
 
 <!-- ===== SECTION 11: SIGNAL VAULT ===== -->
 <section class="section section--alt">
