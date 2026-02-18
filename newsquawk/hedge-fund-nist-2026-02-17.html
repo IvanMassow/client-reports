@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIST Regulation: Cybersecurity Hedge Fund Intelligence | Newsquawk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   NEWSQUAWK — HEDGE FUND INTELLIGENCE REPORT
+   Brand System + Reset
+   ============================================================ */
+:root {
+  --sq-blue: #00AEEF;
+  --sq-blue-dim: rgba(0, 174, 239, 0.15);
+  --sq-blue-glow: rgba(0, 174, 239, 0.25);
+  --sq-navy: #1E293B;
+  --sq-navy-deep: #111827;
+  --sq-white: #FFFFFF;
+  --sq-grey-bg: #F9FAFB;
+  --sq-grey-100: #F3F4F6;
+  --sq-grey-200: #E5E7EB;
+  --sq-grey-300: #D1D5DB;
+  --sq-grey-400: #9CA3AF;
+  --sq-grey-500: #6B7280;
+  --sq-grey-600: #4B5563;
+  --sq-danger: #EF4444;
+  --sq-danger-dim: rgba(239, 68, 68, 0.12);
+  --sq-success: #10B981;
+  --sq-success-dim: rgba(16, 185, 129, 0.12);
+  --sq-warning: #F59E0B;
+  --sq-warning-dim: rgba(245, 158, 11, 0.12);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Cascadia Code', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 15px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--sq-navy-deep);
+  background: var(--sq-white);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  background: var(--sq-white);
+  border-bottom: 1px solid var(--sq-grey-200);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.95);
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo svg { width: 180px; height: auto; }
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.75rem;
+  color: var(--sq-grey-500);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.header-meta .classification {
+  background: var(--sq-navy-deep);
+  color: var(--sq-blue);
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.header-meta .date-ref {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--sq-grey-400);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  background: var(--sq-navy-deep);
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  opacity: 0.55;
+  filter: saturate(0.6) contrast(1.1);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    rgba(17, 24, 39, 0.97) 0%,
+    rgba(17, 24, 39, 0.88) 30%,
+    rgba(17, 24, 39, 0.55) 60%,
+    rgba(17, 24, 39, 0.25) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.hero-label-bar {
+  width: 3px;
+  height: 18px;
+  background: var(--sq-blue);
+  border-radius: 2px;
+}
+
+.hero-label-text {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sq-blue);
+  font-family: var(--font-mono);
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--sq-white);
+  line-height: 1.12;
+  max-width: 720px;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--sq-grey-400);
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+
+.hero-subtitle span {
+  color: var(--sq-grey-300);
+  margin: 0 6px;
+}
+
+/* ============================================================
+   EXECUTIVE STRIP
+   ============================================================ */
+.exec-strip {
+  background: var(--sq-navy-deep);
+  border-top: 2px solid var(--sq-blue);
+  padding: 0;
+}
+
+.exec-strip-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.exec-stat {
+  padding: 24px 28px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+
+.exec-stat:last-child { border-right: none; }
+
+.exec-stat-value {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--sq-blue);
+  line-height: 1;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+
+.exec-stat-value.text-val {
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+}
+
+.exec-stat-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sq-grey-400);
+}
+
+/* ============================================================
+   SECTION WRAPPER
+   ============================================================ */
+.section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 32px;
+}
+
+.section-alt { background: var(--sq-grey-bg); }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--sq-blue);
+  background: var(--sq-blue-dim);
+  padding: 4px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sq-navy-deep);
+}
+
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--sq-grey-200);
+}
+
+/* ============================================================
+   DECISION PANEL TABLE
+   ============================================================ */
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--sq-grey-200);
+  border-radius: 4px;
+  background: var(--sq-white);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.02);
+}
+
+.deal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.deal-table thead {
+  background: var(--sq-navy-deep);
+  position: sticky;
+  top: 0;
+}
+
+.deal-table thead th {
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--sq-grey-400);
+  border-bottom: 2px solid var(--sq-blue);
+  white-space: nowrap;
+}
+
+.deal-table thead th:first-child { text-align: center; width: 52px; }
+
+.deal-table tbody tr {
+  border-bottom: 1px solid var(--sq-grey-100);
+  transition: background 0.15s;
+}
+
+.deal-table tbody tr:hover { background: rgba(0, 174, 239, 0.03); }
+.deal-table tbody tr:nth-child(even) { background: var(--sq-grey-bg); }
+.deal-table tbody tr:nth-child(even):hover { background: rgba(0, 174, 239, 0.05); }
+
+.deal-table tbody td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+.deal-table .col-rank {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--sq-grey-400);
+}
+
+.deal-table .col-rank.top-rank { color: var(--sq-blue); }
+
+.deal-table .col-opp {
+  font-weight: 600;
+  color: var(--sq-navy-deep);
+  max-width: 260px;
+}
+
+.deal-table .col-instrument {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--sq-navy-deep);
+}
+
+.deal-table .col-price {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.price-change {
+  font-size: 0.7rem;
+  margin-left: 4px;
+}
+.price-change.up { color: var(--sq-success); }
+.price-change.down { color: var(--sq-danger); }
+
+/* Direction badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+}
+
+.badge-long {
+  background: var(--sq-success-dim);
+  color: var(--sq-success);
+}
+
+.badge-short {
+  background: var(--sq-danger-dim);
+  color: var(--sq-danger);
+}
+
+.badge-mixed {
+  background: var(--sq-warning-dim);
+  color: var(--sq-warning);
+}
+
+/* Action badges */
+.action-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 2px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+}
+
+.action-trade {
+  background: var(--sq-blue);
+  color: var(--sq-white);
+}
+
+.action-watch {
+  background: var(--sq-warning-dim);
+  color: var(--sq-warning);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.action-investigate {
+  background: var(--sq-grey-100);
+  color: var(--sq-grey-500);
+  border: 1px solid var(--sq-grey-200);
+}
+
+.action-avoid {
+  background: var(--sq-danger-dim);
+  color: var(--sq-danger);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Conviction bar */
+.conviction-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.conviction-bar-track {
+  flex: 1;
+  height: 4px;
+  background: var(--sq-grey-200);
+  border-radius: 1px;
+  position: relative;
+  min-width: 60px;
+}
+
+.conviction-bar-fill {
+  height: 100%;
+  border-radius: 1px;
+  background: var(--sq-blue);
+  transition: width 0.4s ease;
+}
+
+.conviction-bar-fill.high { background: var(--sq-blue); }
+.conviction-bar-fill.medium { background: var(--sq-warning); }
+.conviction-bar-fill.low { background: var(--sq-grey-400); }
+
+.conviction-value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  min-width: 24px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Edge quality */
+.edge-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.edge-high { color: var(--sq-blue); }
+.edge-medium { color: var(--sq-warning); }
+.edge-decaying { color: var(--sq-grey-400); }
+
+/* Lower rows */
+.deal-table tbody tr.lower-priority {
+  opacity: 0.65;
+}
+
+.deal-table tbody tr.lower-priority:hover {
+  opacity: 0.9;
+}
+
+/* Table group separator */
+.table-group-sep td {
+  background: var(--sq-navy-deep) !important;
+  padding: 8px 16px !important;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--sq-grey-400);
+  font-family: var(--font-mono);
+}
+
+/* ============================================================
+   ANALYSIS CARDS
+   ============================================================ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+}
+
+.analysis-card {
+  background: var(--sq-white);
+  border: 1px solid var(--sq-grey-200);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.analysis-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-color: var(--sq-grey-300);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px 24px 16px;
+  border-bottom: 1px solid var(--sq-grey-100);
+}
+
+.card-rank {
+  width: 40px;
+  height: 40px;
+  background: var(--sq-blue);
+  color: var(--sq-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.card-header-text { flex: 1; }
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sq-navy-deep);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card-instrument {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--sq-navy-deep);
+}
+
+.card-price {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--sq-grey-500);
+  font-variant-numeric: tabular-nums;
+}
+
+.card-body {
+  padding: 20px 24px;
+}
+
+.card-thesis {
+  font-size: 0.85rem;
+  color: var(--sq-grey-600);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.card-conviction-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-conviction-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--sq-grey-400);
+  min-width: 70px;
+}
+
+.card-conviction-track {
+  flex: 1;
+  height: 6px;
+  background: var(--sq-grey-100);
+  border-radius: 1px;
+  position: relative;
+}
+
+.card-conviction-fill {
+  height: 100%;
+  border-radius: 1px;
+  background: linear-gradient(90deg, var(--sq-blue), #00d4ff);
+}
+
+.card-conviction-value {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--sq-blue);
+  min-width: 30px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Feature card (first card, spans full width) */
+.analysis-card.featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.analysis-card.featured .card-header {
+  border-bottom: none;
+  border-right: 1px solid var(--sq-grey-100);
+  padding: 28px;
+  flex-direction: column;
+}
+
+.analysis-card.featured .card-rank {
+  width: 48px;
+  height: 48px;
+  font-size: 1.2rem;
+}
+
+.analysis-card.featured .card-title {
+  font-size: 1.2rem;
+}
+
+.analysis-card.featured .card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ============================================================
+   MARKET REGIME STRIP
+   ============================================================ */
+.regime-strip {
+  background: var(--sq-navy-deep);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.regime-strip-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.regime-stat {
+  padding: 28px 32px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
+}
+
+.regime-stat:last-child { border-right: none; }
+
+.regime-stat-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--sq-grey-500);
+  margin-bottom: 8px;
+}
+
+.regime-stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sq-white);
+  font-variant-numeric: tabular-nums;
+}
+
+.regime-stat-value .regime-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-right: 6px;
+  font-weight: 600;
+}
+
+.regime-stat-value .regime-label.bearish { color: var(--sq-danger); }
+.regime-stat-value .regime-label.mixed { color: var(--sq-warning); }
+.regime-stat-value .regime-label.moderate { color: var(--sq-warning); }
+
+.regime-bar {
+  margin-top: 10px;
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.regime-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   METHODOLOGY
+   ============================================================ */
+.methodology-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.methodology-text {
+  font-size: 0.88rem;
+  color: var(--sq-grey-600);
+  line-height: 1.8;
+}
+
+.methodology-text p { margin-bottom: 16px; }
+
+.methodology-text p:last-child { margin-bottom: 0; }
+
+.methodology-diagram {
+  background: var(--sq-navy-deep);
+  border-radius: 4px;
+  padding: 32px;
+  color: var(--sq-grey-400);
+}
+
+.method-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.method-step:last-child { margin-bottom: 0; }
+
+.method-step-num {
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 174, 239, 0.15);
+  color: var(--sq-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.method-step-text {
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.method-step-title {
+  font-weight: 700;
+  color: var(--sq-white);
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+}
+
+.method-connector {
+  width: 1px;
+  height: 12px;
+  background: rgba(0, 174, 239, 0.2);
+  margin-left: 14px;
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--sq-navy);
+  color: var(--sq-grey-400);
+  padding: 48px 0 32px;
+  border-top: 2px solid var(--sq-blue);
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-logo svg {
+  width: 160px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer-tagline {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sq-grey-500);
+  margin-top: 12px;
+}
+
+.footer-ref {
+  text-align: right;
+}
+
+.footer-ref-line {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--sq-grey-500);
+  margin-bottom: 4px;
+}
+
+.footer-disclaimer {
+  font-size: 0.7rem;
+  line-height: 1.7;
+  color: var(--sq-grey-500);
+  max-width: 100%;
+  margin-bottom: 32px;
+}
+
+.footer-copyright {
+  font-size: 0.68rem;
+  color: var(--sq-grey-500);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .exec-strip-inner { grid-template-columns: repeat(3, 1fr); }
+  .exec-stat:nth-child(4), .exec-stat:nth-child(5) { border-top: 1px solid rgba(255,255,255,0.06); }
+  .regime-strip-inner { grid-template-columns: repeat(2, 1fr); }
+  .methodology-content { grid-template-columns: 1fr; }
+  .analysis-card.featured { grid-template-columns: 1fr; }
+  .analysis-card.featured .card-header { border-right: none; border-bottom: 1px solid var(--sq-grey-100); }
+  .cards-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 1.8rem; }
+  .hero { height: 320px; }
+  .exec-strip-inner { grid-template-columns: repeat(2, 1fr); }
+  .header-meta { display: none; }
+  .footer-top { flex-direction: column; gap: 24px; }
+  .footer-ref { text-align: left; }
+  .section { padding: 32px 20px; }
+  .header-inner { padding: 0 20px; }
+}
+
+@media (max-width: 480px) {
+  .exec-strip-inner { grid-template-columns: 1fr; }
+  .regime-strip-inner { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .site-header { position: static; }
+  .hero { height: 200px; }
+  .hero-overlay { background: rgba(17, 24, 39, 0.85) !important; }
+  .deal-table { font-size: 0.7rem; }
+  .deal-table thead { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .exec-strip, .regime-strip, .site-footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 12px; }
+  .section { padding: 24px 0; }
+  .analysis-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="769.279" height="215.846" viewBox="0 0 203.538 57.109" version="1.1" id="headerLogo"><defs><clipPath clipPathUnits="userSpaceOnUse" id="clipPath18h"><path d="M0 595.28h841.89V0H0Z"/></clipPath></defs><g transform="translate(-2.552 -10.099)"><g transform="matrix(.7138 0 0 -.7138 -192.338 260.93)" clip-path="url('#clipPath18h')"><g transform="translate(523.193 348.469)"><path d="M0 0a1.119 1.119 0 0 1-.047 1.542l-1.06 1.057a1.082 1.082 0 0 1-.823.332 1.096 1.096 0 0 1-.808-.374c-7.137-7.974-7.137-20.084 0-28.063.213-.237.488-.362.808-.376.325-.01.594.104.823.332l1.06 1.057c.426.422.443 1.097.047 1.544C-5.789-16.41-5.789-6.539 0 0" style="fill:#00adef;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(527.809 345.346)"><path d="m0 0-1.053 1.06c-.23.231-.515.345-.845.33a1.108 1.108 0 0 1-.817-.4c-4.547-5.38-4.547-13.303 0-18.683.217-.249.49-.386.817-.402.33-.007.615.099.845.333L0-16.705c.42.415.443 1.066.078 1.518-3.273 3.958-3.273 9.715 0 13.671C.443-1.066.42-.415 0 0" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(545.096 346.335)"><path d="M0 0c-.209.252-.48.384-.813.4a1.083 1.083 0 0 1-.839-.33L-2.715-.99a1.124 1.124 0 0 1-.068-1.516c3.271-3.956 3.271-9.712 0-13.67a1.128 1.128 0 0 1 .068-1.519l1.063-1.056A1.112 1.112 0 0 1 0-18.683C4.564-13.303 4.564-5.379 0 0" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(549.738 351.026)"><path d="M0 0a1.086 1.086 0 0 1-.807.374 1.081 1.081 0 0 1-.822-.332l-1.062-1.058a1.123 1.123 0 0 1-.045-1.541c5.799-6.539 5.799-16.41 0-22.949a1.126 1.126 0 0 1 .045-1.544l1.062-1.057a1.07 1.07 0 0 1 .822-.332c.323.014.596.139.807.376C7.139-20.084 7.139-7.975 0 0" style="fill:#00adef;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(513.85 285.05)"><path d="m0 0-4.574 16.77L-9.145 0h-7.8l-8.205 28.848h8.031l4.687-18.53 3.991 18.53h7.74l4.514-18.53 4.394 18.53h7.861L7.797 0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(549.379 285.05)"><path d="m0 0-6.338 12.959-3.687-3.809V0h-7.682v52.059h7.682V17.885l9.494 10.963h9.326L-.881 18.235 8.559 0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(291.497 285.05)"><path d="M0 0v17.473c0 2.228-.374 3.732-1.113 4.515-.742.78-2.012 1.172-3.812 1.172-3.947 0-5.918-2.209-5.918-6.626V0h-7.625v28.848h7.275v-4.22c.9 1.642 2.09 2.88 3.572 3.721 1.487.841 3.402 1.26 5.747 1.26 1.366 0 2.636-.205 3.808-.614 1.172-.413 2.179-1.027 3.019-1.849.841-.82 1.505-1.826 1.999-3.019.489-1.192.734-2.571.734-4.133V0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(321.22 302.288)"><path d="M0 0c-.042 1.057-.226 1.985-.554 2.786-.336.801-.775 1.463-1.324 1.994a5.194 5.194 0 0 1-1.871 1.17 6.319 6.319 0 0 1-2.168.383c-1.529 0-2.849-.559-3.957-1.671-1.117-1.115-1.753-2.666-1.911-4.662Zm-12.021-4.804c.121-2.19.754-3.934 1.912-5.218 1.149-1.291 2.663-1.938 4.542-1.938 1.247 0 2.35.286 3.315.849.955.567 1.569 1.358 1.846 2.373h7.852c-.901-2.969-2.466-5.254-4.685-6.859-2.23-1.602-4.894-2.401-7.977-2.401-9.616 0-14.425 5.235-14.425 15.713 0 2.229.314 4.24.937 6.035.628 1.803 1.533 3.345 2.733 4.635 1.191 1.29 2.645 2.276 4.362 2.959 1.722.683 3.697 1.027 5.927 1.027 4.45 0 7.824-1.426 10.109-4.28C6.707 5.24 7.856.938 7.856-4.804Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(353.407 285.05)"><path d="m0 0-4.574 16.77L-9.144 0h-7.796l-8.212 28.848h8.031l4.695-18.53 3.979 18.53h7.745l4.515-18.53 4.395 18.53h7.856L7.802 0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(410.512 290.798)"><path d="M0 0c4.265 0 6.397 3.126 6.397 9.38 0 2.46-.618 4.454-1.85 5.977-1.233 1.529-2.765 2.291-4.608 2.291-1.91 0-3.48-.81-4.685-2.436-1.213-1.62-1.818-3.722-1.818-6.303C-6.564 2.969-4.38 0 0 0m27.844-7.33c0-1.874-.277-3.554-.846-5.04-.562-1.487-1.338-2.747-2.311-3.786a10.25 10.25 0 0 0-3.462-2.401c-1.335-.566-2.775-.847-4.338-.847-1.561 0-3.012.291-4.34.877a10.208 10.208 0 0 0-3.452 2.463c-.985 1.052-1.747 2.323-2.296 3.809-.545 1.486-.817 3.107-.817 4.869v5.218c-2.156-2.89-4.967-4.34-8.442-4.34-1.879 0-3.55.36-5.014 1.08a10.529 10.529 0 0 0-3.72 3.083c-1.019 1.329-1.791 2.9-2.322 4.718-.526 1.818-.784 3.821-.784 6.01 0 2.423.309 4.594.932 6.509.623 1.913 1.487 3.535 2.585 4.867 1.095 1.325 2.396 2.344 3.924 3.047 1.523.702 3.203 1.055 5.045 1.055 3.596 0 6.268-1.426 8.032-4.28l.059 3.519h7.326V-7.449c0-1.99.323-3.356.969-4.1.638-.744 1.571-1.115 2.783-1.115 1.137 0 1.977.409 2.516 1.23.55.823.828 2.194.828 4.104z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(445.925 285.05)"><path d="M0 0v4.05C-1.956.842-4.943-.76-8.968-.76c-1.449 0-2.769.255-3.957.76a8.836 8.836 0 0 0-3.082 2.172c-.858.935-1.533 2.053-2.021 3.341-.487 1.288-.727 2.738-.727 4.339v18.996h7.617V11.025c0-3.595 1.619-5.396 4.866-5.396 1.952 0 3.429.617 4.426 1.846.993 1.238 1.492 2.806 1.492 4.722v16.651h7.566V0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(394.495 297.278)"><path d="M0 0c-.448.994-1.191 1.825-2.229 2.49-1.035.661-2.416 1.239-4.132 1.728-1.722.492-3.836 1.085-6.333 1.789-1.524.431-2.682.877-3.486 1.347-.803.469-1.205 1.095-1.205 1.879 0 .895.402 1.533 1.205 1.905.789.366 1.958.547 3.486.553.023 0 .037.003.055.003 1.648 0 2.87-.302 3.67-.91.803-.604 1.301-1.571 1.491-2.899h7.33c-.194 2.969-1.251 5.295-3.167 6.977-1.911 1.68-4.943 2.519-9.088 2.519-.102 0-.19-.012-.291-.012-2.133-.023-3.965-.233-5.456-.662-1.561-.451-2.835-1.046-3.804-1.789-.979-.743-1.694-1.602-2.142-2.578a7.323 7.323 0 0 1-.678-3.107c0-1.214.17-2.305.498-3.286.333-.977.978-1.874 1.934-2.696.961-.822 2.303-1.574 4.021-2.257 1.467-.586 3.36-1.148 5.627-1.684.387-.096.761-.188 1.176-.278 1.557-.35 2.728-.766 3.485-1.238.758-.46 1.145-1.225 1.145-2.28 0-.941-.526-1.633-1.555-2.081-1.039-.452-2.285-.679-3.725-.679-.189 0-.337.055-.526.065-1.464.074-2.715.392-3.661 1.053-1.08.742-1.616 1.8-1.616 3.166h-7.852c.037-1.524.374-2.905 1.025-4.136.642-1.228 1.566-2.284 2.751-3.166 1.191-.878 2.631-1.552 4.312-2.021 1.509-.422 3.208-.629 5.041-.665.197-.01.382-.038.59-.038 4.215 0 7.4.85 9.551 2.549C-.402-8.742.674-6.599.674-4.013.674-2.333.447-1 0 0" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(472.541 292.839)"><path d="M0 0c-.863-1.855-2.063-2.783-3.596-2.783-1.388 0-2.529.914-3.433 2.736-.905 1.829-1.358 4.052-1.358 6.671 0 2.903.461 5.184 1.37 6.838.906 1.651 2.041 2.479 3.394 2.479.918 0 1.801-.427 2.635-1.276.845-.852 1.943-3.473 3.314-7.87l4.34-14.717h8.512L9.182 7.369l5.291 13.712H5.941L4.344 15.66c-2.045 4.015-4.977 6.024-8.797 6.024-3.721 0-6.717-1.371-8.996-4.121-2.287-2.748-3.427-6.333-3.427-10.754 0-4.27 1.067-7.889 3.208-10.872 2.133-2.972 4.93-4.462 8.401-4.462 3.621 0 6.523 2.072 8.72 6.212L1.566 4.099C1.08 2.557.563 1.191 0 0" style="fill:#00adef;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g></g></g></svg>
+    </div>
+    <div class="header-meta">
+      <span class="date-ref">17 FEB 2026</span>
+      <span class="classification">CONFIDENTIAL</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <img src="london-cityscape.png" alt="London financial district skyline" class="hero-image">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-label">
+      <div class="hero-label-bar"></div>
+      <span class="hero-label-text">Information Asymmetry Report</span>
+    </div>
+    <h1 class="hero-title">NIST Regulation: Cybersecurity Hedge Fund Intelligence</h1>
+    <p class="hero-subtitle">C-20260217-1507 <span>|</span> Cyber Breaches <span>|</span> 17 February 2026</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXECUTIVE STRIP
+     ============================================================ -->
+<div class="exec-strip">
+  <div class="exec-strip-inner">
+    <div class="exec-stat">
+      <div class="exec-stat-value">22</div>
+      <div class="exec-stat-label">Active Opportunities</div>
+    </div>
+    <div class="exec-stat">
+      <div class="exec-stat-value">7</div>
+      <div class="exec-stat-label">Trade Signals</div>
+    </div>
+    <div class="exec-stat">
+      <div class="exec-stat-value" style="color: var(--sq-danger);">62</div>
+      <div class="exec-stat-label">Bearish Regime</div>
+    </div>
+    <div class="exec-stat">
+      <div class="exec-stat-value">81</div>
+      <div class="exec-stat-label">Top Conviction</div>
+    </div>
+    <div class="exec-stat">
+      <div class="exec-stat-value text-val">HIGH</div>
+      <div class="exec-stat-label">Edge Quality</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DECISION PANEL TABLE
+     ============================================================ -->
+<div class="section-alt">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <span class="section-title">Decision Panel</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="deal-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Opportunity</th>
+            <th>Instrument</th>
+            <th>Price</th>
+            <th>Direction</th>
+            <th>Conviction</th>
+            <th>Edge</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- TOP TRADE SIGNALS -->
+          <tr>
+            <td class="col-rank top-rank">1</td>
+            <td class="col-opp">NIST: regulation</td>
+            <td class="col-instrument">SPY</td>
+            <td class="col-price">$681.75 <span class="price-change up">(+0.1%)</span></td>
+            <td><span class="badge badge-short">SHORT 81%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill high" style="width:81%"></div></div>
+                <span class="conviction-value">81</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-high">HIGH</span></td>
+            <td><span class="action-badge action-trade">TRADE</span></td>
+          </tr>
+          <tr>
+            <td class="col-rank top-rank">2</td>
+            <td class="col-opp">IBM: cybersecurity</td>
+            <td class="col-instrument">IBM</td>
+            <td class="col-price">$262.38 <span class="price-change up">(+1.1%)</span></td>
+            <td><span class="badge badge-long">LONG 78%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill high" style="width:78%"></div></div>
+                <span class="conviction-value">78</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-high">HIGH</span></td>
+            <td><span class="action-badge action-trade">TRADE</span></td>
+          </tr>
+          <tr>
+            <td class="col-rank top-rank">3</td>
+            <td class="col-opp">Check Point: cyber resilience</td>
+            <td class="col-instrument">SPY</td>
+            <td class="col-price">$681.75 <span class="price-change up">(+0.1%)</span></td>
+            <td><span class="badge badge-long">LONG 70%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill high" style="width:70%"></div></div>
+                <span class="conviction-value">70</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-high">HIGH</span></td>
+            <td><span class="action-badge action-trade">TRADE</span></td>
+          </tr>
+          <tr>
+            <td class="col-rank top-rank">4</td>
+            <td class="col-opp">Microsoft Intune: patch mgmt</td>
+            <td class="col-instrument">MSFT</td>
+            <td class="col-price">$401.32 <span class="price-change down">(-0.1%)</span></td>
+            <td><span class="badge badge-long">LONG 67%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill high" style="width:67%"></div></div>
+                <span class="conviction-value">67</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-high">HIGH</span></td>
+            <td><span class="action-badge action-trade">TRADE</span></td>
+          </tr>
+          <tr>
+            <td class="col-rank top-rank">5</td>
+            <td class="col-opp">Mandiant: cybersecurity threat</td>
+            <td class="col-instrument">GOOGL</td>
+            <td class="col-price">$305.72 <span class="price-change down">(-1.1%)</span></td>
+            <td><span class="badge badge-short">SHORT 61%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill high" style="width:61%"></div></div>
+                <span class="conviction-value">61</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-high">HIGH</span></td>
+            <td><span class="action-badge action-trade">TRADE</span></td>
+          </tr>
+          <tr>
+            <td class="col-rank top-rank">6</td>
+            <td class="col-opp">Finma: regulation</td>
+            <td class="col-instrument">SPY</td>
+            <td class="col-price">$681.75 <span class="price-change up">(+0.1%)</span></td>
+            <td><span class="badge badge-short">SHORT 61%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill high" style="width:61%"></div></div>
+                <span class="conviction-value">61</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-high">HIGH</span></td>
+            <td><span class="action-badge action-trade">TRADE</span></td>
+          </tr>
+          <tr>
+            <td class="col-rank top-rank">7</td>
+            <td class="col-opp">Red Hat: cybersecurity regulation</td>
+            <td class="col-instrument">IBM</td>
+            <td class="col-price">$262.38 <span class="price-change up">(+1.1%)</span></td>
+            <td><span class="badge badge-long">LONG 61%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill high" style="width:61%"></div></div>
+                <span class="conviction-value">61</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-high">HIGH</span></td>
+            <td><span class="action-badge action-trade">TRADE</span></td>
+          </tr>
+
+          <!-- WATCH / SECONDARY SIGNALS -->
+          <tr class="table-group-sep">
+            <td colspan="8">WATCH &amp; INVESTIGATE SIGNALS</td>
+          </tr>
+
+          <tr>
+            <td class="col-rank">8</td>
+            <td class="col-opp">Power: grid cybersecurity</td>
+            <td class="col-instrument">XLE</td>
+            <td class="col-price">$88.41 <span class="price-change down">(-0.7%)</span></td>
+            <td><span class="badge badge-long">LONG 59%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill high" style="width:59%"></div></div>
+                <span class="conviction-value">59</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-high">HIGH</span></td>
+            <td><span class="action-badge action-trade">TRADE</span></td>
+          </tr>
+          <tr>
+            <td class="col-rank">9</td>
+            <td class="col-opp">Depth Security: penetration testing</td>
+            <td class="col-instrument">SPY</td>
+            <td class="col-price">$681.75 <span class="price-change up">(+0.1%)</span></td>
+            <td><span class="badge badge-long">LONG 55%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill medium" style="width:55%"></div></div>
+                <span class="conviction-value">55</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-medium">MEDIUM</span></td>
+            <td><span class="action-badge action-watch">WATCH</span></td>
+          </tr>
+          <tr>
+            <td class="col-rank">10</td>
+            <td class="col-opp">Pendo.io: browser security</td>
+            <td class="col-instrument">SPY</td>
+            <td class="col-price">$681.75 <span class="price-change up">(+0.1%)</span></td>
+            <td><span class="badge badge-long">LONG 55%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill medium" style="width:55%"></div></div>
+                <span class="conviction-value">55</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-medium">MEDIUM</span></td>
+            <td><span class="action-badge action-watch">WATCH</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">11</td>
+            <td class="col-opp">Earnings: Palo Alto Networks</td>
+            <td class="col-instrument">PANW</td>
+            <td class="col-price">$207.83 <span class="price-change up">(+3.3%)</span></td>
+            <td><span class="badge badge-long">LONG 55%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill medium" style="width:55%"></div></div>
+                <span class="conviction-value">55</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-decaying">DECAYING</span></td>
+            <td><span class="action-badge action-watch">WATCH</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">12</td>
+            <td class="col-opp">Semiconductor: security chips</td>
+            <td class="col-instrument">SMH</td>
+            <td class="col-price">$263.53 <span class="price-change up">(+1.2%)</span></td>
+            <td><span class="badge badge-long">LONG 55%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill medium" style="width:55%"></div></div>
+                <span class="conviction-value">55</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-decaying">DECAYING</span></td>
+            <td><span class="action-badge action-watch">WATCH</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">13</td>
+            <td class="col-opp">Earnings: Mimecast</td>
+            <td class="col-instrument">MIME</td>
+            <td class="col-price">$81.05 <span class="price-change down">(-1.5%)</span></td>
+            <td><span class="badge badge-long">LONG 55%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill medium" style="width:55%"></div></div>
+                <span class="conviction-value">55</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-decaying">DECAYING</span></td>
+            <td><span class="action-badge action-watch">WATCH</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">14</td>
+            <td class="col-opp">NIST: regulation compliance</td>
+            <td class="col-instrument">SPY</td>
+            <td class="col-price">$681.75 <span class="price-change up">(+0.1%)</span></td>
+            <td><span class="badge badge-short">SHORT 51%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill low" style="width:51%"></div></div>
+                <span class="conviction-value">51</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-decaying">DECAYING</span></td>
+            <td><span class="action-badge action-avoid">AVOID</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">15</td>
+            <td class="col-opp">ServiceNow: market</td>
+            <td class="col-instrument">NOW</td>
+            <td class="col-price">$107.08 <span class="price-change up">(+3.7%)</span></td>
+            <td><span class="badge badge-long">LONG 48%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill low" style="width:48%"></div></div>
+                <span class="conviction-value">48</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-decaying">DECAYING</span></td>
+            <td><span class="action-badge action-investigate">INVESTIGATE</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">16</td>
+            <td class="col-opp">Microsoft: cybersecurity</td>
+            <td class="col-instrument">MSFT</td>
+            <td class="col-price">$401.32 <span class="price-change down">(-0.1%)</span></td>
+            <td><span class="badge badge-long">LONG 48%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill low" style="width:48%"></div></div>
+                <span class="conviction-value">48</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-decaying">DECAYING</span></td>
+            <td><span class="action-badge action-investigate">INVESTIGATE</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">17</td>
+            <td class="col-opp">Amazon Web Services: cybersecurity</td>
+            <td class="col-instrument">AMZN</td>
+            <td class="col-price">$198.79 <span class="price-change down">(-0.4%)</span></td>
+            <td><span class="badge badge-long">LONG 48%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill low" style="width:48%"></div></div>
+                <span class="conviction-value">48</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-decaying">DECAYING</span></td>
+            <td><span class="action-badge action-investigate">INVESTIGATE</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">18</td>
+            <td class="col-opp">AwanPintar.id: cyber threats</td>
+            <td class="col-instrument" style="color:var(--sq-grey-400);">&mdash;</td>
+            <td class="col-price" style="color:var(--sq-grey-400);">&mdash;</td>
+            <td><span class="badge badge-short">SHORT 46%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill low" style="width:46%"></div></div>
+                <span class="conviction-value">46</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-high">HIGH</span></td>
+            <td><span class="action-badge action-avoid">AVOID</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">19</td>
+            <td class="col-opp">Shaheen Fazim: security patches</td>
+            <td class="col-instrument">SPY</td>
+            <td class="col-price">$681.75 <span class="price-change up">(+0.1%)</span></td>
+            <td><span class="badge badge-long">LONG 45%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill low" style="width:45%"></div></div>
+                <span class="conviction-value">45</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-decaying">DECAYING</span></td>
+            <td><span class="action-badge action-investigate">INVESTIGATE</span></td>
+          </tr>
+          <tr class="lower-priority">
+            <td class="col-rank">20</td>
+            <td class="col-opp">Odido: cyber breach</td>
+            <td class="col-instrument">SPY</td>
+            <td class="col-price">$681.75 <span class="price-change up">(+0.1%)</span></td>
+            <td><span class="badge badge-short">SHORT 45%</span></td>
+            <td>
+              <div class="conviction-cell">
+                <div class="conviction-bar-track"><div class="conviction-bar-fill low" style="width:45%"></div></div>
+                <span class="conviction-value">45</span>
+              </div>
+            </td>
+            <td><span class="edge-tag edge-decaying">DECAYING</span></td>
+            <td><span class="action-badge action-investigate">INVESTIGATE</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ANALYSIS CARDS
+     ============================================================ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <span class="section-title">Trade Signal Analysis</span>
+    <div class="section-rule"></div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- CARD 1 — FEATURED -->
+    <div class="analysis-card featured">
+      <div class="card-header">
+        <div class="card-rank">1</div>
+        <div class="card-header-text">
+          <div class="card-title">NIST: regulation</div>
+          <div class="card-meta">
+            <span class="card-instrument">SPY</span>
+            <span class="card-price">$681.75</span>
+            <span class="badge badge-short">SHORT 81%</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-thesis">NIST's AI Cybersecurity Framework Profile is creating a procurement tax across Big Tech ecosystems. Once assurance teams start referencing the AI-specific NIST profile in RFPs, you get a near-term workload shock: mapping exercises, evidence packets, model-governance controls. The discussion footprint remains narrow -- institutional chatter is light and official channels are notably silent. Bearish expression via SPY short in a choppy tape.</p>
+        <div class="card-conviction-row">
+          <span class="card-conviction-label">Conviction</span>
+          <div class="card-conviction-track"><div class="card-conviction-fill" style="width:81%"></div></div>
+          <span class="card-conviction-value">81</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="analysis-card">
+      <div class="card-header">
+        <div class="card-rank">2</div>
+        <div class="card-header-text">
+          <div class="card-title">IBM: cybersecurity</div>
+          <div class="card-meta">
+            <span class="card-instrument">IBM</span>
+            <span class="card-price">$262.38</span>
+            <span class="badge badge-long">LONG 78%</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-thesis">IBM's security narrative remains under-owned relative to the regulatory tailwind. The cybersecurity procurement cycle is shifting toward compliance-first mandates, and IBM's hybrid cloud + security stack positions it as a primary beneficiary. The edge is that market positioning hasn't caught up with the procurement pipeline shift. Fresh signal with high conviction.</p>
+        <div class="card-conviction-row">
+          <span class="card-conviction-label">Conviction</span>
+          <div class="card-conviction-track"><div class="card-conviction-fill" style="width:78%"></div></div>
+          <span class="card-conviction-value">78</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="analysis-card">
+      <div class="card-header">
+        <div class="card-rank">3</div>
+        <div class="card-header-text">
+          <div class="card-title">Check Point: cyber resilience</div>
+          <div class="card-meta">
+            <span class="card-instrument">SPY</span>
+            <span class="card-price">$681.75</span>
+            <span class="badge badge-long">LONG 70%</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-thesis">The cyber resilience spend story is trying to outpace the evidence. Procurement signals exist but are thin -- earnings/PR-style reporting rather than independent buyer behaviour. Directionally resolved but timing edge is fragile. The confirmation needed is named deployments or trade-body language that converts "resilience" from slogan to compliance checkbox.</p>
+        <div class="card-conviction-row">
+          <span class="card-conviction-label">Conviction</span>
+          <div class="card-conviction-track"><div class="card-conviction-fill" style="width:70%"></div></div>
+          <span class="card-conviction-value">70</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="analysis-card">
+      <div class="card-header">
+        <div class="card-rank">4</div>
+        <div class="card-header-text">
+          <div class="card-title">Microsoft Intune: patch mgmt</div>
+          <div class="card-meta">
+            <span class="card-instrument">MSFT</span>
+            <span class="card-price">$401.32</span>
+            <span class="badge badge-long">LONG 67%</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-thesis">Patch compliance is becoming evidence work -- and Microsoft sits in the control plane. Intune's role in the security patch management chain gives MSFT an asymmetric position as NIST frameworks force automated compliance documentation. Fresh signal (85) supports the timing.</p>
+        <div class="card-conviction-row">
+          <span class="card-conviction-label">Conviction</span>
+          <div class="card-conviction-track"><div class="card-conviction-fill" style="width:67%"></div></div>
+          <span class="card-conviction-value">67</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="analysis-card">
+      <div class="card-header">
+        <div class="card-rank">5</div>
+        <div class="card-header-text">
+          <div class="card-title">Mandiant: cybersecurity threat</div>
+          <div class="card-meta">
+            <span class="card-instrument">GOOGL</span>
+            <span class="card-price">$305.72</span>
+            <span class="badge badge-short">SHORT 61%</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-thesis">Mandiant's cybersecurity threat intelligence premium may be overstated in a regulatory-driven market that rewards compliance infrastructure over threat analysis. The GOOGL short reflects a view that threat-narrative stocks face headwinds when budget dollars flow toward framework compliance rather than offensive security capabilities.</p>
+        <div class="card-conviction-row">
+          <span class="card-conviction-label">Conviction</span>
+          <div class="card-conviction-track"><div class="card-conviction-fill" style="width:61%"></div></div>
+          <span class="card-conviction-value">61</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     MARKET REGIME STRIP
+     ============================================================ -->
+<div class="regime-strip">
+  <div class="regime-strip-inner">
+    <div class="regime-stat">
+      <div class="regime-stat-label">Market Regime</div>
+      <div class="regime-stat-value">
+        <span class="regime-label bearish">Bearish</span>62
+      </div>
+      <div class="regime-bar"><div class="regime-bar-fill" style="width:62%; background: var(--sq-danger);"></div></div>
+    </div>
+    <div class="regime-stat">
+      <div class="regime-stat-label">Crosswind Risk</div>
+      <div class="regime-stat-value">
+        72<span style="font-size:0.7rem; color:var(--sq-grey-500); margin-left:2px;">/100</span>
+      </div>
+      <div class="regime-bar"><div class="regime-bar-fill" style="width:72%; background: var(--sq-warning);"></div></div>
+    </div>
+    <div class="regime-stat">
+      <div class="regime-stat-label">Signal Freshness</div>
+      <div class="regime-stat-value">
+        <span class="regime-label mixed">Mixed</span>
+      </div>
+      <div class="regime-bar"><div class="regime-bar-fill" style="width:55%; background: var(--sq-warning);"></div></div>
+    </div>
+    <div class="regime-stat">
+      <div class="regime-stat-label">Edge Decay Rate</div>
+      <div class="regime-stat-value">
+        <span class="regime-label moderate">Moderate</span>
+      </div>
+      <div class="regime-bar"><div class="regime-bar-fill" style="width:50%; background: var(--sq-blue);"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     METHODOLOGY
+     ============================================================ -->
+<div class="section-alt">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <span class="section-title">Methodology</span>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="methodology-content">
+      <div class="methodology-text">
+        <p>The Information Asymmetry framework identifies opportunities where material information has not yet propagated through market pricing mechanisms. By analysing the gap between private signal strength and public market consensus, the system quantifies tradeable edges before they decay.</p>
+        <p>Each opportunity is scored across multiple dimensions: signal freshness (how recently the information entered the system), propagation velocity (how quickly the signal is spreading to mainstream channels), edge quality (the structural durability of the information advantage), and conviction (the statistical confidence in the directional call).</p>
+        <p>Signals are classified as TRADE (actionable with immediate entry), WATCH (directionally resolved but awaiting catalyst), INVESTIGATE (requires further due diligence), or AVOID (edge has decayed or thesis has been invalidated). Market regime overlays adjust position sizing and risk parameters based on broader macro conditions.</p>
+      </div>
+      <div class="methodology-diagram">
+        <div class="method-step">
+          <div class="method-step-num">1</div>
+          <div class="method-step-text">
+            <div class="method-step-title">Signal Capture</div>
+            Ingest proprietary data feeds, regulatory filings, procurement signals, and narrative velocity indicators across the cybersecurity ecosystem.
+          </div>
+        </div>
+        <div class="method-connector"></div>
+        <div class="method-step">
+          <div class="method-step-num">2</div>
+          <div class="method-step-text">
+            <div class="method-step-title">Asymmetry Scoring</div>
+            Measure the delta between detected signal strength and current market pricing. Quantify propagation lag and edge durability.
+          </div>
+        </div>
+        <div class="method-connector"></div>
+        <div class="method-step">
+          <div class="method-step-num">3</div>
+          <div class="method-step-text">
+            <div class="method-step-title">Conviction Mapping</div>
+            Assign directional confidence, instrument selection, and risk-adjusted position sizing based on edge quality and market regime.
+          </div>
+        </div>
+        <div class="method-connector"></div>
+        <div class="method-step">
+          <div class="method-step-num">4</div>
+          <div class="method-step-text">
+            <div class="method-step-title">Decision Output</div>
+            Generate actionable TRADE / WATCH / INVESTIGATE / AVOID classifications with full thesis documentation and decay monitoring.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="769.279" height="215.846" viewBox="0 0 203.538 57.109" version="1.1"><defs><clipPath clipPathUnits="userSpaceOnUse" id="clipPath18f"><path d="M0 595.28h841.89V0H0Z"/></clipPath></defs><g transform="translate(-2.552 -10.099)"><g transform="matrix(.7138 0 0 -.7138 -192.338 260.93)" clip-path="url('#clipPath18f')"><g transform="translate(523.193 348.469)"><path d="M0 0a1.119 1.119 0 0 1-.047 1.542l-1.06 1.057a1.082 1.082 0 0 1-.823.332 1.096 1.096 0 0 1-.808-.374c-7.137-7.974-7.137-20.084 0-28.063.213-.237.488-.362.808-.376.325-.01.594.104.823.332l1.06 1.057c.426.422.443 1.097.047 1.544C-5.789-16.41-5.789-6.539 0 0" style="fill:#00adef;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(527.809 345.346)"><path d="m0 0-1.053 1.06c-.23.231-.515.345-.845.33a1.108 1.108 0 0 1-.817-.4c-4.547-5.38-4.547-13.303 0-18.683.217-.249.49-.386.817-.402.33-.007.615.099.845.333L0-16.705c.42.415.443 1.066.078 1.518-3.273 3.958-3.273 9.715 0 13.671C.443-1.066.42-.415 0 0" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(545.096 346.335)"><path d="M0 0c-.209.252-.48.384-.813.4a1.083 1.083 0 0 1-.839-.33L-2.715-.99a1.124 1.124 0 0 1-.068-1.516c3.271-3.956 3.271-9.712 0-13.67a1.128 1.128 0 0 1 .068-1.519l1.063-1.056A1.112 1.112 0 0 1 0-18.683C4.564-13.303 4.564-5.379 0 0" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(549.738 351.026)"><path d="M0 0a1.086 1.086 0 0 1-.807.374 1.081 1.081 0 0 1-.822-.332l-1.062-1.058a1.123 1.123 0 0 1-.045-1.541c5.799-6.539 5.799-16.41 0-22.949a1.126 1.126 0 0 1 .045-1.544l1.062-1.057a1.07 1.07 0 0 1 .822-.332c.323.014.596.139.807.376C7.139-20.084 7.139-7.975 0 0" style="fill:#00adef;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(513.85 285.05)"><path d="m0 0-4.574 16.77L-9.145 0h-7.8l-8.205 28.848h8.031l4.687-18.53 3.991 18.53h7.74l4.514-18.53 4.394 18.53h7.861L7.797 0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(549.379 285.05)"><path d="m0 0-6.338 12.959-3.687-3.809V0h-7.682v52.059h7.682V17.885l9.494 10.963h9.326L-.881 18.235 8.559 0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(291.497 285.05)"><path d="M0 0v17.473c0 2.228-.374 3.732-1.113 4.515-.742.78-2.012 1.172-3.812 1.172-3.947 0-5.918-2.209-5.918-6.626V0h-7.625v28.848h7.275v-4.22c.9 1.642 2.09 2.88 3.572 3.721 1.487.841 3.402 1.26 5.747 1.26 1.366 0 2.636-.205 3.808-.614 1.172-.413 2.179-1.027 3.019-1.849.841-.82 1.505-1.826 1.999-3.019.489-1.192.734-2.571.734-4.133V0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(321.22 302.288)"><path d="M0 0c-.042 1.057-.226 1.985-.554 2.786-.336.801-.775 1.463-1.324 1.994a5.194 5.194 0 0 1-1.871 1.17 6.319 6.319 0 0 1-2.168.383c-1.529 0-2.849-.559-3.957-1.671-1.117-1.115-1.753-2.666-1.911-4.662Zm-12.021-4.804c.121-2.19.754-3.934 1.912-5.218 1.149-1.291 2.663-1.938 4.542-1.938 1.247 0 2.35.286 3.315.849.955.567 1.569 1.358 1.846 2.373h7.852c-.901-2.969-2.466-5.254-4.685-6.859-2.23-1.602-4.894-2.401-7.977-2.401-9.616 0-14.425 5.235-14.425 15.713 0 2.229.314 4.24.937 6.035.628 1.803 1.533 3.345 2.733 4.635 1.191 1.29 2.645 2.276 4.362 2.959 1.722.683 3.697 1.027 5.927 1.027 4.45 0 7.824-1.426 10.109-4.28C6.707 5.24 7.856.938 7.856-4.804Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(353.407 285.05)"><path d="m0 0-4.574 16.77L-9.144 0h-7.796l-8.212 28.848h8.031l4.695-18.53 3.979 18.53h7.745l4.515-18.53 4.395 18.53h7.856L7.802 0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(410.512 290.798)"><path d="M0 0c4.265 0 6.397 3.126 6.397 9.38 0 2.46-.618 4.454-1.85 5.977-1.233 1.529-2.765 2.291-4.608 2.291-1.91 0-3.48-.81-4.685-2.436-1.213-1.62-1.818-3.722-1.818-6.303C-6.564 2.969-4.38 0 0 0m27.844-7.33c0-1.874-.277-3.554-.846-5.04-.562-1.487-1.338-2.747-2.311-3.786a10.25 10.25 0 0 0-3.462-2.401c-1.335-.566-2.775-.847-4.338-.847-1.561 0-3.012.291-4.34.877a10.208 10.208 0 0 0-3.452 2.463c-.985 1.052-1.747 2.323-2.296 3.809-.545 1.486-.817 3.107-.817 4.869v5.218c-2.156-2.89-4.967-4.34-8.442-4.34-1.879 0-3.55.36-5.014 1.08a10.529 10.529 0 0 0-3.72 3.083c-1.019 1.329-1.791 2.9-2.322 4.718-.526 1.818-.784 3.821-.784 6.01 0 2.423.309 4.594.932 6.509.623 1.913 1.487 3.535 2.585 4.867 1.095 1.325 2.396 2.344 3.924 3.047 1.523.702 3.203 1.055 5.045 1.055 3.596 0 6.268-1.426 8.032-4.28l.059 3.519h7.326V-7.449c0-1.99.323-3.356.969-4.1.638-.744 1.571-1.115 2.783-1.115 1.137 0 1.977.409 2.516 1.23.55.823.828 2.194.828 4.104z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(445.925 285.05)"><path d="M0 0v4.05C-1.956.842-4.943-.76-8.968-.76c-1.449 0-2.769.255-3.957.76a8.836 8.836 0 0 0-3.082 2.172c-.858.935-1.533 2.053-2.021 3.341-.487 1.288-.727 2.738-.727 4.339v18.996h7.617V11.025c0-3.595 1.619-5.396 4.866-5.396 1.952 0 3.429.617 4.426 1.846.993 1.238 1.492 2.806 1.492 4.722v16.651h7.566V0Z" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(394.495 297.278)"><path d="M0 0c-.448.994-1.191 1.825-2.229 2.49-1.035.661-2.416 1.239-4.132 1.728-1.722.492-3.836 1.085-6.333 1.789-1.524.431-2.682.877-3.486 1.347-.803.469-1.205 1.095-1.205 1.879 0 .895.402 1.533 1.205 1.905.789.366 1.958.547 3.486.553.023 0 .037.003.055.003 1.648 0 2.87-.302 3.67-.91.803-.604 1.301-1.571 1.491-2.899h7.33c-.194 2.969-1.251 5.295-3.167 6.977-1.911 1.68-4.943 2.519-9.088 2.519-.102 0-.19-.012-.291-.012-2.133-.023-3.965-.233-5.456-.662-1.561-.451-2.835-1.046-3.804-1.789-.979-.743-1.694-1.602-2.142-2.578a7.323 7.323 0 0 1-.678-3.107c0-1.214.17-2.305.498-3.286.333-.977.978-1.874 1.934-2.696.961-.822 2.303-1.574 4.021-2.257 1.467-.586 3.36-1.148 5.627-1.684.387-.096.761-.188 1.176-.278 1.557-.35 2.728-.766 3.485-1.238.758-.46 1.145-1.225 1.145-2.28 0-.941-.526-1.633-1.555-2.081-1.039-.452-2.285-.679-3.725-.679-.189 0-.337.055-.526.065-1.464.074-2.715.392-3.661 1.053-1.08.742-1.616 1.8-1.616 3.166h-7.852c.037-1.524.374-2.905 1.025-4.136.642-1.228 1.566-2.284 2.751-3.166 1.191-.878 2.631-1.552 4.312-2.021 1.509-.422 3.208-.629 5.041-.665.197-.01.382-.038.59-.038 4.215 0 7.4.85 9.551 2.549C-.402-8.742.674-6.599.674-4.013.674-2.333.447-1 0 0" style="fill:#313546;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g><g transform="translate(472.541 292.839)"><path d="M0 0c-.863-1.855-2.063-2.783-3.596-2.783-1.388 0-2.529.914-3.433 2.736-.905 1.829-1.358 4.052-1.358 6.671 0 2.903.461 5.184 1.37 6.838.906 1.651 2.041 2.479 3.394 2.479.918 0 1.801-.427 2.635-1.276.845-.852 1.943-3.473 3.314-7.87l4.34-14.717h8.512L9.182 7.369l5.291 13.712H5.941L4.344 15.66c-2.045 4.015-4.977 6.024-8.797 6.024-3.721 0-6.717-1.371-8.996-4.121-2.287-2.748-3.427-6.333-3.427-10.754 0-4.27 1.067-7.889 3.208-10.872 2.133-2.972 4.93-4.462 8.401-4.462 3.621 0 6.523 2.072 8.72 6.212L1.566 4.099C1.08 2.557.563 1.191 0 0" style="fill:#00adef;fill-opacity:1;fill-rule:nonzero;stroke:none"/></g></g></g></svg>
+        </div>
+        <div class="footer-tagline">Information Asymmetry &amp; Propagation Analysis</div>
+      </div>
+      <div class="footer-ref">
+        <div class="footer-ref-line">NIST: regulation &mdash; C-20260217-1507</div>
+        <div class="footer-ref-line">17 February 2026</div>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      This report is produced for informational purposes only and does not constitute investment advice, a solicitation, or a recommendation to buy or sell any financial instruments. The information contained herein is based on proprietary signal analysis and publicly available data sources. Past performance is not indicative of future results. All investments involve risk, including the possible loss of principal. The information asymmetry scores, conviction levels, and edge quality assessments represent analytical outputs and should not be interpreted as guarantees of market outcomes. Recipients should conduct their own due diligence and consult with qualified financial advisors before making investment decisions. This document is confidential and intended solely for the use of the designated recipient(s). Unauthorized distribution, reproduction, or use of this report is strictly prohibited.
+    </div>
+
+    <div class="footer-copyright">&copy; 2026 Newsquawk. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
