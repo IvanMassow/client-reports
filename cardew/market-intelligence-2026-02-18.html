@@ -412,46 +412,142 @@ a:hover { text-decoration: underline; }
     padding-left: 1rem;
 }
 
-/* ===== IMAGE BAND ===== */
-.image-band {
-    width: 100%;
+/* ===== SIGNAL MAP BAND ===== */
+.signal-map {
+    background: var(--navy);
+    padding: 3.5rem 0;
     position: relative;
+    overflow: hidden;
 }
-.image-band::before,
-.image-band::after {
+.signal-map::before,
+.signal-map::after {
     content: '';
     display: block;
     height: 4px;
     background: linear-gradient(90deg, var(--cardew-teal) 0%, var(--magenta) 50%, var(--cardew-teal) 100%);
     opacity: 0.6;
+    position: absolute;
+    left: 0; right: 0;
 }
-.image-band img {
-    width: 100%;
+.signal-map::before { top: 0; }
+.signal-map::after { bottom: 0; }
+.signal-map__header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.signal-map__label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--cardew-teal);
+    margin-bottom: 0.6rem;
+}
+.signal-map__title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.4rem;
+}
+.signal-map__subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+}
+.signal-map__flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.signal-map__node {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 1.6rem 1.4rem;
+    position: relative;
+    text-align: center;
+    transition: background 0.3s, border-color 0.3s;
+}
+.signal-map__node:hover {
+    background: rgba(0,153,154,0.08);
+    border-color: rgba(0,153,154,0.3);
+}
+.signal-map__node-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.7rem;
     display: block;
 }
-.image-band__caption {
-    background: var(--navy);
-    padding: 1rem 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-}
-.image-band__label {
+.signal-map__node-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--cardew-teal);
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 0.5rem;
 }
-.image-band__caption span:last-child {
+.signal-map__node-detail {
     font-family: 'Lato', sans-serif;
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.7);
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
     line-height: 1.5;
-    max-width: 640px;
+    margin-bottom: 0.8rem;
+}
+.signal-map__node-badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem; font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.signal-map__node-badge--teal { background: rgba(0,153,154,0.2); color: var(--cardew-teal-light); }
+.signal-map__node-badge--amber { background: rgba(180,83,9,0.2); color: #e8a44a; }
+.signal-map__node-badge--red { background: rgba(204,0,0,0.2); color: #f07070; }
+.signal-map__node-badge--blue { background: rgba(59,110,165,0.2); color: #7db1e0; }
+.signal-map__arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 0.3rem;
+    color: var(--cardew-teal);
+    font-size: 1.2rem;
+    opacity: 0.5;
+    flex-shrink: 0;
+}
+.signal-map__stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    max-width: 1080px;
+    margin-left: auto; margin-right: auto;
+    padding-left: 2rem; padding-right: 2rem;
+}
+.signal-map__stat {
+    text-align: center;
+}
+.signal-map__stat-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.8rem; font-weight: 700;
+    color: var(--cardew-teal-light);
+    line-height: 1;
+}
+.signal-map__stat-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.3rem;
+}
+@media (max-width: 768px) {
+    .signal-map__flow { flex-direction: column; gap: 0.5rem; }
+    .signal-map__arrow { transform: rotate(90deg); justify-content: center; padding: 0.3rem 0; }
+    .signal-map__stats { flex-wrap: wrap; gap: 1.5rem; }
 }
 
 /* ===== PEOPLE MOVES GRID ===== */
@@ -871,12 +967,67 @@ a:hover { text-decoration: underline; }
     </div>
 </section>
 
-<!-- ===== FULL-WIDTH IMAGE BAND ===== -->
-<div class="image-band">
-    <img src="escalation-map.jpg" alt="The Tightening Cycle: Governance Escalation in AI & Platform Accountability">
-    <div class="image-band__caption">
-        <span class="image-band__label">Intelligence Graphic</span>
-        <span>The Tightening Cycle &mdash; Governance escalation from client friction to cross-referral partnerships</span>
+<!-- ===== SIGNAL MAP BAND ===== -->
+<div class="signal-map">
+    <div class="signal-map__header">
+        <p class="signal-map__label">Today&rsquo;s Signal Flow</p>
+        <h3 class="signal-map__title">The Tightening Cycle</h3>
+        <p class="signal-map__subtitle">How today&rsquo;s signals connect &mdash; from regulation to market response</p>
+    </div>
+
+    <div class="signal-map__flow">
+        <div class="signal-map__node">
+            <span class="signal-map__node-icon">&#x2696;</span>
+            <p class="signal-map__node-title">Regulatory Signal</p>
+            <p class="signal-map__node-detail">DPC Ireland opens Grok/X investigation; FCA finalises BNPL rules</p>
+            <span class="signal-map__node-badge signal-map__node-badge--red">High Activity</span>
+        </div>
+
+        <div class="signal-map__arrow">&rarr;</div>
+
+        <div class="signal-map__node">
+            <span class="signal-map__node-icon">&#x1F4DC;</span>
+            <p class="signal-map__node-title">Governance Response</p>
+            <p class="signal-map__node-detail">PRCA green paper formalises AI standards; UKAI appoints comms support</p>
+            <span class="signal-map__node-badge signal-map__node-badge--teal">Accelerating</span>
+        </div>
+
+        <div class="signal-map__arrow">&rarr;</div>
+
+        <div class="signal-map__node">
+            <span class="signal-map__node-icon">&#x1F91D;</span>
+            <p class="signal-map__node-title">Advisory M&amp;A</p>
+            <p class="signal-map__node-detail">SLR/SB&amp;CO acquisition; Antaris-Pragmatica merger; Bastion expansion</p>
+            <span class="signal-map__node-badge signal-map__node-badge--blue">Consolidating</span>
+        </div>
+
+        <div class="signal-map__arrow">&rarr;</div>
+
+        <div class="signal-map__node">
+            <span class="signal-map__node-icon">&#x1F3AF;</span>
+            <p class="signal-map__node-title">Market Positioning</p>
+            <p class="signal-map__node-detail">Leadership hires at Ruder Finn, Havas Red, Anthem signal capability build</p>
+            <span class="signal-map__node-badge signal-map__node-badge--amber">Emerging</span>
+        </div>
+    </div>
+
+    <div class="signal-map__stats">
+        <div class="signal-map__stat">
+            <p class="signal-map__stat-num">16</p>
+            <p class="signal-map__stat-label">Signals Tracked</p>
+        </div>
+        <div class="signal-map__stat">
+            <p class="signal-map__stat-num">4</p>
+            <p class="signal-map__stat-label">Thematic Clusters</p>
+        </div>
+        <div class="signal-map__stat">
+            <p class="signal-map__stat-num">3</p>
+            <p class="signal-map__stat-label">Jurisdictions</p>
+        </div>
+        <div class="signal-map__stat">
+            <p class="signal-map__stat-num">5</p>
+            <p class="signal-map__stat-label">People Moves</p>
+        </div>
     </div>
 </div>
 
