@@ -248,9 +248,11 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding: 0 32px 0 max(32px, calc((100vw - 1140px) / 2));
+  width: 100%;
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 32px;
 }
 
 .hero-eyebrow {
