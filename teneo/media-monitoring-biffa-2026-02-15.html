@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teneo | BIFFA Media Monitoring — Morning Brief — 15 February 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   TENEO DESIGN SYSTEM — RESET & VARS
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --t-blue: #0D7DD4;
+  --t-navy: #051336;
+  --t-logo-blue: #1D76BB;
+  --t-body: #505A72;
+  --t-dark: #23282F;
+  --t-light-bg: #F8F8F9;
+  --t-border: #DCDFE5;
+  --t-muted: #9BA1AF;
+  --t-taupe: #9E9584;
+  --t-white: #FFFFFF;
+  --t-gradient-start: #0D7DD4;
+  --t-gradient-end: #585EE9;
+  --green: #0B8457;
+  --green-bg: #E8F5EE;
+  --amber: #C67D15;
+  --amber-bg: #FEF3E2;
+  --red: #C4314B;
+  --red-bg: #FDEAED;
+  --blue-bg: #E8F2FC;
+  --grey-bg: #ECEDF0;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  --max-w: 1140px;
+  --section-pad: 64px;
+  --card-radius: 6px;
+  --card-shadow: 0 1px 3px rgba(5,19,54,0.06), 0 1px 2px rgba(5,19,54,0.04);
+  --card-shadow-hover: 0 4px 12px rgba(5,19,54,0.10), 0 2px 4px rgba(5,19,54,0.06);
+}
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--t-body);
+  background: var(--t-white);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.25; }
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--t-blue);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--t-dark);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--t-muted);
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+/* ========================================
+   FIXED HEADER
+   ======================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--t-white);
+  border-bottom: 1px solid var(--t-border);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.96);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.header-logo svg { height: 28px; width: auto; }
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.header-nav a {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--t-body);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.header-nav a:hover { color: var(--t-blue); }
+
+.client-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--t-blue);
+  background: var(--blue-bg);
+  padding: 5px 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(13,125,212,0.15);
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--t-navy) 0%, #0a1f4a 35%, var(--t-blue) 70%, var(--t-gradient-end) 100%);
+  padding: 100px 0 88px;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+
+/* CSS geometric decorations */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -40px;
+  width: 400px;
+  height: 400px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -120px;
+  right: 180px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 50%;
+}
+
+.hero-deco-1 {
+  position: absolute;
+  top: 40px;
+  left: 8%;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.hero-deco-2 {
+  position: absolute;
+  bottom: 30px;
+  left: 25%;
+  width: 60px;
+  height: 60px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+
+.hero-deco-3 {
+  position: absolute;
+  top: 50%;
+  right: 12%;
+  width: 1px;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.12), transparent);
+  transform: translateY(-50%);
+}
+
+.hero-deco-4 {
+  position: absolute;
+  top: 20%;
+  right: 30%;
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.08), transparent);
+}
+
+.hero-deco-5 {
+  position: absolute;
+  bottom: 60px;
+  right: 8%;
+  width: 8px;
+  height: 8px;
+  background: rgba(158,149,132,0.4);
+  border-radius: 50%;
+}
+
+.hero-deco-6 {
+  position: absolute;
+  top: 30%;
+  right: 20%;
+  width: 4px;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--t-taupe);
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--t-white);
+  line-height: 1.15;
+  margin-bottom: 20px;
+  max-width: 640px;
+  letter-spacing: -0.02em;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-meta-item {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-meta-item strong {
+  color: rgba(255,255,255,0.9);
+  font-weight: 500;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255,255,255,0.2);
+}
+
+/* ========================================
+   REPORT TYPE BAND
+   ======================================== */
+.report-band {
+  background: var(--t-blue);
+  padding: 14px 0;
+}
+
+.report-band-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.report-band-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--t-white);
+}
+
+.report-band-right {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/* ========================================
+   STATUS PILLS BAR
+   ======================================== */
+.status-bar {
+  background: var(--t-light-bg);
+  border-bottom: 1px solid var(--t-border);
+  padding: 20px 0;
+}
+
+.status-bar-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 100px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+}
+
+.status-pill .pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pill-dot--green { background: var(--green); }
+.pill-dot--amber { background: var(--amber); }
+.pill-dot--grey { background: var(--t-muted); }
+.pill-dot--blue { background: var(--t-blue); }
+.pill-dot--red { background: var(--red); }
+
+.status-pill .pill-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--t-muted);
+}
+
+.status-pill .pill-value {
+  font-weight: 600;
+  color: var(--t-dark);
+}
+
+/* ========================================
+   SECTIONS
+   ======================================== */
+.section { padding: var(--section-pad) 0; }
+.section--light { background: var(--t-light-bg); }
+.section--border-top { border-top: 1px solid var(--t-border); }
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-header-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* ========================================
+   SECTION 1 — EXECUTIVE BRIEF
+   ======================================== */
+.exec-brief {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.exec-pullquote {
+  position: relative;
+  padding-left: 24px;
+  border-left: 3px solid var(--t-blue);
+}
+
+.exec-pullquote p {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--t-dark);
+  font-style: italic;
+}
+
+.exec-body p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--t-body);
+}
+
+/* ========================================
+   COVERAGE CARDS
+   ======================================== */
+.coverage-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.coverage-card {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 16px;
+  align-items: start;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  border-left: 3px solid var(--t-border);
+}
+
+.coverage-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(13,125,212,0.2);
+}
+
+.coverage-card--trade { border-left-color: var(--t-blue); }
+.coverage-card--monitor { border-left-color: var(--amber); }
+.coverage-card--news { border-left-color: var(--t-taupe); }
+.coverage-card--web { border-left-color: var(--t-gradient-end); }
+.coverage-card--reference { border-left-color: var(--t-muted); }
+
+.coverage-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.coverage-type {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--t-blue);
+}
+
+.coverage-card--monitor .coverage-type { color: var(--amber); }
+.coverage-card--news .coverage-type { color: var(--t-taupe); }
+.coverage-card--web .coverage-type { color: var(--t-gradient-end); }
+.coverage-card--reference .coverage-type { color: var(--t-muted); }
+
+.coverage-window {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--t-muted);
+}
+
+.coverage-content h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--t-dark);
+  margin-bottom: 6px;
+  line-height: 1.45;
+}
+
+.coverage-content p {
+  font-size: 0.8125rem;
+  color: var(--t-body);
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.coverage-source {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--t-muted);
+}
+
+/* ========================================
+   ACCENT STRIPE
+   ======================================== */
+.accent-stripe {
+  height: 4px;
+  background: linear-gradient(90deg, var(--t-gradient-start), var(--t-gradient-end));
+}
+
+/* ========================================
+   FLASHPOINT
+   ======================================== */
+.flashpoint-card {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.flashpoint-header {
+  background: linear-gradient(135deg, #FEF3E2, #FFF8EE);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid rgba(198,125,21,0.15);
+}
+
+.flashpoint-signal-badge {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--amber);
+  background: var(--t-white);
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(198,125,21,0.2);
+}
+
+.flashpoint-meta-pills {
+  display: flex;
+  gap: 8px;
+}
+
+.flashpoint-meta-pill {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--t-body);
+  background: rgba(198,125,21,0.08);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.flashpoint-body {
+  padding: 28px 24px;
+}
+
+.flashpoint-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--t-dark);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.flashpoint-body p {
+  font-size: 0.9375rem;
+  color: var(--t-body);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.flashpoint-source {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--t-muted);
+  padding-top: 8px;
+  border-top: 1px solid var(--t-border);
+  margin-top: 16px;
+}
+
+/* ========================================
+   MONITORING LANES / DASHBOARD
+   ======================================== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.lane-card {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: box-shadow 0.2s;
+}
+
+.lane-card:hover { box-shadow: var(--card-shadow-hover); }
+
+.lane-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--t-dark);
+}
+
+.lane-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.lane-status--active { color: var(--t-blue); }
+.lane-status--clear { color: var(--green); }
+
+.lane-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.lane-dot--teal { background: #0D9488; }
+.lane-dot--blue { background: var(--t-blue); }
+.lane-dot--green { background: var(--green); }
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stat-card {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--t-dark);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--t-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+/* ========================================
+   DEPARTMENTAL INTELLIGENCE
+   ======================================== */
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dept-card {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+}
+
+.dept-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--t-border);
+}
+
+.dept-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--t-dark);
+}
+
+.dept-count {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--t-blue);
+  background: var(--blue-bg);
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+
+.dept-signals { list-style: none; }
+
+.dept-signals li {
+  font-size: 0.8125rem;
+  color: var(--t-body);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--t-light-bg);
+  line-height: 1.55;
+  position: relative;
+  padding-left: 14px;
+}
+
+.dept-signals li:last-child { border-bottom: 0; }
+
+.dept-signals li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--t-blue);
+}
+
+.dept-clear {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dept-clear-pill {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--green);
+  background: var(--green-bg);
+  padding: 5px 12px;
+  border-radius: 3px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ========================================
+   INSIGHT BANNER
+   ======================================== */
+.insight-banner {
+  background: var(--t-navy);
+  padding: 48px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.insight-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -30px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid rgba(13,125,212,0.15);
+  border-radius: 50%;
+}
+
+.insight-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 15%;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(13,125,212,0.08);
+  border-radius: 50%;
+}
+
+.insight-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+
+.insight-quote {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.65;
+  padding-left: 24px;
+  border-left: 3px solid var(--t-blue);
+}
+
+/* ========================================
+   FEATURE BREAK (GRADIENT PANEL)
+   ======================================== */
+.feature-break {
+  background: linear-gradient(135deg, var(--t-navy) 0%, #0a1f4a 40%, var(--t-blue) 75%, var(--t-gradient-end) 100%);
+  padding: 72px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-break::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.feature-break::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+
+.feature-break-content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+}
+
+.feature-break-quote {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.feature-break-attr {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   COMPETITIVE LANDSCAPE
+   ======================================== */
+.competitor-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.competitor-card {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+}
+
+.competitor-card h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--t-dark);
+  margin-bottom: 8px;
+}
+
+.competitor-card p {
+  font-size: 0.8125rem;
+  color: var(--t-body);
+  line-height: 1.6;
+}
+
+.competitor-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.competitor-badge--stable {
+  color: var(--green);
+  background: var(--green-bg);
+}
+
+.competitor-badge--active {
+  color: var(--t-blue);
+  background: var(--blue-bg);
+}
+
+/* ========================================
+   POLICY CARDS
+   ======================================== */
+.policy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.policy-card {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+}
+
+.policy-card h4 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--t-dark);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.policy-card .policy-source {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--t-muted);
+}
+
+/* ========================================
+   DECISION MATRIX TABLE
+   ======================================== */
+.matrix-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.matrix-table thead th {
+  background: var(--t-light-bg);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--t-muted);
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--t-border);
+  white-space: nowrap;
+}
+
+.matrix-table tbody td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--t-border);
+  vertical-align: top;
+  color: var(--t-body);
+}
+
+.matrix-table tbody tr:last-child td { border-bottom: 0; }
+
+.matrix-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--t-dark);
+}
+
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+.level-badge--amber { color: var(--amber); background: var(--amber-bg); }
+.level-badge--green { color: var(--green); background: var(--green-bg); }
+.level-badge--red { color: var(--red); background: var(--red-bg); }
+
+/* ========================================
+   EVIDENCE ROOM
+   ======================================== */
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.evidence-item {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  padding: 20px 24px;
+}
+
+.evidence-item h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--t-dark);
+  margin-bottom: 8px;
+}
+
+.evidence-item p {
+  font-size: 0.8125rem;
+  color: var(--t-body);
+  line-height: 1.6;
+}
+
+.evidence-stable-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.evidence-stable-pill {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--t-muted);
+  background: var(--t-light-bg);
+  padding: 5px 12px;
+  border-radius: 3px;
+  border: 1px solid var(--t-border);
+}
+
+/* ========================================
+   THEME CARDS
+   ======================================== */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.theme-card {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-top: 3px solid var(--t-blue);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+}
+
+.theme-card p {
+  font-size: 0.875rem;
+  color: var(--t-body);
+  line-height: 1.65;
+}
+
+.theme-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--t-blue);
+  margin-bottom: 10px;
+}
+
+.watch-list {
+  list-style: none;
+  counter-reset: watch;
+}
+
+.watch-list li {
+  counter-increment: watch;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--t-border);
+  font-size: 0.875rem;
+  color: var(--t-body);
+  line-height: 1.6;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.watch-list li:last-child { border-bottom: 0; }
+
+.watch-list li::before {
+  content: counter(watch);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--t-blue);
+  background: var(--blue-bg);
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ========================================
+   SIGNAL VAULT
+   ======================================== */
+.vault-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  margin-bottom: 32px;
+}
+
+.vault-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.vault-table thead th {
+  background: var(--t-navy);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  padding: 12px 16px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.vault-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--t-border);
+  vertical-align: top;
+  color: var(--t-body);
+  line-height: 1.5;
+}
+
+.vault-table tbody tr:nth-child(even) { background: var(--t-light-bg); }
+.vault-table tbody tr:last-child td { border-bottom: 0; }
+
+.vault-table tbody td:first-child {
+  font-weight: 500;
+  color: var(--t-dark);
+  max-width: 320px;
+}
+
+.vault-lane {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.vault-lane--about { color: #0D9488; background: #E8F8F5; }
+.vault-lane--context { color: var(--t-gradient-end); background: #EEEDFB; }
+.vault-lane--reference { color: var(--t-muted); background: var(--grey-bg); }
+.vault-lane--strategic { color: var(--t-blue); background: var(--blue-bg); }
+.vault-lane--capital { color: var(--t-navy); background: #E8EBF3; }
+
+.entity-summary-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.entity-card {
+  background: var(--t-white);
+  border: 1px solid var(--t-border);
+  border-radius: var(--card-radius);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--card-shadow);
+}
+
+.entity-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.entity-name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--t-dark);
+}
+
+.entity-status {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.entity-status--green { color: var(--green); }
+.entity-status--amber { color: var(--amber); }
+.entity-status--blue { color: var(--t-blue); }
+
+.entity-count {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--t-dark);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.site-footer {
+  background: var(--t-navy);
+  padding: 48px 0 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--t-gradient-start), var(--t-gradient-end));
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-logo svg { height: 24px; width: auto; opacity: 0.85; }
+
+.footer-text {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+.footer-powered {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-disclaimer {
+  font-size: 0.6875rem;
+  color: rgba(255,255,255,0.3);
+  max-width: 600px;
+  line-height: 1.55;
+}
+
+.footer-version {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.06em;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  :root {
+    --section-pad: 40px;
+  }
+
+  .container { padding: 0 20px; }
+  .header-inner { padding: 0 20px; }
+  .header-nav { display: none; }
+
+  .hero { padding: 64px 0 56px; min-height: auto; }
+  .hero-content { padding: 0 20px; }
+  .hero-title { font-size: 1.75rem; }
+  .hero-meta { flex-direction: column; gap: 8px; }
+  .hero-divider { display: none; }
+
+  .exec-brief { grid-template-columns: 1fr; gap: 24px; }
+  .coverage-card { grid-template-columns: 80px 1fr; gap: 12px; padding: 16px 18px; }
+
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+
+  .dept-grid { grid-template-columns: 1fr; }
+  .competitor-row { grid-template-columns: 1fr; }
+  .policy-grid { grid-template-columns: 1fr; }
+  .evidence-grid { grid-template-columns: 1fr; }
+  .theme-grid { grid-template-columns: 1fr; }
+  .entity-summary-row { grid-template-columns: 1fr; }
+
+  .section-title { font-size: 1.375rem; }
+
+  .status-bar-inner { gap: 8px; }
+  .status-pill { padding: 5px 12px; font-size: 0.75rem; }
+
+  .feature-break { padding: 48px 0; }
+  .feature-break-quote { font-size: 1.125rem; }
+
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ========================================
+   PRINT
+   ======================================== */
+@media print {
+  .site-header { position: relative; box-shadow: none; }
+  .hero { padding: 48px 0 40px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section { padding: 32px 0; }
+  .accent-stripe, .feature-break, .insight-banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-size: 11pt; }
+  .coverage-card:hover, .lane-card:hover { box-shadow: none; }
+  .container { max-width: 100%; padding: 0 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     FIXED HEADER
+     ============================================ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid" viewBox="0 0 300 60.694"><path d="M167.962 37.426q0 1.089-1.4 1.09h-21.313a39 39 0 0 0-.233 4.357q0 6.264 2.975 9.63t8.458 3.365a11.8 11.8 0 0 0 5.562-1.478 13.2 13.2 0 0 0 4.511-3.774l.2-.078a.9.9 0 0 1 .681.428 1.6 1.6 0 0 1 .33 1.011q0 .818-2.489 3.405a18.2 18.2 0 0 1-5.406 3.95 14.3 14.3 0 0 1-6.1 1.362 15.47 15.47 0 0 1-11.784-5.137 17.8 17.8 0 0 1-4.794-12.607 18.8 18.8 0 0 1 4.686-12.917 15.18 15.18 0 0 1 11.882-5.291 14.05 14.05 0 0 1 10.131 3.949 11.93 11.93 0 0 1 4.103 8.735M160.883 34a6.44 6.44 0 0 0-2-4.844 7.13 7.13 0 0 0-5.152-1.926 6.7 6.7 0 0 0-5.193 2.51 13.7 13.7 0 0 0-2.975 6.6l10.812-.311a10.4 10.4 0 0 0 3.481-.468A1.55 1.55 0 0 0 160.883 34m54.059 24.436q0 1.089-.624 1.089a38 38 0 0 1-3.811-.233q-2.484-.233-4.384-.233-1.938 0-4.458.233-2.289.234-3.838.233-.62 0-.62-1.089 0-.972.622-1.05 2.683-.31 3.519-1.518t.837-5.058v-13q0-4.356-1.711-6.381t-5.289-2.023a8.9 8.9 0 0 0-3.987.856 13.3 13.3 0 0 0-3.713 3.035V50.81q0 3.852.835 5.058t3.52 1.518q.622.078.622 1.05 0 1.089-.622 1.089-1.595 0-3.889-.233-2.529-.233-4.434-.233-1.866 0-4.356.233-2.3.234-3.889.233-.621 0-.622-1.089 0-.972.622-1.05 3.345-.426 4.318-1.613t.972-4.953V36.445q0-3.108-.8-4.079t-3.558-1.282q-.623 0-.622-1.032-.001-.951.622-.952a35 35 0 0 0 6.417-2.2 10.9 10.9 0 0 0 3.227-2 1.11 1.11 0 0 1 .856-.466q1.089 0 1.09.622l-.311 4.9q5.587-5.214 10.4-5.214 5.278 0 8.248 3.035a11.17 11.17 0 0 1 2.971 8.17V50.81q0 3.814.952 4.981t4.258 1.6q.63.073.63 1.045m35.934-21.01q0 1.089-1.4 1.09h-21.313a40 40 0 0 0-.232 4.357q0 6.264 2.974 9.63t8.459 3.365a11.8 11.8 0 0 0 5.561-1.478 13.2 13.2 0 0 0 4.512-3.774l.194-.078a.9.9 0 0 1 .682.428 1.6 1.6 0 0 1 .329 1.011q0 .818-2.488 3.405a18.2 18.2 0 0 1-5.407 3.95 14.3 14.3 0 0 1-6.105 1.362 15.47 15.47 0 0 1-11.784-5.137 17.8 17.8 0 0 1-4.783-12.607 18.8 18.8 0 0 1 4.685-12.917 15.18 15.18 0 0 1 11.882-5.291 14.05 14.05 0 0 1 10.131 3.949 11.93 11.93 0 0 1 4.103 8.735M243.8 34a6.43 6.43 0 0 0-2-4.844 7.13 7.13 0 0 0-5.152-1.926 6.7 6.7 0 0 0-5.192 2.51 13.7 13.7 0 0 0-2.976 6.6l10.813-.311a10.4 10.4 0 0 0 3.481-.468A1.55 1.55 0 0 0 243.8 34m50.866 8.95a17.18 17.18 0 0 1-5.042 12.743q-5.042 5-13.062 5t-13.081-5.021a17.16 17.16 0 0 1-5.061-12.722 17.83 17.83 0 0 1 5.1-13.015 19 19 0 0 1 26.085-.019 17.9 17.9 0 0 1 5.061 13.034m-7.856-.077q0-7.12-2.742-11.381a8.75 8.75 0 0 0-15.032.02q-2.76 4.281-2.76 11.361 0 7.042 2.721 11.187a8.965 8.965 0 0 0 15.09.038q2.722-4.104 2.723-11.225M114.271.209V.2H85.905c.248 3.531.387 6.69.419 14.19h2.607l.454-3.321c.405-3.334.838-5.194 1.241-5.816a2.38 2.38 0 0 1 1.695-.711A63.5 63.5 0 0 1 100.664 4h8.929l.329 9.237c.072 1.822.1 3.4.109 5.029v20.473c-.184 9.584-.274 10.842-.274 11.607q-.164 4.209-.87 5.3a3.3 3.3 0 0 1-1.9 1.286 31.6 31.6 0 0 1-8.671 1.356v1.934q12.382-.363 15.957-.425v.007q3.577.061 15.959.425V58.3a31.5 31.5 0 0 1-8.67-1.356 3.3 3.3 0 0 1-1.905-1.285q-.707-1.092-.87-5.3c0-.764-.09-2.023-.274-11.606v-20.4c0-1.531.038-3.281.111-5.1L118.947 4h8.93a66 66 0 0 1 8.343.547 2.4 2.4 0 0 1 1.695.711c.4.622.8 2.616 1.21 5.963l.485 3.175h2.607c.031-7.5.171-10.66.418-14.191Z" style="fill:#1d76bb"/><path d="M45.265 24.619h13.296v35.454H45.265z" style="fill:#9e9584"/><path d="M13.799 24.619V13.191h44.762V0H0v60.073h33.783V24.619zm282.538-1.601a3.76 3.76 0 0 1 1.8.474 3.37 3.37 0 0 1 1.37 1.356 3.69 3.69 0 0 1 .008 3.663 3.4 3.4 0 0 1-1.356 1.358 3.68 3.68 0 0 1-3.649 0 3.43 3.43 0 0 1-1.358-1.358 3.67 3.67 0 0 1 .008-3.663 3.4 3.4 0 0 1 1.372-1.356 3.76 3.76 0 0 1 1.805-.474m0 .608a3.1 3.1 0 0 0-1.5.4 2.85 2.85 0 0 0-1.144 1.132 3.05 3.05 0 0 0-.008 3.053 2.9 2.9 0 0 0 1.135 1.132 3.05 3.05 0 0 0 3.041 0 2.85 2.85 0 0 0 1.132-1.132 3.06 3.06 0 0 0-.007-3.053 2.83 2.83 0 0 0-1.144-1.132 3.1 3.1 0 0 0-1.505-.4m-1.608 5.089v-3.947h1.355a3.3 3.3 0 0 1 1.006.109.98.98 0 0 1 .5.382 1 1 0 0 1 .185.578 1.05 1.05 0 0 1-.309.754 1.2 1.2 0 0 1-.818.359 1.1 1.1 0 0 1 .335.209 4.5 4.5 0 0 1 .583.783l.481.773h-.777l-.35-.622a3.2 3.2 0 0 0-.666-.919.8.8 0 0 0-.51-.136h-.374v1.677Zm.636-2.221h.772a1.25 1.25 0 0 0 .756-.166.565.565 0 0 0 .1-.751.57.57 0 0 0-.269-.206 2 2 0 0 0-.639-.068h-.724Z" style="fill:#1d76bb"/></svg>
+    </div>
+    <nav class="header-nav">
+      <a href="#executive-brief">Executive Brief</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#intelligence">Intelligence</a>
+      <a href="#signal-vault">Signal Vault</a>
+    </nav>
+    <div class="client-badge">BIFFA</div>
+  </div>
+</header>
+
+<!-- ============================================
+     HERO
+     ============================================ -->
+<section class="hero">
+  <div class="hero-deco-1"></div>
+  <div class="hero-deco-2"></div>
+  <div class="hero-deco-3"></div>
+  <div class="hero-deco-4"></div>
+  <div class="hero-deco-5"></div>
+  <div class="hero-deco-6"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Morning Brief</div>
+    <h1 class="hero-title">Media Monitoring &amp; Corporate Strategy</h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>Client</strong> BIFFA</div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item"><strong>Date</strong> 15 February 2026</div>
+      <div class="hero-divider"></div>
+      <div class="hero-meta-item"><strong>Cycle</strong> AM</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     REPORT TYPE BAND
+     ============================================ -->
+<div class="report-band">
+  <div class="container">
+    <div class="report-band-inner">
+      <span class="report-band-label">Media Monitoring Report</span>
+      <span class="report-band-right">Prepared by Teneo Intelligence &amp; Advisory</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     STATUS PILLS BAR
+     ============================================ -->
+<div class="status-bar">
+  <div class="container">
+    <div class="status-bar-inner">
+      <div class="status-pill">
+        <span class="pill-dot pill-dot--green"></span>
+        <span class="pill-label">Net Risk</span>
+        <span class="pill-value">Stable</span>
+      </div>
+      <div class="status-pill">
+        <span class="pill-dot pill-dot--grey"></span>
+        <span class="pill-label">Market Pulse</span>
+        <span class="pill-value">Quiet</span>
+      </div>
+      <div class="status-pill">
+        <span class="pill-dot pill-dot--amber"></span>
+        <span class="pill-label">Policy</span>
+        <span class="pill-value">Active</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     SECTION 1 — EXECUTIVE BRIEF
+     ============================================ -->
+<section class="section" id="executive-brief">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 01</div>
+      <h2 class="section-title">Executive Brief</h2>
+    </div>
+    <div class="exec-brief">
+      <div class="exec-pullquote">
+        <p>Net risk this cycle: stable. BIFFA coverage skews toward performance and collaboration positioning, with no enforcement actions detected. The policy backdrop continues to shape future sorting and collection economics.</p>
+      </div>
+      <div class="exec-body">
+        <p>This cycle is characterised by BIFFA-specific narrative centred on FY performance, acquisition-led growth framing, and circularity partnership visibility. A policy execution signal &mdash; Welsh Deposit Return Scheme regulations and UK Internal Market Act exclusion updates &mdash; has surfaced as a near-term operational planning factor. Evidence volumes were lower than typical, consistent with a sector-quiet publication window rather than a shift in underlying fundamentals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 2 — YOUR COVERAGE THIS CYCLE
+     ============================================ -->
+<section class="section section--light" id="coverage">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 02</div>
+      <h2 class="section-title">Your Coverage This Cycle</h2>
+      <p class="section-subtitle">Seven coverage items detected across trade, monitor, news, web and reference channels.</p>
+    </div>
+    <div class="coverage-grid">
+
+      <!-- Card 1 -->
+      <div class="coverage-card coverage-card--trade">
+        <div class="coverage-meta">
+          <span class="coverage-type">Trade</span>
+          <span class="coverage-window">48&ndash;72h</span>
+        </div>
+        <div class="coverage-content">
+          <h4>BIFFA revenue increases 9.4% as acquisitions drive growth</h4>
+          <p>Trade coverage frames BIFFA's FY performance around acquisition-led growth and portfolio integration.</p>
+          <span class="coverage-source">Source: Lets Recycle</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="coverage-card coverage-card--trade">
+        <div class="coverage-meta">
+          <span class="coverage-type">Trade</span>
+          <span class="coverage-window">24&ndash;48h</span>
+        </div>
+        <div class="coverage-content">
+          <h4>BIFFA joins circularity design and skills initiative with sector partners</h4>
+          <p>BIFFA referenced alongside peers in a CIWM-led initiative on circular economy design and skills development.</p>
+          <span class="coverage-source">Sources: Circular Online, FMJ</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="coverage-card coverage-card--trade">
+        <div class="coverage-meta">
+          <span class="coverage-type">Trade</span>
+          <span class="coverage-window">Existence</span>
+        </div>
+        <div class="coverage-content">
+          <h4>Biffa agrees &pound;12m upgrade to Ipswich MRF with council</h4>
+          <p>Infrastructure upgrade visibility for BIFFA in regional trade press.</p>
+          <span class="coverage-source">Source: ENDS Waste &amp; Bioenergy</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="coverage-card coverage-card--monitor">
+        <div class="coverage-meta">
+          <span class="coverage-type">Monitor</span>
+          <span class="coverage-window">24&ndash;48h</span>
+        </div>
+        <div class="coverage-content">
+          <h4>Local report references complaint about BIFFA collection and service issues</h4>
+          <p>Watch item for Communications team. Local-level service narrative surfaced.</p>
+          <span class="coverage-source">Source: Wales Online</span>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="coverage-card coverage-card--news">
+        <div class="coverage-meta">
+          <span class="coverage-type">News</span>
+          <span class="coverage-window">0&ndash;24h</span>
+        </div>
+        <div class="coverage-content">
+          <h4>Council discussion highlights profit-sharing cashflows tied to BIFFA landfill operations</h4>
+          <p>Local-authority scrutiny narrative around landfill profit-sharing arrangements.</p>
+          <span class="coverage-source">Source: Yahoo News UK</span>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="coverage-card coverage-card--web">
+        <div class="coverage-meta">
+          <span class="coverage-type">Web</span>
+          <span class="coverage-window">0&ndash;24h</span>
+        </div>
+        <div class="coverage-content">
+          <h4>BIFFA executive referenced speaking on design-for-end-of-life at packaging event</h4>
+          <p>Executive positioning in trade event context around packaging end-of-life design.</p>
+          <span class="coverage-source">Source: Factory &amp; Handling Solutions</span>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="coverage-card coverage-card--reference">
+        <div class="coverage-meta">
+          <span class="coverage-type">Reference</span>
+          <span class="coverage-window">&mdash;</span>
+        </div>
+        <div class="coverage-content">
+          <h4>BIFFA Wikipedia entry &mdash; stability check</h4>
+          <p>Wikipedia profile clean, no recent edits detected.</p>
+          <span class="coverage-source">Source: Wikipedia</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ACCENT STRIPE
+     ============================================ -->
+<div class="accent-stripe"></div>
+
+<!-- ============================================
+     SECTION 3 — ACTIVE FLASHPOINT
+     ============================================ -->
+<section class="section" id="flashpoint">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 03</div>
+      <h2 class="section-title">Active Flashpoint</h2>
+    </div>
+    <div class="flashpoint-card">
+      <div class="flashpoint-header">
+        <span class="flashpoint-signal-badge">Elevated Signal</span>
+        <div class="flashpoint-meta-pills">
+          <span class="flashpoint-meta-pill">Medium Signal</span>
+          <span class="flashpoint-meta-pill">Medium-term Horizon</span>
+        </div>
+      </div>
+      <div class="flashpoint-body">
+        <h3>Plastics recycling capacity build-out signalled &mdash; Sunderland pyrolysis facility timeline</h3>
+        <p>A Sunderland-based plastics pyrolysis facility has confirmed a 2028 timeline, signalling continued investment in advanced plastics processing capacity. This matters because it could affect feedstock competition, gate fees, and contracting narratives around hard-to-recycle streams &mdash; areas where BIFFA's sorting and processing operations have direct exposure.</p>
+        <div class="flashpoint-source">Source: Lets Recycle</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 4 — SITUATIONAL DASHBOARD
+     ============================================ -->
+<section class="section section--light" id="dashboard">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 04</div>
+      <h2 class="section-title">Situational Dashboard</h2>
+      <p class="section-subtitle">Monitoring lanes and aggregate signal summary for the current cycle.</p>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="lane-card">
+        <span class="lane-label">About You (Direct Coverage)</span>
+        <span class="lane-status lane-status--active"><span class="lane-dot lane-dot--teal"></span> 4 items</span>
+      </div>
+      <div class="lane-card">
+        <span class="lane-label">About You (Light / Context)</span>
+        <span class="lane-status lane-status--active"><span class="lane-dot lane-dot--teal"></span> 3 items</span>
+      </div>
+      <div class="lane-card">
+        <span class="lane-label">Strategic Interest</span>
+        <span class="lane-status lane-status--active"><span class="lane-dot lane-dot--blue"></span> 3 items</span>
+      </div>
+      <div class="lane-card">
+        <span class="lane-label">Capital &amp; Funding</span>
+        <span class="lane-status lane-status--active"><span class="lane-dot lane-dot--blue"></span> 3 items</span>
+      </div>
+      <div class="lane-card">
+        <span class="lane-label">Competitor Watch</span>
+        <span class="lane-status lane-status--clear"><span class="lane-dot lane-dot--green"></span> All Clear</span>
+      </div>
+      <div class="lane-card">
+        <span class="lane-label">Social &amp; Public Discourse</span>
+        <span class="lane-status lane-status--clear"><span class="lane-dot lane-dot--green"></span> All Clear</span>
+      </div>
+      <div class="lane-card">
+        <span class="lane-label">Reputation Risk</span>
+        <span class="lane-status lane-status--clear"><span class="lane-dot lane-dot--green"></span> All Clear</span>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Media Signals</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Active Flashpoint</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Official Records</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Reputation Risks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 5 — DEPARTMENTAL INTELLIGENCE
+     ============================================ -->
+<section class="section" id="intelligence">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 05</div>
+      <h2 class="section-title">Departmental Intelligence</h2>
+      <p class="section-subtitle">Signals routed to relevant internal departments for action or awareness.</p>
+    </div>
+
+    <div class="dept-grid">
+      <!-- Communications -->
+      <div class="dept-card">
+        <div class="dept-card-header">
+          <span class="dept-name">Communications</span>
+          <span class="dept-count">3 Signals</span>
+        </div>
+        <ul class="dept-signals">
+          <li>Trade coverage frames BIFFA FY performance and acquisition-led growth</li>
+          <li>BIFFA referenced in circularity skills initiative with sector partners</li>
+          <li>Local report references a complaint about BIFFA collection/service issues</li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="dept-card">
+        <div class="dept-card-header">
+          <span class="dept-name">Legal</span>
+          <span class="dept-count">1 Signal</span>
+        </div>
+        <ul class="dept-signals">
+          <li>Welsh DRS regulations and UKIMA exclusion policy update surfaced</li>
+        </ul>
+      </div>
+
+      <!-- Operations -->
+      <div class="dept-card">
+        <div class="dept-card-header">
+          <span class="dept-name">Operations</span>
+          <span class="dept-count">2 Signals</span>
+        </div>
+        <ul class="dept-signals">
+          <li>DRS execution detail continues to move</li>
+          <li>Biffa agrees &pound;12m upgrade to Ipswich MRF with council</li>
+        </ul>
+      </div>
+
+      <!-- Finance -->
+      <div class="dept-card">
+        <div class="dept-card-header">
+          <span class="dept-name">Finance</span>
+          <span class="dept-count">1 Signal</span>
+        </div>
+        <ul class="dept-signals">
+          <li>Reported revenue growth and acquisition contribution framing</li>
+        </ul>
+      </div>
+
+      <!-- Commercial & Sales -->
+      <div class="dept-card">
+        <div class="dept-card-header">
+          <span class="dept-name">Commercial &amp; Sales</span>
+          <span class="dept-count">1 Signal</span>
+        </div>
+        <ul class="dept-signals">
+          <li>Acquisition-led growth narrative surfaced in trade press</li>
+        </ul>
+      </div>
+
+      <!-- Strategy & Corporate Development -->
+      <div class="dept-card">
+        <div class="dept-card-header">
+          <span class="dept-name">Strategy &amp; Corporate Development</span>
+          <span class="dept-count">1 Signal</span>
+        </div>
+        <ul class="dept-signals">
+          <li>Waste infrastructure ownership movement (Urbaser/Blackstone/EQT)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Departments All Clear -->
+    <div class="section-header" style="margin-bottom: 0;">
+      <div class="section-eyebrow" style="color: var(--green);">Departments All Clear</div>
+    </div>
+    <div class="dept-clear" style="margin-top: 12px;">
+      <span class="dept-clear-pill">Safety &amp; HSE</span>
+      <span class="dept-clear-pill">HR &amp; People</span>
+      <span class="dept-clear-pill">IT &amp; Data</span>
+      <span class="dept-clear-pill">Procurement</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     INSIGHT BANNER
+     ============================================ -->
+<div class="insight-banner">
+  <div class="container">
+    <div class="insight-content">
+      <p class="insight-quote">Net risk this cycle: stable. Coverage skews toward performance and collaboration positioning, with policy execution on DRS and UKIMA as the primary forward-looking variable.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     FEATURE BREAK — GRADIENT PANEL
+     ============================================ -->
+<div class="feature-break">
+  <div class="container">
+    <div class="feature-break-content">
+      <p class="feature-break-quote">Net risk this cycle: stable. Coverage skews toward performance positioning, with policy execution as the primary forward variable.</p>
+      <span class="feature-break-attr">Section 06: Competitive Landscape</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================
+     SECTION 6 — COMPETITIVE LANDSCAPE
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 06</div>
+      <h2 class="section-title">Competitive Landscape</h2>
+    </div>
+    <div class="competitor-row">
+      <div class="competitor-card">
+        <div class="competitor-badge competitor-badge--stable">
+          <span class="pill-dot pill-dot--green"></span>
+          Stable
+        </div>
+        <h4>Competitors</h4>
+        <p>No operational or reputational stumbles detected across the competitive set this cycle.</p>
+      </div>
+      <div class="competitor-card">
+        <div class="competitor-badge competitor-badge--active">
+          <span class="pill-dot pill-dot--blue"></span>
+          Active
+        </div>
+        <h4>Urbaser Acquisition</h4>
+        <p>Blackstone Infrastructure &amp; EQT confirmed as acquirers. Signals infrastructure capital rotation and potential platform consolidation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 7 — POLICY & REGULATORY SIGNALS
+     ============================================ -->
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 07</div>
+      <h2 class="section-title">Policy &amp; Regulatory Signals</h2>
+    </div>
+    <div class="policy-grid">
+      <div class="policy-card">
+        <h4>Welsh Government confirms DRS regulations laid</h4>
+        <p style="font-size: 0.8125rem; color: var(--t-body); line-height: 1.6; margin-top: 8px;">Welsh Deposit Return Scheme regulatory framework has been formally laid, advancing the policy execution timeline for beverage container recovery.</p>
+        <div class="policy-source" style="margin-top: 12px;">Source: Gov.wales</div>
+      </div>
+      <div class="policy-card">
+        <h4>UKIMA exclusion policy update enables Wales glass-in-DRS</h4>
+        <p style="font-size: 0.8125rem; color: var(--t-body); line-height: 1.6; margin-top: 8px;">UK Internal Market Act exclusion update permits Wales to include glass in its DRS, affecting sorting economics and collection infrastructure.</p>
+        <div class="policy-source" style="margin-top: 12px;">Source: GOV.UK</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 8 — STRATEGIC ASSESSMENT
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 08</div>
+      <h2 class="section-title">Strategic Assessment</h2>
+      <p class="section-subtitle">Decision matrix for the current cycle.</p>
+    </div>
+    <div class="matrix-table-wrap">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Risk Area</th>
+            <th>Level</th>
+            <th>Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Policy execution &mdash; DRS and UKIMA</td>
+            <td><span class="level-badge level-badge--amber">Medium</span></td>
+            <td>Monitor implementation detail and timelines</td>
+          </tr>
+          <tr>
+            <td>Narrative management &mdash; performance and service</td>
+            <td><span class="level-badge level-badge--amber">Medium</span></td>
+            <td>Monitor for repeat patterns or amplification</td>
+          </tr>
+          <tr>
+            <td>Capital dynamics &mdash; platform ownership</td>
+            <td><span class="level-badge level-badge--green">Low</span></td>
+            <td>Track consolidation acceleration signals</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 9 — EVIDENCE ROOM
+     ============================================ -->
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 09</div>
+      <h2 class="section-title">Evidence Room</h2>
+      <p class="section-subtitle">Active evidence categories and stable monitoring areas.</p>
+    </div>
+
+    <div class="evidence-grid">
+      <div class="evidence-item">
+        <h4>Political &amp; Regulatory Heat</h4>
+        <p>Two primary-tier official publications detected. No new enforcement actions against BIFFA or sector peers.</p>
+      </div>
+      <div class="evidence-item">
+        <h4>Deal Flow</h4>
+        <p>One definitive transaction confirmed: Urbaser acquisition by Blackstone Infrastructure and EQT.</p>
+      </div>
+      <div class="evidence-item">
+        <h4>Investor &amp; Capital Activity</h4>
+        <p>Infrastructure capital rotation patterns observed. Private equity interest in waste sector platforms continues.</p>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="color: var(--t-muted); margin-top: 24px; margin-bottom: 12px;">Stable &mdash; No Signals</div>
+    <div class="evidence-stable-list">
+      <span class="evidence-stable-pill">People Moves</span>
+      <span class="evidence-stable-pill">Emerging Players</span>
+      <span class="evidence-stable-pill">Reputation Radar</span>
+      <span class="evidence-stable-pill">Rumour Radar</span>
+      <span class="evidence-stable-pill">Social Discourse</span>
+      <span class="evidence-stable-pill">Competitor Stumbles</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     ACCENT STRIPE
+     ============================================ -->
+<div class="accent-stripe"></div>
+
+<!-- ============================================
+     SECTION 10 — THEMES & WHAT TO WATCH
+     ============================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 10</div>
+      <h2 class="section-title">Themes &amp; What to Watch</h2>
+    </div>
+
+    <div class="theme-grid">
+      <div class="theme-card">
+        <div class="theme-number">Theme 01</div>
+        <p>DRS execution detail shaping future waste flows and collection economics across Wales and England.</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-number">Theme 02</div>
+        <p>Selective BIFFA visibility through performance and collaboration messaging in trade media.</p>
+      </div>
+      <div class="theme-card">
+        <div class="theme-number">Theme 03</div>
+        <p>Infrastructure and capacity signals &mdash; Sunderland 2028 pyrolysis timeline, Ipswich MRF &pound;12m upgrade.</p>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-bottom: 16px;">
+      <div class="section-eyebrow">What to Watch</div>
+    </div>
+    <ol class="watch-list">
+      <li>Further DRS implementation detail affecting glass handling and sorting economics</li>
+      <li>Any BIFFA-named Environment Agency or DEFRA references</li>
+      <li>Repeat local-authority service narratives</li>
+      <li>Follow-on bolt-on acquisitions from Urbaser's new owners</li>
+      <li>Financing and capex announcements tied to DRS/EPR readiness</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================
+     SECTION 11 — SIGNAL VAULT
+     ============================================ -->
+<section class="section section--light" id="signal-vault">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Section 11</div>
+      <h2 class="section-title">Signal Vault</h2>
+      <p class="section-subtitle">Complete evidence table and entity summary for this monitoring cycle.</p>
+    </div>
+
+    <div class="vault-table-wrap">
+      <table class="vault-table">
+        <thead>
+          <tr>
+            <th>Headline</th>
+            <th>Source</th>
+            <th>Entity</th>
+            <th>Window</th>
+            <th>Lane</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>BIFFA revenue increases 9.4% as acquisitions drive growth</td>
+            <td>Lets Recycle</td>
+            <td>BIFFA</td>
+            <td>48&ndash;72h</td>
+            <td><span class="vault-lane vault-lane--about">About You</span></td>
+          </tr>
+          <tr>
+            <td>BIFFA joins circularity design and skills initiative</td>
+            <td>Circular Online</td>
+            <td>BIFFA</td>
+            <td>24&ndash;48h</td>
+            <td><span class="vault-lane vault-lane--about">About You</span></td>
+          </tr>
+          <tr>
+            <td>Local report references complaint about BIFFA collection</td>
+            <td>Wales Online</td>
+            <td>BIFFA</td>
+            <td>24&ndash;48h</td>
+            <td><span class="vault-lane vault-lane--about">About You</span></td>
+          </tr>
+          <tr>
+            <td>Biffa agrees &pound;12m upgrade to Ipswich MRF with council</td>
+            <td>ENDS Waste &amp; Bioenergy</td>
+            <td>BIFFA</td>
+            <td>&mdash;</td>
+            <td><span class="vault-lane vault-lane--about">About You</span></td>
+          </tr>
+          <tr>
+            <td>Council discussion highlights profit-sharing cashflows</td>
+            <td>Yahoo News UK</td>
+            <td>BIFFA</td>
+            <td>0&ndash;24h</td>
+            <td><span class="vault-lane vault-lane--context">Context</span></td>
+          </tr>
+          <tr>
+            <td>BIFFA executive referenced speaking at packaging event</td>
+            <td>Factory &amp; Handling Solutions</td>
+            <td>BIFFA</td>
+            <td>0&ndash;24h</td>
+            <td><span class="vault-lane vault-lane--context">Context</span></td>
+          </tr>
+          <tr>
+            <td>BIFFA joins circularity (additional pickup)</td>
+            <td>FMJ</td>
+            <td>BIFFA</td>
+            <td>0&ndash;24h</td>
+            <td><span class="vault-lane vault-lane--context">Context</span></td>
+          </tr>
+          <tr>
+            <td>BIFFA Wikipedia entry &mdash; stability check</td>
+            <td>Wikipedia</td>
+            <td>BIFFA</td>
+            <td>&mdash;</td>
+            <td><span class="vault-lane vault-lane--reference">Reference</span></td>
+          </tr>
+          <tr>
+            <td>Welsh Government confirms DRS regulations laid</td>
+            <td>Gov.wales</td>
+            <td>UK Policy</td>
+            <td>24&ndash;48h</td>
+            <td><span class="vault-lane vault-lane--strategic">Strategic</span></td>
+          </tr>
+          <tr>
+            <td>UKIMA exclusion policy update</td>
+            <td>GOV.UK</td>
+            <td>UK Policy</td>
+            <td>24&ndash;48h</td>
+            <td><span class="vault-lane vault-lane--strategic">Strategic</span></td>
+          </tr>
+          <tr>
+            <td>Sunderland plastics plant 2028 timeline</td>
+            <td>Lets Recycle</td>
+            <td>Sector</td>
+            <td>24&ndash;48h</td>
+            <td><span class="vault-lane vault-lane--strategic">Strategic</span></td>
+          </tr>
+          <tr>
+            <td>Blackstone &amp; EQT to acquire Urbaser</td>
+            <td>Blackstone</td>
+            <td>Sector Capital</td>
+            <td>24&ndash;48h</td>
+            <td><span class="vault-lane vault-lane--capital">Capital</span></td>
+          </tr>
+          <tr>
+            <td>Platinum Equity confirms Urbaser sale</td>
+            <td>Platinum Equity</td>
+            <td>Sector Capital</td>
+            <td>24&ndash;48h</td>
+            <td><span class="vault-lane vault-lane--capital">Capital</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Entity Summary Cards -->
+    <div class="section-eyebrow" style="margin-bottom: 16px;">Entity Summary</div>
+    <div class="entity-summary-row">
+      <div class="entity-card">
+        <div class="entity-left">
+          <span class="entity-name">BIFFA</span>
+          <span class="entity-status entity-status--green">
+            <span class="pill-dot pill-dot--green"></span>
+            Stable
+          </span>
+        </div>
+        <span class="entity-count">7</span>
+      </div>
+      <div class="entity-card">
+        <div class="entity-left">
+          <span class="entity-name">UK Policy / Regulators</span>
+          <span class="entity-status entity-status--amber">
+            <span class="pill-dot pill-dot--amber"></span>
+            Rising
+          </span>
+        </div>
+        <span class="entity-count">2</span>
+      </div>
+      <div class="entity-card">
+        <div class="entity-left">
+          <span class="entity-name">Sector Capital</span>
+          <span class="entity-status entity-status--blue">
+            <span class="pill-dot pill-dot--blue"></span>
+            Active
+          </span>
+        </div>
+        <span class="entity-count">3</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+     ============================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid" viewBox="0 0 300 60.694"><path d="M167.962 37.426q0 1.089-1.4 1.09h-21.313a39 39 0 0 0-.233 4.357q0 6.264 2.975 9.63t8.458 3.365a11.8 11.8 0 0 0 5.562-1.478 13.2 13.2 0 0 0 4.511-3.774l.2-.078a.9.9 0 0 1 .681.428 1.6 1.6 0 0 1 .33 1.011q0 .818-2.489 3.405a18.2 18.2 0 0 1-5.406 3.95 14.3 14.3 0 0 1-6.1 1.362 15.47 15.47 0 0 1-11.784-5.137 17.8 17.8 0 0 1-4.794-12.607 18.8 18.8 0 0 1 4.686-12.917 15.18 15.18 0 0 1 11.882-5.291 14.05 14.05 0 0 1 10.131 3.949 11.93 11.93 0 0 1 4.103 8.735M160.883 34a6.44 6.44 0 0 0-2-4.844 7.13 7.13 0 0 0-5.152-1.926 6.7 6.7 0 0 0-5.193 2.51 13.7 13.7 0 0 0-2.975 6.6l10.812-.311a10.4 10.4 0 0 0 3.481-.468A1.55 1.55 0 0 0 160.883 34m54.059 24.436q0 1.089-.624 1.089a38 38 0 0 1-3.811-.233q-2.484-.233-4.384-.233-1.938 0-4.458.233-2.289.234-3.838.233-.62 0-.62-1.089 0-.972.622-1.05 2.683-.31 3.519-1.518t.837-5.058v-13q0-4.356-1.711-6.381t-5.289-2.023a8.9 8.9 0 0 0-3.987.856 13.3 13.3 0 0 0-3.713 3.035V50.81q0 3.852.835 5.058t3.52 1.518q.622.078.622 1.05 0 1.089-.622 1.089-1.595 0-3.889-.233-2.529-.233-4.434-.233-1.866 0-4.356.233-2.3.234-3.889.233-.621 0-.622-1.089 0-.972.622-1.05 3.345-.426 4.318-1.613t.972-4.953V36.445q0-3.108-.8-4.079t-3.558-1.282q-.623 0-.622-1.032-.001-.951.622-.952a35 35 0 0 0 6.417-2.2 10.9 10.9 0 0 0 3.227-2 1.11 1.11 0 0 1 .856-.466q1.089 0 1.09.622l-.311 4.9q5.587-5.214 10.4-5.214 5.278 0 8.248 3.035a11.17 11.17 0 0 1 2.971 8.17V50.81q0 3.814.952 4.981t4.258 1.6q.63.073.63 1.045m35.934-21.01q0 1.089-1.4 1.09h-21.313a40 40 0 0 0-.232 4.357q0 6.264 2.974 9.63t8.459 3.365a11.8 11.8 0 0 0 5.561-1.478 13.2 13.2 0 0 0 4.512-3.774l.194-.078a.9.9 0 0 1 .682.428 1.6 1.6 0 0 1 .329 1.011q0 .818-2.488 3.405a18.2 18.2 0 0 1-5.407 3.95 14.3 14.3 0 0 1-6.105 1.362 15.47 15.47 0 0 1-11.784-5.137 17.8 17.8 0 0 1-4.783-12.607 18.8 18.8 0 0 1 4.685-12.917 15.18 15.18 0 0 1 11.882-5.291 14.05 14.05 0 0 1 10.131 3.949 11.93 11.93 0 0 1 4.103 8.735M243.8 34a6.43 6.43 0 0 0-2-4.844 7.13 7.13 0 0 0-5.152-1.926 6.7 6.7 0 0 0-5.192 2.51 13.7 13.7 0 0 0-2.976 6.6l10.813-.311a10.4 10.4 0 0 0 3.481-.468A1.55 1.55 0 0 0 243.8 34m50.866 8.95a17.18 17.18 0 0 1-5.042 12.743q-5.042 5-13.062 5t-13.081-5.021a17.16 17.16 0 0 1-5.061-12.722 17.83 17.83 0 0 1 5.1-13.015 19 19 0 0 1 26.085-.019 17.9 17.9 0 0 1 5.061 13.034m-7.856-.077q0-7.12-2.742-11.381a8.75 8.75 0 0 0-15.032.02q-2.76 4.281-2.76 11.361 0 7.042 2.721 11.187a8.965 8.965 0 0 0 15.09.038q2.722-4.104 2.723-11.225M114.271.209V.2H85.905c.248 3.531.387 6.69.419 14.19h2.607l.454-3.321c.405-3.334.838-5.194 1.241-5.816a2.38 2.38 0 0 1 1.695-.711A63.5 63.5 0 0 1 100.664 4h8.929l.329 9.237c.072 1.822.1 3.4.109 5.029v20.473c-.184 9.584-.274 10.842-.274 11.607q-.164 4.209-.87 5.3a3.3 3.3 0 0 1-1.9 1.286 31.6 31.6 0 0 1-8.671 1.356v1.934q12.382-.363 15.957-.425v.007q3.577.061 15.959.425V58.3a31.5 31.5 0 0 1-8.67-1.356 3.3 3.3 0 0 1-1.905-1.285q-.707-1.092-.87-5.3c0-.764-.09-2.023-.274-11.606v-20.4c0-1.531.038-3.281.111-5.1L118.947 4h8.93a66 66 0 0 1 8.343.547 2.4 2.4 0 0 1 1.695.711c.4.622.8 2.616 1.21 5.963l.485 3.175h2.607c.031-7.5.171-10.66.418-14.191Zm-69.006 24.41h13.296v35.454H45.265z" style="fill:#fff"/><path d="M13.799 24.619V13.191h44.762V0H0v60.073h33.783V24.619zm282.538-1.601a3.76 3.76 0 0 1 1.8.474 3.37 3.37 0 0 1 1.37 1.356 3.69 3.69 0 0 1 .008 3.663 3.4 3.4 0 0 1-1.356 1.358 3.68 3.68 0 0 1-3.649 0 3.43 3.43 0 0 1-1.358-1.358 3.67 3.67 0 0 1 .008-3.663 3.4 3.4 0 0 1 1.372-1.356 3.76 3.76 0 0 1 1.805-.474m0 .608a3.1 3.1 0 0 0-1.5.4 2.85 2.85 0 0 0-1.144 1.132 3.05 3.05 0 0 0-.008 3.053 2.9 2.9 0 0 0 1.135 1.132 3.05 3.05 0 0 0 3.041 0 2.85 2.85 0 0 0 1.132-1.132 3.06 3.06 0 0 0-.007-3.053 2.83 2.83 0 0 0-1.144-1.132 3.1 3.1 0 0 0-1.505-.4m-1.608 5.089v-3.947h1.355a3.3 3.3 0 0 1 1.006.109.98.98 0 0 1 .5.382 1 1 0 0 1 .185.578 1.05 1.05 0 0 1-.309.754 1.2 1.2 0 0 1-.818.359 1.1 1.1 0 0 1 .335.209 4.5 4.5 0 0 1 .583.783l.481.773h-.777l-.35-.622a3.2 3.2 0 0 0-.666-.919.8.8 0 0 0-.51-.136h-.374v1.677Zm.636-2.221h.772a1.25 1.25 0 0 0 .756-.166.565.565 0 0 0 .1-.751.57.57 0 0 0-.269-.206 2 2 0 0 0-.639-.068h-.724Z" style="fill:#fff"/></svg>
+      </div>
+      <p class="footer-text">Media monitoring and corporate strategy intelligence &mdash; powered by Noah Wire Services.</p>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">&copy; Teneo. All analysis is based on open-source intelligence and does not constitute legal, financial, or strategic advice.</p>
+        <span class="footer-version">Client Confidential &middot; v1.0-MM &middot; 2026-02-15</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
