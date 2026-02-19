@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teneo | BIFFA Media Monitoring — Morning Brief — 15 February 2026</title>
+<meta property="og:title" content="BIFFA Media Monitoring — Morning Brief">
+<meta property="og:description" content="Media monitoring and corporate strategy intelligence. Net risk: Stable. 8 media signals detected. Prepared by Teneo Intelligence & Advisory.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.teneo.com/app/uploads/2019/04/teneo-og-placeholder.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
@@ -136,14 +140,14 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 
 .client-badge {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--t-blue);
-  background: var(--blue-bg);
-  padding: 5px 14px;
+  color: var(--t-white);
+  background: var(--t-blue);
+  padding: 6px 18px;
   border-radius: 4px;
-  border: 1px solid rgba(13,125,212,0.15);
+  border: none;
 }
 
 /* ========================================
@@ -167,7 +171,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   right: -40px;
   width: 400px;
   height: 400px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
   border-radius: 50%;
 }
 
@@ -178,7 +182,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   right: 180px;
   width: 300px;
   height: 300px;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
   border-radius: 50%;
 }
 
@@ -188,7 +192,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   left: 8%;
   width: 180px;
   height: 180px;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 50%;
 }
 
@@ -363,11 +367,16 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   flex-shrink: 0;
 }
 
-.pill-dot--green { background: var(--green); }
-.pill-dot--amber { background: var(--amber); }
-.pill-dot--grey { background: var(--t-muted); }
-.pill-dot--blue { background: var(--t-blue); }
-.pill-dot--red { background: var(--red); }
+.pill-dot--green { background: var(--green); box-shadow: 0 0 6px rgba(11,132,87,0.4); animation: pulse-green 2s ease-in-out infinite; }
+.pill-dot--amber { background: var(--amber); box-shadow: 0 0 6px rgba(198,125,21,0.4); animation: pulse-amber 2s ease-in-out infinite; }
+.pill-dot--grey { background: var(--t-muted); box-shadow: 0 0 6px rgba(155,161,175,0.3); }
+.pill-dot--blue { background: var(--t-blue); box-shadow: 0 0 6px rgba(13,125,212,0.4); animation: pulse-blue 2s ease-in-out infinite; }
+.pill-dot--red { background: var(--red); box-shadow: 0 0 6px rgba(196,49,75,0.4); animation: pulse-red 2s ease-in-out infinite; }
+
+@keyframes pulse-green { 0%, 100% { box-shadow: 0 0 4px rgba(11,132,87,0.3); } 50% { box-shadow: 0 0 10px rgba(11,132,87,0.6); } }
+@keyframes pulse-amber { 0%, 100% { box-shadow: 0 0 4px rgba(198,125,21,0.3); } 50% { box-shadow: 0 0 10px rgba(198,125,21,0.6); } }
+@keyframes pulse-blue { 0%, 100% { box-shadow: 0 0 4px rgba(13,125,212,0.3); } 50% { box-shadow: 0 0 10px rgba(13,125,212,0.6); } }
+@keyframes pulse-red { 0%, 100% { box-shadow: 0 0 4px rgba(196,49,75,0.3); } 50% { box-shadow: 0 0 10px rgba(196,49,75,0.6); } }
 
 .status-pill .pill-label {
   font-family: var(--font-mono);
@@ -387,7 +396,8 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
    SECTIONS
    ======================================== */
 .section { padding: var(--section-pad) 0; }
-.section--light { background: var(--t-light-bg); }
+.section--light { background: linear-gradient(180deg, #F8F9FC 0%, #F5F6FA 100%); }
+.section--blue-wash { background: linear-gradient(180deg, #FAFBFF 0%, #F6F8FE 100%); }
 .section--border-top { border-top: 1px solid var(--t-border); }
 
 .section-header {
@@ -460,11 +470,11 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   border-color: rgba(13,125,212,0.2);
 }
 
-.coverage-card--trade { border-left-color: var(--t-blue); }
-.coverage-card--monitor { border-left-color: var(--amber); }
-.coverage-card--news { border-left-color: var(--t-taupe); }
-.coverage-card--web { border-left-color: var(--t-gradient-end); }
-.coverage-card--reference { border-left-color: var(--t-muted); }
+.coverage-card--trade { border-left-color: var(--t-blue); background: linear-gradient(90deg, rgba(13,125,212,0.02) 0%, transparent 40%); }
+.coverage-card--monitor { border-left-color: var(--amber); background: linear-gradient(90deg, rgba(198,125,21,0.02) 0%, transparent 40%); }
+.coverage-card--news { border-left-color: var(--t-taupe); background: linear-gradient(90deg, rgba(158,149,132,0.02) 0%, transparent 40%); }
+.coverage-card--web { border-left-color: var(--t-gradient-end); background: linear-gradient(90deg, rgba(88,94,233,0.02) 0%, transparent 40%); }
+.coverage-card--reference { border-left-color: var(--t-muted); background: linear-gradient(90deg, rgba(155,161,175,0.02) 0%, transparent 40%); }
 
 .coverage-meta {
   display: flex;
@@ -517,8 +527,9 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
    ACCENT STRIPE
    ======================================== */
 .accent-stripe {
-  height: 4px;
+  height: 6px;
   background: linear-gradient(90deg, var(--t-gradient-start), var(--t-gradient-end));
+  box-shadow: 0 2px 12px rgba(13,125,212,0.15);
 }
 
 /* ========================================
@@ -660,8 +671,9 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 }
 
 .stat-card {
-  background: var(--t-white);
+  background: linear-gradient(180deg, var(--blue-bg), var(--t-white));
   border: 1px solid var(--t-border);
+  border-top: 3px solid var(--t-blue);
   border-radius: var(--card-radius);
   padding: 20px;
   text-align: center;
@@ -669,7 +681,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 
 .stat-number {
   font-family: var(--font-mono);
-  font-size: 1.75rem;
+  font-size: 2.25rem;
   font-weight: 600;
   color: var(--t-dark);
   line-height: 1;
@@ -700,6 +712,10 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   border-radius: var(--card-radius);
   padding: 24px;
   box-shadow: var(--card-shadow);
+}
+
+.dept-card:has(.dept-count) {
+  border-left: 3px solid var(--t-blue);
 }
 
 .dept-card-header {
@@ -775,9 +791,25 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
    ======================================== */
 .insight-banner {
   background: var(--t-navy);
-  padding: 48px 0;
+  padding: 56px 0;
   position: relative;
   overflow: hidden;
+}
+
+.insight-banner .insight-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--t-blue), var(--t-gradient-end), transparent);
+  animation: shimmer-slide 4s ease-in-out infinite;
+}
+
+@keyframes shimmer-slide {
+  0% { opacity: 0.4; transform: translateX(-20%); }
+  50% { opacity: 1; transform: translateX(20%); }
+  100% { opacity: 0.4; transform: translateX(-20%); }
 }
 
 .insight-banner::before {
@@ -823,7 +855,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
    FEATURE BREAK (GRADIENT PANEL)
    ======================================== */
 .feature-break {
-  background: linear-gradient(135deg, var(--t-navy) 0%, #0a1f4a 40%, var(--t-blue) 75%, var(--t-gradient-end) 100%);
+  background: radial-gradient(ellipse at 70% 30%, rgba(88,94,233,0.3) 0%, transparent 50%), linear-gradient(135deg, var(--t-navy) 0%, #0a1f4a 40%, var(--t-blue) 75%, var(--t-gradient-end) 100%);
   padding: 72px 0;
   position: relative;
   overflow: hidden;
@@ -837,7 +869,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   transform: translateY(-50%);
   width: 280px;
   height: 280px;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 50%;
 }
 
@@ -849,7 +881,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   transform: translateY(-50%);
   width: 180px;
   height: 180px;
-  border: 1px solid rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 50%;
 }
 
@@ -993,6 +1025,9 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   white-space: nowrap;
 }
 
+.matrix-table tbody tr { transition: background 0.2s; }
+.matrix-table tbody tr:hover { background: rgba(13,125,212,0.03); }
+
 .matrix-table tbody td {
   padding: 16px 20px;
   border-bottom: 1px solid var(--t-border);
@@ -1012,11 +1047,11 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 4px 10px;
+  padding: 6px 14px;
   border-radius: 3px;
 }
 
@@ -1144,6 +1179,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
    ======================================== */
 .vault-table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--t-border);
   border-radius: var(--card-radius);
   box-shadow: var(--card-shadow);
@@ -1247,6 +1283,10 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 .entity-status--amber { color: var(--amber); }
 .entity-status--blue { color: var(--t-blue); }
 
+.entity-card:has(.entity-status--green) { border-top: 3px solid var(--green); }
+.entity-card:has(.entity-status--amber) { border-top: 3px solid var(--amber); }
+.entity-card:has(.entity-status--blue) { border-top: 3px solid var(--t-blue); }
+
 .entity-count {
   font-family: var(--font-mono);
   font-size: 1.5rem;
@@ -1323,31 +1363,38 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
    ======================================== */
 @media (max-width: 768px) {
   :root {
-    --section-pad: 40px;
+    --section-pad: 36px;
   }
 
   .container { padding: 0 20px; }
-  .header-inner { padding: 0 20px; }
+  .header-inner { padding: 0 16px; }
   .header-nav { display: none; }
 
-  .hero { padding: 64px 0 56px; min-height: auto; }
+  .hero { padding: 72px 0 60px; min-height: auto; }
   .hero-content { padding: 0 20px; }
-  .hero-title { font-size: 1.75rem; }
+  .hero-title { font-size: 2rem; }
+  .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.2em; }
   .hero-meta { flex-direction: column; gap: 8px; }
   .hero-divider { display: none; }
 
+  .client-badge { font-size: 0.875rem; padding: 8px 20px; }
+
   .exec-brief { grid-template-columns: 1fr; gap: 24px; }
-  .coverage-card { grid-template-columns: 80px 1fr; gap: 12px; padding: 16px 18px; }
+  .coverage-card { grid-template-columns: 1fr; gap: 8px; padding: 16px 18px; }
+  .coverage-meta { flex-direction: row; gap: 12px; margin-bottom: 4px; }
 
   .dashboard-grid { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .stat-number { font-size: 2.5rem; }
 
   .dept-grid { grid-template-columns: 1fr; }
+  .dept-card { width: 100%; }
   .competitor-row { grid-template-columns: 1fr; }
   .policy-grid { grid-template-columns: 1fr; }
   .evidence-grid { grid-template-columns: 1fr; }
   .theme-grid { grid-template-columns: 1fr; }
   .entity-summary-row { grid-template-columns: 1fr; }
+  .entity-card { padding: 18px 20px; }
 
   .section-title { font-size: 1.375rem; }
 
@@ -1356,6 +1403,13 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 
   .feature-break { padding: 48px 0; }
   .feature-break-quote { font-size: 1.125rem; }
+
+  .vault-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .vault-table { font-size: 0.75rem; }
+  .vault-table thead th { padding: 10px 12px; font-size: 0.5625rem; }
+  .vault-table tbody td { padding: 10px 12px; }
+
+  .matrix-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
   .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
@@ -1458,7 +1512,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 <!-- ============================================
      SECTION 1 — EXECUTIVE BRIEF
      ============================================ -->
-<section class="section" id="executive-brief">
+<section class="section section--blue-wash" id="executive-brief">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Section 01</div>
@@ -1616,7 +1670,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 <!-- ============================================
      SECTION 4 — SITUATIONAL DASHBOARD
      ============================================ -->
-<section class="section section--light" id="dashboard">
+<section class="section" id="dashboard">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Section 04</div>
@@ -1679,7 +1733,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 <!-- ============================================
      SECTION 5 — DEPARTMENTAL INTELLIGENCE
      ============================================ -->
-<section class="section" id="intelligence">
+<section class="section section--light" id="intelligence">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Section 05</div>
@@ -1775,6 +1829,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
      INSIGHT BANNER
      ============================================ -->
 <div class="insight-banner">
+  <div class="insight-shimmer"></div>
   <div class="container">
     <div class="insight-content">
       <p class="insight-quote">Net risk this cycle: stable. Coverage skews toward performance and collaboration positioning, with policy execution on DRS and UKIMA as the primary forward-looking variable.</p>
@@ -1851,7 +1906,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 <!-- ============================================
      SECTION 8 — STRATEGIC ASSESSMENT
      ============================================ -->
-<section class="section">
+<section class="section section--blue-wash">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Section 08</div>
@@ -1935,7 +1990,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--t-dark); font-weight: 600; line-height: 1.
 <!-- ============================================
      SECTION 10 — THEMES & WHAT TO WATCH
      ============================================ -->
-<section class="section">
+<section class="section section--light">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Section 10</div>
