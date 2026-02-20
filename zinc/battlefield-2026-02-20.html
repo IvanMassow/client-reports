@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battlefield Intelligence Brief — 20 February 2026 | Zinc Network</title>
+<link href="https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+    --navy: #00103e;
+    --navy-mid: #0a1f5c;
+    --navy-light: #1a2f6c;
+    --yellow: #ffe14d;
+    --yellow-light: #fff7cc;
+    --coral: #ff4632;
+    --coral-dark: #d93025;
+    --ink: #2a2a2a;
+    --ink-mid: #555555;
+    --ink-light: #696969;
+    --grey-bg: #f4f6f8;
+    --grey-light: #e5e5e5;
+    --grey-mid: #999999;
+    --white: #ffffff;
+    --amber: #e87722;
+    --green: #2e7d32;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* TOP BAR */
+.top-bar {
+    background: var(--navy);
+    padding: 0.9rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.top-bar-logo { display: flex; align-items: center; gap: 0.7rem; }
+.top-bar-mark { width: 32px; height: 32px; }
+.top-bar-mark svg { width: 100%; height: 100%; }
+.top-bar-name { font-weight: 700; font-size: 0.95rem; color: var(--white); letter-spacing: 0.08em; text-transform: uppercase; }
+.top-bar-right { font-size: 0.72rem; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+
+/* HERO */
+.hero {
+    position: relative; width: 100%; min-height: 520px;
+    background: var(--navy); overflow: hidden; display: flex; align-items: center;
+}
+.hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.4; }
+.hero-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to right, rgba(0,16,62,0.92) 0%, rgba(0,16,62,0.55) 55%, rgba(0,16,62,0.2) 100%);
+}
+.hero-card {
+    position: relative; z-index: 2;
+    background: var(--white);
+    max-width: 580px;
+    margin: 3.5rem 0 3.5rem 5%;
+    padding: 2.8rem 2.8rem 2.2rem;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.25);
+}
+.hero-card-accent { width: 100%; height: 6px; background: var(--yellow); position: absolute; left: 0; top: 0; }
+.hero-card .label {
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--coral); margin-bottom: 0.8rem;
+}
+.hero-card h1 {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.85rem; font-weight: 400;
+    line-height: 1.3; color: var(--navy); margin-bottom: 0.8rem;
+}
+.hero-card .subtitle { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.65; margin-bottom: 1.2rem; }
+.hero-card .meta-row { display: flex; flex-wrap: wrap; gap: 1.2rem; font-size: 0.75rem; color: var(--grey-mid); border-top: 1px solid var(--grey-light); padding-top: 0.9rem; }
+.hero-card .meta-row span { display: flex; align-items: center; gap: 0.3rem; }
+.hero-card .meta-row .ref-code { background: var(--navy); color: var(--yellow); padding: 0.15rem 0.5rem; font-weight: 700; letter-spacing: 0.08em; }
+
+/* NAVY BAND */
+.navy-band {
+    background: var(--navy); color: var(--white);
+    padding: 4rem 5%; text-align: center; position: relative;
+}
+.navy-band::before { content: ''; display: block; width: 60px; height: 4px; background: var(--yellow); margin: 0 auto 1.8rem; }
+.navy-band p {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: clamp(1.25rem, 2.8vw, 1.8rem);
+    font-weight: 400; line-height: 1.5; max-width: 920px; margin: 0 auto;
+}
+.navy-band .band-sub { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 1rem; font-weight: 400; letter-spacing: 0.02em; }
+
+/* EDITORIAL */
+.editorial { max-width: 840px; margin: 0 auto; padding: 4rem 2rem; }
+.editorial-wide { max-width: 1120px; margin: 0 auto; padding: 4rem 2rem; }
+.statement {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.25rem; font-weight: 400; line-height: 1.55;
+    color: var(--navy); margin-bottom: 1.5rem;
+}
+.body-text { font-size: 1rem; line-height: 1.85; color: var(--ink-mid); margin-bottom: 1.4rem; }
+.body-text strong { color: var(--ink); }
+.highlight-text {
+    background: linear-gradient(180deg, transparent 55%, var(--yellow) 55%);
+    padding: 0 3px; font-weight: 700; color: var(--navy);
+}
+.highlight-coral {
+    background: linear-gradient(180deg, transparent 55%, rgba(255,70,50,0.2) 55%);
+    padding: 0 3px; font-weight: 700; color: var(--coral-dark);
+}
+
+/* EXECUTIVE BULLETS */
+.exec-bullets { list-style: none; padding: 0; margin: 1.5rem 0; }
+.exec-bullets li {
+    padding: 0.9rem 1.2rem 0.9rem 1.5rem;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid var(--yellow);
+    background: var(--grey-bg);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--ink-mid);
+}
+.exec-bullets li strong { color: var(--navy); }
+
+/* GREY SECTION */
+.grey-section { background: var(--grey-bg); padding: 4rem 0; }
+
+/* TWO-COL */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0; min-height: 420px; }
+.two-col-image { position: relative; overflow: hidden; background: #ddd; min-height: 420px; }
+.two-col-image img { width: 100%; height: 100%; object-fit: cover; }
+.two-col-content {
+    background: var(--grey-bg); padding: 3.5rem 3rem;
+    display: flex; flex-direction: column; justify-content: center;
+}
+.stat-row { display: flex; gap: 2.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.stat-block .stat-num {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 3.2rem; font-weight: 400;
+    color: var(--navy); line-height: 1;
+}
+.stat-block .stat-num.accent { color: var(--coral); }
+.stat-block .stat-label {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-light); margin-top: 0.5rem;
+}
+
+/* SECTION HEADERS */
+.section-header { margin-bottom: 2rem; }
+.section-header .section-label {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 0.5rem;
+    position: relative; display: inline-block;
+}
+.section-header .section-label::after {
+    content: ''; position: absolute; left: 0; bottom: -2px;
+    width: 100%; height: 3px; background: var(--yellow);
+}
+.section-header h2 {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+    font-weight: 400; color: var(--navy);
+    margin-bottom: 0.5rem; margin-top: 0.6rem;
+}
+.section-header p { font-size: 0.95rem; color: var(--ink-light); max-width: 660px; }
+
+/* SCORECARD GAUGES */
+.scorecard-wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+.scorecard-item {
+    text-align: center;
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    padding: 1.8rem 1.2rem 1.5rem;
+    min-width: 200px;
+    flex: 0 1 200px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.scorecard-item.primary {
+    border: 2px solid var(--navy);
+    box-shadow: 0 4px 24px rgba(0,16,62,0.12);
+    flex: 0 1 220px;
+    min-width: 220px;
+}
+.scorecard-gauge { width: 200px; height: 115px; margin: 0 auto 0.6rem; display: block; }
+.scorecard-value {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 2rem; font-weight: 400; color: var(--navy); margin-bottom: 0.2rem;
+}
+.scorecard-label {
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-light);
+}
+.scorecard-risk-badge {
+    display: inline-block; margin-top: 0.5rem;
+    padding: 0.2rem 0.7rem; font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; border-radius: 3px;
+}
+
+/* RISK LEVEL BADGES */
+.risk-critical { background: var(--coral); color: var(--white); }
+.risk-elevated { background: var(--amber); color: var(--white); }
+.risk-moderate { background: var(--navy-light); color: var(--white); }
+.risk-low { background: var(--grey-light); color: var(--ink-mid); }
+
+/* DIRECTION BADGES */
+.dir-badge {
+    display: inline-block; padding: 0.2rem 0.65rem;
+    border-radius: 3px; font-size: 0.68rem; font-weight: 700;
+    letter-spacing: 0.04em; text-transform: uppercase;
+}
+.dir-rising { background: var(--coral); color: var(--white); }
+.dir-worsening { background: var(--coral-dark); color: var(--white); }
+.dir-stable { background: var(--grey-light); color: var(--ink-mid); }
+.dir-pressuring { background: var(--amber); color: var(--white); }
+.dir-volatile { background: #7c3aed; color: var(--white); }
+.dir-latent { background: var(--navy-light); color: var(--white); }
+
+/* MOMENTUM BADGES */
+.mom-rising { background: var(--coral); color: var(--white); }
+.mom-stable { background: var(--grey-light); color: var(--ink-mid); }
+.mom-volatile { background: #7c3aed; color: var(--white); }
+.mom-latent { background: var(--navy-light); color: var(--white); }
+
+/* SYNTHESIS BADGES */
+.syn-forming { background: var(--amber); color: var(--white); }
+.syn-accelerating { background: var(--coral); color: var(--white); }
+.syn-stable { background: var(--navy-light); color: var(--white); }
+.syn-contested { background: #7c3aed; color: var(--white); }
+.syn-early { background: var(--grey-light); color: var(--ink-mid); }
+
+/* CONFIDENCE BADGES */
+.conf-badge {
+    display: inline-block; padding: 0.15rem 0.5rem;
+    border-radius: 3px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em;
+}
+.conf-high { background: var(--coral); color: var(--white); }
+.conf-medium { background: var(--amber); color: var(--white); }
+.conf-lower { background: var(--navy-light); color: var(--white); }
+
+/* BAR CHART */
+.bar-chart { margin: 2rem 0; }
+.bar-row { display: flex; align-items: center; margin-bottom: 0.7rem; gap: 0.8rem; }
+.bar-label { flex: 0 0 200px; font-size: 0.82rem; font-weight: 700; color: var(--navy); text-align: right; }
+.bar-track { flex: 1; height: 32px; background: var(--grey-light); border-radius: 3px; overflow: hidden; position: relative; }
+.bar-fill {
+    height: 100%; border-radius: 3px;
+    display: flex; align-items: center; padding-left: 0.7rem;
+    font-size: 0.75rem; font-weight: 700; color: var(--white);
+    transition: width 1s ease;
+}
+
+/* TABLES */
+.risk-table-editorial { width: 100%; border-collapse: collapse; margin: 2rem 0; }
+.risk-table-editorial thead th {
+    text-align: left; padding: 0.9rem 1rem;
+    font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-light); border-bottom: 2px solid var(--navy);
+}
+.risk-table-editorial tbody td {
+    padding: 1rem 1rem; border-bottom: 1px solid var(--grey-light);
+    font-size: 0.88rem; vertical-align: middle;
+}
+.risk-table-editorial tbody tr:hover { background: rgba(0,16,62,0.03); }
+.risk-table-editorial .risk-name { font-weight: 700; color: var(--navy); }
+
+/* GAUGE ROW (for top findings) */
+.gauge-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0; }
+.gauge-card {
+    text-align: center; padding: 2rem 1.2rem;
+    background: var(--white); border: 1px solid var(--grey-light);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.gauge-svg { width: 200px; height: 115px; margin: 0 auto 0.8rem; display: block; }
+.gauge-title {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 0.95rem; font-weight: 400; margin-bottom: 0.2rem; color: var(--navy);
+}
+.gauge-sub { font-size: 0.7rem; color: var(--grey-mid); letter-spacing: 0.04em; text-transform: uppercase; }
+.gauge-badges { margin-top: 0.6rem; display: flex; justify-content: center; gap: 0.4rem; flex-wrap: wrap; }
+
+/* ANALYSIS CARDS */
+.analysis-card {
+    background: var(--white); border: 1px solid var(--grey-light);
+    margin-bottom: 2rem; overflow: hidden;
+}
+.analysis-card.card-critical { border-left: 5px solid var(--coral); }
+.analysis-card.card-elevated { border-left: 5px solid var(--amber); }
+.analysis-card.card-moderate { border-left: 5px solid var(--navy-light); }
+.analysis-card.card-low { border-left: 5px solid var(--grey-mid); }
+.analysis-card-header {
+    padding: 1.8rem 2rem; border-bottom: 1px solid var(--grey-light);
+    display: flex; align-items: center; justify-content: space-between;
+}
+.ac-title {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.2rem; font-weight: 400; color: var(--navy);
+}
+.ac-subtitle { font-size: 0.8rem; color: var(--ink-light); margin-top: 0.25rem; }
+.ac-code {
+    font-family: 'Inter', monospace; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.08em; color: var(--navy);
+    background: var(--yellow-light); padding: 0.2rem 0.5rem; border-radius: 2px;
+}
+.analysis-card-body { padding: 1.8rem 2rem; }
+.analysis-card-body h4 {
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 0.6rem; margin-top: 1.4rem;
+}
+.analysis-card-body h4:first-child { margin-top: 0; }
+.analysis-card-body ul { padding-left: 1.2rem; margin-bottom: 0.8rem; }
+.analysis-card-body li { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.75; margin-bottom: 0.3rem; }
+.calibration-box {
+    background: var(--grey-bg); padding: 1.1rem 1.3rem;
+    border-left: 3px solid var(--yellow);
+    font-size: 0.88rem; color: var(--ink-mid);
+    line-height: 1.7; margin-top: 0.8rem;
+}
+
+/* TRIGGER CARDS */
+.trigger-card { margin-bottom: 2.5rem; }
+.trigger-card h3 {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.15rem; font-weight: 400; margin-bottom: 0.15rem; color: var(--navy);
+}
+.trigger-card .trigger-num {
+    font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.08em; color: var(--coral); text-transform: uppercase; margin-bottom: 0.3rem;
+}
+.trigger-card .current { font-size: 0.82rem; color: var(--grey-mid); margin-bottom: 1.2rem; }
+.trigger-directions { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.trigger-box {
+    padding: 1.4rem; font-size: 0.9rem; line-height: 1.75;
+    color: var(--ink-mid); border-top: 4px solid;
+}
+.trigger-box.escalates { background: #fef2f2; border-color: var(--coral); }
+.trigger-box.deescalates { background: #f0fdf4; border-color: var(--green); }
+.trigger-box .trigger-label {
+    font-size: 0.68rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;
+}
+.trigger-box.escalates .trigger-label { color: var(--coral); }
+.trigger-box.deescalates .trigger-label { color: var(--green); }
+
+/* IMAGE BREAK */
+.image-break { position: relative; width: 100%; height: 350px; overflow: hidden; }
+.image-break img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.image-break-overlay {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,16,62,0.1) 0%, rgba(0,16,62,0.35) 100%);
+}
+
+/* DIVIDER */
+.divider { width: 60px; height: 3px; background: var(--yellow); margin: 0 0 2rem; }
+
+/* METHOD GRID */
+.method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.method-item { padding: 1.2rem 1.5rem; border-left: 3px solid var(--yellow); }
+.method-item dt {
+    font-size: 0.72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--navy); margin-bottom: 0.4rem;
+}
+.method-item dd { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.7; }
+
+/* SCENARIO CARDS */
+.scenario-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2rem 0; }
+.scenario-card {
+    background: var(--white); border: 1px solid var(--grey-light);
+    padding: 2rem; position: relative;
+}
+.scenario-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 4px; background: var(--navy);
+}
+.scenario-card.urgent::before { background: var(--coral); }
+.scenario-card.medium::before { background: var(--amber); }
+.scenario-card h4 {
+    font-family: 'Arbutus Slab', Georgia, serif;
+    font-size: 1.1rem; color: var(--navy); margin-bottom: 0.3rem;
+}
+.scenario-card .scenario-label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--coral); margin-bottom: 0.8rem;
+}
+.scenario-card p { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.7; }
+
+/* INDICATOR LIST */
+.indicator-list { list-style: none; padding: 0; counter-reset: ind; }
+.indicator-list li {
+    counter-increment: ind;
+    padding: 1rem 1.2rem 1rem 3.5rem;
+    margin-bottom: 0.5rem;
+    background: var(--white);
+    border: 1px solid var(--grey-light);
+    font-size: 0.92rem; color: var(--ink-mid);
+    position: relative; line-height: 1.6;
+}
+.indicator-list li::before {
+    content: counter(ind);
+    position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--navy); color: var(--yellow);
+    font-size: 0.75rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* FOOTER */
+.footer {
+    background: var(--navy); color: rgba(255,255,255,0.5);
+    padding: 3.5rem 2rem; text-align: center;
+}
+.footer-logo-wrap { display: flex; align-items: center; justify-content: center; gap: 0.7rem; margin-bottom: 1rem; }
+.footer-logo-mark { width: 28px; height: 28px; }
+.footer-logo-mark svg { width: 100%; height: 100%; }
+.footer-logo-name { font-weight: 800; font-size: 1rem; color: var(--white); letter-spacing: 0.1em; text-transform: uppercase; }
+.footer p { font-size: 0.78rem; line-height: 1.8; max-width: 600px; margin: 0 auto; }
+.footer .disclaimer { font-size: 0.68rem; color: rgba(255,255,255,0.3); margin-top: 1.2rem; }
+
+/* SCROLL / MOBILE UTILS */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.table-scroll::-webkit-scrollbar { display: none; }
+.bar-chart-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.bar-chart-scroll::-webkit-scrollbar { display: none; }
+.scroll-dots { display: none; justify-content: center; gap: 8px; padding: 1rem 0 0.5rem; }
+.scroll-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grey-light); border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; padding: 0; }
+.scroll-dot.active { background: var(--navy); transform: scale(1.3); }
+.scroll-hint { display: none; text-align: center; padding: 0.5rem 0; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); }
+.scroll-hint::after { content: ' \2192'; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .top-bar { padding: 0.7rem 1rem; }
+    .top-bar-right { font-size: 0.58rem; }
+    .hero { min-height: 400px; }
+    .hero-card { margin: 1.5rem 1rem; max-width: none; padding: 2rem 1.5rem 1.5rem; }
+    .hero-card h1 { font-size: 1.4rem; }
+    .hero-card .subtitle { font-size: 0.85rem; }
+    .two-col { grid-template-columns: 1fr; }
+    .two-col-image { min-height: 240px; }
+    .editorial, .editorial-wide { padding: 2.8rem 1.2rem; }
+    .navy-band { padding: 2.8rem 1.2rem; }
+    .scorecard-wrap { flex-direction: column; align-items: center; }
+    .scorecard-item, .scorecard-item.primary { min-width: 260px; width: 100%; max-width: 320px; }
+    .gauge-row {
+        display: flex; gap: 1rem; overflow-x: auto;
+        -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory;
+        scrollbar-width: none; padding-bottom: 0.5rem;
+    }
+    .gauge-row::-webkit-scrollbar { display: none; }
+    .gauge-card { min-width: 260px; flex: 0 0 260px; scroll-snap-align: center; }
+    .trigger-directions { grid-template-columns: 1fr; }
+    .method-grid { grid-template-columns: 1fr; }
+    .scenario-row { grid-template-columns: 1fr; }
+    .bar-chart-scroll .bar-chart { min-width: 540px; }
+    .bar-label { flex: 0 0 150px; font-size: 0.75rem; }
+    .table-scroll .risk-table-editorial { min-width: 750px; }
+    .scroll-dots { display: flex; }
+    .scroll-hint { display: block; }
+    .analysis-card-header { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+    .analysis-card-body { padding: 1.2rem; }
+    .analysis-card-header { padding: 1.2rem; }
+    .image-break { height: 220px; }
+    .stat-block .stat-num { font-size: 2.5rem; }
+}
+@media print { .top-bar { position: static; } }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="top-bar">
+    <div class="top-bar-logo">
+        <div class="top-bar-mark">
+            <svg viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="2,30 14,2 18,2 6,30" fill="white"/>
+                <polygon points="14,2 26,30 22,30 10,2" fill="white"/>
+                <polygon points="26,30 38,2 42,2 30,30" fill="white"/>
+            </svg>
+        </div>
+        <span class="top-bar-name">Zinc Network</span>
+    </div>
+    <div class="top-bar-right">Battlefield Intelligence</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg"><img src="bf-hero.png" alt=""></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-card">
+        <div class="hero-card-accent"></div>
+        <div class="label">Early Signal Assessment &middot; Q8R5</div>
+        <h1>Battlefield Intelligence Brief</h1>
+        <p class="subtitle">Escalation pressure is preparatory, with endurance constraints narrowing decision windows. Persistence versus reversibility is the binding variable across all active theatres.</p>
+        <div class="meta-row">
+            <span>20 February 2026 &middot; 0000 UTC</span>
+            <span>Theatre: Global</span>
+            <span>Horizon: 72h &ndash; 90 days</span>
+            <span class="ref-code">Q8R5</span>
+        </div>
+    </div>
+</section>
+
+<!-- NAVY BAND 1 -->
+<div class="navy-band">
+    <p>Escalation pressure is preparatory, with endurance constraints narrowing decision windows &mdash; the binding variable determining escalation trajectory is persistence versus reversibility.</p>
+    <p class="band-sub">Editorial / Intelligence Brief &middot; 9 Active Theatres &middot; 11 Tracked Findings</p>
+</div>
+
+<!-- EXECUTIVE ORIENTATION -->
+<div class="editorial">
+    <div class="section-header">
+        <div class="section-label">Executive Orientation</div>
+        <h2>What Matters Now</h2>
+    </div>
+
+    <p class="statement">Three pressure corridors define this cycle: a Gulf air posture converting from signalling to positioning, a Central European fuel halt entering its fourth week, and a Caribbean grid deficit coupling to industrial standby.</p>
+
+    <ul class="exec-bullets">
+        <li><span class="highlight-text">50+ US fighter aircraft</span> redeployed within approximately 24 hours with tanker support into CENTCOM operating areas</li>
+        <li><span class="highlight-text">Druzhba pipeline halt since 27 January 2026</span> &mdash; Slovakia released 250,000 tonnes emergency reserves; Hungary conditioning diesel exports on flow restart</li>
+        <li>Cuba's maximum deficit reached <span class="highlight-coral">1,793 MW</span> on 18 February 2026 &mdash; Havana experiencing near-22-hour outage impact</li>
+        <li>Sherritt's Moa plant entering <span class="highlight-coral">standby planning within approximately one week</span> due to fuel delivery failure</li>
+        <li>Iran: nationwide internet shutdown, mourning-to-protest escalation with arrests, opacity degrading external verification</li>
+    </ul>
+
+    <div class="calibration-box">
+        <strong>Key Unresolved Condition:</strong> Whether enabling logistics and restoration cycles tighten enough to force durable posture commitment or curtailment. If refuelling/transport activity tapers within 48&ndash;72 hours, posture remains reversible signalling. If not, accident elasticity increases and decision windows compress.
+    </div>
+</div>
+
+<!-- TWO-COL: IMAGE + STATS -->
+<div class="two-col">
+    <div class="two-col-image"><img src="bf-drone.png" alt=""></div>
+    <div class="two-col-content">
+        <div class="stat-row">
+            <div class="stat-block">
+                <div class="stat-num accent">11</div>
+                <div class="stat-label">Active findings</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-num accent">3</div>
+                <div class="stat-label">High escalation risk</div>
+            </div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-block">
+                <div class="stat-num">50+</div>
+                <div class="stat-label">Fighters deployed</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-num">48&ndash;72h</div>
+                <div class="stat-label">Assessment horizon</div>
+            </div>
+        </div>
+        <p class="body-text" style="margin-top:0.5rem;">Nine theatres under active monitoring. Three findings at high escalation risk in the Persian Gulf. Confidence ranges from 0.70 to 0.86 &mdash; the highest clustering seen in this series. Five signals carry rising momentum.</p>
+    </div>
+</div>
+
+<!-- RISK SCORECARD -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header" style="text-align:center;">
+            <div class="section-label" style="display:block;">Risk Scorecard</div>
+            <h2 style="margin-left:auto;margin-right:auto;">Global Escalation Pressure</h2>
+            <p style="margin-left:auto;margin-right:auto;text-align:center;">Composite risk assessment across primary pressure corridors. Gauges reflect confidence-weighted escalation probability on a 0&ndash;1 scale.</p>
+        </div>
+
+        <div class="scorecard-wrap">
+            <!-- Overall -->
+            <div class="scorecard-item primary">
+                <svg class="scorecard-gauge" viewBox="0 0 200 120">
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
+                    <line x1="100" y1="100" x2="156.6" y2="58.8" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                        <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="54 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+                    </line>
+                    <circle cx="100" cy="100" r="6" fill="#00103e"/>
+                    <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#00103e" font-weight="400">0.80</text>
+                </svg>
+                <div class="scorecard-label">Overall Escalation</div>
+                <span class="scorecard-risk-badge risk-critical">Critical</span>
+            </div>
+
+            <!-- Persian Gulf -->
+            <div class="scorecard-item">
+                <svg class="scorecard-gauge" viewBox="0 0 200 120">
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
+                    <line x1="100" y1="100" x2="163.3" y2="70.2" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                        <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="64.8 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+                    </line>
+                    <circle cx="100" cy="100" r="6" fill="#00103e"/>
+                    <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#ff4632" font-weight="400">0.86</text>
+                </svg>
+                <div class="scorecard-label">Persian Gulf</div>
+                <span class="scorecard-risk-badge risk-critical">Critical</span>
+            </div>
+
+            <!-- Druzhba Transit -->
+            <div class="scorecard-item">
+                <svg class="scorecard-gauge" viewBox="0 0 200 120">
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
+                    <line x1="100" y1="100" x2="161.4" y2="66.3" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                        <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="61.2 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+                    </line>
+                    <circle cx="100" cy="100" r="6" fill="#00103e"/>
+                    <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#ff4632" font-weight="400">0.84</text>
+                </svg>
+                <div class="scorecard-label">Druzhba Transit</div>
+                <span class="scorecard-risk-badge risk-elevated">Elevated</span>
+            </div>
+
+            <!-- Caribbean -->
+            <div class="scorecard-item">
+                <svg class="scorecard-gauge" viewBox="0 0 200 120">
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
+                    <line x1="100" y1="100" x2="153.9" y2="55.4" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                        <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="50.4 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+                    </line>
+                    <circle cx="100" cy="100" r="6" fill="#00103e"/>
+                    <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#e87722" font-weight="400">0.78</text>
+                </svg>
+                <div class="scorecard-label">Caribbean Strain</div>
+                <span class="scorecard-risk-badge risk-elevated">Elevated</span>
+            </div>
+
+            <!-- Iran Control -->
+            <div class="scorecard-item">
+                <svg class="scorecard-gauge" viewBox="0 0 200 120">
+                    <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
+                    <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
+                    <line x1="100" y1="100" x2="153.9" y2="55.4" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                        <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="50.4 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+                    </line>
+                    <circle cx="100" cy="100" r="6" fill="#00103e"/>
+                    <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#e87722" font-weight="400">0.78</text>
+                </svg>
+                <div class="scorecard-label">Iran Control</div>
+                <span class="scorecard-risk-badge risk-elevated">Elevated</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BATTLEFIELD RISK SUMMARY TABLE -->
+<div class="editorial-wide">
+    <div class="section-header">
+        <div class="section-label">Battlefield Risk Summary</div>
+        <h2>Nine-Theatre Assessment</h2>
+        <p>Risk posture across all monitored theatres with direction of travel and evidence quality.</p>
+    </div>
+
+    <div class="table-scroll">
+    <table class="risk-table-editorial">
+        <thead>
+            <tr>
+                <th>Theatre</th>
+                <th>Risk</th>
+                <th>Direction</th>
+                <th>Evidence</th>
+                <th>Primary Driver</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="risk-name">Persian Gulf / Hormuz</td>
+                <td><span class="dir-badge risk-critical">Critical</span></td>
+                <td><span class="dir-badge dir-pressuring">Pressuring &#8593;</span></td>
+                <td>Partial</td>
+                <td>50+ fighters; live-fire constraints</td>
+            </tr>
+            <tr>
+                <td class="risk-name">Central Europe (Druzhba)</td>
+                <td><span class="dir-badge risk-elevated">Elevated</span></td>
+                <td><span class="dir-badge dir-worsening">Worsening &#8593;</span></td>
+                <td>Strong</td>
+                <td>Halt since 27 Jan; reserves drawn</td>
+            </tr>
+            <tr>
+                <td class="risk-name">Caribbean (Cuba)</td>
+                <td><span class="dir-badge risk-elevated">Elevated</span></td>
+                <td><span class="dir-badge dir-worsening">Worsening &#8593;</span></td>
+                <td>Strong</td>
+                <td>1,793 MW deficit; Moa standby</td>
+            </tr>
+            <tr>
+                <td class="risk-name">Iran Internal Control</td>
+                <td><span class="dir-badge risk-elevated">Elevated</span></td>
+                <td><span class="dir-badge dir-pressuring">Pressuring &#8593;</span></td>
+                <td>Partial</td>
+                <td>Internet shutdown; arrests</td>
+            </tr>
+            <tr>
+                <td class="risk-name">Russia Border Energy</td>
+                <td><span class="dir-badge risk-moderate">Moderate</span></td>
+                <td><span class="dir-badge dir-stable">Stable &#8594;</span></td>
+                <td>Partial</td>
+                <td>Velikiye Luki depot fire</td>
+            </tr>
+            <tr>
+                <td class="risk-name">Russia Energy Revenue</td>
+                <td><span class="dir-badge risk-moderate">Moderate</span></td>
+                <td><span class="dir-badge dir-stable">Stable &#8594;</span></td>
+                <td>Partial</td>
+                <td>~410bn roubles Feb projection</td>
+            </tr>
+            <tr>
+                <td class="risk-name">Ukraine Unmanned</td>
+                <td><span class="dir-badge risk-moderate">Moderate</span></td>
+                <td><span class="dir-badge dir-stable">Stable &#8594;</span></td>
+                <td>Partial</td>
+                <td>60&ndash;80% FPV loss rates</td>
+            </tr>
+            <tr>
+                <td class="risk-name">Sub-Saharan Utility</td>
+                <td><span class="dir-badge risk-moderate">Moderate</span></td>
+                <td><span class="dir-badge dir-pressuring">Pressuring &#8593;</span></td>
+                <td>Partial</td>
+                <td>Planned interruptions; wage disputes</td>
+            </tr>
+            <tr>
+                <td class="risk-name">Indo-Pacific Maritime</td>
+                <td><span class="dir-badge risk-low">Low</span></td>
+                <td><span class="dir-badge dir-pressuring">Pressuring &#8593;</span></td>
+                <td>Thin</td>
+                <td>JMSDF March restructure</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<!-- SIGNAL PRIORITY DASHBOARD -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Signal Priority Dashboard</div>
+            <h2>Finding Assessment Matrix</h2>
+            <p>Eleven active findings ranked by analytic confidence. Five carry rising momentum. Three at high escalation risk in the Gulf corridor.</p>
+        </div>
+
+        <!-- Horizontal bar chart -->
+        <div class="bar-chart-scroll">
+        <div class="bar-chart">
+            <div class="bar-row">
+                <div class="bar-label">Persian Gulf Posture</div>
+                <div class="bar-track"><div class="bar-fill" style="width:86%;background:var(--coral)">F-001 &middot; 0.86</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Druzhba Energy</div>
+                <div class="bar-track"><div class="bar-fill" style="width:84%;background:var(--coral)">F-004 &middot; 0.84</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Ukraine Unmanned</div>
+                <div class="bar-track"><div class="bar-fill" style="width:83%;background:var(--coral)">F-005 &middot; 0.83</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Gulf Force Posture</div>
+                <div class="bar-track"><div class="bar-fill" style="width:82%;background:var(--coral)">F-002 &middot; 0.82</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Russia Border</div>
+                <div class="bar-track"><div class="bar-fill" style="width:79%;background:var(--amber)">F-006 &middot; 0.79</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Caribbean Fuel</div>
+                <div class="bar-track"><div class="bar-fill" style="width:78%;background:var(--amber)">F-008 &middot; 0.78</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Iran Control</div>
+                <div class="bar-track"><div class="bar-fill" style="width:78%;background:var(--amber)">F-003 &middot; 0.78</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Russia Revenue</div>
+                <div class="bar-track"><div class="bar-fill" style="width:76%;background:var(--navy-light)">F-007 &middot; 0.76</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Gulf Hybrid Info</div>
+                <div class="bar-track"><div class="bar-fill" style="width:74%;background:var(--navy-light)">F-011 &middot; 0.74</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Sub-Saharan Utility</div>
+                <div class="bar-track"><div class="bar-fill" style="width:72%;background:var(--navy-light)">F-009 &middot; 0.72</div></div>
+            </div>
+            <div class="bar-row">
+                <div class="bar-label">Indo-Pacific Maritime</div>
+                <div class="bar-track"><div class="bar-fill" style="width:70%;background:var(--navy-light)">F-010 &middot; 0.70</div></div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Signal Priority Table -->
+        <div class="table-scroll" style="margin-top:2rem;">
+        <table class="risk-table-editorial">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Zone</th>
+                    <th>Plane</th>
+                    <th>Type</th>
+                    <th>Momentum</th>
+                    <th>Confidence</th>
+                    <th>Synthesis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>F-001</strong></td>
+                    <td class="risk-name">Persian Gulf / Hormuz</td>
+                    <td>Battlefield</td>
+                    <td>Escalation Posture Shift</td>
+                    <td><span class="dir-badge mom-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-high">0.86</span></td>
+                    <td><span class="dir-badge syn-forming">Forming</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-002</strong></td>
+                    <td class="risk-name">Persian Gulf / Hormuz</td>
+                    <td>Battlefield</td>
+                    <td>Force Posture Change</td>
+                    <td><span class="dir-badge mom-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-high">0.82</span></td>
+                    <td><span class="dir-badge syn-forming">Forming</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-011</strong></td>
+                    <td class="risk-name">Persian Gulf / Hormuz</td>
+                    <td>Hybrid Info</td>
+                    <td>Hybrid Precondition</td>
+                    <td><span class="dir-badge mom-volatile">Volatile</span></td>
+                    <td><span class="conf-badge conf-medium">0.74</span></td>
+                    <td><span class="dir-badge syn-contested">Contested</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-004</strong></td>
+                    <td class="risk-name">Central Europe Oil</td>
+                    <td>System Strain</td>
+                    <td>Systemic Strain Signal</td>
+                    <td><span class="dir-badge mom-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-high">0.84</span></td>
+                    <td><span class="dir-badge syn-accelerating">Accelerating</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-008</strong></td>
+                    <td class="risk-name">Caribbean Fuel Power</td>
+                    <td>System Strain</td>
+                    <td>Systemic Strain Signal</td>
+                    <td><span class="dir-badge mom-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-medium">0.78</span></td>
+                    <td><span class="dir-badge syn-accelerating">Accelerating</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-006</strong></td>
+                    <td class="risk-name">Russia Border Energy</td>
+                    <td>Battlefield</td>
+                    <td>Kinetic Activity</td>
+                    <td><span class="dir-badge mom-stable">Stable</span></td>
+                    <td><span class="conf-badge conf-medium">0.79</span></td>
+                    <td><span class="dir-badge syn-stable">Stable</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-005</strong></td>
+                    <td class="risk-name">Ukraine Unmanned</td>
+                    <td>Battlefield</td>
+                    <td>Capability Transition</td>
+                    <td><span class="dir-badge mom-stable">Stable</span></td>
+                    <td><span class="conf-badge conf-high">0.83</span></td>
+                    <td><span class="dir-badge syn-stable">Stable</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-007</strong></td>
+                    <td class="risk-name">Russia Energy Revenue</td>
+                    <td>System Strain</td>
+                    <td>Systemic Strain Signal</td>
+                    <td><span class="dir-badge mom-stable">Stable</span></td>
+                    <td><span class="conf-badge conf-medium">0.76</span></td>
+                    <td><span class="dir-badge syn-stable">Stable</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-003</strong></td>
+                    <td class="risk-name">Iran Internal Control</td>
+                    <td>System Strain</td>
+                    <td>Systemic Strain Signal</td>
+                    <td><span class="dir-badge mom-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-medium">0.78</span></td>
+                    <td><span class="dir-badge syn-forming">Forming</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-009</strong></td>
+                    <td class="risk-name">Sub-Saharan Utility</td>
+                    <td>System Strain</td>
+                    <td>Systemic Strain Signal</td>
+                    <td><span class="dir-badge mom-rising">Rising</span></td>
+                    <td><span class="conf-badge conf-lower">0.72</span></td>
+                    <td><span class="dir-badge syn-early">Early Signal</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-010</strong></td>
+                    <td class="risk-name">Indo-Pacific Maritime</td>
+                    <td>Battlefield</td>
+                    <td>Capability Transition</td>
+                    <td><span class="dir-badge mom-latent">Latent</span></td>
+                    <td><span class="conf-badge conf-lower">0.70</span></td>
+                    <td><span class="dir-badge syn-early">Early Signal</span></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<!-- TOP 3 FINDINGS GAUGES -->
+<div class="editorial-wide">
+    <div class="section-header">
+        <div class="section-label">Highest Confidence Findings</div>
+        <h2>Top Three Signal Assessments</h2>
+    </div>
+
+    <div class="gauge-row" id="gaugeRow1">
+        <!-- F-001 -->
+        <div class="gauge-card">
+            <svg class="gauge-svg" viewBox="0 0 200 120">
+                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="12" stroke-linecap="round"/>
+                <line x1="100" y1="100" x2="163.3" y2="70.2" stroke="#00103e" stroke-width="2.5" stroke-linecap="round">
+                    <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="64.8 100 100" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+                </line>
+                <circle cx="100" cy="100" r="5" fill="#00103e"/>
+                <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="24" fill="#00103e">0.86</text>
+            </svg>
+            <div class="gauge-title">Escalation Posture Shift</div>
+            <div class="gauge-sub">F-001 &middot; Persian Gulf</div>
+            <div class="gauge-badges">
+                <span class="dir-badge mom-rising">Rising</span>
+                <span class="dir-badge syn-forming">Forming</span>
+            </div>
+        </div>
+
+        <!-- F-004 -->
+        <div class="gauge-card">
+            <svg class="gauge-svg" viewBox="0 0 200 120">
+                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="12" stroke-linecap="round"/>
+                <line x1="100" y1="100" x2="161.4" y2="66.3" stroke="#00103e" stroke-width="2.5" stroke-linecap="round">
+                    <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="61.2 100 100" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+                </line>
+                <circle cx="100" cy="100" r="5" fill="#00103e"/>
+                <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="24" fill="#00103e">0.84</text>
+            </svg>
+            <div class="gauge-title">Systemic Strain Signal</div>
+            <div class="gauge-sub">F-004 &middot; Druzhba</div>
+            <div class="gauge-badges">
+                <span class="dir-badge mom-rising">Rising</span>
+                <span class="dir-badge syn-accelerating">Accelerating</span>
+            </div>
+        </div>
+
+        <!-- F-005 -->
+        <div class="gauge-card">
+            <svg class="gauge-svg" viewBox="0 0 200 120">
+                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="12" stroke-linecap="round"/>
+                <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="12" stroke-linecap="round"/>
+                <line x1="100" y1="100" x2="160.3" y2="64.3" stroke="#00103e" stroke-width="2.5" stroke-linecap="round">
+                    <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="59.4 100 100" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
+                </line>
+                <circle cx="100" cy="100" r="5" fill="#00103e"/>
+                <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="24" fill="#00103e">0.83</text>
+            </svg>
+            <div class="gauge-title">Capability Transition</div>
+            <div class="gauge-sub">F-005 &middot; Ukraine Unmanned</div>
+            <div class="gauge-badges">
+                <span class="dir-badge mom-stable">Stable</span>
+                <span class="dir-badge syn-stable">Stable</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-dots" id="gaugeDots1"></div>
+    <div class="scroll-hint">Swipe to see more</div>
+</div>
+
+<!-- IMAGE BREAK -->
+<div class="image-break">
+    <img src="bf-carrier2.png" alt="">
+    <div class="image-break-overlay"></div>
+</div>
+
+<!-- NAVY BAND 2 -->
+<div class="navy-band">
+    <p>The binding variable determining escalation trajectory is persistence versus reversibility &mdash; if refuelling continues at sustained tempo beyond 48&ndash;72 hours, posture shifts from reversible signalling to operational positioning.</p>
+</div>
+
+<!-- EXECUTIVE BATTLEFIELD ASSESSMENT -->
+<div class="editorial">
+    <div class="section-header">
+        <div class="section-label">Executive Assessment</div>
+        <h2>Battlefield Posture Analysis</h2>
+    </div>
+
+    <p class="statement">The binding variable determining escalation trajectory is persistence versus reversibility.</p>
+
+    <p class="body-text">Key posture markers: <span class="highlight-text">50+ fighter aircraft</span> redeployed into Middle East within approximately 24 hours. Sustained tanker and refuelling activity into CENTCOM hubs. Iran's 19 February NOTAM for rocket launches (03:30&ndash;13:30 GMT). Live-fire traffic constraints around Hormuz Strait.</p>
+
+    <p class="body-text"><strong>Downgrade Condition:</strong> Refuelling and transport activity into CENTCOM hubs tapers materially within 48&ndash;72 hours.</p>
+
+    <div class="calibration-box">
+        <strong>Critical Gap:</strong> Explicit basing tempo metrics and sustainment bottleneck visibility absent. Persistence beyond 48&ndash;72 hours converts signalling into expensive, accident-prone positioning where the window between presence and executable operations narrows significantly.
+    </div>
+</div>
+
+<!-- THEATRE ANALYSIS -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Theatre Analysis</div>
+            <h2>Nine-Theatre Detailed Assessment</h2>
+            <p>Full intelligence picture across all monitored theatres, with evidence, gaps, and 48&ndash;72 hour test criteria.</p>
+        </div>
+
+        <!-- Theatre 1: Persian Gulf -->
+        <div class="analysis-card card-critical">
+            <div class="analysis-card-header">
+                <div>
+                    <div class="ac-title">Persian Gulf / Hormuz</div>
+                    <div class="ac-subtitle">Pressuring to Mobilising &middot; Battlefield</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="dir-badge risk-critical">Critical</span>
+                    <span class="ac-code">F-001 / F-002 / F-011</span>
+                </div>
+            </div>
+            <div class="analysis-card-body">
+                <h4>Ground Picture</h4>
+                <ul>
+                    <li>50+ US fighters redeployed with tanker aircraft support documented</li>
+                    <li>Sustained refuelling/transport into CENTCOM hubs</li>
+                    <li>Iran 19 Feb NOTAM for rocket launches and maritime live-fire drills</li>
+                    <li>Traffic constraints around Hormuz Strait</li>
+                    <li>Persistence beyond 48&ndash;72h converts signalling into expensive, accident-prone positioning</li>
+                </ul>
+                <h4>Critical Gap</h4>
+                <p class="body-text" style="margin-bottom:0.6rem;">Basing tempo metrics not visible. Without explicit sustainment data, the distinction between reversible signalling and committed positioning remains ambiguous.</p>
+                <div class="calibration-box">
+                    <strong>48&ndash;72h Test:</strong> Sustained fuel/spares throughput via high-frequency tanker/transport patterns. If activity tapers, posture remains signalling. If not, accident elasticity increases.
+                </div>
+            </div>
+        </div>
+
+        <!-- Theatre 2: Central Europe Druzhba -->
+        <div class="analysis-card card-elevated">
+            <div class="analysis-card-header">
+                <div>
+                    <div class="ac-title">Central Europe &mdash; Druzhba</div>
+                    <div class="ac-subtitle">Pressuring &middot; System Strain</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="dir-badge risk-elevated">Elevated</span>
+                    <span class="ac-code">F-004</span>
+                </div>
+            </div>
+            <div class="analysis-card-body">
+                <h4>Ground Picture</h4>
+                <ul>
+                    <li>Druzhba crude to Hungary and Slovakia stopped since 27 January</li>
+                    <li>Hungary conditioning diesel export resumption on flow restart</li>
+                    <li>Slovakia released 250,000 tonnes emergency reserves</li>
+                    <li>EU Oil Coordination Group meeting convened</li>
+                    <li>Hungary holds approximately 96 days reserves &mdash; not immediate collapse</li>
+                    <li>Croatia/Adria pipeline sought; Croatian public resistance documented</li>
+                </ul>
+                <div class="calibration-box">
+                    <strong>48&ndash;72h Test:</strong> Evidence of rationing or distribution limits at downstream depots. If diesel curtailment remains conditioned on restart while reserves are released, the dispute hardens into a distribution-control regime.
+                </div>
+            </div>
+        </div>
+
+        <!-- Theatre 3: Iran Internal Control -->
+        <div class="analysis-card card-elevated">
+            <div class="analysis-card-header">
+                <div>
+                    <div class="ac-title">Iran Internal Control</div>
+                    <div class="ac-subtitle">System Strain &middot; Pressuring</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="dir-badge risk-elevated">Elevated</span>
+                    <span class="ac-code">F-003</span>
+                </div>
+            </div>
+            <div class="analysis-card-body">
+                <h4>Ground Picture</h4>
+                <ul>
+                    <li>Mourning gatherings escalating to protests with clashes and arrests</li>
+                    <li>Internet restrictions impeding communication</li>
+                    <li>Amnesty reporting nationwide internet shutdown</li>
+                    <li>UN material referencing prolonged shutdown since January 2026</li>
+                    <li>Opacity reduces external verifiability while increasing enforcement load</li>
+                </ul>
+                <div class="calibration-box">
+                    <strong>48&ndash;72h Test:</strong> Duration and geographic spread of connectivity throttling. If shutdown and restrictions persist, external verification degrades while enforcement load rises.
+                </div>
+            </div>
+        </div>
+
+        <!-- Theatre 4: Russia Border Energy -->
+        <div class="analysis-card card-moderate">
+            <div class="analysis-card-header">
+                <div>
+                    <div class="ac-title">Russia Border Energy &mdash; Pskov, Belgorod</div>
+                    <div class="ac-subtitle">Kinetic &middot; Stable</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="dir-badge risk-moderate">Moderate</span>
+                    <span class="ac-code">F-006</span>
+                </div>
+            </div>
+            <div class="analysis-card-body">
+                <h4>Ground Picture</h4>
+                <ul>
+                    <li>Velikiye Luki depot fire 19 Feb &mdash; drone attack on diesel/petrol storage</li>
+                    <li>Belgorod rolling outages &mdash; overload and repair redistribution</li>
+                    <li>Residential buildings without heating</li>
+                </ul>
+                <div class="calibration-box">
+                    <strong>48&ndash;72h Test:</strong> Duration of mobile internet slowdowns post-incident. If outages and heating gaps persist, short strike-cycle effects convert to longer restoration windows.
+                </div>
+            </div>
+        </div>
+
+        <!-- Theatre 5: Ukraine Unmanned -->
+        <div class="analysis-card card-moderate">
+            <div class="analysis-card-header">
+                <div>
+                    <div class="ac-title">Ukraine Unmanned Systems</div>
+                    <div class="ac-subtitle">Battlefield &middot; Stable</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="dir-badge risk-moderate">Moderate</span>
+                    <span class="ac-code">F-005</span>
+                </div>
+            </div>
+            <div class="analysis-card-body">
+                <h4>Ground Picture</h4>
+                <ul>
+                    <li>240 struck targets in first 48 days of 2026</li>
+                    <li>Russian strike drones using multi-channel CRPA antennas</li>
+                    <li>Export-controlled antennas in Geran-2 guidance chains</li>
+                    <li>FPV loss rates: 60&ndash;80%</li>
+                    <li>Doctrine: EW resilience and loss rates now design drivers</li>
+                </ul>
+                <div class="calibration-box">
+                    <strong>Capability Note:</strong> Procurement economics now binding. EW resilience and loss rates have become the primary design drivers, with export-controlled sensors appearing in operational chains.
+                </div>
+            </div>
+        </div>
+
+        <!-- Theatre 6: Russia Energy Revenue -->
+        <div class="analysis-card card-moderate">
+            <div class="analysis-card-header">
+                <div>
+                    <div class="ac-title">Russia Energy Revenue</div>
+                    <div class="ac-subtitle">System Strain &middot; Stable</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="dir-badge risk-moderate">Moderate</span>
+                    <span class="ac-code">F-007</span>
+                </div>
+            </div>
+            <div class="analysis-card-body">
+                <h4>Ground Picture</h4>
+                <ul>
+                    <li>February 2026 revenue: approximately 410 billion roubles &mdash; nearly halving year-on-year</li>
+                    <li>Widened Urals discounts: deepest since April 2023</li>
+                    <li>2025 wells drilled: approximately 29,140 km with a 16% December slump</li>
+                    <li>Revenue compression plus elevated defence spending equals tightening endurance</li>
+                </ul>
+                <div class="calibration-box">
+                    <strong>Endurance Note:</strong> Normalisation framing continues while underlying revenue data shows sustained endurance compression. Tightening margin between revenue intake and defence expenditure.
+                </div>
+            </div>
+        </div>
+
+        <!-- Theatre 7: Caribbean Cuba -->
+        <div class="analysis-card card-elevated">
+            <div class="analysis-card-header">
+                <div>
+                    <div class="ac-title">Caribbean Fuel &mdash; Cuba</div>
+                    <div class="ac-subtitle">System Strain &middot; Pressuring</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="dir-badge risk-elevated">Elevated</span>
+                    <span class="ac-code">F-008</span>
+                </div>
+            </div>
+            <div class="analysis-card-body">
+                <h4>Ground Picture</h4>
+                <ul>
+                    <li>Maximum deficit: 1,793 MW on 18 February</li>
+                    <li>Havana: approximately 21 hours 58 minutes outage impact</li>
+                    <li>Sherritt Moa plant standby within approximately one week</li>
+                    <li>44 of 106 rubbish trucks operating in Havana</li>
+                    <li>Fuel delivery irregularity affecting industrial output and municipal services</li>
+                </ul>
+                <div class="calibration-box">
+                    <strong>48&ndash;72h Test:</strong> Scheduled curtailment notices for hospitals and transport. If a second near-daylong deficit follows the 1,793 MW event, fuel delivery irregularity becomes a durable industrial constraint. Municipal coupling visible: 44 of 106 trucks operating.
+                </div>
+            </div>
+        </div>
+
+        <!-- Theatre 8: Sub-Saharan -->
+        <div class="analysis-card card-moderate">
+            <div class="analysis-card-header">
+                <div>
+                    <div class="ac-title">Sub-Saharan Utility</div>
+                    <div class="ac-subtitle">System Strain &middot; Quiet Cycle</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="dir-badge risk-moderate">Moderate</span>
+                    <span class="ac-code">F-009</span>
+                </div>
+            </div>
+            <div class="analysis-card-body">
+                <h4>Ground Picture</h4>
+                <ul>
+                    <li>Kindia: repeated outages, 50 MVA transformer installation underway</li>
+                    <li>Windhoek: water interruption 20 Feb (07:30&ndash;16:30)</li>
+                    <li>Nairobi: 26-hour interruption scheduled 20 Feb</li>
+                    <li>Libya: electricity workers' union opposing salary suspension</li>
+                </ul>
+                <div class="calibration-box">
+                    <strong>48&ndash;72h Test:</strong> Whether outages overrun declared maintenance windows and whether workforce disruption patterns recur in the next cycle.
+                </div>
+            </div>
+        </div>
+
+        <!-- Theatre 9: Indo-Pacific -->
+        <div class="analysis-card card-low">
+            <div class="analysis-card-header">
+                <div>
+                    <div class="ac-title">Indo-Pacific Maritime</div>
+                    <div class="ac-subtitle">Low Signal &middot; Latent</div>
+                </div>
+                <div style="display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
+                    <span class="dir-badge risk-low">Low</span>
+                    <span class="ac-code">F-010</span>
+                </div>
+            </div>
+            <div class="analysis-card-body">
+                <h4>Ground Picture</h4>
+                <ul>
+                    <li>JMSDF March 2026: Fleet Escort Force dissolution into Fleet Surface Force</li>
+                    <li>Information Warfare Command consolidation</li>
+                    <li>MILAN 2026: 71 ships, bilateral discussions</li>
+                    <li>Taiwan: 14 PLA aircraft detected 19 February</li>
+                    <li>Not yet an endurance signal; organisational precondition only</li>
+                </ul>
+                <div class="calibration-box">
+                    <strong>Assessment:</strong> Structural reorganisation signals preparation, not escalation. Depends on execution, staffing, and integration outcomes. Monitor for capability deployment following restructure completion.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- IMAGE BREAK 2 -->
+<div class="image-break">
+    <img src="bf-drone2.png" alt="">
+    <div class="image-break-overlay"></div>
+</div>
+
+<!-- ESCALATION WATCH -->
+<div class="editorial-wide" style="padding-top:4rem;padding-bottom:4rem;">
+    <div class="section-header">
+        <div class="section-label">Escalation Watch</div>
+        <h2>Five IF&ndash;THEN Decision Points</h2>
+        <p>Critical junctures where conditions could tip from current posture to escalation or de-escalation. Each watch includes the triggering condition, braking factor, and key indicator.</p>
+    </div>
+
+    <!-- Watch 1 -->
+    <div class="trigger-card">
+        <div class="trigger-num">Escalation Watch 01</div>
+        <h3>Persian Gulf: Persistence vs Reversibility</h3>
+        <div class="trigger-directions">
+            <div class="trigger-box escalates">
+                <div class="trigger-label">Escalation Path</div>
+                <strong>IF</strong> refuelling continues at sustained tempo beyond 48&ndash;72 hours <strong>THEN</strong> posture shifts from reversible signalling to operational positioning. Accident elasticity increases, decision windows compress.
+            </div>
+            <div class="trigger-box deescalates">
+                <div class="trigger-label">Brake / De-Escalation</div>
+                Basing tempo metrics not currently visible. If tanker/transport activity tapers materially within the window, posture remains reversible signalling.<br><br>
+                <strong>Indicator:</strong> Sustained fuel/spares throughput via tanker/transport patterns.
+            </div>
+        </div>
+    </div>
+
+    <!-- Watch 2 -->
+    <div class="trigger-card">
+        <div class="trigger-num">Escalation Watch 02</div>
+        <h3>Druzhba: Inventory Clock Becomes Leverage</h3>
+        <div class="trigger-directions">
+            <div class="trigger-box escalates">
+                <div class="trigger-label">Escalation Path</div>
+                <strong>IF</strong> diesel curtailment remains conditioned on restart while reserves are being released <strong>THEN</strong> the dispute hardens into a distribution-control regime with bargaining structure that resists diplomatic resolution.
+            </div>
+            <div class="trigger-box deescalates">
+                <div class="trigger-label">Brake / De-Escalation</div>
+                Strategic reserve depth still material at approximately 96 days for Hungary. Not an immediate collapse scenario.<br><br>
+                <strong>Indicator:</strong> Rationing or queueing at downstream depots.
+            </div>
+        </div>
+    </div>
+
+    <!-- Watch 3 -->
+    <div class="trigger-card">
+        <div class="trigger-num">Escalation Watch 03</div>
+        <h3>Cuba: Fuel Logistics as Primary Limiter</h3>
+        <div class="trigger-directions">
+            <div class="trigger-box escalates">
+                <div class="trigger-label">Escalation Path</div>
+                <strong>IF</strong> a second near-daylong deficit follows the 1,793 MW event <strong>THEN</strong> fuel delivery irregularity becomes a durable industrial constraint, not a transient disruption.<br><br>
+                <strong>Fragility:</strong> Municipal coupling visible &mdash; 44 of 106 trucks operating in Havana.
+            </div>
+            <div class="trigger-box deescalates">
+                <div class="trigger-label">Brake / De-Escalation</div>
+                Fuel delivery normalisation or emergency shipment arrival could break the cycle before industrial standby cascades.<br><br>
+                <strong>Indicator:</strong> Scheduled curtailment notices for hospitals and transport infrastructure.
+            </div>
+        </div>
+    </div>
+
+    <!-- Watch 4 -->
+    <div class="trigger-card">
+        <div class="trigger-num">Escalation Watch 04</div>
+        <h3>Russia Border: Repair Throughput as Escalation Variable</h3>
+        <div class="trigger-directions">
+            <div class="trigger-box escalates">
+                <div class="trigger-label">Escalation Path</div>
+                <strong>IF</strong> Belgorod outages and heating gaps persist <strong>THEN</strong> short strike-cycle effects convert to longer restoration windows, increasing civilian impact and potential response pressure.
+            </div>
+            <div class="trigger-box deescalates">
+                <div class="trigger-label">Brake / De-Escalation</div>
+                Verification failure: restoration timelines absent from open source. Without timelines, severity assessment remains incomplete.<br><br>
+                <strong>Indicator:</strong> Duration of mobile internet slowdowns post-incident.
+            </div>
+        </div>
+    </div>
+
+    <!-- Watch 5 -->
+    <div class="trigger-card">
+        <div class="trigger-num">Escalation Watch 05</div>
+        <h3>Iran: Opacity as Force Multiplier</h3>
+        <div class="trigger-directions">
+            <div class="trigger-box escalates">
+                <div class="trigger-label">Escalation Path</div>
+                <strong>IF</strong> internet shutdown and restrictions persist <strong>THEN</strong> external verification degrades and enforcement load rises. Opacity becomes a force multiplier for state action while reducing international accountability.
+            </div>
+            <div class="trigger-box deescalates">
+                <div class="trigger-label">Brake / De-Escalation</div>
+                Service-delivery degradation attributable to enforcement still missing as a measurable indicator.<br><br>
+                <strong>Indicator:</strong> Geographic spread of connectivity throttling.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ESCALATION & ALIGNMENT TABLE -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Verification Matrix</div>
+            <h2>Escalation &amp; Alignment Assessment</h2>
+        </div>
+
+        <div class="table-scroll">
+        <table class="risk-table-editorial">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Expected Posture</th>
+                    <th>Observed Ground Truth</th>
+                    <th>Alignment</th>
+                    <th>Escalation Risk</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>F-001</strong></td>
+                    <td>Pressuring</td>
+                    <td>Forward Deployment; Partial Evidence</td>
+                    <td><span class="dir-badge syn-forming">Aligned</span></td>
+                    <td><span class="dir-badge risk-critical">High</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-002</strong></td>
+                    <td>Mobilising</td>
+                    <td>Forward Deployment; Partial Evidence</td>
+                    <td><span class="dir-badge syn-forming">Aligned</span></td>
+                    <td><span class="dir-badge risk-critical">High</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-011</strong></td>
+                    <td>Pressuring</td>
+                    <td>Forward Deployment; Partial Evidence</td>
+                    <td><span class="dir-badge syn-contested">Contested</span></td>
+                    <td><span class="dir-badge risk-critical">High</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-004</strong></td>
+                    <td>Pressuring</td>
+                    <td>Standoff Grey Zone; Strong Evidence</td>
+                    <td><span class="dir-badge syn-forming">Aligned</span></td>
+                    <td><span class="dir-badge risk-elevated">Medium</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-008</strong></td>
+                    <td>Pressuring</td>
+                    <td>Quiet; Strong Evidence</td>
+                    <td><span class="dir-badge syn-forming">Aligned</span></td>
+                    <td><span class="dir-badge risk-elevated">Medium</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-006</strong></td>
+                    <td>Kinetic</td>
+                    <td>Active Fire; Partial Evidence</td>
+                    <td><span class="dir-badge syn-forming">Aligned</span></td>
+                    <td><span class="dir-badge risk-elevated">Medium</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-005</strong></td>
+                    <td>Kinetic</td>
+                    <td>Active Fire; Partial Evidence</td>
+                    <td><span class="dir-badge syn-forming">Aligned</span></td>
+                    <td><span class="dir-badge risk-elevated">Medium</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-007</strong></td>
+                    <td>Pressuring</td>
+                    <td>Standoff Grey Zone; Partial Evidence</td>
+                    <td><span class="dir-badge syn-forming">Aligned</span></td>
+                    <td><span class="dir-badge risk-elevated">Medium</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-003</strong></td>
+                    <td>Pressuring</td>
+                    <td>Standoff Grey Zone; Partial Evidence</td>
+                    <td><span class="dir-badge syn-forming">Aligned</span></td>
+                    <td><span class="dir-badge risk-elevated">Medium</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-009</strong></td>
+                    <td>Pressuring</td>
+                    <td>Quiet; Partial Evidence</td>
+                    <td><span class="dir-badge syn-early">Ambiguous</span></td>
+                    <td><span class="dir-badge risk-low">Low</span></td>
+                </tr>
+                <tr>
+                    <td><strong>F-010</strong></td>
+                    <td>Stable</td>
+                    <td>Standoff Grey Zone; Thin Evidence</td>
+                    <td><span class="dir-badge syn-early">Ambiguous</span></td>
+                    <td><span class="dir-badge risk-low">Low</span></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<!-- TENSION & UNCERTAINTY TABLE -->
+<div class="editorial-wide">
+    <div class="section-header">
+        <div class="section-label">Analytic Tensions</div>
+        <h2>Tension &amp; Uncertainty Assessment</h2>
+        <p>Where analytic judgement faces competing pulls. Severity and recommended dominant approach for each finding.</p>
+    </div>
+
+    <div class="table-scroll">
+    <table class="risk-table-editorial">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tension Type</th>
+                <th>Severity</th>
+                <th>Dominant Pull</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>F-011</strong></td>
+                <td>Analytics vs Ground Truth</td>
+                <td><span class="dir-badge risk-critical">High</span></td>
+                <td>Contextualise</td>
+            </tr>
+            <tr>
+                <td><strong>F-003</strong></td>
+                <td>Ground Truth vs Info Environment</td>
+                <td><span class="dir-badge risk-critical">High</span></td>
+                <td>Temper</td>
+            </tr>
+            <tr>
+                <td><strong>F-009</strong></td>
+                <td>Signal vs Silence</td>
+                <td><span class="dir-badge risk-critical">High</span></td>
+                <td>Watchful</td>
+            </tr>
+            <tr>
+                <td><strong>F-001</strong></td>
+                <td>Ground Truth vs Info Environment</td>
+                <td><span class="dir-badge risk-elevated">Medium</span></td>
+                <td>Contextualise</td>
+            </tr>
+            <tr>
+                <td><strong>F-002</strong></td>
+                <td>Analytics vs Ground Truth</td>
+                <td><span class="dir-badge risk-elevated">Medium</span></td>
+                <td>Watchful</td>
+            </tr>
+            <tr>
+                <td><strong>F-005</strong></td>
+                <td>Signal vs Silence</td>
+                <td><span class="dir-badge risk-elevated">Medium</span></td>
+                <td>Lead With Ground Truth</td>
+            </tr>
+            <tr>
+                <td><strong>F-006</strong></td>
+                <td>Ground Truth vs Info Environment</td>
+                <td><span class="dir-badge risk-elevated">Medium</span></td>
+                <td>Contextualise</td>
+            </tr>
+            <tr>
+                <td><strong>F-007</strong></td>
+                <td>Analytics vs Ground Truth</td>
+                <td><span class="dir-badge risk-elevated">Medium</span></td>
+                <td>Watchful</td>
+            </tr>
+            <tr>
+                <td><strong>F-010</strong></td>
+                <td>Signal vs Silence</td>
+                <td><span class="dir-badge risk-elevated">Medium</span></td>
+                <td>Temper</td>
+            </tr>
+            <tr>
+                <td><strong>F-004</strong></td>
+                <td>Analytics vs Discourse</td>
+                <td><span class="dir-badge risk-low">Low</span></td>
+                <td>Contextualise</td>
+            </tr>
+            <tr>
+                <td><strong>F-008</strong></td>
+                <td>Analytics vs Ground Truth</td>
+                <td><span class="dir-badge risk-low">Low</span></td>
+                <td>Emphasise</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<!-- DECEPTION & INFO ENVIRONMENT -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Information Environment</div>
+            <h2>Deception &amp; Information Assessment</h2>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+            <div class="calibration-box" style="border-left-color:var(--coral);">
+                <h4 style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;">Persian Gulf</h4>
+                Negotiation signalling coexists with mobilisation enablers &mdash; compresses decision time without producing a de-escalation tell. Dual-use posture complicates intent assessment.
+            </div>
+            <div class="calibration-box" style="border-left-color:var(--amber);">
+                <h4 style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;">Iran</h4>
+                High-volume copy-paste amplification detected. Treat as coordination signature, not scale confirmation. Volume does not equal breadth of support.
+            </div>
+            <div class="calibration-box" style="border-left-color:var(--amber);">
+                <h4 style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;">Russia Border</h4>
+                Rapid video and geolocation amplification increases attribution contamination risk. Speed of dissemination does not confirm accuracy.
+            </div>
+            <div class="calibration-box" style="border-left-color:var(--navy-light);">
+                <h4 style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);margin-bottom:0.5rem;">Russia Revenue</h4>
+                Normalisation framing persists while revenue data shows endurance compression. Narrative diverges from underlying fiscal indicators.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CAPABILITY & TACTICS -->
+<div class="editorial">
+    <div class="section-header">
+        <div class="section-label">Capability Shifts</div>
+        <h2>Technology &amp; Doctrine</h2>
+    </div>
+
+    <p class="statement">UAS Electronic Warfare Resilience</p>
+    <p class="body-text">Russian strike drones now employ <span class="highlight-text">multi-channel CRPA antennas</span> and GPS-denied navigation design. Export-controlled sensors have been identified in Geran-2 guidance chains. FPV loss rates of 60&ndash;80% mean procurement economics are now the binding constraint. EW resilience and loss rates have become primary design drivers rather than payload or range.</p>
+
+    <p class="statement">JMSDF Restructure</p>
+    <p class="body-text">Fleet Surface Force creation replaces the Fleet Escort Force in March 2026, alongside Information Warfare Command consolidation. This is an organisational precondition, not yet an operational signal. Effectiveness depends on execution, staffing, and integration &mdash; all of which remain to be tested.</p>
+</div>
+
+<!-- SCENARIOS -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header">
+            <div class="section-label">Forward Scenarios</div>
+            <h2>Scenario Assessment</h2>
+            <p>Three time horizons with explicit falsification conditions.</p>
+        </div>
+
+        <div class="scenario-row">
+            <div class="scenario-card urgent">
+                <div class="scenario-label">72-Hour Window</div>
+                <h4>Short-Term Posture</h4>
+                <p><strong>Falsified if</strong> CENTCOM refuelling and transport activity tapers materially. <strong>If not,</strong> accident elasticity increases as sustained forward positioning narrows the gap between presence and executable operations.</p>
+            </div>
+            <div class="scenario-card medium">
+                <div class="scenario-label">2-Week Horizon</div>
+                <h4>Medium-Term Hardening</h4>
+                <p><strong>Falsified if</strong> Druzhba pipeline restarts without further reserve releases from Slovakia or Hungary. <strong>If not,</strong> bargaining structure hardens into a distribution-control regime resistant to conventional diplomatic resolution.</p>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-label">90-Day Outlook</div>
+                <h4>Endurance Trajectory</h4>
+                <p><strong>Falsified if</strong> Russian revenue proxies reverse their downward trajectory. <strong>If not,</strong> endurance margins tighten further with approximately 410 billion roubles monthly revenue combined with reduced drilling activity.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FORWARD ORIENTATION -->
+<div class="editorial">
+    <div class="section-header">
+        <div class="section-label">Forward Orientation</div>
+        <h2>What Would Be Surprising</h2>
+    </div>
+
+    <ul class="exec-bullets">
+        <li><strong>Persian Gulf:</strong> Surprising if air-enabler throughput stays high but no persistence signal emerges beyond 72 hours. That would indicate political restraint overriding military momentum.</li>
+        <li><strong>Central Europe:</strong> Invalidated if diesel curtailment reverses while Druzhba flow remains stopped. Would indicate alternative routing absorbed the shock.</li>
+        <li><strong>Cuba:</strong> Surprising if Moa standby planning is cancelled while grid deficits recur near the 1,793 MW level. Would suggest fuel delivery normalised without visible shipment evidence.</li>
+        <li><strong>Sub-Saharan:</strong> Invalidated if outages do not overrun declared maintenance windows and no recurrence appears in the next cycle.</li>
+    </ul>
+</div>
+
+<!-- CRITICAL INDICATORS -->
+<div class="grey-section">
+    <div class="editorial-wide">
+        <div class="section-header" style="text-align:center;">
+            <div class="section-label" style="display:block;">48&ndash;72 Hour Watch</div>
+            <h2 style="margin-left:auto;margin-right:auto;">Critical Indicators to Monitor</h2>
+            <p style="margin-left:auto;margin-right:auto;text-align:center;">If none materialise within the assessment window, assess whether the system is in a phase of strategic patience or endurance management.</p>
+        </div>
+
+        <ol class="indicator-list">
+            <li>Repair throughput and restoration-cycle duration across all active theatres</li>
+            <li>Distribution or rationing notices, particularly in Central European fuel markets</li>
+            <li>Workforce absenteeism or wage-payment disruption in Sub-Saharan and Libyan utility sectors</li>
+            <li>Duration pattern of connectivity throttling in Iran and Russia border regions</li>
+            <li>Sustained fuel and spares flow into regional hubs, especially CENTCOM-servicing bases</li>
+            <li>Refuelling and transport flight activity persistence beyond the 48&ndash;72 hour window</li>
+        </ol>
+
+        <div class="calibration-box" style="margin-top:2rem;text-align:center;">
+            <strong>Reassessment Trigger:</strong> If none of these indicators materialise within the watch period, assess whether the system is in a phase of strategic patience or active endurance management.
+        </div>
+    </div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="editorial-wide">
+    <div class="section-header">
+        <div class="section-label">Methodology</div>
+        <h2>Analytic Framework</h2>
+    </div>
+
+    <dl class="method-grid">
+        <div class="method-item">
+            <dt>Signal Detection</dt>
+            <dd>Analytics-led signal detection across millions of global data points, covering logistics, energy, labour, transport, industrial, and information control indicators.</dd>
+        </div>
+        <div class="method-item">
+            <dt>Multi-Domain Analysis</dt>
+            <dd>Kinetic activity treated as one signal among many. Emphasis on endurance, constraint, silence, and verification gaps as equally important indicators.</dd>
+        </div>
+        <div class="method-item">
+            <dt>Silence as Signal</dt>
+            <dd>Silence and absence are treated as meaningful data points. What is not happening, what is not being reported, and what gaps exist in verification all inform the assessment.</dd>
+        </div>
+        <div class="method-item">
+            <dt>Provenance</dt>
+            <dd>Assessment generated through continuous monitoring, not headline summarisation. Ground indicators, information environment signals, and expert discourse evaluated comparatively. Unverified claims explicitly labelled.</dd>
+        </div>
+    </dl>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-logo-wrap">
+        <div class="footer-logo-mark">
+            <svg viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="2,30 14,2 18,2 6,30" fill="white"/>
+                <polygon points="14,2 26,30 22,30 10,2" fill="white"/>
+                <polygon points="26,30 38,2 42,2 30,30" fill="white"/>
+            </svg>
+        </div>
+        <span class="footer-logo-name">Zinc Network</span>
+    </div>
+    <p>Battlefield Intelligence Brief &mdash; Early Signal Assessment<br>
+    20 February 2026 &middot; 0000 UTC &middot; Reference Q8R5<br>
+    Theatre: Global &middot; Horizon: 72 hours to 90 days</p>
+    <p class="disclaimer">Editorial / Intelligence Brief. Assessment generated through continuous monitoring, not headline summarisation. Ground indicators, information environment signals, and expert discourse evaluated comparatively. Unverified claims explicitly labelled throughout. This document represents editorial analysis and does not constitute operational intelligence or policy recommendation. Classification: Editorial.</p>
+</footer>
+
+<!-- GAUGE SLIDER JAVASCRIPT -->
+<script>
+(function() {
+    // Gauge slider scroll dots for mobile
+    function initScrollDots(rowId, dotsId) {
+        var row = document.getElementById(rowId);
+        var dotsContainer = document.getElementById(dotsId);
+        if (!row || !dotsContainer) return;
+        var cards = row.querySelectorAll('.gauge-card');
+        if (cards.length === 0) return;
+
+        // Create dots
+        cards.forEach(function(_, i) {
+            var dot = document.createElement('button');
+            dot.className = 'scroll-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', 'Go to gauge ' + (i + 1));
+            dot.addEventListener('click', function() {
+                cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        // Update active dot on scroll
+        var dots = dotsContainer.querySelectorAll('.scroll-dot');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var idx = Array.prototype.indexOf.call(cards, entry.target);
+                    dots.forEach(function(d, di) {
+                        d.classList.toggle('active', di === idx);
+                    });
+                }
+            });
+        }, { root: row, threshold: 0.6 });
+
+        cards.forEach(function(card) { observer.observe(card); });
+    }
+
+    initScrollDots('gaugeRow1', 'gaugeDots1');
+
+    // Animate bar chart fills on scroll into view
+    var barFills = document.querySelectorAll('.bar-fill');
+    if (barFills.length > 0) {
+        barFills.forEach(function(fill) {
+            var w = fill.style.width;
+            fill.style.width = '0%';
+            fill.dataset.targetWidth = w;
+        });
+
+        var barObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var fills = entry.target.querySelectorAll('.bar-fill');
+                    fills.forEach(function(fill, i) {
+                        setTimeout(function() {
+                            fill.style.width = fill.dataset.targetWidth;
+                        }, i * 80);
+                    });
+                    barObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        var barChart = document.querySelector('.bar-chart');
+        if (barChart) barObserver.observe(barChart);
+    }
+})();
+</script>
+
+</body>
+</html>
