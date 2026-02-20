@@ -57,10 +57,10 @@ body {
     background: var(--navy); overflow: hidden; display: flex; align-items: center;
 }
 .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.4; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.6; }
 .hero-overlay {
     position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(to right, rgba(0,16,62,0.92) 0%, rgba(0,16,62,0.55) 55%, rgba(0,16,62,0.2) 100%);
+    background: linear-gradient(to right, rgba(0,16,62,0.78) 0%, rgba(0,16,62,0.38) 50%, rgba(0,16,62,0.12) 100%);
 }
 .hero-card {
     position: relative; z-index: 2;
@@ -491,10 +491,16 @@ body {
 <header class="top-bar">
     <div class="top-bar-logo">
         <div class="top-bar-mark">
-            <svg viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="2,30 14,2 18,2 6,30" fill="white"/>
-                <polygon points="14,2 26,30 22,30 10,2" fill="white"/>
-                <polygon points="26,30 38,2 42,2 30,30" fill="white"/>
+            <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Z left: two diagonal stripes + horizontal base -->
+                <polygon points="0,80 10,80 38,12 28,12" fill="white"/>
+                <polygon points="12,80 22,80 50,12 40,12" fill="white"/>
+                <polygon points="0,80 22,80 22,70 0,70" fill="white"/>
+                <!-- N right: two upward strokes forming peak + right vertical -->
+                <polygon points="40,12 50,0 60,12 50,12" fill="white"/>
+                <polygon points="50,0 60,12 88,80 78,80" fill="white"/>
+                <polygon points="60,12 70,12 98,80 88,80" fill="white"/>
+                <polygon points="78,80 98,80 98,70 78,70" fill="white"/>
             </svg>
         </div>
         <span class="top-bar-name">Zinc Network</span>
@@ -529,7 +535,7 @@ body {
 <!-- EXECUTIVE ORIENTATION -->
 <div class="editorial">
     <div class="section-header">
-        <div class="section-label">Executive Orientation</div>
+        <div class="section-label">At a Glance</div>
         <h2>What Matters Now</h2>
     </div>
 
@@ -586,16 +592,17 @@ body {
         </div>
 
         <div class="scorecard-wrap">
-            <!-- Overall -->
+            <!-- Overall 0.80 → needle angle 54° -->
             <div class="scorecard-item primary">
                 <svg class="scorecard-gauge" viewBox="0 0 200 120">
                     <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
-                    <line x1="100" y1="100" x2="156.6" y2="58.8" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                    <g>
+                        <line x1="100" y1="100" x2="100" y2="25" stroke="#00103e" stroke-width="3" stroke-linecap="round"/>
                         <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="54 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
-                    </line>
+                    </g>
                     <circle cx="100" cy="100" r="6" fill="#00103e"/>
                     <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#00103e" font-weight="400">0.80</text>
                 </svg>
@@ -603,16 +610,17 @@ body {
                 <span class="scorecard-risk-badge risk-critical">Critical</span>
             </div>
 
-            <!-- Persian Gulf -->
+            <!-- Persian Gulf 0.86 → needle angle 64.8° -->
             <div class="scorecard-item">
                 <svg class="scorecard-gauge" viewBox="0 0 200 120">
                     <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
-                    <line x1="100" y1="100" x2="163.3" y2="70.2" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                    <g>
+                        <line x1="100" y1="100" x2="100" y2="25" stroke="#00103e" stroke-width="3" stroke-linecap="round"/>
                         <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="64.8 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
-                    </line>
+                    </g>
                     <circle cx="100" cy="100" r="6" fill="#00103e"/>
                     <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#ff4632" font-weight="400">0.86</text>
                 </svg>
@@ -620,16 +628,17 @@ body {
                 <span class="scorecard-risk-badge risk-critical">Critical</span>
             </div>
 
-            <!-- Druzhba Transit -->
+            <!-- Druzhba Transit 0.84 → needle angle 61.2° -->
             <div class="scorecard-item">
                 <svg class="scorecard-gauge" viewBox="0 0 200 120">
                     <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
-                    <line x1="100" y1="100" x2="161.4" y2="66.3" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                    <g>
+                        <line x1="100" y1="100" x2="100" y2="25" stroke="#00103e" stroke-width="3" stroke-linecap="round"/>
                         <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="61.2 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
-                    </line>
+                    </g>
                     <circle cx="100" cy="100" r="6" fill="#00103e"/>
                     <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#ff4632" font-weight="400">0.84</text>
                 </svg>
@@ -637,16 +646,17 @@ body {
                 <span class="scorecard-risk-badge risk-elevated">Elevated</span>
             </div>
 
-            <!-- Caribbean -->
+            <!-- Caribbean 0.78 → needle angle 50.4° -->
             <div class="scorecard-item">
                 <svg class="scorecard-gauge" viewBox="0 0 200 120">
                     <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
-                    <line x1="100" y1="100" x2="153.9" y2="55.4" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                    <g>
+                        <line x1="100" y1="100" x2="100" y2="25" stroke="#00103e" stroke-width="3" stroke-linecap="round"/>
                         <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="50.4 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
-                    </line>
+                    </g>
                     <circle cx="100" cy="100" r="6" fill="#00103e"/>
                     <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#e87722" font-weight="400">0.78</text>
                 </svg>
@@ -654,16 +664,17 @@ body {
                 <span class="scorecard-risk-badge risk-elevated">Elevated</span>
             </div>
 
-            <!-- Iran Control -->
+            <!-- Iran Control 0.78 → needle angle 50.4° -->
             <div class="scorecard-item">
                 <svg class="scorecard-gauge" viewBox="0 0 200 120">
                     <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="14" stroke-linecap="round"/>
                     <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="14" stroke-linecap="round"/>
-                    <line x1="100" y1="100" x2="153.9" y2="55.4" stroke="#00103e" stroke-width="3" stroke-linecap="round">
+                    <g>
+                        <line x1="100" y1="100" x2="100" y2="25" stroke="#00103e" stroke-width="3" stroke-linecap="round"/>
                         <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="50.4 100 100" dur="1.4s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
-                    </line>
+                    </g>
                     <circle cx="100" cy="100" r="6" fill="#00103e"/>
                     <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="26" fill="#e87722" font-weight="400">0.78</text>
                 </svg>
@@ -677,8 +688,8 @@ body {
 <!-- BATTLEFIELD RISK SUMMARY TABLE -->
 <div class="editorial-wide">
     <div class="section-header">
-        <div class="section-label">Battlefield Risk Summary</div>
-        <h2>Nine-Theatre Assessment</h2>
+        <div class="section-label">Risk by Region</div>
+        <h2>Nine Theatres at a Glance</h2>
         <p>Risk posture across all monitored theatres with direction of travel and evidence quality.</p>
     </div>
 
@@ -766,9 +777,9 @@ body {
 <div class="grey-section">
     <div class="editorial-wide">
         <div class="section-header">
-            <div class="section-label">Signal Priority Dashboard</div>
-            <h2>Finding Assessment Matrix</h2>
-            <p>Eleven active findings ranked by analytic confidence. Five carry rising momentum. Three at high escalation risk in the Gulf corridor.</p>
+            <div class="section-label">Confidence Rankings</div>
+            <h2>How Confident Are We?</h2>
+            <p>All eleven findings ranked by how strong the evidence is. The longer the bar, the more confident the assessment. Five are gaining momentum. Three sit in the Gulf danger zone.</p>
         </div>
 
         <!-- Horizontal bar chart -->
@@ -827,12 +838,12 @@ body {
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Zone</th>
-                    <th>Plane</th>
-                    <th>Type</th>
-                    <th>Momentum</th>
+                    <th>Region</th>
+                    <th>Domain</th>
+                    <th>What&rsquo;s Happening</th>
+                    <th>Trend</th>
                     <th>Confidence</th>
-                    <th>Synthesis</th>
+                    <th>Phase</th>
                 </tr>
             </thead>
             <tbody>
@@ -840,7 +851,7 @@ body {
                     <td><strong>F-001</strong></td>
                     <td class="risk-name">Persian Gulf / Hormuz</td>
                     <td>Battlefield</td>
-                    <td>Escalation Posture Shift</td>
+                    <td>Military Build-Up</td>
                     <td><span class="dir-badge mom-rising">Rising</span></td>
                     <td><span class="conf-badge conf-high">0.86</span></td>
                     <td><span class="dir-badge syn-forming">Forming</span></td>
@@ -857,8 +868,8 @@ body {
                 <tr>
                     <td><strong>F-011</strong></td>
                     <td class="risk-name">Persian Gulf / Hormuz</td>
-                    <td>Hybrid Info</td>
-                    <td>Hybrid Precondition</td>
+                    <td>Information Warfare</td>
+                    <td>Hybrid Warfare Indicator</td>
                     <td><span class="dir-badge mom-volatile">Volatile</span></td>
                     <td><span class="conf-badge conf-medium">0.74</span></td>
                     <td><span class="dir-badge syn-contested">Contested</span></td>
@@ -866,8 +877,8 @@ body {
                 <tr>
                     <td><strong>F-004</strong></td>
                     <td class="risk-name">Central Europe Oil</td>
-                    <td>System Strain</td>
-                    <td>Systemic Strain Signal</td>
+                    <td>Economic / Logistics</td>
+                    <td>Supply &amp; Resource Pressure</td>
                     <td><span class="dir-badge mom-rising">Rising</span></td>
                     <td><span class="conf-badge conf-high">0.84</span></td>
                     <td><span class="dir-badge syn-accelerating">Accelerating</span></td>
@@ -875,8 +886,8 @@ body {
                 <tr>
                     <td><strong>F-008</strong></td>
                     <td class="risk-name">Caribbean Fuel Power</td>
-                    <td>System Strain</td>
-                    <td>Systemic Strain Signal</td>
+                    <td>Economic / Logistics</td>
+                    <td>Supply &amp; Resource Pressure</td>
                     <td><span class="dir-badge mom-rising">Rising</span></td>
                     <td><span class="conf-badge conf-medium">0.78</span></td>
                     <td><span class="dir-badge syn-accelerating">Accelerating</span></td>
@@ -885,7 +896,7 @@ body {
                     <td><strong>F-006</strong></td>
                     <td class="risk-name">Russia Border Energy</td>
                     <td>Battlefield</td>
-                    <td>Kinetic Activity</td>
+                    <td>Active Combat / Strikes</td>
                     <td><span class="dir-badge mom-stable">Stable</span></td>
                     <td><span class="conf-badge conf-medium">0.79</span></td>
                     <td><span class="dir-badge syn-stable">Stable</span></td>
@@ -894,7 +905,7 @@ body {
                     <td><strong>F-005</strong></td>
                     <td class="risk-name">Ukraine Unmanned</td>
                     <td>Battlefield</td>
-                    <td>Capability Transition</td>
+                    <td>Weapons &amp; Tactics Shift</td>
                     <td><span class="dir-badge mom-stable">Stable</span></td>
                     <td><span class="conf-badge conf-high">0.83</span></td>
                     <td><span class="dir-badge syn-stable">Stable</span></td>
@@ -902,8 +913,8 @@ body {
                 <tr>
                     <td><strong>F-007</strong></td>
                     <td class="risk-name">Russia Energy Revenue</td>
-                    <td>System Strain</td>
-                    <td>Systemic Strain Signal</td>
+                    <td>Economic / Logistics</td>
+                    <td>Supply &amp; Resource Pressure</td>
                     <td><span class="dir-badge mom-stable">Stable</span></td>
                     <td><span class="conf-badge conf-medium">0.76</span></td>
                     <td><span class="dir-badge syn-stable">Stable</span></td>
@@ -911,8 +922,8 @@ body {
                 <tr>
                     <td><strong>F-003</strong></td>
                     <td class="risk-name">Iran Internal Control</td>
-                    <td>System Strain</td>
-                    <td>Systemic Strain Signal</td>
+                    <td>Economic / Logistics</td>
+                    <td>Supply &amp; Resource Pressure</td>
                     <td><span class="dir-badge mom-rising">Rising</span></td>
                     <td><span class="conf-badge conf-medium">0.78</span></td>
                     <td><span class="dir-badge syn-forming">Forming</span></td>
@@ -920,8 +931,8 @@ body {
                 <tr>
                     <td><strong>F-009</strong></td>
                     <td class="risk-name">Sub-Saharan Utility</td>
-                    <td>System Strain</td>
-                    <td>Systemic Strain Signal</td>
+                    <td>Economic / Logistics</td>
+                    <td>Supply &amp; Resource Pressure</td>
                     <td><span class="dir-badge mom-rising">Rising</span></td>
                     <td><span class="conf-badge conf-lower">0.72</span></td>
                     <td><span class="dir-badge syn-early">Early Signal</span></td>
@@ -930,7 +941,7 @@ body {
                     <td><strong>F-010</strong></td>
                     <td class="risk-name">Indo-Pacific Maritime</td>
                     <td>Battlefield</td>
-                    <td>Capability Transition</td>
+                    <td>Weapons &amp; Tactics Shift</td>
                     <td><span class="dir-badge mom-latent">Latent</span></td>
                     <td><span class="conf-badge conf-lower">0.70</span></td>
                     <td><span class="dir-badge syn-early">Early Signal</span></td>
@@ -944,25 +955,26 @@ body {
 <!-- TOP 3 FINDINGS GAUGES -->
 <div class="editorial-wide">
     <div class="section-header">
-        <div class="section-label">Highest Confidence Findings</div>
-        <h2>Top Three Signal Assessments</h2>
+        <div class="section-label">Strongest Evidence</div>
+        <h2>Three Findings We&rsquo;re Most Certain About</h2>
     </div>
 
     <div class="gauge-row" id="gaugeRow1">
-        <!-- F-001 -->
+        <!-- F-001: 0.86 → 64.8° -->
         <div class="gauge-card">
             <svg class="gauge-svg" viewBox="0 0 200 120">
                 <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="12" stroke-linecap="round"/>
                 <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="12" stroke-linecap="round"/>
                 <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="12" stroke-linecap="round"/>
                 <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="12" stroke-linecap="round"/>
-                <line x1="100" y1="100" x2="163.3" y2="70.2" stroke="#00103e" stroke-width="2.5" stroke-linecap="round">
+                <g>
+                    <line x1="100" y1="100" x2="100" y2="25" stroke="#00103e" stroke-width="2.5" stroke-linecap="round"/>
                     <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="64.8 100 100" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
-                </line>
+                </g>
                 <circle cx="100" cy="100" r="5" fill="#00103e"/>
                 <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="24" fill="#00103e">0.86</text>
             </svg>
-            <div class="gauge-title">Escalation Posture Shift</div>
+            <div class="gauge-title">Gulf Military Build-Up</div>
             <div class="gauge-sub">F-001 &middot; Persian Gulf</div>
             <div class="gauge-badges">
                 <span class="dir-badge mom-rising">Rising</span>
@@ -970,20 +982,21 @@ body {
             </div>
         </div>
 
-        <!-- F-004 -->
+        <!-- F-004: 0.84 → 61.2° -->
         <div class="gauge-card">
             <svg class="gauge-svg" viewBox="0 0 200 120">
                 <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="12" stroke-linecap="round"/>
                 <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="12" stroke-linecap="round"/>
                 <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="12" stroke-linecap="round"/>
                 <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="12" stroke-linecap="round"/>
-                <line x1="100" y1="100" x2="161.4" y2="66.3" stroke="#00103e" stroke-width="2.5" stroke-linecap="round">
+                <g>
+                    <line x1="100" y1="100" x2="100" y2="25" stroke="#00103e" stroke-width="2.5" stroke-linecap="round"/>
                     <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="61.2 100 100" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
-                </line>
+                </g>
                 <circle cx="100" cy="100" r="5" fill="#00103e"/>
                 <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="24" fill="#00103e">0.84</text>
             </svg>
-            <div class="gauge-title">Systemic Strain Signal</div>
+            <div class="gauge-title">Pipeline &amp; Energy Disruption</div>
             <div class="gauge-sub">F-004 &middot; Druzhba</div>
             <div class="gauge-badges">
                 <span class="dir-badge mom-rising">Rising</span>
@@ -991,20 +1004,21 @@ body {
             </div>
         </div>
 
-        <!-- F-005 -->
+        <!-- F-005: 0.83 → 59.4° -->
         <div class="gauge-card">
             <svg class="gauge-svg" viewBox="0 0 200 120">
                 <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e5e5" stroke-width="12" stroke-linecap="round"/>
                 <path d="M 20 100 A 80 80 0 0 1 68 30" fill="none" stroke="#2e7d32" stroke-width="12" stroke-linecap="round"/>
                 <path d="M 68 30 A 80 80 0 0 1 132 30" fill="none" stroke="#e87722" stroke-width="12" stroke-linecap="round"/>
                 <path d="M 132 30 A 80 80 0 0 1 180 100" fill="none" stroke="#ff4632" stroke-width="12" stroke-linecap="round"/>
-                <line x1="100" y1="100" x2="160.3" y2="64.3" stroke="#00103e" stroke-width="2.5" stroke-linecap="round">
+                <g>
+                    <line x1="100" y1="100" x2="100" y2="25" stroke="#00103e" stroke-width="2.5" stroke-linecap="round"/>
                     <animateTransform attributeName="transform" type="rotate" from="-90 100 100" to="59.4 100 100" dur="1.2s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
-                </line>
+                </g>
                 <circle cx="100" cy="100" r="5" fill="#00103e"/>
                 <text x="100" y="80" text-anchor="middle" font-family="Arbutus Slab, serif" font-size="24" fill="#00103e">0.83</text>
             </svg>
-            <div class="gauge-title">Capability Transition</div>
+            <div class="gauge-title">Drone Warfare Shift</div>
             <div class="gauge-sub">F-005 &middot; Ukraine Unmanned</div>
             <div class="gauge-badges">
                 <span class="dir-badge mom-stable">Stable</span>
@@ -1030,8 +1044,8 @@ body {
 <!-- EXECUTIVE BATTLEFIELD ASSESSMENT -->
 <div class="editorial">
     <div class="section-header">
-        <div class="section-label">Executive Assessment</div>
-        <h2>Battlefield Posture Analysis</h2>
+        <div class="section-label">The Big Picture</div>
+        <h2>What&rsquo;s Actually Happening on the Ground</h2>
     </div>
 
     <p class="statement">The binding variable determining escalation trajectory is persistence versus reversibility.</p>
@@ -1049,9 +1063,9 @@ body {
 <div class="grey-section">
     <div class="editorial-wide">
         <div class="section-header">
-            <div class="section-label">Theatre Analysis</div>
-            <h2>Nine-Theatre Detailed Assessment</h2>
-            <p>Full intelligence picture across all monitored theatres, with evidence, gaps, and 48&ndash;72 hour test criteria.</p>
+            <div class="section-label">Region by Region</div>
+            <h2>Detailed Breakdown by Theatre</h2>
+            <p>What we know, what we don&rsquo;t, and what to watch for in the next 48&ndash;72 hours &mdash; for each of the nine active regions.</p>
         </div>
 
         <!-- Theatre 1: Persian Gulf -->
@@ -1307,9 +1321,9 @@ body {
 <!-- ESCALATION WATCH -->
 <div class="editorial-wide" style="padding-top:4rem;padding-bottom:4rem;">
     <div class="section-header">
-        <div class="section-label">Escalation Watch</div>
-        <h2>Five IF&ndash;THEN Decision Points</h2>
-        <p>Critical junctures where conditions could tip from current posture to escalation or de-escalation. Each watch includes the triggering condition, braking factor, and key indicator.</p>
+        <div class="section-label">Trigger Points</div>
+        <h2>Five Flashpoints That Could Change Everything</h2>
+        <p>The critical moments where things could get significantly worse &mdash; or start to calm down. Each includes what would trigger escalation, what might prevent it, and what to monitor.</p>
     </div>
 
     <!-- Watch 1 -->
@@ -1403,8 +1417,8 @@ body {
 <div class="grey-section">
     <div class="editorial-wide">
         <div class="section-header">
-            <div class="section-label">Verification Matrix</div>
-            <h2>Escalation &amp; Alignment Assessment</h2>
+            <div class="section-label">Reality Check</div>
+            <h2>Does the Evidence Match What We Expected?</h2>
         </div>
 
         <div class="table-scroll">
@@ -1505,9 +1519,9 @@ body {
 <!-- TENSION & UNCERTAINTY TABLE -->
 <div class="editorial-wide">
     <div class="section-header">
-        <div class="section-label">Analytic Tensions</div>
-        <h2>Tension &amp; Uncertainty Assessment</h2>
-        <p>Where analytic judgement faces competing pulls. Severity and recommended dominant approach for each finding.</p>
+        <div class="section-label">Open Questions</div>
+        <h2>Where We&rsquo;re Least Certain</h2>
+        <p>Where the evidence pulls in different directions. How serious the conflict is, and the recommended approach for each.</p>
     </div>
 
     <div class="table-scroll">
@@ -1596,8 +1610,8 @@ body {
 <div class="grey-section">
     <div class="editorial-wide">
         <div class="section-header">
-            <div class="section-label">Information Environment</div>
-            <h2>Deception &amp; Information Assessment</h2>
+            <div class="section-label">Information Warfare</div>
+            <h2>Who&rsquo;s Trying to Mislead Us?</h2>
         </div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
@@ -1624,8 +1638,8 @@ body {
 <!-- CAPABILITY & TACTICS -->
 <div class="editorial">
     <div class="section-header">
-        <div class="section-label">Capability Shifts</div>
-        <h2>Technology &amp; Doctrine</h2>
+        <div class="section-label">Technology Watch</div>
+        <h2>Weapons &amp; Tactics Changing the Game</h2>
     </div>
 
     <p class="statement">UAS Electronic Warfare Resilience</p>
@@ -1639,9 +1653,9 @@ body {
 <div class="grey-section">
     <div class="editorial-wide">
         <div class="section-header">
-            <div class="section-label">Forward Scenarios</div>
-            <h2>Scenario Assessment</h2>
-            <p>Three time horizons with explicit falsification conditions.</p>
+            <div class="section-label">Looking Ahead</div>
+            <h2>What Happens Next?</h2>
+            <p>Three time horizons. Each scenario includes the specific condition that would prove it wrong.</p>
         </div>
 
         <div class="scenario-row">
@@ -1667,8 +1681,8 @@ body {
 <!-- FORWARD ORIENTATION -->
 <div class="editorial">
     <div class="section-header">
-        <div class="section-label">Forward Orientation</div>
-        <h2>What Would Be Surprising</h2>
+        <div class="section-label">Surprises to Watch For</div>
+        <h2>What Would Change Our Assessment</h2>
     </div>
 
     <ul class="exec-bullets">
@@ -1683,9 +1697,9 @@ body {
 <div class="grey-section">
     <div class="editorial-wide">
         <div class="section-header" style="text-align:center;">
-            <div class="section-label" style="display:block;">48&ndash;72 Hour Watch</div>
-            <h2 style="margin-left:auto;margin-right:auto;">Critical Indicators to Monitor</h2>
-            <p style="margin-left:auto;margin-right:auto;text-align:center;">If none materialise within the assessment window, assess whether the system is in a phase of strategic patience or endurance management.</p>
+            <div class="section-label" style="display:block;">Next 48&ndash;72 Hours</div>
+            <h2 style="margin-left:auto;margin-right:auto;">Six Things to Watch Right Now</h2>
+            <p style="margin-left:auto;margin-right:auto;text-align:center;">If none of these appear in the next two to three days, the situation may be stabilising &mdash; or actors are deliberately holding back.</p>
         </div>
 
         <ol class="indicator-list">
@@ -1707,7 +1721,7 @@ body {
 <div class="editorial-wide">
     <div class="section-header">
         <div class="section-label">Methodology</div>
-        <h2>Analytic Framework</h2>
+        <h2>How This Assessment Was Built</h2>
     </div>
 
     <dl class="method-grid">
@@ -1734,10 +1748,14 @@ body {
 <footer class="footer">
     <div class="footer-logo-wrap">
         <div class="footer-logo-mark">
-            <svg viewBox="0 0 44 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <polygon points="2,30 14,2 18,2 6,30" fill="white"/>
-                <polygon points="14,2 26,30 22,30 10,2" fill="white"/>
-                <polygon points="26,30 38,2 42,2 30,30" fill="white"/>
+            <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="0,80 10,80 38,12 28,12" fill="white"/>
+                <polygon points="12,80 22,80 50,12 40,12" fill="white"/>
+                <polygon points="0,80 22,80 22,70 0,70" fill="white"/>
+                <polygon points="40,12 50,0 60,12 50,12" fill="white"/>
+                <polygon points="50,0 60,12 88,80 78,80" fill="white"/>
+                <polygon points="60,12 70,12 98,80 88,80" fill="white"/>
+                <polygon points="78,80 98,80 98,70 78,70" fill="white"/>
             </svg>
         </div>
         <span class="footer-logo-name">Zinc Network</span>
