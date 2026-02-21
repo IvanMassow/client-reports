@@ -79,6 +79,48 @@
     letter-spacing: 0.5px;
   }
 
+  /* === SECTION NAV — dark green strip under topbar === */
+  .section-nav {
+    position: fixed;
+    top: 52px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: var(--forest-deep);
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .section-nav::-webkit-scrollbar { display: none; }
+  .section-nav a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    padding: 0 14px;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+    line-height: 32px;
+  }
+  .section-nav a:hover {
+    color: var(--gold);
+  }
+  .section-nav a + a {
+    border-left: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* Scroll offset so anchors clear the fixed topbar + nav */
+  .section-label[id] {
+    scroll-margin-top: 100px;
+  }
+
   /* === HERO === */
   .hero {
     background-color: var(--forest);
@@ -918,6 +960,8 @@
   @media (max-width: 768px) {
     .topbar { padding: 0 16px; height: 44px; }
     .topbar-logo svg { height: 14px; }
+    .section-nav { top: 44px; height: 28px; justify-content: flex-start; padding: 0 8px; }
+    .section-nav a { font-size: 8px; padding: 0 10px; letter-spacing: 1px; line-height: 28px; }
     .hero { min-height: 78vh; padding: 60px 16px; }
     .hero-inner { padding: 36px 24px 32px; border-radius: 16px; }
     .hero-metrics { grid-template-columns: repeat(2, 1fr); }
@@ -953,6 +997,18 @@
     <span class="topbar-date">21 Feb 2026</span>
   </div>
 </div>
+
+<!-- SECTION NAV -->
+<nav class="section-nav">
+  <a href="#intelligence">Intelligence</a>
+  <a href="#predictions">Predictions</a>
+  <a href="#industry">Industry Notes</a>
+  <a href="#people">People</a>
+  <a href="#signals">Signals</a>
+  <a href="#watch">Watch List</a>
+  <a href="#analysis">Analysis</a>
+  <a href="#background">Background</a>
+</nav>
 
 <!-- ========================================== -->
 <!-- HERO                                       -->
@@ -990,7 +1046,7 @@
 <!-- ========================================== -->
 <div class="container">
   <div class="section">
-    <div class="section-label">01 &mdash; Intelligence</div>
+    <div class="section-label" id="intelligence">01 &mdash; Intelligence</div>
     <h2 class="section-title">What Matters Today</h2>
     <p class="section-subtitle">The signals shaping strategy across food, retail and marketing this cycle. Four stories you need to act on.</p>
 
@@ -1027,7 +1083,7 @@
 <!-- ========================================== -->
 <div class="container">
   <div class="section">
-    <div class="section-label">02 &mdash; Predictions</div>
+    <div class="section-label" id="predictions">02 &mdash; Predictions</div>
     <h2 class="section-title">What the Signal Says</h2>
     <p class="section-subtitle">Outcome forecasts derived from narrative signal analysis. Six predictions currently being tracked across regulatory, commercial and structural dimensions.</p>
 
@@ -1104,7 +1160,7 @@
 <!-- ========================================== -->
 <div class="container">
   <div class="section">
-    <div class="section-label">03 &mdash; Industry Notes</div>
+    <div class="section-label" id="industry">03 &mdash; Industry Notes</div>
     <h2 class="section-title">Commercial Landscape</h2>
     <p class="section-subtitle">Partnerships, product launches and commercial moves shaping the competitive picture this cycle.</p>
 
@@ -1159,7 +1215,7 @@
 <!-- ========================================== -->
 <div class="container">
   <div class="section">
-    <div class="section-label">04 &mdash; People Moves</div>
+    <div class="section-label" id="people">04 &mdash; People Moves</div>
     <h2 class="section-title">Who&rsquo;s Moving Where</h2>
 
     <div class="people-grid">
@@ -1196,7 +1252,7 @@
 <!-- ========================================== -->
 <div class="container">
   <div class="section">
-    <div class="section-label">05 &mdash; Emerging Signals</div>
+    <div class="section-label" id="signals">05 &mdash; Emerging Signals</div>
     <h2 class="section-title">Where the Market Is Heading</h2>
     <p class="section-subtitle">Themes generating rising coverage and conversation across industry sources. Early indicators worth tracking.</p>
 
@@ -1226,7 +1282,7 @@
 <!-- ========================================== -->
 <div class="container">
   <div class="section">
-    <div class="section-label">06 &mdash; What to Watch</div>
+    <div class="section-label" id="watch">06 &mdash; What to Watch</div>
     <h2 class="section-title">Eyes On</h2>
 
     <div class="watch-item">
@@ -1249,7 +1305,7 @@
 <!-- ========================================== -->
 <div class="container">
   <div class="section">
-    <div class="section-label">07 &mdash; Context &amp; Analysis</div>
+    <div class="section-label" id="analysis">07 &mdash; Context &amp; Analysis</div>
     <h2 class="section-title">The Bigger Picture</h2>
 
     <div class="analysis-block">
@@ -1266,7 +1322,7 @@
 <!-- ========================================== -->
 <div class="container">
   <div class="section">
-    <div class="section-label">08 &mdash; Background</div>
+    <div class="section-label" id="background">08 &mdash; Background</div>
     <h2 class="section-title">Timeline</h2>
     <p class="section-subtitle">Key regulatory and structural events forming the context for today&rsquo;s intelligence.</p>
 
