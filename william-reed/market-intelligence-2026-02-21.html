@@ -3,813 +3,889 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Market Intelligence Brief — William Reed</title>
+<title>Market Intelligence &amp; Predictions — William Reed</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --wr-navy: #212D6E;
-    --wr-navy-light: #2a3a8a;
-    --wr-coral: #FF6666;
-    --wr-coral-soft: #FAAC9F;
-    --wr-lavender: #C9D9FD;
-    --wr-cream: #FAF9F5;
-    --wr-ice: #EEF2FA;
-    --wr-peach: #FDF4E5;
-    --wr-text: #212D6E;
-    --wr-text-light: #4a5078;
-    --wr-text-muted: #6b7094;
-    --wr-border: #e2e6f0;
+    --navy: #212D6E;
+    --navy-deep: #171f4f;
+    --navy-mid: #2d3c8a;
+    --coral: #FF6666;
+    --coral-dark: #e85555;
+    --lavender: #C9D9FD;
+    --cream: #FAF9F5;
+    --ice: #EEF2FA;
+    --peach: #FDF4E5;
+    --text: #1a1f3d;
+    --text-mid: #3d4470;
+    --text-muted: #6b7094;
+    --border: #dfe3f0;
+    --green: #22a867;
+    --amber: #e8a317;
+    --red: #e05252;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--wr-cream);
-    color: var(--wr-text);
+    background: #f4f5f9;
+    color: var(--text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
+  .serif { font-family: 'DM Serif Display', Georgia, serif; }
+
   /* === TOP BAR === */
-  .top-bar {
-    background: var(--wr-navy);
-    padding: 14px 40px;
+  .topbar {
+    background: var(--navy-deep);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 32px;
+    height: 48px;
   }
-  .top-bar-logo svg { height: 18px; width: auto; }
-  .top-bar-date {
-    font-size: 12px;
-    font-weight: 500;
-    color: rgba(255,255,255,0.6);
-    letter-spacing: 2px;
+  .topbar-logo svg { height: 16px; }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .topbar-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
+    color: var(--coral);
+  }
+  .topbar-date {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
   }
 
-  /* === HERO SECTION === */
-  .hero {
-    background: linear-gradient(135deg, var(--wr-navy) 0%, #3d4ea0 40%, #7b82c4 70%, var(--wr-lavender) 100%);
-    padding: 80px 40px 70px;
+  /* === HERO / DASHBOARD HEADER === */
+  .dash-header {
+    background: var(--navy);
+    background: linear-gradient(165deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-mid) 100%);
+    padding: 40px 32px 0;
     position: relative;
     overflow: hidden;
   }
-  .hero::before {
-    content: 'WR';
+  .dash-header::after {
+    content: '';
     position: absolute;
-    right: -40px;
-    top: -30px;
-    font-family: 'Playfair Display', serif;
-    font-size: 320px;
-    font-weight: 900;
-    color: rgba(255,255,255,0.04);
-    line-height: 1;
+    top: 0; right: 0; bottom: 0;
+    width: 45%;
+    background: linear-gradient(135deg, transparent 0%, rgba(201,217,253,0.06) 50%, rgba(255,102,102,0.04) 100%);
     pointer-events: none;
   }
-  .hero-inner {
-    max-width: 900px;
+  .dash-top {
+    max-width: 1080px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
   }
-  .hero-tag {
-    display: inline-block;
-    background: var(--wr-coral);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    margin-bottom: 24px;
+  .dash-title-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 8px;
   }
-  .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 56px;
-    font-weight: 900;
+  .dash-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 38px;
     color: white;
-    line-height: 1.08;
-    margin-bottom: 16px;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
   }
-  .hero-subtitle {
-    font-size: 18px;
-    color: rgba(255,255,255,0.75);
-    max-width: 560px;
+  .dash-title span { color: var(--coral); }
+  .dash-edition {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    text-align: right;
     line-height: 1.5;
-    font-weight: 400;
+  }
+  .dash-subtitle {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 32px;
+    max-width: 600px;
   }
 
-  /* === SECTION CONTAINER === */
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 40px;
-  }
-
-  /* === QUICK GLANCE STRIP === */
-  .quick-glance {
-    background: white;
-    border-bottom: 1px solid var(--wr-border);
-    padding: 28px 0;
-  }
-  .quick-glance-inner {
+  /* === METRIC STRIP (inside header) === */
+  .metrics {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
-  .quick-stat {
-    text-align: center;
-    padding: 0 20px;
-    border-right: 1px solid var(--wr-border);
+  .metric {
+    padding: 20px 24px;
+    background: rgba(0,0,0,0.15);
   }
-  .quick-stat:last-child { border-right: none; }
-  .quick-stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 900;
-    color: var(--wr-navy);
+  .metric:first-child { border-radius: 0; }
+  .metric-val {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
   }
-  .quick-stat-label {
-    font-size: 11px;
+  .metric-val--coral { color: var(--coral); }
+  .metric-label {
+    font-size: 10px;
     font-weight: 600;
-    color: var(--wr-text-muted);
+    color: rgba(255,255,255,0.4);
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    margin-top: 4px;
-  }
-
-  /* === SECTION HEADINGS === */
-  .section {
-    padding: 48px 0 16px;
-  }
-  .section-header {
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-    border-bottom: 2px solid var(--wr-navy);
-  }
-  .section-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--wr-coral);
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--wr-navy);
-    line-height: 1.2;
-  }
-  .section-subtitle {
-    font-size: 14px;
-    color: var(--wr-text-muted);
     margin-top: 6px;
   }
 
-  /* === PREDICTIONS SECTION === */
-  .predictions-grid {
+  /* === MAIN CONTENT === */
+  .main {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === SECTION === */
+  .sec {
+    margin-top: 36px;
+  }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--navy);
+  }
+  .sec-num {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 14px;
+    color: var(--coral);
+    font-weight: 400;
+    flex-shrink: 0;
+  }
+  .sec-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 24px;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .sec-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: -10px;
+    margin-bottom: 18px;
+  }
+
+  /* === PREDICTION CARDS === */
+  .pred-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
-  .prediction-card {
+  .pred-card {
     background: white;
-    border-radius: 8px;
-    padding: 28px 28px 24px;
-    border-left: 4px solid var(--wr-coral);
-    box-shadow: 0 1px 3px rgba(33,45,110,0.06);
-    transition: box-shadow 0.2s;
+    border-radius: 10px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    position: relative;
+    display: flex;
+    flex-direction: column;
   }
-  .prediction-card:hover {
-    box-shadow: 0 4px 12px rgba(33,45,110,0.1);
+  .pred-card--lead {
+    grid-column: 1 / -1;
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
   }
-  .prediction-card--high { border-left-color: var(--wr-coral); }
-  .prediction-card--medium { border-left-color: var(--wr-lavender); }
+  .pred-card--lead .pred-statement { color: white; }
+  .pred-card--lead .pred-tag { background: var(--coral); color: white; }
+  .pred-card--lead .pred-detail { color: rgba(255,255,255,0.6); border-left-color: rgba(255,255,255,0.2); }
+  .pred-card--lead .pred-conf-label { color: rgba(255,255,255,0.5); }
+  .pred-card--lead .pred-conf-bar-bg { background: rgba(255,255,255,0.15); }
+  .pred-card--lead .pred-conf-bar-fill { background: var(--coral); }
+  .pred-card--lead .pred-horizon { color: rgba(255,255,255,0.4); }
 
-  .prediction-statement {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--wr-navy);
-    line-height: 1.4;
-    margin-bottom: 14px;
-  }
-  .prediction-meta {
+  .pred-top {
     display: flex;
     align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: 12px;
   }
-  .prediction-badge {
-    display: inline-flex;
+  .pred-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: var(--ice);
+    color: var(--navy);
+  }
+  .pred-tag--high { background: var(--coral); color: white; }
+  .pred-horizon {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .pred-statement {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 17px;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 16px;
+    flex-grow: 1;
+  }
+  .pred-card--lead .pred-statement {
+    font-size: 21px;
+  }
+
+  .pred-conf {
+    margin-bottom: 12px;
+  }
+  .pred-conf-row {
+    display: flex;
     align-items: center;
-    gap: 5px;
-    font-size: 12px;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .pred-conf-label {
+    font-size: 11px;
     font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 4px;
-    background: var(--wr-ice);
-    color: var(--wr-text-light);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
-  .prediction-badge--confidence {
-    background: var(--wr-navy);
-    color: white;
-  }
-  .prediction-badge--high {
-    background: var(--wr-coral);
-    color: white;
-  }
-  .prediction-bar {
-    height: 4px;
-    background: var(--wr-ice);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 12px;
-  }
-  .prediction-bar-fill {
-    height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--wr-navy), var(--wr-coral));
-  }
-  .prediction-change {
+  .pred-conf-val {
     font-size: 13px;
-    color: var(--wr-text-muted);
+    font-weight: 800;
+    color: var(--coral);
+  }
+  .pred-card--lead .pred-conf-val { color: var(--coral); }
+  .pred-conf-bar-bg {
+    height: 5px;
+    background: var(--ice);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .pred-conf-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--navy), var(--coral));
+    transition: width 0.6s ease;
+  }
+
+  .pred-detail {
+    font-size: 12px;
+    color: var(--text-muted);
     font-style: italic;
-    padding-left: 16px;
-    border-left: 2px solid var(--wr-lavender);
+    padding-left: 12px;
+    border-left: 2px solid var(--lavender);
+    line-height: 1.5;
   }
 
   /* === INTELLIGENCE CARDS === */
-  .intel-card {
-    background: white;
-    border-radius: 8px;
-    padding: 24px 28px;
-    margin-bottom: 14px;
-    box-shadow: 0 1px 3px rgba(33,45,110,0.06);
+  .intel-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
-  .intel-headline {
-    font-weight: 700;
+  .intel {
+    background: white;
+    border-radius: 10px;
+    padding: 22px 26px;
+    border: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 4px 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .intel-bar {
+    background: var(--coral);
+    border-radius: 2px;
+  }
+  .intel-content {}
+  .intel h4 {
     font-size: 15px;
-    color: var(--wr-navy);
-    margin-bottom: 8px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
     line-height: 1.4;
   }
-  .intel-body {
-    font-size: 14px;
-    color: var(--wr-text-light);
-    line-height: 1.6;
+  .intel p {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.65;
   }
 
   /* === PEOPLE MOVES === */
-  .people-grid {
+  .people {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 12px;
   }
-  .people-card {
+  .person {
     background: white;
-    border-radius: 8px;
-    padding: 20px 24px;
-    box-shadow: 0 1px 3px rgba(33,45,110,0.06);
+    border-radius: 10px;
+    padding: 18px 22px;
+    border: 1px solid var(--border);
     display: flex;
     gap: 14px;
-    align-items: flex-start;
+    align-items: center;
   }
-  .people-icon {
-    width: 36px;
-    height: 36px;
+  .person-av {
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: var(--wr-ice);
+    background: var(--navy);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    font-size: 16px;
-    color: var(--wr-navy);
-  }
-  .people-name {
     font-weight: 700;
     font-size: 14px;
-    color: var(--wr-navy);
+    flex-shrink: 0;
   }
-  .people-role {
-    font-size: 13px;
-    color: var(--wr-text-muted);
+  .person-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--navy);
+  }
+  .person-role {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.4;
     margin-top: 2px;
   }
 
-  /* === SIGNAL / ATTENTION BULLETS === */
-  .signal-list {
+  /* === SIGNAL ITEMS === */
+  .signals {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 12px;
   }
-  .signal-item {
+  .signal {
     background: white;
-    border-radius: 8px;
-    padding: 20px 24px;
-    box-shadow: 0 1px 3px rgba(33,45,110,0.06);
+    border-radius: 10px;
+    padding: 20px 22px;
+    border: 1px solid var(--border);
   }
-  .signal-item strong {
-    color: var(--wr-navy);
-    display: block;
-    margin-bottom: 4px;
+  .signal-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 6px;
+  }
+  .signal h4 {
     font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
   }
-  .signal-item p {
-    font-size: 13px;
-    color: var(--wr-text-muted);
-    line-height: 1.5;
+  .signal p {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
   }
 
   /* === WATCH LIST === */
-  .watch-list {
-    list-style: none;
-  }
-  .watch-item {
+  .watchlist { list-style: none; }
+  .watch {
     background: white;
-    border-radius: 8px;
-    padding: 18px 24px;
-    margin-bottom: 10px;
-    box-shadow: 0 1px 3px rgba(33,45,110,0.06);
+    border-radius: 10px;
+    padding: 16px 22px;
+    margin-bottom: 8px;
+    border: 1px solid var(--border);
     display: flex;
-    align-items: flex-start;
     gap: 14px;
+    align-items: flex-start;
   }
-  .watch-number {
-    width: 28px;
-    height: 28px;
+  .watch-n {
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
-    background: var(--wr-navy);
+    background: var(--navy);
     color: white;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    margin-top: 1px;
   }
-  .watch-text {
-    font-size: 14px;
-    color: var(--wr-text-light);
-    line-height: 1.5;
+  .watch p {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.55;
   }
-  .watch-text strong {
-    color: var(--wr-navy);
-  }
+  .watch strong { color: var(--navy); }
 
-  /* === CONTEXT SECTION === */
-  .context-block {
+  /* === CONTEXT BLOCKS === */
+  .ctx {
     background: white;
-    border-radius: 8px;
-    padding: 28px;
-    margin-bottom: 14px;
-    box-shadow: 0 1px 3px rgba(33,45,110,0.06);
+    border-radius: 10px;
+    padding: 24px 26px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
   }
-  .context-block h4 {
-    font-family: 'Playfair Display', serif;
+  .ctx h4 {
+    font-family: 'DM Serif Display', Georgia, serif;
     font-size: 17px;
-    color: var(--wr-navy);
+    color: var(--navy);
     margin-bottom: 10px;
   }
-  .context-block p {
-    font-size: 14px;
-    color: var(--wr-text-light);
+  .ctx p {
+    font-size: 13.5px;
+    color: var(--text-mid);
     line-height: 1.7;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
-  .context-block p:last-child { margin-bottom: 0; }
+  .ctx p:last-child { margin-bottom: 0; }
 
-  /* === HERO BREAK (mid-page wash) === */
-  .mid-hero {
-    background: linear-gradient(135deg, #FADEE1 0%, #FDF4E5 50%, var(--wr-lavender) 100%);
-    padding: 60px 40px;
+  /* === MID-BREAK === */
+  .break {
+    background: linear-gradient(135deg, #FADEE1 0%, #FDF4E5 50%, var(--lavender) 100%);
+    padding: 48px 32px;
     margin: 40px 0;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
-  .mid-hero::before {
+  .break::before {
     content: 'WR';
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-family: 'Playfair Display', serif;
-    font-size: 280px;
-    font-weight: 900;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 240px;
+    font-weight: 400;
     color: rgba(33,45,110,0.03);
-    line-height: 1;
     pointer-events: none;
   }
-  .mid-hero-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 900;
-    color: var(--wr-navy);
-    position: relative;
-    z-index: 1;
-    line-height: 1.15;
-  }
-  .mid-hero-sub {
-    font-size: 15px;
-    color: var(--wr-text-muted);
-    margin-top: 12px;
+  .break-text {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 36px;
+    color: var(--navy);
     position: relative;
     z-index: 1;
   }
-
-  /* === DIVIDER === */
-  .divider {
-    height: 1px;
-    background: var(--wr-border);
-    margin: 12px 0;
+  .break-sub {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
   }
 
   /* === FOOTER === */
   .footer {
-    background: var(--wr-navy);
-    padding: 36px 40px;
+    background: var(--navy-deep);
+    padding: 32px;
     margin-top: 48px;
   }
   .footer-inner {
-    max-width: 960px;
+    max-width: 1080px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  .footer-logo svg { height: 16px; width: auto; }
+  .footer svg { height: 14px; }
   .footer-text {
-    font-size: 11px;
-    color: rgba(255,255,255,0.45);
-    letter-spacing: 0.5px;
-  }
-  .footer-text a {
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-  }
-  .footer-powered {
     font-size: 10px;
-    color: rgba(255,255,255,0.3);
-    text-align: center;
-    margin-top: 16px;
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
+    color: rgba(255,255,255,0.35);
   }
+  .footer-credit {
+    font-size: 9px;
+    color: rgba(255,255,255,0.2);
+    text-align: center;
+    max-width: 1080px;
+    margin: 12px auto 0;
+  }
+  .footer-credit a { color: rgba(255,255,255,0.3); text-decoration: none; }
 
   /* === RESPONSIVE === */
   @media (max-width: 768px) {
-    .hero { padding: 48px 24px 40px; }
-    .hero-title { font-size: 36px; }
-    .container { padding: 0 24px; }
-    .quick-glance-inner { grid-template-columns: 1fr; gap: 16px; }
-    .quick-stat { border-right: none; border-bottom: 1px solid var(--wr-border); padding-bottom: 16px; }
-    .quick-stat:last-child { border-bottom: none; }
-    .people-grid { grid-template-columns: 1fr; }
-    .signal-list { grid-template-columns: 1fr; }
-    .mid-hero { padding: 40px 24px; }
-    .mid-hero-text { font-size: 28px; }
-    .prediction-statement { font-size: 16px; }
-    .top-bar { padding: 12px 24px; }
-    .footer { padding: 28px 24px; }
+    .topbar { padding: 0 16px; }
+    .dash-header { padding: 24px 16px 0; }
+    .dash-title { font-size: 26px; }
+    .dash-title-row { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .metrics { grid-template-columns: repeat(2, 1fr); }
+    .main { padding: 0 16px; }
+    .pred-grid { grid-template-columns: 1fr; }
+    .pred-card--lead { grid-column: auto; }
+    .people { grid-template-columns: 1fr; }
+    .signals { grid-template-columns: 1fr; }
+    .break { padding: 32px 16px; }
+    .break-text { font-size: 24px; }
+    .footer { padding: 24px 16px; }
   }
 </style>
 </head>
 <body>
 
 <!-- TOP BAR -->
-<div class="top-bar">
-  <div class="top-bar-logo">
+<div class="topbar">
+  <div class="topbar-logo">
     <svg viewBox="0 0 185 23.5" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M23,3.05v1.1a5.08,5.08,0,0,1,2.25.48c.4.27.51.73.32,1.39L22.18,17.69,18.3,6c-.23-.67-.18-1.14.14-1.41a3.53,3.53,0,0,1,2-.46V3.05c-3,.11-6.11.11-9.2,0v1.1A3.4,3.4,0,0,1,13,4.57,3,3,0,0,1,13.83,6l.21.61L10.85,17.69,7,6c-.22-.67-.15-1.14.19-1.41a3.84,3.84,0,0,1,2-.46V3.05Q4.53,3.2,0,3.05v1.1a3.47,3.47,0,0,1,1.68.42A3,3,0,0,1,2.5,6L8.67,23.31h1.62l4.5-14.56L20,23.31h1.64L27,6a2.39,2.39,0,0,1,1-1.42,4.93,4.93,0,0,1,2-.45V3.05q-3.46.17-6.93,0"/><path fill="#fff" d="M34,4.52a2,2,0,0,0,1.54-.67,2.24,2.24,0,0,0,.64-1.6A2.19,2.19,0,0,0,35.51.66,2.07,2.07,0,0,0,34,0a2.13,2.13,0,0,0-1.56.66,2.17,2.17,0,0,0-.66,1.59,2.22,2.22,0,0,0,.66,1.6A2.1,2.1,0,0,0,34,4.52"/><path fill="#fff" d="M63.74,20.75V12a41.88,41.88,0,0,1,.2-4.6,1.68,1.68,0,0,0-.83-.85,15.72,15.72,0,0,1-5.46,2V9.64a1.91,1.91,0,0,1,1.42.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.63,1-1.9,1.18H56.51c-1.31-.15-2-.54-2-1.18v-15a44.26,44.26,0,0,1,.2-4.57,1.58,1.58,0,0,0-.82-.83,15.77,15.77,0,0,1-5.47,2v1.1a1.92,1.92,0,0,1,1.41.17,1.45,1.45,0,0,1,.47,1.25V20.75c0,.64-.64,1-1.91,1.18h-1.1c-1.32-.15-2-.54-2-1.18v-15a41.5,41.5,0,0,1,.2-4.57,1.6,1.6,0,0,0-.83-.83,15.79,15.79,0,0,1-5.46,2v1.1a1.92,1.92,0,0,1,1.41.17,1.44,1.44,0,0,1,.46,1.25V20.75c0,.64-.63,1-1.9,1.18H38.12c-1.31-.15-2-.54-2-1.18V12a44.66,44.66,0,0,1,.2-4.6,1.64,1.64,0,0,0-.83-.85,15.64,15.64,0,0,1-5.46,2V9.64a1.94,1.94,0,0,1,1.43.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.64,1-1.91,1.18V23c2.71-.12,5.4-.12,8.09,0H65.71v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="#fff" d="M61.56,4.52a2,2,0,0,0,1.54-.67,2.29,2.29,0,0,0,.64-1.6A2.23,2.23,0,0,0,63.1.66,2.07,2.07,0,0,0,61.56,0,2.12,2.12,0,0,0,60,.66a2.17,2.17,0,0,0-.66,1.59A2.22,2.22,0,0,0,60,3.85a2.09,2.09,0,0,0,1.56.67"/><path fill="#fff" d="M76,18.85a6.93,6.93,0,0,1-1.19,1.82,2.48,2.48,0,0,1-1.88.88,1.74,1.74,0,0,1-1.45-.72,3.06,3.06,0,0,1-.55-1.92,4.63,4.63,0,0,1,.78-2.43q1-1.59,4.29-2.45Zm4.21.58v-8c0-1.83-.43-3.08-1.28-3.75a5.81,5.81,0,0,0-3.76-1,10.51,10.51,0,0,0-5.41,1.26A3.59,3.59,0,0,0,67.57,11,1.65,1.65,0,0,0,68,12.25a2.32,2.32,0,0,0,2,.33,2.78,2.78,0,0,0,.48-.2,1.15,1.15,0,0,0,.37-.36c.11-.17.2-.31.26-.42a2.32,2.32,0,0,0,.18-.52c.06-.23.1-.41.12-.52s.06-.3.1-.56.08-.44.1-.53a2.25,2.25,0,0,1,.72-1.27,2.31,2.31,0,0,1,1.54-.49,1.66,1.66,0,0,1,1.62.8A6.43,6.43,0,0,1,76,11.36v1.69q-5.25,1.2-7.3,2.59a4.22,4.22,0,0,0-2,3.62,3.83,3.83,0,0,0,1.31,3.15,4.87,4.87,0,0,0,3.16,1,4.93,4.93,0,0,0,3.41-1.21A7.12,7.12,0,0,0,76,20.51h.24l-.15,2.12a1.23,1.23,0,0,0,.78.82,26.6,26.6,0,0,1,5.28-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="#fff" d="M108.32,20.75V12.22q0-5.67-4.31-5.67a5.29,5.29,0,0,0-3.39,1.08,7.62,7.62,0,0,0-2,2.41q-.77-3.49-4.09-3.49a5.3,5.3,0,0,0-2.76.75,5.92,5.92,0,0,0-1.83,1.5,8.32,8.32,0,0,0-.9,1.49h-.2l.47-2.89a1.57,1.57,0,0,0-.81-.85,16.18,16.18,0,0,1-5.28,2V9.64c1.27-.22,1.91.27,1.91,1.45v9.66c0,.65-.65,1-1.94,1.18V23c2.71-.09,5.41-.09,8.12,0v-1.1c-1.31-.1-2-.49-2-1.18V11.67a5.54,5.54,0,0,1,1.12-2.09,2.59,2.59,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.11-.13,8.17,0v-1.1c-1.31-.15-2-.54-2-1.18V11.61a5.74,5.74,0,0,1,1.12-2.06,2.63,2.63,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.09-.13,8.16,0v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="#fff" d="M119.27,14.06l-.63.06V4.21h2a3.71,3.71,0,0,1,3,1.19,5,5,0,0,1,1,3.32q0,4.76-5.42,5.34m6.41,3.78-2.37-3.37q5.56-1.71,5.56-6,0-5.46-8.92-5.46h-2l-3,0q-1.62,0-2.82-.06v1.1a3.82,3.82,0,0,1,1.64.37,1.07,1.07,0,0,1,.44,1V20.33a1.34,1.34,0,0,1-.48,1.17,4,4,0,0,1-1.78.43V23q4.47-.13,8.91,0v-1.1a4.08,4.08,0,0,1-1.79-.43,1.37,1.37,0,0,1-.47-1.17V15.41l.69-.11.17,0,2.65,3.92a8.64,8.64,0,0,0,4,3.46,9.34,9.34,0,0,0,1.86.5,11.94,11.94,0,0,0,1.85.13l.75-1.21q-2.1-.24-4.92-4.23"/><path fill="#fff" d="M135,14.18a11.11,11.11,0,0,1,.8-4.67,2.48,2.48,0,0,1,2.24-1.67,2.1,2.1,0,0,1,2,1.58,13.57,13.57,0,0,1,.63,4.76Zm9.16.64a2.82,2.82,0,0,0,.41-1.74,6.22,6.22,0,0,0-1.84-4.58,6.3,6.3,0,0,0-4.66-1.87,7.27,7.27,0,0,0-5.27,2.21A8.34,8.34,0,0,0,130.63,15a8.32,8.32,0,0,0,2.26,6.16,7.65,7.65,0,0,0,5.59,2.25,5.79,5.79,0,0,0,5.75-3.65H143a3.78,3.78,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.29-1.93A10,10,0,0,1,135,15.35h7.76a1.67,1.67,0,0,0,1.4-.53"/><path fill="#fff" d="M150.4,14.18a11.11,11.11,0,0,1,.8-4.67,2.47,2.47,0,0,1,2.24-1.67,2.11,2.11,0,0,1,2,1.58,13.86,13.86,0,0,1,.62,4.76Zm9.16.64a2.89,2.89,0,0,0,.41-1.74,6.35,6.35,0,0,0-6.5-6.45,7.25,7.25,0,0,0-5.27,2.21A8.3,8.3,0,0,0,146,15a8.35,8.35,0,0,0,2.25,6.16,7.65,7.65,0,0,0,5.59,2.25,5.81,5.81,0,0,0,5.76-3.65H158.4a3.79,3.79,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.3-1.93,10.09,10.09,0,0,1-1-4.85h7.75a1.71,1.71,0,0,0,1.41-.53"/><path fill="#fff" d="M172.26,19a4.87,4.87,0,0,1-1,2.13,2.27,2.27,0,0,1-1.84,1c-1.07,0-1.95-.76-2.64-2.29a14.28,14.28,0,0,1-1-5.84,10,10,0,0,1,.84-4.5A2.6,2.6,0,0,1,169,7.84a3.12,3.12,0,0,1,1.88.64,5.41,5.41,0,0,1,1.38,1.45Zm4.22.42V5.78a38.45,38.45,0,0,1,.19-4.57,1.5,1.5,0,0,0-.81-.83,16.05,16.05,0,0,1-5.48,2v1.1a1.94,1.94,0,0,1,1.42.17,1.47,1.47,0,0,1,.46,1.25V8.51a4.77,4.77,0,0,0-3.91-1.88,6.66,6.66,0,0,0-4.89,2.21A8.47,8.47,0,0,0,161.34,15a8.62,8.62,0,0,0,2.14,6.22,6.65,6.65,0,0,0,4.9,2.22,4.28,4.28,0,0,0,2.62-.76,4.22,4.22,0,0,0,1.44-1.75h.23l-.29,1.75a1.29,1.29,0,0,0,.82.82,25.53,25.53,0,0,1,5.25-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="#fff" d="M185,21.12a2.36,2.36,0,0,0-.68-1.69,2.22,2.22,0,0,0-3.24,0,2.36,2.36,0,0,0-.68,1.69,2.42,2.42,0,0,0,.68,1.68,2.22,2.22,0,0,0,3.24,0,2.42,2.42,0,0,0,.68-1.68"/></svg>
   </div>
-  <div class="top-bar-date">Friday 21 February 2026</div>
-</div>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">Market Intelligence</div>
-    <h1 class="hero-title">Top Stories<br>at a Glance.</h1>
-    <p class="hero-subtitle">Your daily digest of the signals, moves and predictions shaping the food &amp; drink industry. Built for the people who need to know first.</p>
+  <div class="topbar-right">
+    <span class="topbar-label">Intelligence &amp; Predictions</span>
+    <span class="topbar-date">21 Feb 2026</span>
   </div>
 </div>
 
-<!-- QUICK GLANCE STRIP -->
-<div class="quick-glance">
-  <div class="container">
-    <div class="quick-glance-inner">
-      <div class="quick-stat">
-        <div class="quick-stat-number">10</div>
-        <div class="quick-stat-label">Predictions Tracked</div>
-      </div>
-      <div class="quick-stat">
-        <div class="quick-stat-number">7</div>
-        <div class="quick-stat-label">Intelligence Stories</div>
-      </div>
-      <div class="quick-stat">
-        <div class="quick-stat-number">3</div>
-        <div class="quick-stat-label">People Moves</div>
-      </div>
+<!-- DASHBOARD HEADER -->
+<div class="dash-header">
+  <div class="dash-top">
+    <div class="dash-title-row">
+      <h1 class="dash-title">Market Intelligence<br>&amp; <span>Predictions</span></h1>
+      <div class="dash-edition">Food &amp; Drink Sector<br>Weekly Brief &middot; Edition 12</div>
     </div>
-  </div>
-</div>
+    <p class="dash-subtitle">Probability-weighted forecasts, market signals and strategic intelligence for the food and drink industry. From farm to fork.</p>
 
-<!-- ============================================ -->
-<!-- SECTION 1: WHAT WE PREDICT -->
-<!-- ============================================ -->
-<div class="container">
-  <div class="section">
-    <div class="section-header">
-      <div class="section-eyebrow">Crystal Ball</div>
-      <h2 class="section-title">What We Predict</h2>
-      <p class="section-subtitle">Outcome forecasts based on narrative signal analysis. The prediction matters most — confidence tells you how sure we are.</p>
-    </div>
-
-    <div class="predictions-grid">
-
-      <div class="prediction-card prediction-card--high">
-        <div class="prediction-statement">UK food regulators will publish updated labelling guidance referencing allergen transparency within 90 days</div>
-        <div class="prediction-meta">
-          <span class="prediction-badge prediction-badge--high">High confidence</span>
-          <span class="prediction-badge">90-day horizon</span>
-          <span class="prediction-badge">Yes 66% · No 34%</span>
-        </div>
-        <div class="prediction-bar"><div class="prediction-bar-fill" style="width:66%"></div></div>
-        <div class="prediction-change">What would change it: A government reshuffle that stalls the Food Standards Agency consultation timetable</div>
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-val metric-val--coral">5</div>
+        <div class="metric-label">Active Predictions</div>
       </div>
-
-      <div class="prediction-card prediction-card--medium">
-        <div class="prediction-statement">A major UK supermarket chain announces an own-label plant-based range expansion within 30 days</div>
-        <div class="prediction-meta">
-          <span class="prediction-badge prediction-badge--confidence">Medium confidence</span>
-          <span class="prediction-badge">30-day horizon</span>
-          <span class="prediction-badge">Yes 58% · No 42%</span>
-        </div>
-        <div class="prediction-bar"><div class="prediction-bar-fill" style="width:58%"></div></div>
-        <div class="prediction-change">What would change it: A credible leaked briefing with named product lines and shelf-space commitments</div>
+      <div class="metric">
+        <div class="metric-val">7</div>
+        <div class="metric-label">Intelligence Items</div>
       </div>
-
-      <div class="prediction-card prediction-card--medium">
-        <div class="prediction-statement">At least one Tier-1 FMCG brand publicly commits to AI-powered supply chain traceability within 90 days</div>
-        <div class="prediction-meta">
-          <span class="prediction-badge prediction-badge--confidence">Medium confidence</span>
-          <span class="prediction-badge">90-day horizon</span>
-          <span class="prediction-badge">Yes 57% · No 43%</span>
-        </div>
-        <div class="prediction-bar"><div class="prediction-bar-fill" style="width:57%"></div></div>
-        <div class="prediction-change">What would change it: A government announcement settling the funding approach with no near-term operational consequence</div>
+      <div class="metric">
+        <div class="metric-val">4</div>
+        <div class="metric-label">Emerging Signals</div>
       </div>
-
-      <div class="prediction-card prediction-card--medium">
-        <div class="prediction-statement">The Washington Post makes a named technology decision public in connection with newsroom restructuring within 90 days</div>
-        <div class="prediction-meta">
-          <span class="prediction-badge prediction-badge--confidence">Medium confidence</span>
-          <span class="prediction-badge">90-day horizon</span>
-          <span class="prediction-badge">Yes 55% · No 45%</span>
-        </div>
-        <div class="prediction-bar"><div class="prediction-bar-fill" style="width:55%"></div></div>
-        <div class="prediction-change">What would change it: An explicit internal memo published or corroborated describing a tool rollout and timeline</div>
+      <div class="metric">
+        <div class="metric-val">5</div>
+        <div class="metric-label">Watch Items</div>
       </div>
-
-      <div class="prediction-card prediction-card--medium">
-        <div class="prediction-statement">A large-format food retailer confirms a store conversion or new-concept pilot tied to convenience or rapid delivery within 30 days</div>
-        <div class="prediction-meta">
-          <span class="prediction-badge prediction-badge--confidence">Medium confidence</span>
-          <span class="prediction-badge">30-day horizon</span>
-          <span class="prediction-badge">Yes 53% · No 47%</span>
-        </div>
-        <div class="prediction-bar"><div class="prediction-bar-fill" style="width:53%"></div></div>
-        <div class="prediction-change">What would change it: Official statement or staff-wide note becomes public with specific dates</div>
-      </div>
-
     </div>
   </div>
 </div>
 
-<!-- MID-PAGE HERO WASH -->
-<div class="mid-hero">
-  <div class="mid-hero-text">From Farm to Fork.</div>
-  <div class="mid-hero-sub">Intelligence that moves at the speed of your industry</div>
-</div>
-
-<!-- ============================================ -->
-<!-- SECTION 2: TODAY'S INTELLIGENCE -->
-<!-- ============================================ -->
-<div class="container">
-  <div class="section">
-    <div class="section-header">
-      <div class="section-eyebrow">Today's Intelligence</div>
-      <h2 class="section-title">What You Need to Know</h2>
-      <p class="section-subtitle">The stories shaping your week, distilled to the facts and implications that matter.</p>
+<!-- =============================== -->
+<!-- 01 · PREDICTIONS -->
+<!-- =============================== -->
+<div class="main">
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Predictions</h2>
     </div>
+    <p class="sec-desc">Outcome forecasts derived from narrative signal analysis. Each prediction is probability-weighted and time-bounded.</p>
 
-    <div class="intel-card">
-      <div class="intel-headline">Tesco expands Clubcard Prices to wholesale channel amid supplier pushback</div>
-      <div class="intel-body">The extension of loyalty-tier pricing into wholesale puts additional margin pressure on mid-tier suppliers. Category managers should model the impact on promotional calendars and review whether existing contracts accommodate multi-channel price differentiation.</div>
+    <div class="pred-grid">
+
+      <!-- LEAD PREDICTION (full width, navy) -->
+      <div class="pred-card pred-card--lead">
+        <div class="pred-top">
+          <span class="pred-tag pred-tag--high">High confidence</span>
+          <span class="pred-horizon">90-day horizon</span>
+        </div>
+        <div class="pred-statement">UK food regulators will publish updated labelling guidance referencing allergen transparency within 90 days</div>
+        <div class="pred-conf">
+          <div class="pred-conf-row">
+            <span class="pred-conf-label">Probability</span>
+            <span class="pred-conf-val">66%</span>
+          </div>
+          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:66%"></div></div>
+        </div>
+        <div class="pred-detail">Trigger to watch: A government reshuffle that stalls the Food Standards Agency consultation timetable</div>
+      </div>
+
+      <!-- PREDICTION 2 -->
+      <div class="pred-card">
+        <div class="pred-top">
+          <span class="pred-tag">Medium</span>
+          <span class="pred-horizon">30 days</span>
+        </div>
+        <div class="pred-statement">A major UK supermarket chain announces an own-label plant-based range expansion</div>
+        <div class="pred-conf">
+          <div class="pred-conf-row">
+            <span class="pred-conf-label">Probability</span>
+            <span class="pred-conf-val">58%</span>
+          </div>
+          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:58%"></div></div>
+        </div>
+        <div class="pred-detail">Trigger: A credible leaked briefing with named product lines and shelf-space commitments</div>
+      </div>
+
+      <!-- PREDICTION 3 -->
+      <div class="pred-card">
+        <div class="pred-top">
+          <span class="pred-tag">Medium</span>
+          <span class="pred-horizon">90 days</span>
+        </div>
+        <div class="pred-statement">At least one Tier-1 FMCG brand publicly commits to AI-powered supply chain traceability</div>
+        <div class="pred-conf">
+          <div class="pred-conf-row">
+            <span class="pred-conf-label">Probability</span>
+            <span class="pred-conf-val">57%</span>
+          </div>
+          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:57%"></div></div>
+        </div>
+        <div class="pred-detail">Trigger: A government announcement settling the funding approach with no near-term operational consequence</div>
+      </div>
+
+      <!-- PREDICTION 4 -->
+      <div class="pred-card">
+        <div class="pred-top">
+          <span class="pred-tag">Medium</span>
+          <span class="pred-horizon">90 days</span>
+        </div>
+        <div class="pred-statement">A large-format food retailer confirms a store conversion or new-concept pilot tied to rapid delivery</div>
+        <div class="pred-conf">
+          <div class="pred-conf-row">
+            <span class="pred-conf-label">Probability</span>
+            <span class="pred-conf-val">55%</span>
+          </div>
+          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:55%"></div></div>
+        </div>
+        <div class="pred-detail">Trigger: An explicit internal memo published or corroborated describing a tool rollout and timeline</div>
+      </div>
+
+      <!-- PREDICTION 5 -->
+      <div class="pred-card">
+        <div class="pred-top">
+          <span class="pred-tag">Medium</span>
+          <span class="pred-horizon">30 days</span>
+        </div>
+        <div class="pred-statement">A food retailer publicly confirms or denies restructuring plans affecting more than 500 store-level roles</div>
+        <div class="pred-conf">
+          <div class="pred-conf-row">
+            <span class="pred-conf-label">Probability</span>
+            <span class="pred-conf-val">53%</span>
+          </div>
+          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:53%"></div></div>
+        </div>
+        <div class="pred-detail">Trigger: Official statement or staff-wide note becomes public with specific dates</div>
+      </div>
+
     </div>
-
-    <div class="intel-card">
-      <div class="intel-headline">EU Commission proposes harmonised front-of-pack nutrition labelling framework</div>
-      <div class="intel-body">The draft regulation would mandate a single Nutri-Score-style scheme across all 27 member states by 2028. UK exporters face a compliance fork: align early for frictionless trade, or wait for a divergent UK scheme and manage dual-label inventory.</div>
-    </div>
-
-    <div class="intel-card">
-      <div class="intel-headline">Deliveroo and Just Eat report accelerating grocery share in Q4 earnings</div>
-      <div class="intel-body">Quick-commerce grocery now represents 18% of platform GMV, up from 11% year-on-year. The shift signals that impulse and top-up shopping has permanently migrated for a segment of consumers, with implications for in-store merchandising and short-shelf-life ranges.</div>
-    </div>
-
-    <div class="intel-card">
-      <div class="intel-headline">Food Standards Agency fast-tracks consultation on precision fermentation Novel Food applications</div>
-      <div class="intel-body">The accelerated timeline reflects political pressure to position the UK as a regulatory-friendly destination for food tech investment. Brands with precision-fermented ingredients in pipeline should engage the consultation window before the March close.</div>
-    </div>
-
-    <div class="intel-card">
-      <div class="intel-headline">Aldi confirms five-year British sourcing commitment covering fresh meat and dairy</div>
-      <div class="intel-body">The commitment locks in domestic supply chain preference for key protein and dairy categories. For UK farmers and processors this provides planning certainty; for importers it narrows the competitive window in Aldi's fastest-growing categories.</div>
-    </div>
-
   </div>
-</div>
 
-<!-- ============================================ -->
-<!-- SECTION 3: PEOPLE MOVES -->
-<!-- ============================================ -->
-<div class="container">
-  <div class="section">
-    <div class="section-header">
-      <div class="section-eyebrow">People Moves</div>
-      <h2 class="section-title">Who's Moving Where</h2>
+  <!-- =============================== -->
+  <!-- 02 · TODAY'S INTELLIGENCE -->
+  <!-- =============================== -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Intelligence</h2>
     </div>
 
-    <div class="people-grid">
-      <div class="people-card">
-        <div class="people-icon">&#x2197;</div>
+    <div class="intel-grid">
+      <div class="intel">
+        <div class="intel-bar"></div>
+        <div class="intel-content">
+          <h4>Tesco expands Clubcard Prices to wholesale channel amid supplier pushback</h4>
+          <p>The extension of loyalty-tier pricing into wholesale puts additional margin pressure on mid-tier suppliers. Category managers should model the impact on promotional calendars and review whether existing contracts accommodate multi-channel price differentiation.</p>
+        </div>
+      </div>
+      <div class="intel">
+        <div class="intel-bar"></div>
+        <div class="intel-content">
+          <h4>EU Commission proposes harmonised front-of-pack nutrition labelling framework</h4>
+          <p>The draft regulation would mandate a single Nutri-Score-style scheme across all 27 member states by 2028. UK exporters face a compliance fork: align early for frictionless trade, or wait for a divergent UK scheme and manage dual-label inventory.</p>
+        </div>
+      </div>
+      <div class="intel">
+        <div class="intel-bar"></div>
+        <div class="intel-content">
+          <h4>Deliveroo and Just Eat report accelerating grocery share in Q4 earnings</h4>
+          <p>Quick-commerce grocery now represents 18% of platform GMV, up from 11% year-on-year. The shift signals that impulse and top-up shopping has permanently migrated for a segment of consumers, with implications for in-store merchandising and short-shelf-life ranges.</p>
+        </div>
+      </div>
+      <div class="intel">
+        <div class="intel-bar"></div>
+        <div class="intel-content">
+          <h4>Food Standards Agency fast-tracks precision fermentation Novel Food consultation</h4>
+          <p>The accelerated timeline reflects political pressure to position the UK as a regulatory-friendly destination for food tech investment. Brands with precision-fermented ingredients in pipeline should engage the consultation window before the March close.</p>
+        </div>
+      </div>
+      <div class="intel">
+        <div class="intel-bar"></div>
+        <div class="intel-content">
+          <h4>Aldi confirms five-year British sourcing commitment covering fresh meat and dairy</h4>
+          <p>The commitment locks in domestic supply chain preference for key protein and dairy categories. For UK farmers and processors this provides planning certainty; for importers it narrows the competitive window in Aldi's fastest-growing categories.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================== -->
+  <!-- 03 · PEOPLE MOVES -->
+  <!-- =============================== -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">People Moves</h2>
+    </div>
+    <div class="people">
+      <div class="person">
+        <div class="person-av">SM</div>
         <div>
-          <div class="people-name">Sarah Mitchell</div>
-          <div class="people-role">Appointed Chief Commercial Officer at Greencore Group, previously VP Sales at Kerry Group</div>
+          <div class="person-name">Sarah Mitchell</div>
+          <div class="person-role">Appointed Chief Commercial Officer at Greencore Group, previously VP Sales at Kerry Group</div>
         </div>
       </div>
-      <div class="people-card">
-        <div class="people-icon">&#x2197;</div>
+      <div class="person">
+        <div class="person-av">JT</div>
         <div>
-          <div class="people-name">James Thornton</div>
-          <div class="people-role">Named MD of Waitrose, replacing current interim leadership following John Lewis Partnership restructure</div>
+          <div class="person-name">James Thornton</div>
+          <div class="person-role">Named MD of Waitrose, replacing current interim leadership following JLP restructure</div>
         </div>
       </div>
-      <div class="people-card">
-        <div class="people-icon">&#x2197;</div>
+      <div class="person">
+        <div class="person-av">PK</div>
         <div>
-          <div class="people-name">Priya Kapoor</div>
-          <div class="people-role">Joins Ocado Technology as Head of AI &amp; Data Science from Amazon Fresh Europe</div>
+          <div class="person-name">Priya Kapoor</div>
+          <div class="person-role">Joins Ocado Technology as Head of AI &amp; Data Science from Amazon Fresh Europe</div>
         </div>
       </div>
-      <div class="people-card">
-        <div class="people-icon">&#x2197;</div>
+      <div class="person">
+        <div class="person-av">DO</div>
         <div>
-          <div class="people-name">David Okonkwo</div>
-          <div class="people-role">Promoted to Global Category Director, Snacking at Mondelez International</div>
+          <div class="person-name">David Okonkwo</div>
+          <div class="person-role">Promoted to Global Category Director, Snacking at Mondelez International</div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ============================================ -->
-<!-- SECTION 4: WHAT'S GAINING ATTENTION -->
-<!-- ============================================ -->
-<div class="container">
-  <div class="section">
-    <div class="section-header">
-      <div class="section-eyebrow">Signal Watch</div>
-      <h2 class="section-title">What's Gaining Attention</h2>
-      <p class="section-subtitle">Themes and topics generating rising coverage and conversation across industry sources.</p>
-    </div>
+<!-- MID BREAK -->
+<div class="break">
+  <div class="break-text">From Farm to Fork.</div>
+  <div class="break-sub">Intelligence that moves at the speed of your industry</div>
+</div>
 
-    <div class="signal-list">
-      <div class="signal-item">
-        <strong>Ultra-processed food reformulation</strong>
+<div class="main">
+
+  <!-- =============================== -->
+  <!-- 04 · EMERGING SIGNALS -->
+  <!-- =============================== -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Emerging Signals</h2>
+    </div>
+    <p class="sec-desc">Themes generating rising coverage and conversation across industry sources. Early indicators of where the market is heading.</p>
+    <div class="signals">
+      <div class="signal">
+        <div class="signal-tag">Rising</div>
+        <h4>Ultra-processed food reformulation</h4>
         <p>Multiple retailers now asking suppliers for UPF reduction roadmaps. Expect this to become a formal tender criterion within 12 months.</p>
       </div>
-      <div class="signal-item">
-        <strong>Carbon labelling pilot schemes</strong>
+      <div class="signal">
+        <div class="signal-tag">Rising</div>
+        <h4>Carbon labelling pilot schemes</h4>
         <p>Foundation Earth and other schemes are gaining traction with mid-market brands. Standardisation remains the blocker, but momentum is building.</p>
       </div>
-      <div class="signal-item">
-        <strong>GLP-1 drug impact on food demand</strong>
+      <div class="signal">
+        <div class="signal-tag">Emerging</div>
+        <h4>GLP-1 drug impact on food demand</h4>
         <p>Ozempic-class drugs reshaping portion size and snacking behaviour. Early data from US convenience chains now being studied by UK category planners.</p>
       </div>
-      <div class="signal-item">
-        <strong>AI-generated product imagery in marketing</strong>
+      <div class="signal">
+        <div class="signal-tag">Emerging</div>
+        <h4>AI-generated product imagery in marketing</h4>
         <p>Brands experimenting with synthetic photography for seasonal campaigns. Regulatory clarity on disclosure expected from ASA by mid-year.</p>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ============================================ -->
-<!-- SECTION 5: WHAT TO WATCH -->
-<!-- ============================================ -->
-<div class="container">
-  <div class="section">
-    <div class="section-header">
-      <div class="section-eyebrow">On the Radar</div>
-      <h2 class="section-title">What to Watch This Week</h2>
+  <!-- =============================== -->
+  <!-- 05 · WHAT TO WATCH -->
+  <!-- =============================== -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">What to Watch This Week</h2>
     </div>
-
-    <ul class="watch-list">
-      <li class="watch-item">
-        <span class="watch-number">1</span>
-        <span class="watch-text"><strong>Defra select committee hearing on Wednesday</strong> — expected to press ministers on the UK's post-Brexit food import standards timeline. Any signal of acceleration could reshape compliance planning for importers.</span>
+    <ul class="watchlist">
+      <li class="watch">
+        <span class="watch-n">1</span>
+        <p><strong>Defra select committee hearing (Wednesday)</strong> — expected to press ministers on the UK's post-Brexit food import standards timeline. Any signal of acceleration could reshape compliance planning for importers.</p>
       </li>
-      <li class="watch-item">
-        <span class="watch-number">2</span>
-        <span class="watch-text"><strong>IGD ShopperVista data release (Thursday)</strong> — February footfall and basket data will show whether the January value-seeking trend is persisting or reversing as spring approaches.</span>
+      <li class="watch">
+        <span class="watch-n">2</span>
+        <p><strong>IGD ShopperVista data release (Thursday)</strong> — February footfall and basket data will show whether the January value-seeking trend is persisting or reversing as spring approaches.</p>
       </li>
-      <li class="watch-item">
-        <span class="watch-number">3</span>
-        <span class="watch-text"><strong>Nestl&eacute; Capital Markets Day (Friday)</strong> — the key watch is whether they signal portfolio pruning in European confectionery or double down on health &amp; wellness repositioning.</span>
+      <li class="watch">
+        <span class="watch-n">3</span>
+        <p><strong>Nestl&eacute; Capital Markets Day (Friday)</strong> — the key watch is whether they signal portfolio pruning in European confectionery or double down on health &amp; wellness repositioning.</p>
       </li>
-      <li class="watch-item">
-        <span class="watch-number">4</span>
-        <span class="watch-text"><strong>Sainsbury's Q4 trading update</strong> — market expecting commentary on Nectar Prices cannibalisation of base margin. Language on supplier terms will set the tone for spring negotiations.</span>
+      <li class="watch">
+        <span class="watch-n">4</span>
+        <p><strong>Sainsbury's Q4 trading update</strong> — market expecting commentary on Nectar Prices cannibalisation of base margin. Language on supplier terms will set the tone for spring negotiations.</p>
       </li>
-      <li class="watch-item">
-        <span class="watch-number">5</span>
-        <span class="watch-text"><strong>EU Farm to Fork Strategy progress review</strong> — the Commission's mid-term assessment could signal regulatory direction changes affecting UK-EU agrifood trade terms.</span>
+      <li class="watch">
+        <span class="watch-n">5</span>
+        <p><strong>EU Farm to Fork Strategy progress review</strong> — the Commission's mid-term assessment could signal regulatory direction changes affecting UK-EU agrifood trade terms.</p>
       </li>
     </ul>
   </div>
-</div>
 
-<!-- ============================================ -->
-<!-- SECTION 6: CONTEXT & DETAIL -->
-<!-- ============================================ -->
-<div class="container">
-  <div class="section">
-    <div class="section-header">
-      <div class="section-eyebrow">Deep Dive</div>
-      <h2 class="section-title">Context &amp; Detail</h2>
-      <p class="section-subtitle">Longer analysis on the stories that benefit from more context.</p>
+  <!-- =============================== -->
+  <!-- 06 · DEEP CONTEXT -->
+  <!-- =============================== -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">Context &amp; Analysis</h2>
     </div>
-
-    <div class="context-block">
+    <div class="ctx">
       <h4>The loyalty pricing arms race is reshaping supplier economics</h4>
-      <p>Tesco's Clubcard, Sainsbury's Nectar and now Co-op's membership pricing have created a three-tier consumer market: loyalty members, non-members, and online-only shoppers. For suppliers, this means the listed shelf price is increasingly a fiction — actual realised price depends on loyalty penetration rates that vary by store, region and demographic.</p>
-      <p>The implication for category planning is significant. Promotional effectiveness metrics need recalibrating because baseline sales now include a loyalty discount that didn't exist 18 months ago. Suppliers negotiating spring-summer terms should insist on loyalty-adjusted volume data before committing to spend.</p>
+      <p>Tesco's Clubcard, Sainsbury's Nectar and now Co-op's membership pricing have created a three-tier consumer market: loyalty members, non-members, and online-only shoppers. For suppliers, the listed shelf price is increasingly a fiction — actual realised price depends on loyalty penetration rates that vary by store, region and demographic.</p>
+      <p>Promotional effectiveness metrics need recalibrating because baseline sales now include a loyalty discount that didn't exist 18 months ago. Suppliers negotiating spring-summer terms should insist on loyalty-adjusted volume data before committing to spend.</p>
     </div>
-
-    <div class="context-block">
+    <div class="ctx">
       <h4>Precision fermentation: the UK's regulatory gambit</h4>
       <p>The FSA's decision to fast-track precision fermentation Novel Food applications is a deliberate positioning move. With the EU's centralised EFSA process creating 18-24 month backlogs, the UK sees an opportunity to attract food-tech investment by offering a faster, more predictable approval pathway.</p>
-      <p>For brands already developing precision-fermented ingredients — particularly in dairy alternatives and protein — the March consultation deadline is a critical engagement window. Early movers who shape the regulatory framework will have a structural advantage over those who wait for the rules to be written by others.</p>
+      <p>For brands already developing precision-fermented ingredients — particularly in dairy alternatives and protein — the March consultation deadline is a critical engagement window. Early movers who shape the regulatory framework will have a structural advantage.</p>
     </div>
-
   </div>
-</div>
 
-<!-- ============================================ -->
-<!-- SECTION 7: BACKGROUND -->
-<!-- ============================================ -->
-<div class="container">
-  <div class="section">
-    <div class="section-header">
-      <div class="section-eyebrow">Background</div>
-      <h2 class="section-title">For the Record</h2>
-      <p class="section-subtitle">Reference material and standing context for ongoing stories.</p>
+  <!-- =============================== -->
+  <!-- 07 · BACKGROUND DATA -->
+  <!-- =============================== -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2 class="sec-title">Background Data</h2>
     </div>
-
-    <div class="context-block">
+    <div class="ctx">
       <h4>UK grocery market share (latest Kantar data)</h4>
-      <p>Tesco 27.1% (+0.3pp YoY) · Sainsbury's 15.0% (+0.1pp) · Asda 13.4% (-0.6pp) · Aldi 10.2% (+0.4pp) · Morrisons 8.6% (-0.3pp) · Lidl 8.0% (+0.5pp) · Co-op 5.8% (flat) · Waitrose 4.5% (-0.1pp). The discounter share story continues but the pace has slowed, with Aldi's gains now coming more from basket size than new store openings.</p>
+      <p>Tesco 27.1% (+0.3pp YoY) &middot; Sainsbury's 15.0% (+0.1pp) &middot; Asda 13.4% (-0.6pp) &middot; Aldi 10.2% (+0.4pp) &middot; Morrisons 8.6% (-0.3pp) &middot; Lidl 8.0% (+0.5pp) &middot; Co-op 5.8% (flat) &middot; Waitrose 4.5% (-0.1pp). The discounter share story continues but the pace has slowed, with Aldi's gains now coming more from basket size than new store openings.</p>
     </div>
-
-    <div class="context-block">
+    <div class="ctx">
       <h4>Food inflation trajectory</h4>
       <p>UK food inflation at 3.2% in January (down from 3.8% in December, peak of 19.2% in March 2023). While headline numbers continue to ease, protein and dairy categories remain elevated. The gap between branded and private label price inflation is narrowing, reducing the trade-down incentive that drove own-label growth through 2024.</p>
     </div>
-
   </div>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
   <div class="footer-inner">
-    <div class="footer-logo">
-      <svg viewBox="0 0 185 23.5" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M23,3.05v1.1a5.08,5.08,0,0,1,2.25.48c.4.27.51.73.32,1.39L22.18,17.69,18.3,6c-.23-.67-.18-1.14.14-1.41a3.53,3.53,0,0,1,2-.46V3.05c-3,.11-6.11.11-9.2,0v1.1A3.4,3.4,0,0,1,13,4.57,3,3,0,0,1,13.83,6l.21.61L10.85,17.69,7,6c-.22-.67-.15-1.14.19-1.41a3.84,3.84,0,0,1,2-.46V3.05Q4.53,3.2,0,3.05v1.1a3.47,3.47,0,0,1,1.68.42A3,3,0,0,1,2.5,6L8.67,23.31h1.62l4.5-14.56L20,23.31h1.64L27,6a2.39,2.39,0,0,1,1-1.42,4.93,4.93,0,0,1,2-.45V3.05q-3.46.17-6.93,0"/><path fill="#fff" d="M34,4.52a2,2,0,0,0,1.54-.67,2.24,2.24,0,0,0,.64-1.6A2.19,2.19,0,0,0,35.51.66,2.07,2.07,0,0,0,34,0a2.13,2.13,0,0,0-1.56.66,2.17,2.17,0,0,0-.66,1.59,2.22,2.22,0,0,0,.66,1.6A2.1,2.1,0,0,0,34,4.52"/><path fill="#fff" d="M63.74,20.75V12a41.88,41.88,0,0,1,.2-4.6,1.68,1.68,0,0,0-.83-.85,15.72,15.72,0,0,1-5.46,2V9.64a1.91,1.91,0,0,1,1.42.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.63,1-1.9,1.18H56.51c-1.31-.15-2-.54-2-1.18v-15a44.26,44.26,0,0,1,.2-4.57,1.58,1.58,0,0,0-.82-.83,15.77,15.77,0,0,1-5.47,2v1.1a1.92,1.92,0,0,1,1.41.17,1.45,1.45,0,0,1,.47,1.25V20.75c0,.64-.64,1-1.91,1.18h-1.1c-1.32-.15-2-.54-2-1.18v-15a41.5,41.5,0,0,1,.2-4.57,1.6,1.6,0,0,0-.83-.83,15.79,15.79,0,0,1-5.46,2v1.1a1.92,1.92,0,0,1,1.41.17,1.44,1.44,0,0,1,.46,1.25V20.75c0,.64-.63,1-1.9,1.18H38.12c-1.31-.15-2-.54-2-1.18V12a44.66,44.66,0,0,1,.2-4.6,1.64,1.64,0,0,0-.83-.85,15.64,15.64,0,0,1-5.46,2V9.64a1.94,1.94,0,0,1,1.43.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.64,1-1.91,1.18V23c2.71-.12,5.4-.12,8.09,0H65.71v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="#fff" d="M61.56,4.52a2,2,0,0,0,1.54-.67,2.29,2.29,0,0,0,.64-1.6A2.23,2.23,0,0,0,63.1.66,2.07,2.07,0,0,0,61.56,0,2.12,2.12,0,0,0,60,.66a2.17,2.17,0,0,0-.66,1.59A2.22,2.22,0,0,0,60,3.85a2.09,2.09,0,0,0,1.56.67"/><path fill="#fff" d="M76,18.85a6.93,6.93,0,0,1-1.19,1.82,2.48,2.48,0,0,1-1.88.88,1.74,1.74,0,0,1-1.45-.72,3.06,3.06,0,0,1-.55-1.92,4.63,4.63,0,0,1,.78-2.43q1-1.59,4.29-2.45Zm4.21.58v-8c0-1.83-.43-3.08-1.28-3.75a5.81,5.81,0,0,0-3.76-1,10.51,10.51,0,0,0-5.41,1.26A3.59,3.59,0,0,0,67.57,11,1.65,1.65,0,0,0,68,12.25a2.32,2.32,0,0,0,2,.33,2.78,2.78,0,0,0,.48-.2,1.15,1.15,0,0,0,.37-.36c.11-.17.2-.31.26-.42a2.32,2.32,0,0,0,.18-.52c.06-.23.1-.41.12-.52s.06-.3.1-.56.08-.44.1-.53a2.25,2.25,0,0,1,.72-1.27,2.31,2.31,0,0,1,1.54-.49,1.66,1.66,0,0,1,1.62.8A6.43,6.43,0,0,1,76,11.36v1.69q-5.25,1.2-7.3,2.59a4.22,4.22,0,0,0-2,3.62,3.83,3.83,0,0,0,1.31,3.15,4.87,4.87,0,0,0,3.16,1,4.93,4.93,0,0,0,3.41-1.21A7.12,7.12,0,0,0,76,20.51h.24l-.15,2.12a1.23,1.23,0,0,0,.78.82,26.6,26.6,0,0,1,5.28-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="#fff" d="M108.32,20.75V12.22q0-5.67-4.31-5.67a5.29,5.29,0,0,0-3.39,1.08,7.62,7.62,0,0,0-2,2.41q-.77-3.49-4.09-3.49a5.3,5.3,0,0,0-2.76.75,5.92,5.92,0,0,0-1.83,1.5,8.32,8.32,0,0,0-.9,1.49h-.2l.47-2.89a1.57,1.57,0,0,0-.81-.85,16.18,16.18,0,0,1-5.28,2V9.64c1.27-.22,1.91.27,1.91,1.45v9.66c0,.65-.65,1-1.94,1.18V23c2.71-.09,5.41-.09,8.12,0v-1.1c-1.31-.1-2-.49-2-1.18V11.67a5.54,5.54,0,0,1,1.12-2.09,2.59,2.59,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.11-.13,8.17,0v-1.1c-1.31-.15-2-.54-2-1.18V11.61a5.74,5.74,0,0,1,1.12-2.06,2.63,2.63,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.09-.13,8.16,0v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="#fff" d="M119.27,14.06l-.63.06V4.21h2a3.71,3.71,0,0,1,3,1.19,5,5,0,0,1,1,3.32q0,4.76-5.42,5.34m6.41,3.78-2.37-3.37q5.56-1.71,5.56-6,0-5.46-8.92-5.46h-2l-3,0q-1.62,0-2.82-.06v1.1a3.82,3.82,0,0,1,1.64.37,1.07,1.07,0,0,1,.44,1V20.33a1.34,1.34,0,0,1-.48,1.17,4,4,0,0,1-1.78.43V23q4.47-.13,8.91,0v-1.1a4.08,4.08,0,0,1-1.79-.43,1.37,1.37,0,0,1-.47-1.17V15.41l.69-.11.17,0,2.65,3.92a8.64,8.64,0,0,0,4,3.46,9.34,9.34,0,0,0,1.86.5,11.94,11.94,0,0,0,1.85.13l.75-1.21q-2.1-.24-4.92-4.23"/><path fill="#fff" d="M135,14.18a11.11,11.11,0,0,1,.8-4.67,2.48,2.48,0,0,1,2.24-1.67,2.1,2.1,0,0,1,2,1.58,13.57,13.57,0,0,1,.63,4.76Zm9.16.64a2.82,2.82,0,0,0,.41-1.74,6.22,6.22,0,0,0-1.84-4.58,6.3,6.3,0,0,0-4.66-1.87,7.27,7.27,0,0,0-5.27,2.21A8.34,8.34,0,0,0,130.63,15a8.32,8.32,0,0,0,2.26,6.16,7.65,7.65,0,0,0,5.59,2.25,5.79,5.79,0,0,0,5.75-3.65H143a3.78,3.78,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.29-1.93A10,10,0,0,1,135,15.35h7.76a1.67,1.67,0,0,0,1.4-.53"/><path fill="#fff" d="M150.4,14.18a11.11,11.11,0,0,1,.8-4.67,2.47,2.47,0,0,1,2.24-1.67,2.11,2.11,0,0,1,2,1.58,13.86,13.86,0,0,1,.62,4.76Zm9.16.64a2.89,2.89,0,0,0,.41-1.74,6.35,6.35,0,0,0-6.5-6.45,7.25,7.25,0,0,0-5.27,2.21A8.3,8.3,0,0,0,146,15a8.35,8.35,0,0,0,2.25,6.16,7.65,7.65,0,0,0,5.59,2.25,5.81,5.81,0,0,0,5.76-3.65H158.4a3.79,3.79,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.3-1.93,10.09,10.09,0,0,1-1-4.85h7.75a1.71,1.71,0,0,0,1.41-.53"/><path fill="#fff" d="M172.26,19a4.87,4.87,0,0,1-1,2.13,2.27,2.27,0,0,1-1.84,1c-1.07,0-1.95-.76-2.64-2.29a14.28,14.28,0,0,1-1-5.84,10,10,0,0,1,.84-4.5A2.6,2.6,0,0,1,169,7.84a3.12,3.12,0,0,1,1.88.64,5.41,5.41,0,0,1,1.38,1.45Zm4.22.42V5.78a38.45,38.45,0,0,1,.19-4.57,1.5,1.5,0,0,0-.81-.83,16.05,16.05,0,0,1-5.48,2v1.1a1.94,1.94,0,0,1,1.42.17,1.47,1.47,0,0,1,.46,1.25V8.51a4.77,4.77,0,0,0-3.91-1.88,6.66,6.66,0,0,0-4.89,2.21A8.47,8.47,0,0,0,161.34,15a8.62,8.62,0,0,0,2.14,6.22,6.65,6.65,0,0,0,4.9,2.22,4.28,4.28,0,0,0,2.62-.76,4.22,4.22,0,0,0,1.44-1.75h.23l-.29,1.75a1.29,1.29,0,0,0,.82.82,25.53,25.53,0,0,1,5.25-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="#fff" d="M185,21.12a2.36,2.36,0,0,0-.68-1.69,2.22,2.22,0,0,0-3.24,0,2.36,2.36,0,0,0-.68,1.69,2.42,2.42,0,0,0,.68,1.68,2.22,2.22,0,0,0,3.24,0,2.42,2.42,0,0,0,.68-1.68"/></svg>
-    </div>
-    <div class="footer-text">
-      Market Intelligence Brief &middot; &copy; William Reed 2026
-    </div>
+    <svg viewBox="0 0 185 23.5" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,0.4)" d="M23,3.05v1.1a5.08,5.08,0,0,1,2.25.48c.4.27.51.73.32,1.39L22.18,17.69,18.3,6c-.23-.67-.18-1.14.14-1.41a3.53,3.53,0,0,1,2-.46V3.05c-3,.11-6.11.11-9.2,0v1.1A3.4,3.4,0,0,1,13,4.57,3,3,0,0,1,13.83,6l.21.61L10.85,17.69,7,6c-.22-.67-.15-1.14.19-1.41a3.84,3.84,0,0,1,2-.46V3.05Q4.53,3.2,0,3.05v1.1a3.47,3.47,0,0,1,1.68.42A3,3,0,0,1,2.5,6L8.67,23.31h1.62l4.5-14.56L20,23.31h1.64L27,6a2.39,2.39,0,0,1,1-1.42,4.93,4.93,0,0,1,2-.45V3.05q-3.46.17-6.93,0"/><path fill="rgba(255,255,255,0.4)" d="M34,4.52a2,2,0,0,0,1.54-.67,2.24,2.24,0,0,0,.64-1.6A2.19,2.19,0,0,0,35.51.66,2.07,2.07,0,0,0,34,0a2.13,2.13,0,0,0-1.56.66,2.17,2.17,0,0,0-.66,1.59,2.22,2.22,0,0,0,.66,1.6A2.1,2.1,0,0,0,34,4.52"/><path fill="rgba(255,255,255,0.4)" d="M63.74,20.75V12a41.88,41.88,0,0,1,.2-4.6,1.68,1.68,0,0,0-.83-.85,15.72,15.72,0,0,1-5.46,2V9.64a1.91,1.91,0,0,1,1.42.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.63,1-1.9,1.18H56.51c-1.31-.15-2-.54-2-1.18v-15a44.26,44.26,0,0,1,.2-4.57,1.58,1.58,0,0,0-.82-.83,15.77,15.77,0,0,1-5.47,2v1.1a1.92,1.92,0,0,1,1.41.17,1.45,1.45,0,0,1,.47,1.25V20.75c0,.64-.64,1-1.91,1.18h-1.1c-1.32-.15-2-.54-2-1.18v-15a41.5,41.5,0,0,1,.2-4.57,1.6,1.6,0,0,0-.83-.83,15.79,15.79,0,0,1-5.46,2v1.1a1.92,1.92,0,0,1,1.41.17,1.44,1.44,0,0,1,.46,1.25V20.75c0,.64-.63,1-1.9,1.18H38.12c-1.31-.15-2-.54-2-1.18V12a44.66,44.66,0,0,1,.2-4.6,1.64,1.64,0,0,0-.83-.85,15.64,15.64,0,0,1-5.46,2V9.64a1.94,1.94,0,0,1,1.43.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.64,1-1.91,1.18V23c2.71-.12,5.4-.12,8.09,0H65.71v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="rgba(255,255,255,0.4)" d="M61.56,4.52a2,2,0,0,0,1.54-.67,2.29,2.29,0,0,0,.64-1.6A2.23,2.23,0,0,0,63.1.66,2.07,2.07,0,0,0,61.56,0,2.12,2.12,0,0,0,60,.66a2.17,2.17,0,0,0-.66,1.59A2.22,2.22,0,0,0,60,3.85a2.09,2.09,0,0,0,1.56.67"/><path fill="rgba(255,255,255,0.4)" d="M76,18.85a6.93,6.93,0,0,1-1.19,1.82,2.48,2.48,0,0,1-1.88.88,1.74,1.74,0,0,1-1.45-.72,3.06,3.06,0,0,1-.55-1.92,4.63,4.63,0,0,1,.78-2.43q1-1.59,4.29-2.45Zm4.21.58v-8c0-1.83-.43-3.08-1.28-3.75a5.81,5.81,0,0,0-3.76-1,10.51,10.51,0,0,0-5.41,1.26A3.59,3.59,0,0,0,67.57,11,1.65,1.65,0,0,0,68,12.25a2.32,2.32,0,0,0,2,.33,2.78,2.78,0,0,0,.48-.2,1.15,1.15,0,0,0,.37-.36c.11-.17.2-.31.26-.42a2.32,2.32,0,0,0,.18-.52c.06-.23.1-.41.12-.52s.06-.3.1-.56.08-.44.1-.53a2.25,2.25,0,0,1,.72-1.27,2.31,2.31,0,0,1,1.54-.49,1.66,1.66,0,0,1,1.62.8A6.43,6.43,0,0,1,76,11.36v1.69q-5.25,1.2-7.3,2.59a4.22,4.22,0,0,0-2,3.62,3.83,3.83,0,0,0,1.31,3.15,4.87,4.87,0,0,0,3.16,1,4.93,4.93,0,0,0,3.41-1.21A7.12,7.12,0,0,0,76,20.51h.24l-.15,2.12a1.23,1.23,0,0,0,.78.82,26.6,26.6,0,0,1,5.28-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="rgba(255,255,255,0.4)" d="M108.32,20.75V12.22q0-5.67-4.31-5.67a5.29,5.29,0,0,0-3.39,1.08,7.62,7.62,0,0,0-2,2.41q-.77-3.49-4.09-3.49a5.3,5.3,0,0,0-2.76.75,5.92,5.92,0,0,0-1.83,1.5,8.32,8.32,0,0,0-.9,1.49h-.2l.47-2.89a1.57,1.57,0,0,0-.81-.85,16.18,16.18,0,0,1-5.28,2V9.64c1.27-.22,1.91.27,1.91,1.45v9.66c0,.65-.65,1-1.94,1.18V23c2.71-.09,5.41-.09,8.12,0v-1.1c-1.31-.1-2-.49-2-1.18V11.67a5.54,5.54,0,0,1,1.12-2.09,2.59,2.59,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.11-.13,8.17,0v-1.1c-1.31-.15-2-.54-2-1.18V11.61a5.74,5.74,0,0,1,1.12-2.06,2.63,2.63,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.09-.13,8.16,0v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="rgba(255,255,255,0.4)" d="M119.27,14.06l-.63.06V4.21h2a3.71,3.71,0,0,1,3,1.19,5,5,0,0,1,1,3.32q0,4.76-5.42,5.34m6.41,3.78-2.37-3.37q5.56-1.71,5.56-6,0-5.46-8.92-5.46h-2l-3,0q-1.62,0-2.82-.06v1.1a3.82,3.82,0,0,1,1.64.37,1.07,1.07,0,0,1,.44,1V20.33a1.34,1.34,0,0,1-.48,1.17,4,4,0,0,1-1.78.43V23q4.47-.13,8.91,0v-1.1a4.08,4.08,0,0,1-1.79-.43,1.37,1.37,0,0,1-.47-1.17V15.41l.69-.11.17,0,2.65,3.92a8.64,8.64,0,0,0,4,3.46,9.34,9.34,0,0,0,1.86.5,11.94,11.94,0,0,0,1.85.13l.75-1.21q-2.1-.24-4.92-4.23"/><path fill="rgba(255,255,255,0.4)" d="M135,14.18a11.11,11.11,0,0,1,.8-4.67,2.48,2.48,0,0,1,2.24-1.67,2.1,2.1,0,0,1,2,1.58,13.57,13.57,0,0,1,.63,4.76Zm9.16.64a2.82,2.82,0,0,0,.41-1.74,6.22,6.22,0,0,0-1.84-4.58,6.3,6.3,0,0,0-4.66-1.87,7.27,7.27,0,0,0-5.27,2.21A8.34,8.34,0,0,0,130.63,15a8.32,8.32,0,0,0,2.26,6.16,7.65,7.65,0,0,0,5.59,2.25,5.79,5.79,0,0,0,5.75-3.65H143a3.78,3.78,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.29-1.93A10,10,0,0,1,135,15.35h7.76a1.67,1.67,0,0,0,1.4-.53"/><path fill="rgba(255,255,255,0.4)" d="M150.4,14.18a11.11,11.11,0,0,1,.8-4.67,2.47,2.47,0,0,1,2.24-1.67,2.11,2.11,0,0,1,2,1.58,13.86,13.86,0,0,1,.62,4.76Zm9.16.64a2.89,2.89,0,0,0,.41-1.74,6.35,6.35,0,0,0-6.5-6.45,7.25,7.25,0,0,0-5.27,2.21A8.3,8.3,0,0,0,146,15a8.35,8.35,0,0,0,2.25,6.16,7.65,7.65,0,0,0,5.59,2.25,5.81,5.81,0,0,0,5.76-3.65H158.4a3.79,3.79,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.3-1.93,10.09,10.09,0,0,1-1-4.85h7.75a1.71,1.71,0,0,0,1.41-.53"/><path fill="rgba(255,255,255,0.4)" d="M172.26,19a4.87,4.87,0,0,1-1,2.13,2.27,2.27,0,0,1-1.84,1c-1.07,0-1.95-.76-2.64-2.29a14.28,14.28,0,0,1-1-5.84,10,10,0,0,1,.84-4.5A2.6,2.6,0,0,1,169,7.84a3.12,3.12,0,0,1,1.88.64,5.41,5.41,0,0,1,1.38,1.45Zm4.22.42V5.78a38.45,38.45,0,0,1,.19-4.57,1.5,1.5,0,0,0-.81-.83,16.05,16.05,0,0,1-5.48,2v1.1a1.94,1.94,0,0,1,1.42.17,1.47,1.47,0,0,1,.46,1.25V8.51a4.77,4.77,0,0,0-3.91-1.88,6.66,6.66,0,0,0-4.89,2.21A8.47,8.47,0,0,0,161.34,15a8.62,8.62,0,0,0,2.14,6.22,6.65,6.65,0,0,0,4.9,2.22,4.28,4.28,0,0,0,2.62-.76,4.22,4.22,0,0,0,1.44-1.75h.23l-.29,1.75a1.29,1.29,0,0,0,.82.82,25.53,25.53,0,0,1,5.25-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="rgba(255,255,255,0.4)" d="M185,21.12a2.36,2.36,0,0,0-.68-1.69,2.22,2.22,0,0,0-3.24,0,2.36,2.36,0,0,0-.68,1.69,2.42,2.42,0,0,0,.68,1.68,2.22,2.22,0,0,0,3.24,0,2.42,2.42,0,0,0,.68-1.68"/></svg>
+    <span class="footer-text">Market Intelligence &amp; Predictions &middot; &copy; William Reed 2026</span>
   </div>
-  <div class="footer-powered">
-    Intelligence powered by <a href="https://noahwire.com" style="color:rgba(255,255,255,0.45);">Noah Wire Services</a> &middot; Narrative signal analysis
-  </div>
+  <div class="footer-credit">Intelligence powered by <a href="https://noahwire.com">Noah Wire Services</a> &middot; Narrative signal analysis</div>
 </div>
 
 </body>
