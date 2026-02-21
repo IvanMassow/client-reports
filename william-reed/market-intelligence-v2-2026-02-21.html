@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Intelligence & Predictions — William Reed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Lato:wght@300;400;700;900&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* A fresh palette: deep botanical green + warm accents — food-appropriate, authoritative */
+    --forest: #0B3D2E;
+    --forest-deep: #072A1F;
+    --forest-mid: #145A43;
+    --sage: #2D8A6E;
+    --mint: #3BB982;
+    --gold: #E8A838;
+    --gold-soft: #F5C96A;
+    --coral: #E8725C;
+    --paper: #FAFAF7;
+    --paper-warm: #F5F3EE;
+    --white: #FFFFFF;
+    --ink: #1B2130;
+    --text: #2D3340;
+    --text-mid: #505868;
+    --text-muted: #7A8294;
+    --border: #E2E4E8;
+    --border-light: #EEEFF2;
+    --green-bright: #22C07A;
+    --amber: #D49B1A;
+    --red: #C9413F;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--paper);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* === UTILITY === */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === THIN TOP BAR === */
+  .topbar {
+    background: var(--forest-deep);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 40px;
+    position: relative;
+    z-index: 100;
+  }
+  .topbar-logo svg { height: 13px; }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .topbar-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .topbar-date {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.5px;
+  }
+
+  /* === HERO === */
+  .hero {
+    background: var(--forest);
+    background: linear-gradient(170deg, var(--forest-deep) 0%, var(--forest) 45%, var(--forest-mid) 100%);
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 80px 32px;
+  }
+  /* Subtle food-themed background pattern — abstract produce grid */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(circle at 15% 25%, rgba(255,255,255,0.025) 0%, transparent 40%),
+      radial-gradient(circle at 75% 15%, rgba(255,255,255,0.02) 0%, transparent 35%),
+      radial-gradient(circle at 45% 65%, rgba(255,255,255,0.015) 0%, transparent 45%),
+      radial-gradient(circle at 85% 75%, rgba(255,255,255,0.02) 0%, transparent 30%),
+      radial-gradient(circle at 25% 80%, rgba(255,255,255,0.015) 0%, transparent 35%),
+      radial-gradient(circle at 60% 35%, rgba(255,255,255,0.02) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  /* Warm glow */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 70%;
+    height: 160%;
+    background: radial-gradient(ellipse at center, rgba(232,168,56,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  /* Bottom fade to paper */
+  .hero-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(to top, var(--paper) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-inner {
+    max-width: 780px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-edition {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 36px;
+    display: inline-block;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(232,168,56,0.3);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    color: var(--white);
+    line-height: 1.06;
+    letter-spacing: -1.5px;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-strapline {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: rgba(255,255,255,0.6);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 52px;
+    line-height: 1.5;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-ref {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.18);
+    margin-top: 12px;
+  }
+
+  /* === HERO METRICS === */
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    max-width: 680px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.06);
+    border-radius: 14px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+  }
+  .hero-metric {
+    padding: 30px 16px;
+    text-align: center;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero-metric-val {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .hero-metric-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  /* === SECTIONS === */
+  .section {
+    padding: 72px 0;
+    position: relative;
+  }
+  .section + .section {
+    border-top: 1px solid var(--border-light);
+  }
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--text-mid);
+    max-width: 620px;
+    line-height: 1.65;
+    margin-bottom: 44px;
+  }
+
+  /* === LEAD STORY (Dark Hero Block) === */
+  .lead-story {
+    background: var(--forest);
+    background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest) 60%, var(--forest-mid) 100%);
+    border-radius: 16px;
+    padding: 52px 48px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .lead-story::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at top right, rgba(232,168,56,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .lead-story-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+  .lead-story h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--white);
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    font-weight: 600;
+  }
+  .lead-story p {
+    font-size: 16px;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.8;
+    max-width: 640px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* === INTEL CARDS === */
+  .intel-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 14px;
+    border-left: 4px solid var(--sage);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  .intel-card:hover {
+    box-shadow: 0 6px 28px rgba(0,0,0,0.06);
+    transform: translateY(-1px);
+  }
+  .intel-card-tag {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 14px;
+  }
+  .intel-card-tag--regulation { background: #FDE8E8; color: var(--red); }
+  .intel-card-tag--risk { background: #FEF3E2; color: var(--amber); }
+  .intel-card-tag--innovation { background: #E6F4EA; color: #1a8a5c; }
+  .intel-card-tag--operations { background: #E8EDF5; color: var(--ink); }
+  .intel-card h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 21px;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .intel-card p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  /* === PREDICTIONS === */
+  .pred-lead {
+    background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest) 60%, var(--forest-mid) 100%);
+    border-radius: 16px;
+    padding: 48px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pred-lead::after {
+    content: '';
+    position: absolute;
+    top: -40%; right: -20%;
+    width: 60%; height: 180%;
+    background: radial-gradient(ellipse, rgba(232,168,56,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .pred-lead-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .pred-lead h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.3rem, 2.8vw, 1.9rem);
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  .pred-lead-meta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.38);
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+  }
+  .pred-lead-detail {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pred-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .pred-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+  }
+  .pred-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  .pred-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .pred-card-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: #E6F4EA;
+    color: var(--sage);
+  }
+  .pred-card-horizon {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .pred-card h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 16px;
+    flex-grow: 1;
+    font-weight: 600;
+  }
+  .pred-card-status {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .pred-card-bar {
+    height: 4px;
+    background: var(--border-light);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .pred-card-bar-inner {
+    height: 100%;
+    width: 100%;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--amber) 0px, var(--amber) 5px,
+      transparent 5px, transparent 10px
+    );
+    opacity: 0.35;
+    border-radius: 2px;
+  }
+  .pred-card-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* === STAT BANNER (between sections) === */
+  .stat-banner {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    overflow: hidden;
+    margin-bottom: 44px;
+  }
+  .stat-banner-item {
+    padding: 32px 24px;
+    text-align: center;
+    background: var(--paper);
+  }
+  .stat-banner-val {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--forest);
+    line-height: 1;
+  }
+  .stat-banner-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  /* === INDUSTRY NOTES === */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .note-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 26px 28px;
+    transition: box-shadow 0.3s ease;
+  }
+  .note-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+  .note-card--featured {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+    border: none;
+    padding: 40px 44px;
+  }
+  .note-card--featured .note-category { color: var(--gold-soft); }
+  .note-card--featured h4 { color: var(--white); font-size: 22px; }
+  .note-card--featured p { color: rgba(255,255,255,0.65); }
+  .note-category {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 10px;
+  }
+  .note-card h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+  .note-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* === PEOPLE MOVES === */
+  .people-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .person-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 30px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  .person-avatar {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .person-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .person-role {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.45;
+  }
+  .person-timing {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sage);
+    margin-top: 6px;
+  }
+
+  /* === EDITORIAL BREAK === */
+  .editorial-break {
+    background: var(--forest);
+    background: linear-gradient(150deg, var(--forest-deep) 0%, var(--forest) 50%, var(--forest-mid) 100%);
+    padding: 100px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .editorial-break::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(232,168,56,0.07) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .editorial-break-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    color: var(--white);
+    line-height: 1.2;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+  }
+  .editorial-break-quote em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .editorial-break-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
+    margin-top: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* === EMERGING SIGNALS === */
+  .signal-lead {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 44px;
+    margin-bottom: 16px;
+    border-top: 4px solid var(--gold);
+  }
+  .signal-lead-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 12px;
+  }
+  .signal-lead h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .signal-lead p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  .signal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .signal-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 30px;
+    border-top: 3px solid var(--sage);
+    transition: box-shadow 0.3s ease;
+  }
+  .signal-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+  .signal-card-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 10px;
+  }
+  .signal-card h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .signal-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* === WATCH LIST === */
+  .watch-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 30px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .watch-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--gold);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .watch-item p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+  .watch-item strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* === CONTEXT & ANALYSIS === */
+  .analysis-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px 52px;
+    position: relative;
+  }
+  .analysis-block::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 28px;
+    bottom: 28px;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--gold), var(--sage));
+    border-radius: 2px;
+  }
+  .analysis-block h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  .analysis-block p {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .analysis-block p:last-child { margin-bottom: 0; }
+
+  /* === BACKGROUND TIMELINE === */
+  .timeline {
+    position: relative;
+    padding-left: 42px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--sage), var(--gold));
+    border-radius: 1px;
+  }
+  .timeline-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -35px;
+    top: 28px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--sage);
+    border: 3px solid var(--paper);
+  }
+  .timeline-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 6px;
+  }
+  .timeline-item h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.35;
+    font-weight: 600;
+  }
+  .timeline-item p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  /* === MASSIVE FOOTER === */
+  .footer-statement {
+    background: var(--forest);
+    background: linear-gradient(170deg, var(--forest-deep) 0%, var(--forest) 45%, var(--forest-mid) 100%);
+    padding: 120px 32px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .footer-statement::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 35%, rgba(232,168,56,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .footer-big-text {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+    color: var(--white);
+    line-height: 1.12;
+    max-width: 720px;
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+  .footer-big-text em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .footer-sub-text {
+    font-size: 16px;
+    color: rgba(255,255,255,0.4);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 52px auto;
+    opacity: 0.35;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-bottom svg { height: 13px; }
+  .footer-legal {
+    font-size: 10px;
+    color: rgba(255,255,255,0.22);
+  }
+  .footer-credit {
+    font-size: 10px;
+    color: rgba(255,255,255,0.18);
+    text-align: center;
+    max-width: 960px;
+    margin: 20px auto 0;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-credit a {
+    color: rgba(255,255,255,0.28);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 768px) {
+    .topbar { padding: 0 16px; height: 36px; }
+    .hero { min-height: 78vh; padding: 60px 20px; }
+    .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+    .hero-metric { padding: 22px 12px; }
+    .hero-metric-val { font-size: 34px; }
+    .container { padding: 0 20px; }
+    .section { padding: 48px 0; }
+    .pred-grid { grid-template-columns: 1fr; }
+    .notes-grid { grid-template-columns: 1fr; }
+    .note-card--featured { grid-column: auto; }
+    .people-grid { grid-template-columns: 1fr; }
+    .signal-grid { grid-template-columns: 1fr; }
+    .stat-banner { grid-template-columns: 1fr; }
+    .lead-story { padding: 32px 24px; }
+    .pred-lead { padding: 32px 24px; }
+    .intel-card { padding: 24px 24px; }
+    .analysis-block { padding: 32px 28px; }
+    .editorial-break { padding: 64px 20px; }
+    .footer-statement { padding: 80px 20px 48px; }
+    .footer-bottom { flex-direction: column; gap: 12px; }
+    .signal-lead { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- THIN TOP BAR -->
+<div class="topbar">
+  <div class="topbar-logo">
+    <svg viewBox="0 0 185 23.5" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M23,3.05v1.1a5.08,5.08,0,0,1,2.25.48c.4.27.51.73.32,1.39L22.18,17.69,18.3,6c-.23-.67-.18-1.14.14-1.41a3.53,3.53,0,0,1,2-.46V3.05c-3,.11-6.11.11-9.2,0v1.1A3.4,3.4,0,0,1,13,4.57,3,3,0,0,1,13.83,6l.21.61L10.85,17.69,7,6c-.22-.67-.15-1.14.19-1.41a3.84,3.84,0,0,1,2-.46V3.05Q4.53,3.2,0,3.05v1.1a3.47,3.47,0,0,1,1.68.42A3,3,0,0,1,2.5,6L8.67,23.31h1.62l4.5-14.56L20,23.31h1.64L27,6a2.39,2.39,0,0,1,1-1.42,4.93,4.93,0,0,1,2-.45V3.05q-3.46.17-6.93,0"/><path fill="#fff" d="M34,4.52a2,2,0,0,0,1.54-.67,2.24,2.24,0,0,0,.64-1.6A2.19,2.19,0,0,0,35.51.66,2.07,2.07,0,0,0,34,0a2.13,2.13,0,0,0-1.56.66,2.17,2.17,0,0,0-.66,1.59,2.22,2.22,0,0,0,.66,1.6A2.1,2.1,0,0,0,34,4.52"/><path fill="#fff" d="M63.74,20.75V12a41.88,41.88,0,0,1,.2-4.6,1.68,1.68,0,0,0-.83-.85,15.72,15.72,0,0,1-5.46,2V9.64a1.91,1.91,0,0,1,1.42.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.63,1-1.9,1.18H56.51c-1.31-.15-2-.54-2-1.18v-15a44.26,44.26,0,0,1,.2-4.57,1.58,1.58,0,0,0-.82-.83,15.77,15.77,0,0,1-5.47,2v1.1a1.92,1.92,0,0,1,1.41.17,1.45,1.45,0,0,1,.47,1.25V20.75c0,.64-.64,1-1.91,1.18h-1.1c-1.32-.15-2-.54-2-1.18v-15a41.5,41.5,0,0,1,.2-4.57,1.6,1.6,0,0,0-.83-.83,15.79,15.79,0,0,1-5.46,2v1.1a1.92,1.92,0,0,1,1.41.17,1.44,1.44,0,0,1,.46,1.25V20.75c0,.64-.63,1-1.9,1.18H38.12c-1.31-.15-2-.54-2-1.18V12a44.66,44.66,0,0,1,.2-4.6,1.64,1.64,0,0,0-.83-.85,15.64,15.64,0,0,1-5.46,2V9.64a1.94,1.94,0,0,1,1.43.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.64,1-1.91,1.18V23c2.71-.12,5.4-.12,8.09,0H65.71v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="#fff" d="M61.56,4.52a2,2,0,0,0,1.54-.67,2.29,2.29,0,0,0,.64-1.6A2.23,2.23,0,0,0,63.1.66,2.07,2.07,0,0,0,61.56,0,2.12,2.12,0,0,0,60,.66a2.17,2.17,0,0,0-.66,1.59A2.22,2.22,0,0,0,60,3.85a2.09,2.09,0,0,0,1.56.67"/><path fill="#fff" d="M76,18.85a6.93,6.93,0,0,1-1.19,1.82,2.48,2.48,0,0,1-1.88.88,1.74,1.74,0,0,1-1.45-.72,3.06,3.06,0,0,1-.55-1.92,4.63,4.63,0,0,1,.78-2.43q1-1.59,4.29-2.45Zm4.21.58v-8c0-1.83-.43-3.08-1.28-3.75a5.81,5.81,0,0,0-3.76-1,10.51,10.51,0,0,0-5.41,1.26A3.59,3.59,0,0,0,67.57,11,1.65,1.65,0,0,0,68,12.25a2.32,2.32,0,0,0,2,.33,2.78,2.78,0,0,0,.48-.2,1.15,1.15,0,0,0,.37-.36c.11-.17.2-.31.26-.42a2.32,2.32,0,0,0,.18-.52c.06-.23.1-.41.12-.52s.06-.3.1-.56.08-.44.1-.53a2.25,2.25,0,0,1,.72-1.27,2.31,2.31,0,0,1,1.54-.49,1.66,1.66,0,0,1,1.62.8A6.43,6.43,0,0,1,76,11.36v1.69q-5.25,1.2-7.3,2.59a4.22,4.22,0,0,0-2,3.62,3.83,3.83,0,0,0,1.31,3.15,4.87,4.87,0,0,0,3.16,1,4.93,4.93,0,0,0,3.41-1.21A7.12,7.12,0,0,0,76,20.51h.24l-.15,2.12a1.23,1.23,0,0,0,.78.82,26.6,26.6,0,0,1,5.28-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="#fff" d="M108.32,20.75V12.22q0-5.67-4.31-5.67a5.29,5.29,0,0,0-3.39,1.08,7.62,7.62,0,0,0-2,2.41q-.77-3.49-4.09-3.49a5.3,5.3,0,0,0-2.76.75,5.92,5.92,0,0,0-1.83,1.5,8.32,8.32,0,0,0-.9,1.49h-.2l.47-2.89a1.57,1.57,0,0,0-.81-.85,16.18,16.18,0,0,1-5.28,2V9.64c1.27-.22,1.91.27,1.91,1.45v9.66c0,.65-.65,1-1.94,1.18V23c2.71-.09,5.41-.09,8.12,0v-1.1c-1.31-.1-2-.49-2-1.18V11.67a5.54,5.54,0,0,1,1.12-2.09,2.59,2.59,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.11-.13,8.17,0v-1.1c-1.31-.15-2-.54-2-1.18V11.61a5.74,5.74,0,0,1,1.12-2.06,2.63,2.63,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.09-.13,8.16,0v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="#fff" d="M119.27,14.06l-.63.06V4.21h2a3.71,3.71,0,0,1,3,1.19,5,5,0,0,1,1,3.32q0,4.76-5.42,5.34m6.41,3.78-2.37-3.37q5.56-1.71,5.56-6,0-5.46-8.92-5.46h-2l-3,0q-1.62,0-2.82-.06v1.1a3.82,3.82,0,0,1,1.64.37,1.07,1.07,0,0,1,.44,1V20.33a1.34,1.34,0,0,1-.48,1.17,4,4,0,0,1-1.78.43V23q4.47-.13,8.91,0v-1.1a4.08,4.08,0,0,1-1.79-.43,1.37,1.37,0,0,1-.47-1.17V15.41l.69-.11.17,0,2.65,3.92a8.64,8.64,0,0,0,4,3.46,9.34,9.34,0,0,0,1.86.5,11.94,11.94,0,0,0,1.85.13l.75-1.21q-2.1-.24-4.92-4.23"/><path fill="#fff" d="M135,14.18a11.11,11.11,0,0,1,.8-4.67,2.48,2.48,0,0,1,2.24-1.67,2.1,2.1,0,0,1,2,1.58,13.57,13.57,0,0,1,.63,4.76Zm9.16.64a2.82,2.82,0,0,0,.41-1.74,6.22,6.22,0,0,0-1.84-4.58,6.3,6.3,0,0,0-4.66-1.87,7.27,7.27,0,0,0-5.27,2.21A8.34,8.34,0,0,0,130.63,15a8.32,8.32,0,0,0,2.26,6.16,7.65,7.65,0,0,0,5.59,2.25,5.79,5.79,0,0,0,5.75-3.65H143a3.78,3.78,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.29-1.93A10,10,0,0,1,135,15.35h7.76a1.67,1.67,0,0,0,1.4-.53"/><path fill="#fff" d="M150.4,14.18a11.11,11.11,0,0,1,.8-4.67,2.47,2.47,0,0,1,2.24-1.67,2.11,2.11,0,0,1,2,1.58,13.86,13.86,0,0,1,.62,4.76Zm9.16.64a2.89,2.89,0,0,0,.41-1.74,6.35,6.35,0,0,0-6.5-6.45,7.25,7.25,0,0,0-5.27,2.21A8.3,8.3,0,0,0,146,15a8.35,8.35,0,0,0,2.25,6.16,7.65,7.65,0,0,0,5.59,2.25,5.81,5.81,0,0,0,5.76-3.65H158.4a3.79,3.79,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.3-1.93,10.09,10.09,0,0,1-1-4.85h7.75a1.71,1.71,0,0,0,1.41-.53"/><path fill="#fff" d="M172.26,19a4.87,4.87,0,0,1-1,2.13,2.27,2.27,0,0,1-1.84,1c-1.07,0-1.95-.76-2.64-2.29a14.28,14.28,0,0,1-1-5.84,10,10,0,0,1,.84-4.5A2.6,2.6,0,0,1,169,7.84a3.12,3.12,0,0,1,1.88.64,5.41,5.41,0,0,1,1.38,1.45Zm4.22.42V5.78a38.45,38.45,0,0,1,.19-4.57,1.5,1.5,0,0,0-.81-.83,16.05,16.05,0,0,1-5.48,2v1.1a1.94,1.94,0,0,1,1.42.17,1.47,1.47,0,0,1,.46,1.25V8.51a4.77,4.77,0,0,0-3.91-1.88,6.66,6.66,0,0,0-4.89,2.21A8.47,8.47,0,0,0,161.34,15a8.62,8.62,0,0,0,2.14,6.22,6.65,6.65,0,0,0,4.9,2.22,4.28,4.28,0,0,0,2.62-.76,4.22,4.22,0,0,0,1.44-1.75h.23l-.29,1.75a1.29,1.29,0,0,0,.82.82,25.53,25.53,0,0,1,5.25-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="#fff" d="M185,21.12a2.36,2.36,0,0,0-.68-1.69,2.22,2.22,0,0,0-3.24,0,2.36,2.36,0,0,0-.68,1.69,2.42,2.42,0,0,0,.68,1.68,2.22,2.22,0,0,0,3.24,0,2.42,2.42,0,0,0,.68-1.68"/></svg>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-label">Intelligence & Predictions</span>
+    <span class="topbar-date">21 Feb 2026</span>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- HERO                                       -->
+<!-- ========================================== -->
+<div class="hero">
+  <div class="hero-fade"></div>
+  <div class="hero-inner">
+    <div class="hero-edition">Retail Media & Food Marketing &middot; Daily Brief</div>
+    <h1>Market Intelligence<br>& <em>Predictions</em></h1>
+    <p class="hero-strapline">Making predictions. Telling you exactly what you need to know today.</p>
+    <div class="hero-metrics">
+      <div class="hero-metric">
+        <div class="hero-metric-val">4</div>
+        <div class="hero-metric-label">Lead Signals</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-val">7</div>
+        <div class="hero-metric-label">Industry Notes</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-val">2</div>
+        <div class="hero-metric-label">People Moves</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-val">6</div>
+        <div class="hero-metric-label">Predictions</div>
+      </div>
+    </div>
+    <div class="hero-ref">Ref: QJRT</div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 01 · INTELLIGENCE                          -->
+<!-- ========================================== -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">01 &mdash; Intelligence</div>
+    <h2 class="section-title">What Matters Today</h2>
+    <p class="section-subtitle">The signals shaping strategy across food, retail and marketing this cycle. Four stories you need to act on.</p>
+
+    <!-- LEAD STORY — Hero Block -->
+    <div class="lead-story">
+      <div class="lead-story-tag">Lead Signal &mdash; Regulation</div>
+      <h3>CMA Green-Claims Clampdown Puts UK Food Marketers on Notice</h3>
+      <p>The Competition and Markets Authority is stepping up its focus on green-claims compliance in the food sector. Sustainability messaging is being pulled into supply-chain substantiation requirements, meaning marketing teams can no longer treat environmental claims as brand storytelling alone. Any claim now needs verifiable evidence across the full supply chain, from sourcing to shelf.</p>
+    </div>
+
+    <!-- INTEL CARDS -->
+    <div class="intel-card">
+      <span class="intel-card-tag intel-card-tag--risk">Reputational Risk</span>
+      <h4>Tesco, Lidl and Farmfoods Face Fresh Wave of Recall-Related Reputational Sensitivity</h4>
+      <p>Multiple product recalls across three major retailers in a single cycle signal either a supply-chain quality spike or heightened regulatory scrutiny. For marketing and comms teams, the operational response now directly feeds consumer trust metrics. Brands supplying these retailers should audit their recall communication protocols immediately.</p>
+    </div>
+
+    <div class="intel-card">
+      <span class="intel-card-tag intel-card-tag--innovation">Innovation</span>
+      <h4>Higgidy Expands Quiche Range with Globally Inspired Flavours</h4>
+      <p>Premium convenience continues to find white space. Higgidy's expansion into globally inspired flavour profiles reflects the ongoing premiumisation trend in chilled prepared foods, where quality credentials and provenance storytelling drive margin over volume. Category managers should note the format innovation as a template for range extension.</p>
+    </div>
+
+    <div class="intel-card">
+      <span class="intel-card-tag intel-card-tag--operations">Operations</span>
+      <h4>Lidl and Waitrose Retrain Store Staff After Food-Waste Expos&eacute;</h4>
+      <p>Operational behaviour is now a brand risk vector. Both retailers have committed to staff retraining programmes following media scrutiny of in-store food waste handling. For brand owners and suppliers, this signals that retailers are increasingly sensitive to operational narratives that undermine sustainability positioning. Expect supplier scorecards to incorporate waste metrics.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 02 · PREDICTIONS                           -->
+<!-- ========================================== -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">02 &mdash; Predictions</div>
+    <h2 class="section-title">What the Signal Says</h2>
+    <p class="section-subtitle">Outcome forecasts derived from narrative signal analysis. Six predictions currently being tracked across regulatory, commercial and structural dimensions.</p>
+
+    <!-- LEAD PREDICTION -->
+    <div class="pred-lead">
+      <div class="pred-lead-label">Lead Prediction &mdash; 90-Day Horizon</div>
+      <h3>UK regulator issues updated influencer marketing disclosure guidance within 90 days</h3>
+      <div class="pred-lead-meta">Tracking &middot; Horizon: by 22 May 2026</div>
+      <div class="pred-lead-detail">Outcome too ambiguous to score &mdash; needs dated consultation document from ASA, CMA or Ofcom to unlock probability assignment.</div>
+    </div>
+
+    <!-- PREDICTION GRID -->
+    <div class="pred-grid">
+      <div class="pred-card">
+        <div class="pred-card-top">
+          <span class="pred-card-badge">Tracking</span>
+          <span class="pred-card-horizon">45 days</span>
+        </div>
+        <h4>Major QSR or retailer announces loyalty/CRM feature change within 45 days</h4>
+        <div class="pred-card-status">Probability &mdash; Numbers Blocked</div>
+        <div class="pred-card-bar"><div class="pred-card-bar-inner"></div></div>
+        <div class="pred-card-note">Scope ambiguity &mdash; &ldquo;feature change&rdquo; definition too broad</div>
+      </div>
+
+      <div class="pred-card">
+        <div class="pred-card-top">
+          <span class="pred-card-badge">Tracking</span>
+          <span class="pred-card-horizon">90 days</span>
+        </div>
+        <h4>CMA publishes further green-claims enforcement action targeting a named food or drink brand</h4>
+        <div class="pred-card-status">Probability &mdash; Numbers Blocked</div>
+        <div class="pred-card-bar"><div class="pred-card-bar-inner"></div></div>
+        <div class="pred-card-note">Needs confirmed CMA case reference to unlock scoring</div>
+      </div>
+
+      <div class="pred-card">
+        <div class="pred-card-top">
+          <span class="pred-card-badge">Tracking</span>
+          <span class="pred-card-horizon">60 days</span>
+        </div>
+        <h4>UK grocery retailer extends member-only pricing to a third-party delivery platform</h4>
+        <div class="pred-card-status">Probability &mdash; Numbers Blocked</div>
+        <div class="pred-card-bar"><div class="pred-card-bar-inner"></div></div>
+        <div class="pred-card-note">Evidence base still forming &mdash; Co-op/Just Eat is first mover but pattern not yet confirmed</div>
+      </div>
+
+      <div class="pred-card">
+        <div class="pred-card-top">
+          <span class="pred-card-badge">Tracking</span>
+          <span class="pred-card-horizon">90 days</span>
+        </div>
+        <h4>ASA issues formal guidance on AI-generated imagery disclosure requirements for food advertising</h4>
+        <div class="pred-card-status">Probability &mdash; Numbers Blocked</div>
+        <div class="pred-card-bar"><div class="pred-card-bar-inner"></div></div>
+        <div class="pred-card-note">Regulatory timeline unclear &mdash; no consultation announced</div>
+      </div>
+
+      <div class="pred-card">
+        <div class="pred-card-top">
+          <span class="pred-card-badge">Tracking</span>
+          <span class="pred-card-horizon">30 days</span>
+        </div>
+        <h4>Retail media measurement standardisation initiative announced by a UK industry body</h4>
+        <div class="pred-card-status">Probability &mdash; Numbers Blocked</div>
+        <div class="pred-card-bar"><div class="pred-card-bar-inner"></div></div>
+        <div class="pred-card-note">Measurement infrastructure still being built out &mdash; insufficient signal convergence</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 03 · INDUSTRY NOTES                        -->
+<!-- ========================================== -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">03 &mdash; Industry Notes</div>
+    <h2 class="section-title">Commercial Landscape</h2>
+    <p class="section-subtitle">Partnerships, product launches and commercial moves shaping the competitive picture this cycle.</p>
+
+    <div class="notes-grid">
+      <div class="note-card note-card--featured">
+        <div class="note-category">Loyalty & Delivery</div>
+        <h4>Co-op Launches Member-Only Pricing on Just Eat App</h4>
+        <p>First UK grocer to extend membership pricing onto a third-party delivery platform. Signals that app-led value propositions are spilling beyond owned channels &mdash; a structural shift for loyalty economics and delivery-partner negotiations.</p>
+      </div>
+
+      <div class="note-card">
+        <div class="note-category">Brand Partnership</div>
+        <h4>pladis Partners McVitie&rsquo;s with PG Tips on Tea-Break Campaign</h4>
+        <p>Cross-category co-branding play targeting the at-home occasion. Interesting signal for suppliers exploring joint promotion mechanics outside of retailer-led events.</p>
+      </div>
+
+      <div class="note-card">
+        <div class="note-category">Data & AdTech</div>
+        <h4>StackAdapt Partners with Experian on First-Party Data Activation</h4>
+        <p>Programmatic platform integrating deterministic audience data. Relevant for retail media teams building off-site audience strategies beyond walled-garden retailer data.</p>
+      </div>
+
+      <div class="note-card">
+        <div class="note-category">Brand Campaign</div>
+        <h4>Caple Launches Consumer Branding Campaign with Channel 4</h4>
+        <p>Appliance brand investing in broadcast awareness &mdash; signals confidence in premium kitchen category and the continuing role of TV in brand-building for food-adjacent products.</p>
+      </div>
+
+      <div class="note-card">
+        <div class="note-category">Pricing Strategy</div>
+        <h4>Walkers Introduces 85p Price-Marked Pack for UK Convenience</h4>
+        <p>Price-marked packs remain a critical trust signal in the impulse channel. The 85p price point positions below the psychological &pound;1 barrier while protecting margin.</p>
+      </div>
+
+      <div class="note-card">
+        <div class="note-category">NPD Pipeline</div>
+        <h4>Fortnum & Mason Opens Second &ldquo;Open Call&rdquo; for Challenger Brands</h4>
+        <p>Premium retailer actively scouting emerging food and drink brands. A route-to-market signal for start-ups and scale-ups in speciality food with strong brand storytelling.</p>
+      </div>
+
+      <div class="note-card">
+        <div class="note-category">NPD Launch</div>
+        <h4>Langtins Launches &ldquo;Coneys&rdquo; Confectionery with Texture &amp; Nostalgia Positioning</h4>
+        <p>New confectionery entrant combining texture innovation with nostalgic branding. Reflects the continuing consumer appetite for novel formats in traditional sugar confectionery.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 04 · PEOPLE MOVES                          -->
+<!-- ========================================== -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">04 &mdash; People Moves</div>
+    <h2 class="section-title">Who&rsquo;s Moving Where</h2>
+
+    <div class="people-grid">
+      <div class="person-card">
+        <div class="person-avatar">TH</div>
+        <div>
+          <div class="person-name">Tom Hampson</div>
+          <div class="person-role">VP of Marketing, Asda &mdash; joining from B&amp;Q</div>
+          <div class="person-timing">Start date: June 2026</div>
+        </div>
+      </div>
+      <div class="person-card">
+        <div class="person-avatar">MW</div>
+        <div>
+          <div class="person-name">Matthew Walker</div>
+          <div class="person-role">Head of UK Foodservice, Arla &mdash; internal appointment</div>
+          <div class="person-timing">Effective immediately</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- EDITORIAL BREAK                            -->
+<!-- ========================================== -->
+<div class="editorial-break">
+  <div class="editorial-break-quote">From farm to fork.<br><em>Intelligence that moves at the speed of your industry.</em></div>
+  <div class="editorial-break-sub">William Reed &middot; Market Intelligence</div>
+</div>
+
+<!-- ========================================== -->
+<!-- 05 · EMERGING SIGNALS                      -->
+<!-- ========================================== -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">05 &mdash; Emerging Signals</div>
+    <h2 class="section-title">Where the Market Is Heading</h2>
+    <p class="section-subtitle">Themes generating rising coverage and conversation across industry sources. Early indicators worth tracking.</p>
+
+    <div class="signal-lead">
+      <div class="signal-lead-tag">Convergence</div>
+      <h4>Influencer Disclosure Compliance Is Converging Across Regulators and Platforms</h4>
+      <p>The ASA's existing rules and TikTok's branded-content disclosure tooling are moving toward the same requirements. Food and drink brands using influencer partnerships should expect a single, stricter compliance standard to emerge &mdash; not two parallel regimes. Marketing teams should audit current disclosure practices against both ASA guidelines and platform-native tools now, before enforcement tightens.</p>
+    </div>
+
+    <div class="signal-grid">
+      <div class="signal-card">
+        <div class="signal-card-tag">Structural Shift</div>
+        <h4>App-Led Value Spilling Into Non-Owned Channels</h4>
+        <p>Co-op's member pricing on Just Eat signals that loyalty propositions are no longer contained within owned ecosystems. If this model works, expect other grocers to follow &mdash; fundamentally changing how delivery platforms negotiate with retailers and how consumers perceive value across channels.</p>
+      </div>
+      <div class="signal-card">
+        <div class="signal-card-tag">Infrastructure</div>
+        <h4>Retail Media Measurement Plumbing Still Being Built Out</h4>
+        <p>Despite significant investment, the measurement infrastructure for retail media remains immature. Standardisation is lagging behind spend growth, creating a window where brands are allocating budget without reliable attribution. Watch for industry body intervention or a major retailer publishing transparent measurement benchmarks.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 06 · WHAT TO WATCH                         -->
+<!-- ========================================== -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">06 &mdash; What to Watch</div>
+    <h2 class="section-title">Eyes On</h2>
+
+    <div class="watch-item">
+      <span class="watch-num">1</span>
+      <p><strong>CMA green-claims enforcement updates</strong> &mdash; whether the Competition and Markets Authority publishes further enforcement guidance or takes action against a named food or drink brand in the next 4&ndash;6 weeks. Any named action would reset the compliance risk calculus for the entire sector.</p>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">2</span>
+      <p><strong>ASA influencer marketing disclosure guidance</strong> &mdash; any dated update to the Advertising Standards Authority's influencer disclosure rules. A published consultation or guidance note would unlock probability scoring on our lead prediction and signal a regulatory acceleration.</p>
+    </div>
+    <div class="watch-item">
+      <span class="watch-num">3</span>
+      <p><strong>Member-only pricing on delivery apps</strong> &mdash; whether other UK grocers copy Co-op's move to extend member pricing onto third-party delivery platforms during March 2026. A second mover would confirm a structural pattern rather than a one-off partnership.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 07 · CONTEXT & ANALYSIS                    -->
+<!-- ========================================== -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">07 &mdash; Context &amp; Analysis</div>
+    <h2 class="section-title">The Bigger Picture</h2>
+
+    <div class="analysis-block">
+      <h4>Compliance-Adjacent Marketing Risk Is the Defining Theme of This Cycle</h4>
+      <p>This intelligence cycle is being shaped by compliance-adjacent marketing risk rather than blockbuster campaigns or major commercial launches. The three dominant threads &mdash; green claims governance, advertising disclosure hygiene, and recall-linked trust sensitivity &mdash; all share a common characteristic: they turn regulatory and operational activity into brand-facing risk.</p>
+      <p>For marketing directors and comms teams, the actionable insight is that compliance is no longer a legal function operating behind the brand. It is the brand. The CMA's green-claims focus, the ASA's influencer disclosure trajectory, and the reputational sensitivity around product recalls all demand that marketing teams have direct sight of compliance activity &mdash; not as a reporting line, but as a planning input.</p>
+      <p>The brands that navigate this cycle well will be those that treat regulatory awareness as a competitive advantage: moving early on disclosure, auditing supply-chain claims proactively, and building recall-response protocols that protect rather than erode consumer trust.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- 08 · BACKGROUND                            -->
+<!-- ========================================== -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">08 &mdash; Background</div>
+    <h2 class="section-title">Timeline</h2>
+    <p class="section-subtitle">Key regulatory and structural events forming the context for today&rsquo;s intelligence.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">5 January 2026</div>
+        <h4>HFSS Advertising Restrictions Take Effect UK-Wide</h4>
+        <p>Less healthy food and drink advertising restrictions are now in force across all UK broadcast and online media. Brands affected should have already transitioned creative and media plans. Any remaining non-compliant activity creates regulatory exposure.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">22 January 2026</div>
+        <h4>CMA Publishes Green-Claims Supply-Chain Guidance</h4>
+        <p>The Competition and Markets Authority's updated guidance extends green-claims scrutiny beyond consumer-facing marketing into supply-chain substantiation. This is the regulatory foundation for today's lead intelligence on the CMA clampdown.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Ongoing</div>
+        <h4>TikTok Mandates Branded-Content Disclosure Tooling</h4>
+        <p>TikTok now requires branded-content disclosure through its native tooling for all commercial posts. This aligns platform enforcement with ASA expectations and creates a de facto single standard for influencer marketing compliance on the platform.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">Ongoing</div>
+        <h4>Retail Media &ldquo;Platformisation&rdquo; Continues to Accelerate</h4>
+        <p>Retail media networks are maturing from ad-hoc inventory sales into programmatic platforms. Measurement, attribution and cross-retailer comparability remain the critical gaps. Brands increasing retail media spend should demand transparent performance benchmarks.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================== -->
+<!-- MASSIVE FOOTER STATEMENT                   -->
+<!-- ========================================== -->
+<div class="footer-statement">
+  <div class="footer-big-text">The brands that win are the ones that <em>see what&rsquo;s coming.</em></div>
+  <p class="footer-sub-text">Probability-weighted forecasts, market signals and strategic intelligence for the food and drink industry. From farm to fork.</p>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">
+    <svg viewBox="0 0 185 23.5" xmlns="http://www.w3.org/2000/svg"><path fill="rgba(255,255,255,0.35)" d="M23,3.05v1.1a5.08,5.08,0,0,1,2.25.48c.4.27.51.73.32,1.39L22.18,17.69,18.3,6c-.23-.67-.18-1.14.14-1.41a3.53,3.53,0,0,1,2-.46V3.05c-3,.11-6.11.11-9.2,0v1.1A3.4,3.4,0,0,1,13,4.57,3,3,0,0,1,13.83,6l.21.61L10.85,17.69,7,6c-.22-.67-.15-1.14.19-1.41a3.84,3.84,0,0,1,2-.46V3.05Q4.53,3.2,0,3.05v1.1a3.47,3.47,0,0,1,1.68.42A3,3,0,0,1,2.5,6L8.67,23.31h1.62l4.5-14.56L20,23.31h1.64L27,6a2.39,2.39,0,0,1,1-1.42,4.93,4.93,0,0,1,2-.45V3.05q-3.46.17-6.93,0"/><path fill="rgba(255,255,255,0.35)" d="M34,4.52a2,2,0,0,0,1.54-.67,2.24,2.24,0,0,0,.64-1.6A2.19,2.19,0,0,0,35.51.66,2.07,2.07,0,0,0,34,0a2.13,2.13,0,0,0-1.56.66,2.17,2.17,0,0,0-.66,1.59,2.22,2.22,0,0,0,.66,1.6A2.1,2.1,0,0,0,34,4.52"/><path fill="rgba(255,255,255,0.35)" d="M63.74,20.75V12a41.88,41.88,0,0,1,.2-4.6,1.68,1.68,0,0,0-.83-.85,15.72,15.72,0,0,1-5.46,2V9.64a1.91,1.91,0,0,1,1.42.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.63,1-1.9,1.18H56.51c-1.31-.15-2-.54-2-1.18v-15a44.26,44.26,0,0,1,.2-4.57,1.58,1.58,0,0,0-.82-.83,15.77,15.77,0,0,1-5.47,2v1.1a1.92,1.92,0,0,1,1.41.17,1.45,1.45,0,0,1,.47,1.25V20.75c0,.64-.64,1-1.91,1.18h-1.1c-1.32-.15-2-.54-2-1.18v-15a41.5,41.5,0,0,1,.2-4.57,1.6,1.6,0,0,0-.83-.83,15.79,15.79,0,0,1-5.46,2v1.1a1.92,1.92,0,0,1,1.41.17,1.44,1.44,0,0,1,.46,1.25V20.75c0,.64-.63,1-1.9,1.18H38.12c-1.31-.15-2-.54-2-1.18V12a44.66,44.66,0,0,1,.2-4.6,1.64,1.64,0,0,0-.83-.85,15.64,15.64,0,0,1-5.46,2V9.64a1.94,1.94,0,0,1,1.43.18,1.49,1.49,0,0,1,.45,1.27v9.66c0,.64-.64,1-1.91,1.18V23c2.71-.12,5.4-.12,8.09,0H65.71v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="rgba(255,255,255,0.35)" d="M61.56,4.52a2,2,0,0,0,1.54-.67,2.29,2.29,0,0,0,.64-1.6A2.23,2.23,0,0,0,63.1.66,2.07,2.07,0,0,0,61.56,0,2.12,2.12,0,0,0,60,.66a2.17,2.17,0,0,0-.66,1.59A2.22,2.22,0,0,0,60,3.85a2.09,2.09,0,0,0,1.56.67"/><path fill="rgba(255,255,255,0.35)" d="M76,18.85a6.93,6.93,0,0,1-1.19,1.82,2.48,2.48,0,0,1-1.88.88,1.74,1.74,0,0,1-1.45-.72,3.06,3.06,0,0,1-.55-1.92,4.63,4.63,0,0,1,.78-2.43q1-1.59,4.29-2.45Zm4.21.58v-8c0-1.83-.43-3.08-1.28-3.75a5.81,5.81,0,0,0-3.76-1,10.51,10.51,0,0,0-5.41,1.26A3.59,3.59,0,0,0,67.57,11,1.65,1.65,0,0,0,68,12.25a2.32,2.32,0,0,0,2,.33,2.78,2.78,0,0,0,.48-.2,1.15,1.15,0,0,0,.37-.36c.11-.17.2-.31.26-.42a2.32,2.32,0,0,0,.18-.52c.06-.23.1-.41.12-.52s.06-.3.1-.56.08-.44.1-.53a2.25,2.25,0,0,1,.72-1.27,2.31,2.31,0,0,1,1.54-.49,1.66,1.66,0,0,1,1.62.8A6.43,6.43,0,0,1,76,11.36v1.69q-5.25,1.2-7.3,2.59a4.22,4.22,0,0,0-2,3.62,3.83,3.83,0,0,0,1.31,3.15,4.87,4.87,0,0,0,3.16,1,4.93,4.93,0,0,0,3.41-1.21A7.12,7.12,0,0,0,76,20.51h.24l-.15,2.12a1.23,1.23,0,0,0,.78.82,26.6,26.6,0,0,1,5.28-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="rgba(255,255,255,0.35)" d="M108.32,20.75V12.22q0-5.67-4.31-5.67a5.29,5.29,0,0,0-3.39,1.08,7.62,7.62,0,0,0-2,2.41q-.77-3.49-4.09-3.49a5.3,5.3,0,0,0-2.76.75,5.92,5.92,0,0,0-1.83,1.5,8.32,8.32,0,0,0-.9,1.49h-.2l.47-2.89a1.57,1.57,0,0,0-.81-.85,16.18,16.18,0,0,1-5.28,2V9.64c1.27-.22,1.91.27,1.91,1.45v9.66c0,.65-.65,1-1.94,1.18V23c2.71-.09,5.41-.09,8.12,0v-1.1c-1.31-.1-2-.49-2-1.18V11.67a5.54,5.54,0,0,1,1.12-2.09,2.59,2.59,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.11-.13,8.17,0v-1.1c-1.31-.15-2-.54-2-1.18V11.61a5.74,5.74,0,0,1,1.12-2.06,2.63,2.63,0,0,1,2.1-1c1.38,0,2.06,1.23,2.06,3.64v8.53c0,.68-.65,1.07-2,1.18V23q4.09-.13,8.16,0v-1.1c-1.32-.15-2-.54-2-1.18"/><path fill="rgba(255,255,255,0.35)" d="M119.27,14.06l-.63.06V4.21h2a3.71,3.71,0,0,1,3,1.19,5,5,0,0,1,1,3.32q0,4.76-5.42,5.34m6.41,3.78-2.37-3.37q5.56-1.71,5.56-6,0-5.46-8.92-5.46h-2l-3,0q-1.62,0-2.82-.06v1.1a3.82,3.82,0,0,1,1.64.37,1.07,1.07,0,0,1,.44,1V20.33a1.34,1.34,0,0,1-.48,1.17,4,4,0,0,1-1.78.43V23q4.47-.13,8.91,0v-1.1a4.08,4.08,0,0,1-1.79-.43,1.37,1.37,0,0,1-.47-1.17V15.41l.69-.11.17,0,2.65,3.92a8.64,8.64,0,0,0,4,3.46,9.34,9.34,0,0,0,1.86.5,11.94,11.94,0,0,0,1.85.13l.75-1.21q-2.1-.24-4.92-4.23"/><path fill="rgba(255,255,255,0.35)" d="M135,14.18a11.11,11.11,0,0,1,.8-4.67,2.48,2.48,0,0,1,2.24-1.67,2.1,2.1,0,0,1,2,1.58,13.57,13.57,0,0,1,.63,4.76Zm9.16.64a2.82,2.82,0,0,0,.41-1.74,6.22,6.22,0,0,0-1.84-4.58,6.3,6.3,0,0,0-4.66-1.87,7.27,7.27,0,0,0-5.27,2.21A8.34,8.34,0,0,0,130.63,15a8.32,8.32,0,0,0,2.26,6.16,7.65,7.65,0,0,0,5.59,2.25,5.79,5.79,0,0,0,5.75-3.65H143a3.78,3.78,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.29-1.93A10,10,0,0,1,135,15.35h7.76a1.67,1.67,0,0,0,1.4-.53"/><path fill="rgba(255,255,255,0.35)" d="M150.4,14.18a11.11,11.11,0,0,1,.8-4.67,2.47,2.47,0,0,1,2.24-1.67,2.11,2.11,0,0,1,2,1.58,13.86,13.86,0,0,1,.62,4.76Zm9.16.64a2.89,2.89,0,0,0,.41-1.74,6.35,6.35,0,0,0-6.5-6.45,7.25,7.25,0,0,0-5.27,2.21A8.3,8.3,0,0,0,146,15a8.35,8.35,0,0,0,2.25,6.16,7.65,7.65,0,0,0,5.59,2.25,5.81,5.81,0,0,0,5.76-3.65H158.4a3.79,3.79,0,0,1-3.65,2.39,3.53,3.53,0,0,1-3.3-1.93,10.09,10.09,0,0,1-1-4.85h7.75a1.71,1.71,0,0,0,1.41-.53"/><path fill="rgba(255,255,255,0.35)" d="M172.26,19a4.87,4.87,0,0,1-1,2.13,2.27,2.27,0,0,1-1.84,1c-1.07,0-1.95-.76-2.64-2.29a14.28,14.28,0,0,1-1-5.84,10,10,0,0,1,.84-4.5A2.6,2.6,0,0,1,169,7.84a3.12,3.12,0,0,1,1.88.64,5.41,5.41,0,0,1,1.38,1.45Zm4.22.42V5.78a38.45,38.45,0,0,1,.19-4.57,1.5,1.5,0,0,0-.81-.83,16.05,16.05,0,0,1-5.48,2v1.1a1.94,1.94,0,0,1,1.42.17,1.47,1.47,0,0,1,.46,1.25V8.51a4.77,4.77,0,0,0-3.91-1.88,6.66,6.66,0,0,0-4.89,2.21A8.47,8.47,0,0,0,161.34,15a8.62,8.62,0,0,0,2.14,6.22,6.65,6.65,0,0,0,4.9,2.22,4.28,4.28,0,0,0,2.62-.76,4.22,4.22,0,0,0,1.44-1.75h.23l-.29,1.75a1.29,1.29,0,0,0,.82.82,25.53,25.53,0,0,1,5.25-.74V21.58a1.91,1.91,0,0,1-2-2.15"/><path fill="rgba(255,255,255,0.35)" d="M185,21.12a2.36,2.36,0,0,0-.68-1.69,2.22,2.22,0,0,0-3.24,0,2.36,2.36,0,0,0-.68,1.69,2.42,2.42,0,0,0,.68,1.68,2.22,2.22,0,0,0,3.24,0,2.42,2.42,0,0,0,.68-1.68"/></svg>
+    <span class="footer-legal">Market Intelligence & Predictions &middot; &copy; William Reed 2026</span>
+  </div>
+  <div class="footer-credit">Intelligence powered by <a href="https://noahwire.com">Noah Wire Services</a> &middot; Narrative signal analysis</div>
+</div>
+
+</body>
+</html>
