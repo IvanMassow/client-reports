@@ -85,11 +85,6 @@
   /* === HERO === */
   .hero {
     background-color: var(--forest);
-    background-image:
-      linear-gradient(170deg, rgba(7,42,31,0.88) 0%, rgba(11,61,46,0.82) 40%, rgba(20,90,67,0.78) 100%),
-      url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=1600&q=80');
-    background-size: cover;
-    background-position: center 30%;
     min-height: 88vh;
     display: flex;
     align-items: center;
@@ -97,6 +92,26 @@
     position: relative;
     overflow: hidden;
     padding: 80px 32px;
+  }
+  /* Background image layer — supermarket montage, greyed out */
+  .hero-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('hero-bg.png');
+    background-size: cover;
+    background-position: center center;
+    filter: grayscale(0.6) brightness(0.35);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+  /* Green colour wash over the image */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(170deg, rgba(7,42,31,0.7) 0%, rgba(11,61,46,0.55) 40%, rgba(20,90,67,0.5) 100%);
+    pointer-events: none;
+    z-index: 1;
   }
   /* Warm glow over the image */
   .hero::after {
@@ -106,8 +121,9 @@
     right: -20%;
     width: 70%;
     height: 160%;
-    background: radial-gradient(ellipse at center, rgba(232,168,56,0.08) 0%, transparent 65%);
+    background: radial-gradient(ellipse at center, rgba(232,168,56,0.1) 0%, transparent 65%);
     pointer-events: none;
+    z-index: 1;
   }
   /* Bottom fade to paper — long, gradual multi-stop */
   .hero-fade {
@@ -118,13 +134,13 @@
     height: 320px;
     background: linear-gradient(to top, var(--paper) 0%, rgba(250,250,247,0.85) 25%, rgba(250,250,247,0.4) 55%, transparent 100%);
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
   }
   .hero-inner {
     max-width: 780px;
     text-align: center;
     position: relative;
-    z-index: 2;
+    z-index: 3;
   }
   .hero-edition {
     font-family: 'Montserrat', sans-serif;
@@ -964,6 +980,7 @@
 <!-- HERO                                       -->
 <!-- ========================================== -->
 <div class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-fade"></div>
   <div class="hero-inner">
     <div class="hero-edition">Retail Media & Food Marketing &middot; Daily Brief</div>
