@@ -211,10 +211,14 @@
   .pred-card--lead .pred-statement { color: white; }
   .pred-card--lead .pred-tag { background: var(--coral); color: white; }
   .pred-card--lead .pred-detail { color: rgba(255,255,255,0.6); border-left-color: rgba(255,255,255,0.2); }
+  .pred-card--lead .pred-status-label { color: rgba(255,255,255,0.5); }
+  .pred-card--lead .pred-status-bar { background: rgba(255,255,255,0.1); }
+  .pred-card--lead .pred-status-indicator { background: var(--coral); }
+  .pred-card--lead .pred-horizon { color: rgba(255,255,255,0.4); }
+  .pred-card--lead .pred-blocked-msg { color: rgba(255,255,255,0.45); }
   .pred-card--lead .pred-conf-label { color: rgba(255,255,255,0.5); }
   .pred-card--lead .pred-conf-bar-bg { background: rgba(255,255,255,0.15); }
   .pred-card--lead .pred-conf-bar-fill { background: var(--coral); }
-  .pred-card--lead .pred-horizon { color: rgba(255,255,255,0.4); }
 
   .pred-top {
     display: flex;
@@ -233,6 +237,7 @@
     color: var(--navy);
   }
   .pred-tag--high { background: var(--coral); color: white; }
+  .pred-tag--tracked { background: var(--peach); color: var(--amber); }
   .pred-horizon {
     font-size: 11px;
     color: var(--text-muted);
@@ -248,6 +253,58 @@
   }
   .pred-card--lead .pred-statement {
     font-size: 21px;
+  }
+
+  /* Status bar for blocked predictions */
+  .pred-status {
+    margin-bottom: 12px;
+  }
+  .pred-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .pred-status-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .pred-status-val {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pred-status-bar {
+    height: 5px;
+    background: var(--ice);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+  }
+  .pred-status-indicator {
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--amber) 0px,
+      var(--amber) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+    opacity: 0.4;
+  }
+
+  .pred-blocked-msg {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 4px;
   }
 
   .pred-conf {
@@ -327,6 +384,58 @@
     color: var(--text-mid);
     line-height: 1.65;
   }
+  .intel-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .intel-tag--regulation { background: #FDE8E8; color: var(--red); }
+  .intel-tag--risk { background: #FEF3E2; color: var(--amber); }
+  .intel-tag--innovation { background: #E6F4EA; color: var(--green); }
+  .intel-tag--operations { background: var(--ice); color: var(--navy); }
+
+  /* === INDUSTRY NOTES === */
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .note {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 22px;
+    border: 1px solid var(--border);
+  }
+  .note-category {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 6px;
+  }
+  .note h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.35;
+  }
+  .note p {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .note--featured {
+    grid-column: 1 / -1;
+    background: var(--peach);
+    border-color: #f0dfc5;
+  }
 
   /* === PEOPLE MOVES === */
   .people {
@@ -367,6 +476,12 @@
     line-height: 1.4;
     margin-top: 2px;
   }
+  .person-timing {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--coral);
+    margin-top: 4px;
+  }
 
   /* === SIGNAL ITEMS === */
   .signals {
@@ -379,6 +494,9 @@
     border-radius: 10px;
     padding: 20px 22px;
     border: 1px solid var(--border);
+  }
+  .signal--wide {
+    grid-column: 1 / -1;
   }
   .signal-tag {
     font-size: 9px;
@@ -456,6 +574,60 @@
   }
   .ctx p:last-child { margin-bottom: 0; }
 
+  /* === BACKGROUND ITEMS === */
+  .bg-timeline {
+    position: relative;
+    padding-left: 24px;
+  }
+  .bg-timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--lavender);
+  }
+  .bg-item {
+    background: white;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .bg-item::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 22px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid white;
+  }
+  .bg-item-date {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 4px;
+  }
+  .bg-item h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+    line-height: 1.35;
+  }
+  .bg-item p {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
   /* === MID-BREAK === */
   .break {
     background: linear-gradient(135deg, #FADEE1 0%, #FDF4E5 50%, var(--lavender) 100%);
@@ -490,6 +662,20 @@
     margin-top: 8px;
     position: relative;
     z-index: 1;
+  }
+
+  /* === REF TAG === */
+  .ref-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.08);
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-top: 8px;
   }
 
   /* === FOOTER === */
@@ -531,6 +717,7 @@
     .pred-card--lead { grid-column: auto; }
     .people { grid-template-columns: 1fr; }
     .signals { grid-template-columns: 1fr; }
+    .notes-grid { grid-template-columns: 1fr; }
     .break { padding: 32px 16px; }
     .break-text { font-size: 24px; }
     .footer { padding: 24px 16px; }
@@ -553,27 +740,27 @@
 <!-- DASHBOARD HEADER -->
 <div class="dash-header">
   <div class="dash-top">
-    <div class="dash-edition">Food &amp; Drink Sector &middot; Weekly Brief &middot; Edition 12</div>
+    <div class="dash-edition">Retail Media &amp; Food Marketing &middot; Daily Brief &middot; Ref: QJRT</div>
     <h1 class="dash-title">Market Intelligence<br>&amp; <span>Predictions</span></h1>
     <p class="dash-strapline">Making predictions. Telling you exactly what you need to know today.</p>
     <p class="dash-subtitle">Probability-weighted forecasts, market signals and strategic intelligence for the food and drink industry. From farm to fork.</p>
 
     <div class="metrics">
       <div class="metric">
-        <div class="metric-val metric-val--coral">5</div>
-        <div class="metric-label">Active Predictions</div>
+        <div class="metric-val metric-val--coral">4</div>
+        <div class="metric-label">Lead Signals</div>
       </div>
       <div class="metric">
         <div class="metric-val">7</div>
-        <div class="metric-label">Intelligence Items</div>
+        <div class="metric-label">Industry Notes</div>
       </div>
       <div class="metric">
-        <div class="metric-val">4</div>
-        <div class="metric-label">Emerging Signals</div>
+        <div class="metric-val">2</div>
+        <div class="metric-label">People Moves</div>
       </div>
       <div class="metric">
-        <div class="metric-val">5</div>
-        <div class="metric-label">Watch Items</div>
+        <div class="metric-val">6</div>
+        <div class="metric-label">Predictions Tracked</div>
       </div>
     </div>
   </div>
@@ -588,93 +775,110 @@
       <span class="sec-num">01</span>
       <h2 class="sec-title">What the Signal Says</h2>
     </div>
-    <p class="sec-desc">Outcome forecasts derived from narrative signal analysis. Each prediction is probability-weighted and time-bounded.</p>
+    <p class="sec-desc">Outcome forecasts derived from narrative signal analysis. Probability scoring is currently blocked on these predictions pending evidence thresholds being met.</p>
 
     <div class="pred-grid">
 
       <!-- LEAD PREDICTION (full width, navy) -->
       <div class="pred-card pred-card--lead">
         <div class="pred-top">
-          <span class="pred-tag pred-tag--high">High confidence</span>
-          <span class="pred-horizon">90-day horizon</span>
+          <span class="pred-tag pred-tag--high">Tracking</span>
+          <span class="pred-horizon">90-day horizon &middot; by 22 May 2026</span>
         </div>
-        <div class="pred-statement">UK food regulators will publish updated labelling guidance referencing allergen transparency within 90 days</div>
-        <div class="pred-conf">
-          <div class="pred-conf-row">
-            <span class="pred-conf-label">Probability</span>
-            <span class="pred-conf-val">66%</span>
+        <div class="pred-statement">UK regulator issues updated influencer marketing disclosure guidance within 90 days</div>
+        <div class="pred-status">
+          <div class="pred-status-row">
+            <span class="pred-status-label">Probability</span>
+            <span class="pred-status-val">Numbers Blocked</span>
           </div>
-          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:66%"></div></div>
+          <div class="pred-status-bar"><div class="pred-status-indicator"></div></div>
         </div>
-        <div class="pred-detail">Trigger to watch: A government reshuffle that stalls the Food Standards Agency consultation timetable</div>
+        <div class="pred-detail">Blocked: outcome too ambiguous to score &mdash; needs dated consultation document from ASA, CMA or Ofcom to unlock probability assignment</div>
       </div>
 
       <!-- PREDICTION 2 -->
       <div class="pred-card">
         <div class="pred-top">
-          <span class="pred-tag">Medium</span>
-          <span class="pred-horizon">30 days</span>
+          <span class="pred-tag pred-tag--tracked">Tracking</span>
+          <span class="pred-horizon">45 days &middot; by 7 Apr</span>
         </div>
-        <div class="pred-statement">A major UK supermarket chain announces an own-label plant-based range expansion</div>
-        <div class="pred-conf">
-          <div class="pred-conf-row">
-            <span class="pred-conf-label">Probability</span>
-            <span class="pred-conf-val">58%</span>
+        <div class="pred-statement">Major QSR or retailer announces loyalty/CRM feature change within 45 days</div>
+        <div class="pred-status">
+          <div class="pred-status-row">
+            <span class="pred-status-label">Probability</span>
+            <span class="pred-status-val">Blocked</span>
           </div>
-          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:58%"></div></div>
+          <div class="pred-status-bar"><div class="pred-status-indicator"></div></div>
         </div>
-        <div class="pred-detail">Trigger: A credible leaked briefing with named product lines and shelf-space commitments</div>
+        <div class="pred-blocked-msg">Scope ambiguity &mdash; "feature change" definition too broad</div>
       </div>
 
       <!-- PREDICTION 3 -->
       <div class="pred-card">
         <div class="pred-top">
-          <span class="pred-tag">Medium</span>
+          <span class="pred-tag pred-tag--tracked">Tracking</span>
           <span class="pred-horizon">90 days</span>
         </div>
-        <div class="pred-statement">At least one Tier-1 FMCG brand publicly commits to AI-powered supply chain traceability</div>
-        <div class="pred-conf">
-          <div class="pred-conf-row">
-            <span class="pred-conf-label">Probability</span>
-            <span class="pred-conf-val">57%</span>
+        <div class="pred-statement">CMA publishes further green-claims enforcement action targeting a named food or drink brand</div>
+        <div class="pred-status">
+          <div class="pred-status-row">
+            <span class="pred-status-label">Probability</span>
+            <span class="pred-status-val">Blocked</span>
           </div>
-          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:57%"></div></div>
+          <div class="pred-status-bar"><div class="pred-status-indicator"></div></div>
         </div>
-        <div class="pred-detail">Trigger: A government announcement settling the funding approach with no near-term operational consequence</div>
+        <div class="pred-blocked-msg">Needs confirmed CMA case reference to unlock scoring</div>
       </div>
 
       <!-- PREDICTION 4 -->
       <div class="pred-card">
         <div class="pred-top">
-          <span class="pred-tag">Medium</span>
-          <span class="pred-horizon">90 days</span>
+          <span class="pred-tag pred-tag--tracked">Tracking</span>
+          <span class="pred-horizon">60 days</span>
         </div>
-        <div class="pred-statement">A large-format food retailer confirms a store conversion or new-concept pilot tied to rapid delivery</div>
-        <div class="pred-conf">
-          <div class="pred-conf-row">
-            <span class="pred-conf-label">Probability</span>
-            <span class="pred-conf-val">55%</span>
+        <div class="pred-statement">UK grocery retailer extends member-only pricing to a third-party delivery platform</div>
+        <div class="pred-status">
+          <div class="pred-status-row">
+            <span class="pred-status-label">Probability</span>
+            <span class="pred-status-val">Blocked</span>
           </div>
-          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:55%"></div></div>
+          <div class="pred-status-bar"><div class="pred-status-indicator"></div></div>
         </div>
-        <div class="pred-detail">Trigger: An explicit internal memo published or corroborated describing a tool rollout and timeline</div>
+        <div class="pred-blocked-msg">Evidence base still forming &mdash; Co-op/Just Eat is first mover but pattern not yet confirmed</div>
       </div>
 
       <!-- PREDICTION 5 -->
       <div class="pred-card">
         <div class="pred-top">
-          <span class="pred-tag">Medium</span>
+          <span class="pred-tag pred-tag--tracked">Tracking</span>
+          <span class="pred-horizon">90 days</span>
+        </div>
+        <div class="pred-statement">ASA issues formal guidance on AI-generated imagery disclosure requirements for food advertising</div>
+        <div class="pred-status">
+          <div class="pred-status-row">
+            <span class="pred-status-label">Probability</span>
+            <span class="pred-status-val">Blocked</span>
+          </div>
+          <div class="pred-status-bar"><div class="pred-status-indicator"></div></div>
+        </div>
+        <div class="pred-blocked-msg">Regulatory timeline unclear &mdash; no consultation announced</div>
+      </div>
+
+      <!-- PREDICTION 6 -->
+      <div class="pred-card">
+        <div class="pred-top">
+          <span class="pred-tag pred-tag--tracked">Tracking</span>
           <span class="pred-horizon">30 days</span>
         </div>
-        <div class="pred-statement">A food retailer publicly confirms or denies restructuring plans affecting more than 500 store-level roles</div>
-        <div class="pred-conf">
-          <div class="pred-conf-row">
-            <span class="pred-conf-label">Probability</span>
-            <span class="pred-conf-val">53%</span>
+        <div class="pred-statement">Retail media measurement standardisation initiative announced by a UK industry body</div>
+        <div class="pred-status">
+          <div class="pred-status-row">
+            <span class="pred-status-label">Probability</span>
+            <span class="pred-status-val">Blocked</span>
           </div>
-          <div class="pred-conf-bar-bg"><div class="pred-conf-bar-fill" style="width:53%"></div></div>
+          <div class="pred-status-bar"><div class="pred-status-indicator"></div></div>
         </div>
-        <div class="pred-detail">Trigger: Official statement or staff-wide note becomes public with specific dates</div>
+        <div class="pred-blocked-msg">Measurement infrastructure still being built out &mdash; insufficient signal convergence</div>
       </div>
 
     </div>
@@ -693,76 +897,110 @@
       <div class="intel">
         <div class="intel-bar"></div>
         <div class="intel-content">
-          <h4>Tesco expands Clubcard Prices to wholesale channel amid supplier pushback</h4>
-          <p>The extension of loyalty-tier pricing into wholesale puts additional margin pressure on mid-tier suppliers. Category managers should model the impact on promotional calendars and review whether existing contracts accommodate multi-channel price differentiation.</p>
+          <span class="intel-tag intel-tag--regulation">Regulation</span>
+          <h4>CMA green-claims clampdown puts UK food marketers on notice</h4>
+          <p>The Competition and Markets Authority is stepping up its focus on green-claims compliance in the food sector. Sustainability messaging is being pulled into supply-chain substantiation requirements, meaning marketing teams can no longer treat environmental claims as brand storytelling alone. Any claim now needs verifiable evidence across the full supply chain, from sourcing to shelf.</p>
         </div>
       </div>
       <div class="intel">
         <div class="intel-bar"></div>
         <div class="intel-content">
-          <h4>EU Commission proposes harmonised front-of-pack nutrition labelling framework</h4>
-          <p>The draft regulation would mandate a single Nutri-Score-style scheme across all 27 member states by 2028. UK exporters face a compliance fork: align early for frictionless trade, or wait for a divergent UK scheme and manage dual-label inventory.</p>
+          <span class="intel-tag intel-tag--risk">Reputational Risk</span>
+          <h4>Tesco, Lidl and Farmfoods face fresh wave of recall-related reputational sensitivity</h4>
+          <p>Multiple product recalls across three major retailers in a single cycle signal either a supply-chain quality spike or heightened regulatory scrutiny. For marketing and comms teams, the operational response now directly feeds consumer trust metrics. Brands supplying these retailers should audit their recall communication protocols immediately.</p>
         </div>
       </div>
       <div class="intel">
         <div class="intel-bar"></div>
         <div class="intel-content">
-          <h4>Deliveroo and Just Eat report accelerating grocery share in Q4 earnings</h4>
-          <p>Quick-commerce grocery now represents 18% of platform GMV, up from 11% year-on-year. The shift signals that impulse and top-up shopping has permanently migrated for a segment of consumers, with implications for in-store merchandising and short-shelf-life ranges.</p>
+          <span class="intel-tag intel-tag--innovation">Innovation</span>
+          <h4>Higgidy expands quiche range with globally inspired flavours</h4>
+          <p>Premium convenience continues to find white space. Higgidy's expansion into globally inspired flavour profiles reflects the ongoing premiumisation trend in chilled prepared foods, where quality credentials and provenance storytelling drive margin over volume. Category managers should note the format innovation as a template for range extension.</p>
         </div>
       </div>
       <div class="intel">
         <div class="intel-bar"></div>
         <div class="intel-content">
-          <h4>Food Standards Agency fast-tracks precision fermentation Novel Food consultation</h4>
-          <p>The accelerated timeline reflects political pressure to position the UK as a regulatory-friendly destination for food tech investment. Brands with precision-fermented ingredients in pipeline should engage the consultation window before the March close.</p>
-        </div>
-      </div>
-      <div class="intel">
-        <div class="intel-bar"></div>
-        <div class="intel-content">
-          <h4>Aldi confirms five-year British sourcing commitment covering fresh meat and dairy</h4>
-          <p>The commitment locks in domestic supply chain preference for key protein and dairy categories. For UK farmers and processors this provides planning certainty; for importers it narrows the competitive window in Aldi's fastest-growing categories.</p>
+          <span class="intel-tag intel-tag--operations">Operations</span>
+          <h4>Lidl and Waitrose retrain store staff after food-waste expos&eacute;</h4>
+          <p>Operational behaviour is now a brand risk vector. Both retailers have committed to staff retraining programmes following media scrutiny of in-store food waste handling. For brand owners and suppliers, this signals that retailers are increasingly sensitive to operational narratives that undermine sustainability positioning. Expect supplier scorecards to incorporate waste metrics.</p>
         </div>
       </div>
     </div>
   </div>
 
   <!-- =============================== -->
-  <!-- 03 · PEOPLE MOVES -->
+  <!-- 03 · INDUSTRY NOTES -->
   <!-- =============================== -->
   <div class="sec">
     <div class="sec-head">
       <span class="sec-num">03</span>
+      <h2 class="sec-title">Industry Notes</h2>
+    </div>
+    <p class="sec-desc">Commercial moves, partnerships and product launches shaping the competitive landscape this cycle.</p>
+
+    <div class="notes-grid">
+      <div class="note note--featured">
+        <div class="note-category">Loyalty &amp; Delivery</div>
+        <h4>Co-op launches member-only pricing on Just Eat app</h4>
+        <p>First UK grocer to extend membership pricing onto a third-party delivery platform. Signals that app-led value propositions are spilling beyond owned channels &mdash; a structural shift for loyalty economics and delivery-partner negotiations.</p>
+      </div>
+      <div class="note">
+        <div class="note-category">Brand Partnership</div>
+        <h4>pladis partners McVitie's with PG Tips on tea-break campaign</h4>
+        <p>Cross-category co-branding play targeting the at-home occasion. Interesting signal for suppliers exploring joint promotion mechanics outside of retailer-led events.</p>
+      </div>
+      <div class="note">
+        <div class="note-category">Data &amp; AdTech</div>
+        <h4>StackAdapt partners with Experian on first-party data activation</h4>
+        <p>Programmatic platform integrating deterministic audience data. Relevant for retail media teams building off-site audience strategies beyond walled-garden retailer data.</p>
+      </div>
+      <div class="note">
+        <div class="note-category">Brand Campaign</div>
+        <h4>Caple launches consumer branding campaign with Channel 4</h4>
+        <p>Appliance brand investing in broadcast awareness &mdash; signals confidence in premium kitchen category and the continuing role of TV in brand-building for food-adjacent products.</p>
+      </div>
+      <div class="note">
+        <div class="note-category">Pricing Strategy</div>
+        <h4>Walkers introduces 85p price-marked pack for UK convenience</h4>
+        <p>Price-marked packs remain a critical trust signal in the impulse channel. The 85p price point positions below the psychological &pound;1 barrier while protecting margin.</p>
+      </div>
+      <div class="note">
+        <div class="note-category">NPD Pipeline</div>
+        <h4>Fortnum &amp; Mason opens second "Open Call" for challenger brands</h4>
+        <p>Premium retailer actively scouting emerging food and drink brands. A route-to-market signal for start-ups and scale-ups in speciality food with strong brand storytelling.</p>
+      </div>
+      <div class="note">
+        <div class="note-category">NPD Launch</div>
+        <h4>Langtins launches "Coneys" confectionery with texture and nostalgia positioning</h4>
+        <p>New confectionery entrant combining texture innovation with nostalgic branding. Reflects the continuing consumer appetite for novel formats in traditional sugar confectionery.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================== -->
+  <!-- 04 · PEOPLE MOVES -->
+  <!-- =============================== -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
       <h2 class="sec-title">People Moves</h2>
     </div>
     <div class="people">
       <div class="person">
-        <div class="person-av">SM</div>
+        <div class="person-av">TH</div>
         <div>
-          <div class="person-name">Sarah Mitchell</div>
-          <div class="person-role">Appointed Chief Commercial Officer at Greencore Group, previously VP Sales at Kerry Group</div>
+          <div class="person-name">Tom Hampson</div>
+          <div class="person-role">VP of Marketing, Asda &mdash; joining from B&amp;Q</div>
+          <div class="person-timing">Start date: June 2026</div>
         </div>
       </div>
       <div class="person">
-        <div class="person-av">JT</div>
+        <div class="person-av">MW</div>
         <div>
-          <div class="person-name">James Thornton</div>
-          <div class="person-role">Named MD of Waitrose, replacing current interim leadership following JLP restructure</div>
-        </div>
-      </div>
-      <div class="person">
-        <div class="person-av">PK</div>
-        <div>
-          <div class="person-name">Priya Kapoor</div>
-          <div class="person-role">Joins Ocado Technology as Head of AI &amp; Data Science from Amazon Fresh Europe</div>
-        </div>
-      </div>
-      <div class="person">
-        <div class="person-av">DO</div>
-        <div>
-          <div class="person-name">David Okonkwo</div>
-          <div class="person-role">Promoted to Global Category Director, Snacking at Mondelez International</div>
+          <div class="person-name">Matthew Walker</div>
+          <div class="person-role">Head of UK Foodservice, Arla &mdash; internal appointment</div>
+          <div class="person-timing">Effective immediately</div>
         </div>
       </div>
     </div>
@@ -778,105 +1016,102 @@
 <div class="main">
 
   <!-- =============================== -->
-  <!-- 04 · EMERGING SIGNALS -->
+  <!-- 05 · EMERGING SIGNALS -->
   <!-- =============================== -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num">05</span>
       <h2 class="sec-title">Emerging Signals</h2>
     </div>
     <p class="sec-desc">Themes generating rising coverage and conversation across industry sources. Early indicators of where the market is heading.</p>
     <div class="signals">
-      <div class="signal">
-        <div class="signal-tag">Rising</div>
-        <h4>Ultra-processed food reformulation</h4>
-        <p>Multiple retailers now asking suppliers for UPF reduction roadmaps. Expect this to become a formal tender criterion within 12 months.</p>
+      <div class="signal signal--wide">
+        <div class="signal-tag">Convergence</div>
+        <h4>Influencer disclosure compliance is converging across regulators and platforms</h4>
+        <p>The ASA's existing rules and TikTok's branded-content disclosure tooling are moving toward the same requirements. Food and drink brands using influencer partnerships should expect a single, stricter compliance standard to emerge &mdash; not two parallel regimes. Marketing teams should audit current disclosure practices against both ASA guidelines and platform-native tools now, before enforcement tightens.</p>
       </div>
       <div class="signal">
-        <div class="signal-tag">Rising</div>
-        <h4>Carbon labelling pilot schemes</h4>
-        <p>Foundation Earth and other schemes are gaining traction with mid-market brands. Standardisation remains the blocker, but momentum is building.</p>
+        <div class="signal-tag">Structural Shift</div>
+        <h4>App-led value spilling into non-owned channels</h4>
+        <p>Co-op's member pricing on Just Eat signals that loyalty propositions are no longer contained within owned ecosystems. If this model works, expect other grocers to follow &mdash; fundamentally changing how delivery platforms negotiate with retailers and how consumers perceive value across channels.</p>
       </div>
       <div class="signal">
-        <div class="signal-tag">Emerging</div>
-        <h4>GLP-1 drug impact on food demand</h4>
-        <p>Ozempic-class drugs reshaping portion size and snacking behaviour. Early data from US convenience chains now being studied by UK category planners.</p>
-      </div>
-      <div class="signal">
-        <div class="signal-tag">Emerging</div>
-        <h4>AI-generated product imagery in marketing</h4>
-        <p>Brands experimenting with synthetic photography for seasonal campaigns. Regulatory clarity on disclosure expected from ASA by mid-year.</p>
+        <div class="signal-tag">Infrastructure</div>
+        <h4>Retail media measurement plumbing still being built out</h4>
+        <p>Despite significant investment, the measurement infrastructure for retail media remains immature. Standardisation is lagging behind spend growth, creating a window where brands are allocating budget without reliable attribution. Watch for industry body intervention or a major retailer publishing transparent measurement benchmarks.</p>
       </div>
     </div>
   </div>
 
   <!-- =============================== -->
-  <!-- 05 · WHAT TO WATCH -->
+  <!-- 06 · WHAT TO WATCH -->
   <!-- =============================== -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">05</span>
-      <h2 class="sec-title">What to Watch This Week</h2>
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">What to Watch</h2>
     </div>
     <ul class="watchlist">
       <li class="watch">
         <span class="watch-n">1</span>
-        <p><strong>Defra select committee hearing (Wednesday)</strong> — expected to press ministers on the UK's post-Brexit food import standards timeline. Any signal of acceleration could reshape compliance planning for importers.</p>
+        <p><strong>CMA green-claims enforcement updates</strong> &mdash; whether the Competition and Markets Authority publishes further enforcement guidance or takes action against a named food or drink brand in the next 4&ndash;6 weeks. Any named action would reset the compliance risk calculus for the entire sector.</p>
       </li>
       <li class="watch">
         <span class="watch-n">2</span>
-        <p><strong>IGD ShopperVista data release (Thursday)</strong> — February footfall and basket data will show whether the January value-seeking trend is persisting or reversing as spring approaches.</p>
+        <p><strong>ASA influencer marketing disclosure guidance</strong> &mdash; any dated update to the Advertising Standards Authority's influencer disclosure rules. A published consultation or guidance note would unlock probability scoring on our lead prediction and signal a regulatory acceleration.</p>
       </li>
       <li class="watch">
         <span class="watch-n">3</span>
-        <p><strong>Nestl&eacute; Capital Markets Day (Friday)</strong> — the key watch is whether they signal portfolio pruning in European confectionery or double down on health &amp; wellness repositioning.</p>
-      </li>
-      <li class="watch">
-        <span class="watch-n">4</span>
-        <p><strong>Sainsbury's Q4 trading update</strong> — market expecting commentary on Nectar Prices cannibalisation of base margin. Language on supplier terms will set the tone for spring negotiations.</p>
-      </li>
-      <li class="watch">
-        <span class="watch-n">5</span>
-        <p><strong>EU Farm to Fork Strategy progress review</strong> — the Commission's mid-term assessment could signal regulatory direction changes affecting UK-EU agrifood trade terms.</p>
+        <p><strong>Member-only pricing on delivery apps</strong> &mdash; whether other UK grocers copy Co-op's move to extend member pricing onto third-party delivery platforms during March 2026. A second mover would confirm a structural pattern rather than a one-off partnership.</p>
       </li>
     </ul>
   </div>
 
   <!-- =============================== -->
-  <!-- 06 · DEEP CONTEXT -->
-  <!-- =============================== -->
-  <div class="sec">
-    <div class="sec-head">
-      <span class="sec-num">06</span>
-      <h2 class="sec-title">Context &amp; Analysis</h2>
-    </div>
-    <div class="ctx">
-      <h4>The loyalty pricing arms race is reshaping supplier economics</h4>
-      <p>Tesco's Clubcard, Sainsbury's Nectar and now Co-op's membership pricing have created a three-tier consumer market: loyalty members, non-members, and online-only shoppers. For suppliers, the listed shelf price is increasingly a fiction — actual realised price depends on loyalty penetration rates that vary by store, region and demographic.</p>
-      <p>Promotional effectiveness metrics need recalibrating because baseline sales now include a loyalty discount that didn't exist 18 months ago. Suppliers negotiating spring-summer terms should insist on loyalty-adjusted volume data before committing to spend.</p>
-    </div>
-    <div class="ctx">
-      <h4>Precision fermentation: the UK's regulatory gambit</h4>
-      <p>The FSA's decision to fast-track precision fermentation Novel Food applications is a deliberate positioning move. With the EU's centralised EFSA process creating 18-24 month backlogs, the UK sees an opportunity to attract food-tech investment by offering a faster, more predictable approval pathway.</p>
-      <p>For brands already developing precision-fermented ingredients — particularly in dairy alternatives and protein — the March consultation deadline is a critical engagement window. Early movers who shape the regulatory framework will have a structural advantage.</p>
-    </div>
-  </div>
-
-  <!-- =============================== -->
-  <!-- 07 · BACKGROUND DATA -->
+  <!-- 07 · CONTEXT & ANALYSIS -->
   <!-- =============================== -->
   <div class="sec">
     <div class="sec-head">
       <span class="sec-num">07</span>
-      <h2 class="sec-title">Background Data</h2>
+      <h2 class="sec-title">Context &amp; Analysis</h2>
     </div>
     <div class="ctx">
-      <h4>UK grocery market share (latest Kantar data)</h4>
-      <p>Tesco 27.1% (+0.3pp YoY) &middot; Sainsbury's 15.0% (+0.1pp) &middot; Asda 13.4% (-0.6pp) &middot; Aldi 10.2% (+0.4pp) &middot; Morrisons 8.6% (-0.3pp) &middot; Lidl 8.0% (+0.5pp) &middot; Co-op 5.8% (flat) &middot; Waitrose 4.5% (-0.1pp). The discounter share story continues but the pace has slowed, with Aldi's gains now coming more from basket size than new store openings.</p>
+      <h4>Compliance-adjacent marketing risk is the defining theme of this cycle</h4>
+      <p>This intelligence cycle is being shaped by compliance-adjacent marketing risk rather than blockbuster campaigns or major commercial launches. The three dominant threads &mdash; green claims governance, advertising disclosure hygiene, and recall-linked trust sensitivity &mdash; all share a common characteristic: they turn regulatory and operational activity into brand-facing risk.</p>
+      <p>For marketing directors and comms teams, the actionable insight is that compliance is no longer a legal function operating behind the brand. It is the brand. The CMA's green-claims focus, the ASA's influencer disclosure trajectory, and the reputational sensitivity around product recalls all demand that marketing teams have direct sight of compliance activity &mdash; not as a reporting line, but as a planning input.</p>
+      <p>The brands that navigate this cycle well will be those that treat regulatory awareness as a competitive advantage: moving early on disclosure, auditing supply-chain claims proactively, and building recall-response protocols that protect rather than erode consumer trust.</p>
     </div>
-    <div class="ctx">
-      <h4>Food inflation trajectory</h4>
-      <p>UK food inflation at 3.2% in January (down from 3.8% in December, peak of 19.2% in March 2023). While headline numbers continue to ease, protein and dairy categories remain elevated. The gap between branded and private label price inflation is narrowing, reducing the trade-down incentive that drove own-label growth through 2024.</p>
+  </div>
+
+  <!-- =============================== -->
+  <!-- 08 · BACKGROUND DATA -->
+  <!-- =============================== -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">08</span>
+      <h2 class="sec-title">Background</h2>
+    </div>
+    <div class="bg-timeline">
+      <div class="bg-item">
+        <div class="bg-item-date">5 January 2026</div>
+        <h4>HFSS advertising restrictions take effect UK-wide</h4>
+        <p>Less healthy food and drink advertising restrictions are now in force across all UK broadcast and online media. Brands affected should have already transitioned creative and media plans. Any remaining non-compliant activity creates regulatory exposure.</p>
+      </div>
+      <div class="bg-item">
+        <div class="bg-item-date">22 January 2026</div>
+        <h4>CMA publishes green-claims supply-chain guidance</h4>
+        <p>The Competition and Markets Authority's updated guidance extends green-claims scrutiny beyond consumer-facing marketing into supply-chain substantiation. This is the regulatory foundation for today's lead intelligence on the CMA clampdown.</p>
+      </div>
+      <div class="bg-item">
+        <div class="bg-item-date">Ongoing</div>
+        <h4>TikTok mandates branded-content disclosure tooling</h4>
+        <p>TikTok now requires branded-content disclosure through its native tooling for all commercial posts. This aligns platform enforcement with ASA expectations and creates a de facto single standard for influencer marketing compliance on the platform.</p>
+      </div>
+      <div class="bg-item">
+        <div class="bg-item-date">Ongoing</div>
+        <h4>Retail media "platformisation" continues to accelerate</h4>
+        <p>Retail media networks are maturing from ad-hoc inventory sales into programmatic platforms. Measurement, attribution and cross-retailer comparability remain the critical gaps. Brands increasing retail media spend should demand transparent performance benchmarks.</p>
+      </div>
     </div>
   </div>
 </div>
