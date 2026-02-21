@@ -93,23 +93,23 @@
     overflow: hidden;
     padding: 80px 32px;
   }
-  /* Background image layer — supermarket montage, more visible */
+  /* Background image layer — supermarket montage, clearly visible */
   .hero-bg {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image: url('hero-bg.png');
     background-size: cover;
     background-position: center center;
-    filter: grayscale(0.3) brightness(0.45);
-    opacity: 0.7;
+    filter: grayscale(0.15) brightness(0.55);
+    opacity: 0.85;
     pointer-events: none;
   }
-  /* Light green colour wash — just enough to tint, not obscure */
+  /* Very light green tint — lets image show through strongly */
   .hero::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(170deg, rgba(7,42,31,0.45) 0%, rgba(11,61,46,0.35) 40%, rgba(20,90,67,0.3) 100%);
+    background: linear-gradient(170deg, rgba(7,42,31,0.35) 0%, rgba(11,61,46,0.22) 40%, rgba(20,90,67,0.18) 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -130,13 +130,13 @@
     text-align: center;
     position: relative;
     z-index: 3;
-    background: rgba(7,42,31,0.72);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-radius: 20px;
-    padding: 56px 52px 48px;
-    border: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+    background: rgba(7,42,31,0.78);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 18px;
+    padding: 52px 52px 44px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
   }
   .hero-edition {
     font-family: 'Montserrat', sans-serif;
