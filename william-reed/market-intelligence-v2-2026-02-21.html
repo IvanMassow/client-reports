@@ -93,35 +93,23 @@
     overflow: hidden;
     padding: 80px 32px;
   }
-  /* Background image layer — supermarket montage, greyed out */
+  /* Background image layer — supermarket montage, more visible */
   .hero-bg {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image: url('hero-bg.png');
     background-size: cover;
     background-position: center center;
-    filter: grayscale(0.5) brightness(0.3);
-    opacity: 0.4;
+    filter: grayscale(0.3) brightness(0.45);
+    opacity: 0.7;
     pointer-events: none;
   }
-  /* Green colour wash over the image */
+  /* Light green colour wash — just enough to tint, not obscure */
   .hero::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(170deg, rgba(7,42,31,0.7) 0%, rgba(11,61,46,0.55) 40%, rgba(20,90,67,0.5) 100%);
-    pointer-events: none;
-    z-index: 1;
-  }
-  /* Warm glow over the image */
-  .hero::after {
-    content: '';
-    position: absolute;
-    top: -30%;
-    right: -20%;
-    width: 70%;
-    height: 160%;
-    background: radial-gradient(ellipse at center, rgba(232,168,56,0.1) 0%, transparent 65%);
+    background: linear-gradient(170deg, rgba(7,42,31,0.45) 0%, rgba(11,61,46,0.35) 40%, rgba(20,90,67,0.3) 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -131,16 +119,24 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 320px;
-    background: linear-gradient(to top, var(--paper) 0%, rgba(250,250,247,0.85) 25%, rgba(250,250,247,0.4) 55%, transparent 100%);
+    height: 300px;
+    background: linear-gradient(to top, var(--paper) 0%, rgba(250,250,247,0.8) 20%, rgba(250,250,247,0.3) 50%, transparent 100%);
     pointer-events: none;
     z-index: 2;
   }
+  /* Frosted dark card behind all text — like methodology page */
   .hero-inner {
     max-width: 780px;
     text-align: center;
     position: relative;
     z-index: 3;
+    background: rgba(7,42,31,0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 20px;
+    padding: 56px 52px 48px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
   }
   .hero-edition {
     font-family: 'Montserrat', sans-serif;
@@ -225,7 +221,7 @@
 
   /* === SECTIONS === */
   .section {
-    padding: 48px 0;
+    padding: 36px 0;
     position: relative;
   }
   .section + .section {
@@ -254,7 +250,7 @@
     color: var(--text-mid);
     max-width: 620px;
     line-height: 1.65;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   /* === LEAD STORY (Dark Hero Block) === */
@@ -940,12 +936,13 @@
   /* === RESPONSIVE === */
   @media (max-width: 768px) {
     .topbar { padding: 0 16px; height: 36px; }
-    .hero { min-height: 78vh; padding: 60px 20px; }
+    .hero { min-height: 78vh; padding: 60px 16px; }
+    .hero-inner { padding: 36px 24px 32px; border-radius: 16px; }
     .hero-metrics { grid-template-columns: repeat(2, 1fr); }
     .hero-metric { padding: 22px 12px; }
     .hero-metric-val { font-size: 34px; }
     .container { padding: 0 20px; }
-    .section { padding: 36px 0; }
+    .section { padding: 28px 0; }
     .pred-grid { grid-template-columns: 1fr; }
     .notes-grid { grid-template-columns: 1fr; }
     .note-card--featured { grid-column: auto; }
