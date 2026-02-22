@@ -1,0 +1,11 @@
+{
+  "2026-02-22": {
+    "trust": {
+      "score": 51,
+      "posture": "Mixed",
+      "trend_count": 30,
+      "strength_count": 0,
+      "vuln_count": 0
+    }
+  }
+}

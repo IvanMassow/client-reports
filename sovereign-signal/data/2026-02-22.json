@@ -1,0 +1,54 @@
+{
+  "trust": {
+    "executive_summary": "[Section not available this cycle.]",
+    "perception_dashboard": [
+      {
+        "proposition": "50%",
+        "global_view": "50%",
+        "sovereign_view": "Low",
+        "confidence": "Governance, Stability and Partner Reliability",
+        "arena": ","
+      },
+      {
+        "proposition": "45%",
+        "global_view": "58%",
+        "sovereign_view": "Medium",
+        "confidence": "Governance, Stability and Partner Reliability",
+        "arena": ","
+      },
+      {
+        "proposition": "40%",
+        "global_view": "55%",
+        "sovereign_view": "Medium",
+        "confidence": "Governance, Stability and Partner Reliability",
+        "arena": ","
+      },
+      {
+        "proposition": "45%",
+        "global_view": "45%",
+        "sovereign_view": "Low",
+        "confidence": "Governance, Stability and Partner Reliability",
+        "arena": ","
+      },
+      {
+        "proposition": "45%",
+        "global_view": "63%",
+        "sovereign_view": "Medium",
+        "confidence": "Governance, Stability and Partner Reliability",
+        "arena": ","
+      }
+    ],
+    "trends": [],
+    "strength_signals": [],
+    "vulnerability_signals": [],
+    "priorities": [],
+    "conclusion": "[Section not available this cycle.]",
+    "score": 51,
+    "posture": "Mixed",
+    "trend_count": 30,
+    "strength_count": 0,
+    "vuln_count": 0,
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-united-kingdom-governance-standing-reviewed-2026-02-22-zkpl",
+    "ref": "ZKPL"
+  }
+}

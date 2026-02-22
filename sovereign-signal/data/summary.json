@@ -1,0 +1,18 @@
+{
+  "date": "2026-02-22",
+  "composite_score": 51,
+  "composite_posture": "Mixed",
+  "composite_delta": null,
+  "pillars": {
+    "trust": {
+      "name": "Trust, Stability & Systemic Reliability",
+      "score": 51,
+      "posture": "Mixed",
+      "delta": null,
+      "trend_count": 30,
+      "strength_count": 0,
+      "vuln_count": 0,
+      "executive_summary": "[Section not available this cycle.]"
+    }
+  }
+}
