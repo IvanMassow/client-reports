@@ -651,28 +651,66 @@ body {
   border-top: 1px solid rgba(255,255,255,0.04);
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE — TABLET === */
 @media (max-width: 900px) {
   .topbar { padding: 0 16px; height: 48px; }
-  .hero-inner { flex-direction: column; padding: 36px 16px 0; min-height: auto; }
+  .topbar-nav { display: none; }
+  .topbar-date { display: none; }
+  .hero-inner { flex-direction: column; padding: 32px 16px 0; min-height: auto; }
   .hero-left { max-width: 100%; }
-  .hero-title { font-size: 36px; }
+  .hero-title { font-size: 32px; }
+  .hero-desc { font-size: 13px; max-width: 100%; }
   .score-block { width: 100%; margin-top: 24px; }
-  .score-block-num { font-size: 60px; }
+  .score-block-inner { display: flex; align-items: center; gap: 16px; padding: 16px 20px; text-align: left; }
+  .score-block-label { display: none; }
+  .score-block-num { font-size: 48px; }
+  .score-block-max { display: none; }
+  .score-block-delta { font-size: 11px; }
+  .score-block-posture { margin-top: 0; }
   .pillar-scores { grid-template-columns: repeat(3, 1fr); }
-  .container { padding: 32px 16px 0; }
-  .pillar-tiles { grid-template-columns: 1fr; }
-  .signals-summary { grid-template-columns: repeat(2, 1fr); }
+  .pillar-score-name { font-size: 8px; min-height: 20px; }
+  .pillar-score-num { font-size: 28px; }
+  .pillar-score-delta { font-size: 10px; }
+  .pillar-score-posture { font-size: 8px; }
+  .container { padding: 24px 16px 0; }
+  .section-head { flex-direction: column; gap: 4px; }
+  .section-title { font-size: 20px; }
+  .pillar-tiles { grid-template-columns: 1fr; gap: 14px; }
+  .signals-summary { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .signal-row { grid-template-columns: 56px 1fr; gap: 8px; }
   .signal-row .signal-pillar,
   .signal-row .signal-type-tag,
   .signal-row .signal-horizon { display: none; }
   .footer { padding: 20px 16px; }
+  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+  .footer-credit { font-size: 8px; }
 }
+
+/* === RESPONSIVE — MOBILE === */
 @media (max-width: 600px) {
+  .topbar-logo { font-size: 13px; }
+  .topbar-brand { font-size: 9px; letter-spacing: 1px; }
+  .hero-inner { padding: 24px 16px 0; }
+  .hero-eyebrow { font-size: 10px; letter-spacing: 2px; margin-bottom: 10px; }
+  .hero-title { font-size: 28px; }
+  .hero-subtitle { font-size: 11px; margin-bottom: 16px; }
+  .hero-desc { display: none; }
+  .hero-date-nav .date-label { font-size: 12px; }
+  .score-block-inner { padding: 14px 16px; }
+  .score-block-num { font-size: 40px; }
   .pillar-scores { grid-template-columns: repeat(2, 1fr); }
-  .pillar-score-num { font-size: 26px; }
-  .score-block-num { font-size: 48px; }
-  .pillar-tile-metrics { grid-template-columns: repeat(2, 1fr); }
+  .pillar-score-cell { padding: 14px 8px 12px; }
+  .pillar-score-num { font-size: 24px; }
+  .pillar-score-name { font-size: 7px; letter-spacing: 0.5px; }
+  .pillar-tile-header { padding: 14px 16px 12px; }
+  .pillar-tile-body { padding: 14px 16px 16px; }
+  .pillar-tile-summary { font-size: 12px; }
+  .pillar-tile-metrics { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .ptm { padding: 8px 4px; }
+  .ptm-val { font-size: 14px; }
+  .pillar-tile-footer { padding: 10px 16px; }
   .signals-summary { grid-template-columns: 1fr; }
+  .signal-card { padding: 14px; }
+  .signal-stat-num { font-size: 18px; }
+  .trend-note { padding: 24px 16px; font-size: 12px; }
 }
