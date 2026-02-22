@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sovereign Standing Brief: United Kingdom — Climate Diplomacy Credibility | QJMK</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --navy: #1B2A4A;
@@ -77,7 +77,15 @@ body {
   align-items: center;
   gap: 16px;
 }
-.topbar-logo svg { height: 18px; }
+.topbar-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1;
+}
 .topbar-divider {
   width: 1px;
   height: 24px;
@@ -663,7 +671,15 @@ body {
   align-items: center;
   gap: 20px;
 }
-.footer-left svg { height: 16px; }
+.footer-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  line-height: 1;
+}
 .footer-label {
   font-size: 9px;
   font-weight: 700;
@@ -721,12 +737,7 @@ body {
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-left">
-    <div class="topbar-logo">
-      <svg viewBox="0 0 120 20" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="16" font-family="Inter, sans-serif" font-weight="900" font-size="15" fill="white" letter-spacing="0.5">NOAH</text>
-        <text x="52" y="16" font-family="Inter, sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.5)" letter-spacing="2">WIRE</text>
-      </svg>
-    </div>
+    <div class="topbar-logo">NOAH</div>
     <div class="topbar-divider"></div>
     <span class="topbar-brand">Sovereign Signal</span>
   </div>
@@ -1201,10 +1212,7 @@ body {
 <div class="footer">
   <div class="footer-inner">
     <div class="footer-left">
-      <svg viewBox="0 0 120 20" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="16" font-family="Inter, sans-serif" font-weight="900" font-size="15" fill="rgba(255,255,255,0.4)" letter-spacing="0.5">NOAH</text>
-        <text x="52" y="16" font-family="Inter, sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.2)" letter-spacing="2">WIRE</text>
-      </svg>
+      <span class="footer-logo">NOAH</span>
       <span class="footer-label">Sovereign Signal</span>
     </div>
     <div class="footer-right">
