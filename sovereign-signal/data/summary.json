@@ -1,58 +1,26 @@
 {
   "date": "2026-02-22",
-  "composite_score": 54,
-  "composite_posture": "Mixed",
-  "composite_delta": 4,
+  "composite": 55,
   "pillars": {
-    "trust": {
-      "name": "Trust, Stability & Systemic Reliability",
-      "score": 50,
-      "posture": "Mixed",
-      "delta": -6,
-      "trend_count": 30,
-      "strength_count": 0,
-      "vuln_count": 0,
-      "executive_summary": "[Section not available this cycle.]"
-    },
-    "diplomatic": {
-      "name": "Diplomatic & Global Leadership",
-      "score": 57,
-      "posture": "Stable",
-      "delta": 2,
-      "trend_count": 30,
-      "strength_count": 7,
-      "vuln_count": 2,
-      "executive_summary": "External attention on UK diplomatic standing is anchored in alliance and multilateral-role framing , NATO posture, United Nations reform process reference points, and Ukraine-related coordination rema"
-    },
-    "economic": {
-      "name": "Economic & Business Leadership",
-      "score": 62,
-      "posture": "Stable",
-      "delta": 14,
-      "trend_count": 10,
-      "strength_count": 6,
-      "vuln_count": 0,
-      "executive_summary": "External attention on the United Kingdom\u2019s economic standing is concentrated in two connected storylines: London\u2019s finance-centre positioning (NASDAQ, Citi) and UK-linked AI ecosystem visibility (Open"
-    },
     "softpower": {
-      "name": "Soft Power & Cultural Standing",
       "score": 48,
-      "posture": "Declining",
-      "delta": 1,
-      "trend_count": 30,
-      "strength_count": 4,
-      "vuln_count": 6,
-      "executive_summary": "External perception of the United Kingdom is contested but deteriorating in tone: non-UK attention in Soft Power Culture And Moral Authority is pulled toward Prince Andrew, King Charles III, Jeffrey E"
+      "posture": "Declining"
     },
     "defence": {
-      "name": "Defence & Strategic Credibility",
       "score": 57,
-      "posture": "Stable",
-      "delta": 10,
-      "trend_count": 40,
-      "strength_count": 5,
-      "vuln_count": 4,
-      "executive_summary": "External attention on the United Kingdom\u2019s Defence & Strategic Credibility is anchored in Strategic And Defence Standing, where NATO readiness/capability assessments, AUKUS-linked submarine presence, "
+      "posture": "Stable"
+    },
+    "economic": {
+      "score": 62,
+      "posture": "Stable"
+    },
+    "diplomatic": {
+      "score": 57,
+      "posture": "Stable"
+    },
+    "trust": {
+      "score": 53,
+      "posture": "Under Pressure"
     }
   }
 }

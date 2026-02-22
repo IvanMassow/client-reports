@@ -38,11 +38,11 @@
   },
   "2026-02-22": {
     "trust": {
-      "score": 50,
-      "posture": "Mixed",
-      "trend_count": 30,
-      "strength_count": 0,
-      "vuln_count": 0
+      "score": 53,
+      "posture": "Under Pressure",
+      "strength_count": 9,
+      "vuln_count": 1,
+      "trend_count": 12
     },
     "diplomatic": {
       "score": 57,

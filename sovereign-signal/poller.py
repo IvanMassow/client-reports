@@ -1935,7 +1935,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 :root {{
   --slate: #1a1e27; --slate-deep: #1a1e27; --slate-mid: #2e323c;
   --accent: #C9A84C; --accent-light: #EDE0B8;
-  --red: #D94048; --green: #2E9B6E; --amber: #C4920A;
+  --red: #E53E3E; --green: #22C55E; --amber: #C4920A;
   --text: #2C2C2C; --text-mid: #555B66; --text-muted: #8A8F98;
   --bg: #FAFAF8; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
   --pillar: {pillar['color']}; --pillar-light: {pillar['color_light']}; --pillar-mid: {pillar['color_mid']};
