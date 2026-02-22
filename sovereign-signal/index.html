@@ -305,19 +305,21 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1px;
-  background: rgba(255,255,255,0.04);
+  background: rgba(15,27,51,0.92);
   border-top: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 3;
 }
 .pillar-score-cell {
   padding: 24px 12px 22px;
   text-align: center;
-  background: rgba(0,0,0,0.15);
+  background: rgba(15,27,51,0.88);
   transition: background 0.15s;
   cursor: pointer;
   text-decoration: none;
   display: block;
 }
-.pillar-score-cell:hover { background: rgba(0,0,0,0.25); }
+.pillar-score-cell:hover { background: rgba(15,27,51,0.95); }
 .pillar-score-name {
   font-size: 9px;
   font-weight: 700;
