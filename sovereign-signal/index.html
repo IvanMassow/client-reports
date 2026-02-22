@@ -462,19 +462,56 @@ body {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-.briefing-card-body {
-  padding: 16px 22px 18px;
+/* === FINDINGS GRID — arena-level rows inside briefing cards === */
+.briefing-card-findings-grid {
+  padding: 0 22px 14px;
 }
-.briefing-card-summary {
-  font-size: 13px;
-  color: var(--text-mid);
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-.briefing-card-findings {
+.finding-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.finding-row:last-child { border-bottom: none; }
+.finding-row-fallback {
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: none;
+}
+.finding-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.finding-dot-strong { background: var(--green); }
+.finding-dot-weak { background: var(--red); }
+.finding-dot-mixed { background: var(--amber); }
+.finding-dot-uncertain { background: var(--text-muted); }
+.finding-arena {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  flex: 1;
+}
+.finding-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.finding-badge-strong { color: #166534; background: rgba(58,138,110,0.1); }
+.finding-badge-weak { color: #991b1b; background: rgba(196,84,90,0.1); }
+.finding-badge-mixed { color: #92400e; background: rgba(196,146,10,0.1); }
+.finding-badge-uncertain { color: var(--text-muted); background: var(--bg); border: 1px solid var(--border); }
+.finding-detail {
+  font-size: 10px;
+  color: var(--text-muted);
+  flex-shrink: 0;
 }
 .finding-tag {
   font-size: 10px;
@@ -601,7 +638,9 @@ body {
   .section-title { font-size: 20px; }
   .briefing-card-top { flex-direction: column; gap: 10px; }
   .briefing-card-stats { padding-left: 0; justify-content: flex-start; }
-  .briefing-card-findings { gap: 4px; }
+  .briefing-card-findings-grid { padding: 0 16px 10px; }
+  .finding-arena { font-size: 12px; }
+  .finding-badge { font-size: 8px; }
   .footer { padding: 20px 16px; }
   .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
   .footer-credit { font-size: 8px; }
@@ -631,6 +670,11 @@ body {
   .briefing-card-score { font-size: 22px; }
   .briefing-card-cta { padding: 8px 16px; font-size: 10px; }
   .finding-tag { font-size: 9px; padding: 2px 8px; }
+  .briefing-card-findings-grid { padding: 0 16px 8px; }
+  .finding-row { gap: 8px; padding: 6px 0; }
+  .finding-arena { font-size: 11px; }
+  .finding-badge { font-size: 8px; padding: 2px 6px; }
+  .finding-detail { display: none; }
   .trend-note { padding: 24px 16px; font-size: 12px; }
 }
 
@@ -741,9 +785,32 @@ body {
             </div>
           </div>
         </div>
-        <div class="briefing-card-body">
-          <p class="briefing-card-summary">The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Industries And Talent present Strong positions, while Heritage Identity And Nation Brand and Values And...</p>
-          <div class="briefing-card-findings"><span class="finding-tag strength">Culture And Media Exports</span><span class="finding-tag strength">Creative Industries And Talent</span><span class="finding-tag vuln">Heritage Identity And Nation Brand</span><span class="finding-tag vuln">Values And Human Rights Reputation</span></div>
+        <div class="briefing-card-findings-grid">
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Culture And Media Exports</span>
+                <span class="finding-badge finding-badge-strong">Strong</span> <span class="finding-detail">Strength concentration</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Creative Industries And Talent</span>
+                <span class="finding-badge finding-badge-strong">Strong</span> <span class="finding-detail">Strength concentration</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-weak"></span>
+                <span class="finding-arena">Heritage Identity And Nation Brand</span>
+                <span class="finding-badge finding-badge-weak">Weak</span> <span class="finding-detail">Vulnerability concentration</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-weak"></span>
+                <span class="finding-arena">Values And Human Rights Reputation</span>
+                <span class="finding-badge finding-badge-weak">Weak</span> <span class="finding-detail">Vulnerability concentration</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-uncertain"></span>
+                <span class="finding-arena">Education And Research Prestige</span>
+                <span class="finding-badge finding-badge-uncertain">Uncertain</span> <span class="finding-detail">Insufficient data</span>
+              </div>
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
@@ -769,9 +836,32 @@ body {
             </div>
           </div>
         </div>
-        <div class="briefing-card-body">
-          <p class="briefing-card-summary">United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak structural positions in Deterrence Posture And Escalation Management, Cyber Capability And Security Pos...</p>
-          <div class="briefing-card-findings"><span class="finding-tag strength">Military Capability And Readiness</span><span class="finding-tag strength">Defence Industry And Procurement Credibility</span><span class="finding-tag vuln">Deterrence Posture And Escalation Management</span><span class="finding-tag vuln">Cyber Capability And Security Posture</span></div>
+        <div class="briefing-card-findings-grid">
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Military Capability And Readiness</span>
+                <span class="finding-badge finding-badge-strong">Strong</span> <span class="finding-detail">Strength concentration</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Defence Industry And Procurement Credibility</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-weak"></span>
+                <span class="finding-arena">Deterrence Posture And Escalation Management</span>
+                <span class="finding-badge finding-badge-weak">Weak</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-weak"></span>
+                <span class="finding-arena">Cyber Capability And Security Posture</span>
+                <span class="finding-badge finding-badge-weak">Weak</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-weak"></span>
+                <span class="finding-arena">Geopolitical Influence In Security Theatres</span>
+                <span class="finding-badge finding-badge-weak">Weak</span>
+              </div>
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
@@ -797,9 +887,27 @@ body {
             </div>
           </div>
         </div>
-        <div class="briefing-card-body">
-          <p class="briefing-card-summary">The United Kingdom’s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to competing strength and vulnerability signals. This sits alongside a global baseline framing of st...</p>
-          <div class="briefing-card-findings"><span class="finding-tag strength">Financial Services And City Position</span><span class="finding-tag strength">Innovation And Technology</span></div>
+        <div class="briefing-card-findings-grid">
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Financial Services And City Position</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Innovation And Technology</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Regulatory And Investment Climate</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-mixed"></span>
+                <span class="finding-arena">Trade And Competitiveness</span>
+                <span class="finding-badge finding-badge-mixed">Mixed</span> <span class="finding-detail">Vulnerability concentration</span>
+              </div>
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
@@ -825,9 +933,37 @@ body {
             </div>
           </div>
         </div>
-        <div class="briefing-card-body">
-          <p class="briefing-card-summary">United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomacy And Mediation is Weak. Perception and structure align on the strength arenas, but diverge where...</p>
-          <div class="briefing-card-findings"><span class="finding-tag strength">Multilateral Influence</span><span class="finding-tag strength">Climate And Energy Diplomacy</span><span class="finding-tag vuln">Crisis Diplomacy And Mediation</span></div>
+        <div class="briefing-card-findings-grid">
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Multilateral Influence</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Climate And Energy Diplomacy</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Global Voice And Strategic Relevance</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-weak"></span>
+                <span class="finding-arena">Crisis Diplomacy And Mediation</span>
+                <span class="finding-badge finding-badge-weak">Weak</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-uncertain"></span>
+                <span class="finding-arena">Sanctions And Statecraft Influence</span>
+                <span class="finding-badge finding-badge-uncertain">Uncertain</span> <span class="finding-detail">Insufficient data</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-uncertain"></span>
+                <span class="finding-arena">Development And Humanitarian Credibility</span>
+                <span class="finding-badge finding-badge-uncertain">Uncertain</span> <span class="finding-detail">Insufficient data</span>
+              </div>
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
@@ -853,9 +989,7 @@ body {
             </div>
           </div>
         </div>
-        <div class="briefing-card-body">
-          <p class="briefing-card-summary">Assessment pending — report data will populate when available.</p>
-          <div class="briefing-card-findings"><span class="finding-tag">30 trends tracked</span></div>
+        <div class="briefing-card-findings-grid"><div class="finding-row finding-row-fallback"><span class="finding-tag">30 trends</span></div>
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>

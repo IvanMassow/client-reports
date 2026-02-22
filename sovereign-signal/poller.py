@@ -290,6 +290,191 @@ def parse_report_content(desc_html):
     return data
 
 
+def extract_arena_findings(exec_text, conclusion_text=""):
+    """
+    Extract individual arena-level findings from executive summary and conclusion.
+    Returns list of dicts: {"arena": str, "posture": "Strong"|"Weak"|"Mixed"|"Uncertain", "detail": str}
+    """
+    findings = []
+    seen = set()
+    combined = (exec_text or "") + "\n" + (conclusion_text or "")
+
+    # --- Strong arena patterns ---
+    # "Strong structural positions in X, Y, and Z" — handle full comma-and lists
+    for m in re.finditer(
+        r'Strong\s+(?:structural\s+)?position(?:s|ing)?\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:,\s*(?:but|while|alongside)|\.|\s+(?:Perception|This|Vulnerability|The)))',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Strong", "detail": ""})
+
+    # "X and Y present Strong positions"
+    for m in re.finditer(
+        r'([A-Z][A-Za-z,\s&]+?)\s+(?:present|remain(?:s)?)\s+(?:structurally\s+)?Strong\s+position',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Strong", "detail": ""})
+
+    # "structurally Strong in X"
+    for m in re.finditer(
+        r'structurally\s+Strong\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:,\s*(?:while|but)|\.|\s+and\s+(?=[a-z])))',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Strong", "detail": ""})
+
+    # "X remain structurally Strong"
+    for m in re.finditer(
+        r'([A-Z][A-Za-z,\s&]+?)\s+remain(?:s)?\s+structurally\s+Strong',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Strong", "detail": ""})
+
+    # --- Weak arena patterns ---
+    # "Weak structural positions in X, Y, and Z." — handle trailing comma-and list
+    for m in re.finditer(
+        r'Weak\s+(?:structural\s+)?position(?:s)?\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:\.|\s+Perception|\s+This))',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Weak", "detail": ""})
+
+    # "X present Weak positions" or "is Weak"
+    for m in re.finditer(
+        r'([A-Z][A-Za-z\s&]+?)\s+(?:present|remain(?:s)?)\s+(?:structurally\s+)?Weak',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Weak", "detail": ""})
+
+    for m in re.finditer(
+        r'([A-Z][A-Za-z\s&]+?)\s+is\s+(?:structurally\s+)?Weak',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Weak", "detail": ""})
+
+    # "while X is Weak" or "X are structurally Weak"
+    for m in re.finditer(
+        r'([A-Z][A-Za-z,\s&]+?)\s+(?:is|are)\s+(?:structurally\s+)?Weak',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Weak", "detail": ""})
+
+    # --- Mixed arena patterns ---
+    # "while X remains Mixed" — require "while" or "but" prefix to avoid matching sentence subjects
+    for m in re.finditer(
+        r'(?:while|but|whereas)\s+([A-Z][A-Za-z\s&]+?)\s+(?:remains?|is)\s+Mixed',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Mixed", "detail": ""})
+    # "X remains Mixed due to"
+    for m in re.finditer(
+        r'([A-Z][A-Za-z\s&]+?)\s+(?:remains?|is)\s+Mixed\s+due\s+to',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Mixed", "detail": ""})
+
+    # --- Managed uncertainty / Insufficient data ---
+    for m in re.finditer(
+        r'([A-Z][A-Za-z\s&]+?)\s+remain(?:s)?\s+(?:in\s+)?(?:Managed\s+uncertainty|Insufficient\s+data|an?\s+explicit\s+silence)',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Uncertain", "detail": "Insufficient data"})
+
+    # --- Extract vulnerability detail from "Vulnerability concentrat..." sentences ---
+    vuln_detail = re.search(
+        r'Vulnerability\s+concentrat(?:es?|ion)\s+(?:is\s+)?(?:primarily\s+|highest\s+)?in\s+([A-Z][A-Za-z,\s&]+?)(?:\s+with\s+)',
+        combined
+    )
+    if vuln_detail:
+        for arena in _split_arena_list(vuln_detail.group(1)):
+            # Update existing finding or add new
+            found = False
+            for f in findings:
+                if f["arena"] == arena:
+                    f["detail"] = "Vulnerability concentration"
+                    found = True
+                    break
+            if not found and arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Weak", "detail": "Vulnerability concentration"})
+
+    # --- Extract strength detail from "strength signals are concentrated in..." ---
+    str_detail = re.search(
+        r'strength\s+(?:signals?\s+(?:are\s+)?)?(?:most\s+)?(?:consistently\s+)?(?:concentrated|visible|present)\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*\()',
+        combined
+    )
+    if str_detail:
+        for arena in _split_arena_list(str_detail.group(1)):
+            found = False
+            for f in findings:
+                if f["arena"] == arena:
+                    f["detail"] = "Strength concentration"
+                    found = True
+                    break
+            if not found and arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Strong", "detail": "Strength concentration"})
+
+    return findings
+
+
+def _split_arena_list(text):
+    """Split a comma/and-separated arena string into individual arena names."""
+    arenas = []
+    # Split on " and " or ", " but not within arena names
+    for part in re.split(r'\s+and\s+|\s*,\s+', text):
+        p = part.strip().rstrip(',.')
+        # Strip leading "and " left over from ", and " Oxford comma splits
+        if p.lower().startswith("and "):
+            p = p[4:].strip()
+        # Filter out noise — must start uppercase, be >3 chars, not be common words
+        noise_words = {
+            "This", "The", "Strong", "Weak", "Mixed", "While", "Where",
+            "Managed", "Multiple", "Vulnerability", "Several", "Each",
+            "United", "United Kingdom", "Perception", "Standing", "Strong structural",
+        }
+        if (len(p) > 3 and p[0].isupper() and p not in noise_words
+            and not p.startswith("United Kingdom")
+            and not p.startswith("Multiple ")
+            and "remain" not in p.lower()
+            and "this cycle" not in p.lower()
+            and "standing" not in p.lower()
+            and "proposition" not in p.lower()
+            and len(p.split()) <= 7):  # Arena names are typically 2-6 words
+            arenas.append(p)
+    return arenas
+
+
 # ─── Data Persistence ─────────────────────────────────────────────
 
 def load_history():
@@ -523,7 +708,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         <div class="pillar-score-posture">{post}</div>
       </a>'''
 
-    # Build briefing cards — one horizontal card per pillar with findings
+    # Build briefing cards — one horizontal card per pillar with all findings
     briefing_cards_html = ""
     total_strengths = 0
     total_vulns = 0
@@ -540,76 +725,47 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         report_file = f"uk-{key}-{target_date}.html"
         href = report_file if (SCRIPT_DIR / report_file).exists() else "#"
 
-        # Extract a concise summary (first sentence or two)
-        summary = pdata.get("executive_summary", "")
-        if not summary or summary.startswith("[Section"):
-            summary = "Assessment pending — report data will populate when available."
-        else:
-            # Take first two sentences for brevity
-            sentences = re.split(r'(?<=[.!?])\s+', summary)
-            summary = " ".join(sentences[:2])
-            if len(summary) > 300:
-                summary = summary[:297] + "..."
-
-        # Build finding tags — extract arena-level verdicts from executive summary
+        # Extract all arena-level findings
         exec_text = pdata.get("executive_summary", "")
-        findings_html = ""
-        # Pattern: "Strong [structural] position[s/ing] in ARENA [and ARENA]"
-        strong_matches = re.findall(
-            r'Strong\s+(?:structural\s+)?position(?:s|ing)?\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:,\s*(?:but|while)|\.|\s+and\s+(?=[a-z])))',
-            exec_text
-        )
-        # Pattern: "present Strong positions"
-        strong_matches += re.findall(
-            r'([A-Z][A-Za-z\s&]+?)\s+(?:present|remain(?:s)?)\s+(?:structurally\s+)?Strong',
-            exec_text
-        )
-        # Pattern: "structurally Strong in ARENA"
-        strong_matches += re.findall(
-            r'structurally\s+Strong\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:,\s*while|\.|\s+and\s+(?=[a-z])))',
-            exec_text
-        )
-        # Pattern: "Weak [structural] position[s] in ARENA"
-        weak_matches = re.findall(
-            r'Weak\s+(?:structural\s+)?position(?:s)?\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:\.|,\s*and))',
-            exec_text
-        )
-        # Pattern: "ARENA present Weak positions" or "is Weak"
-        weak_matches += re.findall(
-            r'([A-Z][A-Za-z\s&]+?)\s+(?:present|remain(?:s)?)\s+(?:structurally\s+)?Weak',
-            exec_text
-        )
-        weak_matches += re.findall(
-            r'([A-Z][A-Za-z\s&]+?)\s+is\s+Weak',
-            exec_text
-        )
+        conclusion_text = pdata.get("conclusion", "")
+        findings = extract_arena_findings(exec_text, conclusion_text)
 
-        # Split combined arena strings on " and "
-        def split_arenas(matches):
-            arenas = []
-            for m in matches:
-                for part in re.split(r'\s+and\s+|\s*,\s+', m):
-                    p = part.strip().rstrip(',.')
-                    if len(p) > 4 and p[0].isupper():
-                        arenas.append(p)
-            return arenas
-
-        strong_arenas = split_arenas(strong_matches)
-        weak_arenas = split_arenas(weak_matches)
-
-        for a in strong_arenas[:4]:
-            findings_html += f'<span class="finding-tag strength">{html.escape(a)}</span>'
-        for a in weak_arenas[:3]:
-            findings_html += f'<span class="finding-tag vuln">{html.escape(a)}</span>'
-
-        # Fallback: show strength/vuln counts as tags if no arenas found
-        if not findings_html:
+        # Build finding rows — each arena gets its own row in the card
+        findings_rows_html = ""
+        if findings:
+            for f in findings:
+                posture = f["posture"]
+                if posture == "Strong":
+                    dot_cls = "finding-dot-strong"
+                    badge_cls = "finding-badge-strong"
+                elif posture == "Weak":
+                    dot_cls = "finding-dot-weak"
+                    badge_cls = "finding-badge-weak"
+                elif posture == "Mixed":
+                    dot_cls = "finding-dot-mixed"
+                    badge_cls = "finding-badge-mixed"
+                else:
+                    dot_cls = "finding-dot-uncertain"
+                    badge_cls = "finding-badge-uncertain"
+                detail_span = ""
+                if f["detail"]:
+                    detail_span = f' <span class="finding-detail">{html.escape(f["detail"])}</span>'
+                findings_rows_html += f'''
+              <div class="finding-row">
+                <span class="finding-dot {dot_cls}"></span>
+                <span class="finding-arena">{html.escape(f["arena"])}</span>
+                <span class="finding-badge {badge_cls}">{posture}</span>{detail_span}
+              </div>'''
+        else:
+            # Fallback — show signal counts
+            findings_rows_html = '<div class="finding-row finding-row-fallback">'
             if strength_count:
-                findings_html += f'<span class="finding-tag strength">{strength_count} strengths identified</span>'
+                findings_rows_html += f'<span class="finding-tag strength">{strength_count} strengths</span>'
             if vuln_count:
-                findings_html += f'<span class="finding-tag vuln">{vuln_count} vulnerabilities identified</span>'
+                findings_rows_html += f'<span class="finding-tag vuln">{vuln_count} vulnerabilities</span>'
             if trend_count:
-                findings_html += f'<span class="finding-tag">{trend_count} trends tracked</span>'
+                findings_rows_html += f'<span class="finding-tag">{trend_count} trends</span>'
+            findings_rows_html += '</div>'
 
         briefing_cards_html += f'''
       <a class="briefing-card" data-pillar="{key}" id="tile-{key}" href="{href}">
@@ -634,9 +790,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
             </div>
           </div>
         </div>
-        <div class="briefing-card-body">
-          <p class="briefing-card-summary">{summary}</p>
-          <div class="briefing-card-findings">{findings_html}</div>
+        <div class="briefing-card-findings-grid">{findings_rows_html}
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>'''
@@ -772,16 +926,166 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 
 def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     """
-    Generate a per-pillar HTML report page.
-    For now, this embeds the RSS content in our design template.
-    Later, the WF9 template will be used instead.
+    Generate a full editorial per-pillar HTML report page.
+    Renders all parsed intelligence data in a structured, beautiful layout.
+    No prominent links to raw source — source template link at very bottom only.
     """
     dt = datetime.strptime(target_date, "%Y-%m-%d")
     display_date = dt.strftime("%d %B %Y")
     posture_cls = _posture_class(pdata.get("posture"))
     score = pdata.get("score", "—")
-    exec_summary = pdata.get("executive_summary", "Assessment not available this cycle.")
-    headline = f"{pillar['headline']} — {target_date}"
+    posture = pdata.get("posture", "Mixed")
+    exec_summary = pdata.get("executive_summary", "")
+    conclusion = pdata.get("conclusion", "")
+    strength_count = pdata.get("strength_count", 0)
+    vuln_count = pdata.get("vuln_count", 0)
+    trend_count = pdata.get("trend_count", 0)
+    ref_code = pdata.get("ref", "")
+    headline = f"{pillar['name']} — Sovereign Signal"
+
+    # Handle missing executive summary
+    if not exec_summary or exec_summary.startswith("[Section"):
+        exec_summary = "Assessment data not available for this cycle. The intelligence pipeline did not return a structured executive summary for this pillar."
+
+    # Split executive summary into paragraphs
+    exec_paragraphs = [p.strip() for p in exec_summary.split("\n") if p.strip()]
+    exec_html = ""
+    for i, para in enumerate(exec_paragraphs):
+        weight = ' style="font-weight:600"' if i == 0 else ""
+        exec_html += f"      <p{weight}>{html.escape(para)}</p>\n"
+
+    # Extract arena findings
+    findings = extract_arena_findings(exec_summary, conclusion)
+
+    # Build arena scorecard — grid of arena cards with posture badges
+    arena_cards_html = ""
+    strong_count = sum(1 for f in findings if f["posture"] == "Strong")
+    weak_count = sum(1 for f in findings if f["posture"] == "Weak")
+    mixed_count = sum(1 for f in findings if f["posture"] == "Mixed")
+    uncertain_count = sum(1 for f in findings if f["posture"] == "Uncertain")
+
+    for f in findings:
+        p = f["posture"]
+        if p == "Strong":
+            border_color = "var(--green)"
+            badge_bg = "rgba(58,138,110,0.1)"
+            badge_color = "#166534"
+        elif p == "Weak":
+            border_color = "var(--red)"
+            badge_bg = "rgba(196,84,90,0.1)"
+            badge_color = "#991b1b"
+        elif p == "Mixed":
+            border_color = "var(--amber)"
+            badge_bg = "rgba(196,146,10,0.1)"
+            badge_color = "#92400e"
+        else:
+            border_color = "var(--text-muted)"
+            badge_bg = "var(--bg)"
+            badge_color = "var(--text-muted)"
+
+        detail_html = ""
+        if f["detail"]:
+            detail_html = f'<div class="arena-card-detail">{html.escape(f["detail"])}</div>'
+
+        arena_cards_html += f'''
+        <div class="arena-card" style="border-left:4px solid {border_color}">
+          <div class="arena-card-name">{html.escape(f["arena"])}</div>
+          <span class="arena-badge" style="background:{badge_bg};color:{badge_color}">{p.upper()}</span>
+          {detail_html}
+        </div>'''
+
+    # Build key statistics row
+    stats_html = f'''
+      <div class="key-stats">
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--pillar)">{len(findings)}</div>
+          <div class="key-stat-label">Arenas Assessed</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--green)">{strong_count}</div>
+          <div class="key-stat-label">Arenas Strong</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--red)">{weak_count}</div>
+          <div class="key-stat-label">Arenas Weak</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--green)">{strength_count}</div>
+          <div class="key-stat-label">Strength Signals</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--red)">{vuln_count}</div>
+          <div class="key-stat-label">Vulnerability Signals</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num">{trend_count}</div>
+          <div class="key-stat-label">Trends Tracked</div>
+        </div>
+      </div>'''
+
+    # Build strength signals section
+    strength_ids = pdata.get("strength_signals", [])
+    # Deduplicate while preserving order
+    seen_ss = set()
+    unique_ss = []
+    for s in strength_ids:
+        if s not in seen_ss:
+            seen_ss.add(s)
+            unique_ss.append(s)
+
+    strength_table = ""
+    if unique_ss:
+        rows = ""
+        for s in unique_ss:
+            rows += f'        <tr><td class="signal-id signal-id-strong">{s}</td><td>Structural strength signal identified in the external assessment set</td></tr>\n'
+        strength_table = f'''
+      <table class="signal-table">
+        <thead><tr><th>Signal ID</th><th>Assessment</th></tr></thead>
+        <tbody>
+{rows}        </tbody>
+      </table>'''
+
+    # Build vulnerability signals section
+    vuln_ids = pdata.get("vulnerability_signals", [])
+    seen_vs = set()
+    unique_vs = []
+    for v in vuln_ids:
+        if v not in seen_vs:
+            seen_vs.add(v)
+            unique_vs.append(v)
+
+    vuln_table = ""
+    if unique_vs:
+        rows = ""
+        for v in unique_vs:
+            rows += f'        <tr><td class="signal-id signal-id-vuln">{v}</td><td>Vulnerability signal identified in the external assessment set</td></tr>\n'
+        vuln_table = f'''
+      <table class="signal-table">
+        <thead><tr><th>Signal ID</th><th>Assessment</th></tr></thead>
+        <tbody>
+{rows}        </tbody>
+      </table>'''
+
+    # Build conclusion
+    conclusion_html = ""
+    if conclusion and not conclusion.startswith("[Section"):
+        conclusion_paras = [p.strip() for p in conclusion.split("\n") if p.strip()]
+        for para in conclusion_paras:
+            conclusion_html += f"      <p>{html.escape(para)}</p>\n"
+    else:
+        conclusion_html = "      <p>Standing assessment data will populate when available.</p>\n"
+
+    # Source link — raw template reference at the very bottom
+    source_section = ""
+    if report_link:
+        source_section = f'''
+  <div class="source-section">
+    <div class="source-inner">
+      <div class="source-label">SOURCES &amp; RAW TEMPLATE</div>
+      <p class="source-text">This report was generated from the Sovereign Standing Brief intelligence template produced by the Noah analytical pipeline. The raw template used to generate this report is available below.</p>
+      <a class="source-link-quiet" href="{report_link}" target="_blank" rel="noopener">View Raw Intelligence Template &rarr;</a>
+    </div>
+  </div>'''
 
     report_html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -789,20 +1093,20 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{headline}</title>
-<meta property="og:title" content="{pillar['name']} — Sovereign Signal">
-<meta property="og:description" content="UK {pillar['short']} standing intelligence — {display_date}">
+<meta property="og:title" content="{html.escape(headline)}">
+<meta property="og:description" content="UK {pillar['short']} standing intelligence &mdash; {display_date}">
 <meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{pillar['name']} — Sovereign Signal">
+<meta name="twitter:title" content="{html.escape(headline)}">
 <meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {{
   --slate: #1a1e27; --slate-deep: #1a1e27; --slate-mid: #2e323c;
-  --accent: #C9A84C; --accent-light: #EDE0B8; --accent-muted: rgba(201,168,76,0.12);
+  --accent: #C9A84C; --accent-light: #EDE0B8;
   --red: #C4545A; --green: #3A8A6E; --amber: #C4920A;
   --text: #2C2C2C; --text-mid: #555B66; --text-muted: #8A8F98;
   --bg: #FAFAF8; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
@@ -811,6 +1115,8 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 }}
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.6; }}
+
+/* Topbar */
 .topbar {{ background: var(--slate); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 52px; position: sticky; top: 0; z-index: 100; }}
 .topbar-left {{ display: flex; align-items: center; gap: 14px; }}
 .topbar-logo {{ font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }}
@@ -820,6 +1126,8 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .topbar-date {{ font-size: 11px; color: rgba(255,255,255,0.35); }}
 .back-link {{ font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; }}
 .back-link:hover {{ color: #fff; background: rgba(255,255,255,0.08); }}
+
+/* Hero */
 .hero {{ background: var(--slate-deep); position: relative; overflow: hidden; }}
 .hero-bg {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }}
 .hero::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.97) 0%, rgba(26,30,39,0.93) 22%, rgba(26,30,39,0.72) 48%, rgba(26,30,39,0.35) 72%, rgba(26,30,39,0.18) 100%); z-index: 1; pointer-events: none; }}
@@ -839,29 +1147,93 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .posture-mixed {{ color: var(--amber); background: rgba(196,146,10,0.12); }}
 .posture-strong {{ color: var(--green); background: rgba(58,138,110,0.12); }}
 .posture-weak {{ color: var(--red); background: rgba(196,84,90,0.12); }}
+
+/* Main Content */
 .main {{ max-width: 1100px; margin: 0 auto; padding: 0 32px; }}
 .sec {{ margin-top: 48px; }}
 .sec-head {{ padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 20px; display: flex; align-items: baseline; justify-content: space-between; }}
 .sec-num {{ font-size: 11px; font-weight: 600; color: var(--pillar); letter-spacing: 1px; text-transform: uppercase; }}
 .sec-title {{ font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 600; color: var(--text); }}
-.exec-card {{ background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--pillar); padding: 24px 28px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }}
+.exec-card {{ background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }}
 .exec-card p {{ font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }}
-.source-link {{ display: inline-block; margin-top: 20px; padding: 10px 24px; background: var(--pillar); color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; transition: opacity 0.15s; }}
-.source-link:hover {{ opacity: 0.85; }}
-.footer {{ background: var(--slate-deep); padding: 28px 32px; margin-top: 48px; }}
+.exec-card p:last-child {{ margin-bottom: 0; }}
+
+/* Key Statistics */
+.key-stats {{ display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--border-light); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; margin-top: 28px; }}
+.key-stat {{ background: var(--bg-card); padding: 20px 12px; text-align: center; }}
+.key-stat-num {{ font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 6px; color: var(--text); }}
+.key-stat-label {{ font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }}
+
+/* Arena Cards */
+.arena-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }}
+.arena-card {{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 16px 20px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }}
+.arena-card-name {{ font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }}
+.arena-badge {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; flex-shrink: 0; }}
+.arena-card-detail {{ font-size: 10px; color: var(--text-muted); width: 100%; margin-top: -4px; }}
+
+/* Signal Tables */
+.signal-table {{ width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }}
+.signal-table thead th {{ font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }}
+.signal-table tbody td {{ font-size: 13px; color: var(--text-mid); padding: 10px 16px; border-bottom: 1px solid var(--border-light); }}
+.signal-table tbody tr:last-child td {{ border-bottom: none; }}
+.signal-id {{ font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.5px; white-space: nowrap; }}
+.signal-id-strong {{ color: var(--green); }}
+.signal-id-vuln {{ color: var(--red); }}
+
+/* Conclusion card */
+.conclusion-card {{ background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }}
+.conclusion-card p {{ font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }}
+.conclusion-card p:last-child {{ margin-bottom: 0; }}
+.conclusion-posture {{ display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }}
+.conclusion-posture-badge {{ font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }}
+
+/* Source section — quiet, at the very bottom */
+.source-section {{ background: var(--bg); border-top: 1px solid var(--border); padding: 28px 32px; margin-top: 48px; }}
+.source-inner {{ max-width: 1100px; margin: 0 auto; }}
+.source-label {{ font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }}
+.source-text {{ font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }}
+.source-link-quiet {{ font-size: 11px; font-weight: 600; color: var(--pillar); text-decoration: none; opacity: 0.7; transition: opacity 0.15s; }}
+.source-link-quiet:hover {{ opacity: 1; }}
+
+/* Footer */
+.footer {{ background: var(--slate-deep); padding: 28px 32px; margin-top: 0; }}
 .footer-inner {{ max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }}
 .footer-left {{ display: flex; align-items: center; gap: 16px; }}
 .footer-logo {{ font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); text-transform: uppercase; }}
 .footer-label {{ font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.2); }}
 .footer-text {{ font-size: 10px; color: rgba(255,255,255,0.2); }}
 .footer-credit {{ font-size: 9px; color: rgba(255,255,255,0.1); text-align: center; max-width: 1100px; margin: 12px auto 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.04); }}
+
+/* Responsive */
 @media (max-width: 900px) {{
   .hero-inner {{ flex-direction: column; padding: 36px 16px 36px; min-height: auto; }}
   .hero-title {{ font-size: 28px; }}
   .score-block {{ width: 100%; margin-top: 20px; }}
+  .score-block-inner {{ display: flex; align-items: center; gap: 16px; padding: 16px 20px; text-align: left; }}
+  .score-block-label {{ display: none; }}
   .score-block-num {{ font-size: 48px; }}
+  .score-block-max {{ display: none; }}
   .topbar {{ padding: 0 16px; height: 48px; }}
   .main {{ padding: 0 16px; }}
+  .key-stats {{ grid-template-columns: repeat(3, 1fr); }}
+  .key-stat-num {{ font-size: 24px; }}
+  .arena-grid {{ grid-template-columns: 1fr; }}
+  .exec-card {{ padding: 20px; }}
+  .conclusion-card {{ padding: 20px; }}
+  .source-section {{ padding: 20px 16px; }}
+  .footer {{ padding: 20px 16px; }}
+  .footer-inner {{ flex-direction: column; gap: 8px; text-align: center; }}
+}}
+@media (max-width: 600px) {{
+  .hero-inner {{ padding: 24px 16px 28px; }}
+  .hero-title {{ font-size: 24px; }}
+  .hero-desc {{ display: none; }}
+  .key-stats {{ grid-template-columns: repeat(2, 1fr); }}
+  .key-stat-num {{ font-size: 22px; }}
+  .key-stat {{ padding: 14px 8px; }}
+  .signal-table {{ font-size: 12px; }}
+  .signal-table thead th {{ padding: 8px 12px; }}
+  .signal-table tbody td {{ padding: 8px 12px; }}
 }}
 </style>
 </head>
@@ -877,46 +1249,87 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
     <span class="topbar-date">{display_date}</span>
   </div>
 </div>
+
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-left">
       <span class="hero-tag">{pillar['short']}</span>
       <h1 class="hero-title">{pillar['name']}</h1>
-      <div class="hero-meta">United Kingdom &mdash; {display_date}</div>
-      <p class="hero-desc">{exec_summary[:200]}</p>
+      <div class="hero-meta">United Kingdom &mdash; {display_date} &middot; Ref: {ref_code}</div>
+      <p class="hero-desc">{html.escape(exec_summary[:200])}</p>
     </div>
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Pillar Score</div>
         <div class="score-block-num">{score}</div>
         <div class="score-block-max">of 100</div>
-        <div class="posture posture-{posture_cls}">{pdata.get('posture', 'Mixed')}</div>
+        <div class="posture posture-{posture_cls}">{posture}</div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="main">
+
+  <!-- Section 01: Executive Summary -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Executive Summary</h2>
       <span class="sec-num">Section 01</span>
     </div>
     <div class="exec-card">
-      <p>{exec_summary}</p>
-    </div>
+{exec_html}    </div>
   </div>
+
+  <!-- Key Statistics -->
+  {stats_html}
+
+  <!-- Section 02: Arena Scorecard -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Source Intelligence</h2>
-      <span class="sec-num">Full Report</span>
+      <h2 class="sec-title">Arena Scorecard</h2>
+      <span class="sec-num">Section 02</span>
     </div>
-    <div class="exec-card">
-      <p>The complete Sovereign Standing Brief for {pillar['name']} is available at the source link below. This includes the full Perception Dashboard, Trend Matrix, Signal Analysis, and Evidence Index.</p>
-      <a class="source-link" href="{report_link}" target="_blank">View Full Source Report &rarr;</a>
+    <div class="arena-grid">{arena_cards_html}
     </div>
   </div>
+
+  <!-- Section 03: Strength Signals -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Strength Signals</h2>
+      <span class="sec-num">Section 03 &middot; {len(unique_ss)} signals</span>
+    </div>
+    {strength_table if strength_table else '<div class="exec-card"><p>No strength signals recorded this cycle.</p></div>'}
+  </div>
+
+  <!-- Section 04: Vulnerability Signals -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
+      <span class="sec-num">Section 04 &middot; {len(unique_vs)} signals</span>
+    </div>
+    {vuln_table if vuln_table else '<div class="exec-card"><p>No vulnerability signals recorded this cycle.</p></div>'}
+  </div>
+
+  <!-- Section 05: Standing Assessment -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Standing Assessment</h2>
+      <span class="sec-num">Conclusion</span>
+    </div>
+    <div class="conclusion-card">
+{conclusion_html}      <div class="conclusion-posture">
+        Standing posture this cycle: <span class="conclusion-posture-badge posture-{posture_cls}">{posture}</span>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+{source_section}
+
 <div class="footer">
   <div class="footer-inner">
     <div class="footer-left">
@@ -927,6 +1340,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   </div>
   <div class="footer-credit">Intelligence architecture by Noah Wire Services in partnership with Zinc Network &middot; Prepared for the Foreign, Commonwealth &amp; Development Office</div>
 </div>
+
 </body>
 </html>"""
 

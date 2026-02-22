@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOVEREIGN STANDING BRIEF — TRUST, STABILITY & SYSTEMIC RELIABILITY — UK — 2026-02-22</title>
-<meta property="og:title" content="Trust, Stability & Systemic Reliability — Sovereign Signal">
-<meta property="og:description" content="UK Trust standing intelligence — 22 February 2026">
+<title>Trust, Stability & Systemic Reliability — Sovereign Signal</title>
+<meta property="og:title" content="Trust, Stability &amp; Systemic Reliability — Sovereign Signal">
+<meta property="og:description" content="UK Trust standing intelligence &mdash; 22 February 2026">
 <meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Trust, Stability & Systemic Reliability — Sovereign Signal">
+<meta name="twitter:title" content="Trust, Stability &amp; Systemic Reliability — Sovereign Signal">
 <meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --slate: #1a1e27; --slate-deep: #1a1e27; --slate-mid: #2e323c;
-  --accent: #C9A84C; --accent-light: #EDE0B8; --accent-muted: rgba(201,168,76,0.12);
+  --accent: #C9A84C; --accent-light: #EDE0B8;
   --red: #C4545A; --green: #3A8A6E; --amber: #C4920A;
   --text: #2C2C2C; --text-mid: #555B66; --text-muted: #8A8F98;
   --bg: #FAFAF8; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
@@ -26,6 +26,8 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+
+/* Topbar */
 .topbar { background: var(--slate); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 52px; position: sticky; top: 0; z-index: 100; }
 .topbar-left { display: flex; align-items: center; gap: 14px; }
 .topbar-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }
@@ -35,6 +37,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .topbar-date { font-size: 11px; color: rgba(255,255,255,0.35); }
 .back-link { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; }
 .back-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+/* Hero */
 .hero { background: var(--slate-deep); position: relative; overflow: hidden; }
 .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }
 .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.97) 0%, rgba(26,30,39,0.93) 22%, rgba(26,30,39,0.72) 48%, rgba(26,30,39,0.35) 72%, rgba(26,30,39,0.18) 100%); z-index: 1; pointer-events: none; }
@@ -54,29 +58,93 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .posture-mixed { color: var(--amber); background: rgba(196,146,10,0.12); }
 .posture-strong { color: var(--green); background: rgba(58,138,110,0.12); }
 .posture-weak { color: var(--red); background: rgba(196,84,90,0.12); }
+
+/* Main Content */
 .main { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 .sec { margin-top: 48px; }
 .sec-head { padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 20px; display: flex; align-items: baseline; justify-content: space-between; }
 .sec-num { font-size: 11px; font-weight: 600; color: var(--pillar); letter-spacing: 1px; text-transform: uppercase; }
 .sec-title { font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 600; color: var(--text); }
-.exec-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--pillar); padding: 24px 28px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
+.exec-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
 .exec-card p { font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
-.source-link { display: inline-block; margin-top: 20px; padding: 10px 24px; background: var(--pillar); color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; transition: opacity 0.15s; }
-.source-link:hover { opacity: 0.85; }
-.footer { background: var(--slate-deep); padding: 28px 32px; margin-top: 48px; }
+.exec-card p:last-child { margin-bottom: 0; }
+
+/* Key Statistics */
+.key-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--border-light); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; margin-top: 28px; }
+.key-stat { background: var(--bg-card); padding: 20px 12px; text-align: center; }
+.key-stat-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 6px; color: var(--text); }
+.key-stat-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }
+
+/* Arena Cards */
+.arena-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 16px 20px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+.arena-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; flex-shrink: 0; }
+.arena-card-detail { font-size: 10px; color: var(--text-muted); width: 100%; margin-top: -4px; }
+
+/* Signal Tables */
+.signal-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.signal-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.signal-table tbody td { font-size: 13px; color: var(--text-mid); padding: 10px 16px; border-bottom: 1px solid var(--border-light); }
+.signal-table tbody tr:last-child td { border-bottom: none; }
+.signal-id { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.5px; white-space: nowrap; }
+.signal-id-strong { color: var(--green); }
+.signal-id-vuln { color: var(--red); }
+
+/* Conclusion card */
+.conclusion-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
+.conclusion-card p { font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
+.conclusion-card p:last-child { margin-bottom: 0; }
+.conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
+.conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
+
+/* Source section — quiet, at the very bottom */
+.source-section { background: var(--bg); border-top: 1px solid var(--border); padding: 28px 32px; margin-top: 48px; }
+.source-inner { max-width: 1100px; margin: 0 auto; }
+.source-label { font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.source-text { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+.source-link-quiet { font-size: 11px; font-weight: 600; color: var(--pillar); text-decoration: none; opacity: 0.7; transition: opacity 0.15s; }
+.source-link-quiet:hover { opacity: 1; }
+
+/* Footer */
+.footer { background: var(--slate-deep); padding: 28px 32px; margin-top: 0; }
 .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .footer-left { display: flex; align-items: center; gap: 16px; }
 .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
 .footer-label { font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.2); }
 .footer-text { font-size: 10px; color: rgba(255,255,255,0.2); }
 .footer-credit { font-size: 9px; color: rgba(255,255,255,0.1); text-align: center; max-width: 1100px; margin: 12px auto 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.04); }
+
+/* Responsive */
 @media (max-width: 900px) {
   .hero-inner { flex-direction: column; padding: 36px 16px 36px; min-height: auto; }
   .hero-title { font-size: 28px; }
   .score-block { width: 100%; margin-top: 20px; }
+  .score-block-inner { display: flex; align-items: center; gap: 16px; padding: 16px 20px; text-align: left; }
+  .score-block-label { display: none; }
   .score-block-num { font-size: 48px; }
+  .score-block-max { display: none; }
   .topbar { padding: 0 16px; height: 48px; }
   .main { padding: 0 16px; }
+  .key-stats { grid-template-columns: repeat(3, 1fr); }
+  .key-stat-num { font-size: 24px; }
+  .arena-grid { grid-template-columns: 1fr; }
+  .exec-card { padding: 20px; }
+  .conclusion-card { padding: 20px; }
+  .source-section { padding: 20px 16px; }
+  .footer { padding: 20px 16px; }
+  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 600px) {
+  .hero-inner { padding: 24px 16px 28px; }
+  .hero-title { font-size: 24px; }
+  .hero-desc { display: none; }
+  .key-stats { grid-template-columns: repeat(2, 1fr); }
+  .key-stat-num { font-size: 22px; }
+  .key-stat { padding: 14px 8px; }
+  .signal-table { font-size: 12px; }
+  .signal-table thead th { padding: 8px 12px; }
+  .signal-table tbody td { padding: 8px 12px; }
 }
 </style>
 </head>
@@ -92,14 +160,15 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <span class="topbar-date">22 February 2026</span>
   </div>
 </div>
+
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-left">
       <span class="hero-tag">Trust</span>
       <h1 class="hero-title">Trust, Stability & Systemic Reliability</h1>
-      <div class="hero-meta">United Kingdom &mdash; 22 February 2026</div>
-      <p class="hero-desc">[Section not available this cycle.]</p>
+      <div class="hero-meta">United Kingdom &mdash; 22 February 2026 &middot; Ref: ZKPL</div>
+      <p class="hero-desc">Assessment data not available for this cycle. The intelligence pipeline did not return a structured executive summary for this pillar.</p>
     </div>
     <div class="score-block">
       <div class="score-block-inner">
@@ -111,27 +180,102 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     </div>
   </div>
 </div>
+
 <div class="main">
+
+  <!-- Section 01: Executive Summary -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Executive Summary</h2>
       <span class="sec-num">Section 01</span>
     </div>
     <div class="exec-card">
-      <p>[Section not available this cycle.]</p>
+      <p style="font-weight:600">Assessment data not available for this cycle. The intelligence pipeline did not return a structured executive summary for this pillar.</p>
     </div>
   </div>
+
+  <!-- Key Statistics -->
+  
+      <div class="key-stats">
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--pillar)">0</div>
+          <div class="key-stat-label">Arenas Assessed</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--green)">0</div>
+          <div class="key-stat-label">Arenas Strong</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--red)">0</div>
+          <div class="key-stat-label">Arenas Weak</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--green)">0</div>
+          <div class="key-stat-label">Strength Signals</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--red)">0</div>
+          <div class="key-stat-label">Vulnerability Signals</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num">30</div>
+          <div class="key-stat-label">Trends Tracked</div>
+        </div>
+      </div>
+
+  <!-- Section 02: Arena Scorecard -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Source Intelligence</h2>
-      <span class="sec-num">Full Report</span>
+      <h2 class="sec-title">Arena Scorecard</h2>
+      <span class="sec-num">Section 02</span>
     </div>
-    <div class="exec-card">
-      <p>The complete Sovereign Standing Brief for Trust, Stability & Systemic Reliability is available at the source link below. This includes the full Perception Dashboard, Trend Matrix, Signal Analysis, and Evidence Index.</p>
-      <a class="source-link" href="http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-united-kingdom-governance-standing-reviewed-2026-02-22-zkpl" target="_blank">View Full Source Report &rarr;</a>
+    <div class="arena-grid">
     </div>
   </div>
+
+  <!-- Section 03: Strength Signals -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Strength Signals</h2>
+      <span class="sec-num">Section 03 &middot; 0 signals</span>
+    </div>
+    <div class="exec-card"><p>No strength signals recorded this cycle.</p></div>
+  </div>
+
+  <!-- Section 04: Vulnerability Signals -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
+      <span class="sec-num">Section 04 &middot; 0 signals</span>
+    </div>
+    <div class="exec-card"><p>No vulnerability signals recorded this cycle.</p></div>
+  </div>
+
+  <!-- Section 05: Standing Assessment -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Standing Assessment</h2>
+      <span class="sec-num">Conclusion</span>
+    </div>
+    <div class="conclusion-card">
+      <p>Standing assessment data will populate when available.</p>
+      <div class="conclusion-posture">
+        Standing posture this cycle: <span class="conclusion-posture-badge posture-mixed">Mixed</span>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+
+  <div class="source-section">
+    <div class="source-inner">
+      <div class="source-label">SOURCES &amp; RAW TEMPLATE</div>
+      <p class="source-text">This report was generated from the Sovereign Standing Brief intelligence template produced by the Noah analytical pipeline. The raw template used to generate this report is available below.</p>
+      <a class="source-link-quiet" href="http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-united-kingdom-governance-standing-reviewed-2026-02-22-zkpl" target="_blank" rel="noopener">View Raw Intelligence Template &rarr;</a>
+    </div>
+  </div>
+
 <div class="footer">
   <div class="footer-inner">
     <div class="footer-left">
@@ -142,5 +286,6 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   </div>
   <div class="footer-credit">Intelligence architecture by Noah Wire Services in partnership with Zinc Network &middot; Prepared for the Foreign, Commonwealth &amp; Development Office</div>
 </div>
+
 </body>
 </html>

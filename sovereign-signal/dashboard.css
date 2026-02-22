@@ -443,19 +443,56 @@ body {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-.briefing-card-body {
-  padding: 16px 22px 18px;
+/* === FINDINGS GRID — arena-level rows inside briefing cards === */
+.briefing-card-findings-grid {
+  padding: 0 22px 14px;
 }
-.briefing-card-summary {
-  font-size: 13px;
-  color: var(--text-mid);
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-.briefing-card-findings {
+.finding-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.finding-row:last-child { border-bottom: none; }
+.finding-row-fallback {
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: none;
+}
+.finding-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.finding-dot-strong { background: var(--green); }
+.finding-dot-weak { background: var(--red); }
+.finding-dot-mixed { background: var(--amber); }
+.finding-dot-uncertain { background: var(--text-muted); }
+.finding-arena {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  flex: 1;
+}
+.finding-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.finding-badge-strong { color: #166534; background: rgba(58,138,110,0.1); }
+.finding-badge-weak { color: #991b1b; background: rgba(196,84,90,0.1); }
+.finding-badge-mixed { color: #92400e; background: rgba(196,146,10,0.1); }
+.finding-badge-uncertain { color: var(--text-muted); background: var(--bg); border: 1px solid var(--border); }
+.finding-detail {
+  font-size: 10px;
+  color: var(--text-muted);
+  flex-shrink: 0;
 }
 .finding-tag {
   font-size: 10px;
@@ -582,7 +619,9 @@ body {
   .section-title { font-size: 20px; }
   .briefing-card-top { flex-direction: column; gap: 10px; }
   .briefing-card-stats { padding-left: 0; justify-content: flex-start; }
-  .briefing-card-findings { gap: 4px; }
+  .briefing-card-findings-grid { padding: 0 16px 10px; }
+  .finding-arena { font-size: 12px; }
+  .finding-badge { font-size: 8px; }
   .footer { padding: 20px 16px; }
   .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
   .footer-credit { font-size: 8px; }
@@ -612,5 +651,10 @@ body {
   .briefing-card-score { font-size: 22px; }
   .briefing-card-cta { padding: 8px 16px; font-size: 10px; }
   .finding-tag { font-size: 9px; padding: 2px 8px; }
+  .briefing-card-findings-grid { padding: 0 16px 8px; }
+  .finding-row { gap: 8px; padding: 6px 0; }
+  .finding-arena { font-size: 11px; }
+  .finding-badge { font-size: 8px; padding: 2px 6px; }
+  .finding-detail { display: none; }
   .trend-note { padding: 24px 16px; font-size: 12px; }
 }
