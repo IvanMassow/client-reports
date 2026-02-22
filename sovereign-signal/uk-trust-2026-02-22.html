@@ -8,74 +8,71 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #242D3C; --navy-deep: #1A2030; --navy-mid: #34404F;
-  --gold: #C9A84C; --gold-light: #EDE0B8; --gold-muted: rgba(201,168,76,0.15);
+  --slate: #2B3240; --slate-deep: #1E242F; --slate-mid: #3D4555;
+  --accent: #C9A84C; --accent-light: #EDE0B8; --accent-muted: rgba(201,168,76,0.12);
   --red: #C4545A; --green: #3A8A6E; --amber: #C4920A;
-  --text: #2C2C2C; --text-mid: #555B66; --text-muted: #7A7F88;
-  --bg: #FAF8F5; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
+  --text: #2C2C2C; --text-mid: #555B66; --text-muted: #8A8F98;
+  --bg: #FAFAF8; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
   --pillar: #B85C4A; --pillar-light: #F8E8E4; --pillar-mid: #D0715E;
-  --card-radius: 8px; --card-shadow: 0 1px 4px rgba(30,30,30,0.05), 0 1px 2px rgba(30,30,30,0.03);
+  --card-radius: 8px; --card-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.6; }
-.class-bar { background: var(--navy-deep); padding: 6px 32px; display: flex; align-items: center; justify-content: space-between; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); }
-.class-bar .class-level { color: var(--gold); }
-.topbar { background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 56px; border-bottom: 2px solid var(--gold); }
-.topbar-left { display: flex; align-items: center; gap: 16px; }
-.topbar-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; letter-spacing: 0.08em; color: #FFFFFF; text-transform: uppercase; }
-.topbar-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.15); }
-.topbar-brand { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+.topbar { background: var(--slate); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 52px; position: sticky; top: 0; z-index: 100; }
+.topbar-left { display: flex; align-items: center; gap: 14px; }
+.topbar-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }
+.topbar-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+.topbar-brand { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); }
 .topbar-right { display: flex; align-items: center; gap: 20px; }
-.topbar-date { font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 1px; }
-.back-link { font-size: 10px; color: rgba(255,255,255,0.5); text-decoration: none; padding: 4px 10px; border-radius: 3px; transition: all 0.15s; }
-.back-link:hover { color: white; background: rgba(255,255,255,0.08); }
-.hero { background: var(--navy-deep); position: relative; overflow: hidden; padding: 48px 32px 40px; }
-.hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center/cover no-repeat; opacity: 0.2; }
-.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26,32,48,0.95) 0%, rgba(26,32,48,0.8) 40%, rgba(26,32,48,0.6) 100%); z-index: 1; }
-.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--pillar), var(--pillar-mid), transparent); z-index: 2; }
-.hero-inner { max-width: 1120px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; }
-.hero-left { flex: 1; }
-.hero-tag { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; background: var(--pillar-light); color: var(--pillar); display: inline-block; margin-bottom: 12px; }
-.hero-title { font-family: 'Lora', Georgia, serif; font-size: 32px; font-weight: 700; color: white; line-height: 1.2; margin-bottom: 8px; }
-.hero-meta { font-size: 13px; color: rgba(255,255,255,0.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
-.hero-desc { font-size: 13px; color: rgba(255,255,255,0.4); max-width: 580px; line-height: 1.7; }
-.hero-score { text-align: center; padding: 16px 32px; }
-.hero-score-label { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
-.hero-score-num { font-size: 64px; font-weight: 900; color: var(--pillar-mid); line-height: 1; margin-bottom: 4px; }
-.hero-score-max { font-size: 11px; color: rgba(255,255,255,0.3); }
-.posture { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 8px; padding: 5px 14px; border-radius: 3px; }
-.posture-mixed { color: var(--amber); background: rgba(212,146,10,0.12); }
-.posture-strong { color: var(--green); background: rgba(11,132,87,0.12); }
-.posture-weak { color: var(--red); background: rgba(196,49,75,0.12); }
-.main { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+.topbar-date { font-size: 11px; color: rgba(255,255,255,0.35); }
+.back-link { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; }
+.back-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.hero { background: var(--slate-deep); position: relative; overflow: hidden; }
+.hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(30,36,47,0.97) 0%, rgba(30,36,47,0.93) 22%, rgba(30,36,47,0.72) 48%, rgba(30,36,47,0.35) 72%, rgba(30,36,47,0.2) 100%); z-index: 1; pointer-events: none; }
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 56px 32px 52px; min-height: 280px; }
+.hero-left { flex: 1; padding-top: 8px; }
+.hero-tag { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; background: var(--pillar-light); color: var(--pillar); display: inline-block; margin-bottom: 14px; }
+.hero-title { font-family: 'Lora', Georgia, serif; font-size: 36px; font-weight: 700; color: white; line-height: 1.15; margin-bottom: 10px; }
+.hero-meta { font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-bottom: 20px; }
+.hero-desc { font-family: 'Lora', Georgia, serif; font-size: 14px; color: rgba(255,255,255,0.38); max-width: 440px; line-height: 1.7; }
+.score-block { width: 220px; flex-shrink: 0; margin-top: 8px; }
+.score-block-inner { background: rgba(30,36,47,0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px 20px 20px; text-align: center; }
+.score-block-label { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+.score-block-num { font-family: 'Montserrat', sans-serif; font-size: 64px; font-weight: 800; color: white; line-height: 1; }
+.score-block-max { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 4px; margin-bottom: 12px; }
+.posture { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
+.posture-mixed { color: var(--amber); background: rgba(196,146,10,0.12); }
+.posture-strong { color: var(--green); background: rgba(58,138,110,0.12); }
+.posture-weak { color: var(--red); background: rgba(196,84,90,0.12); }
+.main { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 .sec { margin-top: 48px; }
-.sec-head { padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
-.sec-num { font-size: 11px; font-weight: 800; color: var(--pillar); letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 4px; }
-.sec-title { font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 700; color: var(--navy); }
-.exec-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 24px 28px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
+.sec-head { padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 20px; display: flex; align-items: baseline; justify-content: space-between; }
+.sec-num { font-size: 11px; font-weight: 600; color: var(--pillar); letter-spacing: 1px; text-transform: uppercase; }
+.sec-title { font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 600; color: var(--text); }
+.exec-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--pillar); padding: 24px 28px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
 .exec-card p { font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
-.source-link { display: inline-block; margin-top: 20px; padding: 10px 24px; background: var(--pillar); color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; transition: opacity 0.15s; }
+.source-link { display: inline-block; margin-top: 20px; padding: 10px 24px; background: var(--pillar); color: white; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; transition: opacity 0.15s; }
 .source-link:hover { opacity: 0.85; }
-.footer { background: var(--navy-deep); padding: 32px; margin-top: 48px; border-top: 2px solid var(--gold); }
-.footer-inner { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-.footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); text-transform: uppercase; }
-.footer-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); opacity: 0.6; }
-.footer-text { font-size: 9px; color: rgba(255,255,255,0.25); }
-.footer-credit { font-size: 8px; color: rgba(255,255,255,0.15); text-align: center; max-width: 1120px; margin: 14px auto 0; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer { background: var(--slate-deep); padding: 28px 32px; margin-top: 48px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+.footer-label { font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.2); }
+.footer-text { font-size: 10px; color: rgba(255,255,255,0.2); }
+.footer-credit { font-size: 9px; color: rgba(255,255,255,0.1); text-align: center; max-width: 1100px; margin: 12px auto 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.04); }
 @media (max-width: 900px) {
-  .hero { padding: 32px 16px; }
-  .hero-inner { flex-direction: column; }
-  .hero-title { font-size: 24px; }
+  .hero-inner { flex-direction: column; padding: 36px 16px 36px; min-height: auto; }
+  .hero-title { font-size: 28px; }
+  .score-block { width: 100%; margin-top: 20px; }
+  .score-block-num { font-size: 48px; }
+  .topbar { padding: 0 16px; height: 48px; }
   .main { padding: 0 16px; }
 }
 </style>
 </head>
 <body>
-<div class="class-bar">
-  <span>Sovereign Signal Intelligence</span>
-  <span class="class-level">Official &mdash; Sensitive</span>
-  <span>22 February 2026</span>
-</div>
 <div class="topbar">
   <div class="topbar-left">
     <div class="topbar-logo">NOAH</div>
@@ -93,22 +90,24 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--b
     <div class="hero-left">
       <span class="hero-tag">Trust</span>
       <h1 class="hero-title">Trust, Stability & Systemic Reliability</h1>
-      <div class="hero-meta">UK &mdash; 2026-02-22</div>
+      <div class="hero-meta">United Kingdom &mdash; 22 February 2026</div>
       <p class="hero-desc">[Section not available this cycle.]</p>
     </div>
-    <div class="hero-score">
-      <div class="hero-score-label">Pillar Score</div>
-      <div class="hero-score-num">51</div>
-      <div class="hero-score-max">of 100</div>
-      <div class="posture posture-mixed">Mixed</div>
+    <div class="score-block">
+      <div class="score-block-inner">
+        <div class="score-block-label">Pillar Score</div>
+        <div class="score-block-num">51</div>
+        <div class="score-block-max">of 100</div>
+        <div class="posture posture-mixed">Mixed</div>
+      </div>
     </div>
   </div>
 </div>
 <div class="main">
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">Section 01</span>
       <h2 class="sec-title">Executive Summary</h2>
+      <span class="sec-num">Section 01</span>
     </div>
     <div class="exec-card">
       <p>[Section not available this cycle.]</p>
@@ -116,8 +115,8 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--b
   </div>
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">Full Report</span>
       <h2 class="sec-title">Source Intelligence</h2>
+      <span class="sec-num">Full Report</span>
     </div>
     <div class="exec-card">
       <p>The complete Sovereign Standing Brief for Trust, Stability & Systemic Reliability is available at the source link below. This includes the full Perception Dashboard, Trend Matrix, Signal Analysis, and Evidence Index.</p>
@@ -127,7 +126,7 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--b
 </div>
 <div class="footer">
   <div class="footer-inner">
-    <div style="display:flex;align-items:center;gap:20px">
+    <div class="footer-left">
       <span class="footer-logo">NOAH</span>
       <span class="footer-label">Sovereign Signal</span>
     </div>
