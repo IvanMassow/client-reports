@@ -1666,23 +1666,18 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     if perc_dash:
         rows = ""
         for p in perc_dash:
-            gv = p.get("global_view")
             sv = p.get("sovereign_view")
-            gv_str = f"{gv}%" if gv is not None else "—"
             sv_str = f"{sv}%" if sv is not None else "—"
-            # Colour sovereign view: green if > global, red if < global
+            # Colour by score: green >=50, red <50
             sv_style = ""
-            if gv is not None and sv is not None:
-                if sv > gv:
-                    sv_style = ' style="color:var(--green);font-weight:700"'
-                elif sv < gv:
-                    sv_style = ' style="color:var(--red);font-weight:700"'
+            if sv is not None:
+                sv_color = "var(--green)" if sv >= 50 else "var(--red)"
+                sv_style = f' style="color:{sv_color};font-weight:700"'
             conf = p.get("signal_strength", "") or p.get("confidence", "")
             conf_cls = "conf-medium" if conf.lower() == "medium" else "conf-low" if conf.lower() == "low" else "conf-high"
             arena = p.get("arena", "")
             rows += f'''        <tr>
           <td class="pd-prop">{html.escape(p.get("proposition", ""))}</td>
-          <td class="pd-pct">{gv_str}</td>
           <td class="pd-pct"{sv_style}>{sv_str}</td>
           <td><span class="conf-badge {conf_cls}">{html.escape(conf)}</span></td>
           <td class="pd-arena">{html.escape(arena)}</td>
@@ -1690,7 +1685,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         perception_html = f'''
       <div class="table-scroll">
       <table class="pd-table">
-        <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Signal Strength</th><th>Arena</th></tr></thead>
+        <thead><tr><th>Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Arena</th></tr></thead>
         <tbody>
 {rows}        </tbody>
       </table>
@@ -2032,12 +2027,11 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 
 /* Perception Dashboard Table */
 .table-scroll {{ overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--card-radius); }}
-.pd-table {{ width: 100%; min-width: 640px; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }}
+.pd-table {{ width: 100%; min-width: 540px; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }}
 .pd-table thead th {{ font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }}
-.pd-table th:nth-child(2), .pd-table td:nth-child(2),
-.pd-table th:nth-child(3), .pd-table td:nth-child(3) {{ text-align: center; width: 90px; }}
-.pd-table th:nth-child(4), .pd-table td:nth-child(4) {{ text-align: center; width: 110px; }}
-.pd-table th:nth-child(5), .pd-table td:nth-child(5) {{ width: 130px; }}
+.pd-table th:nth-child(2), .pd-table td:nth-child(2) {{ text-align: center; width: 120px; }}
+.pd-table th:nth-child(3), .pd-table td:nth-child(3) {{ text-align: center; width: 120px; }}
+.pd-table th:nth-child(4), .pd-table td:nth-child(4) {{ width: 150px; }}
 .pd-table tbody td {{ font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }}
 .pd-table tbody tr:last-child td {{ border-bottom: none; }}
 .pd-prop {{ width: 50%; min-width: 280px; line-height: 1.5; }}
