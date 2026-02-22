@@ -1465,7 +1465,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
-      <h1 class="hero-title">Sovereign<br><span style="color:var(--gold, #C9A84C)">Signal</span> Overview</h1>
+      <h1 class="hero-title">Sovereign<br><span style="color:#FFD60A">Signal</span> Overview</h1>
       <div class="hero-subtitle">Sentiment, Trends &amp; Predictions</div>
       <p class="hero-desc">Daily intelligence tracking the United Kingdom&rsquo;s external positioning &mdash; sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.</p>
       <div class="hero-date-nav">
@@ -1552,7 +1552,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     if gold_word and gold_word in pillar["name"]:
         title_html = html.escape(pillar["name"]).replace(
             html.escape(gold_word),
-            f'<span style="color:var(--gold, #C9A84C)">{html.escape(gold_word)}</span>'
+            f'<span style="color:#FFD60A">{html.escape(gold_word)}</span>'
         )
     else:
         title_html = html.escape(pillar["name"])
