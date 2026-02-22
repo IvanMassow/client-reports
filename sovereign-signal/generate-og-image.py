@@ -11,7 +11,7 @@ FLAG_PATH = SCRIPT_DIR / "union-flag.png"
 W, H = 1200, 630
 
 # Colours matching dashboard.css
-SLATE_DEEP = (30, 36, 47)
+SLATE_DEEP = (38, 42, 51)
 
 
 def load_font(name, size):

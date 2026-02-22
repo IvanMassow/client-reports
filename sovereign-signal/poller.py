@@ -756,7 +756,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {{
-  --slate: #2B3240; --slate-deep: #1E242F; --slate-mid: #3D4555;
+  --slate: #262a33; --slate-deep: #262a33; --slate-mid: #3D4555;
   --accent: #C9A84C; --accent-light: #EDE0B8; --accent-muted: rgba(201,168,76,0.12);
   --red: #C4545A; --green: #3A8A6E; --amber: #C4920A;
   --text: #2C2C2C; --text-mid: #555B66; --text-muted: #8A8F98;
@@ -777,7 +777,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .back-link:hover {{ color: #fff; background: rgba(255,255,255,0.08); }}
 .hero {{ background: var(--slate-deep); position: relative; overflow: hidden; }}
 .hero-bg {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }}
-.hero::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(30,36,47,0.97) 0%, rgba(30,36,47,0.93) 22%, rgba(30,36,47,0.72) 48%, rgba(30,36,47,0.35) 72%, rgba(30,36,47,0.2) 100%); z-index: 1; pointer-events: none; }}
+.hero::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(38,42,51,0.97) 0%, rgba(38,42,51,0.93) 22%, rgba(38,42,51,0.72) 48%, rgba(38,42,51,0.35) 72%, rgba(38,42,51,0.18) 100%); z-index: 1; pointer-events: none; }}
 .hero::after {{ content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }}
 .hero-inner {{ max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 56px 32px 52px; min-height: 280px; }}
 .hero-left {{ flex: 1; padding-top: 8px; }}
@@ -786,7 +786,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .hero-meta {{ font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-bottom: 20px; }}
 .hero-desc {{ font-family: 'Lora', Georgia, serif; font-size: 14px; color: rgba(255,255,255,0.38); max-width: 440px; line-height: 1.7; }}
 .score-block {{ width: 220px; flex-shrink: 0; margin-top: 8px; }}
-.score-block-inner {{ background: rgba(30,36,47,0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px 20px 20px; text-align: center; }}
+.score-block-inner {{ background: rgba(38,42,51,0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px 20px 20px; text-align: center; }}
 .score-block-label {{ font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }}
 .score-block-num {{ font-family: 'Montserrat', sans-serif; font-size: 64px; font-weight: 800; color: white; line-height: 1; }}
 .score-block-max {{ font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 4px; margin-bottom: 12px; }}
