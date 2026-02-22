@@ -81,17 +81,20 @@ body {
   font-size: 11px;
   color: rgba(255,255,255,0.55);
 }
-.topbar-nav { display: flex; gap: 4px; }
+.topbar-nav { display: flex; gap: 2px; }
 .topbar-nav a {
-  font-size: 11px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
   font-weight: 500;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.35);
   text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 4px 8px;
+  border-radius: 3px;
   transition: all 0.15s;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
 }
-.topbar-nav a:hover { color: rgba(255,255,255,0.8); }
+.topbar-nav a:hover { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
 .topbar-nav a.active { color: #fff; background: rgba(255,255,255,0.08); }
 
 /* === HERO — confident, editorial === */
@@ -112,11 +115,11 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(105deg,
-    rgba(26,30,39,0.97) 0%,
-    rgba(26,30,39,0.93) 22%,
-    rgba(26,30,39,0.72) 48%,
-    rgba(26,30,39,0.35) 72%,
-    rgba(26,30,39,0.18) 100%);
+    rgba(26,30,39,0.92) 0%,
+    rgba(26,30,39,0.85) 22%,
+    rgba(26,30,39,0.55) 48%,
+    rgba(26,30,39,0.25) 72%,
+    rgba(26,30,39,0.12) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -272,20 +275,24 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1px;
-  background: #1a1e27;
+  background: rgba(26,30,39,0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: relative;
   z-index: 3;
 }
 .pillar-score-cell {
   padding: 22px 12px 20px;
   text-align: center;
-  background: #1a1e27;
+  background: rgba(26,30,39,0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transition: background 0.15s;
   cursor: pointer;
   text-decoration: none;
   display: block;
 }
-.pillar-score-cell:hover { background: #242830; }
+.pillar-score-cell:hover { background: rgba(26,30,39,0.6); }
 .pillar-score-name {
   font-size: 9px;
   font-weight: 600;

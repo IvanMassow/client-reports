@@ -1,117 +1,72 @@
 {
   "trust": {
-    "executive_summary": "External attention on the United Kingdom is centred on partner and counterparty reliability under trade-policy volatility and alliance coordination \u2014 with Donald Trump tariff signalling, Friedrich Merz partner coordination, and European Commission/NATO cooperation recurring as the dominant named drivers across the United States, China, and India. The sovereign perception score this cycle is 53, and the clearest positive external framing sits in Long Term Partner And Counterparty Reliability (Strong), anchored by proposition P-SS-DIAG-SS-007.\n\nThe balance sheet is uneven: Judicial Independence And Rule Of Law is Weak, with the cycle\u2019s primary vulnerability signal tied to UK courts and justice-system throughput framing concentrated in the United States (P-SS-DIAG-SS-003). By contrast, Policy Predictability And Implementation Record (Strong) is reinforced by multilateral fiscal framing (International Monetary Fund, OECD; Rachel Reeves references) and Regulatory Competence And Institutional Capacity (Strong) is supported by structured EU\u2013UK financial regulatory cooperation and broader cross-border regulatory alignment signals (P-SS-DIAG-SS-006; P-SS-DIAG-SS-004). Political leadership continuity remains Mixed rather than directionally resolved, with Keir Starmer-linked stability scrutiny recurring in external coverage.",
+    "executive_summary": "External attention on the United Kingdom is centred on partner and counterparty reliability under trade-policy volatility and alliance coordination \u2014 with Donald Trump tariff signalling, Friedrich Merz partner coordination, and European Commission/NATO cooperation recurring as the dominant named drivers across the United States, China, and India. The sovereign perception score this cycle is **53**, and the clearest positive external framing sits in **Long Term Partner And Counterparty Reliability (Strong)**, anchored by proposition **P-SS-DIAG-SS-007**.\n\nThe balance sheet is uneven: **Judicial Independence And Rule Of Law is Weak**, with the cycle\u2019s primary vulnerability signal tied to UK courts and justice-system throughput framing concentrated in the United States (P-SS-DIAG-SS-003). By contrast, **Policy Predictability And Implementation Record (Strong)** is reinforced by multilateral fiscal framing (International Monetary Fund, OECD; Rachel Reeves references) and **Regulatory Competence And Institutional Capacity (Strong)** is supported by structured EU\u2013UK financial regulatory cooperation and broader cross-border regulatory alignment signals (P-SS-DIAG-SS-006; P-SS-DIAG-SS-004). Political leadership continuity remains **Mixed** rather than directionally resolved, with Keir Starmer-linked stability scrutiny recurring in external coverage.",
     "perception_dashboard": [
       {
         "proposition": "How is the United Kingdom being assessed by non-UK governments, multilaterals, investors, and international commentators in terms of political stability and governing reliability this cycle?",
-        "global_view": 50,
-        "sovereign_view": 57,
-        "signal_strength": "Strong",
-        "arena": "Political Leadership And Electoral Stability"
+        "sovereign_view": 50,
+        "signal_strength": "57%",
+        "arena": "Strong"
       },
       {
         "proposition": "What external narratives describe UK political leadership stability (governing continuity, electoral mandate, party cohesion, transition risk), and what events or signals are driving the assessment?",
-        "global_view": 50,
         "sovereign_view": 50,
-        "signal_strength": "Strong",
-        "arena": "Political Leadership And Electoral Stability"
+        "signal_strength": "50%",
+        "arena": "Strong"
       },
       {
         "proposition": "How is UK judicial independence and rule of law being evaluated internationally (court credibility, legal system fairness, enforcement reliability, extradition and treaty compliance), and what specific cases or decisions are cited?",
-        "global_view": 40,
-        "sovereign_view": 32,
-        "signal_strength": "Strong",
-        "arena": "Judicial Independence And Rule Of Law"
+        "sovereign_view": 40,
+        "signal_strength": "32%",
+        "arena": "Strong"
       },
       {
         "proposition": "How are UK regulatory bodies and institutions being assessed externally (competence, independence, capacity, reform trajectory), and which regulators or institutions are attracting the most attention?",
-        "global_view": 45,
-        "sovereign_view": 51,
-        "signal_strength": "Strong",
-        "arena": "Regulatory Competence And Institutional Capacity"
+        "sovereign_view": 45,
+        "signal_strength": "51%",
+        "arena": "Strong"
       },
       {
         "proposition": "What external narratives focus on UK constitutional integrity and territorial cohesion (devolution pressures, Scotland independence sentiment, Northern Ireland protocol dynamics, Welsh governance), and what evidence is being cited?",
-        "global_view": 45,
         "sovereign_view": 45,
-        "signal_strength": "Strong",
-        "arena": "Constitutional Integrity And Territorial Cohesion"
+        "signal_strength": "45%",
+        "arena": "Strong"
       },
       {
         "proposition": "How is UK policy predictability being framed externally (consistent, pragmatic, reactive, reversing), including fiscal policy follow-through, regulatory stability, and implementation credibility?",
-        "global_view": 50,
-        "sovereign_view": 68,
-        "signal_strength": "Strong",
-        "arena": "Policy Predictability And Implementation Record"
+        "sovereign_view": 50,
+        "signal_strength": "68%",
+        "arena": "Strong"
       },
       {
         "proposition": "How is the UK being characterised externally as a long-term partner and counterparty (reliable, transactional, distracted, inward-looking), and which counterpart countries or blocs are most salient in that judgement?",
-        "global_view": 50,
-        "sovereign_view": 68,
-        "signal_strength": "Strong",
-        "arena": "Long Term Partner And Counterparty Reliability"
+        "sovereign_view": 50,
+        "signal_strength": "68%",
+        "arena": "Strong"
       }
     ],
     "trends": [],
-    "arena_context": {
-      "Political Leadership And Electoral Stability": {
-        "posture": "Mixed",
-        "momentum": "Stable"
-      },
-      "Judicial Independence And Rule Of Law": {
-        "posture": "Weak",
-        "momentum": "Stable"
-      },
-      "Regulatory Competence And Institutional Capacity": {
-        "posture": "Strong",
-        "momentum": "Stable"
-      },
-      "Constitutional Integrity And Territorial Cohesion": {
-        "posture": "Mixed",
-        "momentum": "Stable"
-      },
-      "Policy Predictability And Implementation Record": {
-        "posture": "Strong",
-        "momentum": "Stable"
-      },
-      "Long Term Partner And Counterparty Reliability": {
-        "posture": "Strong",
-        "momentum": "Stable"
-      }
-    },
+    "arena_context": {},
     "strength_signals": [],
     "strength_signal_details": [],
     "vulnerability_signals": [],
     "vuln_signal_details": [],
-    "priorities": [
-      {
-        "horizon": "Medium-term monitoring",
-        "action": "Address adverse narrative",
-        "arena": "Judicial Independence And Rule Of Law",
-        "description": "Justice-system effectiveness vulnerability is the primary driver of weak standing and warrants focused monitoring and correction."
-      },
-      {
-        "horizon": "Medium-term monitoring",
-        "action": "Monitor for escalation",
-        "arena": "Judicial Independence And Rule Of Law",
-        "description": "Low-conviction, thin-coverage adverse rule-of-law proposition requires sustained observation for either consolidation or dissipation."
-      }
-    ],
+    "priorities": [],
     "standing_overview": [
       {
         "dimension": "Structural Position",
         "assessment": "Strong",
-        "driver": "Strong standing concentrated in Regulatory Competence And Institutional Capacity, Policy Predictability And Implementation Record, and Long Term Partner And Counterparty Reliability, offset by weak Judicial Independence And Rule Of Law."
+        "driver": "Strong standing is concentrated in Regulatory Competence And Institutional Capacity, Policy Predictability And Implementation Record, and Long Term Partner And Counterparty Reliability, offset by a weak Judicial Independence And Rule Of Law arena."
       },
       {
         "dimension": "Perception Momentum",
         "assessment": "Stable",
-        "driver": "Momentum is steady across all monitored arenas."
+        "driver": "Momentum is steady across all monitored arenas in this cycle."
       },
       {
         "dimension": "Vulnerability Concentration",
         "assessment": "Low",
-        "driver": "One low-severity vulnerability signal, concentrated in Judicial Independence And Rule Of Law."
+        "driver": "One low-severity vulnerability signal is present, concentrated in Judicial Independence And Rule Of Law."
       },
       {
         "dimension": "Evidence Density",
@@ -119,102 +74,30 @@
         "driver": "Strong evidence base across monitored arenas."
       }
     ],
-    "conclusion": "The United Kingdom\u2019s external standing remains anchored by strong partner/counterparty reliability and predictable policy framing \u2014 dominated by Donald Trump tariff-volatility exposure, Friedrich Merz-linked coordination visibility, and European Commission/NATO cooperation signals concentrated across the United States, China, and India \u2014 but the cycle is held Under pressure by a weak Judicial Independence And Rule Of Law arena where UK courts and backlog-linked justice effectiveness narratives carry the principal adverse drag. The overall trajectory is steady rather than accelerating: strengths are sustained and widely distributed, while the vulnerability signal remains contained but standing-relevant.",
-    "score": 53,
-    "posture": "Under Pressure",
-    "trend_count": 12,
+    "conclusion": "The United Kingdom\u2019s external standing remains anchored by strong partner/counterparty reliability and predictable policy framing \u2014 dominated by Donald Trump tariff-volatility exposure, Friedrich Merz-linked coordination visibility, and European Commission/NATO cooperation signals concentrated across the United States, China, and India \u2014 but the cycle is held **Under pressure** by a weak Judicial Independence And Rule Of Law arena where UK courts and backlog-linked justice effectiveness narratives carry the principal adverse drag. The overall trajectory is steady rather than accelerating: strengths are sustained and widely distributed, while the vulnerability signal remains contained but standing-relevant.\n\n**Standing posture this cycle:** Under pressure",
+    "score": 47,
+    "posture": "Mixed",
+    "trend_count": 30,
     "strength_count": 9,
     "vuln_count": 1,
     "predictions": [
       {
-        "arena": "Long Term Partner And Counterparty Reliability",
+        "title": "Long Term Partner And Counterparty Reliability \u2014 Intensifying",
         "probability": 80,
-        "timeframe": "90 days",
-        "direction": "Intensifying",
-        "description": "Donald Trump trade-policy signalling intensification",
         "horizon": "90 days",
-        "signal_strength": "Strong"
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "type": "Arena prediction",
+        "arena": "Long Term Partner And Counterparty Reliability"
       },
       {
-        "arena": "Long Term Partner And Counterparty Reliability",
+        "title": "Political Leadership And Electoral Stability \u2014 Stable",
         "probability": 70,
-        "timeframe": "90 days",
-        "direction": "Intensifying",
-        "description": "Alliance/multilateral cooperation signals intensification",
         "horizon": "90 days",
-        "signal_strength": "Strong"
-      },
-      {
-        "arena": "Long Term Partner And Counterparty Reliability",
-        "probability": 68,
-        "timeframe": "90 days",
-        "direction": "Intensifying",
-        "description": "Friedrich Merz high-level partner-coordination visibility",
-        "horizon": "90 days",
-        "signal_strength": "Strong"
-      },
-      {
-        "arena": "Long Term Partner And Counterparty Reliability",
-        "probability": 68,
-        "timeframe": "90 days",
-        "direction": "Intensifying",
-        "description": "Geopolitical risk framing positioning UK among major actors",
-        "horizon": "90 days",
-        "signal_strength": "Strong"
-      },
-      {
-        "arena": "Policy Predictability And Implementation Record",
-        "probability": 70,
-        "timeframe": "90 days",
-        "direction": "Intensifying",
-        "description": "Economic management narratives reinforcing predictability",
-        "horizon": "90 days",
-        "signal_strength": "Strong"
-      },
-      {
-        "arena": "Policy Predictability And Implementation Record",
-        "probability": 68,
-        "timeframe": "90 days",
-        "direction": "Intensifying",
-        "description": "Multilateral fiscal assessments (IMF/OECD)",
-        "horizon": "90 days",
-        "signal_strength": "Strong"
-      },
-      {
-        "arena": "Regulatory Competence And Institutional Capacity",
-        "probability": 70,
-        "timeframe": "90 days",
         "direction": "Stable",
-        "description": "Institutional execution framing",
-        "horizon": "90 days",
-        "signal_strength": "Strong"
-      },
-      {
-        "arena": "Regulatory Competence And Institutional Capacity",
-        "probability": 68,
-        "timeframe": "90 days",
-        "direction": "Intensifying",
-        "description": "Structured cross-border EU-UK regulatory cooperation",
-        "horizon": "90 days",
-        "signal_strength": "Strong"
-      },
-      {
-        "arena": "Political Leadership And Electoral Stability",
-        "probability": 70,
-        "timeframe": "90 days",
-        "direction": "Stable",
-        "description": "Leadership continuity framed around Keir Starmer",
-        "horizon": "90 days",
-        "signal_strength": "Strong"
-      },
-      {
-        "arena": "Judicial Independence And Rule Of Law",
-        "probability": 47,
-        "timeframe": "180 days",
-        "direction": "Stable",
-        "description": "Justice-system effectiveness concern containment",
-        "horizon": "180 days",
-        "signal_strength": "Strong"
+        "signal_strength": "Strong",
+        "type": "Arena prediction",
+        "arena": "Political Leadership And Electoral Stability"
       }
     ],
     "arena_predictions": {
@@ -230,7 +113,151 @@
       }
     },
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-united-kingdom-long-term-partner-reliability-confirmed-2026-02-22-zqpm",
-    "ref": "ZQPM"
+    "ref": "ZQPM",
+    "arenas": [
+      {
+        "name": "Political Leadership And Electoral Stability",
+        "score": null,
+        "posture": "Mixed",
+        "momentum": "Stable",
+        "discourse": "Moderate",
+        "echo_risk": "No",
+        "geographies": "United States, China",
+        "trend_count": 1
+      },
+      {
+        "name": "Judicial Independence And Rule Of Law",
+        "score": null,
+        "posture": "Weak",
+        "momentum": "Stable",
+        "discourse": "Muted",
+        "echo_risk": "No",
+        "geographies": "United States",
+        "trend_count": 1
+      },
+      {
+        "name": "Regulatory Competence And Institutional Capacity",
+        "score": null,
+        "posture": "Strong",
+        "momentum": "Stable",
+        "discourse": "Moderate",
+        "echo_risk": "No",
+        "geographies": "Europe, United States, European Union",
+        "trend_count": 2
+      },
+      {
+        "name": "Constitutional Integrity And Territorial Cohesion",
+        "score": null,
+        "posture": "Mixed",
+        "momentum": "Stable",
+        "discourse": "Muted",
+        "echo_risk": "No",
+        "geographies": "European Union",
+        "trend_count": 1
+      },
+      {
+        "name": "Policy Predictability And Implementation Record",
+        "score": null,
+        "posture": "Strong",
+        "momentum": "Stable",
+        "discourse": "Moderate",
+        "echo_risk": "No",
+        "geographies": "United States, India, Japan",
+        "trend_count": 3
+      },
+      {
+        "name": "Long Term Partner And Counterparty Reliability",
+        "score": null,
+        "posture": "Strong",
+        "momentum": "Stable",
+        "discourse": "Moderate",
+        "echo_risk": "No",
+        "geographies": "United States, China, India",
+        "trend_count": 4
+      }
+    ],
+    "strengths": [
+      {
+        "title": "SS-005 \u2014 Regulatory Competence And Institutional Capacity \u2014 structural",
+        "arena": "Regulatory Competence And Institutional Capacity",
+        "type": "Structural",
+        "time_horizon": "12 months",
+        "description": "Formalised EU\u2013UK financial regulatory cooperation (European Central Bank and European Commission-linked process framing) is widely distributed across Europe and the United States, with a steady signal supported by an established reference point. (EVD-7LX-SS-018)",
+        "signal_strength": "Strong"
+      },
+      {
+        "title": "SS-009 \u2014 Political Leadership And Electoral Stability \u2014 reputational",
+        "arena": "Political Leadership And Electoral Stability",
+        "type": "Reputational",
+        "time_horizon": "12 months",
+        "description": "Leadership-continuity framing around Keir Starmer is internationally visible across the United States and China, but the posture remains mixed; the effect is reputational presence rather than a single-direction confidence signal. (EVD-7LX-SS-012)",
+        "signal_strength": "Strong"
+      },
+      {
+        "title": "SS-002 \u2014 Long Term Partner And Counterparty Reliability \u2014 policy",
+        "arena": "Long Term Partner And Counterparty Reliability",
+        "type": "Policy",
+        "time_horizon": "Near term",
+        "description": "Rising external attention to trade-policy volatility (Donald Trump tariff signalling) sustains UK counterparty visibility across the United States, China, and European Union lanes; the signal is building and supported by multiple independent references. (EVD-7LX-SS-010)",
+        "signal_strength": "Strong"
+      },
+      {
+        "title": "SS-006 \u2014 Regulatory Competence And Institutional Capacity \u2014 policy",
+        "arena": "Regulatory Competence And Institutional Capacity",
+        "type": "Policy",
+        "time_horizon": "12 months",
+        "description": "Institutional reform and fiscal-rule credibility framing tied to UK Government execution capacity is steady and visible across the United States, Europe, and France, but remains bounded by mixed external-origin balance in the current cycle. (EVD-7LX-SS-014)",
+        "signal_strength": "Strong"
+      },
+      {
+        "title": "SS-007 \u2014 Policy Predictability And Implementation Record \u2014 policy",
+        "arena": "Policy Predictability And Implementation Record",
+        "type": "Policy",
+        "time_horizon": "12 months",
+        "description": "Multilateral surveillance framing (International Monetary Fund and OECD-linked assessment lanes) sustains externally prominent predictability signals across the United States and Japan-focused coverage, supported by multiple independent references and steady momentum. (EVD-7LX-SS-006)",
+        "signal_strength": "Strong"
+      },
+      {
+        "title": "SS-008 \u2014 Policy Predictability And Implementation Record \u2014 policy",
+        "arena": "Policy Predictability And Implementation Record",
+        "type": "Policy",
+        "time_horizon": "12 months",
+        "description": "Policy-implementation and economic management narratives remain consistently favourable across the United States, European Union, and India lanes, with broad source diversity and a steady trajectory anchored by a single multilateral reference point. (EVD-7LX-SS-007)",
+        "signal_strength": "Strong"
+      },
+      {
+        "title": "SS-001 \u2014 Long Term Partner And Counterparty Reliability \u2014 strategic",
+        "arena": "Long Term Partner And Counterparty Reliability",
+        "type": "Strategic",
+        "time_horizon": "12 months",
+        "description": "High-level security and partner coordination exposure involving Friedrich Merz and Keir Starmer is geographically distributed across the United States, India, and European Union lanes; the signal remains steady and is supported by multiple independent references. (EVD-7LX-SS-008)",
+        "signal_strength": "Strong"
+      },
+      {
+        "title": "SS-003 \u2014 Long Term Partner And Counterparty Reliability \u2014 strategic",
+        "arena": "Long Term Partner And Counterparty Reliability",
+        "type": "Strategic",
+        "time_horizon": "12 months",
+        "description": "Alliance and multilateral cooperation framing (NATO capability initiatives and wider European defence cooperation) remains steady with elevated international visibility across the United States and India lanes, supported by multiple reference points. (EVD-7LX-SS-005)",
+        "signal_strength": "Strong"
+      },
+      {
+        "title": "SS-004 \u2014 Long Term Partner And Counterparty Reliability \u2014 strategic",
+        "arena": "Long Term Partner And Counterparty Reliability",
+        "type": "Strategic",
+        "time_horizon": "12 months",
+        "description": "Strategic steadiness expectations persist across the United States, China, and India lanes under wider geopolitical risk framing; the signal is steady and reinforced by more than one independent reference point. (EVD-7LX-SS-005)",
+        "signal_strength": "Strong"
+      }
+    ],
+    "vulnerabilities": [
+      {
+        "title": "VS-001 \u2014 Justice-system effectiveness and enforceability credibility drag",
+        "arena": "Judicial Independence And Rule Of Law",
+        "severity": "Low",
+        "description": "External references to UK courts and criminal court backlog pressures concentrate in the United States and carry an adverse enforceability-and-throughput framing; this can reduce counterpart confidence in dispute resolution reliability even when wider governance signals are favourable."
+      }
+    ]
   },
   "diplomatic": {
     "executive_summary": "External attention on UK diplomatic standing is anchored in alliance and multilateral-role framing , NATO posture, United Nations reform process reference points, and Ukraine-related coordination remain the centre of gravity , while two weak arenas (Sanctions And Statecraft Influence; Development And Humanitarian Credibility) pull the overall picture into an \u201cunder pressure\u201d posture. The headline Sovereign Perception Score this cycle is 60, with the strongest concentration of attention in the United States, Europe, and China.\nThe balance sheet is uneven: Multilateral Influence and Crisis Diplomacy And Mediation register as strong and well-evidenced, driven by repeated external references to NATO contribution signalling, UN governance and reform discourse, and crisis-lane positioning involving the UK Government and US institutional counterparts (see proposition P-SS-DIAG-SS-002). Pressure concentrates where external framing is thin but adverse-leaning , sanctions enforcement credibility questions (Ukraine/Russia/European Union) and aid/humanitarian credibility critique (Sudan/Africa/United States) , while climate and standards narratives remain strong but comparatively low-visibility in wider commentary.",

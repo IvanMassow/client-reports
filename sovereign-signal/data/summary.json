@@ -1,15 +1,15 @@
 {
   "date": "2026-02-22",
-  "composite_score": 55,
+  "composite_score": 54,
   "composite_posture": "Mixed",
-  "composite_delta": 5,
+  "composite_delta": 4,
   "pillars": {
     "trust": {
       "name": "Trust, Stability & Systemic Reliability",
-      "score": 53,
-      "posture": "Under Pressure",
-      "delta": -3,
-      "trend_count": 12,
+      "score": 47,
+      "posture": "Mixed",
+      "delta": -9,
+      "trend_count": 30,
       "strength_count": 9,
       "vuln_count": 1,
       "executive_summary": "External attention on the United Kingdom is centred on partner and counterparty reliability under trade-policy volatility and alliance coordination \u2014 with Donald Trump tariff signalling, Friedrich Mer"

@@ -1451,11 +1451,13 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
     <div class="topbar-divider"></div>
     <a href="index.html" style="text-decoration:none"><span class="topbar-brand">Sovereign Signal</span></a>
   </div>
-  <div class="topbar-right">
+    <div class="topbar-divider"></div>
     <nav class="topbar-nav">
       <a href="#" class="active">Dashboard</a>
       <a href="#pillars">Intelligence Briefings</a>
     </nav>
+  </div>
+  <div class="topbar-right">
     <span class="topbar-date" id="topbar-date">{display_date}</span>
   </div>
 </div>
@@ -1465,7 +1467,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
-      <h1 class="hero-title">Sovereign<br><span style="color:#FFD60A">Signal</span> Overview</h1>
+      <h1 class="hero-title">Sovereign<br>Signal Overview</h1>
       <div class="hero-subtitle">Sentiment, Trends &amp; Predictions</div>
       <p class="hero-desc">Daily intelligence tracking the United Kingdom&rsquo;s external positioning &mdash; sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.</p>
       <div class="hero-date-nav">
@@ -1547,15 +1549,8 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     headline = f"{pillar['name']} — Sovereign Signal"
     arena_preds = pdata.get("arena_predictions", {})
 
-    # Build title with gold highlight word
-    gold_word = pillar.get("gold_word", "")
-    if gold_word and gold_word in pillar["name"]:
-        title_html = html.escape(pillar["name"]).replace(
-            html.escape(gold_word),
-            f'<span style="color:#FFD60A">{html.escape(gold_word)}</span>'
-        )
-    else:
-        title_html = html.escape(pillar["name"])
+    # Title — clean white, no highlight colour
+    title_html = html.escape(pillar["name"])
 
     # Build pillar navigation menu
     pillar_nav_items = ""
@@ -1958,7 +1953,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .pillar-nav {{ display: flex; align-items: center; gap: 2px; }}
 .pillar-nav a {{ font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 500; color: rgba(255,255,255,0.35); text-decoration: none; padding: 4px 8px; border-radius: 3px; transition: all 0.15s; letter-spacing: 0.5px; white-space: nowrap; }}
 .pillar-nav a:hover {{ color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }}
-.pillar-nav a.pnav-active {{ color: #FFD60A; background: rgba(255,214,10,0.08); }}
+.pillar-nav a.pnav-active {{ color: #fff; background: rgba(255,255,255,0.1); }}
 .pnav-num {{ font-size: 8px; font-weight: 700; opacity: 0.5; margin-right: 3px; }}
 .pillar-nav a.pnav-active .pnav-num {{ opacity: 0.8; }}
 .back-link:hover {{ color: #fff; background: rgba(255,255,255,0.08); }}
@@ -1966,9 +1961,9 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 /* Hero */
 .hero {{ background: var(--slate-deep); position: relative; overflow: hidden; }}
 .hero-bg {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }}
-.hero::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.97) 0%, rgba(26,30,39,0.93) 22%, rgba(26,30,39,0.72) 48%, rgba(26,30,39,0.35) 72%, rgba(26,30,39,0.18) 100%); z-index: 1; pointer-events: none; }}
+.hero::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.92) 0%, rgba(26,30,39,0.85) 22%, rgba(26,30,39,0.55) 48%, rgba(26,30,39,0.25) 72%, rgba(26,30,39,0.12) 100%); z-index: 1; pointer-events: none; }}
 .hero::after {{ content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }}
-.hero-inner {{ max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 64px 32px 60px; min-height: 320px; }}
+.hero-inner {{ max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 64px 32px 60px; min-height: 360px; }}
 .hero-left {{ flex: 1; padding-top: 8px; }}
 .hero-tag {{ font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; background: var(--pillar-light); color: var(--pillar); display: inline-block; margin-bottom: 14px; }}
 .hero-title {{ font-family: 'Lora', Georgia, serif; font-size: 36px; font-weight: 700; color: white; line-height: 1.15; margin-bottom: 10px; }}
@@ -2002,8 +1997,8 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .key-stat-label {{ font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }}
 
 /* Arena Strip — gauges under hero */
-.arena-strip {{ display: flex; background: var(--slate); position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,0.06); }}
-.arena-gauge {{ flex: 1; padding: 18px 12px 16px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }}
+.arena-strip {{ display: flex; background: rgba(26,30,39,0.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,0.06); }}
+.arena-gauge {{ flex: 1; padding: 18px 12px 16px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); background: rgba(26,30,39,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }}
 .arena-gauge:last-child {{ border-right: none; }}
 .arena-gauge-name {{ font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.88); margin-bottom: 10px; line-height: 1.3; min-height: 36px; display: flex; align-items: flex-end; justify-content: center; text-align: center; }}
 .arena-gauge-score {{ font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; line-height: 1; margin-bottom: 6px; }}
@@ -2211,8 +2206,8 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
       </div>
     </div>
   </div>
-</div>
 {('<div class="arena-strip">' + arena_strip_html + '</div>') if arena_strip_html else ''}
+</div>
 
 <div class="main">
 
