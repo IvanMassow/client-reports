@@ -1372,7 +1372,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
             <span class="briefing-card-title">{pillar["name"]}</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score">{score_display}</div>
+            <div class="briefing-card-score" style="color:{"var(--green)" if isinstance(score, int) and score >= 50 else "var(--red)" if isinstance(score, int) else "var(--text)"}">{score_display}</div>
             <div class="briefing-card-meta">
               <div class="briefing-card-meta-val" style="color:var(--green)">{strength_count}</div>
               <div class="briefing-card-meta-label">Strengths</div>

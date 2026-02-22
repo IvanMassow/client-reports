@@ -561,31 +561,10 @@ body {
   font-weight: 600;
 }
 
-/* Pillar colour accents on briefing cards */
-.briefing-card[data-pillar="softpower"] { border-left: 3px solid var(--p-softpower); }
-.briefing-card[data-pillar="softpower"] .briefing-card-tag { background: var(--p-softpower-light); color: var(--p-softpower); }
-.briefing-card[data-pillar="softpower"] .briefing-card-score { color: var(--p-softpower); }
-.briefing-card[data-pillar="softpower"] .briefing-card-cta { color: var(--p-softpower); }
-
-.briefing-card[data-pillar="defence"] { border-left: 3px solid var(--p-defence); }
-.briefing-card[data-pillar="defence"] .briefing-card-tag { background: var(--p-defence-light); color: var(--p-defence); }
-.briefing-card[data-pillar="defence"] .briefing-card-score { color: var(--p-defence); }
-.briefing-card[data-pillar="defence"] .briefing-card-cta { color: var(--p-defence); }
-
-.briefing-card[data-pillar="economic"] { border-left: 3px solid var(--p-economic); }
-.briefing-card[data-pillar="economic"] .briefing-card-tag { background: var(--p-economic-light); color: var(--p-economic); }
-.briefing-card[data-pillar="economic"] .briefing-card-score { color: var(--p-economic); }
-.briefing-card[data-pillar="economic"] .briefing-card-cta { color: var(--p-economic); }
-
-.briefing-card[data-pillar="diplomatic"] { border-left: 3px solid var(--p-diplomatic); }
-.briefing-card[data-pillar="diplomatic"] .briefing-card-tag { background: var(--p-diplomatic-light); color: var(--p-diplomatic); }
-.briefing-card[data-pillar="diplomatic"] .briefing-card-score { color: var(--p-diplomatic); }
-.briefing-card[data-pillar="diplomatic"] .briefing-card-cta { color: var(--p-diplomatic); }
-
-.briefing-card[data-pillar="trust"] { border-left: 3px solid var(--p-trust); }
-.briefing-card[data-pillar="trust"] .briefing-card-tag { background: var(--p-trust-light); color: var(--p-trust); }
-.briefing-card[data-pillar="trust"] .briefing-card-score { color: var(--p-trust); }
-.briefing-card[data-pillar="trust"] .briefing-card-cta { color: var(--p-trust); }
+/* Unified briefing card accent — clean, consistent */
+.briefing-card { border-left: 3px solid var(--slate); }
+.briefing-card-tag { background: #F0F0ED; color: var(--text-mid); }
+.briefing-card-cta { color: var(--text-mid); }
 
 /* === TREND (kept for future use) === */
 .trend-section { margin-bottom: 56px; }
@@ -844,7 +823,7 @@ body {
             <span class="briefing-card-title">Soft Power & Cultural Standing</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score">48</div>
+            <div class="briefing-card-score" style="color:var(--red)">48</div>
             <div class="briefing-card-meta">
               <div class="briefing-card-meta-val" style="color:var(--green)">4</div>
               <div class="briefing-card-meta-label">Strengths</div>
@@ -882,7 +861,7 @@ body {
             <span class="briefing-card-title">Defence & Strategic Credibility</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score">57</div>
+            <div class="briefing-card-score" style="color:var(--green)">57</div>
             <div class="briefing-card-meta">
               <div class="briefing-card-meta-val" style="color:var(--green)">5</div>
               <div class="briefing-card-meta-label">Strengths</div>
@@ -920,7 +899,7 @@ body {
             <span class="briefing-card-title">Economic & Business Leadership</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score">62</div>
+            <div class="briefing-card-score" style="color:var(--green)">62</div>
             <div class="briefing-card-meta">
               <div class="briefing-card-meta-val" style="color:var(--green)">6</div>
               <div class="briefing-card-meta-label">Strengths</div>
@@ -976,7 +955,7 @@ body {
             <span class="briefing-card-title">Diplomatic & Global Leadership</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score">57</div>
+            <div class="briefing-card-score" style="color:var(--green)">57</div>
             <div class="briefing-card-meta">
               <div class="briefing-card-meta-val" style="color:var(--green)">7</div>
               <div class="briefing-card-meta-label">Strengths</div>
@@ -1032,7 +1011,7 @@ body {
             <span class="briefing-card-title">Trust, Stability & Systemic Reliability</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score">47</div>
+            <div class="briefing-card-score" style="color:var(--red)">47</div>
             <div class="briefing-card-meta">
               <div class="briefing-card-meta-val" style="color:var(--green)">9</div>
               <div class="briefing-card-meta-label">Strengths</div>
