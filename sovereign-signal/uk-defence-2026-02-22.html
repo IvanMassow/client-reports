@@ -51,10 +51,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }
 .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.92) 0%, rgba(26,30,39,0.85) 22%, rgba(26,30,39,0.55) 48%, rgba(26,30,39,0.25) 72%, rgba(26,30,39,0.12) 100%); z-index: 1; pointer-events: none; }
 .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }
-.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 60px 32px 40px; min-height: 395px; }
-.hero-left { flex: 1; padding-top: 8px; }
+.hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 60px 32px 0; min-height: 340px; }
+.hero-left { flex: 1; max-width: 540px; padding-top: 12px; }
 .hero-tag { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; background: var(--pillar-light); color: var(--pillar); display: inline-block; margin-bottom: 14px; }
-.hero-title { font-family: 'Lora', Georgia, serif; font-size: 36px; font-weight: 700; color: rgba(255,255,255,0.92); line-height: 1.15; margin-bottom: 10px; }
+.hero-title { font-family: 'Lora', Georgia, serif; font-size: 42px; font-weight: 700; color: rgba(255,255,255,0.92); line-height: 1.12; margin-bottom: 12px; }
 .hero-meta { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 1px; margin-bottom: 20px; }
 .hero-desc { font-family: 'Lora', Georgia, serif; font-size: 14px; color: rgba(255,255,255,0.55); max-width: 440px; line-height: 1.7; }
 .score-block { width: 220px; flex-shrink: 0; margin-top: 8px; }
@@ -218,9 +218,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero-inner { flex-direction: column; padding: 36px 16px 36px; min-height: auto; }
-  .hero-title { font-size: 28px; }
-  .score-block { width: 100%; margin-top: 20px; }
+  .hero-inner { flex-direction: column; padding: 32px 16px 0; min-height: auto; }
+  .hero-left { max-width: 100%; }
+  .hero-title { font-size: 32px; }
+  .score-block { width: 100%; margin-top: 24px; }
   .score-block-inner { display: flex; align-items: center; gap: 16px; padding: 16px 20px; text-align: left; }
   .score-block-label { display: none; }
   .score-block-num { font-size: 48px; }
@@ -248,7 +249,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .topbar-brand { display: none; }
   .topbar-divider { display: none; }
   .topbar-logo { font-size: 17px; }
-  .hero-inner { padding: 24px 16px 28px; }
+  .hero-inner { padding: 24px 16px 0; }
   .hero-title { font-size: 24px; }
   .hero-desc { display: none; }
   .key-stats { grid-template-columns: repeat(2, 1fr); }
