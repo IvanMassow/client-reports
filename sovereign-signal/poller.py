@@ -2177,10 +2177,8 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   .signal-table tbody td {{ padding: 8px 12px; }}
   .pred-grid {{ grid-template-columns: 1fr; }}
   .pred-prob {{ font-size: 22px; }}
-  .pillar-nav {{ height: auto; padding: 6px 8px; flex-wrap: wrap; gap: 2px; }}
-  .pillar-nav a {{ font-size: 9px; padding: 4px 6px; }}
+  .pillar-nav {{ display: none; }}
   .back-link {{ display: none; }}
-  .pillar-nav-back {{ display: inline; }}
 }}
 </style>
 </head>
