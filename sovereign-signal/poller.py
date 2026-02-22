@@ -478,6 +478,15 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
     posture_cls = _posture_class(composite_posture)
     composite_delta_html = _delta_html(composite_delta, is_hero=True)
 
+    # Signal colour reflects composite posture
+    posture_lower = (composite_posture or "").lower()
+    if posture_lower == "strong":
+        signal_color = "var(--green)"
+    elif posture_lower in ("weak", "declining"):
+        signal_color = "var(--red)"
+    else:
+        signal_color = "var(--amber)"
+
     # Build pillar score cells
     pillar_score_cells = ""
     for key, pillar in PILLARS.items():
@@ -689,7 +698,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
-      <h1 class="hero-title">Sovereign<br><span style="color:#D4A59A">Signal</span></h1>
+      <h1 class="hero-title">Sovereign<br><span style="color:{signal_color}">Signal</span></h1>
       <div class="hero-subtitle">Daily Intelligence Dashboard</div>
       <p class="hero-desc">Five-pillar standing assessment tracking the United Kingdom&rsquo;s external positioning across defence, diplomacy, economics, trust, and soft power.</p>
       <div class="hero-date-nav">
