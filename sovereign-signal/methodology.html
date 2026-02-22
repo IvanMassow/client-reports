@@ -33,19 +33,19 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .back-link { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; }
 .back-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
 
-/* Hero */
+/* Hero — matches dashboard/pillar style: text left, flag visible right */
 .hero { background: var(--slate-deep); position: relative; overflow: hidden; }
-.hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.25; filter: saturate(0.4) contrast(1.05); }
-.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.98) 0%, rgba(26,30,39,0.95) 30%, rgba(26,30,39,0.85) 60%, rgba(26,30,39,0.7) 100%); z-index: 1; }
+.hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.97) 0%, rgba(26,30,39,0.93) 22%, rgba(26,30,39,0.72) 48%, rgba(26,30,39,0.35) 72%, rgba(26,30,39,0.18) 100%); z-index: 1; pointer-events: none; }
 .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }
-.hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; padding: 72px 32px 64px; text-align: center; }
-.hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
-.hero-title { font-family: 'Lora', Georgia, serif; font-size: 42px; font-weight: 700; color: white; line-height: 1.2; margin-bottom: 16px; }
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; padding: 56px 32px 52px; min-height: 280px; }
+.hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+.hero-title { font-family: 'Lora', Georgia, serif; font-size: 42px; font-weight: 700; color: white; line-height: 1.2; margin-bottom: 14px; }
 .hero-title span { color: var(--accent); }
-.hero-subtitle { font-family: 'Lora', Georgia, serif; font-size: 16px; color: rgba(255,255,255,0.4); max-width: 600px; margin: 0 auto; line-height: 1.7; }
+.hero-subtitle { font-family: 'Lora', Georgia, serif; font-size: 15px; color: rgba(255,255,255,0.38); max-width: 480px; line-height: 1.7; }
 
 /* Main */
-.main { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+.main { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 
 /* Intro Section */
 .intro { margin-top: 56px; margin-bottom: 48px; }
@@ -71,14 +71,14 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .principle-title { font-family: 'Lora', Georgia, serif; font-size: 18px; font-weight: 600; color: var(--text); line-height: 1.3; }
 .principle-body { font-size: 14px; color: var(--text-mid); line-height: 1.8; padding-left: 64px; }
 
-/* Pipeline Visual */
+/* Pipeline Visual — horizontal strip matching arena-strip style */
 .pipeline-section { margin-bottom: 56px; }
 .pipeline-title { font-family: 'Lora', Georgia, serif; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
-.pipeline { display: flex; align-items: center; gap: 0; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; }
-.pipeline-step { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 16px 20px; text-align: center; min-width: 140px; box-shadow: var(--card-shadow); }
-.pipeline-step-num { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 11px; color: var(--accent); letter-spacing: 1px; margin-bottom: 4px; }
-.pipeline-step-name { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.3; }
-.pipeline-arrow { font-size: 18px; color: var(--border); padding: 0 6px; flex-shrink: 0; }
+.pipeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--border-light); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; margin-bottom: 24px; }
+.pipeline-step { background: var(--bg-card); padding: 24px 12px 20px; text-align: center; position: relative; }
+.pipeline-step:not(:last-child)::after { content: '\2192'; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); font-size: 16px; color: var(--accent); z-index: 1; background: var(--bg-card); width: 12px; text-align: center; }
+.pipeline-step-num { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 11px; color: var(--accent); letter-spacing: 1px; margin-bottom: 8px; }
+.pipeline-step-name { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.4; }
 .pipeline-note { font-size: 12px; color: var(--text-muted); text-align: center; font-style: italic; }
 
 /* Output Summary */
@@ -92,25 +92,34 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
 /* Footer */
 .footer { background: var(--slate-deep); padding: 28px 32px; margin-top: 0; }
-.footer-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .footer-left { display: flex; align-items: center; gap: 16px; }
 .footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
 .footer-label { font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.2); }
 .footer-text { font-size: 10px; color: rgba(255,255,255,0.2); }
-.footer-credit { font-size: 9px; color: rgba(255,255,255,0.1); text-align: center; max-width: 900px; margin: 12px auto 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.04); }
+.footer-credit { font-size: 9px; color: rgba(255,255,255,0.1); text-align: center; max-width: 1100px; margin: 12px auto 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.04); }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .hero-inner { padding: 48px 16px 40px; }
-  .hero-title { font-size: 28px; }
+@media (max-width: 1100px) {
+  .hero-inner { padding: 36px 16px 36px; min-height: auto; }
+  .hero-title { font-size: 32px; }
+  .hero-subtitle { font-size: 14px; }
   .main { padding: 0 16px; }
   .principle-body { padding-left: 0; margin-top: 8px; }
   .principle-num { font-size: 24px; width: 36px; }
-  .pipeline { flex-direction: column; gap: 8px; }
-  .pipeline-arrow { transform: rotate(90deg); }
+  .pipeline { grid-template-columns: repeat(3, 1fr); }
+  .pipeline-step:nth-child(3)::after { display: none; }
   .output-grid { grid-template-columns: 1fr; }
   .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
   .topbar { padding: 0 16px; }
+}
+@media (max-width: 600px) {
+  .hero-inner { padding: 28px 16px 28px; }
+  .hero-title { font-size: 26px; }
+  .hero-subtitle { font-size: 13px; }
+  .pipeline { grid-template-columns: repeat(2, 1fr); }
+  .pipeline-step::after { display: none; }
+  .principle-card { padding: 20px; }
 }
 </style>
 </head>
@@ -215,32 +224,27 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <div class="pipeline">
       <div class="pipeline-step">
         <div class="pipeline-step-num">STAGE 1</div>
-        <div class="pipeline-step-name">Global<br>Ingestion</div>
+        <div class="pipeline-step-name">Global Ingestion</div>
       </div>
-      <div class="pipeline-arrow">&rarr;</div>
       <div class="pipeline-step">
         <div class="pipeline-step-num">STAGE 2</div>
-        <div class="pipeline-step-name">Evidence<br>Selection</div>
+        <div class="pipeline-step-name">Evidence Selection</div>
       </div>
-      <div class="pipeline-arrow">&rarr;</div>
       <div class="pipeline-step">
         <div class="pipeline-step-num">STAGE 3</div>
-        <div class="pipeline-step-name">Signal<br>Processing</div>
+        <div class="pipeline-step-name">Signal Processing</div>
       </div>
-      <div class="pipeline-arrow">&rarr;</div>
       <div class="pipeline-step">
         <div class="pipeline-step-num">STAGE 4</div>
-        <div class="pipeline-step-name">Trend<br>Analysis</div>
+        <div class="pipeline-step-name">Trend Analysis</div>
       </div>
-      <div class="pipeline-arrow">&rarr;</div>
       <div class="pipeline-step">
         <div class="pipeline-step-num">STAGE 5</div>
-        <div class="pipeline-step-name">Sentiment<br>Scoring</div>
+        <div class="pipeline-step-name">Sentiment Scoring</div>
       </div>
-      <div class="pipeline-arrow">&rarr;</div>
       <div class="pipeline-step">
         <div class="pipeline-step-num">STAGE 6</div>
-        <div class="pipeline-step-name">Forward<br>Predictions</div>
+        <div class="pipeline-step-name">Forward Predictions</div>
       </div>
     </div>
     <p class="pipeline-note">Each stage operates autonomously within a structured pipeline &mdash; no human editorial intervention between ingestion and output.</p>
