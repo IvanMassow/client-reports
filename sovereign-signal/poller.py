@@ -46,6 +46,8 @@ PILLARS = {
         "color_mid": "#9568B0",
         "slug": "softpower",
         "keywords": ["soft power", "cultural"],
+        "gold_word": "Cultural",
+        "pillar_num": "P1",
     },
     "defence": {
         "name": "Defence & Strategic Credibility",
@@ -56,6 +58,8 @@ PILLARS = {
         "color_mid": "#5E88BE",
         "slug": "defence",
         "keywords": ["defence", "defense", "strategic credibility", "military"],
+        "gold_word": "Strategic",
+        "pillar_num": "P2",
     },
     "economic": {
         "name": "Economic & Business Leadership",
@@ -66,6 +70,8 @@ PILLARS = {
         "color_mid": "#52A688",
         "slug": "economic",
         "keywords": ["economic", "business", "competence"],
+        "gold_word": "Leadership",
+        "pillar_num": "P3",
     },
     "diplomatic": {
         "name": "Diplomatic & Global Leadership",
@@ -76,6 +82,8 @@ PILLARS = {
         "color_mid": "#C9A040",
         "slug": "diplomatic",
         "keywords": ["diplomatic", "global leadership", "diplomacy"],
+        "gold_word": "Global",
+        "pillar_num": "P4",
     },
     "trust": {
         "name": "Trust, Stability & Systemic Reliability",
@@ -86,6 +94,8 @@ PILLARS = {
         "color_mid": "#D0715E",
         "slug": "trust",
         "keywords": ["trust", "stability", "governance", "systemic", "reliability"],
+        "gold_word": "Stability",
+        "pillar_num": "P5",
     },
 }
 
@@ -143,12 +153,17 @@ PILLAR_ARENA_KEYWORDS = {
 
 def classify_pillar(title, desc=""):
     """Match an RSS item title to one of our 5 pillars.
-    Falls back to checking description arena names if title doesn't match."""
+    Uses best-match scoring (most keyword hits wins) to avoid false positives
+    from overlapping keywords. Falls back to description arena names."""
     title_lower = title.lower()
+    # Score each pillar by number of keyword matches in title — most wins
+    scores = {}
     for key, pillar in PILLARS.items():
-        for kw in pillar["keywords"]:
-            if kw in title_lower:
-                return key
+        count = sum(1 for kw in pillar["keywords"] if kw in title_lower)
+        if count > 0:
+            scores[key] = count
+    if scores:
+        return max(scores, key=scores.get)
     # Fallback: check description for arena-specific keywords
     if desc:
         desc_lower = desc.lower()
@@ -535,9 +550,17 @@ def parse_report_content(desc_html):
         data["conclusion"] = _strip_tags(conclusion_match.group(1))
 
     # ─── Score & Posture Extraction ───
+    # Try "score: 74/100" or "score: 74 / 100" first
     score_match = re.search(r"(?:score|standing)[:\s]*(\d{1,3})\s*/\s*100", desc_html, re.IGNORECASE)
     if score_match:
         data["score"] = int(score_match.group(1))
+    # Fallback: "overall score: 74" or "overall score of 70" (without /100)
+    if data["score"] is None:
+        score_match2 = re.search(r"overall\s+score[:\s]+(?:of\s+)?(\d{1,3})", desc_html, re.IGNORECASE)
+        if score_match2:
+            val = int(score_match2.group(1))
+            if 0 <= val <= 100:
+                data["score"] = val
 
     posture_match = re.search(
         r"(?:perceived as|posture[:\s]*|standing[:\s]*)\s*(strong|mixed|moderate|weak|declining|under pressure|stable)",
@@ -1006,7 +1029,7 @@ def _generate_og_image(display_date, composite, composite_posture, pillar_data):
     import shutil
 
     posture_color = "#C4545A" if composite_posture == "Weak" else "#C4920A" if composite_posture == "Mixed" else "#3A8A6E"
-    posture_bg = "rgba(196,84,90,0.12)" if composite_posture == "Weak" else "rgba(196,146,10,0.12)" if composite_posture == "Mixed" else "rgba(58,138,110,0.12)"
+    posture_bg = "rgba(217,64,72,0.12)" if composite_posture == "Weak" else "rgba(196,146,10,0.12)" if composite_posture == "Mixed" else "rgba(46,155,110,0.12)"
 
     pillar_cells = ""
     for key, pillar in PILLARS.items():
@@ -1526,6 +1549,23 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     headline = f"{pillar['name']} — Sovereign Signal"
     arena_preds = pdata.get("arena_predictions", {})
 
+    # Build title with gold highlight word
+    gold_word = pillar.get("gold_word", "")
+    if gold_word and gold_word in pillar["name"]:
+        title_html = html.escape(pillar["name"]).replace(
+            html.escape(gold_word),
+            f'<span style="color:var(--gold, #C9A84C)">{html.escape(gold_word)}</span>'
+        )
+    else:
+        title_html = html.escape(pillar["name"])
+
+    # Build pillar navigation menu
+    pillar_nav_items = ""
+    for pk, pv in PILLARS.items():
+        active = ' class="pnav-active"' if pk == key else ""
+        report_file = f"uk-{pk}-{target_date}.html"
+        pillar_nav_items += f'<a href="{report_file}"{active}><span class="pnav-num">{pv["pillar_num"]}</span> {html.escape(pv["short"])}</a>\n'
+
     # Handle missing executive summary
     if not exec_summary or exec_summary.startswith("[Section"):
         exec_summary = "Assessment data not available for this cycle. The intelligence pipeline did not return a structured executive summary for this pillar."
@@ -1660,11 +1700,11 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         ap = ctx.get("posture", "")
         if ap.lower() in ("strong",):
             border_color = "var(--green)"
-            badge_bg = "rgba(58,138,110,0.1)"
+            badge_bg = "rgba(46,155,110,0.1)"
             badge_color = "#166534"
         elif ap.lower() in ("weak",):
             border_color = "var(--red)"
-            badge_bg = "rgba(196,84,90,0.1)"
+            badge_bg = "rgba(217,64,72,0.1)"
             badge_color = "#991b1b"
         elif ap.lower() in ("moderate", "mixed"):
             border_color = "var(--amber)"
@@ -1896,7 +1936,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 :root {{
   --slate: #1a1e27; --slate-deep: #1a1e27; --slate-mid: #2e323c;
   --accent: #C9A84C; --accent-light: #EDE0B8;
-  --red: #C4545A; --green: #3A8A6E; --amber: #C4920A;
+  --red: #D94048; --green: #2E9B6E; --amber: #C4920A;
   --text: #2C2C2C; --text-mid: #555B66; --text-muted: #8A8F98;
   --bg: #FAFAF8; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
   --pillar: {pillar['color']}; --pillar-light: {pillar['color_light']}; --pillar-mid: {pillar['color_mid']};
@@ -1908,12 +1948,23 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 /* Topbar */
 .topbar {{ background: var(--slate); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 52px; position: sticky; top: 0; z-index: 100; }}
 .topbar-left {{ display: flex; align-items: center; gap: 14px; }}
-.topbar-logo {{ font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }}
+.topbar-logo {{ font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }}
 .topbar-divider {{ width: 1px; height: 20px; background: rgba(255,255,255,0.12); }}
 .topbar-brand {{ font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); }}
 .topbar-right {{ display: flex; align-items: center; gap: 20px; }}
 .topbar-date {{ font-size: 11px; color: rgba(255,255,255,0.55); }}
 .back-link {{ font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; }}
+
+/* Pillar Navigation */
+.pillar-nav {{ background: var(--slate-mid); display: flex; align-items: center; justify-content: center; gap: 4px; padding: 0 16px; height: 40px; border-top: 1px solid rgba(255,255,255,0.06); }}
+.pillar-nav a {{ font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; letter-spacing: 0.5px; white-space: nowrap; }}
+.pillar-nav a:hover {{ color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }}
+.pillar-nav a.pnav-active {{ color: var(--accent); background: rgba(201,168,76,0.1); }}
+.pnav-num {{ font-size: 9px; font-weight: 700; opacity: 0.5; margin-right: 4px; }}
+.pillar-nav a.pnav-active .pnav-num {{ opacity: 0.8; }}
+.hamburger {{ display: none; cursor: pointer; padding: 8px; background: none; border: none; }}
+.hamburger span {{ display: block; width: 18px; height: 2px; background: rgba(255,255,255,0.6); margin: 4px 0; transition: all 0.2s; }}
+.pillar-nav-back {{ display: none; }}
 .back-link:hover {{ color: #fff; background: rgba(255,255,255,0.08); }}
 
 /* Hero */
@@ -1934,9 +1985,9 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .score-block-max {{ font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 4px; margin-bottom: 12px; }}
 .posture {{ display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }}
 .posture-mixed {{ color: var(--amber); background: rgba(196,146,10,0.12); }}
-.posture-strong {{ color: var(--green); background: rgba(58,138,110,0.12); }}
-.posture-weak {{ color: var(--red); background: rgba(196,84,90,0.12); }}
-.posture-stable {{ color: var(--green); background: rgba(58,138,110,0.08); }}
+.posture-strong {{ color: var(--green); background: rgba(46,155,110,0.12); }}
+.posture-weak {{ color: var(--red); background: rgba(217,64,72,0.12); }}
+.posture-stable {{ color: var(--green); background: rgba(46,155,110,0.08); }}
 
 /* Main Content */
 .main {{ max-width: 1100px; margin: 0 auto; padding: 0 32px; }}
@@ -1984,7 +2035,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .pd-pct {{ font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; white-space: nowrap; }}
 .pd-arena {{ font-size: 11px; color: var(--text-muted); white-space: nowrap; }}
 .conf-badge {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; white-space: nowrap; }}
-.conf-high {{ background: rgba(58,138,110,0.1); color: #166534; }}
+.conf-high {{ background: rgba(46,155,110,0.1); color: #166534; }}
 .conf-medium {{ background: rgba(146,64,14,0.1); color: #92400e; }}
 .conf-low {{ background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }}
 
@@ -1995,15 +2046,15 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .signal-card-header {{ display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }}
 .signal-card-id {{ font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px; color: var(--text); padding: 4px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }}
 .signal-badge {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }}
-.signal-badge-strength {{ background: rgba(58,138,110,0.12); color: #166534; }}
-.signal-badge-vuln {{ background: rgba(196,84,90,0.12); color: #991b1b; }}
+.signal-badge-strength {{ background: rgba(46,155,110,0.12); color: #166534; }}
+.signal-badge-vuln {{ background: rgba(217,64,72,0.12); color: #991b1b; }}
 .signal-badge-arena {{ background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }}
 .signal-badge-horizon {{ background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }}
 .char-reputational {{ background: rgba(196,146,10,0.1); color: #92400e; }}
-.char-structural {{ background: rgba(58,138,110,0.1); color: #166534; }}
+.char-structural {{ background: rgba(46,155,110,0.1); color: #166534; }}
 .char-strategic {{ background: rgba(88,64,14,0.08); color: #553f0e; }}
 .char-policy {{ background: rgba(146,64,14,0.1); color: #92400e; }}
-.sev-high {{ background: rgba(196,84,90,0.12); color: #991b1b; }}
+.sev-high {{ background: rgba(217,64,72,0.12); color: #991b1b; }}
 .sev-medium {{ background: rgba(196,146,10,0.1); color: #92400e; }}
 .sev-low {{ background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }}
 .signal-card-title {{ font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }}
@@ -2023,10 +2074,10 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .priority-group {{ display: flex; flex-direction: column; gap: 8px; }}
 .priority-item {{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 14px 18px; box-shadow: var(--card-shadow); }}
 .priority-action {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; display: inline-block; margin-bottom: 6px; }}
-.pri-address {{ background: rgba(196,84,90,0.12); color: #991b1b; }}
+.pri-address {{ background: rgba(217,64,72,0.12); color: #991b1b; }}
 .pri-monitor {{ background: rgba(196,146,10,0.1); color: #92400e; }}
-.pri-reinforce {{ background: rgba(58,138,110,0.12); color: #166534; }}
-.pri-build {{ background: rgba(58,138,110,0.08); color: #166534; }}
+.pri-reinforce {{ background: rgba(46,155,110,0.12); color: #166534; }}
+.pri-build {{ background: rgba(46,155,110,0.08); color: #166534; }}
 .priority-arena {{ font-size: 11px; font-weight: 600; color: var(--pillar); display: block; margin-bottom: 4px; }}
 .priority-desc {{ font-size: 12px; color: var(--text-mid); line-height: 1.6; }}
 
@@ -2049,7 +2100,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .pred-type-vuln {{ background: var(--red); color: white; }}
 .pred-dir-intensifying {{ background: #7C3AED; color: white; }}
 .pred-dir-stable {{ background: #374151; color: white; }}
-.pred-dir-fading {{ background: rgba(58,138,110,0.85); color: white; }}
+.pred-dir-fading {{ background: rgba(46,155,110,0.85); color: white; }}
 .pred-dir-reversing {{ background: rgba(74,111,165,0.85); color: white; }}
 .pred-signal-strong {{ background: #166534; color: white; }}
 .pred-horizon {{ background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }}
@@ -2108,10 +2159,13 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   .source-section {{ padding: 20px 16px; }}
   .footer {{ padding: 20px 16px; }}
   .footer-inner {{ flex-direction: column; gap: 8px; text-align: center; }}
+  .pillar-nav {{ gap: 2px; padding: 0 8px; overflow-x: auto; justify-content: flex-start; }}
+  .pillar-nav a {{ font-size: 9px; padding: 5px 8px; }}
 }}
 @media (max-width: 600px) {{
   .topbar-brand {{ display: none; }}
   .topbar-divider {{ display: none; }}
+  .topbar-logo {{ font-size: 17px; }}
   .hero-inner {{ padding: 24px 16px 28px; }}
   .hero-title {{ font-size: 24px; }}
   .hero-desc {{ display: none; }}
@@ -2123,6 +2177,10 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   .signal-table tbody td {{ padding: 8px 12px; }}
   .pred-grid {{ grid-template-columns: 1fr; }}
   .pred-prob {{ font-size: 22px; }}
+  .pillar-nav {{ height: auto; padding: 6px 8px; flex-wrap: wrap; gap: 2px; }}
+  .pillar-nav a {{ font-size: 9px; padding: 4px 6px; }}
+  .back-link {{ display: none; }}
+  .pillar-nav-back {{ display: inline; }}
 }}
 </style>
 </head>
@@ -2139,12 +2197,17 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   </div>
 </div>
 
+<div class="pillar-nav">
+  <a href="index.html" class="pillar-nav-back">&larr;</a>
+  {pillar_nav_items}
+</div>
+
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-left">
       <span class="hero-tag">{pillar['short']}</span>
-      <h1 class="hero-title">{pillar['name']}</h1>
+      <h1 class="hero-title">{title_html}</h1>
       <div class="hero-meta">United Kingdom &mdash; {display_date} &middot; Ref: {ref_code}</div>
       <p class="hero-desc">{html.escape(exec_summary[:200])}</p>
     </div>

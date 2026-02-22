@@ -1,6 +1,6 @@
 {
   "date": "2026-02-22",
-  "composite_score": 50,
+  "composite_score": 62,
   "composite_posture": "Mixed",
   "composite_delta": null,
   "pillars": {
@@ -36,23 +36,23 @@
     },
     "economic": {
       "name": "Economic & Business Leadership",
-      "score": 55,
+      "score": 93,
+      "posture": "Stable",
+      "delta": null,
+      "trend_count": 88,
+      "strength_count": 14,
+      "vuln_count": 1,
+      "executive_summary": "The United Kingdom presents a structurally Strong standing across the most active arenas this cycle, particularly Innovation And Technology and Financial Services And City Position, with external perc"
+    },
+    "trust": {
+      "name": "Trust, Stability & Systemic Reliability",
+      "score": 74,
       "posture": "Stable",
       "delta": null,
       "trend_count": 40,
       "strength_count": 6,
       "vuln_count": 1,
       "executive_summary": "The United Kingdom\u2019s standing this cycle is characterised by a mostly Strong structural posture across governance and partner-reliability arenas, but with a Weak position concentrated in Political Lea"
-    },
-    "trust": {
-      "name": "Trust, Stability & Systemic Reliability",
-      "score": 52,
-      "posture": "Mixed",
-      "delta": null,
-      "trend_count": 43,
-      "strength_count": 7,
-      "vuln_count": 1,
-      "executive_summary": "The United Kingdom\u2019s standing is assessed as Strong in both Governance Stability and Partner Reliability, with external perception broadly aligned to a strength-weighted structural picture while remai"
     }
   }
 }
