@@ -32,9 +32,9 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .topbar-left { display: flex; align-items: center; gap: 14px; }
 .topbar-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }
 .topbar-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
-.topbar-brand { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+.topbar-brand { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
 .topbar-right { display: flex; align-items: center; gap: 20px; }
-.topbar-date { font-size: 11px; color: rgba(255,255,255,0.35); }
+.topbar-date { font-size: 11px; color: rgba(255,255,255,0.55); }
 .back-link { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; }
 .back-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
 
@@ -47,13 +47,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .hero-left { flex: 1; padding-top: 8px; }
 .hero-tag { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; background: var(--pillar-light); color: var(--pillar); display: inline-block; margin-bottom: 14px; }
 .hero-title { font-family: 'Lora', Georgia, serif; font-size: 36px; font-weight: 700; color: white; line-height: 1.15; margin-bottom: 10px; }
-.hero-meta { font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 1px; margin-bottom: 20px; }
-.hero-desc { font-family: 'Lora', Georgia, serif; font-size: 14px; color: rgba(255,255,255,0.38); max-width: 440px; line-height: 1.7; }
+.hero-meta { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 1px; margin-bottom: 20px; }
+.hero-desc { font-family: 'Lora', Georgia, serif; font-size: 14px; color: rgba(255,255,255,0.55); max-width: 440px; line-height: 1.7; }
 .score-block { width: 220px; flex-shrink: 0; margin-top: 8px; }
 .score-block-inner { background: rgba(26,30,39,0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px 20px 20px; text-align: center; }
-.score-block-label { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 6px; }
+.score-block-label { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 6px; }
 .score-block-num { font-family: 'Montserrat', sans-serif; font-size: 64px; font-weight: 800; color: white; line-height: 1; }
-.score-block-max { font-size: 11px; color: rgba(255,255,255,0.25); margin-top: 4px; margin-bottom: 12px; }
+.score-block-max { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 4px; margin-bottom: 12px; }
 .posture { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 .posture-mixed { color: var(--amber); background: rgba(196,146,10,0.12); }
 .posture-strong { color: var(--green); background: rgba(58,138,110,0.12); }
@@ -199,10 +199,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .footer { background: var(--slate-deep); padding: 28px 32px; margin-top: 0; }
 .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
 .footer-left { display: flex; align-items: center; gap: 16px; }
-.footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); text-transform: uppercase; }
-.footer-label { font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.2); }
-.footer-text { font-size: 10px; color: rgba(255,255,255,0.2); }
-.footer-credit { font-size: 9px; color: rgba(255,255,255,0.1); text-align: center; max-width: 1100px; margin: 12px auto 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.04); }
+.footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }
+.footer-label { font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.45); }
+.footer-text { font-size: 10px; color: rgba(255,255,255,0.45); }
+.footer-credit { font-size: 9px; color: rgba(255,255,255,0.3); text-align: center; max-width: 1100px; margin: 12px auto 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); }
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -232,6 +232,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
 }
 @media (max-width: 600px) {
+  .topbar-brand { display: none; }
+  .topbar-divider { display: none; }
   .hero-inner { padding: 24px 16px 28px; }
   .hero-title { font-size: 24px; }
   .hero-desc { display: none; }
@@ -249,7 +251,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 <body>
 <div class="topbar">
   <div class="topbar-left">
-    <a href="index.html" class="topbar-logo" style="text-decoration:none;color:rgba(255,255,255,0.9)">NOAH</a>
+    <a href="index.html" class="topbar-logo" style="text-decoration:none;color:rgba(255,255,255,0.9)">DipTel</a>
     <div class="topbar-divider"></div>
     <a href="index.html" style="text-decoration:none"><span class="topbar-brand">Sovereign Signal</span></a>
   </div>
@@ -737,7 +739,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 <div class="footer">
   <div class="footer-inner">
     <div class="footer-left">
-      <span class="footer-logo">NOAH</span>
+      <span class="footer-logo">Powered by NOAH</span>
       <span class="footer-label">Sovereign Signal</span>
     </div>
     <div class="footer-text">Cycle: 22 February 2026 &middot; &copy; Noah Wire Services 2026</div>
