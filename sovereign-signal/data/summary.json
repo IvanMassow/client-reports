@@ -4,6 +4,16 @@
   "composite_posture": "Weak",
   "composite_delta": null,
   "pillars": {
+    "diplomatic": {
+      "name": "Diplomatic & Global Leadership",
+      "score": 48,
+      "posture": "Mixed",
+      "delta": null,
+      "trend_count": 30,
+      "strength_count": 4,
+      "vuln_count": 2,
+      "executive_summary": "United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomac"
+    },
     "defence": {
       "name": "Defence & Strategic Credibility",
       "score": 47,
@@ -33,16 +43,6 @@
       "strength_count": 6,
       "vuln_count": 9,
       "executive_summary": "The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Indust"
-    },
-    "diplomatic": {
-      "name": "Diplomatic & Global Leadership",
-      "score": 48,
-      "posture": "Mixed",
-      "delta": null,
-      "trend_count": 30,
-      "strength_count": 4,
-      "vuln_count": 2,
-      "executive_summary": "United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomac"
     },
     "trust": {
       "name": "Trust, Stability & Systemic Reliability",

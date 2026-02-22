@@ -196,6 +196,8 @@ def parse_report_content(desc_html):
         "trend_count": 0,
         "strength_count": 0,
         "vuln_count": 0,
+        "predictions": [],
+        "arena_predictions": {},
     }
 
     # ─── Executive Summary ───
@@ -459,6 +461,54 @@ def parse_report_content(desc_html):
                     "assessment": cols[1],
                     "driver": cols[2] if len(cols) > 2 else "",
                 })
+
+    # ─── Forward Outlook / Predictions ───
+    # Parse predictions_panel or forward_outlook sections if present in RSS
+    outlook_section = re.search(
+        r"(?:Forward Outlook|Predictions Panel|Prediction Outlook).*?</h[23]>(.*?)(?=<h2|$)",
+        desc_html, re.DOTALL | re.IGNORECASE
+    )
+    if outlook_section:
+        section_text = _strip_tags(outlook_section.group(1))
+        # Parse pipe-delimited prediction rows:
+        # | Title | Probability | Horizon | Direction | Signal Strength | Trigger |
+        for row in section_text.split("\n"):
+            row = row.strip()
+            if not row.startswith("|") or row.startswith("|---") or "Title" in row or "Probability" in row:
+                continue
+            cols = [c.strip() for c in row.split("|")]
+            cols = [c for c in cols if c]
+            if len(cols) >= 4:
+                prob_str = cols[1].replace("%", "").strip()
+                try:
+                    prob = int(prob_str)
+                except ValueError:
+                    prob = None
+                data["predictions"].append({
+                    "title": cols[0],
+                    "probability": prob,
+                    "horizon": cols[2] if len(cols) > 2 else "",
+                    "direction": cols[3] if len(cols) > 3 else "",
+                    "signal_strength": cols[4] if len(cols) > 4 else "",
+                    "trigger": cols[5] if len(cols) > 5 else "",
+                })
+
+    # Parse per-arena prediction outlook sentences
+    arena_outlook_matches = re.finditer(
+        r"(?:Arena Prediction Outlook|Arena Outlook)[^:]*?:\s*([^\n<]+)",
+        desc_html, re.IGNORECASE
+    )
+    for m in arena_outlook_matches:
+        text = _strip_tags(m.group(1)).strip()
+        # Try to extract arena name and outlook sentence
+        arena_match = re.match(r"(\w[\w\s&]+?)\s*[-:]\s*(.+)", text)
+        if arena_match:
+            arena_name = arena_match.group(1).strip()
+            outlook_sentence = arena_match.group(2).strip()
+            data["arena_predictions"][arena_name] = {
+                "has_outlook": True,
+                "outlook_sentence": outlook_sentence,
+            }
 
     # ─── Conclusion ───
     conclusion_match = re.search(
@@ -929,11 +979,11 @@ body {{ width: 1200px; height: 630px; overflow: hidden; font-family: 'Inter', -a
     <div class="title-row">
       <div>
         <div class="title">Sovereign<br>Signal</div>
-        <div class="subtitle">National standing intelligence report</div>
+        <div class="subtitle">Sentiment, Trends &amp; Predictions</div>
         <div class="date-line">{display_date}</div>
       </div>
       <div class="score-block">
-        <div class="score-label">Composite Score</div>
+        <div class="score-label">Composite Sentiment Score</div>
         <div class="score-num">{composite}</div>
         <div class="score-of">of 100</div>
         <div class="score-posture">{composite_posture.upper()}</div>
@@ -1015,7 +1065,20 @@ def _posture_class(posture):
         return "strong"
     if p in ("weak", "declining"):
         return "weak"
+    if p in ("stable",):
+        return "stable"
     return "mixed"
+
+
+def _score_color(score):
+    """Return CSS color variable for a pillar score: red (<45), amber (45-55), green (>55)."""
+    if score is None:
+        return "var(--text-muted)"
+    if score < 45:
+        return "var(--red)"
+    if score <= 55:
+        return "var(--amber)"
+    return "var(--green)"
 
 
 def _get_dashboard_css():
@@ -1068,17 +1131,17 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         # Previous score display — shows below current in its own colour
         prev_score = prev_pillar_scores.get(key)
         if prev_score is not None and delta is not None:
-            # Previous score gets colour of what it was (green = positive direction at the time)
-            prev_color = "var(--green)" if delta >= 0 else "var(--green)"  # prev was green when it was current
+            prev_color = _score_color(prev_score)
             prev_html = f'<div class="pillar-score-prev" style="color:{prev_color}">{prev_score}</div>'
         else:
             prev_html = '<div class="pillar-score-prev">&mdash;</div>'
 
+        score_color = _score_color(score)
         report_href = f"uk-{key}-{target_date}.html"
         pillar_score_cells += f'''
       <a class="pillar-score-cell{" " + cell_cls if cell_cls else ""}" data-pillar="{key}" href="{report_href}">
         <div class="pillar-score-name">{pillar["name"]}</div>
-        <div class="pillar-score-num">{score_display}</div>
+        <div class="pillar-score-num" style="color:{score_color}">{score_display}</div>
         {prev_html}
         <div class="pillar-score-posture">{post}</div>
       </a>'''
@@ -1234,16 +1297,16 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sovereign Signal — UK Standing Intelligence</title>
-<meta property="og:title" content="Sovereign Signal — UK Standing Intelligence">
-<meta property="og:description" content="National standing intelligence report — five-pillar assessment of the United Kingdom's external positioning.">
+<title>Sovereign Signal — Sentiment, Trends &amp; Predictions</title>
+<meta property="og:title" content="Sovereign Signal — Sentiment, Trends & Predictions">
+<meta property="og:description" content="Daily intelligence on the United Kingdom's external positioning — sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.">
 <meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sovereign Signal — UK Standing Intelligence">
-<meta name="twitter:description" content="National standing intelligence report">
+<meta name="twitter:title" content="Sovereign Signal — Sentiment, Trends & Predictions">
+<meta name="twitter:description" content="Daily intelligence — sentiment, trends & predictions">
 <meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1262,7 +1325,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
   <div class="topbar-right">
     <nav class="topbar-nav">
       <a href="#" class="active">Dashboard</a>
-      <a href="#pillars">Pillar Briefings</a>
+      <a href="#pillars">Intelligence Briefings</a>
     </nav>
     <span class="topbar-date" id="topbar-date">{display_date}</span>
   </div>
@@ -1274,8 +1337,8 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
       <h1 class="hero-title">Sovereign<br><span style="color:{signal_color}">Signal</span></h1>
-      <div class="hero-subtitle">Daily Intelligence Dashboard</div>
-      <p class="hero-desc">Five-pillar standing assessment tracking the United Kingdom&rsquo;s external positioning across defence, diplomacy, economics, trust, and soft power.</p>
+      <div class="hero-subtitle">Sentiment, Trends &amp; Predictions</div>
+      <p class="hero-desc">Daily intelligence tracking the United Kingdom&rsquo;s external positioning &mdash; sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.</p>
       <div class="hero-date-nav">
         <a class="date-arrow{" disabled" if not prev_date_link else ""}" id="date-prev" title="Previous day">&larr;</a>
         <span class="date-label" id="hero-date">{display_date}</span>
@@ -1284,7 +1347,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
     </div>
     <div class="score-block">
       <div class="score-block-inner">
-        <div class="score-block-label">Composite Standing Score</div>
+        <div class="score-block-label">Composite Sentiment Score</div>
         <div class="score-block-num" id="composite-score">{composite}</div>
         <div class="score-block-max">of 100</div>
         <div class="score-block-delta {sb_delta_cls}">{sb_delta_content}</div>
@@ -1299,11 +1362,18 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 <div class="container">
   <div id="pillars">
     <div class="section-head">
-      <h2 class="section-title">Pillar Briefings</h2>
+      <h2 class="section-title">Daily Intelligence Briefings</h2>
       <span class="section-meta">Cycle: {display_date} &middot; {total_strengths} strengths &middot; {total_vulns} vulnerabilities</span>
     </div>
     <div class="briefing-cards">{briefing_cards_html}
     </div>
+  </div>
+</div>
+
+<div class="methodology-box">
+  <div class="methodology-box-inner">
+    <div class="methodology-box-text">Sovereign Signal applies narrative signal processing to over 1.6 million sources daily &mdash; reducing billions of data points into actionable intelligence on sentiment, trends, and predictions.</div>
+    <a class="methodology-box-cta" href="methodology.html">See Full Methodology &rarr;</a>
   </div>
 </div>
 
@@ -1346,6 +1416,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     trend_count = pdata.get("trend_count", 0)
     ref_code = pdata.get("ref", "")
     headline = f"{pillar['name']} — Sovereign Signal"
+    arena_preds = pdata.get("arena_predictions", {})
 
     # Handle missing executive summary
     if not exec_summary or exec_summary.startswith("[Section"):
@@ -1437,7 +1508,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         </div>
         <div class="key-stat">
           <div class="key-stat-num">{trend_count}</div>
-          <div class="key-stat-label">Trends Tracked</div>
+          <div class="key-stat-label">Trends Monitored</div>
         </div>
       </div>'''
 
@@ -1517,6 +1588,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">{html.escape(echo_risk)}</span></div>
           </div>
           {('<div class="arena-card-geo">' + html.escape(geographies) + '</div>') if geographies else ''}
+          {('<div class="arena-outlook">' + html.escape(arena_preds.get(name, {}).get("outlook_sentence", "")) + '</div>') if arena_preds.get(name, {}).get("has_outlook") else ''}
         </div>'''
 
     # Build strength signal cards
@@ -1525,14 +1597,18 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     for s in strength_details:
         character = s.get("character", "")
         char_cls = "char-reputational" if "reput" in character.lower() else "char-structural" if "struct" in character.lower() else "char-policy" if "polic" in character.lower() else "char-strategic"
+        # Build a human-readable title from arena + character
+        s_arena = s.get("arena", "")
+        s_title = f"{s_arena} — {character} Signal" if s_arena else character
         strength_cards_html += f'''
       <div class="signal-card signal-card-strength">
         <div class="signal-card-header">
           <span class="signal-card-id">{html.escape(s.get("id", ""))}</span>
           <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">{html.escape(s.get("arena", ""))}</span>
+          <span class="signal-badge signal-badge-arena">{html.escape(s_arena)}</span>
           <span class="signal-badge {char_cls}">{html.escape(character)}</span>
         </div>
+        <h4 class="signal-card-title">{html.escape(s_title)}</h4>
         <p class="signal-card-desc">{html.escape(s.get("description", ""))}</p>
         <div class="signal-card-meta">
           <span>Horizon: {html.escape(s.get("horizon", ""))}</span>
@@ -1608,6 +1684,66 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     else:
         conclusion_html = "      <p>Standing assessment data will populate when available.</p>\n"
 
+    # Build Forward Outlook / Predictions section
+    predictions = pdata.get("predictions", [])
+    outlook_html = ""
+    if predictions:
+        # Sort by probability descending
+        sorted_preds = sorted(predictions, key=lambda p: p.get("probability") or 0, reverse=True)
+        tiles_html = ""
+        for pred in sorted_preds[:10]:  # Max 10 tiles
+            prob = pred.get("probability")
+            prob_str = str(prob) + "%" if prob is not None else "?"
+            title = pred.get("title", "")
+            horizon = pred.get("horizon", "")
+            direction = pred.get("direction", "")
+            trigger = pred.get("trigger", "")
+            signal = pred.get("signal_strength", "")
+
+            dir_lower = direction.lower()
+            if "intensif" in dir_lower:
+                dir_cls = "pred-dir-intensifying"
+            elif "fading" in dir_lower:
+                dir_cls = "pred-dir-fading"
+            elif "revers" in dir_lower:
+                dir_cls = "pred-dir-reversing"
+            else:
+                dir_cls = "pred-dir-stable"
+
+            sig_cls = "conf-high" if "strong" in signal.lower() else "conf-medium" if "medium" in signal.lower() else "conf-low"
+
+            tiles_html += f'''
+        <div class="pred-tile">
+          <div class="pred-prob">{html.escape(prob_str)}</div>
+          <div class="pred-title">{html.escape(title)}</div>
+          <div class="pred-badges">
+            <span class="pred-horizon">{html.escape(horizon)}</span>
+            <span class="pred-direction {dir_cls}">{html.escape(direction)}</span>
+            {('<span class="conf-badge ' + sig_cls + '">' + html.escape(signal) + '</span>') if signal else ''}
+          </div>
+          {('<div class="pred-trigger">' + html.escape(trigger) + '</div>') if trigger else ''}
+        </div>'''
+
+        pred_count = len(sorted_preds)
+        dominant = ""
+        dirs = [p.get("direction", "").lower() for p in sorted_preds if p.get("direction")]
+        if dirs:
+            from collections import Counter
+            dominant = Counter(dirs).most_common(1)[0][0].title()
+        summary_line = f"Outlook: {pred_count} signals assessed"
+        if dominant:
+            summary_line += f", dominant direction {dominant}"
+
+        outlook_html = f'''
+      <div class="pred-grid">{tiles_html}
+      </div>
+      <div class="pred-summary">{summary_line}</div>'''
+    else:
+        outlook_html = '''
+      <div class="exec-card">
+        <p>Prediction depth limited this cycle &mdash; signal strength insufficient for forward outlook on current trends.</p>
+      </div>'''
+
     # Source link — raw template reference at the very bottom
     source_section = ""
     if report_link:
@@ -1680,6 +1816,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .posture-mixed {{ color: var(--amber); background: rgba(196,146,10,0.12); }}
 .posture-strong {{ color: var(--green); background: rgba(58,138,110,0.12); }}
 .posture-weak {{ color: var(--red); background: rgba(196,84,90,0.12); }}
+.posture-stable {{ color: var(--green); background: rgba(58,138,110,0.08); }}
 
 /* Main Content */
 .main {{ max-width: 1100px; margin: 0 auto; padding: 0 32px; }}
@@ -1780,6 +1917,29 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .conclusion-posture {{ display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }}
 .conclusion-posture-badge {{ font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }}
 
+/* Forward Outlook / Predictions */
+.pred-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
+.pred-tile {{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 20px 24px; box-shadow: var(--card-shadow); }}
+.pred-prob {{ font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 8px; }}
+.pred-title {{ font-family: 'Lora', Georgia, serif; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 10px; }}
+.pred-badges {{ display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }}
+.pred-horizon {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }}
+.pred-direction {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }}
+.pred-dir-intensifying {{ background: rgba(196,84,90,0.12); color: #991b1b; }}
+.pred-dir-stable {{ background: rgba(196,146,10,0.1); color: #92400e; }}
+.pred-dir-fading {{ background: rgba(58,138,110,0.12); color: #166534; }}
+.pred-dir-reversing {{ background: rgba(74,111,165,0.12); color: #1e3a5f; }}
+.pred-trigger {{ font-size: 12px; color: var(--text-muted); line-height: 1.5; font-style: italic; }}
+.pred-summary {{ font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-light); }}
+.arena-outlook {{ font-family: 'Lora', Georgia, serif; font-size: 12px; font-style: italic; color: var(--accent); padding: 8px 18px 12px; border-top: 1px solid var(--border-light); line-height: 1.6; }}
+
+/* Methodology box */
+.methodology-box {{ max-width: 1100px; margin: 48px auto 0; padding: 0 32px; }}
+.methodology-box-inner {{ background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--card-radius); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; box-shadow: var(--card-shadow); }}
+.methodology-box-text {{ font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; flex: 1; }}
+.methodology-box-cta {{ display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; padding: 10px 20px; border: 1px solid var(--accent); border-radius: 6px; white-space: nowrap; transition: all 0.15s; flex-shrink: 0; }}
+.methodology-box-cta:hover {{ background: var(--accent); color: white; }}
+
 /* Source section — quiet, at the very bottom */
 .source-section {{ background: var(--bg); border-top: 1px solid var(--border); padding: 28px 32px; margin-top: 48px; }}
 .source-inner {{ max-width: 1100px; margin: 0 auto; }}
@@ -1811,6 +1971,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   .key-stats {{ grid-template-columns: repeat(3, 1fr); }}
   .key-stat-num {{ font-size: 24px; }}
   .arena-grid {{ grid-template-columns: 1fr; }}
+  .pred-grid {{ grid-template-columns: 1fr; }}
   .arena-strip {{ flex-wrap: wrap; }}
   .arena-gauge {{ min-width: 33%; }}
   .pd-table {{ font-size: 12px; }}
@@ -1872,60 +2033,69 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 
 <div class="main">
 
-  <!-- Section 01: Executive Summary -->
+  <!-- Section 01: Executive Intelligence Summary -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Executive Summary</h2>
+      <h2 class="sec-title">Executive Intelligence Summary</h2>
       <span class="sec-num">Section 01</span>
     </div>
     <div class="exec-card">
 {exec_html}    </div>
   </div>
 
-  <!-- Key Statistics -->
+  <!-- Signal Summary -->
   {stats_html}
 
-  <!-- Section 02: Perception Dashboard -->
-  {('<div class="sec"><div class="sec-head"><h2 class="sec-title">Sovereign Perception Dashboard</h2><span class="sec-num">Section 02</span></div>' + perception_html + '</div>') if perception_html else ''}
-
-  <!-- Section 03: Arena Analysis -->
+  <!-- Section 02: Forward Outlook -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Arena Analysis</h2>
-      <span class="sec-num">Section 03 &middot; {len(arena_ctx)} arenas</span>
+      <h2 class="sec-title">Forward Outlook</h2>
+      <span class="sec-num">Section 02</span>
+    </div>
+    {outlook_html}
+  </div>
+
+  <!-- Section 03: Sentiment & Perception Dashboard -->
+  {('<div class="sec"><div class="sec-head"><h2 class="sec-title">Sentiment &amp; Perception Dashboard</h2><span class="sec-num">Section 03</span></div>' + perception_html + '</div>') if perception_html else ''}
+
+  <!-- Section 04: Trend & Arena Analysis -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Trend &amp; Arena Analysis</h2>
+      <span class="sec-num">Section 04 &middot; {len(arena_ctx)} arenas</span>
     </div>
     <div class="arena-grid">{arena_cards_html}
     </div>
   </div>
 
-  <!-- Section 04: Strength Signals -->
+  <!-- Section 05: Strength Signals -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Sovereign Strength Signals</h2>
-      <span class="sec-num">Section 04 &middot; {strength_count} signals</span>
+      <h2 class="sec-title">Strength Signals</h2>
+      <span class="sec-num">Section 05 &middot; {strength_count} signals</span>
     </div>
     {strength_cards_html if strength_cards_html else '<div class="exec-card"><p>No strength signals recorded this cycle.</p></div>'}
   </div>
 
-  <!-- Section 05: Vulnerability Signals -->
+  <!-- Section 06: Vulnerability Signals -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
-      <span class="sec-num">Section 05 &middot; {vuln_count} signals</span>
+      <h2 class="sec-title">Vulnerability Signals</h2>
+      <span class="sec-num">Section 06 &middot; {vuln_count} signals</span>
     </div>
     {vuln_cards_html if vuln_cards_html else '<div class="exec-card"><p>No vulnerability signals recorded this cycle.</p></div>'}
   </div>
 
-  <!-- Section 06: Standing Assessment Overview -->
-  {('<div class="sec"><div class="sec-head"><h2 class="sec-title">Standing Assessment Overview</h2><span class="sec-num">Section 06</span></div>' + overview_html + '</div>') if overview_html else ''}
+  <!-- Section 07: Standing & Sentiment Overview -->
+  {('<div class="sec"><div class="sec-head"><h2 class="sec-title">Standing &amp; Sentiment Overview</h2><span class="sec-num">Section 07</span></div>' + overview_html + '</div>') if overview_html else ''}
 
-  <!-- Section 07: Strategic Priorities -->
-  {('<div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Attention Priorities</h2><span class="sec-num">Section 07</span></div>' + priorities_html + '</div>') if priorities_html else ''}
+  <!-- Section 08: Strategic Priorities & Watch List -->
+  {('<div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Priorities &amp; Watch List</h2><span class="sec-num">Section 08</span></div>' + priorities_html + '</div>') if priorities_html else ''}
 
   <!-- Conclusion -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Standing Assessment</h2>
+      <h2 class="sec-title">Sentiment Assessment</h2>
       <span class="sec-num">Conclusion</span>
     </div>
     <div class="conclusion-card">
@@ -1938,6 +2108,13 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 </div>
 
 {source_section}
+
+<div class="methodology-box">
+  <div class="methodology-box-inner">
+    <div class="methodology-box-text">Sovereign Signal applies narrative signal processing to over 1.6 million sources daily &mdash; reducing billions of data points into actionable intelligence on sentiment, trends, and predictions.</div>
+    <a class="methodology-box-cta" href="methodology.html">See Full Methodology &rarr;</a>
+  </div>
+</div>
 
 <div class="footer">
   <div class="footer-inner">

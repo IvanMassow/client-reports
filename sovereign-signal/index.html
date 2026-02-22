@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sovereign Signal — UK Standing Intelligence</title>
-<meta property="og:title" content="Sovereign Signal — UK Standing Intelligence">
-<meta property="og:description" content="National standing intelligence report — five-pillar assessment of the United Kingdom's external positioning.">
+<title>Sovereign Signal — Sentiment, Trends &amp; Predictions</title>
+<meta property="og:title" content="Sovereign Signal — Sentiment, Trends & Predictions">
+<meta property="og:description" content="Daily intelligence on the United Kingdom's external positioning — sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.">
 <meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Sovereign Signal — UK Standing Intelligence">
-<meta name="twitter:description" content="National standing intelligence report">
+<meta name="twitter:title" content="Sovereign Signal — Sentiment, Trends & Predictions">
+<meta name="twitter:description" content="Daily intelligence — sentiment, trends & predictions">
 <meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -284,6 +284,7 @@ body {
 .posture-mixed { color: var(--amber); background: rgba(196,146,10,0.12); }
 .posture-strong { color: var(--green); background: rgba(58,138,110,0.12); }
 .posture-weak { color: var(--red); background: rgba(196,84,90,0.12); }
+.posture-stable { color: var(--green); background: rgba(58,138,110,0.08); }
 
 /* === PILLAR SCOREBOARD === */
 .pillar-scores {
@@ -619,6 +620,51 @@ body {
   border-top: 1px solid rgba(255,255,255,0.04);
 }
 
+/* === METHODOLOGY BOX === */
+.methodology-box {
+  max-width: 1100px;
+  margin: 48px auto 0;
+  padding: 0 32px;
+}
+.methodology-box-inner {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--card-radius);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: var(--card-shadow);
+}
+.methodology-box-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  flex: 1;
+}
+.methodology-box-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+.methodology-box-cta:hover {
+  background: var(--accent);
+  color: white;
+}
+
 /* === RESPONSIVE — TABLET === */
 @media (max-width: 900px) {
   .topbar { padding: 0 16px; height: 48px; }
@@ -698,7 +744,7 @@ body {
   <div class="topbar-right">
     <nav class="topbar-nav">
       <a href="#" class="active">Dashboard</a>
-      <a href="#pillars">Pillar Briefings</a>
+      <a href="#pillars">Intelligence Briefings</a>
     </nav>
     <span class="topbar-date" id="topbar-date">22 February 2026</span>
   </div>
@@ -710,8 +756,8 @@ body {
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
       <h1 class="hero-title">Sovereign<br><span style="color:var(--red)">Signal</span></h1>
-      <div class="hero-subtitle">Daily Intelligence Dashboard</div>
-      <p class="hero-desc">Five-pillar standing assessment tracking the United Kingdom&rsquo;s external positioning across defence, diplomacy, economics, trust, and soft power.</p>
+      <div class="hero-subtitle">Sentiment, Trends &amp; Predictions</div>
+      <p class="hero-desc">Daily intelligence tracking the United Kingdom&rsquo;s external positioning &mdash; sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.</p>
       <div class="hero-date-nav">
         <a class="date-arrow disabled" id="date-prev" title="Previous day">&larr;</a>
         <span class="date-label" id="hero-date">22 February 2026</span>
@@ -720,7 +766,7 @@ body {
     </div>
     <div class="score-block">
       <div class="score-block-inner">
-        <div class="score-block-label">Composite Standing Score</div>
+        <div class="score-block-label">Composite Sentiment Score</div>
         <div class="score-block-num" id="composite-score">49</div>
         <div class="score-block-max">of 100</div>
         <div class="score-block-delta flat">&mdash; First cycle</div>
@@ -731,31 +777,31 @@ body {
   <div class="pillar-scores" id="pillar-scores">
       <a class="pillar-score-cell" data-pillar="softpower" href="uk-softpower-2026-02-22.html">
         <div class="pillar-score-name">Soft Power & Cultural Standing</div>
-        <div class="pillar-score-num">43</div>
+        <div class="pillar-score-num" style="color:var(--red)">43</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
       <a class="pillar-score-cell" data-pillar="defence" href="uk-defence-2026-02-22.html">
         <div class="pillar-score-name">Defence & Strategic Credibility</div>
-        <div class="pillar-score-num">47</div>
+        <div class="pillar-score-num" style="color:var(--amber)">47</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
       <a class="pillar-score-cell" data-pillar="economic" href="uk-economic-2026-02-22.html">
         <div class="pillar-score-name">Economic & Business Leadership</div>
-        <div class="pillar-score-num">56</div>
+        <div class="pillar-score-num" style="color:var(--green)">56</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Stable</div>
       </a>
       <a class="pillar-score-cell" data-pillar="diplomatic" href="uk-diplomatic-2026-02-22.html">
         <div class="pillar-score-name">Diplomatic & Global Leadership</div>
-        <div class="pillar-score-num">48</div>
+        <div class="pillar-score-num" style="color:var(--amber)">48</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
       <a class="pillar-score-cell" data-pillar="trust" href="uk-trust-2026-02-22.html">
         <div class="pillar-score-name">Trust, Stability & Systemic Reliability</div>
-        <div class="pillar-score-num">52</div>
+        <div class="pillar-score-num" style="color:var(--amber)">52</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
@@ -765,7 +811,7 @@ body {
 <div class="container">
   <div id="pillars">
     <div class="section-head">
-      <h2 class="section-title">Pillar Briefings</h2>
+      <h2 class="section-title">Daily Intelligence Briefings</h2>
       <span class="section-meta">Cycle: 22 February 2026 &middot; 30 strengths &middot; 17 vulnerabilities</span>
     </div>
     <div class="briefing-cards">
@@ -1025,6 +1071,13 @@ body {
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
     </div>
+  </div>
+</div>
+
+<div class="methodology-box">
+  <div class="methodology-box-inner">
+    <div class="methodology-box-text">Sovereign Signal applies narrative signal processing to over 1.6 million sources daily &mdash; reducing billions of data points into actionable intelligence on sentiment, trends, and predictions.</div>
+    <a class="methodology-box-cta" href="methodology.html">See Full Methodology &rarr;</a>
   </div>
 </div>
 

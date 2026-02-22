@@ -250,6 +250,8 @@
     "trend_count": 30,
     "strength_count": 4,
     "vuln_count": 2,
+    "predictions": [],
+    "arena_predictions": {},
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-diplomatic-global-leadership-uk-2026-02-22-qhvt",
     "ref": "QHVT"
   },
@@ -591,6 +593,8 @@
     "trend_count": 33,
     "strength_count": 6,
     "vuln_count": 4,
+    "predictions": [],
+    "arena_predictions": {},
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/defence-strategic-credibility-intelligence-brief-united-kingdom-geopolitical-influence-in-security-theatres-under-scrutiny-2026-02-22-xjqr",
     "ref": "XJQR"
   },
@@ -940,6 +944,8 @@
     "trend_count": 10,
     "strength_count": 7,
     "vuln_count": 1,
+    "predictions": [],
+    "arena_predictions": {},
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-economic-business-leadership-uk-2026-02-22-qjtr",
     "ref": "QJTR"
   },
@@ -1592,6 +1598,8 @@
     "trend_count": 30,
     "strength_count": 6,
     "vuln_count": 9,
+    "predictions": [],
+    "arena_predictions": {},
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/soft-power-cultural-standing-intelligence-brief-united-kingdom-narrative-shift-heritage-identity-and-nation-brand-2026-02-22-qjmv",
     "ref": "QJMV"
   },
@@ -1829,6 +1837,8 @@
     "trend_count": 43,
     "strength_count": 7,
     "vuln_count": 1,
+    "predictions": [],
+    "arena_predictions": {},
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/trust-stability-systemic-reliability-intelligence-brief-united-kingdom-governance-stability-standing-reviewed-2026-02-22-zqpx",
     "ref": "ZQPX"
   }

@@ -58,6 +58,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .posture-mixed { color: var(--amber); background: rgba(196,146,10,0.12); }
 .posture-strong { color: var(--green); background: rgba(58,138,110,0.12); }
 .posture-weak { color: var(--red); background: rgba(196,84,90,0.12); }
+.posture-stable { color: var(--green); background: rgba(58,138,110,0.08); }
 
 /* Main Content */
 .main { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
@@ -158,6 +159,29 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Forward Outlook / Predictions */
+.pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pred-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 20px 24px; box-shadow: var(--card-shadow); }
+.pred-prob { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.pred-title { font-family: 'Lora', Georgia, serif; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 10px; }
+.pred-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.pred-horizon { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.pred-direction { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }
+.pred-dir-intensifying { background: rgba(196,84,90,0.12); color: #991b1b; }
+.pred-dir-stable { background: rgba(196,146,10,0.1); color: #92400e; }
+.pred-dir-fading { background: rgba(58,138,110,0.12); color: #166534; }
+.pred-dir-reversing { background: rgba(74,111,165,0.12); color: #1e3a5f; }
+.pred-trigger { font-size: 12px; color: var(--text-muted); line-height: 1.5; font-style: italic; }
+.pred-summary { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-light); }
+.arena-outlook { font-family: 'Lora', Georgia, serif; font-size: 12px; font-style: italic; color: var(--accent); padding: 8px 18px 12px; border-top: 1px solid var(--border-light); line-height: 1.6; }
+
+/* Methodology box */
+.methodology-box { max-width: 1100px; margin: 48px auto 0; padding: 0 32px; }
+.methodology-box-inner { background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--card-radius); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; box-shadow: var(--card-shadow); }
+.methodology-box-text { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; flex: 1; }
+.methodology-box-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; padding: 10px 20px; border: 1px solid var(--accent); border-radius: 6px; white-space: nowrap; transition: all 0.15s; flex-shrink: 0; }
+.methodology-box-cta:hover { background: var(--accent); color: white; }
+
 /* Source section — quiet, at the very bottom */
 .source-section { background: var(--bg); border-top: 1px solid var(--border); padding: 28px 32px; margin-top: 48px; }
 .source-inner { max-width: 1100px; margin: 0 auto; }
@@ -189,6 +213,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .key-stats { grid-template-columns: repeat(3, 1fr); }
   .key-stat-num { font-size: 24px; }
   .arena-grid { grid-template-columns: 1fr; }
+  .pred-grid { grid-template-columns: 1fr; }
   .arena-strip { flex-wrap: wrap; }
   .arena-gauge { min-width: 33%; }
   .pd-table { font-size: 12px; }
@@ -292,10 +317,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
 <div class="main">
 
-  <!-- Section 01: Executive Summary -->
+  <!-- Section 01: Executive Intelligence Summary -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Executive Summary</h2>
+      <h2 class="sec-title">Executive Intelligence Summary</h2>
       <span class="sec-num">Section 01</span>
     </div>
     <div class="exec-card">
@@ -304,7 +329,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     </div>
   </div>
 
-  <!-- Key Statistics -->
+  <!-- Signal Summary -->
   
       <div class="key-stats">
         <div class="key-stat">
@@ -329,12 +354,24 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         </div>
         <div class="key-stat">
           <div class="key-stat-num">33</div>
-          <div class="key-stat-label">Trends Tracked</div>
+          <div class="key-stat-label">Trends Monitored</div>
         </div>
       </div>
 
-  <!-- Section 02: Perception Dashboard -->
-  <div class="sec"><div class="sec-head"><h2 class="sec-title">Sovereign Perception Dashboard</h2><span class="sec-num">Section 02</span></div>
+  <!-- Section 02: Forward Outlook -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Forward Outlook</h2>
+      <span class="sec-num">Section 02</span>
+    </div>
+    
+      <div class="exec-card">
+        <p>Prediction depth limited this cycle &mdash; signal strength insufficient for forward outlook on current trends.</p>
+      </div>
+  </div>
+
+  <!-- Section 03: Sentiment & Perception Dashboard -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Sentiment &amp; Perception Dashboard</h2><span class="sec-num">Section 03</span></div>
       <table class="pd-table">
         <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Signal Strength</th><th>Arena</th></tr></thead>
         <tbody>
@@ -390,11 +427,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         </tbody>
       </table></div>
 
-  <!-- Section 03: Arena Analysis -->
+  <!-- Section 04: Trend & Arena Analysis -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Arena Analysis</h2>
-      <span class="sec-num">Section 03 &middot; 7 arenas</span>
+      <h2 class="sec-title">Trend &amp; Arena Analysis</h2>
+      <span class="sec-num">Section 04 &middot; 7 arenas</span>
     </div>
     <div class="arena-grid">
         <div class="arena-card" style="border-top:3px solid var(--green)">
@@ -409,6 +446,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
           <div class="arena-card-geo">Russia, Europe, Ukraine</div>
+          
         </div>
         <div class="arena-card" style="border-top:3px solid var(--amber)">
           <div class="arena-card-header">
@@ -422,6 +460,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
           <div class="arena-card-geo">Iran, Middle East, United States</div>
+          
         </div>
         <div class="arena-card" style="border-top:3px solid var(--text-muted)">
           <div class="arena-card-header">
@@ -435,6 +474,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
           <div class="arena-card-geo">External (mixed)</div>
+          
         </div>
         <div class="arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
@@ -448,6 +488,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">Yes , signal concentrated</span></div>
           </div>
           <div class="arena-card-geo">Middle East, Iran, Europe</div>
+          
         </div>
         <div class="arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
@@ -461,6 +502,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
           <div class="arena-card-geo">Russia, Ukraine, Europe</div>
+          
         </div>
         <div class="arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
@@ -474,6 +516,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
           <div class="arena-card-geo">Europe, United States, Russia</div>
+          
         </div>
         <div class="arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
@@ -487,15 +530,16 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
           <div class="arena-card-geo">Europe, Middle East, Iran</div>
+          
         </div>
     </div>
   </div>
 
-  <!-- Section 04: Strength Signals -->
+  <!-- Section 05: Strength Signals -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Sovereign Strength Signals</h2>
-      <span class="sec-num">Section 04 &middot; 6 signals</span>
+      <h2 class="sec-title">Strength Signals</h2>
+      <span class="sec-num">Section 05 &middot; 6 signals</span>
     </div>
     
       <div class="signal-card signal-card-strength">
@@ -505,6 +549,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <span class="signal-badge signal-badge-arena">Military Capability And Readiness</span>
           <span class="signal-badge char-strategic">Strategic</span>
         </div>
+        <h4 class="signal-card-title">Military Capability And Readiness — Strategic Signal</h4>
         <p class="signal-card-desc">International exposure is prominent and building, with moderate public discourse activity around operational cooperation and readiness-linked contributions supported by multiple references.</p>
         <div class="signal-card-meta">
           <span>Horizon: Near term</span>
@@ -519,6 +564,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <span class="signal-badge signal-badge-arena">Cyber Capability And Security Posture</span>
           <span class="signal-badge char-policy">Policy</span>
         </div>
+        <h4 class="signal-card-title">Cyber Capability And Security Posture — Policy Signal</h4>
         <p class="signal-card-desc">International exposure is present and building, with clear external visibility of cyber governance posture, even while framing remains mixed and wider discourse is under-engaged.</p>
         <div class="signal-card-meta">
           <span>Horizon: Near term</span>
@@ -533,6 +579,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <span class="signal-badge signal-badge-arena">Alliance Reliability And Burden Sharing</span>
           <span class="signal-badge char-strategic">Strategic</span>
         </div>
+        <h4 class="signal-card-title">Alliance Reliability And Burden Sharing — Strategic Signal</h4>
         <p class="signal-card-desc">International exposure is prominent and sustained, and structural verification confirms a burden-sharing mechanism exists, while broader perception amplification remains managed uncertainty this cycle.</p>
         <div class="signal-card-meta">
           <span>Horizon: 12 months</span>
@@ -547,6 +594,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <span class="signal-badge signal-badge-arena">Defence Industry And Procurement Credibility</span>
           <span class="signal-badge char-reputational">Reputational</span>
         </div>
+        <h4 class="signal-card-title">Defence Industry And Procurement Credibility — Reputational Signal</h4>
         <p class="signal-card-desc">The signal is supported by multiple independent references and remains steady in institutional channels, sustaining an external industrial-capacity narrative even as broader attention is muted.</p>
         <div class="signal-card-meta">
           <span>Horizon: 3–5 years</span>
@@ -561,6 +609,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <span class="signal-badge signal-badge-arena">Defence Industry And Procurement Credibility</span>
           <span class="signal-badge char-strategic">Strategic</span>
         </div>
+        <h4 class="signal-card-title">Defence Industry And Procurement Credibility — Strategic Signal</h4>
         <p class="signal-card-desc">The signal remains steady in institutional lanes with multiple independent references, supporting perceptions of interoperability and multilateral capability coordination despite muted wider attention.</p>
         <div class="signal-card-meta">
           <span>Horizon: 3–5 years</span>
@@ -575,6 +624,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <span class="signal-badge signal-badge-arena">Defence Industry And Procurement Credibility</span>
           <span class="signal-badge char-reputational">Reputational</span>
         </div>
+        <h4 class="signal-card-title">Defence Industry And Procurement Credibility — Reputational Signal</h4>
         <p class="signal-card-desc">External visibility of innovation remains present, but evidence is thin this cycle and public commentary is muted, keeping the signal contained despite positive framing.</p>
         <div class="signal-card-meta">
           <span>Horizon: 12 months</span>
@@ -584,11 +634,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       </div>
   </div>
 
-  <!-- Section 05: Vulnerability Signals -->
+  <!-- Section 06: Vulnerability Signals -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
-      <span class="sec-num">Section 05 &middot; 4 signals</span>
+      <h2 class="sec-title">Vulnerability Signals</h2>
+      <span class="sec-num">Section 06 &middot; 4 signals</span>
     </div>
     
       <div class="signal-card signal-card-vuln">
@@ -653,8 +703,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       </div>
   </div>
 
-  <!-- Section 06: Standing Assessment Overview -->
-  <div class="sec"><div class="sec-head"><h2 class="sec-title">Standing Assessment Overview</h2><span class="sec-num">Section 06</span></div>
+  <!-- Section 07: Standing & Sentiment Overview -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Standing &amp; Sentiment Overview</h2><span class="sec-num">Section 07</span></div>
       <table class="overview-table">
         <thead><tr><th>Dimension</th><th>Assessment</th><th>What Drives It</th></tr></thead>
         <tbody>
@@ -665,8 +715,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         </tbody>
       </table></div>
 
-  <!-- Section 07: Strategic Priorities -->
-  <div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Attention Priorities</h2><span class="sec-num">Section 07</span></div>    <h4 class="priority-horizon">Near-term attention</h4>
+  <!-- Section 08: Strategic Priorities & Watch List -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Priorities &amp; Watch List</h2><span class="sec-num">Section 08</span></div>    <h4 class="priority-horizon">Near-term attention</h4>
     <div class="priority-group">
       <div class="priority-item">
         <span class="priority-action pri-address">Address adverse narrative</span>
@@ -704,7 +754,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   <!-- Conclusion -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Standing Assessment</h2>
+      <h2 class="sec-title">Sentiment Assessment</h2>
       <span class="sec-num">Conclusion</span>
     </div>
     <div class="conclusion-card">
@@ -726,6 +776,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <a class="source-link-quiet" href="http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/defence-strategic-credibility-intelligence-brief-united-kingdom-geopolitical-influence-in-security-theatres-under-scrutiny-2026-02-22-xjqr" target="_blank" rel="noopener">View Raw Intelligence Template &rarr;</a>
     </div>
   </div>
+
+<div class="methodology-box">
+  <div class="methodology-box-inner">
+    <div class="methodology-box-text">Sovereign Signal applies narrative signal processing to over 1.6 million sources daily &mdash; reducing billions of data points into actionable intelligence on sentiment, trends, and predictions.</div>
+    <a class="methodology-box-cta" href="methodology.html">See Full Methodology &rarr;</a>
+  </div>
+</div>
 
 <div class="footer">
   <div class="footer-inner">
