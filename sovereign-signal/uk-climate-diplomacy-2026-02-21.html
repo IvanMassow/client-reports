@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sovereign Standing Brief: United Kingdom — Climate Diplomacy Credibility | QJMK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #0F1B33;
+  --navy-mid: #253B63;
+  --sovereign-blue: #003078;
+  --gold: #C5A44E;
+  --gold-light: #E8D9A0;
+  --gold-muted: rgba(197,164,78,0.15);
+  --red: #C0392B;
+  --green: #0A6640;
+  --green-light: #D5F5E3;
+  --amber: #D4880F;
+  --amber-light: #FEF5E7;
+  --red-light: #FDEDEB;
+  --text: #1D1D1D;
+  --text-mid: #4A5568;
+  --text-muted: #6B7280;
+  --bg: #F8F7F4;
+  --bg-card: #FFFFFF;
+  --border: #E5E7EB;
+  --border-light: #F0F0EC;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+.serif { font-family: 'Lora', Georgia, serif; }
+
+/* === CLASSIFICATION BAR === */
+.class-bar {
+  background: var(--navy-deep);
+  padding: 6px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.class-bar .class-level {
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+
+/* === TOP BAR === */
+.topbar {
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 56px;
+  border-bottom: 2px solid var(--gold);
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.topbar-logo svg { height: 18px; }
+.topbar-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255,255,255,0.15);
+}
+.topbar-brand {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.topbar-ref {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold);
+  background: rgba(197,164,78,0.15);
+  padding: 3px 10px;
+  border: 1px solid rgba(197,164,78,0.3);
+}
+.topbar-date {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+}
+
+/* === HERO === */
+.hero {
+  background: var(--navy);
+  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 40%, var(--navy-mid) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 48px 32px 0;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 70%; height: 140%;
+  background:
+    linear-gradient(135deg, transparent 30%, rgba(197,164,78,0.03) 30%, rgba(197,164,78,0.03) 32%, transparent 32%),
+    linear-gradient(135deg, transparent 48%, rgba(192,57,43,0.04) 48%, rgba(192,57,43,0.04) 52%, transparent 52%),
+    linear-gradient(135deg, transparent 68%, rgba(255,255,255,0.02) 68%, rgba(255,255,255,0.02) 70%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.hero-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.hero-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.hero-country {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+.hero-subtitle {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  max-width: 580px;
+  line-height: 1.7;
+}
+.hero-score-block {
+  text-align: center;
+  padding: 24px 32px;
+}
+.hero-score-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 8px;
+}
+.hero-score-num {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-score-max {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 12px;
+}
+.hero-posture {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.hero-posture svg { width: 12px; height: 12px; }
+.posture--mixed {
+  color: var(--amber);
+  background: rgba(212,136,15,0.12);
+  padding: 5px 14px;
+  border-radius: 3px;
+}
+
+/* === PILLAR GAUGES === */
+.gauges {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.gauge-cell {
+  padding: 24px 16px 20px;
+  text-align: center;
+  background: rgba(0,0,0,0.12);
+}
+.gauge-cell svg { display: block; margin: 0 auto 8px; }
+.gauge-name {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.gauge-rating {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.gauge-rating--strong { color: var(--green); }
+.gauge-rating--moderate { color: var(--amber); }
+.gauge-rating--weak { color: var(--red); }
+.gauge-momentum {
+  font-size: 9px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 2px;
+}
+
+/* === MAIN CONTENT === */
+.main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* === SECTION === */
+.sec {
+  margin-top: 40px;
+}
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--navy);
+  margin-bottom: 20px;
+}
+.sec-num {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+.sec-title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.sec-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: -12px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* === EXECUTIVE SUMMARY === */
+.exec-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  padding: 28px 32px;
+  border-radius: 2px;
+}
+.exec-card p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.exec-card p:last-child { margin-bottom: 0; }
+.exec-card strong { color: var(--navy); font-weight: 600; }
+.exec-finding {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+.exec-finding .badge {
+  color: white;
+  padding: 3px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+.badge--mixed { background: var(--amber); }
+.badge--strong { background: var(--green); }
+.finding--mixed { color: var(--amber); }
+
+/* === PROFILE TABLE === */
+.profile-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.profile-table th {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  text-align: left;
+}
+.profile-table td {
+  padding: 10px 18px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.profile-table tr:last-child td { border-bottom: none; }
+.profile-table td:first-child {
+  font-weight: 600;
+  color: var(--navy);
+  width: 200px;
+  font-size: 12px;
+}
+.profile-table td:last-child { color: var(--text-mid); }
+
+/* === PERCEPTION DASHBOARD === */
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  font-size: 12px;
+}
+.dash-table thead th {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+.dash-table tbody td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: top;
+}
+.dash-table tbody tr:last-child td { border-bottom: none; }
+.dash-table .prop-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 12.5px;
+  color: var(--navy);
+  line-height: 1.5;
+  font-weight: 500;
+}
+.dash-table .pct {
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--navy);
+}
+.dash-table .conf {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.conf--low { background: var(--amber-light); color: var(--amber); }
+.conf--med { background: #E8F4FD; color: var(--sovereign-blue); }
+.arena-tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* === PILLAR CARDS === */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+.pillar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 22px 24px;
+  position: relative;
+  border-top: 3px solid var(--navy);
+}
+.pillar-card--strong { border-top-color: var(--green); }
+.pillar-card--moderate { border-top-color: var(--amber); }
+.pillar-card--weak { border-top-color: var(--red); }
+.pillar-name {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.pillar-rating {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.pillar-rating--strong { color: var(--green); }
+.pillar-rating--moderate { color: var(--amber); }
+.pillar-rating--weak { color: var(--red); }
+.pillar-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.pillar-meta-item { font-size: 10px; }
+.pillar-meta-label { color: var(--text-muted); font-weight: 500; margin-bottom: 1px; }
+.pillar-meta-val { font-weight: 700; color: var(--navy); }
+
+/* === SIGNAL CARDS === */
+.signals-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+.signal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 18px 24px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.signal-id {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--navy);
+  background: var(--bg);
+  padding: 6px 12px;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+}
+.signal-content h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.signal-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.signal-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.signal-tag--strength { background: var(--green-light); color: var(--green); }
+.signal-tag--vuln { background: var(--red-light); color: var(--red); }
+.signal-tag--arena { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+.signal-desc {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+/* === ATTENTION PRIORITIES === */
+.priorities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.priority-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 22px 24px;
+}
+.priority-card h4 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.priority-card--near h4 { color: var(--red); }
+.priority-card--med h4 { color: var(--amber); }
+.priority-card--long h4 { color: var(--sovereign-blue); }
+.priority-card p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+/* === MANAGED UNCERTAINTY === */
+.uncertainty-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.uncertainty-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 18px 22px;
+  border-left: 3px solid var(--amber);
+}
+.uncertainty-card h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.uncertainty-meta {
+  display: flex;
+  gap: 14px;
+  font-size: 10px;
+  margin-bottom: 8px;
+}
+.uncertainty-meta span {
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.uncertainty-meta .val { color: var(--navy); }
+.uncertainty-card p {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.55;
+}
+
+/* === MID BREAK === */
+.break-band {
+  background: var(--navy);
+  padding: 40px 32px;
+  margin: 48px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.break-band::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.break-band::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.break-text {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 20px;
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.break-attr {
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  margin-top: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* === FOOTER === */
+.footer {
+  background: var(--navy-deep);
+  padding: 32px;
+  margin-top: 48px;
+  border-top: 2px solid var(--gold);
+}
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.footer-left svg { height: 16px; }
+.footer-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+}
+.footer-right { text-align: right; }
+.footer-text {
+  font-size: 9px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.5px;
+}
+.footer-credit {
+  font-size: 8px;
+  color: rgba(255,255,255,0.15);
+  text-align: center;
+  max-width: 1120px;
+  margin: 14px auto 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .topbar { padding: 0 16px; height: 48px; }
+  .hero { padding: 32px 16px 0; }
+  .hero-country { font-size: 28px; }
+  .hero-top { flex-direction: column; }
+  .gauges { grid-template-columns: repeat(3, 1fr); }
+  .main { padding: 0 16px; }
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .priorities { grid-template-columns: 1fr; }
+  .uncertainty-grid { grid-template-columns: 1fr; }
+  .dash-table { font-size: 11px; }
+  .footer { padding: 24px 16px; }
+}
+@media (max-width: 600px) {
+  .gauges { grid-template-columns: repeat(2, 1fr); }
+  .pillars { grid-template-columns: 1fr; }
+  .signal-card { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- CLASSIFICATION BAR -->
+<div class="class-bar">
+  <span>Sovereign Signal Intelligence</span>
+  <span class="class-level">Official &mdash; Sensitive</span>
+  <span>Ref: QJMK</span>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-logo">
+      <svg viewBox="0 0 120 20" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="16" font-family="Inter, sans-serif" font-weight="900" font-size="15" fill="white" letter-spacing="0.5">NOAH</text>
+        <text x="52" y="16" font-family="Inter, sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.5)" letter-spacing="2">WIRE</text>
+      </svg>
+    </div>
+    <div class="topbar-divider"></div>
+    <span class="topbar-brand">Sovereign Signal</span>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-ref">QJMK</span>
+    <span class="topbar-date">21 February 2026</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div>
+        <div class="hero-label">Sovereign Standing Brief</div>
+        <h1 class="hero-country">United Kingdom</h1>
+        <div class="hero-subtitle">Climate Diplomacy Credibility Standing Reviewed</div>
+        <p class="hero-desc">External perception and standing signals reflected in monitored discourse and curated evidence across Multilateral Influence, Crisis Diplomacy, Climate Diplomacy Credibility, Sanctions &amp; Statecraft, and Global Voice arenas during this analysis cycle.</p>
+      </div>
+      <div class="hero-score-block">
+        <div class="hero-score-label">Sovereign Score</div>
+        <div class="hero-score-num">64</div>
+        <div class="hero-score-max">of 100</div>
+        <div class="hero-posture posture--mixed">
+          <svg viewBox="0 0 12 12" fill="none"><path d="M2 6h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Mixed
+        </div>
+      </div>
+    </div>
+
+    <!-- ARENA GAUGES -->
+    <div class="gauges">
+      <div class="gauge-cell">
+        <svg viewBox="0 0 120 70" width="100">
+          <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 82 18" fill="none" stroke="#0A6640" stroke-width="8" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(50, 60, 60)"/>
+          <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
+        </svg>
+        <div class="gauge-name">Multilateral Influence</div>
+        <div class="gauge-rating gauge-rating--strong">Strong</div>
+        <div class="gauge-momentum">&#8599; Rising</div>
+      </div>
+      <div class="gauge-cell">
+        <svg viewBox="0 0 120 70" width="100">
+          <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 82 18" fill="none" stroke="#0A6640" stroke-width="8" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(45, 60, 60)"/>
+          <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
+        </svg>
+        <div class="gauge-name">Crisis Diplomacy</div>
+        <div class="gauge-rating gauge-rating--strong">Strong</div>
+        <div class="gauge-momentum">&#8594; Stable</div>
+      </div>
+      <div class="gauge-cell">
+        <svg viewBox="0 0 120 70" width="100">
+          <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 75 20" fill="none" stroke="#D4880F" stroke-width="8" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(30, 60, 60)"/>
+          <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
+        </svg>
+        <div class="gauge-name">Climate Diplomacy</div>
+        <div class="gauge-rating gauge-rating--moderate">Strong (Mixed)</div>
+        <div class="gauge-momentum">&#8594; Stable</div>
+      </div>
+      <div class="gauge-cell">
+        <svg viewBox="0 0 120 70" width="100">
+          <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 60 15" fill="none" stroke="#D4880F" stroke-width="8" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(10, 60, 60)"/>
+          <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
+        </svg>
+        <div class="gauge-name">Sanctions &amp; Statecraft</div>
+        <div class="gauge-rating gauge-rating--moderate">Moderate</div>
+        <div class="gauge-momentum">&#8594; Stable</div>
+      </div>
+      <div class="gauge-cell">
+        <svg viewBox="0 0 120 70" width="100">
+          <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 40 28" fill="none" stroke="#C0392B" stroke-width="8" stroke-linecap="round"/>
+          <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(-20, 60, 60)"/>
+          <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
+        </svg>
+        <div class="gauge-name">Global Voice</div>
+        <div class="gauge-rating gauge-rating--weak">Weak</div>
+        <div class="gauge-momentum">&#8594; Stable</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== -->
+<!-- MAIN CONTENT -->
+<!-- ============================== -->
+<div class="main">
+
+  <!-- 01 EXECUTIVE SUMMARY -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Executive Summary</h2>
+    </div>
+    <div class="exec-card">
+      <p>The United Kingdom demonstrates <strong>mixed standing</strong> this cycle with structural strength concentrated in <strong>Multilateral Influence</strong> and <strong>Crisis Diplomacy and Mediation</strong>, but weak positioning in <strong>Global Voice and Strategic Relevance</strong>. Strong external exposure in alliance and multilateral lanes contrasts with actively contested strategic-voice narratives.</p>
+      <p>Climate Diplomacy Credibility &mdash; the focus arena this cycle &mdash; holds a strong structural position but is <strong>internally mixed in signal balance</strong>, with delivery-versus-rhetoric framing and a visible negative sub-stream on limited evidence. Rising momentum detected in Multilateral Influence and Global Voice arenas. Multiple arenas remain in managed uncertainty due to bounded verification.</p>
+      <div class="exec-finding">
+        <span class="badge badge--mixed">Assessment</span>
+        <span class="finding--mixed">Standing posture this cycle: Mixed &mdash; Score 64/100</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 SOVEREIGN PROFILE -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Sovereign Profile Snapshot</h2>
+    </div>
+    <table class="profile-table">
+      <thead><tr><th>Field</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td>Government structure</td><td>Constitutional monarchy with parliamentary government</td></tr>
+        <tr><td>Head of state</td><td>King Charles III (Monarch)</td></tr>
+        <tr><td>Head of government</td><td>Prime Minister: Sir Keir Starmer</td></tr>
+        <tr><td>Geopolitical alignment</td><td>Euro-Atlantic aligned; NATO Ally; UN Security Council permanent member; G7 participant</td></tr>
+        <tr><td>Defence alliances</td><td>NATO</td></tr>
+        <tr><td>Major memberships</td><td>UN Security Council (permanent); NATO; G7; G20; Commonwealth; WTO</td></tr>
+        <tr><td>Diplomatic posture</td><td>Alliance-forward security posture with active multilateral engagement</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 03 PERCEPTION DASHBOARD -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Sovereign Perception Dashboard</h2>
+    </div>
+    <p class="sec-desc">Diagnostic propositions assessed against global and sovereign discourse. Higher percentages indicate stronger positive perception signal.</p>
+    <table class="dash-table">
+      <thead>
+        <tr>
+          <th style="width:40%">Proposition</th>
+          <th>Global View</th>
+          <th>Sovereign View</th>
+          <th>Confidence</th>
+          <th>Arena</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="prop-text">UK influence within multilateral institutions (UN, NATO, G7/G20, Commonwealth, WTO)</td>
+          <td class="pct">50%</td>
+          <td class="pct" style="color:var(--green)">65%</td>
+          <td><span class="conf conf--med">Medium</span></td>
+          <td class="arena-tag">Multilateral Influence</td>
+        </tr>
+        <tr>
+          <td class="prop-text">Non-UK government assessment of UK as diplomatic actor</td>
+          <td class="pct">50%</td>
+          <td class="pct" style="color:var(--green)">61%</td>
+          <td><span class="conf conf--med">Medium</span></td>
+          <td class="arena-tag">Global Voice</td>
+        </tr>
+        <tr>
+          <td class="prop-text">International characterization of UK crisis diplomacy</td>
+          <td class="pct">50%</td>
+          <td class="pct">55%</td>
+          <td><span class="conf conf--med">Medium</span></td>
+          <td class="arena-tag">Crisis Diplomacy</td>
+        </tr>
+        <tr>
+          <td class="prop-text">UK sanctions posture perception by non-UK actors</td>
+          <td class="pct">50%</td>
+          <td class="pct">49%</td>
+          <td><span class="conf conf--low">Low</span></td>
+          <td class="arena-tag">Sanctions &amp; Statecraft</td>
+        </tr>
+        <tr>
+          <td class="prop-text">Credibility of UK climate leadership (delivery vs. rhetoric)</td>
+          <td class="pct">50%</td>
+          <td class="pct" style="color:var(--amber)">44%</td>
+          <td><span class="conf conf--low">Low</span></td>
+          <td class="arena-tag">Climate Diplomacy</td>
+        </tr>
+        <tr>
+          <td class="prop-text">International narratives on UK geopolitical voice and relevance</td>
+          <td class="pct">50%</td>
+          <td class="pct" style="color:var(--red)">34%</td>
+          <td><span class="conf conf--low">Low</span></td>
+          <td class="arena-tag">Global Voice</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 04 ARENA ANALYSIS -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Arena Analysis</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar-card pillar-card--strong">
+        <div class="pillar-name">Multilateral Influence</div>
+        <div class="pillar-rating pillar-rating--strong">Strong</div>
+        <div class="pillar-meta">
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Verified trends</div><div class="pillar-meta-val">2</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Momentum</div><div class="pillar-meta-val" style="color:var(--green)">Rising</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Temperature</div><div class="pillar-meta-val">Muted</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Echo risk</div><div class="pillar-meta-val">No</div></div>
+        </div>
+      </div>
+      <div class="pillar-card pillar-card--strong">
+        <div class="pillar-name">Crisis Diplomacy</div>
+        <div class="pillar-rating pillar-rating--strong">Strong</div>
+        <div class="pillar-meta">
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Verified trends</div><div class="pillar-meta-val">3</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Momentum</div><div class="pillar-meta-val">Stable</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Temperature</div><div class="pillar-meta-val">Muted</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Echo risk</div><div class="pillar-meta-val">No</div></div>
+        </div>
+      </div>
+      <div class="pillar-card pillar-card--moderate">
+        <div class="pillar-name">Climate Diplomacy</div>
+        <div class="pillar-rating pillar-rating--moderate">Strong (Mixed)</div>
+        <div class="pillar-meta">
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Verified trends</div><div class="pillar-meta-val">12</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Momentum</div><div class="pillar-meta-val">Stable</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Temperature</div><div class="pillar-meta-val" style="color:var(--amber)">Moderate</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Echo risk</div><div class="pillar-meta-val">No</div></div>
+        </div>
+      </div>
+      <div class="pillar-card pillar-card--moderate">
+        <div class="pillar-name">Sanctions &amp; Statecraft</div>
+        <div class="pillar-rating pillar-rating--moderate">Moderate</div>
+        <div class="pillar-meta">
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Verified trends</div><div class="pillar-meta-val">1</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Momentum</div><div class="pillar-meta-val">Stable</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Temperature</div><div class="pillar-meta-val">Muted</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Echo risk</div><div class="pillar-meta-val">No</div></div>
+        </div>
+      </div>
+      <div class="pillar-card pillar-card--weak">
+        <div class="pillar-name">Global Voice</div>
+        <div class="pillar-rating pillar-rating--weak">Weak</div>
+        <div class="pillar-meta">
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Verified trends</div><div class="pillar-meta-val">4</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Momentum</div><div class="pillar-meta-val" style="color:var(--green)">Rising</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Temperature</div><div class="pillar-meta-val" style="color:var(--amber)">Moderate</div></div>
+          <div class="pillar-meta-item"><div class="pillar-meta-label">Echo risk</div><div class="pillar-meta-val">No</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 STRENGTH SIGNALS -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">Sovereign Strength Signals</h2>
+    </div>
+    <div class="signals-grid">
+      <div class="signal-card">
+        <div class="signal-id">SS-001</div>
+        <div class="signal-content">
+          <div class="signal-tags">
+            <span class="signal-tag signal-tag--strength">Strength</span>
+            <span class="signal-tag signal-tag--arena">Multilateral Influence</span>
+            <span class="signal-tag signal-tag--arena">Strategic</span>
+          </div>
+          <h4>Alliance-linked narrative visibility</h4>
+          <p class="signal-desc">External references support visibility in alliance-linked narratives, though external verification unavailable this cycle, limiting confidence. Near-term horizon. Mechanism: Unresolved.</p>
+        </div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-id">SS-002</div>
+        <div class="signal-content">
+          <div class="signal-tags">
+            <span class="signal-tag signal-tag--strength">Strength</span>
+            <span class="signal-tag signal-tag--arena">Multilateral Influence</span>
+            <span class="signal-tag signal-tag--arena">Structural</span>
+          </div>
+          <h4>Multilateral visibility reinforcement</h4>
+          <p class="signal-desc">External references support multilateral visibility across institutions, but external verification not available this cycle. 12-month horizon. Mechanism: Unresolved.</p>
+        </div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-id">SS-004</div>
+        <div class="signal-content">
+          <div class="signal-tags">
+            <span class="signal-tag signal-tag--strength">Strength</span>
+            <span class="signal-tag signal-tag--arena">Crisis Diplomacy</span>
+            <span class="signal-tag signal-tag--arena">Strategic</span>
+          </div>
+          <h4>UK visibility in crisis-linked narratives</h4>
+          <p class="signal-desc">External references support UK visibility in crisis-linked narratives; crisis-diplomacy signal substantial and often favorable. 12-month horizon. Verification bounded.</p>
+        </div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-id">SS-005</div>
+        <div class="signal-content">
+          <div class="signal-tags">
+            <span class="signal-tag signal-tag--strength">Strength</span>
+            <span class="signal-tag signal-tag--arena">Climate Diplomacy</span>
+            <span class="signal-tag signal-tag--arena">Policy</span>
+          </div>
+          <h4>Climate leadership external exposure (mixed framing)</h4>
+          <p class="signal-desc">External exposure present with mixed framing on delivery-versus-rhetoric. Near-term horizon. Verification bounded.</p>
+        </div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-id">SS-006</div>
+        <div class="signal-content">
+          <div class="signal-tags">
+            <span class="signal-tag signal-tag--strength">Strength</span>
+            <span class="signal-tag signal-tag--arena">Climate Diplomacy</span>
+            <span class="signal-tag signal-tag--arena">Strategic</span>
+          </div>
+          <h4>Hosting and pledging process visibility</h4>
+          <p class="signal-desc">External references support visibility through hosting and pledging processes. 12-month horizon. Verification bounded.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 VULNERABILITY SIGNALS -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
+    </div>
+    <p class="sec-desc">No confirmed high-relevance vulnerability signals this cycle. Medium-exposure vulnerabilities noted below.</p>
+    <div class="signals-grid">
+      <div class="signal-card">
+        <div class="signal-id" style="color:var(--red)">V-T6</div>
+        <div class="signal-content">
+          <div class="signal-tags">
+            <span class="signal-tag signal-tag--vuln">Vulnerability</span>
+            <span class="signal-tag signal-tag--arena">Global Voice</span>
+            <span class="signal-tag signal-tag--arena">High Exposure</span>
+          </div>
+          <h4>Adverse negative framing in strategic relevance narratives</h4>
+          <p class="signal-desc">High-exposure negative framing in strategic relevance narratives; verification enrichment unavailable and discourse repeating in this arena. Requires near-term attention.</p>
+        </div>
+      </div>
+      <div class="signal-card">
+        <div class="signal-id" style="color:var(--amber)">V-T15/16</div>
+        <div class="signal-content">
+          <div class="signal-tags">
+            <span class="signal-tag signal-tag--vuln">Vulnerability</span>
+            <span class="signal-tag signal-tag--arena">Climate Diplomacy</span>
+            <span class="signal-tag signal-tag--arena">Low&ndash;Moderate</span>
+          </div>
+          <h4>Climate credibility tension with negative sub-stream</h4>
+          <p class="signal-desc">Climate credibility tension includes moderate-exposure vulnerability signal. Track whether negative sub-stream broadens beyond limited evidence this cycle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MID BREAK -->
+<div class="break-band">
+  <p class="break-text">&ldquo;Structurally strong in multilateral and crisis diplomacy lanes, but climate leadership credibility remains contested and global voice actively challenged.&rdquo;</p>
+  <div class="break-attr">Sovereign Signal Assessment &middot; Cycle 2026-02-21</div>
+</div>
+
+<div class="main">
+
+  <!-- 07 STRATEGIC ATTENTION PRIORITIES -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2 class="sec-title">Strategic Attention Priorities</h2>
+    </div>
+    <div class="priorities">
+      <div class="priority-card priority-card--near">
+        <h4>Near-term &mdash; High Urgency</h4>
+        <p><strong style="color:var(--navy)">Address adverse narrative in Global Voice arena.</strong> High-exposure negative framing in strategic relevance narratives with verification enrichment unavailable and discourse repeating. Requires proactive narrative management.</p>
+      </div>
+      <div class="priority-card priority-card--med">
+        <h4>Near-term &mdash; Medium Urgency</h4>
+        <p><strong style="color:var(--navy)">Monitor climate credibility escalation.</strong> Track whether negative sub-stream in Climate Diplomacy Credibility broadens beyond limited evidence. Delivery-versus-rhetoric framing remains the key tension.</p>
+      </div>
+      <div class="priority-card priority-card--long">
+        <h4>Near-term &mdash; Medium Urgency</h4>
+        <p><strong style="color:var(--navy)">Track multilateral influence amplification.</strong> Positive-leaning assessment in Multilateral Influence not yet amplified in informal discourse under muted conditions. Monitor for escalation or fading.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 MANAGED UNCERTAINTY -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">08</span>
+      <h2 class="sec-title">Managed Uncertainty Watchlist</h2>
+    </div>
+    <p class="sec-desc">All six standing questions remain in managed uncertainty status. Next step for all: monitor policy release.</p>
+    <div class="uncertainty-grid">
+      <div class="uncertainty-card">
+        <h4>UK as diplomatic actor</h4>
+        <div class="uncertainty-meta">
+          <span>Sovereign view: <span class="val">61%</span></span>
+          <span>Conviction: <span class="val">Medium</span></span>
+        </div>
+        <p>Coverage spans alliance, crisis, and strategic-voice signals. External assessment remains contested.</p>
+      </div>
+      <div class="uncertainty-card">
+        <h4>Multilateral institution influence</h4>
+        <div class="uncertainty-meta">
+          <span>Sovereign view: <span class="val">65%</span></span>
+          <span>Conviction: <span class="val">Medium</span></span>
+        </div>
+        <p>Strong exposure via NATO and UN themes. Influence assessment uneven across institutions.</p>
+      </div>
+      <div class="uncertainty-card">
+        <h4>Crisis diplomacy characterisation</h4>
+        <div class="uncertainty-meta">
+          <span>Sovereign view: <span class="val">55%</span></span>
+          <span>Conviction: <span class="val">Medium</span></span>
+        </div>
+        <p>Signal substantial and often favorable. Linked credibility concern persists in strategic framing.</p>
+      </div>
+      <div class="uncertainty-card">
+        <h4>Climate leadership credibility</h4>
+        <div class="uncertainty-meta">
+          <span>Sovereign view: <span class="val" style="color:var(--amber)">44%</span></span>
+          <span>Conviction: <span class="val" style="color:var(--amber)">Low</span></span>
+        </div>
+        <p>Mixed delivery-versus-rhetoric framing. Visible negative sub-stream on limited evidence.</p>
+      </div>
+      <div class="uncertainty-card">
+        <h4>Sanctions posture perception</h4>
+        <div class="uncertainty-meta">
+          <span>Sovereign view: <span class="val">49%</span></span>
+          <span>Conviction: <span class="val" style="color:var(--amber)">Low</span></span>
+        </div>
+        <p>Statecraft signal present but sanctions-specific characterisation limited this cycle.</p>
+      </div>
+      <div class="uncertainty-card">
+        <h4>Geopolitical voice &amp; relevance</h4>
+        <div class="uncertainty-meta">
+          <span>Sovereign view: <span class="val" style="color:var(--red)">34%</span></span>
+          <span>Conviction: <span class="val" style="color:var(--amber)">Low</span></span>
+        </div>
+        <p>Strategic relevance narratives actively contested. Negative-leaning framing present alongside mixed cues.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 CONCLUSION -->
+  <div class="sec">
+    <div class="sec-head">
+      <span class="sec-num">09</span>
+      <h2 class="sec-title">Conclusion</h2>
+    </div>
+    <div class="exec-card">
+      <p>This cycle shows a <strong>structurally strong posture in Multilateral Influence and Crisis Diplomacy</strong>, with Climate Diplomacy Credibility remaining strong but internally mixed in signal balance. Global Voice and Strategic Relevance remains the weakest arena with actively contested framing, while multiple questions remain bounded by managed uncertainty because verification was not available this cycle.</p>
+      <p>22 verified trends tracked across all five arenas. No structural contradictions identified &mdash; all verified trends are internally consistent. The dominant challenge is the gap between climate leadership rhetoric and delivery credibility, which shows a sovereign view of just 44% against a 50% global baseline.</p>
+      <div class="exec-finding">
+        <span class="badge badge--mixed">Posture</span>
+        <span class="finding--mixed">Standing posture this cycle: Mixed &mdash; 22 trends, 7 strength signals, 3 vulnerability flags</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <svg viewBox="0 0 120 20" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="16" font-family="Inter, sans-serif" font-weight="900" font-size="15" fill="rgba(255,255,255,0.4)" letter-spacing="0.5">NOAH</text>
+        <text x="52" y="16" font-family="Inter, sans-serif" font-weight="400" font-size="10" fill="rgba(255,255,255,0.2)" letter-spacing="2">WIRE</text>
+      </svg>
+      <span class="footer-label">Sovereign Signal</span>
+    </div>
+    <div class="footer-right">
+      <div class="footer-text">Ref: QJMK &middot; Cycle: 21 February 2026 &middot; &copy; Noah Wire Services 2026</div>
+    </div>
+  </div>
+  <div class="footer-credit">
+    Intelligence architecture by Noah Wire Services in partnership with Zinc Network &middot; Prepared for the Foreign, Commonwealth &amp; Development Office
+  </div>
+</div>
+
+</body>
+</html>
