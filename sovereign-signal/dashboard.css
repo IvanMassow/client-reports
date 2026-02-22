@@ -626,10 +626,6 @@ body {
   border-top: 3px solid var(--accent);
   border-radius: var(--card-radius);
   padding: 28px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
   box-shadow: var(--card-shadow);
 }
 .methodology-box-text {
@@ -637,7 +633,7 @@ body {
   font-size: 13px;
   color: var(--text-mid);
   line-height: 1.7;
-  flex: 1;
+  margin-bottom: 16px;
 }
 .methodology-box-cta {
   display: inline-flex;
@@ -652,7 +648,6 @@ body {
   border-radius: 6px;
   white-space: nowrap;
   transition: all 0.15s;
-  flex-shrink: 0;
 }
 .methodology-box-cta:hover {
   background: var(--accent);
@@ -662,8 +657,8 @@ body {
 /* === RESPONSIVE — TABLET === */
 @media (max-width: 900px) {
   .methodology-box { padding: 0 16px; margin-top: 32px; }
-  .methodology-box-inner { flex-direction: column; text-align: center; gap: 16px; padding: 20px; }
-  .methodology-box-cta { width: 100%; justify-content: center; }
+  .methodology-box-inner { padding: 20px; }
+  .methodology-box-text { font-size: 12px; }
   .topbar { padding: 0 16px; height: 48px; }
   .topbar-nav { display: none; }
   .topbar-date { display: none; }

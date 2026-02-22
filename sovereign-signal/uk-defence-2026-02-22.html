@@ -112,10 +112,14 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--card-radius); }
 .pd-table { width: 100%; min-width: 640px; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
 .pd-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.pd-table th:nth-child(2), .pd-table td:nth-child(2),
+.pd-table th:nth-child(3), .pd-table td:nth-child(3) { text-align: center; width: 90px; }
+.pd-table th:nth-child(4), .pd-table td:nth-child(4) { text-align: center; width: 110px; }
+.pd-table th:nth-child(5), .pd-table td:nth-child(5) { width: 130px; }
 .pd-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
 .pd-table tbody tr:last-child td { border-bottom: none; }
-.pd-prop { max-width: 400px; line-height: 1.5; }
-.pd-pct { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; white-space: nowrap; }
+.pd-prop { width: 50%; min-width: 280px; line-height: 1.5; }
+.pd-pct { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; white-space: nowrap; width: 90px; text-align: center; }
 .pd-arena { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
 .conf-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; white-space: nowrap; }
 .conf-high { background: rgba(46,155,110,0.1); color: #166534; }
@@ -194,9 +198,9 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
 /* Methodology box */
 .methodology-box { max-width: 1100px; margin: 48px auto 0; padding: 0 32px; }
-.methodology-box-inner { background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--card-radius); padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; box-shadow: var(--card-shadow); }
-.methodology-box-text { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; flex: 1; }
-.methodology-box-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; padding: 10px 20px; border: 1px solid var(--accent); border-radius: 6px; white-space: nowrap; transition: all 0.15s; flex-shrink: 0; }
+.methodology-box-inner { background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--card-radius); padding: 28px 32px; box-shadow: var(--card-shadow); }
+.methodology-box-text { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
+.methodology-box-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; padding: 10px 20px; border: 1px solid var(--accent); border-radius: 6px; white-space: nowrap; transition: all 0.15s; }
 .methodology-box-cta:hover { background: var(--accent); color: white; }
 
 /* Source section — quiet, at the very bottom */
