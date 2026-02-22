@@ -309,7 +309,11 @@ body {
   font-weight: 900;
   line-height: 1;
   margin-bottom: 6px;
+  color: rgba(255,255,255,0.85);
 }
+/* Score numbers go green/red when there's a delta */
+.pillar-score-cell.delta-up .pillar-score-num { color: var(--green); }
+.pillar-score-cell.delta-down .pillar-score-num { color: var(--red); }
 .pillar-score-delta {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
@@ -335,17 +339,13 @@ body {
   margin-right: 4px;
 }
 
-/* Individual pillar colours for score cells */
-.pillar-score-cell[data-pillar="softpower"] .pillar-score-num { color: var(--p-softpower-mid); }
-.pillar-score-cell[data-pillar="softpower"] .pillar-score-posture { color: var(--p-softpower-mid); }
-.pillar-score-cell[data-pillar="defence"] .pillar-score-num { color: var(--p-defence-mid); }
-.pillar-score-cell[data-pillar="defence"] .pillar-score-posture { color: var(--p-defence-mid); }
-.pillar-score-cell[data-pillar="economic"] .pillar-score-num { color: var(--p-economic-mid); }
-.pillar-score-cell[data-pillar="economic"] .pillar-score-posture { color: var(--p-economic-mid); }
-.pillar-score-cell[data-pillar="diplomatic"] .pillar-score-num { color: var(--p-diplomatic-mid); }
-.pillar-score-cell[data-pillar="diplomatic"] .pillar-score-posture { color: var(--p-diplomatic-mid); }
-.pillar-score-cell[data-pillar="trust"] .pillar-score-num { color: var(--p-trust-mid); }
-.pillar-score-cell[data-pillar="trust"] .pillar-score-posture { color: var(--p-trust-mid); }
+/* Subtle pillar colour accent — bottom border on score cells */
+.pillar-score-cell[data-pillar="softpower"] { border-bottom: 3px solid var(--p-softpower); }
+.pillar-score-cell[data-pillar="defence"] { border-bottom: 3px solid var(--p-defence); }
+.pillar-score-cell[data-pillar="economic"] { border-bottom: 3px solid var(--p-economic); }
+.pillar-score-cell[data-pillar="diplomatic"] { border-bottom: 3px solid var(--p-diplomatic); }
+.pillar-score-cell[data-pillar="trust"] { border-bottom: 3px solid var(--p-trust); }
+.pillar-score-posture { color: rgba(255,255,255,0.35); }
 
 /* === MAIN CONTAINER === */
 .container {

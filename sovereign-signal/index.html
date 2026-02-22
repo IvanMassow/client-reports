@@ -318,7 +318,11 @@ body {
   font-weight: 900;
   line-height: 1;
   margin-bottom: 6px;
+  color: rgba(255,255,255,0.85);
 }
+/* Score numbers go green/red when there's a delta */
+.pillar-score-cell.delta-up .pillar-score-num { color: var(--green); }
+.pillar-score-cell.delta-down .pillar-score-num { color: var(--red); }
 .pillar-score-delta {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
@@ -344,17 +348,13 @@ body {
   margin-right: 4px;
 }
 
-/* Individual pillar colours for score cells */
-.pillar-score-cell[data-pillar="softpower"] .pillar-score-num { color: var(--p-softpower-mid); }
-.pillar-score-cell[data-pillar="softpower"] .pillar-score-posture { color: var(--p-softpower-mid); }
-.pillar-score-cell[data-pillar="defence"] .pillar-score-num { color: var(--p-defence-mid); }
-.pillar-score-cell[data-pillar="defence"] .pillar-score-posture { color: var(--p-defence-mid); }
-.pillar-score-cell[data-pillar="economic"] .pillar-score-num { color: var(--p-economic-mid); }
-.pillar-score-cell[data-pillar="economic"] .pillar-score-posture { color: var(--p-economic-mid); }
-.pillar-score-cell[data-pillar="diplomatic"] .pillar-score-num { color: var(--p-diplomatic-mid); }
-.pillar-score-cell[data-pillar="diplomatic"] .pillar-score-posture { color: var(--p-diplomatic-mid); }
-.pillar-score-cell[data-pillar="trust"] .pillar-score-num { color: var(--p-trust-mid); }
-.pillar-score-cell[data-pillar="trust"] .pillar-score-posture { color: var(--p-trust-mid); }
+/* Subtle pillar colour accent — bottom border on score cells */
+.pillar-score-cell[data-pillar="softpower"] { border-bottom: 3px solid var(--p-softpower); }
+.pillar-score-cell[data-pillar="defence"] { border-bottom: 3px solid var(--p-defence); }
+.pillar-score-cell[data-pillar="economic"] { border-bottom: 3px solid var(--p-economic); }
+.pillar-score-cell[data-pillar="diplomatic"] { border-bottom: 3px solid var(--p-diplomatic); }
+.pillar-score-cell[data-pillar="trust"] { border-bottom: 3px solid var(--p-trust); }
+.pillar-score-posture { color: rgba(255,255,255,0.35); }
 
 /* === MAIN CONTAINER === */
 .container {
@@ -714,7 +714,7 @@ body {
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Composite Standing Score</div>
-        <div class="score-block-num" id="composite-score">49</div>
+        <div class="score-block-num" id="composite-score">48</div>
         <div class="score-block-max">of 100</div>
         <div class="score-block-delta flat">&mdash; First cycle</div>
         <div class="score-block-posture posture-weak" id="composite-posture">Weak</div>
@@ -724,9 +724,9 @@ body {
   <div class="pillar-scores" id="pillar-scores">
       <a class="pillar-score-cell" data-pillar="softpower" href="#tile-softpower">
         <div class="pillar-score-name">Soft Power & Cultural Standing</div>
-        <div class="pillar-score-num">—</div>
+        <div class="pillar-score-num">43</div>
         <div class="pillar-score-delta flat">&mdash;</div>
-        <div class="pillar-score-posture">—</div>
+        <div class="pillar-score-posture">Mixed</div>
       </a>
       <a class="pillar-score-cell" data-pillar="defence" href="#tile-defence">
         <div class="pillar-score-name">Defence & Strategic Credibility</div>
@@ -762,30 +762,30 @@ body {
       <span class="section-meta">Cycle: 22 February 2026</span>
     </div>
     <div class="pillar-tiles">
-      <a class="pillar-tile" data-pillar="softpower" id="tile-softpower" href="#">
+      <a class="pillar-tile" data-pillar="softpower" id="tile-softpower" href="uk-softpower-2026-02-22.html">
         <div class="pillar-tile-header">
           <div class="pillar-tile-left">
             <span class="pillar-tile-tag">Soft Power</span>
             <div class="pillar-tile-name">Soft Power & Cultural Standing</div>
           </div>
           <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">—</div>
+            <div class="pillar-tile-score">43</div>
             <div class="pillar-tile-score-label">Score</div>
             <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
           </div>
         </div>
         <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">Assessment pending — report data will populate when available.</p>
+          <p class="pillar-tile-summary">The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Industries And Talent present Strong positions, while He</p>
           <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Trends</div></div>
-            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">—</div><div class="ptm-label">Confidence</div></div>
+            <div class="ptm"><div class="ptm-val">12</div><div class="ptm-label">Strengths</div></div>
+            <div class="ptm"><div class="ptm-val">9</div><div class="ptm-label">Vulns</div></div>
+            <div class="ptm"><div class="ptm-val">60</div><div class="ptm-label">Trends</div></div>
+            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
           </div>
         </div>
         <div class="pillar-tile-footer">
           <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Pending</span>
+          <span class="pillar-tile-time">Updated</span>
         </div>
       </a>
       <a class="pillar-tile" data-pillar="defence" id="tile-defence" href="uk-defence-2026-02-22.html">
@@ -898,9 +898,156 @@ body {
   <div class="signals-strip" id="signals">
     <div class="section-head">
       <h2 class="section-title">Key Signals This Cycle</h2>
-      <span class="section-meta">43 Strengths &middot; 7 Vulnerabilities</span>
+      <span class="section-meta">55 Strengths &middot; 16 Vulnerabilities</span>
     </div>
     <div class="signals-list">
+      <div class="signal-row">
+        <div class="signal-id">SS-001</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-018</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-002</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-018</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-003</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-020</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-004</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-018</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-005</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-025</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-006</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-013</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-001</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-002</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-004</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-005</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-006</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-007</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-008</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-009</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-003</div>
+        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
       <div class="signal-row">
         <div class="signal-id">SS-001</div>
         <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>

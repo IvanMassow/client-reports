@@ -1,4 +1,43 @@
 {
+  "softpower": {
+    "executive_summary": "The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Industries And Talent present Strong positions, while Heritage Identity And Nation Brand and Values And Human Rights Reputation present Weak positions. This divergence is visible in the proposition set (e.g., P-SS-DIAG-SS-006) and is consistent with the scorecard\u2019s overall position (overall score: 43/100, with pillar momentum recorded as stable across tracked arenas).\nVulnerability concentrates in Heritage Identity And Nation Brand and Values And Human Rights Reputation with Medium confidence in arena synthesis, while strength signals are concentrated in Culture And Media Exports and Creative Industries And Talent (e.g., P-SS-DIAG-SS-002 and P-SS-DIAG-SS-005). Managed uncertainty remains material in Sporting Brand And Influence and is dominant in Education And Research Prestige (silence detected).",
+    "perception_dashboard": [],
+    "trends": [],
+    "strength_signals": [
+      "SS-001",
+      "SS-018",
+      "SS-002",
+      "SS-018",
+      "SS-003",
+      "SS-020",
+      "SS-004",
+      "SS-018",
+      "SS-005",
+      "SS-025",
+      "SS-006",
+      "SS-013"
+    ],
+    "vulnerability_signals": [
+      "VS-001",
+      "VS-002",
+      "VS-004",
+      "VS-005",
+      "VS-006",
+      "VS-007",
+      "VS-008",
+      "VS-009",
+      "VS-003"
+    ],
+    "priorities": [],
+    "conclusion": "This cycle shows a split standing picture: Culture And Media Exports and Creative Industries And Talent remain structurally Strong, while Heritage Identity And Nation Brand and Values And Human Rights Reputation are structurally Weak with building vulnerability momentum. A substantial share of arena-level conclusions remain in Managed uncertainty, and Education And Research Prestige remains an explicit silence gap.\nStanding posture this cycle: Under pressure",
+    "score": 43,
+    "posture": "Mixed",
+    "trend_count": 60,
+    "strength_count": 12,
+    "vuln_count": 9,
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/soft-power-cultural-standing-intelligence-brief-united-kingdom-narrative-shift-heritage-identity-and-nation-brand-2026-02-22-qjmv",
+    "ref": "QJMV"
+  },
   "defence": {
     "executive_summary": "United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak structural positions in Deterrence Posture And Escalation Management, Cyber Capability And Security Posture, and Geopolitical Influence In Security Theatres. Perception signals align with operational and industrial strength narratives, while credibility and alignment-friction vulnerabilities weigh on the overall posture; this picture is consistent with an overall score of 54 and arena momentum that includes Military Capability And Readiness building while several arenas remain steady. The perception dashboard shows a favourable tilt on capability (P-SS-DIAG-SS-002) alongside adverse-leaning characterisation and deterrence framing (P-SS-DIAG-SS-001; P-SS-DIAG-SS-005).\nVulnerability concentration is highest in Geopolitical Influence In Security Theatres (VS-001; VS-002) and Deterrence Posture And Escalation Management (VS-003), each with High severity, while strength signals are most visible in Military Capability And Readiness (SS-001) and Defence Industry And Procurement Credibility (SS-004; SS-005; SS-006). Managed uncertainty persists where signals are high-exposure but directionally contested (notably Alliance Reliability And Burden Sharing) and where low-volume access-friction themes have bounded confirmation (VS-004).",
     "perception_dashboard": [],

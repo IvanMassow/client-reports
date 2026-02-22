@@ -1,9 +1,19 @@
 {
   "date": "2026-02-22",
-  "composite_score": 49,
+  "composite_score": 48,
   "composite_posture": "Weak",
   "composite_delta": null,
   "pillars": {
+    "softpower": {
+      "name": "Soft Power & Cultural Standing",
+      "score": 43,
+      "posture": "Mixed",
+      "delta": null,
+      "trend_count": 60,
+      "strength_count": 12,
+      "vuln_count": 9,
+      "executive_summary": "The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Indust"
+    },
     "defence": {
       "name": "Defence & Strategic Credibility",
       "score": 47,

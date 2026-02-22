@@ -488,8 +488,9 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         delta = deltas.get(key)
         delta_str = _delta_html(delta)
         delta_cls = "up" if delta and delta > 0 else "down" if delta and delta < 0 else "flat"
+        cell_cls = "delta-up" if delta and delta > 0 else "delta-down" if delta and delta < 0 else ""
         pillar_score_cells += f'''
-      <a class="pillar-score-cell" data-pillar="{key}" href="#tile-{key}">
+      <a class="pillar-score-cell{" " + cell_cls if cell_cls else ""}" data-pillar="{key}" href="#tile-{key}">
         <div class="pillar-score-name">{pillar["name"]}</div>
         <div class="pillar-score-num">{score_display}</div>
         <div class="pillar-score-delta {delta_cls}">{delta_str}</div>
