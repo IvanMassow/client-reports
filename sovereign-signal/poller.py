@@ -266,7 +266,7 @@ def parse_report_content(desc_html):
                 trend_id = cols[0].split("(")[0].strip()
                 arena_slug = cols[1].strip()
                 signal_type = cols[2].strip()
-                verification = cols[3].strip()
+                spot_check = cols[3].strip()
                 relevance = cols[4].strip() if len(cols) > 4 else ""
                 momentum = cols[5].strip() if len(cols) > 5 else ""
                 temperature = cols[6].strip() if len(cols) > 6 else ""
@@ -278,7 +278,7 @@ def parse_report_content(desc_html):
                     "id": trend_id,
                     "arena": arena_name,
                     "signal_type": signal_type,
-                    "verification": verification,
+                    "spot_check": spot_check,
                     "relevance": relevance,
                     "momentum": momentum,
                     "temperature": temperature,
@@ -304,7 +304,7 @@ def parse_report_content(desc_html):
             ctx = {"name": arena_name}
             # Extract structured fields
             for field, key in [
-                ("Verified trend count", "verified_trends"),
+                ("Verified trend count", "spot_checked_trends"),
                 ("Dominant momentum", "momentum"),
                 ("Geographic concentration", "geo_concentration"),
                 ("Top geographies", "geographies"),
@@ -1499,7 +1499,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         momentum = ctx.get("momentum", "")
         discourse = ctx.get("discourse", "")
         geographies = ctx.get("geographies", "")
-        verified = ctx.get("verified_trends", "0")
+        verified = ctx.get("spot_checked_trends", "0")
         echo_risk = ctx.get("echo_risk", "No")
 
         mom_color = "var(--green)" if momentum.lower() == "rising" else "var(--red)" if momentum.lower() == "fading" else "var(--text-mid)"
@@ -1511,7 +1511,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             <span class="arena-badge" style="background:{badge_bg};color:{badge_color}">{html.escape(ap).upper()}</span>
           </div>
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">{html.escape(str(verified))}</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">{html.escape(str(verified))}</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:{mom_color}">{html.escape(momentum)}</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">{html.escape(discourse.replace("public commentary is ", "").title())}</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">{html.escape(echo_risk)}</span></div>

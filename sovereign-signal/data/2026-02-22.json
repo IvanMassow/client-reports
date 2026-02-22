@@ -1,4 +1,258 @@
 {
+  "diplomatic": {
+    "executive_summary": "United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomacy And Mediation is Weak. Perception and structure align on the strength arenas, but diverge where crisis-linked framing introduces pressure; this is reflected in proposition P-SS-DIAG-SS-002 (53% sovereign view, Low conviction) alongside an overall score of 70 with stable pillar momentum in the scorecard.\nVulnerability concentrates around crisis-linked reliability sensitivity (VS-001) with Bounded confidence pathways, while structural strengths are sustained across multilateral and climate-linked positioning (SS-003; SS-004; SS-001). Managed uncertainty remains highest where attribution of crisis outcomes to UK action is not consistently evidenced (including proposition P-SS-DIAG-SS-003, 45% sovereign view, Low conviction) and where Sanctions And Statecraft Influence and Development And Humanitarian Credibility remain in Insufficient data.",
+    "perception_dashboard": [
+      {
+        "proposition": "How is the United Kingdom being assessed by non-UK governments, multilaterals, and international commentators as a diplomatic actor this cycle?",
+        "global_view": 50,
+        "sovereign_view": 54,
+        "signal_strength": "Low",
+        "arena": "Global Voice And Strategic Relevance",
+        "emerging": ""
+      },
+      {
+        "proposition": "What is the prevailing external view of UK influence inside multilateral institutions (UN, NATO, G7/G20, Commonwealth, WTO and related bodies), and where is influence perceived to be growing or shrinking?",
+        "global_view": 45,
+        "sovereign_view": 53,
+        "signal_strength": "Low",
+        "arena": "Multilateral Influence",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is UK crisis diplomacy being characterised internationally (effective, symbolic, constrained, marginal), and which crises are driving the assessment?",
+        "global_view": 50,
+        "sovereign_view": 45,
+        "signal_strength": "Low",
+        "arena": "Crisis Diplomacy And Mediation",
+        "emerging": ""
+      },
+      {
+        "proposition": "How credible is the UK's climate and energy diplomacy being treated externally (delivery vs rhetoric, COP legacy, energy transition positioning), and what specific policy actions or outcomes are cited?",
+        "global_view": 45,
+        "sovereign_view": 51,
+        "signal_strength": "Low",
+        "arena": "Climate And Energy Diplomacy",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the UK's sanctions posture being viewed by non-UK actors (agenda-setting, aligned follower, overreach, underpowered), and what is the perceived impact on counterpart states and alliances?",
+        "global_view": 40,
+        "sovereign_view": 29,
+        "signal_strength": "Low",
+        "arena": "Sanctions And Statecraft Influence",
+        "emerging": ""
+      },
+      {
+        "proposition": "Which international narratives describe the UK's geopolitical voice and strategic relevance (bridge, junior partner, independent actor, diminished), and which regions are most associated with each narrative?",
+        "global_view": 50,
+        "sovereign_view": 54,
+        "signal_strength": "Low",
+        "arena": "Global Voice And Strategic Relevance",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the UK's development and humanitarian role being perceived internationally (generous, declining, strategic, tokenistic), and what has shifted since ODA commitments changed?",
+        "global_view": 45,
+        "sovereign_view": 51,
+        "signal_strength": "Low",
+        "arena": "Development And Humanitarian Credibility",
+        "emerging": ""
+      }
+    ],
+    "trends": [],
+    "arena_context": {
+      "Multilateral Influence": {
+        "name": "Multilateral Influence",
+        "spot_checked_trends": "2",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "China, United States, Europe",
+        "discourse": "moderate",
+        "echo_risk": "No",
+        "summary": "Multilateral Influence reflects a Strong structural position with stable momentum driven by strength signals.",
+        "posture": "Strong"
+      },
+      "Crisis Diplomacy And Mediation": {
+        "name": "Crisis Diplomacy And Mediation",
+        "spot_checked_trends": "0",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "United States, Russia, Ukraine",
+        "discourse": "moderate",
+        "echo_risk": "No",
+        "summary": "Crisis Diplomacy And Mediation reflects a Weak structural position with stable momentum driven by vulnerability signals.",
+        "posture": "Weak"
+      },
+      "Climate And Energy Diplomacy": {
+        "name": "Climate And Energy Diplomacy",
+        "spot_checked_trends": "2",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "United States, Brazil, Europe",
+        "discourse": "moderate",
+        "echo_risk": "No",
+        "summary": "Climate And Energy Diplomacy reflects a Strong structural position with stable momentum driven by strength signals.",
+        "posture": "Strong"
+      },
+      "Sanctions And Statecraft Influence": {
+        "name": "Sanctions And Statecraft Influence",
+        "spot_checked_trends": "0",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "External (mixed)",
+        "discourse": "muted",
+        "echo_risk": "No",
+        "summary": "Sanctions And Statecraft Influence reflects a Insufficient data structural position with stable momentum driven by structural position signals.",
+        "posture": "Insufficient data"
+      },
+      "Global Voice And Strategic Relevance": {
+        "name": "Global Voice And Strategic Relevance",
+        "spot_checked_trends": "1",
+        "momentum": "Stable",
+        "geo_concentration": "Medium",
+        "geographies": "Europe, Russia, United States",
+        "discourse": "moderate",
+        "echo_risk": "No",
+        "summary": "Global Voice And Strategic Relevance reflects a Strong structural position with stable momentum driven by strength signals.",
+        "posture": "Strong"
+      },
+      "Development And Humanitarian Credibility": {
+        "name": "Development And Humanitarian Credibility",
+        "spot_checked_trends": "0",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "External (mixed)",
+        "discourse": "muted",
+        "echo_risk": "No",
+        "summary": "Development And Humanitarian Credibility reflects a Insufficient data structural position with stable momentum driven by structural position signals.",
+        "posture": "Insufficient data"
+      }
+    },
+    "strength_signals": [
+      "SS-003",
+      "SS-004",
+      "SS-001",
+      "SS-002"
+    ],
+    "strength_signal_details": [
+      {
+        "id": "SS-003",
+        "arena": "Multilateral Influence",
+        "character": "Structural",
+        "horizon": "12 months",
+        "description": "International exposure is present and steady, supported by multiple independent institutional references and moderate public commentary.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T4",
+        "evidence": ""
+      },
+      {
+        "id": "SS-004",
+        "arena": "Multilateral Influence",
+        "character": "Structural",
+        "horizon": "12 months",
+        "description": "The signal is steady with moderate international exposure, anchored in documented participation and a single primary reference point in this cycle\u2019s evidence set.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T6",
+        "evidence": ""
+      },
+      {
+        "id": "SS-001",
+        "arena": "Climate And Energy Diplomacy",
+        "character": "Strategic",
+        "horizon": "12 months",
+        "description": "International exposure is prominent and steady, supported by multiple independent references and moderate public commentary across several external geographies.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T1",
+        "evidence": ""
+      },
+      {
+        "id": "SS-002",
+        "arena": "Global Voice And Strategic Relevance",
+        "character": "Strategic",
+        "horizon": "12 months",
+        "description": "International exposure is prominent and steady, and the signal is reinforced by alliance documentation with more than one independent reference point.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T2",
+        "evidence": ""
+      }
+    ],
+    "vulnerability_signals": [
+      "VS-001",
+      "VS-002"
+    ],
+    "vuln_signal_details": [
+      {
+        "id": "VS-001",
+        "title": "Alliance Reliability Sensitivity Around Overseas Basing And Sovereignty Framework",
+        "arena": "Crisis Diplomacy And Mediation",
+        "severity": "High",
+        "horizon": "12 months",
+        "description": "Public commentary is moderate and geographically distributed, and the adverse framing channel can weaken perceived reliability during fast-moving security contingencies.",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Confirmed",
+        "trend_ref": "T3",
+        "evidence": ""
+      },
+      {
+        "id": "VS-002",
+        "title": "Monarchy Reputational Spillover Risk Into External Perception Channels",
+        "arena": "Unmapped",
+        "severity": "Medium",
+        "horizon": "12 months",
+        "description": "Public commentary is muted and evidence is limited to a single reference point, but sustained reputational attention can erode soft-power perceptions even without direct policy linkage.",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T9",
+        "evidence": ""
+      }
+    ],
+    "priorities": [
+      {
+        "horizon": "Near-term attention",
+        "action": "Address adverse narrative",
+        "arena": "Crisis Diplomacy And Mediation",
+        "trend": "TRU-T3",
+        "description": "High-severity adverse reliability-related signal with strong monitoring evidence volume; bounded verification indicates impact magnitude remains unresolved and should be tracked closely."
+      },
+      {
+        "horizon": "Medium-term monitoring",
+        "action": "Monitor for escalation",
+        "arena": "Sanctions And Statecraft Influence",
+        "trend": "None",
+        "description": "Strategically important arena has thin coverage with indirect linkage only; prioritise additional external evidence capture to resolve posture."
+      }
+    ],
+    "standing_overview": [
+      {
+        "dimension": "Structural Position",
+        "assessment": "Strong",
+        "driver": "Strength is concentrated in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, outweighing weakness in Crisis Diplomacy And Mediation."
+      },
+      {
+        "dimension": "Perception Momentum",
+        "assessment": "Stable",
+        "driver": "Momentum is steady across monitored arenas this cycle."
+      },
+      {
+        "dimension": "Vulnerability Concentration",
+        "assessment": "Moderate",
+        "driver": "Medium-severity vulnerabilities are present, while the high-severity vulnerability signal remains in managed uncertainty."
+      },
+      {
+        "dimension": "Evidence Density",
+        "assessment": "High",
+        "driver": "Strong evidence base across monitored arenas."
+      }
+    ],
+    "conclusion": "This cycle shows confirmed structural strength in multilateral positioning and climate-linked diplomatic standing, with a parallel pressure channel concentrated in crisis-linked reliability framing and reputational spillover signals. The strongest components are steady rather than accelerating, while the principal vulnerabilities remain bounded by managed uncertainty and thin separation of arena-specific attribution in the captured external assessment set.\nStanding posture this cycle: Under pressure",
+    "score": 48,
+    "posture": "Mixed",
+    "trend_count": 30,
+    "strength_count": 4,
+    "vuln_count": 2,
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-diplomatic-global-leadership-uk-2026-02-22-qhvt",
+    "ref": "QHVT"
+  },
   "defence": {
     "executive_summary": "United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak structural positions in Deterrence Posture And Escalation Management, Cyber Capability And Security Posture, and Geopolitical Influence In Security Theatres. Perception signals align with operational and industrial strength narratives, while credibility and alignment-friction vulnerabilities weigh on the overall posture; this picture is consistent with an overall score of 54 and arena momentum that includes Military Capability And Readiness building while several arenas remain steady. The perception dashboard shows a favourable tilt on capability (P-SS-DIAG-SS-002) alongside adverse-leaning characterisation and deterrence framing (P-SS-DIAG-SS-001; P-SS-DIAG-SS-005).\nVulnerability concentration is highest in Geopolitical Influence In Security Theatres (VS-001; VS-002) and Deterrence Posture And Escalation Management (VS-003), each with High severity, while strength signals are most visible in Military Capability And Readiness (SS-001) and Defence Industry And Procurement Credibility (SS-004; SS-005; SS-006). Managed uncertainty persists where signals are high-exposure but directionally contested (notably Alliance Reliability And Burden Sharing) and where low-volume access-friction themes have bounded confirmation (VS-004).",
     "perception_dashboard": [
@@ -63,7 +317,7 @@
     "arena_context": {
       "Military Capability And Readiness": {
         "name": "Military Capability And Readiness",
-        "verified_trends": "1",
+        "spot_checked_trends": "1",
         "momentum": "Rising",
         "geo_concentration": "Low",
         "geographies": "Russia, Europe, Ukraine",
@@ -74,7 +328,7 @@
       },
       "Alliance Reliability And Burden Sharing": {
         "name": "Alliance Reliability And Burden Sharing",
-        "verified_trends": "1",
+        "spot_checked_trends": "1",
         "momentum": "Stable",
         "geo_concentration": "Low",
         "geographies": "Iran, Middle East, United States",
@@ -85,7 +339,7 @@
       },
       "Nato Role And Positioning": {
         "name": "Nato Role And Positioning",
-        "verified_trends": "0",
+        "spot_checked_trends": "0",
         "momentum": "Stable",
         "geo_concentration": "Low",
         "geographies": "External (mixed)",
@@ -96,7 +350,7 @@
       },
       "Deterrence Posture And Escalation Management": {
         "name": "Deterrence Posture And Escalation Management",
-        "verified_trends": "2",
+        "spot_checked_trends": "2",
         "momentum": "Stable",
         "geo_concentration": "Medium",
         "geographies": "Middle East, Iran, Europe",
@@ -107,7 +361,7 @@
       },
       "Defence Industry And Procurement Credibility": {
         "name": "Defence Industry And Procurement Credibility",
-        "verified_trends": "3",
+        "spot_checked_trends": "3",
         "momentum": "Fading",
         "geo_concentration": "High",
         "geographies": "Russia, Ukraine, Europe",
@@ -118,7 +372,7 @@
       },
       "Cyber Capability And Security Posture": {
         "name": "Cyber Capability And Security Posture",
-        "verified_trends": "2",
+        "spot_checked_trends": "2",
         "momentum": "Stable",
         "geo_concentration": "High",
         "geographies": "Europe, United States, Russia",
@@ -129,7 +383,7 @@
       },
       "Geopolitical Influence In Security Theatres": {
         "name": "Geopolitical Influence In Security Theatres",
-        "verified_trends": "2",
+        "spot_checked_trends": "2",
         "momentum": "Stable",
         "geo_concentration": "Low",
         "geographies": "Europe, Middle East, Iran",
@@ -397,7 +651,7 @@
         "id": "TRU-T1",
         "arena": "Trade And Competitiveness",
         "signal_type": "vulnerability",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "high",
         "momentum": "Exposed",
         "temperature": "rising"
@@ -406,7 +660,7 @@
         "id": "TRU-T2",
         "arena": "Trade And Competitiveness",
         "signal_type": "strength",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "moderate",
         "momentum": "Strong",
         "temperature": "fading"
@@ -415,7 +669,7 @@
         "id": "TRU-T3",
         "arena": "Financial Services And City Position",
         "signal_type": "strength",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "low",
         "momentum": "Strong",
         "temperature": "fading"
@@ -424,7 +678,7 @@
         "id": "TRU-T4",
         "arena": "Financial Services And City Position",
         "signal_type": "strength",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "moderate",
         "momentum": "Strong",
         "temperature": "rising"
@@ -433,7 +687,7 @@
         "id": "TRU-T5",
         "arena": "Innovation And Technology",
         "signal_type": "strength",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "moderate",
         "momentum": "Strong",
         "temperature": "fading"
@@ -442,7 +696,7 @@
         "id": "TRU-T6",
         "arena": "Innovation And Technology",
         "signal_type": "strength",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "moderate",
         "momentum": "Strong",
         "temperature": "rising"
@@ -451,7 +705,7 @@
         "id": "TRU-T7",
         "arena": "Innovation And Technology",
         "signal_type": "strength",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "high",
         "momentum": "Strong",
         "temperature": "stable"
@@ -460,7 +714,7 @@
         "id": "TRU-T8",
         "arena": "Innovation And Technology",
         "signal_type": "strength",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "high",
         "momentum": "Strong",
         "temperature": "fading"
@@ -469,7 +723,7 @@
         "id": "TRU-T9",
         "arena": "Regulatory And Investment Climate",
         "signal_type": "strength",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "moderate",
         "momentum": "Strong",
         "temperature": "stable"
@@ -478,7 +732,7 @@
         "id": "TRU-T10",
         "arena": "Regulatory And Investment Climate",
         "signal_type": "structural_position",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "Aligned",
         "temperature": "stable"
@@ -487,7 +741,7 @@
     "arena_context": {
       "Trade And Competitiveness": {
         "name": "Trade And Competitiveness",
-        "verified_trends": "2",
+        "spot_checked_trends": "2",
         "momentum": "Stable",
         "geo_concentration": "Low",
         "geographies": "United States, India, European Union",
@@ -498,7 +752,7 @@
       },
       "Financial Services And City Position": {
         "name": "Financial Services And City Position",
-        "verified_trends": "2",
+        "spot_checked_trends": "2",
         "momentum": "Stable",
         "geo_concentration": "Low",
         "geographies": "United States, India, European Union",
@@ -509,7 +763,7 @@
       },
       "Innovation And Technology": {
         "name": "Innovation And Technology",
-        "verified_trends": "4",
+        "spot_checked_trends": "4",
         "momentum": "Fading",
         "geo_concentration": "Medium",
         "geographies": "India, United States, China",
@@ -520,7 +774,7 @@
       },
       "Regulatory And Investment Climate": {
         "name": "Regulatory And Investment Climate",
-        "verified_trends": "1",
+        "spot_checked_trends": "1",
         "momentum": "Stable",
         "geo_concentration": "High",
         "geographies": "United States, India, China",
@@ -754,7 +1008,7 @@
         "id": "TRU-T1",
         "arena": "Heritage Identity And Nation Brand",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "high",
         "momentum": "rising",
         "temperature": "hot"
@@ -763,7 +1017,7 @@
         "id": "TRU-T2",
         "arena": "Culture And Media Exports",
         "signal_type": "strength",
-        "verification": "confirmed",
+        "spot_check": "confirmed",
         "relevance": "moderate",
         "momentum": "stable",
         "temperature": "warm"
@@ -772,7 +1026,7 @@
         "id": "TRU-T3",
         "arena": "Heritage Identity And Nation Brand",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "high",
         "momentum": "rising",
         "temperature": "hot"
@@ -781,7 +1035,7 @@
         "id": "TRU-T4",
         "arena": "Values And Human Rights Reputation",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "rising",
         "temperature": "warm"
@@ -790,7 +1044,7 @@
         "id": "TRU-T5",
         "arena": "Heritage Identity And Nation Brand",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "moderate",
         "momentum": "stable",
         "temperature": "hot"
@@ -799,7 +1053,7 @@
         "id": "TRU-T6",
         "arena": "Values And Human Rights Reputation",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "high",
         "momentum": "rising",
         "temperature": "warm"
@@ -808,7 +1062,7 @@
         "id": "TRU-T7",
         "arena": "Heritage Identity And Nation Brand",
         "signal_type": "mixed",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "moderate",
         "momentum": "stable",
         "temperature": "hot"
@@ -817,7 +1071,7 @@
         "id": "TRU-T8",
         "arena": "Sporting Brand And Influence",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "moderate",
         "momentum": "rising",
         "temperature": "warm"
@@ -826,7 +1080,7 @@
         "id": "TRU-T9",
         "arena": "Sporting Brand And Influence",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "rising",
         "temperature": "warm"
@@ -835,7 +1089,7 @@
         "id": "TRU-T10",
         "arena": "Heritage Identity And Nation Brand",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "rising",
         "temperature": "hot"
@@ -844,7 +1098,7 @@
         "id": "TRU-T11",
         "arena": "Sporting Brand And Influence",
         "signal_type": "structural_position",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "stable",
         "temperature": "warm"
@@ -853,7 +1107,7 @@
         "id": "TRU-T12",
         "arena": "Creative Industries And Talent",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "moderate",
         "momentum": "stable",
         "temperature": "warm"
@@ -862,7 +1116,7 @@
         "id": "TRU-T13",
         "arena": "Culture And Media Exports",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "stable",
         "temperature": "warm"
@@ -871,7 +1125,7 @@
         "id": "TRU-T14",
         "arena": "Culture And Media Exports",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "moderate",
         "momentum": "stable",
         "temperature": "warm"
@@ -880,7 +1134,7 @@
         "id": "TRU-T15",
         "arena": "Culture And Media Exports",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "stable",
         "temperature": "warm"
@@ -889,7 +1143,7 @@
         "id": "TRU-T16",
         "arena": "Creative Industries And Talent",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "moderate",
         "momentum": "stable",
         "temperature": "warm"
@@ -898,7 +1152,7 @@
         "id": "TRU-T17",
         "arena": "Culture And Media Exports",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "stable",
         "temperature": "warm"
@@ -907,7 +1161,7 @@
         "id": "TRU-T18",
         "arena": "Culture And Media Exports",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "stable",
         "temperature": "warm"
@@ -916,7 +1170,7 @@
         "id": "TRU-T19",
         "arena": "Sporting Brand And Influence",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "moderate",
         "momentum": "stable",
         "temperature": "warm"
@@ -925,7 +1179,7 @@
         "id": "TRU-T20",
         "arena": "Values And Human Rights Reputation",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "stable",
         "temperature": "warm"
@@ -934,7 +1188,7 @@
         "id": "TRU-T21",
         "arena": "Culture And Media Exports",
         "signal_type": "strength",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "stable",
         "temperature": "warm"
@@ -943,7 +1197,7 @@
         "id": "TRU-T22",
         "arena": "Creative Industries And Talent",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "rising",
         "temperature": "warm"
@@ -952,7 +1206,7 @@
         "id": "TRU-T23",
         "arena": "Values And Human Rights Reputation",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "high",
         "momentum": "rising",
         "temperature": "warm"
@@ -961,7 +1215,7 @@
         "id": "TRU-T24",
         "arena": "Heritage Identity And Nation Brand",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "moderate",
         "momentum": "rising",
         "temperature": "hot"
@@ -970,7 +1224,7 @@
         "id": "TRU-T25",
         "arena": "Values And Human Rights Reputation",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "moderate",
         "momentum": "rising",
         "temperature": "warm"
@@ -979,7 +1233,7 @@
         "id": "TRU-T26",
         "arena": "Values And Human Rights Reputation",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "rising",
         "temperature": "warm"
@@ -988,7 +1242,7 @@
         "id": "TRU-T27",
         "arena": "Sporting Brand And Influence",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "rising",
         "temperature": "warm"
@@ -997,7 +1251,7 @@
         "id": "TRU-T28",
         "arena": "Values And Human Rights Reputation",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "rising",
         "temperature": "warm"
@@ -1006,7 +1260,7 @@
         "id": "TRU-T29",
         "arena": "Values And Human Rights Reputation",
         "signal_type": "mixed",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "low",
         "momentum": "rising",
         "temperature": "warm"
@@ -1015,7 +1269,7 @@
         "id": "TRU-T30",
         "arena": "Heritage Identity And Nation Brand",
         "signal_type": "vulnerability",
-        "verification": "inconclusive",
+        "spot_check": "inconclusive",
         "relevance": "high",
         "momentum": "rising",
         "temperature": "hot"
@@ -1024,7 +1278,7 @@
     "arena_context": {
       "Culture And Media Exports": {
         "name": "Culture And Media Exports",
-        "verified_trends": "1",
+        "spot_checked_trends": "1",
         "momentum": "Stable",
         "geo_concentration": "High",
         "geographies": "India, United States, Australia",
@@ -1035,7 +1289,7 @@
       },
       "Education And Research Prestige": {
         "name": "Education And Research Prestige",
-        "verified_trends": "0",
+        "spot_checked_trends": "0",
         "momentum": "Stable",
         "geo_concentration": "Low",
         "geographies": "External (mixed)",
@@ -1046,7 +1300,7 @@
       },
       "Sporting Brand And Influence": {
         "name": "Sporting Brand And Influence",
-        "verified_trends": "0",
+        "spot_checked_trends": "0",
         "momentum": "Rising",
         "geo_concentration": "Low",
         "geographies": "Italy, United States, Canada",
@@ -1057,7 +1311,7 @@
       },
       "Creative Industries And Talent": {
         "name": "Creative Industries And Talent",
-        "verified_trends": "0",
+        "spot_checked_trends": "0",
         "momentum": "Stable",
         "geo_concentration": "Medium",
         "geographies": "Spain, United States, France",
@@ -1068,7 +1322,7 @@
       },
       "Heritage Identity And Nation Brand": {
         "name": "Heritage Identity And Nation Brand",
-        "verified_trends": "1",
+        "spot_checked_trends": "1",
         "momentum": "Rising",
         "geo_concentration": "Medium",
         "geographies": "United States, Australia, Canada",
@@ -1079,7 +1333,7 @@
       },
       "Values And Human Rights Reputation": {
         "name": "Values And Human Rights Reputation",
-        "verified_trends": "0",
+        "spot_checked_trends": "0",
         "momentum": "Rising",
         "geo_concentration": "Medium",
         "geographies": "United States, Australia, Kenya",
@@ -1341,260 +1595,6 @@
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/soft-power-cultural-standing-intelligence-brief-united-kingdom-narrative-shift-heritage-identity-and-nation-brand-2026-02-22-qjmv",
     "ref": "QJMV"
   },
-  "diplomatic": {
-    "executive_summary": "United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomacy And Mediation is Weak. Perception and structure align on the strength arenas, but diverge where crisis-linked framing introduces pressure; this is reflected in proposition P-SS-DIAG-SS-002 (53% sovereign view, Low conviction) alongside an overall score of 70 with stable pillar momentum in the scorecard.\nVulnerability concentrates around crisis-linked reliability sensitivity (VS-001) with Bounded confidence pathways, while structural strengths are sustained across multilateral and climate-linked positioning (SS-003; SS-004; SS-001). Managed uncertainty remains highest where attribution of crisis outcomes to UK action is not consistently evidenced (including proposition P-SS-DIAG-SS-003, 45% sovereign view, Low conviction) and where Sanctions And Statecraft Influence and Development And Humanitarian Credibility remain in Insufficient data.",
-    "perception_dashboard": [
-      {
-        "proposition": "How is the United Kingdom being assessed by non-UK governments, multilaterals, and international commentators as a diplomatic actor this cycle?",
-        "global_view": 50,
-        "sovereign_view": 54,
-        "signal_strength": "Low",
-        "arena": "Global Voice And Strategic Relevance",
-        "emerging": ""
-      },
-      {
-        "proposition": "What is the prevailing external view of UK influence inside multilateral institutions (UN, NATO, G7/G20, Commonwealth, WTO and related bodies), and where is influence perceived to be growing or shrinking?",
-        "global_view": 45,
-        "sovereign_view": 53,
-        "signal_strength": "Low",
-        "arena": "Multilateral Influence",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is UK crisis diplomacy being characterised internationally (effective, symbolic, constrained, marginal), and which crises are driving the assessment?",
-        "global_view": 50,
-        "sovereign_view": 45,
-        "signal_strength": "Low",
-        "arena": "Crisis Diplomacy And Mediation",
-        "emerging": ""
-      },
-      {
-        "proposition": "How credible is the UK's climate and energy diplomacy being treated externally (delivery vs rhetoric, COP legacy, energy transition positioning), and what specific policy actions or outcomes are cited?",
-        "global_view": 45,
-        "sovereign_view": 51,
-        "signal_strength": "Low",
-        "arena": "Climate And Energy Diplomacy",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is the UK's sanctions posture being viewed by non-UK actors (agenda-setting, aligned follower, overreach, underpowered), and what is the perceived impact on counterpart states and alliances?",
-        "global_view": 40,
-        "sovereign_view": 29,
-        "signal_strength": "Low",
-        "arena": "Sanctions And Statecraft Influence",
-        "emerging": ""
-      },
-      {
-        "proposition": "Which international narratives describe the UK's geopolitical voice and strategic relevance (bridge, junior partner, independent actor, diminished), and which regions are most associated with each narrative?",
-        "global_view": 50,
-        "sovereign_view": 54,
-        "signal_strength": "Low",
-        "arena": "Global Voice And Strategic Relevance",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is the UK's development and humanitarian role being perceived internationally (generous, declining, strategic, tokenistic), and what has shifted since ODA commitments changed?",
-        "global_view": 45,
-        "sovereign_view": 51,
-        "signal_strength": "Low",
-        "arena": "Development And Humanitarian Credibility",
-        "emerging": ""
-      }
-    ],
-    "trends": [],
-    "arena_context": {
-      "Multilateral Influence": {
-        "name": "Multilateral Influence",
-        "verified_trends": "2",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "China, United States, Europe",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Multilateral Influence reflects a Strong structural position with stable momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Crisis Diplomacy And Mediation": {
-        "name": "Crisis Diplomacy And Mediation",
-        "verified_trends": "0",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "United States, Russia, Ukraine",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Crisis Diplomacy And Mediation reflects a Weak structural position with stable momentum driven by vulnerability signals.",
-        "posture": "Weak"
-      },
-      "Climate And Energy Diplomacy": {
-        "name": "Climate And Energy Diplomacy",
-        "verified_trends": "2",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "United States, Brazil, Europe",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Climate And Energy Diplomacy reflects a Strong structural position with stable momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Sanctions And Statecraft Influence": {
-        "name": "Sanctions And Statecraft Influence",
-        "verified_trends": "0",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "External (mixed)",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Sanctions And Statecraft Influence reflects a Insufficient data structural position with stable momentum driven by structural position signals.",
-        "posture": "Insufficient data"
-      },
-      "Global Voice And Strategic Relevance": {
-        "name": "Global Voice And Strategic Relevance",
-        "verified_trends": "1",
-        "momentum": "Stable",
-        "geo_concentration": "Medium",
-        "geographies": "Europe, Russia, United States",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Global Voice And Strategic Relevance reflects a Strong structural position with stable momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Development And Humanitarian Credibility": {
-        "name": "Development And Humanitarian Credibility",
-        "verified_trends": "0",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "External (mixed)",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Development And Humanitarian Credibility reflects a Insufficient data structural position with stable momentum driven by structural position signals.",
-        "posture": "Insufficient data"
-      }
-    },
-    "strength_signals": [
-      "SS-003",
-      "SS-004",
-      "SS-001",
-      "SS-002"
-    ],
-    "strength_signal_details": [
-      {
-        "id": "SS-003",
-        "arena": "Multilateral Influence",
-        "character": "Structural",
-        "horizon": "12 months",
-        "description": "International exposure is present and steady, supported by multiple independent institutional references and moderate public commentary.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T4",
-        "evidence": ""
-      },
-      {
-        "id": "SS-004",
-        "arena": "Multilateral Influence",
-        "character": "Structural",
-        "horizon": "12 months",
-        "description": "The signal is steady with moderate international exposure, anchored in documented participation and a single primary reference point in this cycle\u2019s evidence set.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T6",
-        "evidence": ""
-      },
-      {
-        "id": "SS-001",
-        "arena": "Climate And Energy Diplomacy",
-        "character": "Strategic",
-        "horizon": "12 months",
-        "description": "International exposure is prominent and steady, supported by multiple independent references and moderate public commentary across several external geographies.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T1",
-        "evidence": ""
-      },
-      {
-        "id": "SS-002",
-        "arena": "Global Voice And Strategic Relevance",
-        "character": "Strategic",
-        "horizon": "12 months",
-        "description": "International exposure is prominent and steady, and the signal is reinforced by alliance documentation with more than one independent reference point.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T2",
-        "evidence": ""
-      }
-    ],
-    "vulnerability_signals": [
-      "VS-001",
-      "VS-002"
-    ],
-    "vuln_signal_details": [
-      {
-        "id": "VS-001",
-        "title": "Alliance Reliability Sensitivity Around Overseas Basing And Sovereignty Framework",
-        "arena": "Crisis Diplomacy And Mediation",
-        "severity": "High",
-        "horizon": "12 months",
-        "description": "Public commentary is moderate and geographically distributed, and the adverse framing channel can weaken perceived reliability during fast-moving security contingencies.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Confirmed",
-        "trend_ref": "T3",
-        "evidence": ""
-      },
-      {
-        "id": "VS-002",
-        "title": "Monarchy Reputational Spillover Risk Into External Perception Channels",
-        "arena": "Unmapped",
-        "severity": "Medium",
-        "horizon": "12 months",
-        "description": "Public commentary is muted and evidence is limited to a single reference point, but sustained reputational attention can erode soft-power perceptions even without direct policy linkage.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T9",
-        "evidence": ""
-      }
-    ],
-    "priorities": [
-      {
-        "horizon": "Near-term attention",
-        "action": "Address adverse narrative",
-        "arena": "Crisis Diplomacy And Mediation",
-        "trend": "TRU-T3",
-        "description": "High-severity adverse reliability-related signal with strong monitoring evidence volume; bounded verification indicates impact magnitude remains unresolved and should be tracked closely."
-      },
-      {
-        "horizon": "Medium-term monitoring",
-        "action": "Monitor for escalation",
-        "arena": "Sanctions And Statecraft Influence",
-        "trend": "None",
-        "description": "Strategically important arena has thin coverage with indirect linkage only; prioritise additional external evidence capture to resolve posture."
-      }
-    ],
-    "standing_overview": [
-      {
-        "dimension": "Structural Position",
-        "assessment": "Strong",
-        "driver": "Strength is concentrated in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, outweighing weakness in Crisis Diplomacy And Mediation."
-      },
-      {
-        "dimension": "Perception Momentum",
-        "assessment": "Stable",
-        "driver": "Momentum is steady across monitored arenas this cycle."
-      },
-      {
-        "dimension": "Vulnerability Concentration",
-        "assessment": "Moderate",
-        "driver": "Medium-severity vulnerabilities are present, while the high-severity vulnerability signal remains in managed uncertainty."
-      },
-      {
-        "dimension": "Evidence Density",
-        "assessment": "High",
-        "driver": "Strong evidence base across monitored arenas."
-      }
-    ],
-    "conclusion": "This cycle shows confirmed structural strength in multilateral positioning and climate-linked diplomatic standing, with a parallel pressure channel concentrated in crisis-linked reliability framing and reputational spillover signals. The strongest components are steady rather than accelerating, while the principal vulnerabilities remain bounded by managed uncertainty and thin separation of arena-specific attribution in the captured external assessment set.\nStanding posture this cycle: Under pressure",
-    "score": 48,
-    "posture": "Mixed",
-    "trend_count": 30,
-    "strength_count": 4,
-    "vuln_count": 2,
-    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-diplomatic-global-leadership-uk-2026-02-22-qhvt",
-    "ref": "QHVT"
-  },
   "trust": {
     "executive_summary": "The United Kingdom\u2019s standing is assessed as Strong in both Governance Stability and Partner Reliability, with external perception broadly aligned to a strength-weighted structural picture while remaining mixed on leadership-linked stability cues. This cycle is dominated by Governance Stability and Partner Reliability arenas, with the sovereign scorecard indicating an overall score of 70 and stable momentum across the two active pillars.\nVulnerability is concentrated in a single medium-severity leadership-stability signal (VS-001) with Low conviction at the proposition layer (e.g., P-SS-DIAG-SS-002), while strengths accumulate through recurring external signalling on institutional capacity and partner activity (e.g., P-SS-DIAG-SS-004, P-SS-DIAG-SS-007). Managed uncertainty remains concentrated where external-only constraints and thin, uneven framing limit clean UK-specific attribution, particularly in leadership narratives and territorial-cohesion interpretation.",
     "perception_dashboard": [
@@ -1659,7 +1659,7 @@
     "arena_context": {
       "Governance Stability": {
         "name": "Governance Stability",
-        "verified_trends": "8",
+        "spot_checked_trends": "8",
         "momentum": "Stable",
         "geo_concentration": "Low",
         "geographies": "United States, European Union, China",
@@ -1670,7 +1670,7 @@
       },
       "Partner Reliability": {
         "name": "Partner Reliability",
-        "verified_trends": "3",
+        "spot_checked_trends": "3",
         "momentum": "Stable",
         "geo_concentration": "Medium",
         "geographies": "United States, India, Russia",
