@@ -6,7 +6,7 @@
         "proposition": "How is the United Kingdom being characterised by non-UK defence and security commentators as a strategic actor this cycle?",
         "global_view": 50,
         "sovereign_view": 40,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Geopolitical Influence In Security Theatres",
         "emerging": ""
       },
@@ -14,7 +14,7 @@
         "proposition": "What external narratives assess UK military capability and readiness (mass, modernisation, sustainment, deployment capacity), and what evidence is cited?",
         "global_view": 50,
         "sovereign_view": 61,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Military Capability And Readiness",
         "emerging": ""
       },
@@ -22,7 +22,7 @@
         "proposition": "How is UK alliance reliability being framed internationally (dependable, constrained, inconsistent, overcommitted), and which alliances or theatres are driving the assessment?",
         "global_view": 55,
         "sovereign_view": 44,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Alliance Reliability And Burden Sharing",
         "emerging": ""
       },
@@ -30,7 +30,7 @@
         "proposition": "How is the UK's NATO role being described externally (leader, specialist contributor, junior partner, bridge actor), and what signals or decisions are referenced?",
         "global_view": 45,
         "sovereign_view": 48,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Nato Role And Positioning",
         "emerging": ""
       },
@@ -38,7 +38,7 @@
         "proposition": "How is UK deterrence posture being portrayed (credible, ambiguous, escalatory, underpowered), including conventional, cyber, and (where referenced) nuclear dimensions?",
         "global_view": 50,
         "sovereign_view": 39,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Deterrence Posture And Escalation Management",
         "emerging": ""
       },
@@ -46,7 +46,7 @@
         "proposition": "How is the UK defence industrial base being evaluated externally (innovation, export credibility, procurement competence, delivery risk), and which programmes or contracts are central to the narrative?",
         "global_view": 45,
         "sovereign_view": 55,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Defence Industry And Procurement Credibility",
         "emerging": "\u2713"
       },
@@ -54,7 +54,7 @@
         "proposition": "What is the prevailing non-UK view of UK cyber capability and security posture (offensive capacity, resilience, attribution credibility), and what incidents or policy moves are shaping perception?",
         "global_view": 50,
         "sovereign_view": 43,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Cyber Capability And Security Posture",
         "emerging": ""
       }
@@ -347,7 +347,7 @@
         "proposition": "How is the United Kingdom being characterised by non-UK commentators as a place to invest, build companies, and base international operations?",
         "global_view": 45,
         "sovereign_view": 57,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Regulatory And Investment Climate",
         "emerging": "\u2713"
       },
@@ -355,7 +355,7 @@
         "proposition": "What narratives are forming internationally about the strength or decline of London and the UK as a financial centre, and what is driving those narratives?",
         "global_view": 45,
         "sovereign_view": 58,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Financial Services And City Position",
         "emerging": ""
       },
@@ -363,7 +363,7 @@
         "proposition": "How are non-UK observers assessing the UK's competitiveness in AI, advanced technology, and innovation policy, relative to peer economies?",
         "global_view": 45,
         "sovereign_view": 61,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Innovation And Technology",
         "emerging": ""
       },
@@ -371,7 +371,7 @@
         "proposition": "What is the prevailing external view of the UK's regulatory environment (pro-growth, restrictive, stable, unpredictable), and what examples are cited?",
         "global_view": 45,
         "sovereign_view": 57,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Regulatory And Investment Climate",
         "emerging": "\u2713"
       },
@@ -379,7 +379,7 @@
         "proposition": "How is the UK's startup and scale-up ecosystem being perceived internationally (talent, funding, exits, R&D depth, friction), and what has shifted recently?",
         "global_view": 45,
         "sovereign_view": 60,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Startup And Scaleup Ecosystem",
         "emerging": "\u2713"
       },
@@ -387,7 +387,7 @@
         "proposition": "What external narratives describe the UK's trade positioning and post-Brexit economic trajectory (repositioning, stagnation, resilience, vulnerability), and which counterpart countries are most salient?",
         "global_view": 50,
         "sovereign_view": 44,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Trade And Competitiveness",
         "emerging": ""
       }
@@ -696,7 +696,7 @@
         "proposition": "How is the United Kingdom being portrayed by non-UK sources as a cultural and soft power actor this cycle?",
         "global_view": 50,
         "sovereign_view": 46,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Culture And Media Exports",
         "emerging": ""
       },
@@ -704,7 +704,7 @@
         "proposition": "What external narratives describe the reach and competitiveness of UK culture and media exports (film, TV, music, publishing, digital creators), and what signals indicate growth or decline?",
         "global_view": 50,
         "sovereign_view": 56,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Culture And Media Exports",
         "emerging": ""
       },
@@ -712,7 +712,7 @@
         "proposition": "How are UK universities and research institutions being assessed internationally (prestige, access, funding, talent magnetism, visa friction), and what has shifted recently?",
         "global_view": 45,
         "sovereign_view": 48,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Education And Research Prestige",
         "emerging": ""
       },
@@ -720,7 +720,7 @@
         "proposition": "How is the UK's sporting influence being framed externally (global benchmark, commercial powerhouse, over-commercialised, declining), and which sports or events are driving perception?",
         "global_view": 50,
         "sovereign_view": 50,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Sporting Brand And Influence",
         "emerging": ""
       },
@@ -728,7 +728,7 @@
         "proposition": "How are the UK's creative industries and talent pipeline being evaluated internationally (innovation, originality, commercial dominance, labour conditions, cost and access), and what counterparts are compared against?",
         "global_view": 50,
         "sovereign_view": 56,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Creative Industries And Talent",
         "emerging": ""
       },
@@ -736,7 +736,7 @@
         "proposition": "What narratives are forming externally about UK heritage, identity, and nation brand (durable, modernising, contested, nostalgic), and what events or controversies are shaping these views?",
         "global_view": 50,
         "sovereign_view": 37,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Heritage Identity And Nation Brand",
         "emerging": ""
       },
@@ -744,7 +744,7 @@
         "proposition": "How is the UK's perceived moral authority and values leadership being assessed internationally (human rights, rule of law, democratic norms), and which issues most influence the judgement?",
         "global_view": 50,
         "sovereign_view": 39,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Values And Human Rights Reputation",
         "emerging": ""
       }
@@ -1348,7 +1348,7 @@
         "proposition": "How is the United Kingdom being assessed by non-UK governments, multilaterals, and international commentators as a diplomatic actor this cycle?",
         "global_view": 50,
         "sovereign_view": 54,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Global Voice And Strategic Relevance",
         "emerging": ""
       },
@@ -1356,7 +1356,7 @@
         "proposition": "What is the prevailing external view of UK influence inside multilateral institutions (UN, NATO, G7/G20, Commonwealth, WTO and related bodies), and where is influence perceived to be growing or shrinking?",
         "global_view": 45,
         "sovereign_view": 53,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Multilateral Influence",
         "emerging": ""
       },
@@ -1364,7 +1364,7 @@
         "proposition": "How is UK crisis diplomacy being characterised internationally (effective, symbolic, constrained, marginal), and which crises are driving the assessment?",
         "global_view": 50,
         "sovereign_view": 45,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Crisis Diplomacy And Mediation",
         "emerging": ""
       },
@@ -1372,7 +1372,7 @@
         "proposition": "How credible is the UK's climate and energy diplomacy being treated externally (delivery vs rhetoric, COP legacy, energy transition positioning), and what specific policy actions or outcomes are cited?",
         "global_view": 45,
         "sovereign_view": 51,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Climate And Energy Diplomacy",
         "emerging": ""
       },
@@ -1380,7 +1380,7 @@
         "proposition": "How is the UK's sanctions posture being viewed by non-UK actors (agenda-setting, aligned follower, overreach, underpowered), and what is the perceived impact on counterpart states and alliances?",
         "global_view": 40,
         "sovereign_view": 29,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Sanctions And Statecraft Influence",
         "emerging": ""
       },
@@ -1388,7 +1388,7 @@
         "proposition": "Which international narratives describe the UK's geopolitical voice and strategic relevance (bridge, junior partner, independent actor, diminished), and which regions are most associated with each narrative?",
         "global_view": 50,
         "sovereign_view": 54,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Global Voice And Strategic Relevance",
         "emerging": ""
       },
@@ -1396,7 +1396,7 @@
         "proposition": "How is the UK's development and humanitarian role being perceived internationally (generous, declining, strategic, tokenistic), and what has shifted since ODA commitments changed?",
         "global_view": 45,
         "sovereign_view": 51,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Development And Humanitarian Credibility",
         "emerging": ""
       }
@@ -1602,7 +1602,7 @@
         "proposition": "How is the United Kingdom being assessed by non-UK governments, multilaterals, investors, and international commentators in terms of political stability and governing reliability this cycle?",
         "global_view": 50,
         "sovereign_view": 52,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Political Leadership And Electoral Stability",
         "emerging": ""
       },
@@ -1610,7 +1610,7 @@
         "proposition": "What external narratives describe UK political leadership stability (governing continuity, electoral mandate, party cohesion, transition risk), and what events or signals are driving the assessment?",
         "global_view": 50,
         "sovereign_view": 45,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Political Leadership And Electoral Stability",
         "emerging": ""
       },
@@ -1618,7 +1618,7 @@
         "proposition": "How is UK judicial independence and rule of law being evaluated internationally (court credibility, legal system fairness, enforcement reliability, extradition and treaty compliance), and what specific cases or decisions are cited?",
         "global_view": 45,
         "sovereign_view": 52,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Judicial Independence And Rule Of Law",
         "emerging": ""
       },
@@ -1626,7 +1626,7 @@
         "proposition": "How are UK regulatory bodies and institutions being assessed externally (competence, independence, capacity, reform trajectory), and which regulators or institutions are attracting the most attention?",
         "global_view": 40,
         "sovereign_view": 58,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Regulatory Competence And Institutional Capacity",
         "emerging": ""
       },
@@ -1634,7 +1634,7 @@
         "proposition": "What external narratives focus on UK constitutional integrity and territorial cohesion (devolution pressures, Scotland independence sentiment, Northern Ireland protocol dynamics, Welsh governance), and what evidence is being cited?",
         "global_view": 50,
         "sovereign_view": 45,
-        "confidence": "Low",
+        "signal_strength": "Low",
         "arena": "Constitutional Integrity And Territorial Cohesion",
         "emerging": ""
       },
@@ -1642,7 +1642,7 @@
         "proposition": "How is UK policy predictability being framed externally (consistent, pragmatic, reactive, reversing), including fiscal policy follow-through, regulatory stability, and implementation credibility?",
         "global_view": 50,
         "sovereign_view": 57,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Policy Predictability And Implementation Record",
         "emerging": ""
       },
@@ -1650,7 +1650,7 @@
         "proposition": "How is the UK being characterised externally as a long-term partner and counterparty (reliable, transactional, distracted, inward-looking), and which counterpart countries or blocs are most salient in that judgement?",
         "global_view": 50,
         "sovereign_view": 56,
-        "confidence": "Medium",
+        "signal_strength": "Medium",
         "arena": "Long Term Partner And Counterparty Reliability",
         "emerging": ""
       }

@@ -207,7 +207,7 @@ def parse_report_content(desc_html):
         data["executive_summary"] = _strip_tags(exec_match.group(1))
 
     # ─── Perception Dashboard ───
-    # Pipe-delimited table rows: | Proposition | Global View | Sovereign View | Confidence | Arena | Emerging |
+    # Pipe-delimited table rows: | Proposition | Global View | Sovereign View | Signal Strength | Arena | Emerging |
     dashboard_section = re.search(
         r"Sovereign Perception Dashboard.*?</h2>(.*?)(?=<h2|$)",
         desc_html, re.DOTALL | re.IGNORECASE
@@ -226,7 +226,7 @@ def parse_report_content(desc_html):
                 prop_text = cols[0]
                 global_view = cols[1].replace("%", "").strip()
                 sovereign_view = cols[2].replace("%", "").strip()
-                confidence = cols[3].strip()
+                signal_strength = cols[3].strip()
                 arena = cols[4].strip()
                 emerging = cols[5] if len(cols) > 5 else ""
 
@@ -244,7 +244,7 @@ def parse_report_content(desc_html):
                     "proposition": prop_text,
                     "global_view": gv,
                     "sovereign_view": sv,
-                    "confidence": confidence,
+                    "signal_strength": signal_strength,
                     "arena": arena,
                     "emerging": emerging.strip(", "),
                 })
@@ -568,6 +568,26 @@ def extract_arena_findings(exec_text, conclusion_text=""):
     # "X remain structurally Strong"
     for m in re.finditer(
         r'([A-Z][A-Za-z,\s&]+?)\s+remain(?:s)?\s+structurally\s+Strong',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Strong", "detail": ""})
+
+    # "assessed as Strong in X and Y" or "Strong in both X and Y"
+    for m in re.finditer(
+        r'Strong\s+in\s+(?:both\s+)?([A-Z][A-Za-z,\s&]+?)(?:\s*(?:,\s*(?:with|while|but)|\.|;))',
+        combined
+    ):
+        for arena in _split_arena_list(m.group(1)):
+            if arena not in seen:
+                seen.add(arena)
+                findings.append({"arena": arena, "posture": "Strong", "detail": ""})
+
+    # "strength-weighted standing in X and Y"
+    for m in re.finditer(
+        r'strength-weighted\s+(?:standing|picture)\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:,\s*(?:with|while|but)|\.|;))',
         combined
     ):
         for arena in _split_arena_list(m.group(1)):
@@ -1088,6 +1108,23 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         # Merge with arena_context for momentum data
         arena_ctx = pdata.get("arena_context", {})
 
+        # Supplement findings with any arena_context entries the regex missed
+        if arena_ctx:
+            found_names = {f["arena"] for f in findings}
+            for arena_name, ctx in arena_ctx.items():
+                if arena_name not in found_names:
+                    ap = ctx.get("posture", "")
+                    if ap.lower() in ("strong",):
+                        findings.append({"arena": arena_name, "posture": "Strong", "detail": ""})
+                    elif ap.lower() in ("weak",):
+                        findings.append({"arena": arena_name, "posture": "Weak", "detail": ""})
+                    elif ap.lower() in ("moderate", "mixed"):
+                        findings.append({"arena": arena_name, "posture": "Mixed", "detail": ""})
+                    elif ap.lower() in ("insufficient data",):
+                        findings.append({"arena": arena_name, "posture": "Uncertain", "detail": "Insufficient data"})
+                    else:
+                        findings.append({"arena": arena_name, "posture": "Uncertain", "detail": ap})
+
         # Build finding rows — each arena gets its own row in the card
         findings_rows_html = ""
         if findings:
@@ -1225,8 +1262,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
   <div class="topbar-right">
     <nav class="topbar-nav">
       <a href="#" class="active">Dashboard</a>
-      <a href="#pillars">Pillars</a>
-      <a href="#signals">Signals</a>
+      <a href="#pillars">Pillar Briefings</a>
     </nav>
     <span class="topbar-date" id="topbar-date">{display_date}</span>
   </div>
@@ -1422,7 +1458,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
                     sv_style = ' style="color:var(--green);font-weight:700"'
                 elif sv < gv:
                     sv_style = ' style="color:var(--red);font-weight:700"'
-            conf = p.get("confidence", "")
+            conf = p.get("signal_strength", "") or p.get("confidence", "")
             conf_cls = "conf-medium" if conf.lower() == "medium" else "conf-low" if conf.lower() == "low" else "conf-high"
             arena = p.get("arena", "")
             rows += f'''        <tr>
@@ -1434,7 +1470,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         </tr>\n'''
         perception_html = f'''
       <table class="pd-table">
-        <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Confidence</th><th>Arena</th></tr></thead>
+        <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Signal Strength</th><th>Arena</th></tr></thead>
         <tbody>
 {rows}        </tbody>
       </table>'''
