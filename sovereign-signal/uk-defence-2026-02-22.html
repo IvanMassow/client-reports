@@ -8,13 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #1B2A4A; --navy-deep: #0F1B33; --navy-mid: #253B63;
-  --gold: #D4AF37; --gold-light: #F0E0A0; --gold-muted: rgba(212,175,55,0.15);
-  --red: #C4314B; --green: #0B8457; --amber: #D4920A;
-  --text: #1D1D1D; --text-mid: #4A5568; --text-muted: #6B7280;
-  --bg: #FFFFFF; --bg-card: #FFFFFF; --border: #E5E7EB; --border-light: #F0F0EC;
-  --pillar: #1E3A5F; --pillar-light: #E0ECF5; --pillar-mid: #2563EB;
-  --card-radius: 4px; --card-shadow: 0 1px 3px rgba(5,19,54,0.06), 0 1px 2px rgba(5,19,54,0.04);
+  --navy: #242D3C; --navy-deep: #1A2030; --navy-mid: #34404F;
+  --gold: #C9A84C; --gold-light: #EDE0B8; --gold-muted: rgba(201,168,76,0.15);
+  --red: #C4545A; --green: #3A8A6E; --amber: #C4920A;
+  --text: #2C2C2C; --text-mid: #555B66; --text-muted: #7A7F88;
+  --bg: #FAF8F5; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
+  --pillar: #4A6FA5; --pillar-light: #E4EDF6; --pillar-mid: #5E88BE;
+  --card-radius: 8px; --card-shadow: 0 1px 4px rgba(30,30,30,0.05), 0 1px 2px rgba(30,30,30,0.03);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.6; }
@@ -31,7 +31,7 @@ body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--b
 .back-link:hover { color: white; background: rgba(255,255,255,0.08); }
 .hero { background: var(--navy-deep); position: relative; overflow: hidden; padding: 48px 32px 40px; }
 .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center/cover no-repeat; opacity: 0.2; }
-.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(15,27,51,0.95) 0%, rgba(15,27,51,0.8) 40%, rgba(15,27,51,0.6) 100%); z-index: 1; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26,32,48,0.95) 0%, rgba(26,32,48,0.8) 40%, rgba(26,32,48,0.6) 100%); z-index: 1; }
 .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--pillar), var(--pillar-mid), transparent); z-index: 2; }
 .hero-inner { max-width: 1120px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; }
 .hero-left { flex: 1; }

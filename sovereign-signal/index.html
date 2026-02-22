@@ -8,41 +8,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #1B2A4A;
-  --navy-deep: #0F1B33;
-  --navy-mid: #253B63;
-  --gold: #D4AF37;
-  --gold-light: #F0E0A0;
-  --gold-muted: rgba(212,175,55,0.15);
-  --red: #C4314B;
-  --green: #0B8457;
-  --amber: #D4920A;
-  --text: #1D1D1D;
-  --text-mid: #4A5568;
-  --text-muted: #6B7280;
-  --bg: #F8F9FA;
+  /* Core palette — warm slate instead of cold navy */
+  --navy: #242D3C;
+  --navy-deep: #1A2030;
+  --navy-mid: #34404F;
+  --gold: #C9A84C;
+  --gold-light: #EDE0B8;
+  --gold-muted: rgba(201,168,76,0.15);
+  --red: #C4545A;
+  --green: #3A8A6E;
+  --amber: #C4920A;
+  --text: #2C2C2C;
+  --text-mid: #555B66;
+  --text-muted: #7A7F88;
+  --bg: #FAF8F5;
   --bg-card: #FFFFFF;
-  --border: #E5E7EB;
-  --border-light: #F0F0EC;
-  --card-radius: 6px;
-  --card-shadow: 0 1px 3px rgba(5,19,54,0.06), 0 1px 2px rgba(5,19,54,0.04);
+  --border: #E8E6E1;
+  --border-light: #F2F0EB;
+  --card-radius: 8px;
+  --card-shadow: 0 1px 4px rgba(30,30,30,0.05), 0 1px 2px rgba(30,30,30,0.03);
 
-  /* Pillar colours */
-  --p-softpower: #6B21A8;
-  --p-softpower-light: #F3E8FF;
-  --p-softpower-mid: #9333EA;
-  --p-defence: #1E3A5F;
-  --p-defence-light: #E0ECF5;
-  --p-defence-mid: #2563EB;
-  --p-economic: #0B6E4F;
-  --p-economic-light: #DCFCE7;
-  --p-economic-mid: #16A34A;
-  --p-diplomatic: #92650A;
-  --p-diplomatic-light: #FEF3C7;
-  --p-diplomatic-mid: #D4920A;
-  --p-trust: #8B1A2B;
-  --p-trust-light: #FDE8EC;
-  --p-trust-mid: #DC2626;
+  /* Pillar colours — sophisticated, muted tones */
+  --p-softpower: #7C5295;
+  --p-softpower-light: #F0E6F6;
+  --p-softpower-mid: #9568B0;
+  --p-defence: #4A6FA5;
+  --p-defence-light: #E4EDF6;
+  --p-defence-mid: #5E88BE;
+  --p-economic: #3D8B6E;
+  --p-economic-light: #E2F2EB;
+  --p-economic-mid: #52A688;
+  --p-diplomatic: #B08830;
+  --p-diplomatic-light: #F8F0DA;
+  --p-diplomatic-mid: #C9A040;
+  --p-trust: #B85C4A;
+  --p-trust-light: #F8E8E4;
+  --p-trust-mid: #D0715E;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -125,11 +126,11 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(105deg,
-    rgba(15,27,51,0.97) 0%,
-    rgba(15,27,51,0.92) 25%,
-    rgba(15,27,51,0.7) 50%,
-    rgba(15,27,51,0.35) 75%,
-    rgba(15,27,51,0.25) 100%);
+    rgba(26,32,48,0.97) 0%,
+    rgba(26,32,48,0.92) 25%,
+    rgba(26,32,48,0.7) 50%,
+    rgba(26,32,48,0.35) 75%,
+    rgba(26,32,48,0.25) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -224,14 +225,14 @@ body {
   margin-top: 8px;
 }
 .score-block-inner {
-  background: rgba(15,27,51,0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212,175,55,0.25);
-  border-radius: 8px;
+  background: rgba(26,32,48,0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 10px;
   padding: 32px 28px 28px;
   text-align: center;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 .score-block-label {
   font-size: 9px;
@@ -287,21 +288,21 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1px;
-  background: rgba(15,27,51,0.92);
-  border-top: 1px solid rgba(255,255,255,0.08);
+  background: rgba(26,32,48,0.92);
+  border-top: 1px solid rgba(255,255,255,0.06);
   position: relative;
   z-index: 3;
 }
 .pillar-score-cell {
   padding: 24px 12px 22px;
   text-align: center;
-  background: rgba(15,27,51,0.88);
+  background: rgba(26,32,48,0.88);
   transition: background 0.15s;
   cursor: pointer;
   text-decoration: none;
   display: block;
 }
-.pillar-score-cell:hover { background: rgba(15,27,51,0.95); }
+.pillar-score-cell:hover { background: rgba(26,32,48,0.95); }
 .pillar-score-name {
   font-size: 9px;
   font-weight: 700;
@@ -903,497 +904,497 @@ body {
     <div class="signals-list">
       <div class="signal-row">
         <div class="signal-id">SS-001</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-018</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-002</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-018</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-003</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-020</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-004</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-018</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-005</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-025</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-006</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-013</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-001</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-002</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-004</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-005</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-006</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-007</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-008</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-009</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-003</div>
-        <div class="signal-pillar" style="background:#F3E8FF;color:#6B21A8">Soft Power</div>
+        <div class="signal-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-001</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-007</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-008</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-002</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-009</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-010</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-003</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-004</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-013</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-004</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-016</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-017</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-005</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-018</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-019</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-006</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-025</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-026</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-001</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-002</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-003</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-004</div>
-        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-003</div>
-        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-pillar" style="background:#F8F0DA;color:#B08830">Diplomatic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-004</div>
-        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-pillar" style="background:#F8F0DA;color:#B08830">Diplomatic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-001</div>
-        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-pillar" style="background:#F8F0DA;color:#B08830">Diplomatic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-002</div>
-        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-pillar" style="background:#F8F0DA;color:#B08830">Diplomatic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-001</div>
-        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-pillar" style="background:#F8F0DA;color:#B08830">Diplomatic</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-002</div>
-        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-pillar" style="background:#F8F0DA;color:#B08830">Diplomatic</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-005</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-016</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-017</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-002</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-011</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-012</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-001</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-007</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-008</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-004</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-014</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-015</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-007</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-021</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-022</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-003</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-013</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-006</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-018</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-019</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-020</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
         <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id" style="color:var(--red)">VS-001</div>
-        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
         <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
         <div class="signal-horizon">This cycle</div>

@@ -41,9 +41,9 @@ PILLARS = {
         "name": "Soft Power & Cultural Standing",
         "short": "Soft Power",
         "headline": "SOVEREIGN STANDING BRIEF — SOFT POWER & CULTURAL STANDING — UK",
-        "color": "#6B21A8",
-        "color_light": "#F3E8FF",
-        "color_mid": "#9333EA",
+        "color": "#7C5295",
+        "color_light": "#F0E6F6",
+        "color_mid": "#9568B0",
         "slug": "softpower",
         "keywords": ["soft power", "cultural"],
     },
@@ -51,9 +51,9 @@ PILLARS = {
         "name": "Defence & Strategic Credibility",
         "short": "Defence",
         "headline": "SOVEREIGN STANDING BRIEF — DEFENCE & STRATEGIC CREDIBILITY — UK",
-        "color": "#1E3A5F",
-        "color_light": "#E0ECF5",
-        "color_mid": "#2563EB",
+        "color": "#4A6FA5",
+        "color_light": "#E4EDF6",
+        "color_mid": "#5E88BE",
         "slug": "defence",
         "keywords": ["defence", "defense", "strategic credibility", "military"],
     },
@@ -61,9 +61,9 @@ PILLARS = {
         "name": "Economic & Business Leadership",
         "short": "Economic",
         "headline": "SOVEREIGN STANDING BRIEF — ECONOMIC & BUSINESS LEADERSHIP — UK",
-        "color": "#0B6E4F",
-        "color_light": "#DCFCE7",
-        "color_mid": "#16A34A",
+        "color": "#3D8B6E",
+        "color_light": "#E2F2EB",
+        "color_mid": "#52A688",
         "slug": "economic",
         "keywords": ["economic", "business", "competence"],
     },
@@ -71,9 +71,9 @@ PILLARS = {
         "name": "Diplomatic & Global Leadership",
         "short": "Diplomatic",
         "headline": "SOVEREIGN STANDING BRIEF — DIPLOMATIC & GLOBAL LEADERSHIP — UK",
-        "color": "#92650A",
-        "color_light": "#FEF3C7",
-        "color_mid": "#D4920A",
+        "color": "#B08830",
+        "color_light": "#F8F0DA",
+        "color_mid": "#C9A040",
         "slug": "diplomatic",
         "keywords": ["diplomatic", "global leadership", "diplomacy"],
     },
@@ -81,9 +81,9 @@ PILLARS = {
         "name": "Trust, Stability & Systemic Reliability",
         "short": "Trust",
         "headline": "SOVEREIGN STANDING BRIEF — TRUST, STABILITY & SYSTEMIC RELIABILITY — UK",
-        "color": "#8B1A2B",
-        "color_light": "#FDE8EC",
-        "color_mid": "#DC2626",
+        "color": "#B85C4A",
+        "color_light": "#F8E8E4",
+        "color_mid": "#D0715E",
         "slug": "trust",
         "keywords": ["trust", "stability", "governance", "systemic", "reliability"],
     },
@@ -740,13 +740,13 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {{
-  --navy: #1B2A4A; --navy-deep: #0F1B33; --navy-mid: #253B63;
-  --gold: #D4AF37; --gold-light: #F0E0A0; --gold-muted: rgba(212,175,55,0.15);
-  --red: #C4314B; --green: #0B8457; --amber: #D4920A;
-  --text: #1D1D1D; --text-mid: #4A5568; --text-muted: #6B7280;
-  --bg: #FFFFFF; --bg-card: #FFFFFF; --border: #E5E7EB; --border-light: #F0F0EC;
+  --navy: #242D3C; --navy-deep: #1A2030; --navy-mid: #34404F;
+  --gold: #C9A84C; --gold-light: #EDE0B8; --gold-muted: rgba(201,168,76,0.15);
+  --red: #C4545A; --green: #3A8A6E; --amber: #C4920A;
+  --text: #2C2C2C; --text-mid: #555B66; --text-muted: #7A7F88;
+  --bg: #FAF8F5; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
   --pillar: {pillar['color']}; --pillar-light: {pillar['color_light']}; --pillar-mid: {pillar['color_mid']};
-  --card-radius: 4px; --card-shadow: 0 1px 3px rgba(5,19,54,0.06), 0 1px 2px rgba(5,19,54,0.04);
+  --card-radius: 8px; --card-shadow: 0 1px 4px rgba(30,30,30,0.05), 0 1px 2px rgba(30,30,30,0.03);
 }}
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 body {{ font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.6; }}
@@ -763,7 +763,7 @@ body {{ font-family: 'Inter', sans-serif; color: var(--text); background: var(--
 .back-link:hover {{ color: white; background: rgba(255,255,255,0.08); }}
 .hero {{ background: var(--navy-deep); position: relative; overflow: hidden; padding: 48px 32px 40px; }}
 .hero-bg {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center/cover no-repeat; opacity: 0.2; }}
-.hero::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(15,27,51,0.95) 0%, rgba(15,27,51,0.8) 40%, rgba(15,27,51,0.6) 100%); z-index: 1; }}
+.hero::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26,32,48,0.95) 0%, rgba(26,32,48,0.8) 40%, rgba(26,32,48,0.6) 100%); z-index: 1; }}
 .hero::after {{ content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--pillar), var(--pillar-mid), transparent); z-index: 2; }}
 .hero-inner {{ max-width: 1120px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; }}
 .hero-left {{ flex: 1; }}
