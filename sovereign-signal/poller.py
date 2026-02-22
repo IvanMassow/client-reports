@@ -1955,7 +1955,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .back-link {{ font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; }}
 
 /* Pillar Navigation */
-.pillar-nav {{ background: var(--slate-mid); display: flex; align-items: center; justify-content: center; gap: 4px; padding: 0 16px; height: 40px; border-top: 1px solid rgba(255,255,255,0.06); }}
+.pillar-nav {{ background: transparent; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 0 16px; height: 36px; position: relative; z-index: 10; }}
 .pillar-nav a {{ font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 500; color: rgba(255,255,255,0.4); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; letter-spacing: 0.5px; white-space: nowrap; }}
 .pillar-nav a:hover {{ color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }}
 .pillar-nav a.pnav-active {{ color: var(--accent); background: rgba(201,168,76,0.1); }}
@@ -2198,12 +2198,11 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   </div>
 </div>
 
+<div class="hero">
 <div class="pillar-nav">
   <a href="index.html" class="pillar-nav-back">&larr;</a>
   {pillar_nav_items}
 </div>
-
-<div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-left">
