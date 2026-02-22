@@ -621,12 +621,6 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 </head>
 <body>
 
-<div class="class-bar">
-  <span>Sovereign Signal Intelligence</span>
-  <span class="class-level">Official &mdash; Sensitive</span>
-  <span id="class-date">{display_date}</span>
-</div>
-
 <div class="topbar">
   <div class="topbar-left">
     <div class="topbar-logo">NOAH</div>
