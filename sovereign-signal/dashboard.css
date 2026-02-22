@@ -494,6 +494,13 @@ body {
   color: var(--text-muted);
   flex-shrink: 0;
 }
+.finding-momentum {
+  font-size: 10px;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+.finding-mom-rising { color: var(--green); }
+.finding-mom-fading { color: var(--red); }
 .finding-tag {
   font-size: 10px;
   font-weight: 500;

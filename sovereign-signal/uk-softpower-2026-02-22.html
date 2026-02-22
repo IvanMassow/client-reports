@@ -75,21 +75,80 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .key-stat-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 6px; color: var(--text); }
 .key-stat-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }
 
+/* Arena Strip — gauges under hero */
+.arena-strip { display: flex; background: var(--slate); position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,0.06); }
+.arena-gauge { flex: 1; padding: 16px 12px 14px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
+.arena-gauge:last-child { border-right: none; }
+.arena-gauge-name { font-size: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; line-height: 1.2; }
+.arena-gauge-posture { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.arena-gauge-momentum { font-size: 10px; opacity: 0.7; }
+
 /* Arena Cards */
 .arena-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 16px 20px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 0; box-shadow: var(--card-shadow); overflow: hidden; }
+.arena-card-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px 10px; }
+.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); }
 .arena-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; flex-shrink: 0; }
-.arena-card-detail { font-size: 10px; color: var(--text-muted); width: 100%; margin-top: -4px; }
+.arena-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-light); padding: 0; }
+.arena-card-field { background: var(--bg-card); padding: 8px 18px; }
+.arena-field-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 2px; }
+.arena-field-val { font-size: 12px; font-weight: 600; color: var(--text); }
+.arena-card-geo { padding: 8px 18px 12px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-light); }
 
-/* Signal Tables */
-.signal-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
-.signal-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
-.signal-table tbody td { font-size: 13px; color: var(--text-mid); padding: 10px 16px; border-bottom: 1px solid var(--border-light); }
-.signal-table tbody tr:last-child td { border-bottom: none; }
-.signal-id { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.5px; white-space: nowrap; }
-.signal-id-strong { color: var(--green); }
-.signal-id-vuln { color: var(--red); }
+/* Perception Dashboard Table */
+.pd-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.pd-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.pd-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.pd-table tbody tr:last-child td { border-bottom: none; }
+.pd-prop { max-width: 400px; line-height: 1.5; }
+.pd-pct { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; white-space: nowrap; }
+.pd-arena { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+.conf-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; white-space: nowrap; }
+.conf-high { background: rgba(58,138,110,0.1); color: #166534; }
+.conf-medium { background: rgba(146,64,14,0.1); color: #92400e; }
+.conf-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* Signal Cards */
+.signal-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 20px 24px; box-shadow: var(--card-shadow); margin-bottom: 12px; }
+.signal-card-strength { border-left: 4px solid var(--green); }
+.signal-card-vuln { border-left: 4px solid var(--red); }
+.signal-card-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.signal-card-id { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px; color: var(--text); padding: 4px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.signal-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }
+.signal-badge-strength { background: rgba(58,138,110,0.12); color: #166534; }
+.signal-badge-vuln { background: rgba(196,84,90,0.12); color: #991b1b; }
+.signal-badge-arena { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.signal-badge-horizon { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.char-reputational { background: rgba(196,146,10,0.1); color: #92400e; }
+.char-structural { background: rgba(58,138,110,0.1); color: #166534; }
+.char-strategic { background: rgba(88,64,14,0.08); color: #553f0e; }
+.char-policy { background: rgba(146,64,14,0.1); color: #92400e; }
+.sev-high { background: rgba(196,84,90,0.12); color: #991b1b; }
+.sev-medium { background: rgba(196,146,10,0.1); color: #92400e; }
+.sev-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+.signal-card-title { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.signal-card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 10px; }
+.signal-card-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); }
+
+/* Standing Overview Table */
+.overview-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.overview-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.overview-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); }
+.overview-table tbody tr:last-child td { border-bottom: none; }
+.ov-dim { font-weight: 600; color: var(--text); white-space: nowrap; }
+.ov-assess { font-weight: 700; white-space: nowrap; }
+
+/* Priorities */
+.priority-horizon { font-size: 14px; font-weight: 600; color: var(--text); margin: 20px 0 10px; text-transform: capitalize; }
+.priority-group { display: flex; flex-direction: column; gap: 8px; }
+.priority-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 14px 18px; box-shadow: var(--card-shadow); }
+.priority-action { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; display: inline-block; margin-bottom: 6px; }
+.pri-address { background: rgba(196,84,90,0.12); color: #991b1b; }
+.pri-monitor { background: rgba(196,146,10,0.1); color: #92400e; }
+.pri-reinforce { background: rgba(58,138,110,0.12); color: #166534; }
+.pri-build { background: rgba(58,138,110,0.08); color: #166534; }
+.priority-arena { font-size: 11px; font-weight: 600; color: var(--pillar); display: block; margin-bottom: 4px; }
+.priority-desc { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
 
 /* Conclusion card */
 .conclusion-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
@@ -129,6 +188,12 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .key-stats { grid-template-columns: repeat(3, 1fr); }
   .key-stat-num { font-size: 24px; }
   .arena-grid { grid-template-columns: 1fr; }
+  .arena-strip { flex-wrap: wrap; }
+  .arena-gauge { min-width: 33%; }
+  .pd-table { font-size: 12px; }
+  .pd-prop { max-width: 250px; }
+  .signal-card { padding: 16px; }
+  .signal-card-header { gap: 6px; }
   .exec-card { padding: 20px; }
   .conclusion-card { padding: 20px; }
   .source-section { padding: 20px 16px; }
@@ -180,6 +245,37 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     </div>
   </div>
 </div>
+<div class="arena-strip">
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">CULTURE AND MEDIA EXPORTS</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">EDUCATION AND RESEARCH PRESTIGE</div>
+          <div class="arena-gauge-posture" style="color:var(--text-muted)">Insufficient data</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">SPORTING BRAND AND INFLUENCE</div>
+          <div class="arena-gauge-posture" style="color:var(--amber)">Moderate</div>
+          <div class="arena-gauge-momentum" style="color:var(--green)">&#9650; Rising</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">CREATIVE INDUSTRIES AND TALENT</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">HERITAGE IDENTITY AND NATION BRAND</div>
+          <div class="arena-gauge-posture" style="color:var(--red)">Weak</div>
+          <div class="arena-gauge-momentum" style="color:var(--green)">&#9650; Rising</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">VALUES AND HUMAN RIGHTS REPUTATION</div>
+          <div class="arena-gauge-posture" style="color:var(--red)">Weak</div>
+          <div class="arena-gauge-momentum" style="color:var(--green)">&#9650; Rising</div>
+        </div></div>
 
 <div class="main">
 
@@ -199,7 +295,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   
       <div class="key-stats">
         <div class="key-stat">
-          <div class="key-stat-num" style="color:var(--pillar)">5</div>
+          <div class="key-stat-num" style="color:var(--pillar)">6</div>
           <div class="key-stat-label">Arenas Assessed</div>
         </div>
         <div class="key-stat">
@@ -211,7 +307,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <div class="key-stat-label">Arenas Weak</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num" style="color:var(--green)">12</div>
+          <div class="key-stat-num" style="color:var(--green)">6</div>
           <div class="key-stat-label">Strength Signals</div>
         </div>
         <div class="key-stat">
@@ -219,94 +315,438 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <div class="key-stat-label">Vulnerability Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num">60</div>
+          <div class="key-stat-num">30</div>
           <div class="key-stat-label">Trends Tracked</div>
         </div>
       </div>
 
-  <!-- Section 02: Arena Scorecard -->
+  <!-- Section 02: Perception Dashboard -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Sovereign Perception Dashboard</h2><span class="sec-num">Section 02</span></div>
+      <table class="pd-table">
+        <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Confidence</th><th>Arena</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="pd-prop">How is the United Kingdom being portrayed by non-UK sources as a cultural and soft power actor this cycle?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">46%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Culture And Media Exports</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">What external narratives describe the reach and competitiveness of UK culture and media exports (film, TV, music, publishing, digital creators), and what signals indicate growth or decline?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">56%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Culture And Media Exports</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How are UK universities and research institutions being assessed internationally (prestige, access, funding, talent magnetism, visa friction), and what has shifted recently?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">48%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Education And Research Prestige</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How is the UK&#x27;s sporting influence being framed externally (global benchmark, commercial powerhouse, over-commercialised, declining), and which sports or events are driving perception?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct">50%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Sporting Brand And Influence</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How are the UK&#x27;s creative industries and talent pipeline being evaluated internationally (innovation, originality, commercial dominance, labour conditions, cost and access), and what counterparts are compared against?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">56%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Creative Industries And Talent</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">What narratives are forming externally about UK heritage, identity, and nation brand (durable, modernising, contested, nostalgic), and what events or controversies are shaping these views?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">37%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Heritage Identity And Nation Brand</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How is the UK&#x27;s perceived moral authority and values leadership being assessed internationally (human rights, rule of law, democratic norms), and which issues most influence the judgement?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">39%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Values And Human Rights Reputation</td>
+        </tr>
+        </tbody>
+      </table></div>
+
+  <!-- Section 03: Arena Analysis -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Arena Scorecard</h2>
-      <span class="sec-num">Section 02</span>
+      <h2 class="sec-title">Arena Analysis</h2>
+      <span class="sec-num">Section 03 &middot; 6 arenas</span>
     </div>
     <div class="arena-grid">
-        <div class="arena-card" style="border-left:4px solid var(--green)">
-          <div class="arena-card-name">Culture And Media Exports</div>
-          <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
-          <div class="arena-card-detail">Strength concentration</div>
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Culture And Media Exports</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">1</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">India, United States, Australia</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--green)">
-          <div class="arena-card-name">Creative Industries And Talent</div>
-          <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
-          <div class="arena-card-detail">Strength concentration</div>
+        <div class="arena-card" style="border-top:3px solid var(--text-muted)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Education And Research Prestige</div>
+            <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)">INSUFFICIENT DATA</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">External (mixed)</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--red)">
-          <div class="arena-card-name">Heritage Identity And Nation Brand</div>
-          <span class="arena-badge" style="background:rgba(196,84,90,0.1);color:#991b1b">WEAK</span>
-          <div class="arena-card-detail">Vulnerability concentration</div>
+        <div class="arena-card" style="border-top:3px solid var(--amber)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Sporting Brand And Influence</div>
+            <span class="arena-badge" style="background:rgba(196,146,10,0.1);color:#92400e">MODERATE</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">Italy, United States, Canada</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--red)">
-          <div class="arena-card-name">Values And Human Rights Reputation</div>
-          <span class="arena-badge" style="background:rgba(196,84,90,0.1);color:#991b1b">WEAK</span>
-          <div class="arena-card-detail">Vulnerability concentration</div>
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Creative Industries And Talent</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">Spain, United States, France</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--text-muted)">
-          <div class="arena-card-name">Education And Research Prestige</div>
-          <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)">UNCERTAIN</span>
-          <div class="arena-card-detail">Insufficient data</div>
+        <div class="arena-card" style="border-top:3px solid var(--red)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Heritage Identity And Nation Brand</div>
+            <span class="arena-badge" style="background:rgba(196,84,90,0.1);color:#991b1b">WEAK</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">1</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Elevated</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">United States, Australia, Canada</div>
+        </div>
+        <div class="arena-card" style="border-top:3px solid var(--red)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Values And Human Rights Reputation</div>
+            <span class="arena-badge" style="background:rgba(196,84,90,0.1);color:#991b1b">WEAK</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">United States, Australia, Kenya</div>
         </div>
     </div>
   </div>
 
-  <!-- Section 03: Strength Signals -->
+  <!-- Section 04: Strength Signals -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Sovereign Strength Signals</h2>
-      <span class="sec-num">Section 03 &middot; 10 signals</span>
+      <span class="sec-num">Section 04 &middot; 6 signals</span>
     </div>
     
-      <table class="signal-table">
-        <thead><tr><th>Signal ID</th><th>Assessment</th></tr></thead>
-        <tbody>
-        <tr><td class="signal-id signal-id-strong">SS-001</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-018</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-002</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-003</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-020</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-004</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-005</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-025</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-006</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-013</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        </tbody>
-      </table>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-001</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Culture And Media Exports</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">External coverage indicates steady cultural visibility with moderate international exposure, and at least one independent reference supports the signal in this cycle.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T2</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-002</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Creative Industries And Talent</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">International exposure is present and public commentary is moderate; the signal is steady and anchored to a single reference point captured this cycle.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T12</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-003</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Culture And Media Exports</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">International exposure is present with moderate commentary visibility; the signal is steady and supported by a single externally captured reference tied to global partnership visibility.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T14</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-004</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Creative Industries And Talent</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">The signal is steady with moderate public commentary presence and multiple external geographies in view; one externally captured reference supports the cross-city network framing.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T16</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-005</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Sporting Brand And Influence</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">International exposure is present while public commentary remains moderate; documented commercial footprint provides a clear external-facing anchor for sport-influence visibility.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T19</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-006</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">Public commentary intensity is elevated and the signal is steady; continuity signalling by high-visibility figures provides a stabilising counter-note within an otherwise adverse attention environment.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T7</span>
+        </div>
+      </div>
   </div>
 
-  <!-- Section 04: Vulnerability Signals -->
+  <!-- Section 05: Vulnerability Signals -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
-      <span class="sec-num">Section 04 &middot; 9 signals</span>
+      <span class="sec-num">Section 05 &middot; 9 signals</span>
     </div>
     
-      <table class="signal-table">
-        <thead><tr><th>Signal ID</th><th>Assessment</th></tr></thead>
-        <tbody>
-        <tr><td class="signal-id signal-id-vuln">VS-001</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-vuln">VS-002</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-vuln">VS-004</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-vuln">VS-005</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-vuln">VS-006</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-vuln">VS-007</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-vuln">VS-008</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-vuln">VS-009</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-vuln">VS-003</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        </tbody>
-      </table>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-001</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
+          <span class="signal-badge signal-badge-horizon">Near term</span>
+        </div>
+        <h4 class="signal-card-title">Monarchy Reputation Crisis Signal</h4>
+        <p class="signal-card-desc">International exposure is prominent and public commentary intensity is elevated; adverse attention on national symbols can reduce perceived stability and trust cues abroad.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T1</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-002</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
+          <span class="signal-badge signal-badge-horizon">Near term</span>
+        </div>
+        <h4 class="signal-card-title">Succession Legitimacy Pressure Signal</h4>
+        <p class="signal-card-desc">Public commentary intensity is elevated and the signal is building; institutional legitimacy doubts can harden external narratives about governance resilience and continuity.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T3</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-004</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Values And Human Rights Reputation</span>
+          <span class="signal-badge signal-badge-horizon">Near term</span>
+        </div>
+        <h4 class="signal-card-title">Scandal Spillover Rule Of Law Pressure Signal</h4>
+        <p class="signal-card-desc">International exposure is prominent with repeating adverse attention; spillover framing from high-salience scandals can erode perceived institutional integrity and moral authority.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T6</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-005</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Sporting Brand And Influence</span>
+          <span class="signal-badge signal-badge-horizon">Near term</span>
+        </div>
+        <h4 class="signal-card-title">Football Social Cohesion Adverse Framing Signal</h4>
+        <p class="signal-card-desc">The signal is building with visible external framing in sport-linked channels; cohesion disputes tied to major sport institutions can generalise into broader perceptions of societal stability.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T8</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-006</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Values And Human Rights Reputation</span>
+          <span class="signal-badge signal-badge-horizon">Near term</span>
+        </div>
+        <h4 class="signal-card-title">Stature Amplifier Scandal Cycle Signal</h4>
+        <p class="signal-card-desc">International exposure is prominent while public commentary intensity remains active; amplification cycles can widen reputational spillover beyond discrete incidents into national standing cues.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T23</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-007</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
+          <span class="signal-badge signal-badge-horizon">Near term</span>
+        </div>
+        <h4 class="signal-card-title">Identity Language Inclusion Risk Signal</h4>
+        <p class="signal-card-desc">Public commentary intensity is elevated and the signal is building; identity-framing disputes can harm perceptions of cohesion and values alignment in external audiences.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T24</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-008</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Values And Human Rights Reputation</span>
+          <span class="signal-badge signal-badge-horizon">Near term</span>
+        </div>
+        <h4 class="signal-card-title">International Law Compliance Credibility Risk Signal</h4>
+        <p class="signal-card-desc">The signal is building with external commentary present; compliance-gap narratives can reduce perceived credibility of values leadership in external arenas.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T25</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-009</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
+          <span class="signal-badge signal-badge-horizon">Near term</span>
+        </div>
+        <h4 class="signal-card-title">Commonwealth Realm Reaction Stability Risk Signal</h4>
+        <p class="signal-card-desc">International exposure is prominent and the signal is building; realm reactions can shape perceived resilience of UK-linked institutional brand in external contexts.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T30</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-003</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
+          <span class="signal-badge signal-badge-horizon">12 months</span>
+        </div>
+        <h4 class="signal-card-title">Royal Crisis Management Contestation Signal</h4>
+        <p class="signal-card-desc">Public commentary intensity is elevated but momentum is steady; crisis-management controversy can weaken perceived competence of prominent UK-linked institutions over the medium horizon.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T5</span>
+        </div>
+      </div>
   </div>
 
-  <!-- Section 05: Standing Assessment -->
+  <!-- Section 06: Standing Assessment Overview -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Standing Assessment Overview</h2><span class="sec-num">Section 06</span></div>
+      <table class="overview-table">
+        <thead><tr><th>Dimension</th><th>Assessment</th><th>What Drives It</th></tr></thead>
+        <tbody>
+        <tr><td class="ov-dim">Structural Position</td><td class="ov-assess">Exposed</td><td>Weakness is concentrated in Heritage Identity And Nation Brand and Values And Human Rights Reputation, outweighing strengths in Culture And Media Exports and Creative Industries And Talent (TRU-T1, TRU-T3, TRU-T6, TRU-T25).</td></tr>
+        <tr><td class="ov-dim">Perception Momentum</td><td class="ov-assess">Building</td><td>Building momentum is driven by rising dynamics in Sporting Brand And Influence, Heritage Identity And Nation Brand, and Values And Human Rights Reputation.</td></tr>
+        <tr><td class="ov-dim">Vulnerability Concentration</td><td class="ov-assess">Moderate</td><td>Multiple medium-severity vulnerability signals are present across Heritage Identity And Nation Brand and Values And Human Rights Reputation (VS-001 to VS-009).</td></tr>
+        <tr><td class="ov-dim">Evidence Density</td><td class="ov-assess">Moderate</td><td>Moderate evidence base across monitored arenas.</td></tr>
+        </tbody>
+      </table></div>
+
+  <!-- Section 07: Strategic Priorities -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Attention Priorities</h2><span class="sec-num">Section 07</span></div>    <h4 class="priority-horizon">Near-term attention</h4>
+    <div class="priority-group">
+      <div class="priority-item">
+        <span class="priority-action pri-address">Address adverse narrative</span>
+        <span class="priority-arena">Heritage Identity And Nation Brand</span>
+        <p class="priority-desc">Hot and rising adverse heritage/identity vulnerability signals indicate accelerating external pressure on national-symbol credibility.</p>
+      </div>
+    </div>
+    <h4 class="priority-horizon">Medium-term monitoring</h4>
+    <div class="priority-group">
+      <div class="priority-item">
+        <span class="priority-action pri-reinforce">Reinforce structural position</span>
+        <span class="priority-arena">Culture And Media Exports</span>
+        <p class="priority-desc">Arena standing is strong but contains an adverse counter-signal; reinforcing cultural export strength can reduce erosion risk.</p>
+      </div>
+      <div class="priority-item">
+        <span class="priority-action pri-reinforce">Reinforce structural position</span>
+        <span class="priority-arena">Creative Industries And Talent</span>
+        <p class="priority-desc">Arena standing is strong with a low-confidence competitiveness vulnerability present; reinforce positive creative-hub framing while monitoring comparisons.</p>
+      </div>
+    </div>
+    <h4 class="priority-horizon">Long-term structural positioning</h4>
+    <div class="priority-group">
+      <div class="priority-item">
+        <span class="priority-action pri-build">Structural mechanism requires attention</span>
+        <span class="priority-arena">Values And Human Rights Reputation</span>
+        <p class="priority-desc">Values/reputation standing is weak with repeating adverse integrity narratives; long-horizon structural credibility reinforcement is required.</p>
+      </div>
+    </div>
+</div>
+
+  <!-- Conclusion -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Standing Assessment</h2>

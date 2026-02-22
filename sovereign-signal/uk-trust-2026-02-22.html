@@ -75,21 +75,80 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .key-stat-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 6px; color: var(--text); }
 .key-stat-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }
 
+/* Arena Strip — gauges under hero */
+.arena-strip { display: flex; background: var(--slate); position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,0.06); }
+.arena-gauge { flex: 1; padding: 16px 12px 14px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
+.arena-gauge:last-child { border-right: none; }
+.arena-gauge-name { font-size: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; line-height: 1.2; }
+.arena-gauge-posture { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.arena-gauge-momentum { font-size: 10px; opacity: 0.7; }
+
 /* Arena Cards */
 .arena-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 16px 20px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 0; box-shadow: var(--card-shadow); overflow: hidden; }
+.arena-card-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px 10px; }
+.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); }
 .arena-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; flex-shrink: 0; }
-.arena-card-detail { font-size: 10px; color: var(--text-muted); width: 100%; margin-top: -4px; }
+.arena-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-light); padding: 0; }
+.arena-card-field { background: var(--bg-card); padding: 8px 18px; }
+.arena-field-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 2px; }
+.arena-field-val { font-size: 12px; font-weight: 600; color: var(--text); }
+.arena-card-geo { padding: 8px 18px 12px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-light); }
 
-/* Signal Tables */
-.signal-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
-.signal-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
-.signal-table tbody td { font-size: 13px; color: var(--text-mid); padding: 10px 16px; border-bottom: 1px solid var(--border-light); }
-.signal-table tbody tr:last-child td { border-bottom: none; }
-.signal-id { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.5px; white-space: nowrap; }
-.signal-id-strong { color: var(--green); }
-.signal-id-vuln { color: var(--red); }
+/* Perception Dashboard Table */
+.pd-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.pd-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.pd-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.pd-table tbody tr:last-child td { border-bottom: none; }
+.pd-prop { max-width: 400px; line-height: 1.5; }
+.pd-pct { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; white-space: nowrap; }
+.pd-arena { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+.conf-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; white-space: nowrap; }
+.conf-high { background: rgba(58,138,110,0.1); color: #166534; }
+.conf-medium { background: rgba(146,64,14,0.1); color: #92400e; }
+.conf-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* Signal Cards */
+.signal-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 20px 24px; box-shadow: var(--card-shadow); margin-bottom: 12px; }
+.signal-card-strength { border-left: 4px solid var(--green); }
+.signal-card-vuln { border-left: 4px solid var(--red); }
+.signal-card-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.signal-card-id { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px; color: var(--text); padding: 4px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.signal-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }
+.signal-badge-strength { background: rgba(58,138,110,0.12); color: #166534; }
+.signal-badge-vuln { background: rgba(196,84,90,0.12); color: #991b1b; }
+.signal-badge-arena { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.signal-badge-horizon { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.char-reputational { background: rgba(196,146,10,0.1); color: #92400e; }
+.char-structural { background: rgba(58,138,110,0.1); color: #166534; }
+.char-strategic { background: rgba(88,64,14,0.08); color: #553f0e; }
+.char-policy { background: rgba(146,64,14,0.1); color: #92400e; }
+.sev-high { background: rgba(196,84,90,0.12); color: #991b1b; }
+.sev-medium { background: rgba(196,146,10,0.1); color: #92400e; }
+.sev-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+.signal-card-title { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.signal-card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 10px; }
+.signal-card-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); }
+
+/* Standing Overview Table */
+.overview-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.overview-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.overview-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); }
+.overview-table tbody tr:last-child td { border-bottom: none; }
+.ov-dim { font-weight: 600; color: var(--text); white-space: nowrap; }
+.ov-assess { font-weight: 700; white-space: nowrap; }
+
+/* Priorities */
+.priority-horizon { font-size: 14px; font-weight: 600; color: var(--text); margin: 20px 0 10px; text-transform: capitalize; }
+.priority-group { display: flex; flex-direction: column; gap: 8px; }
+.priority-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 14px 18px; box-shadow: var(--card-shadow); }
+.priority-action { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; display: inline-block; margin-bottom: 6px; }
+.pri-address { background: rgba(196,84,90,0.12); color: #991b1b; }
+.pri-monitor { background: rgba(196,146,10,0.1); color: #92400e; }
+.pri-reinforce { background: rgba(58,138,110,0.12); color: #166534; }
+.pri-build { background: rgba(58,138,110,0.08); color: #166534; }
+.priority-arena { font-size: 11px; font-weight: 600; color: var(--pillar); display: block; margin-bottom: 4px; }
+.priority-desc { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
 
 /* Conclusion card */
 .conclusion-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
@@ -129,6 +188,12 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .key-stats { grid-template-columns: repeat(3, 1fr); }
   .key-stat-num { font-size: 24px; }
   .arena-grid { grid-template-columns: 1fr; }
+  .arena-strip { flex-wrap: wrap; }
+  .arena-gauge { min-width: 33%; }
+  .pd-table { font-size: 12px; }
+  .pd-prop { max-width: 250px; }
+  .signal-card { padding: 16px; }
+  .signal-card-header { gap: 6px; }
   .exec-card { padding: 20px; }
   .conclusion-card { padding: 20px; }
   .source-section { padding: 20px 16px; }
@@ -167,19 +232,30 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <div class="hero-left">
       <span class="hero-tag">Trust</span>
       <h1 class="hero-title">Trust, Stability & Systemic Reliability</h1>
-      <div class="hero-meta">United Kingdom &mdash; 22 February 2026 &middot; Ref: ZKPL</div>
-      <p class="hero-desc">Assessment data not available for this cycle. The intelligence pipeline did not return a structured executive summary for this pillar.</p>
+      <div class="hero-meta">United Kingdom &mdash; 22 February 2026 &middot; Ref: ZQPX</div>
+      <p class="hero-desc">The United Kingdom’s standing is assessed as Strong in both Governance Stability and Partner Reliability, with external perception broadly aligned to a strength-weighted structural picture while remai</p>
     </div>
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Pillar Score</div>
-        <div class="score-block-num">51</div>
+        <div class="score-block-num">52</div>
         <div class="score-block-max">of 100</div>
         <div class="posture posture-mixed">Mixed</div>
       </div>
     </div>
   </div>
 </div>
+<div class="arena-strip">
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">GOVERNANCE STABILITY</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">PARTNER RELIABILITY</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div></div>
 
 <div class="main">
 
@@ -190,7 +266,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <span class="sec-num">Section 01</span>
     </div>
     <div class="exec-card">
-      <p style="font-weight:600">Assessment data not available for this cycle. The intelligence pipeline did not return a structured executive summary for this pillar.</p>
+      <p style="font-weight:600">The United Kingdom’s standing is assessed as Strong in both Governance Stability and Partner Reliability, with external perception broadly aligned to a strength-weighted structural picture while remaining mixed on leadership-linked stability cues. This cycle is dominated by Governance Stability and Partner Reliability arenas, with the sovereign scorecard indicating an overall score of 70 and stable momentum across the two active pillars.</p>
+      <p>Vulnerability is concentrated in a single medium-severity leadership-stability signal (VS-001) with Low conviction at the proposition layer (e.g., P-SS-DIAG-SS-002), while strengths accumulate through recurring external signalling on institutional capacity and partner activity (e.g., P-SS-DIAG-SS-004, P-SS-DIAG-SS-007). Managed uncertainty remains concentrated where external-only constraints and thin, uneven framing limit clean UK-specific attribution, particularly in leadership narratives and territorial-cohesion interpretation.</p>
     </div>
   </div>
 
@@ -198,7 +275,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   
       <div class="key-stats">
         <div class="key-stat">
-          <div class="key-stat-num" style="color:var(--pillar)">0</div>
+          <div class="key-stat-num" style="color:var(--pillar)">2</div>
           <div class="key-stat-label">Arenas Assessed</div>
         </div>
         <div class="key-stat">
@@ -210,55 +287,291 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <div class="key-stat-label">Arenas Weak</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num" style="color:var(--green)">0</div>
+          <div class="key-stat-num" style="color:var(--green)">7</div>
           <div class="key-stat-label">Strength Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num" style="color:var(--red)">0</div>
+          <div class="key-stat-num" style="color:var(--red)">1</div>
           <div class="key-stat-label">Vulnerability Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num">30</div>
+          <div class="key-stat-num">43</div>
           <div class="key-stat-label">Trends Tracked</div>
         </div>
       </div>
 
-  <!-- Section 02: Arena Scorecard -->
+  <!-- Section 02: Perception Dashboard -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Sovereign Perception Dashboard</h2><span class="sec-num">Section 02</span></div>
+      <table class="pd-table">
+        <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Confidence</th><th>Arena</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="pd-prop">How is the United Kingdom being assessed by non-UK governments, multilaterals, investors, and international commentators in terms of political stability and governing reliability this cycle?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">52%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Political Leadership And Electoral Stability</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">What external narratives describe UK political leadership stability (governing continuity, electoral mandate, party cohesion, transition risk), and what events or signals are driving the assessment?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">45%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Political Leadership And Electoral Stability</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How is UK judicial independence and rule of law being evaluated internationally (court credibility, legal system fairness, enforcement reliability, extradition and treaty compliance), and what specific cases or decisions are cited?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">52%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Judicial Independence And Rule Of Law</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How are UK regulatory bodies and institutions being assessed externally (competence, independence, capacity, reform trajectory), and which regulators or institutions are attracting the most attention?</td>
+          <td class="pd-pct">40%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">58%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Regulatory Competence And Institutional Capacity</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">What external narratives focus on UK constitutional integrity and territorial cohesion (devolution pressures, Scotland independence sentiment, Northern Ireland protocol dynamics, Welsh governance), and what evidence is being cited?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">45%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Constitutional Integrity And Territorial Cohesion</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How is UK policy predictability being framed externally (consistent, pragmatic, reactive, reversing), including fiscal policy follow-through, regulatory stability, and implementation credibility?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">57%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Policy Predictability And Implementation Record</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How is the UK being characterised externally as a long-term partner and counterparty (reliable, transactional, distracted, inward-looking), and which counterpart countries or blocs are most salient in that judgement?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">56%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Long Term Partner And Counterparty Reliability</td>
+        </tr>
+        </tbody>
+      </table></div>
+
+  <!-- Section 03: Arena Analysis -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Arena Scorecard</h2>
-      <span class="sec-num">Section 02</span>
+      <h2 class="sec-title">Arena Analysis</h2>
+      <span class="sec-num">Section 03 &middot; 2 arenas</span>
     </div>
     <div class="arena-grid">
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Governance Stability</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">8</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">United States, European Union, China</div>
+        </div>
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Partner Reliability</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">3</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">United States, India, Russia</div>
+        </div>
     </div>
   </div>
 
-  <!-- Section 03: Strength Signals -->
+  <!-- Section 04: Strength Signals -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Sovereign Strength Signals</h2>
-      <span class="sec-num">Section 03 &middot; 0 signals</span>
+      <span class="sec-num">Section 04 &middot; 7 signals</span>
     </div>
-    <div class="exec-card"><p>No strength signals recorded this cycle.</p></div>
+    
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-005</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Governance Stability</span>
+          <span class="signal-badge char-structural">Structural</span>
+        </div>
+        <p class="signal-card-desc">External engagement on regulatory cooperation appears steady and is supported by more than one independent reference, reinforcing an institutional-capacity frame even where the broader narrative remains mixed.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T12</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-003</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Governance Stability</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">International attention to fiscal outturn framing is present with a single reference point; it supports continued visibility of UK macro signals while keeping direction mixed rather than decisively positive.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T10</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-004</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Governance Stability</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">Cross-border legal-procedure visibility is building but remains muted in public commentary; the signal supports rule-of-law awareness while remaining indirect for UK-specific standing judgements.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: Near term</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T11</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-006</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Partner Reliability</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">Recurring external attention is present with a single reference point and mixed trust texture, indicating partner reliability is visible but not uniformly consolidated across audiences.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T13</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-007</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Governance Stability</span>
+          <span class="signal-badge char-policy">Policy</span>
+        </div>
+        <p class="signal-card-desc">This is a low-density signal with muted narrative persistence; it supports a policy-pathway clarity frame but remains managed uncertainty for a settled external assessment.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 3–5 years</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T14</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-001</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Partner Reliability</span>
+          <span class="signal-badge char-strategic">Strategic</span>
+        </div>
+        <p class="signal-card-desc">International exposure is prominent and steady with multiple independent references, supporting recurring alliance-channel positioning while retaining mixed interpretation in external commentary.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T7</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-002</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Partner Reliability</span>
+          <span class="signal-badge char-strategic">Strategic</span>
+        </div>
+        <p class="signal-card-desc">Cooperation signalling is steady with a single reference point; it supports a positive partner narrative without indicating broad amplification beyond the core counterpart channel.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T8</span>
+        </div>
+      </div>
   </div>
 
-  <!-- Section 04: Vulnerability Signals -->
+  <!-- Section 05: Vulnerability Signals -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
-      <span class="sec-num">Section 04 &middot; 0 signals</span>
+      <span class="sec-num">Section 05 &middot; 1 signals</span>
     </div>
-    <div class="exec-card"><p>No vulnerability signals recorded this cycle.</p></div>
+    
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-001</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Governance Stability</span>
+          <span class="signal-badge signal-badge-horizon">12 months</span>
+        </div>
+        <h4 class="signal-card-title">Leadership-Stability Narrative Remains Adverse-Leaning Under External-Only Constraints</h4>
+        <p class="signal-card-desc">Leadership-stability doubts can translate into reduced confidence in governing continuity and decision follow-through.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T1</span>
+        </div>
+      </div>
   </div>
 
-  <!-- Section 05: Standing Assessment -->
+  <!-- Section 06: Standing Assessment Overview -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Standing Assessment Overview</h2><span class="sec-num">Section 06</span></div>
+      <table class="overview-table">
+        <thead><tr><th>Dimension</th><th>Assessment</th><th>What Drives It</th></tr></thead>
+        <tbody>
+        <tr><td class="ov-dim">Structural Position</td><td class="ov-assess">Strong</td><td>Strength-weighted structural picture across Governance Stability and Partner Reliability.</td></tr>
+        <tr><td class="ov-dim">Perception Momentum</td><td class="ov-assess">Stable</td><td>Stable momentum across the two assessed arenas this cycle.</td></tr>
+        <tr><td class="ov-dim">Vulnerability Concentration</td><td class="ov-assess">Low</td><td>One medium-severity vulnerability signal; no high-severity vulnerabilities recorded this cycle.</td></tr>
+        <tr><td class="ov-dim">Evidence Density</td><td class="ov-assess">High</td><td>Strong evidence base across monitored arenas.</td></tr>
+        </tbody>
+      </table></div>
+
+  <!-- Section 07: Strategic Priorities -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Attention Priorities</h2><span class="sec-num">Section 07</span></div>    <h4 class="priority-horizon">Near-term attention</h4>
+    <div class="priority-group">
+      <div class="priority-item">
+        <span class="priority-action pri-monitor">Monitor for escalation</span>
+        <span class="priority-arena">Governance Stability</span>
+        <p class="priority-desc">Silence detected in territorial-cohesion discourse despite expected medium exposure; monitor for emergence of authoritative external framing.</p>
+      </div>
+    </div>
+    <h4 class="priority-horizon">Medium-term monitoring</h4>
+    <div class="priority-group">
+      <div class="priority-item">
+        <span class="priority-action pri-reinforce">Reinforce structural position</span>
+        <span class="priority-arena">Governance Stability</span>
+        <p class="priority-desc">Strong governance standing coexists with a moderate-severity leadership-stability vulnerability; reinforce stability signals before erosion.</p>
+      </div>
+    </div>
+    <h4 class="priority-horizon">Long-term structural positioning</h4>
+    <div class="priority-group">
+      <div class="priority-item">
+        <span class="priority-action pri-build">No long-term priorities identified this cycle.</span>
+        <span class="priority-arena"></span>
+        <p class="priority-desc"></p>
+      </div>
+    </div>
+</div>
+
+  <!-- Conclusion -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Standing Assessment</h2>
       <span class="sec-num">Conclusion</span>
     </div>
     <div class="conclusion-card">
-      <p>Standing assessment data will populate when available.</p>
+      <p>This cycle presents a stable external perception baseline with strength-weighted standing in Governance Stability and Partner Reliability, while leadership-linked stability cues remain bounded by uneven external framing under external-only constraints. The dominant picture is confirmed strength accumulation alongside a narrow, contained vulnerability, with managed uncertainty concentrated where UK-specific attribution is indirect or thin.</p>
+      <p>Standing posture this cycle: Strengthening</p>
       <div class="conclusion-posture">
         Standing posture this cycle: <span class="conclusion-posture-badge posture-mixed">Mixed</span>
       </div>
@@ -272,7 +585,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <div class="source-inner">
       <div class="source-label">SOURCES &amp; RAW TEMPLATE</div>
       <p class="source-text">This report was generated from the Sovereign Standing Brief intelligence template produced by the Noah analytical pipeline. The raw template used to generate this report is available below.</p>
-      <a class="source-link-quiet" href="http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-united-kingdom-governance-standing-reviewed-2026-02-22-zkpl" target="_blank" rel="noopener">View Raw Intelligence Template &rarr;</a>
+      <a class="source-link-quiet" href="http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/trust-stability-systemic-reliability-intelligence-brief-united-kingdom-governance-stability-standing-reviewed-2026-02-22-zqpx" target="_blank" rel="noopener">View Raw Intelligence Template &rarr;</a>
     </div>
   </div>
 

@@ -75,21 +75,80 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .key-stat-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 6px; color: var(--text); }
 .key-stat-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }
 
+/* Arena Strip — gauges under hero */
+.arena-strip { display: flex; background: var(--slate); position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,0.06); }
+.arena-gauge { flex: 1; padding: 16px 12px 14px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
+.arena-gauge:last-child { border-right: none; }
+.arena-gauge-name { font-size: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; line-height: 1.2; }
+.arena-gauge-posture { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.arena-gauge-momentum { font-size: 10px; opacity: 0.7; }
+
 /* Arena Cards */
 .arena-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 16px 20px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 0; box-shadow: var(--card-shadow); overflow: hidden; }
+.arena-card-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px 10px; }
+.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); }
 .arena-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; flex-shrink: 0; }
-.arena-card-detail { font-size: 10px; color: var(--text-muted); width: 100%; margin-top: -4px; }
+.arena-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-light); padding: 0; }
+.arena-card-field { background: var(--bg-card); padding: 8px 18px; }
+.arena-field-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 2px; }
+.arena-field-val { font-size: 12px; font-weight: 600; color: var(--text); }
+.arena-card-geo { padding: 8px 18px 12px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-light); }
 
-/* Signal Tables */
-.signal-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
-.signal-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
-.signal-table tbody td { font-size: 13px; color: var(--text-mid); padding: 10px 16px; border-bottom: 1px solid var(--border-light); }
-.signal-table tbody tr:last-child td { border-bottom: none; }
-.signal-id { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.5px; white-space: nowrap; }
-.signal-id-strong { color: var(--green); }
-.signal-id-vuln { color: var(--red); }
+/* Perception Dashboard Table */
+.pd-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.pd-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.pd-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.pd-table tbody tr:last-child td { border-bottom: none; }
+.pd-prop { max-width: 400px; line-height: 1.5; }
+.pd-pct { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; white-space: nowrap; }
+.pd-arena { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+.conf-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; white-space: nowrap; }
+.conf-high { background: rgba(58,138,110,0.1); color: #166534; }
+.conf-medium { background: rgba(146,64,14,0.1); color: #92400e; }
+.conf-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* Signal Cards */
+.signal-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 20px 24px; box-shadow: var(--card-shadow); margin-bottom: 12px; }
+.signal-card-strength { border-left: 4px solid var(--green); }
+.signal-card-vuln { border-left: 4px solid var(--red); }
+.signal-card-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.signal-card-id { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px; color: var(--text); padding: 4px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.signal-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }
+.signal-badge-strength { background: rgba(58,138,110,0.12); color: #166534; }
+.signal-badge-vuln { background: rgba(196,84,90,0.12); color: #991b1b; }
+.signal-badge-arena { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.signal-badge-horizon { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.char-reputational { background: rgba(196,146,10,0.1); color: #92400e; }
+.char-structural { background: rgba(58,138,110,0.1); color: #166534; }
+.char-strategic { background: rgba(88,64,14,0.08); color: #553f0e; }
+.char-policy { background: rgba(146,64,14,0.1); color: #92400e; }
+.sev-high { background: rgba(196,84,90,0.12); color: #991b1b; }
+.sev-medium { background: rgba(196,146,10,0.1); color: #92400e; }
+.sev-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+.signal-card-title { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.signal-card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 10px; }
+.signal-card-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); }
+
+/* Standing Overview Table */
+.overview-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.overview-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.overview-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); }
+.overview-table tbody tr:last-child td { border-bottom: none; }
+.ov-dim { font-weight: 600; color: var(--text); white-space: nowrap; }
+.ov-assess { font-weight: 700; white-space: nowrap; }
+
+/* Priorities */
+.priority-horizon { font-size: 14px; font-weight: 600; color: var(--text); margin: 20px 0 10px; text-transform: capitalize; }
+.priority-group { display: flex; flex-direction: column; gap: 8px; }
+.priority-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 14px 18px; box-shadow: var(--card-shadow); }
+.priority-action { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; display: inline-block; margin-bottom: 6px; }
+.pri-address { background: rgba(196,84,90,0.12); color: #991b1b; }
+.pri-monitor { background: rgba(196,146,10,0.1); color: #92400e; }
+.pri-reinforce { background: rgba(58,138,110,0.12); color: #166534; }
+.pri-build { background: rgba(58,138,110,0.08); color: #166534; }
+.priority-arena { font-size: 11px; font-weight: 600; color: var(--pillar); display: block; margin-bottom: 4px; }
+.priority-desc { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
 
 /* Conclusion card */
 .conclusion-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
@@ -129,6 +188,12 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .key-stats { grid-template-columns: repeat(3, 1fr); }
   .key-stat-num { font-size: 24px; }
   .arena-grid { grid-template-columns: 1fr; }
+  .arena-strip { flex-wrap: wrap; }
+  .arena-gauge { min-width: 33%; }
+  .pd-table { font-size: 12px; }
+  .pd-prop { max-width: 250px; }
+  .signal-card { padding: 16px; }
+  .signal-card-header { gap: 6px; }
   .exec-card { padding: 20px; }
   .conclusion-card { padding: 20px; }
   .source-section { padding: 20px 16px; }
@@ -173,13 +238,34 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Pillar Score</div>
-        <div class="score-block-num">52</div>
+        <div class="score-block-num">56</div>
         <div class="score-block-max">of 100</div>
-        <div class="posture posture-mixed">Mixed</div>
+        <div class="posture posture-mixed">Stable</div>
       </div>
     </div>
   </div>
 </div>
+<div class="arena-strip">
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">TRADE AND COMPETITIVENESS</div>
+          <div class="arena-gauge-posture" style="color:var(--amber)">Mixed</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">FINANCIAL SERVICES AND CITY POSITION</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">INNOVATION AND TECHNOLOGY</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:var(--red)">&#9660; Fading</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">REGULATORY AND INVESTMENT CLIMATE</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div></div>
 
 <div class="main">
 
@@ -211,7 +297,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <div class="key-stat-label">Arenas Weak</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num" style="color:var(--green)">21</div>
+          <div class="key-stat-num" style="color:var(--green)">7</div>
           <div class="key-stat-label">Strength Signals</div>
         </div>
         <div class="key-stat">
@@ -219,91 +305,293 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <div class="key-stat-label">Vulnerability Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num">30</div>
+          <div class="key-stat-num">10</div>
           <div class="key-stat-label">Trends Tracked</div>
         </div>
       </div>
 
-  <!-- Section 02: Arena Scorecard -->
+  <!-- Section 02: Perception Dashboard -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Sovereign Perception Dashboard</h2><span class="sec-num">Section 02</span></div>
+      <table class="pd-table">
+        <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Confidence</th><th>Arena</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="pd-prop">How is the United Kingdom being characterised by non-UK commentators as a place to invest, build companies, and base international operations?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">57%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Regulatory And Investment Climate</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">What narratives are forming internationally about the strength or decline of London and the UK as a financial centre, and what is driving those narratives?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">58%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Financial Services And City Position</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How are non-UK observers assessing the UK&#x27;s competitiveness in AI, advanced technology, and innovation policy, relative to peer economies?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">61%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Innovation And Technology</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">What is the prevailing external view of the UK&#x27;s regulatory environment (pro-growth, restrictive, stable, unpredictable), and what examples are cited?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">57%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Regulatory And Investment Climate</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How is the UK&#x27;s startup and scale-up ecosystem being perceived internationally (talent, funding, exits, R&amp;D depth, friction), and what has shifted recently?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">60%</td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-arena">Startup And Scaleup Ecosystem</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">What external narratives describe the UK&#x27;s trade positioning and post-Brexit economic trajectory (repositioning, stagnation, resilience, vulnerability), and which counterpart countries are most salient?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">44%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Trade And Competitiveness</td>
+        </tr>
+        </tbody>
+      </table></div>
+
+  <!-- Section 03: Arena Analysis -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Arena Scorecard</h2>
-      <span class="sec-num">Section 02</span>
+      <h2 class="sec-title">Arena Analysis</h2>
+      <span class="sec-num">Section 03 &middot; 4 arenas</span>
     </div>
     <div class="arena-grid">
-        <div class="arena-card" style="border-left:4px solid var(--green)">
-          <div class="arena-card-name">Financial Services And City Position</div>
-          <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
-          
+        <div class="arena-card" style="border-top:3px solid var(--amber)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Trade And Competitiveness</div>
+            <span class="arena-badge" style="background:rgba(196,146,10,0.1);color:#92400e">MIXED</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">2</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">United States, India, European Union</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--green)">
-          <div class="arena-card-name">Innovation And Technology</div>
-          <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
-          
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Financial Services And City Position</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">2</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">United States, India, European Union</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--green)">
-          <div class="arena-card-name">Regulatory And Investment Climate</div>
-          <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
-          
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Innovation And Technology</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">4</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--red)">Fading</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">India, United States, China</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--amber)">
-          <div class="arena-card-name">Trade And Competitiveness</div>
-          <span class="arena-badge" style="background:rgba(196,146,10,0.1);color:#92400e">MIXED</span>
-          <div class="arena-card-detail">Vulnerability concentration</div>
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Regulatory And Investment Climate</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">1</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">United States, India, China</div>
         </div>
     </div>
   </div>
 
-  <!-- Section 03: Strength Signals -->
+  <!-- Section 04: Strength Signals -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Sovereign Strength Signals</h2>
-      <span class="sec-num">Section 03 &middot; 20 signals</span>
+      <span class="sec-num">Section 04 &middot; 7 signals</span>
     </div>
     
-      <table class="signal-table">
-        <thead><tr><th>Signal ID</th><th>Assessment</th></tr></thead>
-        <tbody>
-        <tr><td class="signal-id signal-id-strong">SS-005</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-016</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-017</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-002</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-011</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-012</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-001</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-007</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-008</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-004</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-014</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-015</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-021</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-022</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-003</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-013</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-006</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-018</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-019</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-020</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        </tbody>
-      </table>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-005</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Innovation And Technology</span>
+          <span class="signal-badge char-structural">Structural</span>
+        </div>
+        <p class="signal-card-desc">International exposure is high and steady, with moderate public commentary and multiple references sustaining external confidence in UK-linked AI infrastructure capacity signals.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: TRU-T7</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-002</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Financial Services And City Position</span>
+          <span class="signal-badge char-reputational">Reputational</span>
+        </div>
+        <p class="signal-card-desc">The signal is building with moderate public commentary and more than one reference, supporting reputational framing of the UK’s fintech and funding position in external coverage.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: Near term</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: TRU-T4</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-001</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Trade And Competitiveness</span>
+          <span class="signal-badge char-policy">Policy</span>
+        </div>
+        <p class="signal-card-desc">External engagement signals remain visible but are easing, with moderate public commentary and multiple references supporting a policy-led competence narrative tied to bilateral commercial follow-through.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 3–5 years</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: TRU-T2</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-004</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Innovation And Technology</span>
+          <span class="signal-badge char-policy">Policy</span>
+        </div>
+        <p class="signal-card-desc">The signal is building with moderate public commentary and multiple references, reflecting policy-linked skills and adoption narratives that support external views of future workforce readiness.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: Near term</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: TRU-T6</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-007</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Regulatory And Investment Climate</span>
+          <span class="signal-badge char-policy">Policy</span>
+        </div>
+        <p class="signal-card-desc">The signal is steady but has muted public profile on informal surfaces, with evidence anchored in formal reporting channels rather than broad external commentary.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: TRU-T9</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-003</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Innovation And Technology</span>
+          <span class="signal-badge char-strategic">Strategic</span>
+        </div>
+        <p class="signal-card-desc">The signal remains present but is easing, with moderate public commentary and a single reference point anchoring strategic capability framing linked to UK-based semiconductor intellectual property.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 3–5 years</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: TRU-T5</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-006</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Innovation And Technology</span>
+          <span class="signal-badge char-strategic">Strategic</span>
+        </div>
+        <p class="signal-card-desc">International exposure is high and supported by multiple references, while momentum is easing as summit-driven coordination coverage transitions from peak-event visibility to follow-through signalling.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 3–5 years</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: TRU-T8</span>
+        </div>
+      </div>
   </div>
 
-  <!-- Section 04: Vulnerability Signals -->
+  <!-- Section 05: Vulnerability Signals -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
-      <span class="sec-num">Section 04 &middot; 1 signals</span>
+      <span class="sec-num">Section 05 &middot; 1 signals</span>
     </div>
     
-      <table class="signal-table">
-        <thead><tr><th>Signal ID</th><th>Assessment</th></tr></thead>
-        <tbody>
-        <tr><td class="signal-id signal-id-vuln">VS-001</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        </tbody>
-      </table>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-001</span>
+          <span class="signal-badge signal-badge-vuln">HIGH SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Trade And Competitiveness</span>
+          <span class="signal-badge signal-badge-horizon">Near term</span>
+        </div>
+        <h4 class="signal-card-title">External Tariff-Policy Shock Narrative Elevates Uk Trade Vulnerability Framing</h4>
+        <p class="signal-card-desc">External tariff shocks can erode perceived trade predictability and export resilience, weakening external assessments of UK economic steadiness.</p>
+        <div class="signal-card-meta">
+          <span>Position: Confirmed</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: TRU-T1</span>
+        </div>
+      </div>
   </div>
 
-  <!-- Section 05: Standing Assessment -->
+  <!-- Section 06: Standing Assessment Overview -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Standing Assessment Overview</h2><span class="sec-num">Section 06</span></div>
+      <table class="overview-table">
+        <thead><tr><th>Dimension</th><th>Assessment</th><th>What Drives It</th></tr></thead>
+        <tbody>
+        <tr><td class="ov-dim">Structural Position</td><td class="ov-assess">Strong</td><td>Strength-dominant structural positioning across Financial Services And City Position, Innovation And Technology, and Regulatory And Investment Climate; Trade And Competitiveness remains contested.</td></tr>
+        <tr><td class="ov-dim">Perception Momentum</td><td class="ov-assess">Stable</td><td>Steady momentum in three of four arenas, with easing momentum concentrated in Innovation And Technology.</td></tr>
+        <tr><td class="ov-dim">Vulnerability Concentration</td><td class="ov-assess">High</td><td>One confirmed high-severity near-term vulnerability signal concentrated in Trade And Competitiveness.</td></tr>
+        <tr><td class="ov-dim">Evidence Density</td><td class="ov-assess">High</td><td>Strong evidence base across monitored arenas.</td></tr>
+        </tbody>
+      </table></div>
+
+  <!-- Section 07: Strategic Priorities -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Attention Priorities</h2><span class="sec-num">Section 07</span></div>    <h4 class="priority-horizon">Near-term attention</h4>
+    <div class="priority-group">
+      <div class="priority-item">
+        <span class="priority-action pri-address">Address adverse narrative</span>
+        <span class="priority-arena">Trade And Competitiveness</span>
+        <p class="priority-desc">High-severity near-horizon vulnerability signal with rising momentum indicates active external framing pressure on UK trade predictability.</p>
+      </div>
+      <div class="priority-item">
+        <span class="priority-action pri-monitor">Monitor for escalation</span>
+        <span class="priority-arena">Regulatory And Investment Climate</span>
+        <p class="priority-desc">External discussion on regulatory characterisation is absent on informal surfaces this cycle, indicating a visibility gap despite linked regulatory-adjacent evidence.</p>
+      </div>
+      <div class="priority-item">
+        <span class="priority-action pri-monitor">Monitor for escalation</span>
+        <span class="priority-arena">Regulatory And Investment Climate</span>
+        <p class="priority-desc">External discussion on regulatory characterisation is absent on informal surfaces this cycle, indicating a visibility gap despite linked regulatory-adjacent evidence.</p>
+      </div>
+      <div class="priority-item">
+        <span class="priority-action pri-monitor">Monitor for escalation</span>
+        <span class="priority-arena">Startup And Scaleup Ecosystem</span>
+        <p class="priority-desc">External discussion on startup ecosystem fundamentals is absent on informal surfaces this cycle, leaving question resolution dependent on proxy signals.</p>
+      </div>
+    </div>
+</div>
+
+  <!-- Conclusion -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Standing Assessment</h2>
@@ -313,7 +601,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <p>This cycle shows a stable external framing overall, with structurally Strong positioning in Financial Services And City Position and Innovation And Technology and a contested Trade And Competitiveness arena where a near-term vulnerability narrative is rising alongside a policy-linked strength signal. Regulatory And Investment Climate remains structurally Strong but comparatively under-discussed on informal surfaces, and startup ecosystem perception remains bounded by reliance on proxy signals rather than direct external characterisations.</p>
       <p>Standing posture this cycle: Stable</p>
       <div class="conclusion-posture">
-        Standing posture this cycle: <span class="conclusion-posture-badge posture-mixed">Mixed</span>
+        Standing posture this cycle: <span class="conclusion-posture-badge posture-mixed">Stable</span>
       </div>
     </div>
   </div>

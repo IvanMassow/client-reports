@@ -75,21 +75,80 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .key-stat-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 6px; color: var(--text); }
 .key-stat-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }
 
+/* Arena Strip — gauges under hero */
+.arena-strip { display: flex; background: var(--slate); position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,0.06); }
+.arena-gauge { flex: 1; padding: 16px 12px 14px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
+.arena-gauge:last-child { border-right: none; }
+.arena-gauge-name { font-size: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; line-height: 1.2; }
+.arena-gauge-posture { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.arena-gauge-momentum { font-size: 10px; opacity: 0.7; }
+
 /* Arena Cards */
 .arena-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
-.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 16px 20px; box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); flex: 1; }
+.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 0; box-shadow: var(--card-shadow); overflow: hidden; }
+.arena-card-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px 10px; }
+.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); }
 .arena-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; flex-shrink: 0; }
-.arena-card-detail { font-size: 10px; color: var(--text-muted); width: 100%; margin-top: -4px; }
+.arena-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-light); padding: 0; }
+.arena-card-field { background: var(--bg-card); padding: 8px 18px; }
+.arena-field-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 2px; }
+.arena-field-val { font-size: 12px; font-weight: 600; color: var(--text); }
+.arena-card-geo { padding: 8px 18px 12px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-light); }
 
-/* Signal Tables */
-.signal-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
-.signal-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
-.signal-table tbody td { font-size: 13px; color: var(--text-mid); padding: 10px 16px; border-bottom: 1px solid var(--border-light); }
-.signal-table tbody tr:last-child td { border-bottom: none; }
-.signal-id { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.5px; white-space: nowrap; }
-.signal-id-strong { color: var(--green); }
-.signal-id-vuln { color: var(--red); }
+/* Perception Dashboard Table */
+.pd-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.pd-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.pd-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.pd-table tbody tr:last-child td { border-bottom: none; }
+.pd-prop { max-width: 400px; line-height: 1.5; }
+.pd-pct { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; white-space: nowrap; }
+.pd-arena { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+.conf-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; white-space: nowrap; }
+.conf-high { background: rgba(58,138,110,0.1); color: #166534; }
+.conf-medium { background: rgba(146,64,14,0.1); color: #92400e; }
+.conf-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* Signal Cards */
+.signal-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 20px 24px; box-shadow: var(--card-shadow); margin-bottom: 12px; }
+.signal-card-strength { border-left: 4px solid var(--green); }
+.signal-card-vuln { border-left: 4px solid var(--red); }
+.signal-card-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.signal-card-id { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px; color: var(--text); padding: 4px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.signal-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }
+.signal-badge-strength { background: rgba(58,138,110,0.12); color: #166534; }
+.signal-badge-vuln { background: rgba(196,84,90,0.12); color: #991b1b; }
+.signal-badge-arena { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.signal-badge-horizon { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.char-reputational { background: rgba(196,146,10,0.1); color: #92400e; }
+.char-structural { background: rgba(58,138,110,0.1); color: #166534; }
+.char-strategic { background: rgba(88,64,14,0.08); color: #553f0e; }
+.char-policy { background: rgba(146,64,14,0.1); color: #92400e; }
+.sev-high { background: rgba(196,84,90,0.12); color: #991b1b; }
+.sev-medium { background: rgba(196,146,10,0.1); color: #92400e; }
+.sev-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+.signal-card-title { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.signal-card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 10px; }
+.signal-card-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); }
+
+/* Standing Overview Table */
+.overview-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.overview-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.overview-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); }
+.overview-table tbody tr:last-child td { border-bottom: none; }
+.ov-dim { font-weight: 600; color: var(--text); white-space: nowrap; }
+.ov-assess { font-weight: 700; white-space: nowrap; }
+
+/* Priorities */
+.priority-horizon { font-size: 14px; font-weight: 600; color: var(--text); margin: 20px 0 10px; text-transform: capitalize; }
+.priority-group { display: flex; flex-direction: column; gap: 8px; }
+.priority-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 14px 18px; box-shadow: var(--card-shadow); }
+.priority-action { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; display: inline-block; margin-bottom: 6px; }
+.pri-address { background: rgba(196,84,90,0.12); color: #991b1b; }
+.pri-monitor { background: rgba(196,146,10,0.1); color: #92400e; }
+.pri-reinforce { background: rgba(58,138,110,0.12); color: #166534; }
+.pri-build { background: rgba(58,138,110,0.08); color: #166534; }
+.priority-arena { font-size: 11px; font-weight: 600; color: var(--pillar); display: block; margin-bottom: 4px; }
+.priority-desc { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
 
 /* Conclusion card */
 .conclusion-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
@@ -129,6 +188,12 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .key-stats { grid-template-columns: repeat(3, 1fr); }
   .key-stat-num { font-size: 24px; }
   .arena-grid { grid-template-columns: 1fr; }
+  .arena-strip { flex-wrap: wrap; }
+  .arena-gauge { min-width: 33%; }
+  .pd-table { font-size: 12px; }
+  .pd-prop { max-width: 250px; }
+  .signal-card { padding: 16px; }
+  .signal-card-header { gap: 6px; }
   .exec-card { padding: 20px; }
   .conclusion-card { padding: 20px; }
   .source-section { padding: 20px 16px; }
@@ -173,13 +238,44 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Pillar Score</div>
-        <div class="score-block-num">47</div>
+        <div class="score-block-num">48</div>
         <div class="score-block-max">of 100</div>
         <div class="posture posture-mixed">Mixed</div>
       </div>
     </div>
   </div>
 </div>
+<div class="arena-strip">
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">MULTILATERAL INFLUENCE</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">CRISIS DIPLOMACY AND MEDIATION</div>
+          <div class="arena-gauge-posture" style="color:var(--red)">Weak</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">CLIMATE AND ENERGY DIPLOMACY</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">SANCTIONS AND STATECRAFT INFLUENCE</div>
+          <div class="arena-gauge-posture" style="color:var(--text-muted)">Insufficient data</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">GLOBAL VOICE AND STRATEGIC RELEVANCE</div>
+          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">DEVELOPMENT AND HUMANITARIAN CREDIBILITY</div>
+          <div class="arena-gauge-posture" style="color:var(--text-muted)">Insufficient data</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div></div>
 
 <div class="main">
 
@@ -224,81 +320,287 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         </div>
       </div>
 
-  <!-- Section 02: Arena Scorecard -->
+  <!-- Section 02: Perception Dashboard -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Sovereign Perception Dashboard</h2><span class="sec-num">Section 02</span></div>
+      <table class="pd-table">
+        <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Confidence</th><th>Arena</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="pd-prop">How is the United Kingdom being assessed by non-UK governments, multilaterals, and international commentators as a diplomatic actor this cycle?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">54%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Global Voice And Strategic Relevance</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">What is the prevailing external view of UK influence inside multilateral institutions (UN, NATO, G7/G20, Commonwealth, WTO and related bodies), and where is influence perceived to be growing or shrinking?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">53%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Multilateral Influence</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How is UK crisis diplomacy being characterised internationally (effective, symbolic, constrained, marginal), and which crises are driving the assessment?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">45%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Crisis Diplomacy And Mediation</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How credible is the UK&#x27;s climate and energy diplomacy being treated externally (delivery vs rhetoric, COP legacy, energy transition positioning), and what specific policy actions or outcomes are cited?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">51%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Climate And Energy Diplomacy</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How is the UK&#x27;s sanctions posture being viewed by non-UK actors (agenda-setting, aligned follower, overreach, underpowered), and what is the perceived impact on counterpart states and alliances?</td>
+          <td class="pd-pct">40%</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">29%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Sanctions And Statecraft Influence</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">Which international narratives describe the UK&#x27;s geopolitical voice and strategic relevance (bridge, junior partner, independent actor, diminished), and which regions are most associated with each narrative?</td>
+          <td class="pd-pct">50%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">54%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Global Voice And Strategic Relevance</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">How is the UK&#x27;s development and humanitarian role being perceived internationally (generous, declining, strategic, tokenistic), and what has shifted since ODA commitments changed?</td>
+          <td class="pd-pct">45%</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">51%</td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-arena">Development And Humanitarian Credibility</td>
+        </tr>
+        </tbody>
+      </table></div>
+
+  <!-- Section 03: Arena Analysis -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Arena Scorecard</h2>
-      <span class="sec-num">Section 02</span>
+      <h2 class="sec-title">Arena Analysis</h2>
+      <span class="sec-num">Section 03 &middot; 6 arenas</span>
     </div>
     <div class="arena-grid">
-        <div class="arena-card" style="border-left:4px solid var(--green)">
-          <div class="arena-card-name">Multilateral Influence</div>
-          <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
-          
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Multilateral Influence</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">2</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">China, United States, Europe</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--green)">
-          <div class="arena-card-name">Climate And Energy Diplomacy</div>
-          <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
-          
+        <div class="arena-card" style="border-top:3px solid var(--red)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Crisis Diplomacy And Mediation</div>
+            <span class="arena-badge" style="background:rgba(196,84,90,0.1);color:#991b1b">WEAK</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">United States, Russia, Ukraine</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--green)">
-          <div class="arena-card-name">Global Voice And Strategic Relevance</div>
-          <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
-          
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Climate And Energy Diplomacy</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">2</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">United States, Brazil, Europe</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--red)">
-          <div class="arena-card-name">Crisis Diplomacy And Mediation</div>
-          <span class="arena-badge" style="background:rgba(196,84,90,0.1);color:#991b1b">WEAK</span>
-          
+        <div class="arena-card" style="border-top:3px solid var(--text-muted)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Sanctions And Statecraft Influence</div>
+            <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)">INSUFFICIENT DATA</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">External (mixed)</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--text-muted)">
-          <div class="arena-card-name">Sanctions And Statecraft Influence</div>
-          <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)">UNCERTAIN</span>
-          <div class="arena-card-detail">Insufficient data</div>
+        <div class="arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Global Voice And Strategic Relevance</div>
+            <span class="arena-badge" style="background:rgba(58,138,110,0.1);color:#166534">STRONG</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">1</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">Europe, Russia, United States</div>
         </div>
-        <div class="arena-card" style="border-left:4px solid var(--text-muted)">
-          <div class="arena-card-name">Development And Humanitarian Credibility</div>
-          <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)">UNCERTAIN</span>
-          <div class="arena-card-detail">Insufficient data</div>
+        <div class="arena-card" style="border-top:3px solid var(--text-muted)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Development And Humanitarian Credibility</div>
+            <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)">INSUFFICIENT DATA</span>
+          </div>
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Verified trends</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
+          </div>
+          <div class="arena-card-geo">External (mixed)</div>
         </div>
     </div>
   </div>
 
-  <!-- Section 03: Strength Signals -->
+  <!-- Section 04: Strength Signals -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Sovereign Strength Signals</h2>
-      <span class="sec-num">Section 03 &middot; 4 signals</span>
+      <span class="sec-num">Section 04 &middot; 4 signals</span>
     </div>
     
-      <table class="signal-table">
-        <thead><tr><th>Signal ID</th><th>Assessment</th></tr></thead>
-        <tbody>
-        <tr><td class="signal-id signal-id-strong">SS-003</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-004</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-001</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-strong">SS-002</td><td>Structural strength signal identified in the external assessment set</td></tr>
-        </tbody>
-      </table>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-003</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Multilateral Influence</span>
+          <span class="signal-badge char-structural">Structural</span>
+        </div>
+        <p class="signal-card-desc">International exposure is present and steady, supported by multiple independent institutional references and moderate public commentary.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T4</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-004</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Multilateral Influence</span>
+          <span class="signal-badge char-structural">Structural</span>
+        </div>
+        <p class="signal-card-desc">The signal is steady with moderate international exposure, anchored in documented participation and a single primary reference point in this cycle’s evidence set.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T6</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-001</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Climate And Energy Diplomacy</span>
+          <span class="signal-badge char-strategic">Strategic</span>
+        </div>
+        <p class="signal-card-desc">International exposure is prominent and steady, supported by multiple independent references and moderate public commentary across several external geographies.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T1</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-strength">
+        <div class="signal-card-header">
+          <span class="signal-card-id">SS-002</span>
+          <span class="signal-badge signal-badge-strength">STRENGTH</span>
+          <span class="signal-badge signal-badge-arena">Global Voice And Strategic Relevance</span>
+          <span class="signal-badge char-strategic">Strategic</span>
+        </div>
+        <p class="signal-card-desc">International exposure is prominent and steady, and the signal is reinforced by alliance documentation with more than one independent reference point.</p>
+        <div class="signal-card-meta">
+          <span>Horizon: 12 months</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T2</span>
+        </div>
+      </div>
   </div>
 
-  <!-- Section 04: Vulnerability Signals -->
+  <!-- Section 05: Vulnerability Signals -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
-      <span class="sec-num">Section 04 &middot; 2 signals</span>
+      <span class="sec-num">Section 05 &middot; 2 signals</span>
     </div>
     
-      <table class="signal-table">
-        <thead><tr><th>Signal ID</th><th>Assessment</th></tr></thead>
-        <tbody>
-        <tr><td class="signal-id signal-id-vuln">VS-001</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        <tr><td class="signal-id signal-id-vuln">VS-002</td><td>Vulnerability signal identified in the external assessment set</td></tr>
-        </tbody>
-      </table>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-001</span>
+          <span class="signal-badge signal-badge-vuln">HIGH SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Crisis Diplomacy And Mediation</span>
+          <span class="signal-badge signal-badge-horizon">12 months</span>
+        </div>
+        <h4 class="signal-card-title">Alliance Reliability Sensitivity Around Overseas Basing And Sovereignty Framework</h4>
+        <p class="signal-card-desc">Public commentary is moderate and geographically distributed, and the adverse framing channel can weaken perceived reliability during fast-moving security contingencies.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Confirmed</span>
+          <span>Trend: T3</span>
+        </div>
+      </div>
+      <div class="signal-card signal-card-vuln">
+        <div class="signal-card-header">
+          <span class="signal-card-id">VS-002</span>
+          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
+          <span class="signal-badge signal-badge-arena">Unmapped</span>
+          <span class="signal-badge signal-badge-horizon">12 months</span>
+        </div>
+        <h4 class="signal-card-title">Monarchy Reputational Spillover Risk Into External Perception Channels</h4>
+        <p class="signal-card-desc">Public commentary is muted and evidence is limited to a single reference point, but sustained reputational attention can erode soft-power perceptions even without direct policy linkage.</p>
+        <div class="signal-card-meta">
+          <span>Position: Managed uncertainty</span>
+          <span>Mechanism: Unresolved</span>
+          <span>Trend: T9</span>
+        </div>
+      </div>
   </div>
 
-  <!-- Section 05: Standing Assessment -->
+  <!-- Section 06: Standing Assessment Overview -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Standing Assessment Overview</h2><span class="sec-num">Section 06</span></div>
+      <table class="overview-table">
+        <thead><tr><th>Dimension</th><th>Assessment</th><th>What Drives It</th></tr></thead>
+        <tbody>
+        <tr><td class="ov-dim">Structural Position</td><td class="ov-assess">Strong</td><td>Strength is concentrated in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, outweighing weakness in Crisis Diplomacy And Mediation.</td></tr>
+        <tr><td class="ov-dim">Perception Momentum</td><td class="ov-assess">Stable</td><td>Momentum is steady across monitored arenas this cycle.</td></tr>
+        <tr><td class="ov-dim">Vulnerability Concentration</td><td class="ov-assess">Moderate</td><td>Medium-severity vulnerabilities are present, while the high-severity vulnerability signal remains in managed uncertainty.</td></tr>
+        <tr><td class="ov-dim">Evidence Density</td><td class="ov-assess">High</td><td>Strong evidence base across monitored arenas.</td></tr>
+        </tbody>
+      </table></div>
+
+  <!-- Section 07: Strategic Priorities -->
+  <div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Attention Priorities</h2><span class="sec-num">Section 07</span></div>    <h4 class="priority-horizon">Near-term attention</h4>
+    <div class="priority-group">
+      <div class="priority-item">
+        <span class="priority-action pri-address">Address adverse narrative</span>
+        <span class="priority-arena">Crisis Diplomacy And Mediation</span>
+        <p class="priority-desc">High-severity adverse reliability-related signal with strong monitoring evidence volume; bounded verification indicates impact magnitude remains unresolved and should be tracked closely.</p>
+      </div>
+    </div>
+    <h4 class="priority-horizon">Medium-term monitoring</h4>
+    <div class="priority-group">
+      <div class="priority-item">
+        <span class="priority-action pri-monitor">Monitor for escalation</span>
+        <span class="priority-arena">Sanctions And Statecraft Influence</span>
+        <p class="priority-desc">Strategically important arena has thin coverage with indirect linkage only; prioritise additional external evidence capture to resolve posture.</p>
+      </div>
+    </div>
+</div>
+
+  <!-- Conclusion -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Standing Assessment</h2>
