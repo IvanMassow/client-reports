@@ -28,7 +28,7 @@
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.6; }
 
 /* Topbar */
-.topbar { background: var(--slate); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 52px; position: sticky; top: 0; z-index: 100; }
+.topbar { background: var(--slate); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 52px; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 0 var(--slate); }
 .topbar-left { display: flex; align-items: center; gap: 14px; }
 .topbar-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }
 .topbar-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
@@ -51,7 +51,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }
 .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.92) 0%, rgba(26,30,39,0.85) 22%, rgba(26,30,39,0.55) 48%, rgba(26,30,39,0.25) 72%, rgba(26,30,39,0.12) 100%); z-index: 1; pointer-events: none; }
 .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }
-.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 64px 32px 60px; min-height: 360px; }
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 60px 32px 40px; min-height: 395px; }
 .hero-left { flex: 1; padding-top: 8px; }
 .hero-tag { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; background: var(--pillar-light); color: var(--pillar); display: inline-block; margin-bottom: 14px; }
 .hero-title { font-family: 'Lora', Georgia, serif; font-size: 36px; font-weight: 700; color: rgba(255,255,255,0.92); line-height: 1.15; margin-bottom: 10px; }
