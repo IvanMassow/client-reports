@@ -4,6 +4,16 @@
   "composite_posture": "Weak",
   "composite_delta": null,
   "pillars": {
+    "defence": {
+      "name": "Defence & Strategic Credibility",
+      "score": 47,
+      "posture": "Mixed",
+      "delta": null,
+      "trend_count": 33,
+      "strength_count": 6,
+      "vuln_count": 4,
+      "executive_summary": "United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak struct"
+    },
     "economic": {
       "name": "Economic & Business Leadership",
       "score": 56,
@@ -23,16 +33,6 @@
       "strength_count": 6,
       "vuln_count": 9,
       "executive_summary": "The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Indust"
-    },
-    "defence": {
-      "name": "Defence & Strategic Credibility",
-      "score": 47,
-      "posture": "Mixed",
-      "delta": null,
-      "trend_count": 33,
-      "strength_count": 6,
-      "vuln_count": 4,
-      "executive_summary": "United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak struct"
     },
     "diplomatic": {
       "name": "Diplomatic & Global Leadership",

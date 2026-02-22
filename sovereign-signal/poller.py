@@ -846,6 +846,125 @@ def generate_dashboard(target_date, pillar_data, history):
         json.dump(summary, f, indent=2)
     print(f"  Summary written to {summary_path}")
 
+    # Generate OG sharing image
+    _generate_og_image(display_date, composite, composite_posture, pillar_data)
+
+
+def _generate_og_image(display_date, composite, composite_posture, pillar_data):
+    """Generate og-image.html with live scores, then capture as og-image.png via headless Chrome."""
+    import shutil
+
+    posture_color = "#C4545A" if composite_posture == "Weak" else "#C4920A" if composite_posture == "Mixed" else "#3A8A6E"
+    posture_bg = "rgba(196,84,90,0.12)" if composite_posture == "Weak" else "rgba(196,146,10,0.12)" if composite_posture == "Mixed" else "rgba(58,138,110,0.12)"
+
+    pillar_cells = ""
+    for key, pillar in PILLARS.items():
+        pdata = pillar_data.get(key, {})
+        score = pdata.get("score", "—")
+        post = pdata.get("posture", "—")
+        pillar_cells += f"""    <div class="pillar">
+      <div class="pillar-name">{pillar['short']}</div>
+      <div class="pillar-num">{score}</div>
+      <div class="pillar-post">{post.upper()}</div>
+    </div>\n"""
+
+    og_html = f"""<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<style>
+* {{ margin: 0; padding: 0; box-sizing: border-box; }}
+body {{ width: 1200px; height: 630px; overflow: hidden; font-family: 'Inter', -apple-system, sans-serif; }}
+.card {{ width: 1200px; height: 630px; background: #1a1e27; position: relative; overflow: hidden; }}
+.flag {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.35; filter: saturate(0.4) contrast(1.1); }}
+.overlay {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(115deg, rgba(26,30,39,0.97) 0%, rgba(26,30,39,0.92) 35%, rgba(26,30,39,0.65) 65%, rgba(26,30,39,0.35) 100%); }}
+.content {{ position: relative; z-index: 2; padding: 56px 72px 0; }}
+.eyebrow {{ font-size: 13px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }}
+.title-row {{ display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }}
+.title {{ font-family: 'Lora', Georgia, serif; font-size: 64px; font-weight: 700; color: #FFFFFF; line-height: 1.08; }}
+.score-block {{ text-align: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px 40px 20px; backdrop-filter: blur(12px); margin-top: 4px; }}
+.score-label {{ font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }}
+.score-num {{ font-family: 'Montserrat', sans-serif; font-size: 72px; font-weight: 800; color: #3A8A6E; line-height: 1; }}
+.score-of {{ font-size: 13px; color: rgba(255,255,255,0.25); margin-top: 4px; }}
+.score-posture {{ display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: {posture_color}; background: {posture_bg}; padding: 4px 14px; border-radius: 20px; }}
+.subtitle {{ font-size: 16px; color: rgba(255,255,255,0.32); font-family: 'Lora', Georgia, serif; }}
+.date-line {{ font-size: 13px; color: rgba(255,255,255,0.25); margin-top: 8px; letter-spacing: 0.5px; }}
+.pillars {{ position: absolute; bottom: 72px; left: 0; right: 0; z-index: 2; display: flex; padding: 0 72px; }}
+.pillar {{ flex: 1; text-align: center; padding: 18px 8px 14px; border-right: 1px solid rgba(255,255,255,0.06); }}
+.pillar:last-child {{ border-right: none; }}
+.pillar-name {{ font-size: 8px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px; }}
+.pillar-num {{ font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; color: #3A8A6E; line-height: 1; margin-bottom: 5px; }}
+.pillar-post {{ font-size: 8px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); }}
+.brand {{ position: absolute; bottom: 28px; left: 72px; display: flex; align-items: center; gap: 12px; z-index: 2; }}
+.brand-logo {{ font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.25); text-transform: uppercase; }}
+.brand-divider {{ width: 1px; height: 14px; background: rgba(255,255,255,0.08); }}
+.brand-label {{ font-size: 10px; font-weight: 400; letter-spacing: 1px; color: rgba(255,255,255,0.15); text-transform: uppercase; }}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="card">
+  <div class="flag"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="eyebrow">United Kingdom</div>
+    <div class="title-row">
+      <div>
+        <div class="title">Sovereign<br>Signal</div>
+        <div class="subtitle">National standing intelligence report</div>
+        <div class="date-line">{display_date}</div>
+      </div>
+      <div class="score-block">
+        <div class="score-label">Composite Score</div>
+        <div class="score-num">{composite}</div>
+        <div class="score-of">of 100</div>
+        <div class="score-posture">{composite_posture.upper()}</div>
+      </div>
+    </div>
+  </div>
+  <div class="pillars">
+{pillar_cells}  </div>
+  <div class="brand">
+    <span class="brand-logo">Noah</span>
+    <span class="brand-divider"></span>
+    <span class="brand-label">Wire Services</span>
+  </div>
+</div>
+</body></html>"""
+
+    og_html_path = SCRIPT_DIR / "og-image.html"
+    with open(og_html_path, "w") as f:
+        f.write(og_html)
+
+    # Try to capture PNG via headless Chrome
+    chrome_path = shutil.which("google-chrome") or shutil.which("chromium")
+    if not chrome_path:
+        # macOS Chrome path
+        mac_chrome = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        if os.path.exists(mac_chrome):
+            chrome_path = mac_chrome
+
+    if chrome_path:
+        og_png_path = SCRIPT_DIR / "og-image.png"
+        try:
+            import subprocess
+            result = subprocess.run([
+                chrome_path,
+                "--headless=new",
+                "--disable-gpu",
+                f"--screenshot={og_png_path}",
+                "--window-size=1200,630",
+                "--hide-scrollbars",
+                "--virtual-time-budget=5000",
+                f"file://{og_html_path}",
+            ], capture_output=True, text=True, timeout=30)
+            if og_png_path.exists() and og_png_path.stat().st_size > 10000:
+                print(f"  OG sharing image written: og-image.png ({og_png_path.stat().st_size // 1024}KB)")
+            else:
+                print(f"  Warning: OG image may not have rendered correctly")
+        except Exception as e:
+            print(f"  Warning: Could not generate OG PNG: {e}")
+    else:
+        print(f"  OG HTML template written (no Chrome found for PNG capture)")
+
 
 def _delta_html(delta, is_hero=False):
     """Generate delta display HTML."""
