@@ -1344,7 +1344,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
-      <h1 class="hero-title">Sovereign<br><span style="color:{signal_color}">Signal</span> <span style="color:rgba(255,255,255,0.4);font-size:0.55em;font-weight:400">Overview</span></h1>
+      <h1 class="hero-title">Sovereign<br><span style="color:{signal_color}">Signal</span> <span style="color:rgba(255,255,255,0.6);font-size:0.55em;font-weight:300;letter-spacing:0.04em">Overview</span></h1>
       <div class="hero-subtitle">Sentiment, Trends &amp; Predictions</div>
       <p class="hero-desc">Daily intelligence tracking the United Kingdom&rsquo;s external positioning &mdash; sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.</p>
       <div class="hero-date-nav">
