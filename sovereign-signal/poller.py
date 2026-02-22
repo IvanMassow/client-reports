@@ -348,11 +348,14 @@ def generate_dashboard(target_date, pillar_data, history):
 
     deltas = {}
     prev_composite = None
+    prev_pillar_scores = {}
     if prev_date and prev_date in history:
         prev_scores = []
         for key in PILLARS:
             prev_s = history.get(prev_date, {}).get(key, {}).get("score")
             curr_s = pillar_data.get(key, {}).get("score")
+            if prev_s is not None:
+                prev_pillar_scores[key] = prev_s
             if prev_s is not None and curr_s is not None:
                 deltas[key] = curr_s - prev_s
                 prev_scores.append(prev_s)
@@ -389,6 +392,8 @@ def generate_dashboard(target_date, pillar_data, history):
         pillar_data=pillar_data,
         deltas=deltas,
         dates=dates,
+        prev_pillar_scores=prev_pillar_scores,
+        prev_composite=prev_composite,
     )
 
     output_path = SCRIPT_DIR / "index.html"
@@ -472,7 +477,8 @@ def _get_dashboard_css():
 
 
 def _build_dashboard_html(target_date, display_date, composite, composite_delta,
-                          composite_posture, pillar_data, deltas, dates):
+                          composite_posture, pillar_data, deltas, dates,
+                          prev_pillar_scores=None, prev_composite=None):
     """Build the full index.html dashboard from scratch using data."""
 
     posture_cls = _posture_class(composite_posture)
@@ -488,6 +494,8 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         signal_color = "var(--amber)"
 
     # Build pillar score cells
+    if prev_pillar_scores is None:
+        prev_pillar_scores = {}
     pillar_score_cells = ""
     for key, pillar in PILLARS.items():
         pdata = pillar_data.get(key, {})
@@ -495,14 +503,23 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         score_display = score if score is not None else "—"
         post = pdata.get("posture") or "—"
         delta = deltas.get(key)
-        delta_str = _delta_html(delta)
         delta_cls = "up" if delta and delta > 0 else "down" if delta and delta < 0 else "flat"
         cell_cls = "delta-up" if delta and delta > 0 else "delta-down" if delta and delta < 0 else ""
+
+        # Previous score display — shows below current in its own colour
+        prev_score = prev_pillar_scores.get(key)
+        if prev_score is not None and delta is not None:
+            # Previous score gets colour of what it was (green = positive direction at the time)
+            prev_color = "var(--green)" if delta >= 0 else "var(--green)"  # prev was green when it was current
+            prev_html = f'<div class="pillar-score-prev" style="color:{prev_color}">{prev_score}</div>'
+        else:
+            prev_html = '<div class="pillar-score-prev">&mdash;</div>'
+
         pillar_score_cells += f'''
       <a class="pillar-score-cell{" " + cell_cls if cell_cls else ""}" data-pillar="{key}" href="#tile-{key}">
         <div class="pillar-score-name">{pillar["name"]}</div>
         <div class="pillar-score-num">{score_display}</div>
-        <div class="pillar-score-delta {delta_cls}">{delta_str}</div>
+        {prev_html}
         <div class="pillar-score-posture">{post}</div>
       </a>'''
 
@@ -645,13 +662,13 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         sb_delta_content = "&mdash; First cycle"
     elif composite_delta > 0:
         sb_delta_cls = "up"
-        sb_delta_content = f"&#9650; +{composite_delta} from yesterday"
+        sb_delta_content = f'&#9650; +{composite_delta} <span style="color:var(--green);opacity:0.6">was {prev_composite}</span>'
     elif composite_delta < 0:
         sb_delta_cls = "down"
-        sb_delta_content = f"&#9660; {composite_delta} from yesterday"
+        sb_delta_content = f'&#9660; {composite_delta} <span style="color:var(--green);opacity:0.6">was {prev_composite}</span>'
     else:
         sb_delta_cls = "flat"
-        sb_delta_content = "&mdash; 0 from yesterday"
+        sb_delta_content = f'&mdash; <span style="opacity:0.6">was {prev_composite}</span>'
 
     return f'''<!DOCTYPE html>
 <html lang="en">

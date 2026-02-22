@@ -315,12 +315,19 @@ body {
 .pillar-score-delta.up { color: var(--green); }
 .pillar-score-delta.down { color: var(--red); }
 .pillar-score-delta.flat { color: var(--green); }
+.pillar-score-prev {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 4px;
+}
 .pillar-score-posture {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin-top: 6px;
+  margin-top: 4px;
   color: rgba(255,255,255,0.5);
 }
 
@@ -597,6 +604,7 @@ body {
   .pillar-score-cell { padding: 14px 8px 12px; }
   .pillar-score-num { font-size: 24px; }
   .pillar-score-name { font-size: 7px; letter-spacing: 0.5px; }
+  .pillar-score-prev { font-size: 11px; }
   .briefing-card-top { padding: 12px 16px 10px; }
   .briefing-card-body { padding: 12px 16px 14px; }
   .briefing-card-summary { font-size: 12px; }
