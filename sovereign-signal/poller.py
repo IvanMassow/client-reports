@@ -133,12 +133,28 @@ def extract_ref_from_title(title):
     return m.group(1) if m else None
 
 
-def classify_pillar(title):
-    """Match an RSS item title to one of our 5 pillars."""
+PILLAR_ARENA_KEYWORDS = {
+    "softpower": ["heritage identity", "cultural standing", "sporting brand", "creative industries", "culture and media", "education and research"],
+    "defence": ["military capability", "nuclear deterrent", "nato positioning", "arms export", "defence industrial"],
+    "economic": ["trade competitiveness", "innovation and technology", "financial services", "fiscal credibility", "investment"],
+    "diplomatic": ["multilateral influence", "crisis diplomacy", "climate and energy", "sanctions and statecraft", "global voice"],
+    "trust": ["governance stability", "regulatory competence", "media independence", "judicial authority", "partner reliability"],
+}
+
+def classify_pillar(title, desc=""):
+    """Match an RSS item title to one of our 5 pillars.
+    Falls back to checking description arena names if title doesn't match."""
     title_lower = title.lower()
     for key, pillar in PILLARS.items():
         for kw in pillar["keywords"]:
             if kw in title_lower:
+                return key
+    # Fallback: check description for arena-specific keywords
+    if desc:
+        desc_lower = desc.lower()
+        for key, arenas in PILLAR_ARENA_KEYWORDS.items():
+            matches = sum(1 for a in arenas if a in desc_lower)
+            if matches >= 2:
                 return key
     return None
 
@@ -573,6 +589,71 @@ def parse_report_content(desc_html):
             data["posture"] = "Mixed"
 
     return data
+
+
+def fetch_predictions_from_rendered(guid):
+    """
+    Fetch the rendered report page at makes.news/view/{guid} and
+    scrape prediction tiles from the Forward Outlook section.
+    Returns (predictions_list, arena_predictions_dict).
+    """
+    if not guid:
+        return [], {}
+
+    url = "https://sovereignsignal.makes.news/view/" + guid
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "SovereignSignal/1.0"})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            raw_html = resp.read().decode("utf-8", errors="replace")
+    except Exception as e:
+        print(f"      Warning: Could not fetch rendered report ({e})")
+        return [], {}
+
+    # Strip HTML tags for text-based parsing
+    text = re.sub(r"<[^>]+>", "\n", raw_html)
+    text = re.sub(r"\n+", "\n", text)
+
+    # ─── Parse prediction tiles ───
+    # Pattern: XX% probability\nStatement\nType\nDirection\nStrength\nHorizon\nWhat would change it: text
+    predictions = []
+    blocks = re.findall(
+        r"(\d+)%\s*probability\s*\n\s*([^\n]+)\s*\n\s*"
+        r"(Strength|Vulnerability)\s*\n\s*"
+        r"(Intensifying|Stable|Fading|Reversing)\s*\n\s*"
+        r"(Strong|Thin|Medium)\s*\n\s*"
+        r"(\d+\s*(?:days?|months?))\s*\n\s*"
+        r"(?:What would change it:\s*)?([^\n]+)",
+        text, re.IGNORECASE,
+    )
+    for b in blocks:
+        predictions.append({
+            "title": b[1].strip(),
+            "probability": int(b[0]),
+            "type": b[2].strip(),
+            "direction": b[3].strip(),
+            "signal_strength": b[4].strip(),
+            "horizon": b[5].strip(),
+            "trigger": b[6].strip(),
+        })
+
+    # ─── Parse per-arena outlook sentences ───
+    arena_preds = {}
+    arena_matches = re.findall(
+        r"(?:We assess|Current framing)[^.]*?(\d+)%\s*probability[^.]*?"
+        r"(?:that\s+)?([A-Z][a-zA-Z\s&]+?)(?:\s+narratives?\s+|\s+posture\s+)"
+        r"([^.]+)",
+        text,
+    )
+    for prob_str, arena_name, rest in arena_matches:
+        arena_preds[arena_name.strip()] = {
+            "has_outlook": True,
+            "outlook_sentence": "{}% probability that {} narratives {}".format(
+                prob_str, arena_name.strip(), rest.strip()
+            ),
+            "probability": int(prob_str),
+        }
+
+    return predictions, arena_preds
 
 
 def extract_arena_findings(exec_text, conclusion_text=""):
@@ -1106,16 +1187,15 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
     posture_cls = _posture_class(composite_posture)
     composite_delta_html = _delta_html(composite_delta, is_hero=True)
 
-    # Signal colour — stock-style: green if up from yesterday, red if down, white if first cycle
+    # Composite score number — stock-style: green if up, red if down
+    # On first cycle (no delta), derive colour from score vs 50 midpoint
     if composite_delta is not None and composite_delta > 0:
-        signal_color = "var(--green)"
         composite_num_color = "var(--green)"
     elif composite_delta is not None and composite_delta < 0:
-        signal_color = "var(--red)"
         composite_num_color = "var(--red)"
     else:
-        signal_color = "#FFFFFF"
-        composite_num_color = "#FFFFFF"
+        # First cycle — use score vs midpoint so it never looks blank
+        composite_num_color = "var(--green)" if (composite or 0) >= 50 else "var(--red)"
 
     # Build pillar score cells
     if prev_pillar_scores is None:
@@ -1138,13 +1218,14 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         else:
             prev_html = '<div class="pillar-score-prev">&mdash;</div>'
 
-        # Stock-style colouring: green if up, red if down, white if first cycle
+        # Stock-style colouring: green if up, red if down
+        # On first cycle (no delta), derive colour from score vs 50 midpoint
         if delta is not None and delta > 0:
             score_color = "var(--green)"
         elif delta is not None and delta < 0:
             score_color = "var(--red)"
         else:
-            score_color = "#FFFFFF"  # First cycle — neutral white
+            score_color = "var(--green)" if (score or 0) >= 50 else "var(--red)"
         report_href = f"uk-{key}-{target_date}.html"
         pillar_score_cells += f'''
       <a class="pillar-score-cell{" " + cell_cls if cell_cls else ""}" data-pillar="{key}" href="{report_href}">
@@ -1243,6 +1324,25 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
                 findings_rows_html += f'<span class="finding-tag">{trend_count} trends</span>'
             findings_rows_html += '</div>'
 
+        # Key prediction — show the highest-probability prediction for this pillar
+        key_pred_html = ""
+        pillar_preds = pdata.get("predictions", [])
+        if pillar_preds:
+            top_pred = max(pillar_preds, key=lambda p: p.get("probability") or 0)
+            tp_prob = top_pred.get("probability")
+            tp_title = top_pred.get("title", "")
+            tp_type = top_pred.get("type", "")
+            tp_horizon = top_pred.get("horizon", "")
+            tp_type_cls = "key-pred-vuln" if "vuln" in tp_type.lower() else "key-pred-strength"
+            key_pred_html = f'''
+        <div class="key-pred-row">
+          <span class="key-pred-icon">&#9670;</span>
+          <span class="key-pred-prob">{tp_prob}%</span>
+          <span class="key-pred-text">{html.escape(tp_title)}</span>
+          <span class="key-pred-badge {tp_type_cls}">{html.escape(tp_type)}</span>
+          <span class="key-pred-horizon">{html.escape(tp_horizon)}</span>
+        </div>'''
+
         briefing_cards_html += f'''
       <a class="briefing-card" data-pillar="{key}" id="tile-{key}" href="{href}">
         <div class="briefing-card-top">
@@ -1267,7 +1367,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
           </div>
         </div>
         <div class="briefing-card-findings-grid">{findings_rows_html}
-        </div>
+        </div>{key_pred_html}
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>'''
 
@@ -1344,7 +1444,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
-      <h1 class="hero-title">Sovereign<br><span style="color:{signal_color}">Signal</span> <span style="color:rgba(255,255,255,0.6);font-size:0.55em;font-weight:300;letter-spacing:0.04em">Overview</span></h1>
+      <h1 class="hero-title">Sovereign<br><span style="color:var(--gold, #C9A84C)">Signal</span> Overview</h1>
       <div class="hero-subtitle">Sentiment, Trends &amp; Predictions</div>
       <p class="hero-desc">Daily intelligence tracking the United Kingdom&rsquo;s external positioning &mdash; sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.</p>
       <div class="hero-date-nav">
@@ -1701,13 +1801,19 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         tiles_html = ""
         for pred in sorted_preds[:10]:  # Max 10 tiles
             prob = pred.get("probability")
-            prob_str = str(prob) + "%" if prob is not None else "?"
+            prob_str = str(prob) + "% probability" if prob is not None else "?"
             title = pred.get("title", "")
             horizon = pred.get("horizon", "")
             direction = pred.get("direction", "")
             trigger = pred.get("trigger", "")
             signal = pred.get("signal_strength", "")
+            pred_type = pred.get("type", "")
 
+            # Type badge class
+            type_lower = pred_type.lower()
+            type_cls = "pred-type-vuln" if "vuln" in type_lower else "pred-type-strength"
+
+            # Direction badge class
             dir_lower = direction.lower()
             if "intensif" in dir_lower:
                 dir_cls = "pred-dir-intensifying"
@@ -1718,18 +1824,20 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             else:
                 dir_cls = "pred-dir-stable"
 
-            sig_cls = "conf-high" if "strong" in signal.lower() else "conf-medium" if "medium" in signal.lower() else "conf-low"
+            # Tile border colour: teal for strength, red for vulnerability
+            border_color = "var(--red)" if "vuln" in type_lower else "var(--green)"
 
             tiles_html += f'''
-        <div class="pred-tile">
+        <div class="pred-tile" style="border-left: 3px solid {border_color}">
           <div class="pred-prob">{html.escape(prob_str)}</div>
           <div class="pred-title">{html.escape(title)}</div>
           <div class="pred-badges">
-            <span class="pred-horizon">{html.escape(horizon)}</span>
-            <span class="pred-direction {dir_cls}">{html.escape(direction)}</span>
-            {('<span class="conf-badge ' + sig_cls + '">' + html.escape(signal) + '</span>') if signal else ''}
+            <span class="pred-badge {type_cls}">{html.escape(pred_type.upper())}</span>
+            <span class="pred-badge {dir_cls}">{html.escape(direction.upper())}</span>
+            {('<span class="pred-badge pred-signal-strong">' + html.escape(signal.upper()) + '</span>') if signal else ''}
+            <span class="pred-badge pred-horizon">{html.escape(horizon.upper())}</span>
           </div>
-          {('<div class="pred-trigger">' + html.escape(trigger) + '</div>') if trigger else ''}
+          {('<div class="pred-trigger"><strong>What would change it:</strong> ' + html.escape(trigger) + '</div>') if trigger else ''}
         </div>'''
 
         pred_count = len(sorted_preds)
@@ -1741,6 +1849,10 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         summary_line = f"Outlook: {pred_count} signals assessed"
         if dominant:
             summary_line += f", dominant direction {dominant}"
+        # Count intensifying arenas
+        intensifying_count = sum(1 for d in dirs if "intensif" in d)
+        if intensifying_count:
+            summary_line += f". {intensifying_count} arenas show intensifying predictions."
 
         outlook_html = f'''
       <div class="pred-grid">{tiles_html}
@@ -1926,19 +2038,24 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .conclusion-posture-badge {{ font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }}
 
 /* Forward Outlook / Predictions */
-.pred-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
-.pred-tile {{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 20px 24px; box-shadow: var(--card-shadow); }}
-.pred-prob {{ font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 8px; }}
-.pred-title {{ font-family: 'Lora', Georgia, serif; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 10px; }}
-.pred-badges {{ display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }}
-.pred-horizon {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }}
-.pred-direction {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }}
-.pred-dir-intensifying {{ background: rgba(196,84,90,0.12); color: #991b1b; }}
-.pred-dir-stable {{ background: rgba(196,146,10,0.1); color: #92400e; }}
-.pred-dir-fading {{ background: rgba(58,138,110,0.12); color: #166534; }}
-.pred-dir-reversing {{ background: rgba(74,111,165,0.12); color: #1e3a5f; }}
-.pred-trigger {{ font-size: 12px; color: var(--text-muted); line-height: 1.5; font-style: italic; }}
-.pred-summary {{ font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-light); }}
+.pred-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }}
+.pred-tile {{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }}
+.pred-tile:hover {{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }}
+.pred-prob {{ font-family: 'Lora', Georgia, serif; font-size: 26px; font-weight: 700; color: #0d7680; line-height: 1; margin-bottom: 8px; }}
+.pred-title {{ font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 12px; }}
+.pred-badges {{ display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }}
+.pred-badge {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }}
+.pred-type-strength {{ background: #0d7680; color: white; }}
+.pred-type-vuln {{ background: var(--red); color: white; }}
+.pred-dir-intensifying {{ background: #7C3AED; color: white; }}
+.pred-dir-stable {{ background: #374151; color: white; }}
+.pred-dir-fading {{ background: rgba(58,138,110,0.85); color: white; }}
+.pred-dir-reversing {{ background: rgba(74,111,165,0.85); color: white; }}
+.pred-signal-strong {{ background: #166534; color: white; }}
+.pred-horizon {{ background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }}
+.pred-trigger {{ font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 4px; }}
+.pred-trigger strong {{ color: var(--text-mid); font-weight: 600; }}
+.pred-summary {{ font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-light); font-style: italic; }}
 .arena-outlook {{ font-family: 'Lora', Georgia, serif; font-size: 12px; font-style: italic; color: var(--accent); padding: 8px 18px 12px; border-top: 1px solid var(--border-light); line-height: 1.6; }}
 
 /* Methodology box */
@@ -2002,6 +2119,8 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   .signal-table {{ font-size: 12px; }}
   .signal-table thead th {{ padding: 8px 12px; }}
   .signal-table tbody td {{ padding: 8px 12px; }}
+  .pred-grid {{ grid-template-columns: 1fr; }}
+  .pred-prob {{ font-size: 22px; }}
 }}
 </style>
 </head>
@@ -2167,11 +2286,20 @@ def run_once(target_date, require_all=True):
     print(f"  Found {len(day_items)} items for {target_date}")
 
     # Classify each into pillars
+    # Prefer richest RSS content (longest description) per pillar,
+    # but also track all GUIDs per pillar for prediction scraping.
     pillar_items = {}
+    pillar_guids = {}  # key -> list of all GUIDs for this pillar
     for item in day_items:
-        pkey = classify_pillar(item["title"])
+        pkey = classify_pillar(item["title"], item.get("description", ""))
         if pkey:
-            pillar_items[pkey] = item
+            guid = item.get("guid", "")
+            pillar_guids.setdefault(pkey, [])
+            if guid:
+                pillar_guids[pkey].append(guid)
+            # Keep the item with the richest RSS content (longest description)
+            if pkey not in pillar_items or len(item.get("description", "")) > len(pillar_items[pkey].get("description", "")):
+                pillar_items[pkey] = item
             print(f"    {PILLARS[pkey]['short']:20s} -> {item['title'][:60]}...")
         else:
             print(f"    UNMATCHED          -> {item['title'][:60]}...")
@@ -2197,6 +2325,21 @@ def run_once(target_date, require_all=True):
         pdata = parse_report_content(item["description"])
         pdata["link"] = item["link"]
         pdata["ref"] = extract_ref_from_title(item["title"])
+
+        # If RSS didn't have predictions, try ALL rendered report pages for this pillar
+        if not pdata["predictions"]:
+            for guid in pillar_guids.get(key, []):
+                print(f"      Fetching predictions from rendered report ({guid[:12]})...")
+                preds, arena_preds_scraped = fetch_predictions_from_rendered(guid)
+                if preds:
+                    pdata["predictions"] = preds
+                    print(f"      Found {len(preds)} predictions")
+                if arena_preds_scraped:
+                    pdata["arena_predictions"].update(arena_preds_scraped)
+                    print(f"      Found {len(arena_preds_scraped)} arena outlooks")
+                if preds:
+                    break  # Got predictions, stop checking other GUIDs
+
         pillar_data[key] = pdata
         print(f"      Score: {pdata.get('score', '?')}, Posture: {pdata.get('posture', '?')}, "
               f"Trends: {pdata['trend_count']}, Strengths: {pdata['strength_count']}, Vulns: {pdata['vuln_count']}")

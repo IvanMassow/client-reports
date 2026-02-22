@@ -160,19 +160,24 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
 /* Forward Outlook / Predictions */
-.pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.pred-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 20px 24px; box-shadow: var(--card-shadow); }
-.pred-prob { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 8px; }
-.pred-title { font-family: 'Lora', Georgia, serif; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 10px; }
-.pred-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
-.pred-horizon { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
-.pred-direction { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }
-.pred-dir-intensifying { background: rgba(196,84,90,0.12); color: #991b1b; }
-.pred-dir-stable { background: rgba(196,146,10,0.1); color: #92400e; }
-.pred-dir-fading { background: rgba(58,138,110,0.12); color: #166534; }
-.pred-dir-reversing { background: rgba(74,111,165,0.12); color: #1e3a5f; }
-.pred-trigger { font-size: 12px; color: var(--text-muted); line-height: 1.5; font-style: italic; }
-.pred-summary { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-light); }
+.pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pred-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }
+.pred-tile:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.pred-prob { font-family: 'Lora', Georgia, serif; font-size: 26px; font-weight: 700; color: #0d7680; line-height: 1; margin-bottom: 8px; }
+.pred-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 12px; }
+.pred-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.pred-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }
+.pred-type-strength { background: #0d7680; color: white; }
+.pred-type-vuln { background: var(--red); color: white; }
+.pred-dir-intensifying { background: #7C3AED; color: white; }
+.pred-dir-stable { background: #374151; color: white; }
+.pred-dir-fading { background: rgba(58,138,110,0.85); color: white; }
+.pred-dir-reversing { background: rgba(74,111,165,0.85); color: white; }
+.pred-signal-strong { background: #166534; color: white; }
+.pred-horizon { background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
+.pred-trigger { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 4px; }
+.pred-trigger strong { color: var(--text-mid); font-weight: 600; }
+.pred-summary { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-light); font-style: italic; }
 .arena-outlook { font-family: 'Lora', Georgia, serif; font-size: 12px; font-style: italic; color: var(--accent); padding: 8px 18px 12px; border-top: 1px solid var(--border-light); line-height: 1.6; }
 
 /* Methodology box */
@@ -236,6 +241,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .signal-table { font-size: 12px; }
   .signal-table thead th { padding: 8px 12px; }
   .signal-table tbody td { padding: 8px 12px; }
+  .pred-grid { grid-template-columns: 1fr; }
+  .pred-prob { font-size: 22px; }
 }
 </style>
 </head>

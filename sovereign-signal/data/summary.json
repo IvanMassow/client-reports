@@ -1,18 +1,28 @@
 {
   "date": "2026-02-22",
-  "composite_score": 49,
-  "composite_posture": "Weak",
+  "composite_score": 50,
+  "composite_posture": "Mixed",
   "composite_delta": null,
   "pillars": {
-    "diplomatic": {
-      "name": "Diplomatic & Global Leadership",
-      "score": 48,
+    "softpower": {
+      "name": "Soft Power & Cultural Standing",
+      "score": 43,
       "posture": "Mixed",
       "delta": null,
       "trend_count": 30,
-      "strength_count": 4,
-      "vuln_count": 2,
-      "executive_summary": "United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomac"
+      "strength_count": 6,
+      "vuln_count": 9,
+      "executive_summary": "The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Indust"
+    },
+    "diplomatic": {
+      "name": "Diplomatic & Global Leadership",
+      "score": 55,
+      "posture": "Stable",
+      "delta": null,
+      "trend_count": 44,
+      "strength_count": 7,
+      "vuln_count": 1,
+      "executive_summary": "The United Kingdom\u2019s diplomatic standing this cycle is assessed as strengthening, with structural standing assessed as Strong in Multilateral Influence and Crisis Diplomacy and Mediation, and also Str"
     },
     "defence": {
       "name": "Defence & Strategic Credibility",
@@ -26,23 +36,13 @@
     },
     "economic": {
       "name": "Economic & Business Leadership",
-      "score": 56,
+      "score": 55,
       "posture": "Stable",
       "delta": null,
-      "trend_count": 10,
-      "strength_count": 7,
-      "vuln_count": 1,
-      "executive_summary": "The United Kingdom\u2019s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to "
-    },
-    "softpower": {
-      "name": "Soft Power & Cultural Standing",
-      "score": 43,
-      "posture": "Mixed",
-      "delta": null,
-      "trend_count": 30,
+      "trend_count": 40,
       "strength_count": 6,
-      "vuln_count": 9,
-      "executive_summary": "The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Indust"
+      "vuln_count": 1,
+      "executive_summary": "The United Kingdom\u2019s standing this cycle is characterised by a mostly Strong structural posture across governance and partner-reliability arenas, but with a Weak position concentrated in Political Lea"
     },
     "trust": {
       "name": "Trust, Stability & Systemic Reliability",

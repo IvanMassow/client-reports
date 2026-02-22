@@ -15,17 +15,17 @@
       "vuln_count": 4
     },
     "diplomatic": {
-      "score": 48,
-      "posture": "Mixed",
-      "trend_count": 30,
-      "strength_count": 4,
-      "vuln_count": 2
+      "score": 55,
+      "posture": "Stable",
+      "trend_count": 44,
+      "strength_count": 7,
+      "vuln_count": 1
     },
     "economic": {
-      "score": 56,
+      "score": 55,
       "posture": "Stable",
-      "trend_count": 10,
-      "strength_count": 7,
+      "trend_count": 40,
+      "strength_count": 6,
       "vuln_count": 1
     },
     "softpower": {
