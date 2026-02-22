@@ -4,6 +4,16 @@
   "composite_posture": "Weak",
   "composite_delta": null,
   "pillars": {
+    "economic": {
+      "name": "Economic & Business Leadership",
+      "score": 56,
+      "posture": "Stable",
+      "delta": null,
+      "trend_count": 10,
+      "strength_count": 7,
+      "vuln_count": 1,
+      "executive_summary": "The United Kingdom\u2019s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to "
+    },
     "softpower": {
       "name": "Soft Power & Cultural Standing",
       "score": 43,
@@ -43,16 +53,6 @@
       "strength_count": 7,
       "vuln_count": 1,
       "executive_summary": "The United Kingdom\u2019s standing is assessed as Strong in both Governance Stability and Partner Reliability, with external perception broadly aligned to a strength-weighted structural picture while remai"
-    },
-    "economic": {
-      "name": "Economic & Business Leadership",
-      "score": 56,
-      "posture": "Stable",
-      "delta": null,
-      "trend_count": 10,
-      "strength_count": 7,
-      "vuln_count": 1,
-      "executive_summary": "The United Kingdom\u2019s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to "
     }
   }
 }

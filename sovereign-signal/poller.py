@@ -935,8 +935,9 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         else:
             prev_html = '<div class="pillar-score-prev">&mdash;</div>'
 
+        report_href = f"uk-{key}-{target_date}.html"
         pillar_score_cells += f'''
-      <a class="pillar-score-cell{" " + cell_cls if cell_cls else ""}" data-pillar="{key}" href="#tile-{key}">
+      <a class="pillar-score-cell{" " + cell_cls if cell_cls else ""}" data-pillar="{key}" href="{report_href}">
         <div class="pillar-score-name">{pillar["name"]}</div>
         <div class="pillar-score-num">{score_display}</div>
         {prev_html}
@@ -1098,9 +1099,9 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 
 <div class="topbar">
   <div class="topbar-left">
-    <div class="topbar-logo">NOAH</div>
+    <a href="index.html" class="topbar-logo" style="text-decoration:none;color:rgba(255,255,255,0.9)">NOAH</a>
     <div class="topbar-divider"></div>
-    <span class="topbar-brand">Sovereign Signal</span>
+    <a href="index.html" style="text-decoration:none"><span class="topbar-brand">Sovereign Signal</span></a>
   </div>
   <div class="topbar-right">
     <nav class="topbar-nav">
@@ -1208,12 +1209,31 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     # Merge with arena_context data for richer metadata
     arena_ctx = pdata.get("arena_context", {})
 
-    # Build arena strip — horizontal bar of arena gauges under the hero
+    # Compute per-arena average sovereign view scores from perception dashboard
+    perc_dash_raw = pdata.get("perception_dashboard", [])
+    arena_sv_scores = {}
+    for p in perc_dash_raw:
+        a = p.get("arena", "")
+        sv = p.get("sovereign_view")
+        if a and sv is not None:
+            arena_sv_scores.setdefault(a, []).append(sv)
+    arena_avg_scores = {a: round(sum(vs) / len(vs)) for a, vs in arena_sv_scores.items() if vs}
+
+    # Build arena strip — horizontal bar of arena gauges under the hero (matches dashboard scoreboard)
     arena_strip_html = ""
     for name, ctx in arena_ctx.items():
         ap = ctx.get("posture", "Mixed")
         momentum = ctx.get("momentum", "Stable")
-        verified = ctx.get("verified_trends", "0")
+        # Get numeric score for this arena (average sovereign view)
+        arena_score = arena_avg_scores.get(name)
+        if arena_score is None:
+            # Try fuzzy match
+            for k, v in arena_avg_scores.items():
+                if k.lower() in name.lower() or name.lower() in k.lower():
+                    arena_score = v
+                    break
+        score_display = str(arena_score) if arena_score is not None else "—"
+
         if ap.lower() in ("strong",):
             p_color = "var(--green)"
         elif ap.lower() in ("weak",):
@@ -1229,7 +1249,8 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         arena_strip_html += f'''
         <div class="arena-gauge">
           <div class="arena-gauge-name">{html.escape(name).upper()}</div>
-          <div class="arena-gauge-posture" style="color:{p_color}">{html.escape(ap)}</div>
+          <div class="arena-gauge-score" style="color:{p_color}">{score_display}</div>
+          <div class="arena-gauge-posture">{html.escape(ap).upper()}</div>
           <div class="arena-gauge-momentum" style="color:{mom_color}">{mom_arrow} {html.escape(momentum)}</div>
         </div>'''
 
@@ -1523,10 +1544,11 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 
 /* Arena Strip — gauges under hero */
 .arena-strip {{ display: flex; background: var(--slate); position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,0.06); }}
-.arena-gauge {{ flex: 1; padding: 16px 12px 14px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }}
+.arena-gauge {{ flex: 1; padding: 18px 12px 16px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }}
 .arena-gauge:last-child {{ border-right: none; }}
-.arena-gauge-name {{ font-size: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; line-height: 1.2; }}
-.arena-gauge-posture {{ font-size: 14px; font-weight: 700; margin-bottom: 2px; }}
+.arena-gauge-name {{ font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.88); margin-bottom: 10px; line-height: 1.3; min-height: 24px; }}
+.arena-gauge-score {{ font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; line-height: 1; margin-bottom: 6px; }}
+.arena-gauge-posture {{ font-size: 9px; font-weight: 600; letter-spacing: 0.5px; color: rgba(255,255,255,0.45); margin-bottom: 4px; }}
 .arena-gauge-momentum {{ font-size: 10px; opacity: 0.7; }}
 
 /* Arena Cards */
@@ -1662,9 +1684,9 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 <body>
 <div class="topbar">
   <div class="topbar-left">
-    <div class="topbar-logo">NOAH</div>
+    <a href="index.html" class="topbar-logo" style="text-decoration:none;color:rgba(255,255,255,0.9)">NOAH</a>
     <div class="topbar-divider"></div>
-    <span class="topbar-brand">Sovereign Signal</span>
+    <a href="index.html" style="text-decoration:none"><span class="topbar-brand">Sovereign Signal</span></a>
   </div>
   <div class="topbar-right">
     <a class="back-link" href="index.html">&larr; Dashboard</a>

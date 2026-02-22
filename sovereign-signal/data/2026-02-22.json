@@ -1,4 +1,353 @@
 {
+  "economic": {
+    "executive_summary": "The United Kingdom\u2019s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to competing strength and vulnerability signals. This sits alongside a global baseline framing of stable, but with a clear divergence where trade vulnerability narratives are rising (notably VS-001) and pull attention toward external shock exposure. The dominant arenas this cycle are Innovation And Technology, Financial Services And City Position, and Trade And Competitiveness.\nVulnerability concentration is primarily in Trade And Competitiveness with High confidence (VS-001), while strength is most consistently present in Innovation And Technology and Financial Services And City Position (e.g., SS-005 and SS-002). Multiple proposition assessments remain in Managed uncertainty, including those linked to P-SS-DIAG-SS-006-01 where the adjusted sovereign view remains contested. Pillar momentum for Economic Competence is stable in the sovereign scorecard.",
+    "perception_dashboard": [
+      {
+        "proposition": "How is the United Kingdom being characterised by non-UK commentators as a place to invest, build companies, and base international operations?",
+        "global_view": 45,
+        "sovereign_view": 57,
+        "confidence": "Medium",
+        "arena": "Regulatory And Investment Climate",
+        "emerging": "\u2713"
+      },
+      {
+        "proposition": "What narratives are forming internationally about the strength or decline of London and the UK as a financial centre, and what is driving those narratives?",
+        "global_view": 45,
+        "sovereign_view": 58,
+        "confidence": "Medium",
+        "arena": "Financial Services And City Position",
+        "emerging": ""
+      },
+      {
+        "proposition": "How are non-UK observers assessing the UK's competitiveness in AI, advanced technology, and innovation policy, relative to peer economies?",
+        "global_view": 45,
+        "sovereign_view": 61,
+        "confidence": "Medium",
+        "arena": "Innovation And Technology",
+        "emerging": ""
+      },
+      {
+        "proposition": "What is the prevailing external view of the UK's regulatory environment (pro-growth, restrictive, stable, unpredictable), and what examples are cited?",
+        "global_view": 45,
+        "sovereign_view": 57,
+        "confidence": "Medium",
+        "arena": "Regulatory And Investment Climate",
+        "emerging": "\u2713"
+      },
+      {
+        "proposition": "How is the UK's startup and scale-up ecosystem being perceived internationally (talent, funding, exits, R&D depth, friction), and what has shifted recently?",
+        "global_view": 45,
+        "sovereign_view": 60,
+        "confidence": "Medium",
+        "arena": "Startup And Scaleup Ecosystem",
+        "emerging": "\u2713"
+      },
+      {
+        "proposition": "What external narratives describe the UK's trade positioning and post-Brexit economic trajectory (repositioning, stagnation, resilience, vulnerability), and which counterpart countries are most salient?",
+        "global_view": 50,
+        "sovereign_view": 44,
+        "confidence": "Low",
+        "arena": "Trade And Competitiveness",
+        "emerging": ""
+      }
+    ],
+    "trends": [
+      {
+        "id": "TRU-T1",
+        "arena": "Trade And Competitiveness",
+        "signal_type": "vulnerability",
+        "verification": "confirmed",
+        "relevance": "high",
+        "momentum": "Exposed",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T2",
+        "arena": "Trade And Competitiveness",
+        "signal_type": "strength",
+        "verification": "confirmed",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "fading"
+      },
+      {
+        "id": "TRU-T3",
+        "arena": "Financial Services And City Position",
+        "signal_type": "strength",
+        "verification": "confirmed",
+        "relevance": "low",
+        "momentum": "Strong",
+        "temperature": "fading"
+      },
+      {
+        "id": "TRU-T4",
+        "arena": "Financial Services And City Position",
+        "signal_type": "strength",
+        "verification": "confirmed",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T5",
+        "arena": "Innovation And Technology",
+        "signal_type": "strength",
+        "verification": "confirmed",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "fading"
+      },
+      {
+        "id": "TRU-T6",
+        "arena": "Innovation And Technology",
+        "signal_type": "strength",
+        "verification": "confirmed",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T7",
+        "arena": "Innovation And Technology",
+        "signal_type": "strength",
+        "verification": "confirmed",
+        "relevance": "high",
+        "momentum": "Strong",
+        "temperature": "stable"
+      },
+      {
+        "id": "TRU-T8",
+        "arena": "Innovation And Technology",
+        "signal_type": "strength",
+        "verification": "confirmed",
+        "relevance": "high",
+        "momentum": "Strong",
+        "temperature": "fading"
+      },
+      {
+        "id": "TRU-T9",
+        "arena": "Regulatory And Investment Climate",
+        "signal_type": "strength",
+        "verification": "confirmed",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "stable"
+      },
+      {
+        "id": "TRU-T10",
+        "arena": "Regulatory And Investment Climate",
+        "signal_type": "structural_position",
+        "verification": "inconclusive",
+        "relevance": "low",
+        "momentum": "Aligned",
+        "temperature": "stable"
+      }
+    ],
+    "arena_context": {
+      "Trade And Competitiveness": {
+        "name": "Trade And Competitiveness",
+        "verified_trends": "2",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "United States, India, European Union",
+        "discourse": "Moderate",
+        "echo_risk": "No",
+        "summary": "Trade And Competitiveness reflects a Mixed structural position with steady momentum driven by mixed signals.",
+        "posture": "Mixed"
+      },
+      "Financial Services And City Position": {
+        "name": "Financial Services And City Position",
+        "verified_trends": "2",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "United States, India, European Union",
+        "discourse": "Moderate",
+        "echo_risk": "No",
+        "summary": "Financial Services And City Position reflects a Strong structural position with steady momentum driven by strength signals.",
+        "posture": "Strong"
+      },
+      "Innovation And Technology": {
+        "name": "Innovation And Technology",
+        "verified_trends": "4",
+        "momentum": "Fading",
+        "geo_concentration": "Medium",
+        "geographies": "India, United States, China",
+        "discourse": "Moderate",
+        "echo_risk": "No",
+        "summary": "Innovation And Technology reflects a Strong structural position with easing momentum driven by strength signals.",
+        "posture": "Strong"
+      },
+      "Regulatory And Investment Climate": {
+        "name": "Regulatory And Investment Climate",
+        "verified_trends": "1",
+        "momentum": "Stable",
+        "geo_concentration": "High",
+        "geographies": "United States, India, China",
+        "discourse": "Muted",
+        "echo_risk": "No",
+        "summary": "Regulatory And Investment Climate reflects a Strong structural position with steady momentum driven by strength signals.",
+        "posture": "Strong"
+      }
+    },
+    "strength_signals": [
+      "SS-005",
+      "SS-002",
+      "SS-001",
+      "SS-004",
+      "SS-007",
+      "SS-003",
+      "SS-006"
+    ],
+    "strength_signal_details": [
+      {
+        "id": "SS-005",
+        "arena": "Innovation And Technology",
+        "character": "Structural",
+        "horizon": "12 months",
+        "description": "International exposure is high and steady, with moderate public commentary and multiple references sustaining external confidence in UK-linked AI infrastructure capacity signals.",
+        "mechanism": "Unresolved",
+        "trend_ref": "TRU-T7",
+        "evidence": "(EVD-7LX-SS-016) (EVD-7LX-SS-017)"
+      },
+      {
+        "id": "SS-002",
+        "arena": "Financial Services And City Position",
+        "character": "Reputational",
+        "horizon": "Near term",
+        "description": "The signal is building with moderate public commentary and more than one reference, supporting reputational framing of the UK\u2019s fintech and funding position in external coverage.",
+        "mechanism": "Unresolved",
+        "trend_ref": "TRU-T4",
+        "evidence": "(EVD-7LX-SS-011) (EVD-7LX-SS-012)"
+      },
+      {
+        "id": "SS-001",
+        "arena": "Trade And Competitiveness",
+        "character": "Policy",
+        "horizon": "3\u20135 years",
+        "description": "External engagement signals remain visible but are easing, with moderate public commentary and multiple references supporting a policy-led competence narrative tied to bilateral commercial follow-through.",
+        "mechanism": "Unresolved",
+        "trend_ref": "TRU-T2",
+        "evidence": "(EVD-7LX-SS-007) (EVD-7LX-SS-008)"
+      },
+      {
+        "id": "SS-004",
+        "arena": "Innovation And Technology",
+        "character": "Policy",
+        "horizon": "Near term",
+        "description": "The signal is building with moderate public commentary and multiple references, reflecting policy-linked skills and adoption narratives that support external views of future workforce readiness.",
+        "mechanism": "Unresolved",
+        "trend_ref": "TRU-T6",
+        "evidence": "(EVD-7LX-SS-014) (EVD-7LX-SS-015)"
+      },
+      {
+        "id": "SS-007",
+        "arena": "Regulatory And Investment Climate",
+        "character": "Policy",
+        "horizon": "12 months",
+        "description": "The signal is steady but has muted public profile on informal surfaces, with evidence anchored in formal reporting channels rather than broad external commentary.",
+        "mechanism": "Unresolved",
+        "trend_ref": "TRU-T9",
+        "evidence": "(EVD-7LX-SS-021) (EVD-7LX-SS-022)"
+      },
+      {
+        "id": "SS-003",
+        "arena": "Innovation And Technology",
+        "character": "Strategic",
+        "horizon": "3\u20135 years",
+        "description": "The signal remains present but is easing, with moderate public commentary and a single reference point anchoring strategic capability framing linked to UK-based semiconductor intellectual property.",
+        "mechanism": "Unresolved",
+        "trend_ref": "TRU-T5",
+        "evidence": "(EVD-7LX-SS-013)"
+      },
+      {
+        "id": "SS-006",
+        "arena": "Innovation And Technology",
+        "character": "Strategic",
+        "horizon": "3\u20135 years",
+        "description": "International exposure is high and supported by multiple references, while momentum is easing as summit-driven coordination coverage transitions from peak-event visibility to follow-through signalling.",
+        "mechanism": "Unresolved",
+        "trend_ref": "TRU-T8",
+        "evidence": "(EVD-7LX-SS-018) (EVD-7LX-SS-019) (EVD-7LX-SS-020)"
+      }
+    ],
+    "vulnerability_signals": [
+      "VS-001"
+    ],
+    "vuln_signal_details": [
+      {
+        "id": "VS-001",
+        "title": "External Tariff-Policy Shock Narrative Elevates Uk Trade Vulnerability Framing",
+        "arena": "Trade And Competitiveness",
+        "severity": "High",
+        "horizon": "Near term",
+        "description": "External tariff shocks can erode perceived trade predictability and export resilience, weakening external assessments of UK economic steadiness.",
+        "structural_position": "Confirmed",
+        "mechanism": "Unresolved",
+        "trend_ref": "TRU-T1",
+        "evidence": "(EVD-7LX-SS-005) (EVD-7LX-SS-006)"
+      }
+    ],
+    "priorities": [
+      {
+        "horizon": "Near-term attention",
+        "action": "Address adverse narrative",
+        "arena": "Trade And Competitiveness",
+        "trend": "TRU-T1",
+        "description": "High-severity near-horizon vulnerability signal with rising momentum indicates active external framing pressure on UK trade predictability."
+      },
+      {
+        "horizon": "Near-term attention",
+        "action": "Monitor for escalation",
+        "arena": "Regulatory And Investment Climate",
+        "trend": "None",
+        "description": "External discussion on regulatory characterisation is absent on informal surfaces this cycle, indicating a visibility gap despite linked regulatory-adjacent evidence."
+      },
+      {
+        "horizon": "Near-term attention",
+        "action": "Monitor for escalation",
+        "arena": "Regulatory And Investment Climate",
+        "trend": "None",
+        "description": "External discussion on regulatory characterisation is absent on informal surfaces this cycle, indicating a visibility gap despite linked regulatory-adjacent evidence."
+      },
+      {
+        "horizon": "Near-term attention",
+        "action": "Monitor for escalation",
+        "arena": "Startup And Scaleup Ecosystem",
+        "trend": "None",
+        "description": "External discussion on startup ecosystem fundamentals is absent on informal surfaces this cycle, leaving question resolution dependent on proxy signals."
+      }
+    ],
+    "standing_overview": [
+      {
+        "dimension": "Structural Position",
+        "assessment": "Strong",
+        "driver": "Strength-dominant structural positioning across Financial Services And City Position, Innovation And Technology, and Regulatory And Investment Climate; Trade And Competitiveness remains contested."
+      },
+      {
+        "dimension": "Perception Momentum",
+        "assessment": "Stable",
+        "driver": "Steady momentum in three of four arenas, with easing momentum concentrated in Innovation And Technology."
+      },
+      {
+        "dimension": "Vulnerability Concentration",
+        "assessment": "High",
+        "driver": "One confirmed high-severity near-term vulnerability signal concentrated in Trade And Competitiveness."
+      },
+      {
+        "dimension": "Evidence Density",
+        "assessment": "High",
+        "driver": "Strong evidence base across monitored arenas."
+      }
+    ],
+    "conclusion": "This cycle shows a stable external framing overall, with structurally Strong positioning in Financial Services And City Position and Innovation And Technology and a contested Trade And Competitiveness arena where a near-term vulnerability narrative is rising alongside a policy-linked strength signal. Regulatory And Investment Climate remains structurally Strong but comparatively under-discussed on informal surfaces, and startup ecosystem perception remains bounded by reliance on proxy signals rather than direct external characterisations.\nStanding posture this cycle: Stable",
+    "score": 56,
+    "posture": "Stable",
+    "trend_count": 10,
+    "strength_count": 7,
+    "vuln_count": 1,
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-economic-business-leadership-uk-2026-02-22-qjtr",
+    "ref": "QJTR"
+  },
   "softpower": {
     "executive_summary": "The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Industries And Talent present Strong positions, while Heritage Identity And Nation Brand and Values And Human Rights Reputation present Weak positions. This divergence is visible in the proposition set (e.g., P-SS-DIAG-SS-006) and is consistent with the scorecard\u2019s overall position (overall score: 43/100, with pillar momentum recorded as stable across tracked arenas).\nVulnerability concentrates in Heritage Identity And Nation Brand and Values And Human Rights Reputation with Medium confidence in arena synthesis, while strength signals are concentrated in Culture And Media Exports and Creative Industries And Talent (e.g., P-SS-DIAG-SS-002 and P-SS-DIAG-SS-005). Managed uncertainty remains material in Sporting Brand And Influence and is dominant in Education And Research Prestige (silence detected).",
     "perception_dashboard": [
@@ -1482,354 +1831,5 @@
     "vuln_count": 1,
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/trust-stability-systemic-reliability-intelligence-brief-united-kingdom-governance-stability-standing-reviewed-2026-02-22-zqpx",
     "ref": "ZQPX"
-  },
-  "economic": {
-    "executive_summary": "The United Kingdom\u2019s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to competing strength and vulnerability signals. This sits alongside a global baseline framing of stable, but with a clear divergence where trade vulnerability narratives are rising (notably VS-001) and pull attention toward external shock exposure. The dominant arenas this cycle are Innovation And Technology, Financial Services And City Position, and Trade And Competitiveness.\nVulnerability concentration is primarily in Trade And Competitiveness with High confidence (VS-001), while strength is most consistently present in Innovation And Technology and Financial Services And City Position (e.g., SS-005 and SS-002). Multiple proposition assessments remain in Managed uncertainty, including those linked to P-SS-DIAG-SS-006-01 where the adjusted sovereign view remains contested. Pillar momentum for Economic Competence is stable in the sovereign scorecard.",
-    "perception_dashboard": [
-      {
-        "proposition": "How is the United Kingdom being characterised by non-UK commentators as a place to invest, build companies, and base international operations?",
-        "global_view": 45,
-        "sovereign_view": 57,
-        "confidence": "Medium",
-        "arena": "Regulatory And Investment Climate",
-        "emerging": "\u2713"
-      },
-      {
-        "proposition": "What narratives are forming internationally about the strength or decline of London and the UK as a financial centre, and what is driving those narratives?",
-        "global_view": 45,
-        "sovereign_view": 58,
-        "confidence": "Medium",
-        "arena": "Financial Services And City Position",
-        "emerging": ""
-      },
-      {
-        "proposition": "How are non-UK observers assessing the UK's competitiveness in AI, advanced technology, and innovation policy, relative to peer economies?",
-        "global_view": 45,
-        "sovereign_view": 61,
-        "confidence": "Medium",
-        "arena": "Innovation And Technology",
-        "emerging": ""
-      },
-      {
-        "proposition": "What is the prevailing external view of the UK's regulatory environment (pro-growth, restrictive, stable, unpredictable), and what examples are cited?",
-        "global_view": 45,
-        "sovereign_view": 57,
-        "confidence": "Medium",
-        "arena": "Regulatory And Investment Climate",
-        "emerging": "\u2713"
-      },
-      {
-        "proposition": "How is the UK's startup and scale-up ecosystem being perceived internationally (talent, funding, exits, R&D depth, friction), and what has shifted recently?",
-        "global_view": 45,
-        "sovereign_view": 60,
-        "confidence": "Medium",
-        "arena": "Startup And Scaleup Ecosystem",
-        "emerging": "\u2713"
-      },
-      {
-        "proposition": "What external narratives describe the UK's trade positioning and post-Brexit economic trajectory (repositioning, stagnation, resilience, vulnerability), and which counterpart countries are most salient?",
-        "global_view": 50,
-        "sovereign_view": 44,
-        "confidence": "Low",
-        "arena": "Trade And Competitiveness",
-        "emerging": ""
-      }
-    ],
-    "trends": [
-      {
-        "id": "TRU-T1",
-        "arena": "Trade And Competitiveness",
-        "signal_type": "vulnerability",
-        "verification": "confirmed",
-        "relevance": "high",
-        "momentum": "Exposed",
-        "temperature": "rising"
-      },
-      {
-        "id": "TRU-T2",
-        "arena": "Trade And Competitiveness",
-        "signal_type": "strength",
-        "verification": "confirmed",
-        "relevance": "moderate",
-        "momentum": "Strong",
-        "temperature": "fading"
-      },
-      {
-        "id": "TRU-T3",
-        "arena": "Financial Services And City Position",
-        "signal_type": "strength",
-        "verification": "confirmed",
-        "relevance": "low",
-        "momentum": "Strong",
-        "temperature": "fading"
-      },
-      {
-        "id": "TRU-T4",
-        "arena": "Financial Services And City Position",
-        "signal_type": "strength",
-        "verification": "confirmed",
-        "relevance": "moderate",
-        "momentum": "Strong",
-        "temperature": "rising"
-      },
-      {
-        "id": "TRU-T5",
-        "arena": "Innovation And Technology",
-        "signal_type": "strength",
-        "verification": "confirmed",
-        "relevance": "moderate",
-        "momentum": "Strong",
-        "temperature": "fading"
-      },
-      {
-        "id": "TRU-T6",
-        "arena": "Innovation And Technology",
-        "signal_type": "strength",
-        "verification": "confirmed",
-        "relevance": "moderate",
-        "momentum": "Strong",
-        "temperature": "rising"
-      },
-      {
-        "id": "TRU-T7",
-        "arena": "Innovation And Technology",
-        "signal_type": "strength",
-        "verification": "confirmed",
-        "relevance": "high",
-        "momentum": "Strong",
-        "temperature": "stable"
-      },
-      {
-        "id": "TRU-T8",
-        "arena": "Innovation And Technology",
-        "signal_type": "strength",
-        "verification": "confirmed",
-        "relevance": "high",
-        "momentum": "Strong",
-        "temperature": "fading"
-      },
-      {
-        "id": "TRU-T9",
-        "arena": "Regulatory And Investment Climate",
-        "signal_type": "strength",
-        "verification": "confirmed",
-        "relevance": "moderate",
-        "momentum": "Strong",
-        "temperature": "stable"
-      },
-      {
-        "id": "TRU-T10",
-        "arena": "Regulatory And Investment Climate",
-        "signal_type": "structural_position",
-        "verification": "inconclusive",
-        "relevance": "low",
-        "momentum": "Aligned",
-        "temperature": "stable"
-      }
-    ],
-    "arena_context": {
-      "Trade And Competitiveness": {
-        "name": "Trade And Competitiveness",
-        "verified_trends": "2",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "United States, India, European Union",
-        "discourse": "Moderate",
-        "echo_risk": "No",
-        "summary": "Trade And Competitiveness reflects a Mixed structural position with steady momentum driven by mixed signals.",
-        "posture": "Mixed"
-      },
-      "Financial Services And City Position": {
-        "name": "Financial Services And City Position",
-        "verified_trends": "2",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "United States, India, European Union",
-        "discourse": "Moderate",
-        "echo_risk": "No",
-        "summary": "Financial Services And City Position reflects a Strong structural position with steady momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Innovation And Technology": {
-        "name": "Innovation And Technology",
-        "verified_trends": "4",
-        "momentum": "Fading",
-        "geo_concentration": "Medium",
-        "geographies": "India, United States, China",
-        "discourse": "Moderate",
-        "echo_risk": "No",
-        "summary": "Innovation And Technology reflects a Strong structural position with easing momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Regulatory And Investment Climate": {
-        "name": "Regulatory And Investment Climate",
-        "verified_trends": "1",
-        "momentum": "Stable",
-        "geo_concentration": "High",
-        "geographies": "United States, India, China",
-        "discourse": "Muted",
-        "echo_risk": "No",
-        "summary": "Regulatory And Investment Climate reflects a Strong structural position with steady momentum driven by strength signals.",
-        "posture": "Strong"
-      }
-    },
-    "strength_signals": [
-      "SS-005",
-      "SS-002",
-      "SS-001",
-      "SS-004",
-      "SS-007",
-      "SS-003",
-      "SS-006"
-    ],
-    "strength_signal_details": [
-      {
-        "id": "SS-005",
-        "arena": "Innovation And Technology",
-        "character": "Structural",
-        "horizon": "12 months",
-        "description": "International exposure is high and steady, with moderate public commentary and multiple references sustaining external confidence in UK-linked AI infrastructure capacity signals.",
-        "mechanism": "Unresolved",
-        "trend_ref": "TRU-T7",
-        "evidence": "(EVD-7LX-SS-016) (EVD-7LX-SS-017)"
-      },
-      {
-        "id": "SS-002",
-        "arena": "Financial Services And City Position",
-        "character": "Reputational",
-        "horizon": "Near term",
-        "description": "The signal is building with moderate public commentary and more than one reference, supporting reputational framing of the UK\u2019s fintech and funding position in external coverage.",
-        "mechanism": "Unresolved",
-        "trend_ref": "TRU-T4",
-        "evidence": "(EVD-7LX-SS-011) (EVD-7LX-SS-012)"
-      },
-      {
-        "id": "SS-001",
-        "arena": "Trade And Competitiveness",
-        "character": "Policy",
-        "horizon": "3\u20135 years",
-        "description": "External engagement signals remain visible but are easing, with moderate public commentary and multiple references supporting a policy-led competence narrative tied to bilateral commercial follow-through.",
-        "mechanism": "Unresolved",
-        "trend_ref": "TRU-T2",
-        "evidence": "(EVD-7LX-SS-007) (EVD-7LX-SS-008)"
-      },
-      {
-        "id": "SS-004",
-        "arena": "Innovation And Technology",
-        "character": "Policy",
-        "horizon": "Near term",
-        "description": "The signal is building with moderate public commentary and multiple references, reflecting policy-linked skills and adoption narratives that support external views of future workforce readiness.",
-        "mechanism": "Unresolved",
-        "trend_ref": "TRU-T6",
-        "evidence": "(EVD-7LX-SS-014) (EVD-7LX-SS-015)"
-      },
-      {
-        "id": "SS-007",
-        "arena": "Regulatory And Investment Climate",
-        "character": "Policy",
-        "horizon": "12 months",
-        "description": "The signal is steady but has muted public profile on informal surfaces, with evidence anchored in formal reporting channels rather than broad external commentary.",
-        "mechanism": "Unresolved",
-        "trend_ref": "TRU-T9",
-        "evidence": "(EVD-7LX-SS-021) (EVD-7LX-SS-022)"
-      },
-      {
-        "id": "SS-003",
-        "arena": "Innovation And Technology",
-        "character": "Strategic",
-        "horizon": "3\u20135 years",
-        "description": "The signal remains present but is easing, with moderate public commentary and a single reference point anchoring strategic capability framing linked to UK-based semiconductor intellectual property.",
-        "mechanism": "Unresolved",
-        "trend_ref": "TRU-T5",
-        "evidence": "(EVD-7LX-SS-013)"
-      },
-      {
-        "id": "SS-006",
-        "arena": "Innovation And Technology",
-        "character": "Strategic",
-        "horizon": "3\u20135 years",
-        "description": "International exposure is high and supported by multiple references, while momentum is easing as summit-driven coordination coverage transitions from peak-event visibility to follow-through signalling.",
-        "mechanism": "Unresolved",
-        "trend_ref": "TRU-T8",
-        "evidence": "(EVD-7LX-SS-018) (EVD-7LX-SS-019) (EVD-7LX-SS-020)"
-      }
-    ],
-    "vulnerability_signals": [
-      "VS-001"
-    ],
-    "vuln_signal_details": [
-      {
-        "id": "VS-001",
-        "title": "External Tariff-Policy Shock Narrative Elevates Uk Trade Vulnerability Framing",
-        "arena": "Trade And Competitiveness",
-        "severity": "High",
-        "horizon": "Near term",
-        "description": "External tariff shocks can erode perceived trade predictability and export resilience, weakening external assessments of UK economic steadiness.",
-        "structural_position": "Confirmed",
-        "mechanism": "Unresolved",
-        "trend_ref": "TRU-T1",
-        "evidence": "(EVD-7LX-SS-005) (EVD-7LX-SS-006)"
-      }
-    ],
-    "priorities": [
-      {
-        "horizon": "Near-term attention",
-        "action": "Address adverse narrative",
-        "arena": "Trade And Competitiveness",
-        "trend": "TRU-T1",
-        "description": "High-severity near-horizon vulnerability signal with rising momentum indicates active external framing pressure on UK trade predictability."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Regulatory And Investment Climate",
-        "trend": "None",
-        "description": "External discussion on regulatory characterisation is absent on informal surfaces this cycle, indicating a visibility gap despite linked regulatory-adjacent evidence."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Regulatory And Investment Climate",
-        "trend": "None",
-        "description": "External discussion on regulatory characterisation is absent on informal surfaces this cycle, indicating a visibility gap despite linked regulatory-adjacent evidence."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Startup And Scaleup Ecosystem",
-        "trend": "None",
-        "description": "External discussion on startup ecosystem fundamentals is absent on informal surfaces this cycle, leaving question resolution dependent on proxy signals."
-      }
-    ],
-    "standing_overview": [
-      {
-        "dimension": "Structural Position",
-        "assessment": "Strong",
-        "driver": "Strength-dominant structural positioning across Financial Services And City Position, Innovation And Technology, and Regulatory And Investment Climate; Trade And Competitiveness remains contested."
-      },
-      {
-        "dimension": "Perception Momentum",
-        "assessment": "Stable",
-        "driver": "Steady momentum in three of four arenas, with easing momentum concentrated in Innovation And Technology."
-      },
-      {
-        "dimension": "Vulnerability Concentration",
-        "assessment": "High",
-        "driver": "One confirmed high-severity near-term vulnerability signal concentrated in Trade And Competitiveness."
-      },
-      {
-        "dimension": "Evidence Density",
-        "assessment": "High",
-        "driver": "Strong evidence base across monitored arenas."
-      }
-    ],
-    "conclusion": "This cycle shows a stable external framing overall, with structurally Strong positioning in Financial Services And City Position and Innovation And Technology and a contested Trade And Competitiveness arena where a near-term vulnerability narrative is rising alongside a policy-linked strength signal. Regulatory And Investment Climate remains structurally Strong but comparatively under-discussed on informal surfaces, and startup ecosystem perception remains bounded by reliance on proxy signals rather than direct external characterisations.\nStanding posture this cycle: Stable",
-    "score": 56,
-    "posture": "Stable",
-    "trend_count": 10,
-    "strength_count": 7,
-    "vuln_count": 1,
-    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-economic-business-leadership-uk-2026-02-22-qjtr",
-    "ref": "QJTR"
   }
 }

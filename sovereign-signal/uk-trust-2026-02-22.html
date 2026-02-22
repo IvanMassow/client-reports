@@ -77,10 +77,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
 /* Arena Strip — gauges under hero */
 .arena-strip { display: flex; background: var(--slate); position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,0.06); }
-.arena-gauge { flex: 1; padding: 16px 12px 14px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
+.arena-gauge { flex: 1; padding: 18px 12px 16px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
 .arena-gauge:last-child { border-right: none; }
-.arena-gauge-name { font-size: 8px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px; line-height: 1.2; }
-.arena-gauge-posture { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.arena-gauge-name { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.88); margin-bottom: 10px; line-height: 1.3; min-height: 24px; }
+.arena-gauge-score { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+.arena-gauge-posture { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; color: rgba(255,255,255,0.45); margin-bottom: 4px; }
 .arena-gauge-momentum { font-size: 10px; opacity: 0.7; }
 
 /* Arena Cards */
@@ -216,9 +217,9 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 <body>
 <div class="topbar">
   <div class="topbar-left">
-    <div class="topbar-logo">NOAH</div>
+    <a href="index.html" class="topbar-logo" style="text-decoration:none;color:rgba(255,255,255,0.9)">NOAH</a>
     <div class="topbar-divider"></div>
-    <span class="topbar-brand">Sovereign Signal</span>
+    <a href="index.html" style="text-decoration:none"><span class="topbar-brand">Sovereign Signal</span></a>
   </div>
   <div class="topbar-right">
     <a class="back-link" href="index.html">&larr; Dashboard</a>
@@ -248,12 +249,14 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 <div class="arena-strip">
         <div class="arena-gauge">
           <div class="arena-gauge-name">GOVERNANCE STABILITY</div>
-          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-score" style="color:var(--green)">—</div>
+          <div class="arena-gauge-posture">STRONG</div>
           <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
         </div>
         <div class="arena-gauge">
           <div class="arena-gauge-name">PARTNER RELIABILITY</div>
-          <div class="arena-gauge-posture" style="color:var(--green)">Strong</div>
+          <div class="arena-gauge-score" style="color:var(--green)">—</div>
+          <div class="arena-gauge-posture">STRONG</div>
           <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
         </div></div>
 
