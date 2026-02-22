@@ -1106,14 +1106,16 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
     posture_cls = _posture_class(composite_posture)
     composite_delta_html = _delta_html(composite_delta, is_hero=True)
 
-    # Signal colour reflects composite posture
-    posture_lower = (composite_posture or "").lower()
-    if posture_lower == "strong":
+    # Signal colour — stock-style: green if up from yesterday, red if down, white if first cycle
+    if composite_delta is not None and composite_delta > 0:
         signal_color = "var(--green)"
-    elif posture_lower in ("weak", "declining"):
+        composite_num_color = "var(--green)"
+    elif composite_delta is not None and composite_delta < 0:
         signal_color = "var(--red)"
+        composite_num_color = "var(--red)"
     else:
-        signal_color = "var(--amber)"
+        signal_color = "#FFFFFF"
+        composite_num_color = "#FFFFFF"
 
     # Build pillar score cells
     if prev_pillar_scores is None:
@@ -1128,15 +1130,21 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         delta_cls = "up" if delta and delta > 0 else "down" if delta and delta < 0 else "flat"
         cell_cls = "delta-up" if delta and delta > 0 else "delta-down" if delta and delta < 0 else ""
 
-        # Previous score display — shows below current in its own colour
+        # Previous score display
         prev_score = prev_pillar_scores.get(key)
         if prev_score is not None and delta is not None:
-            prev_color = _score_color(prev_score)
+            prev_color = "var(--green)" if delta >= 0 else "var(--red)"
             prev_html = f'<div class="pillar-score-prev" style="color:{prev_color}">{prev_score}</div>'
         else:
             prev_html = '<div class="pillar-score-prev">&mdash;</div>'
 
-        score_color = _score_color(score)
+        # Stock-style colouring: green if up, red if down, white if first cycle
+        if delta is not None and delta > 0:
+            score_color = "var(--green)"
+        elif delta is not None and delta < 0:
+            score_color = "var(--red)"
+        else:
+            score_color = "#FFFFFF"  # First cycle — neutral white
         report_href = f"uk-{key}-{target_date}.html"
         pillar_score_cells += f'''
       <a class="pillar-score-cell{" " + cell_cls if cell_cls else ""}" data-pillar="{key}" href="{report_href}">
@@ -1336,7 +1344,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
-      <h1 class="hero-title">Sovereign<br><span style="color:{signal_color}">Signal</span></h1>
+      <h1 class="hero-title">Sovereign<br><span style="color:{signal_color}">Signal</span> <span style="color:rgba(255,255,255,0.4);font-size:0.55em;font-weight:400">Overview</span></h1>
       <div class="hero-subtitle">Sentiment, Trends &amp; Predictions</div>
       <p class="hero-desc">Daily intelligence tracking the United Kingdom&rsquo;s external positioning &mdash; sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.</p>
       <div class="hero-date-nav">
@@ -1348,7 +1356,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Composite Sentiment Score</div>
-        <div class="score-block-num" id="composite-score">{composite}</div>
+        <div class="score-block-num" id="composite-score" style="color:{composite_num_color}">{composite}</div>
         <div class="score-block-max">of 100</div>
         <div class="score-block-delta {sb_delta_cls}">{sb_delta_content}</div>
         <div class="score-block-posture posture-{posture_cls}" id="composite-posture">{composite_posture}</div>

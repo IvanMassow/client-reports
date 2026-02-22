@@ -351,12 +351,7 @@ body {
   color: rgba(255,255,255,0.5);
 }
 
-/* Subtle pillar colour — bottom accent */
-.pillar-score-cell[data-pillar="softpower"] { border-bottom: 2px solid var(--p-softpower-mid); }
-.pillar-score-cell[data-pillar="defence"] { border-bottom: 2px solid var(--p-defence-mid); }
-.pillar-score-cell[data-pillar="economic"] { border-bottom: 2px solid var(--p-economic-mid); }
-.pillar-score-cell[data-pillar="diplomatic"] { border-bottom: 2px solid var(--p-diplomatic-mid); }
-.pillar-score-cell[data-pillar="trust"] { border-bottom: 2px solid var(--p-trust-mid); }
+/* Pillar colour underlines removed — clean scoreboard */
 
 /* === MAIN CONTAINER === */
 .container {
@@ -667,6 +662,9 @@ body {
 
 /* === RESPONSIVE — TABLET === */
 @media (max-width: 900px) {
+  .methodology-box { padding: 0 16px; margin-top: 32px; }
+  .methodology-box-inner { flex-direction: column; text-align: center; gap: 16px; padding: 20px; }
+  .methodology-box-cta { width: 100%; justify-content: center; }
   .topbar { padding: 0 16px; height: 48px; }
   .topbar-nav { display: none; }
   .topbar-date { display: none; }
@@ -755,7 +753,7 @@ body {
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
-      <h1 class="hero-title">Sovereign<br><span style="color:var(--red)">Signal</span></h1>
+      <h1 class="hero-title">Sovereign<br><span style="color:#FFFFFF">Signal</span> <span style="color:rgba(255,255,255,0.4);font-size:0.55em;font-weight:400">Overview</span></h1>
       <div class="hero-subtitle">Sentiment, Trends &amp; Predictions</div>
       <p class="hero-desc">Daily intelligence tracking the United Kingdom&rsquo;s external positioning &mdash; sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.</p>
       <div class="hero-date-nav">
@@ -767,7 +765,7 @@ body {
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Composite Sentiment Score</div>
-        <div class="score-block-num" id="composite-score">49</div>
+        <div class="score-block-num" id="composite-score" style="color:#FFFFFF">49</div>
         <div class="score-block-max">of 100</div>
         <div class="score-block-delta flat">&mdash; First cycle</div>
         <div class="score-block-posture posture-weak" id="composite-posture">Weak</div>
@@ -777,31 +775,31 @@ body {
   <div class="pillar-scores" id="pillar-scores">
       <a class="pillar-score-cell" data-pillar="softpower" href="uk-softpower-2026-02-22.html">
         <div class="pillar-score-name">Soft Power & Cultural Standing</div>
-        <div class="pillar-score-num" style="color:var(--red)">43</div>
+        <div class="pillar-score-num" style="color:#FFFFFF">43</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
       <a class="pillar-score-cell" data-pillar="defence" href="uk-defence-2026-02-22.html">
         <div class="pillar-score-name">Defence & Strategic Credibility</div>
-        <div class="pillar-score-num" style="color:var(--amber)">47</div>
+        <div class="pillar-score-num" style="color:#FFFFFF">47</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
       <a class="pillar-score-cell" data-pillar="economic" href="uk-economic-2026-02-22.html">
         <div class="pillar-score-name">Economic & Business Leadership</div>
-        <div class="pillar-score-num" style="color:var(--green)">56</div>
+        <div class="pillar-score-num" style="color:#FFFFFF">56</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Stable</div>
       </a>
       <a class="pillar-score-cell" data-pillar="diplomatic" href="uk-diplomatic-2026-02-22.html">
         <div class="pillar-score-name">Diplomatic & Global Leadership</div>
-        <div class="pillar-score-num" style="color:var(--amber)">48</div>
+        <div class="pillar-score-num" style="color:#FFFFFF">48</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
       <a class="pillar-score-cell" data-pillar="trust" href="uk-trust-2026-02-22.html">
         <div class="pillar-score-name">Trust, Stability & Systemic Reliability</div>
-        <div class="pillar-score-num" style="color:var(--amber)">52</div>
+        <div class="pillar-score-num" style="color:#FFFFFF">52</div>
         <div class="pillar-score-prev">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>

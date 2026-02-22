@@ -332,12 +332,7 @@ body {
   color: rgba(255,255,255,0.5);
 }
 
-/* Subtle pillar colour — bottom accent */
-.pillar-score-cell[data-pillar="softpower"] { border-bottom: 2px solid var(--p-softpower-mid); }
-.pillar-score-cell[data-pillar="defence"] { border-bottom: 2px solid var(--p-defence-mid); }
-.pillar-score-cell[data-pillar="economic"] { border-bottom: 2px solid var(--p-economic-mid); }
-.pillar-score-cell[data-pillar="diplomatic"] { border-bottom: 2px solid var(--p-diplomatic-mid); }
-.pillar-score-cell[data-pillar="trust"] { border-bottom: 2px solid var(--p-trust-mid); }
+/* Pillar colour underlines removed — clean scoreboard */
 
 /* === MAIN CONTAINER === */
 .container {
@@ -648,6 +643,9 @@ body {
 
 /* === RESPONSIVE — TABLET === */
 @media (max-width: 900px) {
+  .methodology-box { padding: 0 16px; margin-top: 32px; }
+  .methodology-box-inner { flex-direction: column; text-align: center; gap: 16px; padding: 20px; }
+  .methodology-box-cta { width: 100%; justify-content: center; }
   .topbar { padding: 0 16px; height: 48px; }
   .topbar-nav { display: none; }
   .topbar-date { display: none; }
