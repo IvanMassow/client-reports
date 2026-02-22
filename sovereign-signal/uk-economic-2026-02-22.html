@@ -109,7 +109,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .arena-card-geo { padding: 8px 18px 12px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-light); }
 
 /* Perception Dashboard Table */
-.pd-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--card-radius); }
+.pd-table { width: 100%; min-width: 640px; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
 .pd-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
 .pd-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
 .pd-table tbody tr:last-child td { border-bottom: none; }
@@ -144,7 +145,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .signal-card-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); }
 
 /* Standing Overview Table */
-.overview-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.overview-table { width: 100%; min-width: 580px; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
 .overview-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
 .overview-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); }
 .overview-table tbody tr:last-child td { border-bottom: none; }
@@ -299,7 +300,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Pillar Score</div>
-        <div class="score-block-num" style="color:var(--green)">93</div>
+        <div class="score-block-num" style="color:var(--red)">48</div>
         <div class="score-block-max">of 100</div>
         <div class="posture posture-stable">Stable</div>
       </div>
@@ -401,6 +402,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
   <!-- Section 03: Sentiment & Perception Dashboard -->
   <div class="sec"><div class="sec-head"><h2 class="sec-title">Sentiment &amp; Perception Dashboard</h2><span class="sec-num">Section 03</span></div>
+      <div class="table-scroll">
       <table class="pd-table">
         <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Signal Strength</th><th>Arena</th></tr></thead>
         <tbody>
@@ -447,7 +449,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <td class="pd-arena">Trade And Competitiveness</td>
         </tr>
         </tbody>
-      </table></div>
+      </table>
+      </div></div>
 
   <!-- Section 04: Trend & Arena Analysis -->
   <div class="sec">
@@ -788,6 +791,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
   <!-- Section 07: Standing & Sentiment Overview -->
   <div class="sec"><div class="sec-head"><h2 class="sec-title">Standing &amp; Sentiment Overview</h2><span class="sec-num">Section 07</span></div>
+      <div class="table-scroll">
       <table class="overview-table">
         <thead><tr><th>Dimension</th><th>Assessment</th><th>What Drives It</th></tr></thead>
         <tbody>
@@ -796,7 +800,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         <tr><td class="ov-dim">Vulnerability Concentration</td><td class="ov-assess">Moderate</td><td>One medium-severity vulnerability signal is present; no high-severity vulnerabilities were identified in the vulnerability register.</td></tr>
         <tr><td class="ov-dim">Evidence Density</td><td class="ov-assess">High</td><td>Strong evidence base across monitored arenas.</td></tr>
         </tbody>
-      </table></div>
+      </table>
+      </div></div>
 
   <!-- Section 08: Strategic Priorities & Watch List -->
   <div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Priorities &amp; Watch List</h2><span class="sec-num">Section 08</span></div>    <h4 class="priority-horizon">Near-term attention</h4>

@@ -1,7 +1,7 @@
 {
   "2026-02-22": {
     "trust": {
-      "score": 74,
+      "score": 56,
       "posture": "Stable",
       "trend_count": 40,
       "strength_count": 6,
@@ -22,14 +22,14 @@
       "vuln_count": 1
     },
     "economic": {
-      "score": 93,
+      "score": 48,
       "posture": "Stable",
       "trend_count": 88,
       "strength_count": 14,
       "vuln_count": 1
     },
     "softpower": {
-      "score": 43,
+      "score": 47,
       "posture": "Mixed",
       "trend_count": 30,
       "strength_count": 6,

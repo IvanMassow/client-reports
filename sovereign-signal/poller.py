@@ -550,11 +550,19 @@ def parse_report_content(desc_html):
         data["conclusion"] = _strip_tags(conclusion_match.group(1))
 
     # ─── Score & Posture Extraction ───
-    # Try "score: 74/100" or "score: 74 / 100" first
-    score_match = re.search(r"(?:score|standing)[:\s]*(\d{1,3})\s*/\s*100", desc_html, re.IGNORECASE)
-    if score_match:
-        data["score"] = int(score_match.group(1))
-    # Fallback: "overall score: 74" or "overall score of 70" (without /100)
+    # Primary: sovereign_view average from perception dashboard (most reliable)
+    if data["perception_dashboard"]:
+        sv_scores = [p["sovereign_view"] for p in data["perception_dashboard"] if p.get("sovereign_view") is not None]
+        if sv_scores:
+            data["score"] = round(sum(sv_scores) / len(sv_scores))
+
+    # Fallback 1: "score: 74/100" format from exec summary
+    if data["score"] is None:
+        score_match = re.search(r"(?:score|standing)[:\s]*(\d{1,3})\s*/\s*100", desc_html, re.IGNORECASE)
+        if score_match:
+            data["score"] = int(score_match.group(1))
+
+    # Fallback 2: "overall score: 74" or "overall score of 70" (without /100)
     if data["score"] is None:
         score_match2 = re.search(r"overall\s+score[:\s]+(?:of\s+)?(\d{1,3})", desc_html, re.IGNORECASE)
         if score_match2:
@@ -568,12 +576,6 @@ def parse_report_content(desc_html):
     )
     if posture_match:
         data["posture"] = posture_match.group(1).capitalize()
-
-    # Fallback score from perception dashboard sovereign views
-    if data["score"] is None and data["perception_dashboard"]:
-        sv_scores = [p["sovereign_view"] for p in data["perception_dashboard"] if p.get("sovereign_view") is not None]
-        if sv_scores:
-            data["score"] = int(sum(sv_scores) / len(sv_scores))
 
     # Fallback from trend count if we didn't parse individual trends
     if data["trend_count"] == 0:
@@ -1686,11 +1688,13 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
           <td class="pd-arena">{html.escape(arena)}</td>
         </tr>\n'''
         perception_html = f'''
+      <div class="table-scroll">
       <table class="pd-table">
         <thead><tr><th>Proposition</th><th>Global View</th><th>Sovereign View</th><th>Signal Strength</th><th>Arena</th></tr></thead>
         <tbody>
 {rows}        </tbody>
-      </table>'''
+      </table>
+      </div>'''
 
     # Build arena analysis cards
     arena_cards_html = ""
@@ -1794,11 +1798,13 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         for o in standing_overview:
             rows += f'        <tr><td class="ov-dim">{html.escape(o.get("dimension", ""))}</td><td class="ov-assess">{html.escape(o.get("assessment", ""))}</td><td>{html.escape(o.get("driver", ""))}</td></tr>\n'
         overview_html = f'''
+      <div class="table-scroll">
       <table class="overview-table">
         <thead><tr><th>Dimension</th><th>Assessment</th><th>What Drives It</th></tr></thead>
         <tbody>
 {rows}        </tbody>
-      </table>'''
+      </table>
+      </div>'''
 
     # Build priorities section
     priorities = pdata.get("priorities", [])
@@ -2025,7 +2031,8 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .arena-card-geo {{ padding: 8px 18px 12px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-light); }}
 
 /* Perception Dashboard Table */
-.pd-table {{ width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }}
+.table-scroll {{ overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--card-radius); }}
+.pd-table {{ width: 100%; min-width: 640px; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }}
 .pd-table thead th {{ font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }}
 .pd-table tbody td {{ font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }}
 .pd-table tbody tr:last-child td {{ border-bottom: none; }}
@@ -2060,7 +2067,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .signal-card-meta {{ display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); }}
 
 /* Standing Overview Table */
-.overview-table {{ width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }}
+.overview-table {{ width: 100%; min-width: 580px; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }}
 .overview-table thead th {{ font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }}
 .overview-table tbody td {{ font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); }}
 .overview-table tbody tr:last-child td {{ border-bottom: none; }}

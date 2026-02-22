@@ -1,12 +1,12 @@
 {
   "date": "2026-02-22",
-  "composite_score": 62,
+  "composite_score": 50,
   "composite_posture": "Mixed",
   "composite_delta": null,
   "pillars": {
     "softpower": {
       "name": "Soft Power & Cultural Standing",
-      "score": 43,
+      "score": 47,
       "posture": "Mixed",
       "delta": null,
       "trend_count": 30,
@@ -36,7 +36,7 @@
     },
     "economic": {
       "name": "Economic & Business Leadership",
-      "score": 93,
+      "score": 48,
       "posture": "Stable",
       "delta": null,
       "trend_count": 88,
@@ -46,7 +46,7 @@
     },
     "trust": {
       "name": "Trust, Stability & Systemic Reliability",
-      "score": 74,
+      "score": 56,
       "posture": "Stable",
       "delta": null,
       "trend_count": 40,
