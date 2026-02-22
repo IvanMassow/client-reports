@@ -1,799 +1,93 @@
 {
-  "softpower": {
-    "executive_summary": "The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Industries And Talent present Strong positions, while Heritage Identity And Nation Brand and Values And Human Rights Reputation present Weak positions. This divergence is visible in the proposition set (e.g., P-SS-DIAG-SS-006) and is consistent with the scorecard\u2019s overall position (overall score: 43/100, with pillar momentum recorded as stable across tracked arenas).\nVulnerability concentrates in Heritage Identity And Nation Brand and Values And Human Rights Reputation with Medium confidence in arena synthesis, while strength signals are concentrated in Culture And Media Exports and Creative Industries And Talent (e.g., P-SS-DIAG-SS-002 and P-SS-DIAG-SS-005). Managed uncertainty remains material in Sporting Brand And Influence and is dominant in Education And Research Prestige (silence detected).",
-    "perception_dashboard": [
-      {
-        "proposition": "How is the United Kingdom being portrayed by non-UK sources as a cultural and soft power actor this cycle?",
-        "global_view": 50,
-        "sovereign_view": 46,
-        "signal_strength": "Low",
-        "arena": "Culture And Media Exports",
-        "emerging": ""
-      },
-      {
-        "proposition": "What external narratives describe the reach and competitiveness of UK culture and media exports (film, TV, music, publishing, digital creators), and what signals indicate growth or decline?",
-        "global_view": 50,
-        "sovereign_view": 56,
-        "signal_strength": "Medium",
-        "arena": "Culture And Media Exports",
-        "emerging": ""
-      },
-      {
-        "proposition": "How are UK universities and research institutions being assessed internationally (prestige, access, funding, talent magnetism, visa friction), and what has shifted recently?",
-        "global_view": 45,
-        "sovereign_view": 48,
-        "signal_strength": "Low",
-        "arena": "Education And Research Prestige",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is the UK's sporting influence being framed externally (global benchmark, commercial powerhouse, over-commercialised, declining), and which sports or events are driving perception?",
-        "global_view": 50,
-        "sovereign_view": 50,
-        "signal_strength": "Low",
-        "arena": "Sporting Brand And Influence",
-        "emerging": ""
-      },
-      {
-        "proposition": "How are the UK's creative industries and talent pipeline being evaluated internationally (innovation, originality, commercial dominance, labour conditions, cost and access), and what counterparts are compared against?",
-        "global_view": 50,
-        "sovereign_view": 56,
-        "signal_strength": "Medium",
-        "arena": "Creative Industries And Talent",
-        "emerging": ""
-      },
-      {
-        "proposition": "What narratives are forming externally about UK heritage, identity, and nation brand (durable, modernising, contested, nostalgic), and what events or controversies are shaping these views?",
-        "global_view": 50,
-        "sovereign_view": 37,
-        "signal_strength": "Low",
-        "arena": "Heritage Identity And Nation Brand",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is the UK's perceived moral authority and values leadership being assessed internationally (human rights, rule of law, democratic norms), and which issues most influence the judgement?",
-        "global_view": 50,
-        "sovereign_view": 39,
-        "signal_strength": "Low",
-        "arena": "Values And Human Rights Reputation",
-        "emerging": ""
-      }
-    ],
-    "trends": [
-      {
-        "id": "TRU-T1",
-        "arena": "Heritage Identity And Nation Brand",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "high",
-        "momentum": "rising",
-        "temperature": "hot"
-      },
-      {
-        "id": "TRU-T2",
-        "arena": "Culture And Media Exports",
-        "signal_type": "strength",
-        "spot_check": "confirmed",
-        "relevance": "moderate",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T3",
-        "arena": "Heritage Identity And Nation Brand",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "high",
-        "momentum": "rising",
-        "temperature": "hot"
-      },
-      {
-        "id": "TRU-T4",
-        "arena": "Values And Human Rights Reputation",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T5",
-        "arena": "Heritage Identity And Nation Brand",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "moderate",
-        "momentum": "stable",
-        "temperature": "hot"
-      },
-      {
-        "id": "TRU-T6",
-        "arena": "Values And Human Rights Reputation",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "high",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T7",
-        "arena": "Heritage Identity And Nation Brand",
-        "signal_type": "mixed",
-        "spot_check": "inconclusive",
-        "relevance": "moderate",
-        "momentum": "stable",
-        "temperature": "hot"
-      },
-      {
-        "id": "TRU-T8",
-        "arena": "Sporting Brand And Influence",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "moderate",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T9",
-        "arena": "Sporting Brand And Influence",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T10",
-        "arena": "Heritage Identity And Nation Brand",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "rising",
-        "temperature": "hot"
-      },
-      {
-        "id": "TRU-T11",
-        "arena": "Sporting Brand And Influence",
-        "signal_type": "structural_position",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T12",
-        "arena": "Creative Industries And Talent",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "moderate",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T13",
-        "arena": "Culture And Media Exports",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T14",
-        "arena": "Culture And Media Exports",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "moderate",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T15",
-        "arena": "Culture And Media Exports",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T16",
-        "arena": "Creative Industries And Talent",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "moderate",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T17",
-        "arena": "Culture And Media Exports",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T18",
-        "arena": "Culture And Media Exports",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T19",
-        "arena": "Sporting Brand And Influence",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "moderate",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T20",
-        "arena": "Values And Human Rights Reputation",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T21",
-        "arena": "Culture And Media Exports",
-        "signal_type": "strength",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "stable",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T22",
-        "arena": "Creative Industries And Talent",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T23",
-        "arena": "Values And Human Rights Reputation",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "high",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T24",
-        "arena": "Heritage Identity And Nation Brand",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "moderate",
-        "momentum": "rising",
-        "temperature": "hot"
-      },
-      {
-        "id": "TRU-T25",
-        "arena": "Values And Human Rights Reputation",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "moderate",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T26",
-        "arena": "Values And Human Rights Reputation",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T27",
-        "arena": "Sporting Brand And Influence",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T28",
-        "arena": "Values And Human Rights Reputation",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T29",
-        "arena": "Values And Human Rights Reputation",
-        "signal_type": "mixed",
-        "spot_check": "inconclusive",
-        "relevance": "low",
-        "momentum": "rising",
-        "temperature": "warm"
-      },
-      {
-        "id": "TRU-T30",
-        "arena": "Heritage Identity And Nation Brand",
-        "signal_type": "vulnerability",
-        "spot_check": "inconclusive",
-        "relevance": "high",
-        "momentum": "rising",
-        "temperature": "hot"
-      }
-    ],
-    "arena_context": {
-      "Culture And Media Exports": {
-        "name": "Culture And Media Exports",
-        "spot_checked_trends": "1",
-        "momentum": "Stable",
-        "geo_concentration": "High",
-        "geographies": "India, United States, Australia",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Culture And Media Exports reflects a Strong structural position with steady momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Education And Research Prestige": {
-        "name": "Education And Research Prestige",
-        "spot_checked_trends": "0",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "External (mixed)",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Education And Research Prestige reflects a Insufficient data structural position with steady momentum driven by structural_position signals.",
-        "posture": "Insufficient data"
-      },
-      "Sporting Brand And Influence": {
-        "name": "Sporting Brand And Influence",
-        "spot_checked_trends": "0",
-        "momentum": "Rising",
-        "geo_concentration": "Low",
-        "geographies": "Italy, United States, Canada",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Sporting Brand And Influence reflects a Moderate structural position with building momentum driven by mixed signals.",
-        "posture": "Moderate"
-      },
-      "Creative Industries And Talent": {
-        "name": "Creative Industries And Talent",
-        "spot_checked_trends": "0",
-        "momentum": "Stable",
-        "geo_concentration": "Medium",
-        "geographies": "Spain, United States, France",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Creative Industries And Talent reflects a Strong structural position with steady momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Heritage Identity And Nation Brand": {
-        "name": "Heritage Identity And Nation Brand",
-        "spot_checked_trends": "1",
-        "momentum": "Rising",
-        "geo_concentration": "Medium",
-        "geographies": "United States, Australia, Canada",
-        "discourse": "elevated",
-        "echo_risk": "No",
-        "summary": "Heritage Identity And Nation Brand reflects a Weak structural position with building momentum driven by vulnerability signals.",
-        "posture": "Weak"
-      },
-      "Values And Human Rights Reputation": {
-        "name": "Values And Human Rights Reputation",
-        "spot_checked_trends": "0",
-        "momentum": "Rising",
-        "geo_concentration": "Medium",
-        "geographies": "United States, Australia, Kenya",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Values And Human Rights Reputation reflects a Weak structural position with building momentum driven by vulnerability signals.",
-        "posture": "Weak"
-      }
-    },
-    "strength_signals": [
-      "SS-001",
-      "SS-002",
-      "SS-003",
-      "SS-004",
-      "SS-005",
-      "SS-006"
-    ],
-    "strength_signal_details": [
-      {
-        "id": "SS-001",
-        "arena": "Culture And Media Exports",
-        "character": "Reputational",
-        "horizon": "12 months",
-        "description": "External coverage indicates steady cultural visibility with moderate international exposure, and at least one independent reference supports the signal in this cycle.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T2",
-        "evidence": "EVD-7LX-SS-018"
-      },
-      {
-        "id": "SS-002",
-        "arena": "Creative Industries And Talent",
-        "character": "Reputational",
-        "horizon": "12 months",
-        "description": "International exposure is present and public commentary is moderate; the signal is steady and anchored to a single reference point captured this cycle.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T12",
-        "evidence": "EVD-7LX-SS-018"
-      },
-      {
-        "id": "SS-003",
-        "arena": "Culture And Media Exports",
-        "character": "Reputational",
-        "horizon": "12 months",
-        "description": "International exposure is present with moderate commentary visibility; the signal is steady and supported by a single externally captured reference tied to global partnership visibility.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T14",
-        "evidence": "EVD-7LX-SS-020"
-      },
-      {
-        "id": "SS-004",
-        "arena": "Creative Industries And Talent",
-        "character": "Reputational",
-        "horizon": "12 months",
-        "description": "The signal is steady with moderate public commentary presence and multiple external geographies in view; one externally captured reference supports the cross-city network framing.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T16",
-        "evidence": "EVD-7LX-SS-018"
-      },
-      {
-        "id": "SS-005",
-        "arena": "Sporting Brand And Influence",
-        "character": "Reputational",
-        "horizon": "12 months",
-        "description": "International exposure is present while public commentary remains moderate; documented commercial footprint provides a clear external-facing anchor for sport-influence visibility.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T19",
-        "evidence": "EVD-7LX-SS-025"
-      },
-      {
-        "id": "SS-006",
-        "arena": "Heritage Identity And Nation Brand",
-        "character": "Reputational",
-        "horizon": "12 months",
-        "description": "Public commentary intensity is elevated and the signal is steady; continuity signalling by high-visibility figures provides a stabilising counter-note within an otherwise adverse attention environment.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T7",
-        "evidence": "EVD-7LX-SS-013"
-      }
-    ],
-    "vulnerability_signals": [
-      "VS-001",
-      "VS-002",
-      "VS-004",
-      "VS-005",
-      "VS-006",
-      "VS-007",
-      "VS-008",
-      "VS-009",
-      "VS-003"
-    ],
-    "vuln_signal_details": [
-      {
-        "id": "VS-001",
-        "title": "Monarchy Reputation Crisis Signal",
-        "arena": "Heritage Identity And Nation Brand",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "International exposure is prominent and public commentary intensity is elevated; adverse attention on national symbols can reduce perceived stability and trust cues abroad.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T1",
-        "evidence": "EVD-7LX-SS-007, EVD-7LX-SS-035"
-      },
-      {
-        "id": "VS-002",
-        "title": "Succession Legitimacy Pressure Signal",
-        "arena": "Heritage Identity And Nation Brand",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "Public commentary intensity is elevated and the signal is building; institutional legitimacy doubts can harden external narratives about governance resilience and continuity.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T3",
-        "evidence": "EVD-7LX-SS-007, EVD-7LX-SS-009"
-      },
-      {
-        "id": "VS-004",
-        "title": "Scandal Spillover Rule Of Law Pressure Signal",
-        "arena": "Values And Human Rights Reputation",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "International exposure is prominent with repeating adverse attention; spillover framing from high-salience scandals can erode perceived institutional integrity and moral authority.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T6",
-        "evidence": "EVD-7LX-SS-012"
-      },
-      {
-        "id": "VS-005",
-        "title": "Football Social Cohesion Adverse Framing Signal",
-        "arena": "Sporting Brand And Influence",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "The signal is building with visible external framing in sport-linked channels; cohesion disputes tied to major sport institutions can generalise into broader perceptions of societal stability.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T8",
-        "evidence": "EVD-7LX-SS-029, EVD-7LX-SS-037"
-      },
-      {
-        "id": "VS-006",
-        "title": "Stature Amplifier Scandal Cycle Signal",
-        "arena": "Values And Human Rights Reputation",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "International exposure is prominent while public commentary intensity remains active; amplification cycles can widen reputational spillover beyond discrete incidents into national standing cues.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T23",
-        "evidence": "EVD-7LX-SS-035"
-      },
-      {
-        "id": "VS-007",
-        "title": "Identity Language Inclusion Risk Signal",
-        "arena": "Heritage Identity And Nation Brand",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "Public commentary intensity is elevated and the signal is building; identity-framing disputes can harm perceptions of cohesion and values alignment in external audiences.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T24",
-        "evidence": "EVD-7LX-SS-029"
-      },
-      {
-        "id": "VS-008",
-        "title": "International Law Compliance Credibility Risk Signal",
-        "arena": "Values And Human Rights Reputation",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "The signal is building with external commentary present; compliance-gap narratives can reduce perceived credibility of values leadership in external arenas.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T25",
-        "evidence": "EVD-7LX-SS-031"
-      },
-      {
-        "id": "VS-009",
-        "title": "Commonwealth Realm Reaction Stability Risk Signal",
-        "arena": "Heritage Identity And Nation Brand",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "International exposure is prominent and the signal is building; realm reactions can shape perceived resilience of UK-linked institutional brand in external contexts.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T30",
-        "evidence": "EVD-7LX-SS-036"
-      },
-      {
-        "id": "VS-003",
-        "title": "Royal Crisis Management Contestation Signal",
-        "arena": "Heritage Identity And Nation Brand",
-        "severity": "Medium",
-        "horizon": "12 months",
-        "description": "Public commentary intensity is elevated but momentum is steady; crisis-management controversy can weaken perceived competence of prominent UK-linked institutions over the medium horizon.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T5",
-        "evidence": "EVD-7LX-SS-011"
-      }
-    ],
-    "priorities": [
-      {
-        "horizon": "Near-term attention",
-        "action": "Address adverse narrative",
-        "arena": "Heritage Identity And Nation Brand",
-        "trend": "TRU-T1",
-        "description": "Hot and rising adverse heritage/identity vulnerability signals indicate accelerating external pressure on national-symbol credibility."
-      },
-      {
-        "horizon": "Medium-term monitoring",
-        "action": "Reinforce structural position",
-        "arena": "Culture And Media Exports",
-        "trend": "TRU-T2",
-        "description": "Arena standing is strong but contains an adverse counter-signal; reinforcing cultural export strength can reduce erosion risk."
-      },
-      {
-        "horizon": "Medium-term monitoring",
-        "action": "Reinforce structural position",
-        "arena": "Creative Industries And Talent",
-        "trend": "TRU-T12",
-        "description": "Arena standing is strong with a low-confidence competitiveness vulnerability present; reinforce positive creative-hub framing while monitoring comparisons."
-      },
-      {
-        "horizon": "Long-term structural positioning",
-        "action": "Structural mechanism requires attention",
-        "arena": "Values And Human Rights Reputation",
-        "trend": "TRU-T6",
-        "description": "Values/reputation standing is weak with repeating adverse integrity narratives; long-horizon structural credibility reinforcement is required."
-      }
-    ],
-    "standing_overview": [
-      {
-        "dimension": "Structural Position",
-        "assessment": "Exposed",
-        "driver": "Weakness is concentrated in Heritage Identity And Nation Brand and Values And Human Rights Reputation, outweighing strengths in Culture And Media Exports and Creative Industries And Talent (TRU-T1, TRU-T3, TRU-T6, TRU-T25)."
-      },
-      {
-        "dimension": "Perception Momentum",
-        "assessment": "Building",
-        "driver": "Building momentum is driven by rising dynamics in Sporting Brand And Influence, Heritage Identity And Nation Brand, and Values And Human Rights Reputation."
-      },
-      {
-        "dimension": "Vulnerability Concentration",
-        "assessment": "Moderate",
-        "driver": "Multiple medium-severity vulnerability signals are present across Heritage Identity And Nation Brand and Values And Human Rights Reputation (VS-001 to VS-009)."
-      },
-      {
-        "dimension": "Evidence Density",
-        "assessment": "Moderate",
-        "driver": "Moderate evidence base across monitored arenas."
-      }
-    ],
-    "conclusion": "This cycle shows a split standing picture: Culture And Media Exports and Creative Industries And Talent remain structurally Strong, while Heritage Identity And Nation Brand and Values And Human Rights Reputation are structurally Weak with building vulnerability momentum. A substantial share of arena-level conclusions remain in Managed uncertainty, and Education And Research Prestige remains an explicit silence gap.\nStanding posture this cycle: Under pressure",
-    "score": 47,
+  "trust": {
+    "executive_summary": "[Section not available this cycle.]",
+    "perception_dashboard": [],
+    "trends": [],
+    "arena_context": {},
+    "strength_signals": [],
+    "strength_signal_details": [],
+    "vulnerability_signals": [],
+    "vuln_signal_details": [],
+    "priorities": [],
+    "standing_overview": [],
+    "conclusion": "[Section not available this cycle.]",
+    "score": 50,
     "posture": "Mixed",
     "trend_count": 30,
-    "strength_count": 6,
-    "vuln_count": 9,
-    "predictions": [
-      {
-        "title": "Sport integrity framing intensifies across venues",
-        "probability": 80,
-        "type": "Strength",
-        "direction": "Intensifying",
-        "signal_strength": "Strong",
-        "horizon": "90 days",
-        "trigger": "Intensification stabilises if momentum drops to stable or geographic spread narrows materially over the next cycle."
-      },
-      {
-        "title": "Sport governance controversy gains external attention",
-        "probability": 80,
-        "type": "Vulnerability",
-        "direction": "Intensifying",
-        "signal_strength": "Strong",
-        "horizon": "90 days",
-        "trigger": "Intensification would ease if attention cools to cold and momentum shifts to stable in subsequent cycles."
-      },
-      {
-        "title": "Rule of law scrutiny intensifies in commentary",
-        "probability": 72,
-        "type": "Vulnerability",
-        "direction": "Intensifying",
-        "signal_strength": "Strong",
-        "horizon": "90 days",
-        "trigger": "Intensification would ease if momentum shifts from rising to stable and attention cools to cold in the next cycle."
-      },
-      {
-        "title": "Cultural export visibility consolidates across markets",
-        "probability": 65,
-        "type": "Strength",
-        "direction": "Intensifying",
-        "signal_strength": "Strong",
-        "horizon": "180 days",
-        "trigger": "Intensification slows if momentum turns fading or geographic spread becomes more concentrated in subsequent cycles."
-      },
-      {
-        "title": "Royal patronage imagery holds amid controversy",
-        "probability": 59,
-        "type": "Strength",
-        "direction": "Stable",
-        "signal_strength": "Strong",
-        "horizon": "90 days",
-        "trigger": "Direction turns intensifying if momentum becomes rising while attention remains hot and externally distributed over the next cycle."
-      },
-      {
-        "title": "Monarchy crisis association remains high salience",
-        "probability": 56,
-        "type": "Vulnerability",
-        "direction": "Stable",
-        "signal_strength": "Strong",
-        "horizon": "90 days",
-        "trigger": "Trajectory turns intensifying if momentum shifts to rising while attention remains hot and spreads beyond current concentrations."
-      },
-      {
-        "title": "Legal scrutiny narrative persists but stabilises",
-        "probability": 50,
-        "type": "Vulnerability",
-        "direction": "Stable",
-        "signal_strength": "Strong",
-        "horizon": "12 months",
-        "trigger": "Trajectory shifts upward if momentum returns to rising while attention remains hot across multiple external sources."
-      }
-    ],
+    "strength_count": 0,
+    "vuln_count": 0,
+    "predictions": [],
     "arena_predictions": {
-      "Heritage Identity And Nation Brand": {
+      "Term Partner and Counterparty Reliability": {
         "has_outlook": true,
-        "outlook_sentence": "85% probability that Heritage Identity And Nation Brand narratives intensify over the next 30 days (Strong signal)",
-        "probability": 85
-      },
-      "Values And Human Rights Reputation": {
-        "has_outlook": true,
-        "outlook_sentence": "72% probability that Values And Human Rights Reputation narratives intensify over the next 90 days (Strong signal)",
-        "probability": 72
-      },
-      "Sporting Brand And Influence": {
-        "has_outlook": true,
-        "outlook_sentence": "80% probability that Sporting Brand And Influence narratives intensify over the next 90 days (Strong signal)",
+        "outlook_sentence": "80% probability that Term Partner and Counterparty Reliability narratives intensify over the next 90 days (Strong signal)",
         "probability": 80
       },
-      "Culture And Media Exports": {
+      "Policy Predictability and Implementation Record": {
         "has_outlook": true,
-        "outlook_sentence": "65% probability that Culture And Media Exports narratives intensify over the next 180 days (Strong signal)",
-        "probability": 65
+        "outlook_sentence": "70% probability that Policy Predictability and Implementation Record narratives intensify over the next 90 days (Strong signal)",
+        "probability": 70
       }
     },
-    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/soft-power-cultural-standing-intelligence-brief-united-kingdom-narrative-shift-heritage-identity-and-nation-brand-2026-02-22-qjmv",
-    "ref": "QJMV"
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-united-kingdom-long-term-partner-reliability-confirmed-2026-02-22-zqpm",
+    "ref": "ZQPM"
   },
   "diplomatic": {
-    "executive_summary": "The United Kingdom\u2019s diplomatic standing this cycle is assessed as strengthening, with structural standing assessed as Strong in Multilateral Influence and Crisis Diplomacy and Mediation, and also Strong in Global Voice and Strategic Relevance and Development and Humanitarian Credibility. This aligns with the cycle scorecard\u2019s overall score of 69 and net upward momentum across most arenas, while Sanctions and Statecraft Influence remains Mixed and is easing in momentum.\nVulnerability concentration is limited to a single medium-severity climate-adjacent drag signal, while the dominant strength picture remains anchored in externally visible crisis-coordination and multilateral positioning. Managed uncertainty remains concentrated around thin or specialist-channel signals, including the sanctions posture proposition P-SS-DIAG-SS-005 and climate-and-energy credibility mixed framing.",
+    "executive_summary": "External attention on UK diplomatic standing is anchored in alliance and multilateral-role framing , NATO posture, United Nations reform process reference points, and Ukraine-related coordination remain the centre of gravity , while two weak arenas (Sanctions And Statecraft Influence; Development And Humanitarian Credibility) pull the overall picture into an \u201cunder pressure\u201d posture. The headline Sovereign Perception Score this cycle is 60, with the strongest concentration of attention in the United States, Europe, and China.\nThe balance sheet is uneven: Multilateral Influence and Crisis Diplomacy And Mediation register as strong and well-evidenced, driven by repeated external references to NATO contribution signalling, UN governance and reform discourse, and crisis-lane positioning involving the UK Government and US institutional counterparts (see proposition P-SS-DIAG-SS-002). Pressure concentrates where external framing is thin but adverse-leaning , sanctions enforcement credibility questions (Ukraine/Russia/European Union) and aid/humanitarian credibility critique (Sudan/Africa/United States) , while climate and standards narratives remain strong but comparatively low-visibility in wider commentary.",
     "perception_dashboard": [
       {
         "proposition": "How is the United Kingdom being assessed by non-UK governments, multilaterals, and international commentators as a diplomatic actor this cycle?",
         "global_view": 50,
-        "sovereign_view": 60,
-        "signal_strength": "Medium",
+        "sovereign_view": 73,
+        "signal_strength": "Strong",
         "arena": "Global Voice And Strategic Relevance",
-        "emerging": "\u2713"
+        "emerging": ""
       },
       {
         "proposition": "What is the prevailing external view of UK influence inside multilateral institutions (UN, NATO, G7/G20, Commonwealth, WTO and related bodies), and where is influence perceived to be growing or shrinking?",
         "global_view": 50,
-        "sovereign_view": 60,
-        "signal_strength": "Medium",
+        "sovereign_view": 73,
+        "signal_strength": "Strong",
         "arena": "Multilateral Influence",
-        "emerging": "\u2713"
+        "emerging": ""
       },
       {
         "proposition": "How is UK crisis diplomacy being characterised internationally (effective, symbolic, constrained, marginal), and which crises are driving the assessment?",
-        "global_view": 50,
-        "sovereign_view": 61,
-        "signal_strength": "Medium",
+        "global_view": 45,
+        "sovereign_view": 62,
+        "signal_strength": "Strong",
         "arena": "Crisis Diplomacy And Mediation",
         "emerging": ""
       },
       {
         "proposition": "How credible is the UK's climate and energy diplomacy being treated externally (delivery vs rhetoric, COP legacy, energy transition positioning), and what specific policy actions or outcomes are cited?",
         "global_view": 50,
-        "sovereign_view": 53,
-        "signal_strength": "Low",
+        "sovereign_view": 58,
+        "signal_strength": "Strong",
         "arena": "Climate And Energy Diplomacy",
-        "emerging": ""
+        "emerging": "\u2713"
       },
       {
         "proposition": "How is the UK's sanctions posture being viewed by non-UK actors (agenda-setting, aligned follower, overreach, underpowered), and what is the perceived impact on counterpart states and alliances?",
         "global_view": 40,
-        "sovereign_view": 43,
-        "signal_strength": "Low",
+        "sovereign_view": 33,
+        "signal_strength": "Moderate",
         "arena": "Sanctions And Statecraft Influence",
         "emerging": ""
       },
       {
         "proposition": "Which international narratives describe the UK's geopolitical voice and strategic relevance (bridge, junior partner, independent actor, diminished), and which regions are most associated with each narrative?",
         "global_view": 50,
-        "sovereign_view": 60,
-        "signal_strength": "Medium",
+        "sovereign_view": 68,
+        "signal_strength": "Strong",
         "arena": "Global Voice And Strategic Relevance",
-        "emerging": "\u2713"
+        "emerging": ""
       },
       {
         "proposition": "How is the UK's development and humanitarian role being perceived internationally (generous, declining, strategic, tokenistic), and what has shifted since ODA commitments changed?",
         "global_view": 45,
-        "sovereign_view": 50,
-        "signal_strength": "Low",
+        "sovereign_view": 35,
+        "signal_strength": "Moderate",
         "arena": "Development And Humanitarian Credibility",
         "emerging": ""
       }
@@ -802,214 +96,199 @@
     "arena_context": {
       "Multilateral Influence": {
         "name": "Multilateral Influence",
-        "spot_checked_trends": "2",
-        "momentum": "Rising",
-        "geo_concentration": "Low",
-        "geographies": "United States, Russia, China",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Multilateral Influence reflects a Strong structural position with rising momentum driven by strength signals.",
-        "posture": "Strong"
+        "summary": "Multilateral Influence standing is strong and is steady, driven by repeated external reference to NATO contribution framing, UN governance and reform process reference points, and Ukraine\u2013EU integration discourse that continues to cite UK alignment and influence signals across Europe, the United States, and Russia."
       },
-      "Crisis Diplomacy and Mediation": {
-        "name": "Crisis Diplomacy and Mediation",
-        "spot_checked_trends": "2",
-        "momentum": "Rising",
-        "geo_concentration": "Low",
-        "geographies": "United States, Russia, Ukraine",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Crisis Diplomacy and Mediation reflects a Strong structural position with rising momentum driven by strength signals.",
-        "posture": "Strong"
+      "Crisis Diplomacy And Mediation": {
+        "name": "Crisis Diplomacy And Mediation",
+        "summary": "Crisis Diplomacy And Mediation standing is strong and is building, anchored by external coverage of UK Government diplomacy and defence/energy coordination narratives and crisis-response positioning alongside US institutional actors, with bounded caution introduced by a thin operational-risk strand referencing Royal Navy maritime posture in Red Sea and High North contexts; attention is concentrated in the United States and China, with Europe as a consistent secondary geography."
       },
-      "Climate and Energy Diplomacy": {
-        "name": "Climate and Energy Diplomacy",
-        "spot_checked_trends": "1",
-        "momentum": "Rising",
-        "geo_concentration": "Medium",
-        "geographies": "United States, Brazil, China",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Climate and Energy Diplomacy reflects a Moderate structural position with rising momentum driven by mixed signals.",
-        "posture": "Moderate"
+      "Climate And Energy Diplomacy": {
+        "name": "Climate And Energy Diplomacy",
+        "summary": "Climate And Energy Diplomacy standing is strong and is building, driven by UK-linked association with sustainability standards and adaptation rulemaking infrastructure (International Sustainability Standards Board / IFRS-linked governance context) and continuing UN-linked climate/energy process reference points; external attention clusters in the United States, China, and India, while wider public discussion remains muted relative to expected exposure."
       },
-      "Sanctions and Statecraft Influence": {
-        "name": "Sanctions and Statecraft Influence",
-        "spot_checked_trends": "0",
-        "momentum": "Fading",
-        "geo_concentration": "Low",
-        "geographies": "Ukraine, Russia, Iran",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Sanctions and Statecraft Influence reflects a Mixed structural position with fading momentum driven by structural position signals.",
-        "posture": "Mixed"
+      "Sanctions And Statecraft Influence": {
+        "name": "Sanctions And Statecraft Influence",
+        "summary": "Sanctions And Statecraft Influence standing is weak and is steady, shaped by a thin external enforcement-framing signal that raises questions about UK leverage inside sanctions coalitions; the geography of attention is concentrated around Ukraine, Russia, and the European Union, and wider discussion remains muted."
       },
-      "Global Voice and Strategic Relevance": {
-        "name": "Global Voice and Strategic Relevance",
-        "spot_checked_trends": "1",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "United States",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Global Voice and Strategic Relevance reflects a Strong structural position with stable momentum driven by strength signals.",
-        "posture": "Strong"
+      "Global Voice And Strategic Relevance": {
+        "name": "Global Voice And Strategic Relevance",
+        "summary": "Global Voice And Strategic Relevance standing is strong and is steady, driven by repeated external reference to Indian Ocean basing and sovereignty debates (Chagos Islands / Mauritius / Diego Garcia context) as a proxy for UK alignment choices, alongside recurring high-visibility commentary involving Donald Trump and UK political figures that shapes autonomy-versus-alignment interpretation in US- and Europe-linked discourse."
       },
-      "Development and Humanitarian Credibility": {
-        "name": "Development and Humanitarian Credibility",
-        "spot_checked_trends": "1",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "United States, China, Mauritius",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Development and Humanitarian Credibility reflects a Strong structural position with stable momentum driven by strength signals.",
-        "posture": "Strong"
+      "Development And Humanitarian Credibility": {
+        "name": "Development And Humanitarian Credibility",
+        "summary": "Development And Humanitarian Credibility standing is weak and is steady, driven by external critique of UK aid posture and humanitarian commitment framing that is used as a proxy for reliability in multilateral settings; attention concentrates around Sudan and Africa-linked contexts with visible amplification in the United States."
       }
     },
     "strength_signals": [
-      "SS-003",
-      "SS-006",
-      "SS-002",
+      "SS-007",
+      "SS-004",
       "SS-005",
       "SS-001",
-      "SS-004",
-      "SS-007"
+      "SS-002",
+      "SS-003",
+      "SS-006"
     ],
     "strength_signal_details": [
       {
-        "id": "SS-003",
-        "arena": "Multilateral Influence",
-        "character": "Structural",
-        "horizon": "Near term",
-        "description": "Institutional access is durable and well-supported by multiple independent references, even where public commentary is muted in this cycle.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T3",
-        "evidence": "(EVD-7LX-SS-003) (EVD-7LX-SS-009)"
-      },
-      {
-        "id": "SS-006",
-        "arena": "Development And Humanitarian Credibility",
+        "id": "SS-007",
+        "arena": "Climate And Energy Diplomacy",
         "character": "Reputational",
-        "horizon": "12 months",
-        "description": "The theme remains present in external narratives with steady momentum, but the cycle remains bounded by limited triangulation beyond a single anchor reference.",
+        "horizon": "Near term",
+        "description": "UK-linked association with sustainability standards and technical rulemaking infrastructure (International Sustainability Standards Board / IFRS-linked governance context) is present across a multi-geo external frame centred on China, the United States, and India; the signal is building even as wider public discussion remains muted, and it is supported by multiple independent references.",
         "mechanism": "Unresolved",
-        "trend_ref": "T6",
-        "evidence": "(EVD-7LX-SS-013)"
+        "trend_ref": "T10",
+        "evidence": ""
       },
       {
-        "id": "SS-002",
-        "arena": "Global Voice And Strategic Relevance",
+        "id": "SS-004",
+        "arena": "Multilateral Influence",
         "character": "Policy",
         "horizon": "12 months",
-        "description": "International exposure is present through externally visible coordination signals, though public commentary is muted and the signal remains more institutional than discourse-led.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T2",
-        "evidence": "(EVD-7LX-SS-007)"
+        "description": "UN governance and reform process coverage repeatedly references the UK among core institutional actors, keeping permanent-member status salient in external framing across the United States, China, and India; the signal is steady and supported by multiple independent references, with institutional process evidence available this cycle.",
+        "mechanism": "Confirmed",
+        "trend_ref": "T4",
+        "evidence": ""
       },
       {
         "id": "SS-005",
         "arena": "Climate And Energy Diplomacy",
         "character": "Policy",
-        "horizon": "Near term",
-        "description": "A building climate-process signal provides a positive credibility context, while UK-specific framing remains uneven and therefore bounded in wider perception.",
+        "horizon": "12 months",
+        "description": "Climate diplomacy narratives link UK positioning to multilateral climate-and-energy process lanes (UN climate governance, COP process reference points, and shipping-related climate negotiations) and register most visibly across the United States, Europe, and China; the signal is steady, with public discussion muted rather than dominant.",
         "mechanism": "Unresolved",
         "trend_ref": "T5",
-        "evidence": "(EVD-7LX-SS-019)"
+        "evidence": ""
       },
       {
         "id": "SS-001",
         "arena": "Crisis Diplomacy And Mediation",
         "character": "Strategic",
         "horizon": "Near term",
-        "description": "International exposure is prominent and building, with sustained external reporting that keeps crisis-coordination visible in international commentary.",
+        "description": "External coverage of UK Government diplomacy and defence/energy/diplomacy signalling is building and registers across the United States, Europe, and Mauritius, with recurring reference to Indian Ocean basing and sovereignty context (Chagos Islands / Diego Garcia) as a credibility and alignment signal.",
         "mechanism": "Unresolved",
         "trend_ref": "T1",
-        "evidence": "(EVD-7LX-SS-005) (EVD-7LX-SS-006)"
+        "evidence": ""
       },
       {
-        "id": "SS-004",
+        "id": "SS-002",
         "arena": "Multilateral Influence",
         "character": "Strategic",
-        "horizon": "Near term",
-        "description": "The alliance posture signal is building and externally visible, even as broader informal commentary remains muted in this cycle.",
+        "horizon": "12 months",
+        "description": "Ukraine\u2013EU integration and enlargement discourse references the UK alongside NATO and EU actors, sustaining an alignment-and-influence frame concentrated in Europe and the United States with Ukraine-linked context; the signal is steady and supported by multiple independent references.",
         "mechanism": "Unresolved",
-        "trend_ref": "T4",
-        "evidence": "(EVD-7LX-SS-008)"
+        "trend_ref": "T2",
+        "evidence": ""
       },
       {
-        "id": "SS-007",
-        "arena": "Crisis Diplomacy And Mediation",
+        "id": "SS-003",
+        "arena": "Multilateral Influence",
         "character": "Strategic",
-        "horizon": "Near term",
-        "description": "The basing-permission posture is visible in international reporting and is treated as consequential in alliance-operational narratives, with multiple reference points supporting the signal.",
+        "horizon": "12 months",
+        "description": "NATO alliance security posture coverage keeps UK contribution visible across Europe, the United States, and Russia in a steady framing that references collective defence signalling and High North-linked activity; public discussion is moderate and repeatedly reinforced through external coverage.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T3",
+        "evidence": ""
+      },
+      {
+        "id": "SS-006",
+        "arena": "Global Voice And Strategic Relevance",
+        "character": "Strategic",
+        "horizon": "12 months",
+        "description": "Indian Ocean basing and sovereignty narratives (Chagos Islands / Mauritius / Diego Garcia context) keep UK strategic relevance present across United States- and China-linked framing, with the signal steady and supported by multiple independent references; interpretation remains contested when high-visibility personality-driven commentary enters the same lane.",
         "mechanism": "Unresolved",
         "trend_ref": "T7",
-        "evidence": "(EVD-7LX-SS-014) (EVD-7LX-SS-015)"
+        "evidence": ""
       }
     ],
     "vulnerability_signals": [
-      "VS-001"
+      "VS-001",
+      "VS-002"
     ],
     "vuln_signal_details": [
       {
         "id": "VS-001",
-        "title": "Climate-Credibility Drag From External Benchmarking Of Uk-Linked Retail Emissions Commitments",
-        "arena": "Climate And Energy Diplomacy",
-        "severity": "Medium",
+        "title": "Sanctions Enforcement Framing Raises Questions About Uk Statecraft Leverage",
+        "arena": "Sanctions And Statecraft Influence",
+        "severity": "Low",
         "horizon": "12 months",
-        "description": "Persistent third-party benchmarking criticism can spill into broader delivery-versus-rhetoric assessments of climate credibility.",
+        "description": "External coverage that questions sanctions enforcement capacity can erode perceived leverage inside sanctions coalitions and alignment blocs, with attention concentrated around Ukraine, Russia, and the European Union in sanctions-regime framing that references UK roles. Public discussion remains muted and the signal is evidence-limited this cycle.",
         "structural_position": "Managed uncertainty",
         "mechanism": "Unresolved",
-        "trend_ref": "T8",
-        "evidence": "(EVD-7LX-SS-010) (EVD-7LX-SS-011) (EVD-7LX-SS-012)"
+        "trend_ref": "TP-001",
+        "evidence": ""
+      },
+      {
+        "id": "VS-002",
+        "title": "Aid And Humanitarian Role Questioned Amid External Credibility Assessments",
+        "arena": "Development And Humanitarian Credibility",
+        "severity": "Low",
+        "horizon": "12 months",
+        "description": "External critique of aid and humanitarian commitment is used as a proxy for reliability and responsibility in multilateral settings, and this cycle\u2019s attention is concentrated in Sudan and broader Africa-linked contexts with amplification in the United States. The signal is steady rather than accelerating, but it is positioned as a credibility test in external commentary.",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "TP-002",
+        "evidence": ""
       }
     ],
     "priorities": [
       {
         "horizon": "Near-term attention",
         "action": "Monitor for escalation",
-        "arena": "Multilateral Influence",
+        "arena": "Climate And Energy Diplomacy",
         "trend": "None",
-        "description": "Expected multilateral themes show limited informal discourse amplification despite strong institutional-position evidence; track for pickup or reframing."
+        "description": "Positive climate-and-standards perception is present while public discussion is under-engaged, creating a watchpoint for amplification."
       },
       {
         "horizon": "Near-term attention",
         "action": "Monitor for escalation",
-        "arena": "Global Voice And Strategic Relevance",
-        "trend": "None",
-        "description": "High-expected arena shows muted informal discourse signals relative to evidence volume; monitor for emergence of sustained counter-narratives."
+        "arena": "Sanctions And Statecraft Influence",
+        "trend": "TRU-TP-001",
+        "description": "Sanctions lane shows under-engaged public discussion with thin adverse-leaning signal; track for corroboration and potential escalation."
+      },
+      {
+        "horizon": "Near-term attention",
+        "action": "Monitor for escalation",
+        "arena": "Climate And Energy Diplomacy",
+        "trend": "TRU-T5",
+        "description": "Climate diplomacy lane shows under-engaged public discussion relative to expected exposure despite strong evidence volume; monitor for discourse shift."
       },
       {
         "horizon": "Medium-term monitoring",
         "action": "Reinforce structural position",
         "arena": "Crisis Diplomacy And Mediation",
         "trend": "TRU-T9",
-        "description": "Crisis diplomacy standing is strong but an operational-readiness vulnerability strand is present with rising momentum; reinforce resilience against capability-focused critiques."
+        "description": "Crisis diplomacy standing is strong, but a thin operational-risk vulnerability signal is present; reinforce resilience to prevent narrative erosion."
       },
       {
         "horizon": "Medium-term monitoring",
         "action": "Monitor for escalation",
         "arena": "Sanctions And Statecraft Influence",
         "trend": "None",
-        "description": "Sanctions posture signal remains thin and specialist-channel heavy; build coverage to determine whether the theme broadens into mainstream external framing."
+        "description": "Sanctions posture assessment remains low-conviction with thin coverage; prioritise evidence build to reduce uncertainty."
+      },
+      {
+        "horizon": "Medium-term monitoring",
+        "action": "Monitor for escalation",
+        "arena": "Development And Humanitarian Credibility",
+        "trend": "None",
+        "description": "Humanitarian and development assessment is low-conviction with thin coverage; monitor for widening external attention or multi-geo spread."
       }
     ],
     "standing_overview": [
       {
         "dimension": "Structural Position",
         "assessment": "Strong",
-        "driver": "Strong standing across most arenas, led by Multilateral Influence and Crisis Diplomacy and Mediation."
+        "driver": "Strength concentration in NATO and UN multilateral-role framing, plus crisis-diplomacy signalling that remains repeatedly referenced across multiple external geographies."
       },
       {
         "dimension": "Perception Momentum",
-        "assessment": "Building",
-        "driver": "Majority of arenas show rising momentum; sanctions-related framing is easing."
+        "assessment": "Stable",
+        "driver": "Most arenas show steady external attention; building trajectories are concentrated in crisis diplomacy credibility gains and climate-and-standards association."
       },
       {
         "dimension": "Vulnerability Concentration",
-        "assessment": "Moderate",
-        "driver": "One medium-severity vulnerability signal identified (VS-001)."
+        "assessment": "Low",
+        "driver": "Vulnerabilities are present but low-severity, centred on sanctions enforcement leverage doubts and aid/humanitarian credibility critique."
       },
       {
         "dimension": "Evidence Density",
@@ -1017,225 +296,848 @@
         "driver": "Strong evidence base across monitored arenas."
       }
     ],
-    "conclusion": "This cycle\u2019s perception picture is anchored in strong multilateral and crisis-diplomacy standing, with additional strength in global voice and development credibility, while climate-and-energy credibility remains contested due to thin negative adjacent signals and sanctions posture remains early-stage and specialist-channel visible. Managed uncertainty concentrates around limited informal discourse amplification in several high-expected arenas and around unresolved operational-readiness framing.\nStanding posture this cycle: Strengthening",
-    "score": 55,
+    "conclusion": "Near-term attention\n\n- Monitor for escalation , Arena: Climate And Energy Diplomacy , Trend: None , Positive climate-and-standards perception is present while public discussion is under-engaged, creating a watchpoint for amplification. \n- Monitor for escalation , Arena: Sanctions And Statecraft Influence , Trend: TRU-TP-001 , Sanctions lane shows under-engaged public discussion with thin adverse-leaning signal; track for corroboration and potential escalation. \n- Monitor for escalation , Arena: Climate And Energy Diplomacy , Trend: TRU-T5 , Climate diplomacy lane shows under-engaged public discussion relative to expected exposure despite strong evidence volume; monitor for discourse shift.\n\nMedium-term monitoring\n\n- Reinforce structural position , Arena: Crisis Diplomacy And Mediation , Trend: TRU-T9 , Crisis diplomacy standing is strong, but a thin operational-risk vulnerability signal is present; reinforce resilience to prevent narrative erosion. \n- Monitor for escalation , Arena: Sanctions And Statecraft Influence , Trend: None , Sanctions posture assessment remains low-conviction with thin coverage; prioritise evidence build to reduce uncertainty. \n- Monitor for escalation , Arena: Development And Humanitarian Credibility , Trend: None , Humanitarian and development assessment is low-conviction with thin coverage; monitor for widening external attention or multi-geo spread.\n\nLong-term structural positioning\n\nNo long-term priorities identified this cycle.",
+    "score": 57,
     "posture": "Stable",
-    "trend_count": 44,
+    "trend_count": 30,
     "strength_count": 7,
-    "vuln_count": 1,
+    "vuln_count": 2,
     "predictions": [],
-    "arena_predictions": {},
-    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-diplomatic-global-leadership-uk-2026-02-22-qjtr",
-    "ref": "QJTR"
+    "arena_predictions": {
+      "Mediation": {
+        "has_outlook": true,
+        "outlook_sentence": "83% probability that Mediation narratives intensify over the next 90 days (Strong signal)",
+        "probability": 83
+      },
+      "Multilateral Influence": {
+        "has_outlook": true,
+        "outlook_sentence": "68% probability that Multilateral Influence narratives intensify over the next 90 days (Strong signal)",
+        "probability": 68
+      },
+      "Strategic Relevance": {
+        "has_outlook": true,
+        "outlook_sentence": "68% probability that Strategic Relevance narratives intensify over the next 90 days (Strong signal)",
+        "probability": 68
+      }
+    },
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/diplomatic-global-leadership-intelligence-brief-united-kingdom-crisis-diplomacy-and-mediation-prestige-holds-2026-02-22-qjxf",
+    "ref": "QJXF"
   },
-  "defence": {
-    "executive_summary": "United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak structural positions in Deterrence Posture And Escalation Management, Cyber Capability And Security Posture, and Geopolitical Influence In Security Theatres. Perception signals align with operational and industrial strength narratives, while credibility and alignment-friction vulnerabilities weigh on the overall posture; this picture is consistent with an overall score of 54 and arena momentum that includes Military Capability And Readiness building while several arenas remain steady. The perception dashboard shows a favourable tilt on capability (P-SS-DIAG-SS-002) alongside adverse-leaning characterisation and deterrence framing (P-SS-DIAG-SS-001; P-SS-DIAG-SS-005).\nVulnerability concentration is highest in Geopolitical Influence In Security Theatres (VS-001; VS-002) and Deterrence Posture And Escalation Management (VS-003), each with High severity, while strength signals are most visible in Military Capability And Readiness (SS-001) and Defence Industry And Procurement Credibility (SS-004; SS-005; SS-006). Managed uncertainty persists where signals are high-exposure but directionally contested (notably Alliance Reliability And Burden Sharing) and where low-volume access-friction themes have bounded confirmation (VS-004).",
+  "economic": {
+    "executive_summary": "External attention on the United Kingdom\u2019s economic standing is concentrated in two connected storylines: London\u2019s finance-centre positioning (NASDAQ, Citi) and UK-linked AI ecosystem visibility (OpenAI, Google, Microsoft), with amplification concentrated in India and the United States (and, in trade/macro framing, the European Union). The sovereign perception headline for this cycle is 64, with Economic Competence assessed Strong and Economic Power assessed Strong.\nThe balance sheet is favourable but not uniform: the strongest, best-evidenced proposition is P-SS-DER-SS-001 (international characterisation of the UK as a place to invest/build/base operations), while the main bounded uncertainty sits in Governance Stability, where the regulatory-environment signal remains thin and geographically concentrated around European Union / United Arab Emirates / Spain references rather than broad external repetition. Strategic Credibility, Partnership Reliability, and Cultural Soft Power remain externally quiet (insufficient data), meaning the cycle\u2019s perception picture is being set primarily by finance-and-technology narratives rather than whole-of-country reputation across all arenas.",
     "perception_dashboard": [
       {
-        "proposition": "How is the United Kingdom being characterised by non-UK defence and security commentators as a strategic actor this cycle?",
+        "proposition": "How is the United Kingdom perceived internationally as a place to invest, build companies, and base international operations (with emphasis on technology/AI and finance signals in the current window)?",
         "global_view": 50,
-        "sovereign_view": 40,
-        "signal_strength": "Low",
-        "arena": "Geopolitical Influence In Security Theatres",
+        "sovereign_view": 73,
+        "signal_strength": "Strong",
+        "arena": "Economic Competence",
         "emerging": ""
       },
       {
-        "proposition": "What external narratives assess UK military capability and readiness (mass, modernisation, sustainment, deployment capacity), and what evidence is cited?",
+        "proposition": "What narrative is forming internationally about the strength or decline of London and the UK as a financial centre, and what is driving it (as proxied by finance/market signal clusters this cycle)?",
+        "global_view": 50,
+        "sovereign_view": 68,
+        "signal_strength": "Strong",
+        "arena": "Economic Competence",
+        "emerging": ""
+      },
+      {
+        "proposition": "How are non-UK observers assessing the UK's competitiveness in AI, advanced technology, and innovation policy relative to peer economies (as proxied by AI investment/regulatory clusters with UK references)?",
+        "global_view": 50,
+        "sovereign_view": 66,
+        "signal_strength": "Strong",
+        "arena": "Economic Competence",
+        "emerging": ""
+      },
+      {
+        "proposition": "What is the prevailing external view of the UK's regulatory environment (pro-growth, restrictive, stable, unpredictable) in UK-adjacent finance/regulatory signals this cycle?",
+        "global_view": 40,
+        "sovereign_view": 40,
+        "signal_strength": "Thin",
+        "arena": "Governance Stability",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the UK's startup and scale-up ecosystem being perceived internationally (talent, funding, exits, R&D depth, friction), and what has shifted recently (based on the available economic/technology signal geometry this cycle)?",
+        "global_view": 45,
+        "sovereign_view": 61,
+        "signal_strength": "Strong",
+        "arena": "Economic Competence",
+        "emerging": ""
+      },
+      {
+        "proposition": "What external narratives describe the UK's trade positioning and post-Brexit economic trajectory (repositioning, stagnation, resilience, vulnerability) in the context of current trade-policy volatility signals?",
         "global_view": 50,
         "sovereign_view": 61,
-        "signal_strength": "Medium",
-        "arena": "Military Capability And Readiness",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is UK alliance reliability being framed internationally (dependable, constrained, inconsistent, overcommitted), and which alliances or theatres are driving the assessment?",
-        "global_view": 55,
-        "sovereign_view": 44,
-        "signal_strength": "Low",
-        "arena": "Alliance Reliability And Burden Sharing",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is the UK's NATO role being described externally (leader, specialist contributor, junior partner, bridge actor), and what signals or decisions are referenced?",
-        "global_view": 45,
-        "sovereign_view": 48,
-        "signal_strength": "Low",
-        "arena": "Nato Role And Positioning",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is UK deterrence posture being portrayed (credible, ambiguous, escalatory, underpowered), including conventional, cyber, and (where referenced) nuclear dimensions?",
-        "global_view": 50,
-        "sovereign_view": 39,
-        "signal_strength": "Low",
-        "arena": "Deterrence Posture And Escalation Management",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is the UK defence industrial base being evaluated externally (innovation, export credibility, procurement competence, delivery risk), and which programmes or contracts are central to the narrative?",
-        "global_view": 45,
-        "sovereign_view": 55,
-        "signal_strength": "Medium",
-        "arena": "Defence Industry And Procurement Credibility",
-        "emerging": "\u2713"
-      },
-      {
-        "proposition": "What is the prevailing non-UK view of UK cyber capability and security posture (offensive capacity, resilience, attribution credibility), and what incidents or policy moves are shaping perception?",
-        "global_view": 50,
-        "sovereign_view": 43,
-        "signal_strength": "Low",
-        "arena": "Cyber Capability And Security Posture",
+        "signal_strength": "Strong",
+        "arena": "Economic Power",
         "emerging": ""
       }
     ],
-    "trends": [],
+    "trends": [
+      {
+        "id": "TRU-T1",
+        "arena": "Economic Power",
+        "signal_type": "structural_position",
+        "spot_check": "Strong",
+        "relevance": "moderate",
+        "momentum": "Aligned",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T2",
+        "arena": "Economic Power",
+        "signal_type": "strength",
+        "spot_check": "Strong",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T3",
+        "arena": "Economic Competence",
+        "signal_type": "strength",
+        "spot_check": "Strong",
+        "relevance": "high",
+        "momentum": "Strong",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T4",
+        "arena": "Economic Competence",
+        "signal_type": "strength",
+        "spot_check": "Strong",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "stable"
+      },
+      {
+        "id": "TRU-T5",
+        "arena": "Economic Competence",
+        "signal_type": "strength",
+        "spot_check": "Strong",
+        "relevance": "low",
+        "momentum": "Strong",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T6",
+        "arena": "Economic Competence",
+        "signal_type": "strength",
+        "spot_check": "Strong",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T7",
+        "arena": "Economic Competence",
+        "signal_type": "strength",
+        "spot_check": "Strong",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T8",
+        "arena": "Economic Competence",
+        "signal_type": "strength",
+        "spot_check": "Strong",
+        "relevance": "moderate",
+        "momentum": "Strong",
+        "temperature": "rising"
+      },
+      {
+        "id": "TRU-T9",
+        "arena": "Governance Stability",
+        "signal_type": "vulnerability",
+        "spot_check": "Thin",
+        "relevance": "low",
+        "momentum": "Exposed",
+        "temperature": "fading"
+      },
+      {
+        "id": "TRU-T10",
+        "arena": "Governance Stability",
+        "signal_type": "strength",
+        "spot_check": "Thin",
+        "relevance": "low",
+        "momentum": "Strong",
+        "temperature": "fading"
+      }
+    ],
     "arena_context": {
-      "Military Capability And Readiness": {
-        "name": "Military Capability And Readiness",
-        "spot_checked_trends": "1",
+      "Economic Competence": {
+        "name": "Economic Competence",
         "momentum": "Rising",
         "geo_concentration": "Low",
-        "geographies": "Russia, Europe, Ukraine",
-        "discourse": "Moderate",
+        "geographies": "India, United States, South Korea",
+        "discourse": "moderate",
         "echo_risk": "No",
-        "summary": "Military Capability And Readiness reflects a Strong structural position with building momentum driven by strength signals.",
-        "posture": "Strong"
+        "summary": "Economic Competence is Strong and is building, driven by sustained external visibility of OpenAI governance-and-partnership positioning, Google/DeepMind-linked AI safety collaboration narratives, and finance-centre benchmarking anchored around NASDAQ and Citi across India and the United States."
       },
-      "Alliance Reliability And Burden Sharing": {
-        "name": "Alliance Reliability And Burden Sharing",
-        "spot_checked_trends": "1",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "Iran, Middle East, United States",
-        "discourse": "Moderate",
-        "echo_risk": "No",
-        "summary": "Alliance Reliability And Burden Sharing reflects a Mixed structural position with steady momentum driven by mixed signals.",
-        "posture": "Mixed"
-      },
-      "Nato Role And Positioning": {
-        "name": "Nato Role And Positioning",
-        "spot_checked_trends": "0",
+      "Strategic Credibility": {
+        "name": "Strategic Credibility",
         "momentum": "Stable",
         "geo_concentration": "Low",
         "geographies": "External (mixed)",
-        "discourse": "Muted",
+        "discourse": "muted",
         "echo_risk": "No",
-        "summary": "Nato Role And Positioning reflects a Insufficient data structural position with steady momentum driven by structural position signals.",
-        "posture": "Insufficient data"
+        "summary": "Strategic Credibility has Insufficient data this cycle; no external signal drivers surfaced in the monitoring window, and momentum is stable with public commentary muted."
       },
-      "Deterrence Posture And Escalation Management": {
-        "name": "Deterrence Posture And Escalation Management",
-        "spot_checked_trends": "2",
-        "momentum": "Stable",
-        "geo_concentration": "Medium",
-        "geographies": "Middle East, Iran, Europe",
-        "discourse": "Moderate",
-        "echo_risk": "Yes , signal concentrated",
-        "summary": "Deterrence Posture And Escalation Management reflects a Weak structural position with steady momentum driven by vulnerability signals.",
-        "posture": "Weak"
-      },
-      "Defence Industry And Procurement Credibility": {
-        "name": "Defence Industry And Procurement Credibility",
-        "spot_checked_trends": "3",
+      "Governance Stability": {
+        "name": "Governance Stability",
         "momentum": "Fading",
         "geo_concentration": "High",
-        "geographies": "Russia, Ukraine, Europe",
-        "discourse": "Muted",
+        "geographies": "European Union, United Arab Emirates, Spain",
+        "discourse": "muted",
         "echo_risk": "No",
-        "summary": "Defence Industry And Procurement Credibility reflects a Strong structural position with easing momentum driven by strength signals.",
-        "posture": "Strong"
+        "summary": "Governance Stability is Mixed and is easing, with limited external coverage concentrated around narrow finance/regulatory references (including Rathbones and EY) rather than repeated multi-geo framing."
       },
-      "Cyber Capability And Security Posture": {
-        "name": "Cyber Capability And Security Posture",
-        "spot_checked_trends": "2",
-        "momentum": "Stable",
-        "geo_concentration": "High",
-        "geographies": "Europe, United States, Russia",
-        "discourse": "Muted",
-        "echo_risk": "No",
-        "summary": "Cyber Capability And Security Posture reflects a Weak structural position with steady momentum driven by mixed signals.",
-        "posture": "Weak"
-      },
-      "Geopolitical Influence In Security Theatres": {
-        "name": "Geopolitical Influence In Security Theatres",
-        "spot_checked_trends": "2",
+      "Partnership Reliability": {
+        "name": "Partnership Reliability",
         "momentum": "Stable",
         "geo_concentration": "Low",
-        "geographies": "Europe, Middle East, Iran",
-        "discourse": "Muted",
+        "geographies": "External (mixed)",
+        "discourse": "muted",
         "echo_risk": "No",
-        "summary": "Geopolitical Influence In Security Theatres reflects a Weak structural position with steady momentum driven by vulnerability signals.",
-        "posture": "Weak"
+        "summary": "Partnership Reliability has Insufficient data this cycle; no external signal drivers surfaced in the monitoring window, and momentum is stable with public commentary muted."
+      },
+      "Cultural Soft Power": {
+        "name": "Cultural Soft Power",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "External (mixed)",
+        "discourse": "muted",
+        "echo_risk": "No",
+        "summary": "Cultural Soft Power has Insufficient data this cycle; no external signal drivers surfaced in the monitoring window, and momentum is stable with public commentary muted."
+      },
+      "Economic Power": {
+        "name": "Economic Power",
+        "momentum": "Rising",
+        "geo_concentration": "Low",
+        "geographies": "United States, India, European Union",
+        "discourse": "moderate",
+        "echo_risk": "No",
+        "summary": "Economic Power is Strong and is building, with trade-policy volatility framed through U.S. Supreme Court routing and Donald Trump-linked trade-policy discussion across the United States, India, and the European Union."
       }
     },
     "strength_signals": [
+      "SS-003",
       "SS-001",
       "SS-002",
-      "SS-003",
       "SS-004",
       "SS-005",
       "SS-006"
     ],
     "strength_signal_details": [
       {
-        "id": "SS-001",
-        "arena": "Military Capability And Readiness",
-        "character": "Strategic",
-        "horizon": "Near term",
-        "description": "International exposure is prominent and building, with moderate public discourse activity around operational cooperation and readiness-linked contributions supported by multiple references.",
+        "id": "SS-003",
+        "arena": "Economic Competence",
+        "character": "Structural",
+        "horizon": "12 months",
+        "description": "London\u2019s institutional innovation positioning is steady and externally visible through central-bank innovation infrastructure references, registering across India and the United States while public commentary remains moderate rather than dominant. (EVD-7LX-SS-012)",
         "mechanism": "Unresolved",
-        "trend_ref": "T1",
-        "evidence": "EVD-7LX-SS-007; EVD-7LX-SS-008"
+        "trend_ref": "T4",
+        "evidence": "(EVD-7LX-SS-012)"
+      },
+      {
+        "id": "SS-001",
+        "arena": "Economic Power",
+        "character": "Reputational",
+        "horizon": "Near term",
+        "description": "External macro assessments and outlook framing are repeatedly referenced in United States and Indian coverage, keeping the UK present in competence-oriented narratives even as trade-volatility framing remains in the background. (EVD-7LX-SS-008) (EVD-7LX-SS-009)",
+        "mechanism": "Unresolved",
+        "trend_ref": "T2",
+        "evidence": "(EVD-7LX-SS-008) (EVD-7LX-SS-009)"
       },
       {
         "id": "SS-002",
-        "arena": "Cyber Capability And Security Posture",
-        "character": "Policy",
+        "arena": "Economic Competence",
+        "character": "Reputational",
         "horizon": "Near term",
-        "description": "International exposure is present and building, with clear external visibility of cyber governance posture, even while framing remains mixed and wider discourse is under-engaged.",
+        "description": "London\u2019s financial-centre benchmarking is externally repeated with prominent international exposure, with the strongest visibility concentrated in India and the United States and supported by a single high-authority reference point this cycle. (EVD-7LX-SS-011)",
         "mechanism": "Unresolved",
-        "trend_ref": "T2",
-        "evidence": "EVD-7LX-SS-009; EVD-7LX-SS-010"
-      },
-      {
-        "id": "SS-003",
-        "arena": "Alliance Reliability And Burden Sharing",
-        "character": "Strategic",
-        "horizon": "12 months",
-        "description": "International exposure is prominent and sustained, and structural verification confirms a burden-sharing mechanism exists, while broader perception amplification remains managed uncertainty this cycle.",
-        "mechanism": "Confirmed",
-        "trend_ref": "T4",
-        "evidence": "EVD-72SS-004; EVD-7LX-SS-013"
+        "trend_ref": "T3",
+        "evidence": "(EVD-7LX-SS-011)"
       },
       {
         "id": "SS-004",
-        "arena": "Defence Industry And Procurement Credibility",
+        "arena": "Economic Competence",
         "character": "Reputational",
-        "horizon": "3\u20135 years",
-        "description": "The signal is supported by multiple independent references and remains steady in institutional channels, sustaining an external industrial-capacity narrative even as broader attention is muted.",
+        "horizon": "Near term",
+        "description": "UK-linked AI development visibility is building in India and the United States, with public commentary moderate and the signal shaped by major-lab scrutiny alongside broader ecosystem positioning. (EVD-7LX-SS-013)",
         "mechanism": "Unresolved",
         "trend_ref": "T6",
-        "evidence": "EVD-7LX-SS-016; EVD-7LX-SS-017"
+        "evidence": "(EVD-7LX-SS-013)"
       },
       {
         "id": "SS-005",
-        "arena": "Defence Industry And Procurement Credibility",
-        "character": "Strategic",
-        "horizon": "3\u20135 years",
-        "description": "The signal remains steady in institutional lanes with multiple independent references, supporting perceptions of interoperability and multilateral capability coordination despite muted wider attention.",
+        "arena": "Economic Competence",
+        "character": "Policy",
+        "horizon": "Near term",
+        "description": "Governance-and-partnership signalling around OpenAI is building and externally repeated, with India and the United States as consistent amplification geographies and multiple independent references in the evidence set. (EVD-7LX-SS-016) (EVD-7LX-SS-013)",
         "mechanism": "Unresolved",
         "trend_ref": "T7",
-        "evidence": "EVD-7LX-SS-018; EVD-7LX-SS-019"
+        "evidence": "(EVD-7LX-SS-016) (EVD-7LX-SS-013)"
       },
       {
         "id": "SS-006",
-        "arena": "Defence Industry And Procurement Credibility",
+        "arena": "Economic Competence",
+        "character": "Strategic",
+        "horizon": "Near term",
+        "description": "Major-lab collaboration narratives linked to Google/DeepMind are building and internationally visible, reinforcing UK ecosystem positioning most clearly in India and the United States from a single reference point this cycle. (EVD-7LX-SS-014)",
+        "mechanism": "Unresolved",
+        "trend_ref": "T8",
+        "evidence": "(EVD-7LX-SS-014)"
+      }
+    ],
+    "vulnerability_signals": [],
+    "vuln_signal_details": [],
+    "priorities": [
+      {
+        "horizon": "Medium-term monitoring",
+        "action": "Monitor for escalation",
+        "arena": "Governance Stability",
+        "trend": "None",
+        "description": "Thin evidence and mixed direction in governance_stability yields low-confidence posture; monitor for corroboration to clarify direction."
+      }
+    ],
+    "standing_overview": [
+      {
+        "dimension": "Structural Position",
+        "assessment": "Strong",
+        "driver": "Strength signals concentrate in finance-centre benchmarking (London, NASDAQ, Citi), AI ecosystem visibility (OpenAI, Google/DeepMind, Microsoft), and macro-institution outlook framing."
+      },
+      {
+        "dimension": "Perception Momentum",
+        "assessment": "Stable",
+        "driver": "Most non-economic arenas are externally quiet; active economic arenas are building within that broader silence."
+      },
+      {
+        "dimension": "Vulnerability Concentration",
+        "assessment": "Low",
+        "driver": "No confirmed high-severity vulnerability signals; the only bounded risk area this cycle is thin regulatory-environment coverage within Governance Stability."
+      },
+      {
+        "dimension": "Evidence Density",
+        "assessment": "High",
+        "driver": "Strong evidence base across monitored arenas."
+      }
+    ],
+    "conclusion": "The United Kingdom\u2019s external economic standing is strengthening on the back of repeated, multi-geo visibility in technology and finance narratives: India and the United States are the primary amplifiers, with London\u2019s finance-centre positioning (including benchmarking references and innovation-infrastructure cues) and AI ecosystem association (OpenAI governance signalling, Google/DeepMind collaboration framing, and Microsoft-linked adoption visibility) providing the dominant external anchors. The principal boundary condition is that Governance Stability remains a low-evidence lane this cycle, meaning regulatory-environment characterisation is not yet settling into a consistent external view.\nStanding posture this cycle: Strengthening",
+    "score": 62,
+    "posture": "Stable",
+    "trend_count": 10,
+    "strength_count": 6,
+    "vuln_count": 0,
+    "predictions": [],
+    "arena_predictions": {
+      "Economic Competence": {
+        "has_outlook": true,
+        "outlook_sentence": "83% probability that Economic Competence narratives intensify over the next 90 days (Strong signal)",
+        "probability": 83
+      },
+      "Economic Power": {
+        "has_outlook": true,
+        "outlook_sentence": "83% probability that Economic Power narratives intensify over the next 90 days (Strong signal)",
+        "probability": 83
+      }
+    },
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/economic-business-leadership-intelligence-brief-united-kingdom-economic-competence-and-finance-prestige-holds-2026-02-22-zqmv",
+    "ref": "ZQMV"
+  },
+  "softpower": {
+    "executive_summary": "External perception of the United Kingdom is contested but deteriorating in tone: non-UK attention in Soft Power Culture And Moral Authority is pulled toward Prince Andrew, King Charles III, Jeffrey Epstein, and institutional accountability framing, with the United States and Canada acting as consistent attention centres (Italy also features through sport-performance visibility). The headline sovereign perception score is 48, and the standing picture is anchored by proposition P-SS-Q06-01 (heritage/identity and nation-brand narratives) where the sovereign view is heavily adverse.\nThe balance sheet remains split. Strength signals persist around Team GB winter-sport prestige, London\u2019s creative-market signalling, and high-visibility cultural optics around Kate Middleton, but vulnerability signals cluster around monarchy legitimacy and accountability narratives (including policing and legal-process visibility) that keep values/credibility framing under pressure; this is reflected in the arena\u2019s Mixed standing with building momentum and elevated public commentary intensity.",
+    "perception_dashboard": [
+      {
+        "proposition": "How is the United Kingdom being portrayed by non-UK sources as a cultural and soft power actor this cycle?",
+        "global_view": 50,
+        "sovereign_view": 58,
+        "signal_strength": "Strong",
+        "arena": "Soft Power Culture And Moral Authority",
+        "emerging": ""
+      },
+      {
+        "proposition": "What external narratives describe the reach and competitiveness of UK culture and media exports (film, TV, music, publishing, digital creators), and what signals indicate growth or decline?",
+        "global_view": 50,
+        "sovereign_view": 58,
+        "signal_strength": "Strong",
+        "arena": "Soft Power Culture And Moral Authority",
+        "emerging": ""
+      },
+      {
+        "proposition": "How are UK universities and research institutions being assessed internationally (prestige, access, funding, talent magnetism, visa friction), and what has shifted recently?",
+        "global_view": 48,
+        "sovereign_view": 48,
+        "signal_strength": "Thin",
+        "arena": "Soft Power Culture And Moral Authority",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the UK's sporting influence being framed externally (global benchmark, commercial powerhouse, over-commercialised, declining), and which sports or events are driving perception?",
+        "global_view": 50,
+        "sovereign_view": 63,
+        "signal_strength": "Strong",
+        "arena": "Soft Power Culture And Moral Authority",
+        "emerging": ""
+      },
+      {
+        "proposition": "How are the UK's creative industries and talent pipeline being evaluated internationally (innovation, originality, commercial dominance, labour conditions, cost and access), and what counterparts are compared against?",
+        "global_view": 45,
+        "sovereign_view": 58,
+        "signal_strength": "Strong",
+        "arena": "Soft Power Culture And Moral Authority",
+        "emerging": ""
+      },
+      {
+        "proposition": "What narratives are forming externally about UK heritage, identity, and nation brand (durable, modernising, contested, nostalgic), and what events or controversies are shaping these views?",
+        "global_view": 50,
+        "sovereign_view": 25,
+        "signal_strength": "Strong",
+        "arena": "Soft Power Culture And Moral Authority",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the UK's perceived moral authority and values leadership being assessed internationally (human rights, rule of law, democratic norms), and which issues most influence the judgement?",
+        "global_view": 45,
+        "sovereign_view": 25,
+        "signal_strength": "Strong",
+        "arena": "Soft Power Culture And Moral Authority",
+        "emerging": ""
+      }
+    ],
+    "trends": [],
+    "arena_context": {
+      "Soft Power Culture And Moral Authority": {
+        "name": "Soft Power Culture And Moral Authority",
+        "momentum": "Rising",
+        "geo_concentration": "Medium",
+        "geographies": "United States, Italy, Canada",
+        "discourse": "Elevated",
+        "echo_risk": "No",
+        "summary": "Soft Power Culture And Moral Authority standing is Mixed, with momentum building, driven by adverse attention to Prince Andrew, King Charles III, Jeffrey Epstein, and Thames Valley Police alongside favourable visibility for Team GB, Kate Middleton, and London creative-market positioning across the United States, Italy, and Canada."
+      }
+    },
+    "strength_signals": [
+      "SS-001",
+      "SS-002",
+      "SS-003",
+      "SS-004"
+    ],
+    "strength_signal_details": [
+      {
+        "id": "SS-001",
+        "arena": "Soft Power Culture And Moral Authority",
         "character": "Reputational",
         "horizon": "12 months",
-        "description": "External visibility of innovation remains present, but evidence is thin this cycle and public commentary is muted, keeping the signal contained despite positive framing.",
+        "description": "Sport-visibility competence signals remain well-evidenced and geographically distributed, with Bruce Mouat-linked integrity narratives circulating beyond a single market and registering across Italy, the United States, and Pakistan; the signal is visible in elevated public commentary without consolidating into a single-source storyline.",
         "mechanism": "Unresolved",
-        "trend_ref": "T11",
-        "evidence": "EVD-7LX-SS-025; EVD-7LX-SS-026"
+        "trend_ref": "T1",
+        "evidence": "(EVD-7LX-SS-011)"
+      },
+      {
+        "id": "SS-002",
+        "arena": "Soft Power Culture And Moral Authority",
+        "character": "Reputational",
+        "horizon": "Near term",
+        "description": "Cultural-event visibility around Kate Middleton and BAFTA optics is building with broad pickup, registering across the United States, Kazakhstan, and Beijing; this maintains a soft-power optics advantage even while elite legitimacy narratives remain contested.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T7",
+        "evidence": "(EVD-7LX-SS-013)"
+      },
+      {
+        "id": "SS-003",
+        "arena": "Soft Power Culture And Moral Authority",
+        "character": "Reputational",
+        "horizon": "Near term",
+        "description": "Team GB performance-linked prestige is building and widely legible in external sports coverage, with multi-geo visibility across Italy, Canada, and China; multiple independent references reinforce competence framing in the current event window.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T9",
+        "evidence": "(EVD-7LX-SS-016)"
+      },
+      {
+        "id": "SS-004",
+        "arena": "Soft Power Culture And Moral Authority",
+        "character": "Strategic",
+        "horizon": "3\u20135 years",
+        "description": "London\u2019s creative-market leadership signal remains well-evidenced with wide source diversity, registering across India and the United States; competitiveness framing persists as a structural soft-power asset even as near-term attention is easing from its peak.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T10",
+        "evidence": "(EVD-7LX-SS-015)"
+      }
+    ],
+    "vulnerability_signals": [
+      "VS-001",
+      "VS-006",
+      "VS-004",
+      "VS-005",
+      "VS-002",
+      "VS-003"
+    ],
+    "vuln_signal_details": [
+      {
+        "id": "VS-001",
+        "title": "Royal Succession And Institutional Legitimacy Debate",
+        "arena": "Soft Power Culture And Moral Authority",
+        "severity": "Medium",
+        "horizon": "Near term",
+        "description": "External coverage centred on Prince Andrew, King Charles III, and succession legitimacy framing is building, with public commentary intensity elevated and repetition concentrated in the United States, Australia, and Canada; this compresses into nation-brand judgements that depress perceived moral authority and soft-power credibility.",
+        "structural_position": "Confirmed",
+        "mechanism": "Confirmed",
+        "trend_ref": "T2",
+        "evidence": "(EVD-72SS-001)"
+      },
+      {
+        "id": "VS-006",
+        "title": "Ceremonial Visibility Framed Through Reputational Scrutiny",
+        "arena": "Soft Power Culture And Moral Authority",
+        "severity": "Medium",
+        "horizon": "Near term",
+        "description": "Buckingham Palace ceremonial visibility is drawing building attention in a context where reputational scrutiny remains active, creating an amplification channel for adverse framing across the United States, France, and China when elite-institution credibility is contested.",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T8",
+        "evidence": "(EVD-7LX-SS-022)"
+      },
+      {
+        "id": "VS-004",
+        "title": "Royal Reputational Crisis Management Pressure",
+        "arena": "Soft Power Culture And Moral Authority",
+        "severity": "Medium",
+        "horizon": "12 months",
+        "description": "Crisis-management narratives around King Charles III and Prince Andrew remain steady and visible in external coverage, with elevated commentary intensity across the United States, Canada, and Australia; perceived containment actions are treated as proxies for institutional competence and legitimacy.",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T5",
+        "evidence": "(EVD-7LX-SS-009)"
+      },
+      {
+        "id": "VS-005",
+        "title": "Law-Enforcement Accountability Signalling Around Institutions",
+        "arena": "Soft Power Culture And Moral Authority",
+        "severity": "Medium",
+        "horizon": "12 months",
+        "description": "External framing tied to Thames Valley Police and royal-accountability process visibility stays steady in the United States, Canada, and France, shaping values-leadership judgements through rule-of-law signalling that remains under sustained attention.",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T6",
+        "evidence": "(EVD-7LX-SS-008)"
+      },
+      {
+        "id": "VS-002",
+        "title": "Monarchy Accountability And Scandal Framing",
+        "arena": "Soft Power Culture And Moral Authority",
+        "severity": "Medium",
+        "horizon": "3\u20135 years",
+        "description": "Epstein-linked accountability narratives involving Prince Andrew and reputational spillover to the monarchy remain a long-horizon drag even as immediate attention is easing; the framing persists across the United States, Australia, and Canada and continues to shape external judgements about institutional trust.",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T3",
+        "evidence": "(EVD-7LX-SS-008)"
+      },
+      {
+        "id": "VS-003",
+        "title": "Monarch Leadership And Succession Credibility Scrutiny",
+        "arena": "Soft Power Culture And Moral Authority",
+        "severity": "Medium",
+        "horizon": "3\u20135 years",
+        "description": "Scrutiny linked to King Charles III, Prince William, and leadership-stability narratives is an enduring identity-and-symbols pressure point even as this cycle\u2019s attention is easing; the signal remains visible across the United States, Mauritius, and Canada and shapes confidence in continuity of national symbols.",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T4",
+        "evidence": "(EVD-7LX-SS-010)"
+      }
+    ],
+    "priorities": [
+      {
+        "horizon": "Near-term attention",
+        "action": "Address adverse narrative",
+        "arena": "Soft Power Culture And Moral Authority",
+        "trend": "TRU-T2",
+        "description": "Hot and rising vulnerability signal links institutional legitimacy framing to nation-brand judgements, with confirmed external repetition."
+      },
+      {
+        "horizon": "Near-term attention",
+        "action": "Address adverse narrative",
+        "arena": "Soft Power Culture And Moral Authority",
+        "trend": "TRU-T8",
+        "description": "Hot and rising vulnerability signal indicates ceremonial visibility can amplify adverse framing under current legitimacy pressures."
+      },
+      {
+        "horizon": "Near-term attention",
+        "action": "Structural mechanism requires attention",
+        "arena": "Soft Power Culture And Moral Authority",
+        "trend": "TRU-T2",
+        "description": "High-severity structural tension detected in the arena (STENS-001) with an accelerating vulnerability alongside multiple strength signals."
+      },
+      {
+        "horizon": "Medium-term monitoring",
+        "action": "Monitor for escalation",
+        "arena": "Soft Power Culture And Moral Authority",
+        "trend": "None",
+        "description": "Coverage gap persists for universities and research-institution assessment; monitoring is required to build sufficient evidence next cycle."
+      }
+    ],
+    "standing_overview": [
+      {
+        "dimension": "Structural Position",
+        "assessment": "Mixed",
+        "driver": "Soft-power standing remains contested: monarchy legitimacy and accountability narratives around Prince Andrew, King Charles III, Jeffrey Epstein, and institutional process visibility run alongside sport and creative-market competence signals (Team GB, London creative-market positioning, and BAFTA optics)."
+      },
+      {
+        "dimension": "Perception Momentum",
+        "assessment": "Building",
+        "driver": "Multiple tracked narratives are building at the same time: sport prestige visibility and monarchy-legitimacy scrutiny are both on upward attention trajectories."
+      },
+      {
+        "dimension": "Vulnerability Concentration",
+        "assessment": "Moderate",
+        "driver": "Six medium-severity vulnerability signals are active in the arena, with near-term attention clustering around succession legitimacy and ceremonial amplification."
+      },
+      {
+        "dimension": "Evidence Density",
+        "assessment": "High",
+        "driver": "Strong evidence base across monitored arenas."
+      }
+    ],
+    "conclusion": "The United Kingdom\u2019s soft-power posture is split: external coverage retains a durable capability-and-visibility layer (Team GB prestige signals, London creative-market positioning, and high-visibility cultural optics around Kate Middleton), but it is repeatedly pulled back into adverse identity and credibility framing driven by Prince Andrew, King Charles III, Jeffrey Epstein-linked accountability narratives, and rule-of-law signalling tied to institutions such as Thames Valley Police. Attention concentration is consistently anchored in the United States and Canada, with additional pull from Australia (legitimacy/accountability framing) and Italy (sport-performance visibility), keeping the overall standing contested as momentum builds.\nStanding posture this cycle: Mixed",
+    "score": 48,
+    "posture": "Declining",
+    "trend_count": 30,
+    "strength_count": 4,
+    "vuln_count": 6,
+    "predictions": [
+      {
+        "title": "Team GB winter-sport prestige narrative intensifies",
+        "probability": 85,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "30 days",
+        "trigger": "Intensification slows if momentum stabilises and the narrative narrows to a single geography or event window."
+      },
+      {
+        "title": "Succession legitimacy crisis framing accelerates internationally",
+        "probability": 77,
+        "type": "Vulnerability",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "30 days",
+        "trigger": "Intensification is arrested if discourse cools and framing becomes more procedural than institutional over the next cycle."
+      },
+      {
+        "title": "Royal cultural-event optics draw rising attention",
+        "probability": 77,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "30 days",
+        "trigger": "Intensification slows if cultural-event coverage remains isolated and does not generalise into broader nation-brand framing."
+      },
+      {
+        "title": "Ceremonial visibility amplifies contested nation-brand framing",
+        "probability": 77,
+        "type": "Vulnerability",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "30 days",
+        "trigger": "Trajectory slows if ceremonial visibility loses salience and discourse temperature drops below warm."
+      },
+      {
+        "title": "Sport integrity debates sustain reputational ripple effects",
+        "probability": 70,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Trajectory slows if attention cools and geographic spread narrows in the next cycle."
+      },
+      {
+        "title": "Crisis management framing remains high-salience",
+        "probability": 62,
+        "type": "Vulnerability",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Signal cools if the narrative shifts away from crisis handling and toward lower-salience cultural coverage."
+      },
+      {
+        "title": "Accountability and rule-of-law narratives stay prominent",
+        "probability": 62,
+        "type": "Vulnerability",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Trajectory slows if accountability framing decouples from wider values-judgement narratives across key geographies."
+      },
+      {
+        "title": "London creative-market leadership signal holds steady",
+        "probability": 55,
+        "type": "Strength",
+        "direction": "Stable",
+        "signal_strength": "Strong",
+        "horizon": "12 months",
+        "trigger": "Would intensify if momentum turns rising and competitive comparisons expand beyond current coverage patterns."
+      },
+      {
+        "title": "Accountability scandal framing stabilises after peak attention",
+        "probability": 47,
+        "type": "Vulnerability",
+        "direction": "Stable",
+        "signal_strength": "Strong",
+        "horizon": "12 months",
+        "trigger": "Would re-intensify if momentum turns rising and discourse remains hot across a broader geography mix."
+      },
+      {
+        "title": "Leadership stability scrutiny remains a slow-burn signal",
+        "probability": 47,
+        "type": "Vulnerability",
+        "direction": "Stable",
+        "signal_strength": "Strong",
+        "horizon": "12 months",
+        "trigger": "Would intensify if leadership-stability framing returns with rising momentum and wider external attention."
+      }
+    ],
+    "arena_predictions": {
+      "Soft Power Culture And Moral Authority": {
+        "has_outlook": true,
+        "outlook_sentence": "85% probability that Soft Power Culture And Moral Authority narratives intensify over the next 30 days (Strong signal)",
+        "probability": 85
+      }
+    },
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/soft-power-cultural-standing-united-kingdom-narrative-shift-soft-power-culture-and-moral-authority-2026-02-22-ztfq",
+    "ref": "ZTFQ"
+  },
+  "defence": {
+    "executive_summary": "External attention on the United Kingdom\u2019s Defence & Strategic Credibility is anchored in Strategic And Defence Standing, where NATO readiness/capability assessments, AUKUS-linked submarine presence, and allied procurement frameworks are repeatedly referenced alongside contesting narratives about alliance burden-sharing and leadership credibility; the sovereign perception score this cycle is 57, with the most visible external concentration in Europe, the United States, and Ukraine.\nThe balance sheet is Strong at the arena level (Strategic And Defence Standing), with capability and contribution framing lifted by propositions such as P-SS-SS-Q02-01 (military capability/readiness) and P-SS-SS-Q04-01 (NATO role) in Strong signal conditions, but pressure is concentrated in high-severity vulnerability signals tied to Donald Trump / NATO burden-sharing pressure, Boris Johnson / Keir Starmer / John Healey credibility framing in Ukraine/Russia context, and the cyber posture lane (with UK resilience framing exposed to contesting interpretation) , while informal discourse remains under-engaged relative to expected exposure, leaving parts of the picture in managed uncertainty rather than fully consolidated external judgement.",
+    "perception_dashboard": [
+      {
+        "proposition": "How is the United Kingdom being characterised by non-UK defence and security commentators as a strategic actor this cycle?",
+        "global_view": 50,
+        "sovereign_view": 58,
+        "signal_strength": "Strong",
+        "arena": "Strategic And Defence Standing",
+        "emerging": ""
+      },
+      {
+        "proposition": "What external narratives assess UK military capability and readiness (mass, modernisation, sustainment, deployment capacity), and what evidence is cited?",
+        "global_view": 50,
+        "sovereign_view": 68,
+        "signal_strength": "Strong",
+        "arena": "Strategic And Defence Standing",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is UK alliance reliability being framed internationally (dependable, constrained, inconsistent, overcommitted), and which alliances or theatres are driving the assessment?",
+        "global_view": 50,
+        "sovereign_view": 44,
+        "signal_strength": "Strong",
+        "arena": "Strategic And Defence Standing",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the UK's NATO role being described externally (leader, specialist contributor, junior partner, bridge actor), and what signals or decisions are referenced?",
+        "global_view": 50,
+        "sovereign_view": 68,
+        "signal_strength": "Strong",
+        "arena": "Strategic And Defence Standing",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is UK deterrence posture being portrayed (credible, ambiguous, escalatory, underpowered), including conventional, cyber, and (where referenced) nuclear dimensions?",
+        "global_view": 50,
+        "sovereign_view": 59,
+        "signal_strength": "Strong",
+        "arena": "Strategic And Defence Standing",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the UK defence industrial base being evaluated externally (innovation, export credibility, procurement competence, delivery risk), and which programmes or contracts are central to the narrative?",
+        "global_view": 50,
+        "sovereign_view": 66,
+        "signal_strength": "Strong",
+        "arena": "Strategic And Defence Standing",
+        "emerging": ""
+      },
+      {
+        "proposition": "What is the prevailing non-UK view of UK cyber capability and security posture (offensive capacity, resilience, attribution credibility), and what incidents or policy moves are shaping perception?",
+        "global_view": 45,
+        "sovereign_view": 34,
+        "signal_strength": "Strong",
+        "arena": "Strategic And Defence Standing",
+        "emerging": ""
+      }
+    ],
+    "trends": [],
+    "arena_context": {
+      "Strategic And Defence Standing": {
+        "name": "Strategic And Defence Standing",
+        "momentum": "Rising",
+        "geo_concentration": "Low",
+        "geographies": "Europe, United States, Ukraine",
+        "discourse": "public commentary is moderate",
+        "echo_risk": "No"
+      }
+    },
+    "strength_signals": [
+      "SS-004",
+      "SS-005",
+      "SS-001",
+      "SS-002",
+      "SS-003"
+    ],
+    "strength_signal_details": [
+      {
+        "id": "SS-004",
+        "arena": "Strategic And Defence Standing",
+        "character": "Policy",
+        "horizon": "Near term",
+        "description": "Procurement reciprocity and interoperability-rule discourse positions the UK as an integrated participant in allied frameworks, with steady external visibility across Europe and the United States; the signal is building and is supported by multiple independent references.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T4",
+        "evidence": "(EVD-7LX-SS-011)"
+      },
+      {
+        "id": "SS-005",
+        "arena": "Strategic And Defence Standing",
+        "character": "Policy",
+        "horizon": "Near term",
+        "description": "Crisis posture and base-authorisation decisions are repeatedly treated as concrete alliance-reliability signals, keeping UK positioning visible in international security-theatre commentary; the signal is building and is supported by more than one independent reference.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T7",
+        "evidence": "(EVD-7LX-SS-020)"
+      },
+      {
+        "id": "SS-001",
+        "arena": "Strategic And Defence Standing",
+        "character": "Strategic",
+        "horizon": "Near term",
+        "description": "AUKUS-linked operational signalling (including HMS Anson and Australia-linked undersea cooperation references) has prominent international exposure and is building across external coverage, registering strongly across Australia and wider Indo-Pacific theatre framing with repetition into broader allied discussion.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T1",
+        "evidence": "(EVD-7LX-SS-006)"
+      },
+      {
+        "id": "SS-002",
+        "arena": "Strategic And Defence Standing",
+        "character": "Strategic",
+        "horizon": "12 months",
+        "description": "Ukraine theatre support and resolve narratives keep UK posture repeatedly referenced alongside Russia and allied context, producing sustained external visibility; the signal is steady rather than building, but is supported by multiple independent references.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T2",
+        "evidence": "(EVD-7LX-SS-009)"
+      },
+      {
+        "id": "SS-003",
+        "arena": "Strategic And Defence Standing",
+        "character": "Strategic",
+        "horizon": "Near term",
+        "description": "NATO readiness exercise visibility repeatedly links UK participation and command structures to alliance capability narratives, with building momentum across Europe-focused security discourse and support from more than one independent reference.",
+        "mechanism": "Unresolved",
+        "trend_ref": "T3",
+        "evidence": "(EVD-7LX-SS-007)"
       }
     ],
     "vulnerability_signals": [
@@ -1247,464 +1149,105 @@
     "vuln_signal_details": [
       {
         "id": "VS-001",
-        "title": "Reputational Drag Security Credibility Spillover",
-        "arena": "Geopolitical Influence In Security Theatres",
+        "title": "Cyber Resilience Posture Questioned In Threat-Context Framing",
+        "arena": "Strategic And Defence Standing",
         "severity": "High",
         "horizon": "12 months",
-        "description": "The signal is steady with muted public visibility, but repeated credibility drag can carry into partner trust judgements that shape security-theatre positioning.",
+        "description": "External coverage framing UK cyber security strategy and resilience posture as exposed under active threat conditions pulls against deterrence credibility narratives; the signal is concentrated in the United States and Europe, with Russia and Iran appearing as recurring threat-context anchors in the surrounding discourse.",
         "structural_position": "Confirmed",
         "mechanism": "Unresolved",
-        "trend_ref": "T3",
-        "evidence": "EVD-7LX-SS-011; EVD-7LX-SS-012"
+        "trend_ref": "T5",
+        "evidence": "(EVD-7LX-SS-014)"
       },
       {
         "id": "VS-002",
-        "title": "Security Theatre Alignment Scrutiny Us Led Architecture",
-        "arena": "Geopolitical Influence In Security Theatres",
+        "title": "Leadership Credibility Challenged Via Attribution And Escalation Narratives",
+        "arena": "Strategic And Defence Standing",
         "severity": "High",
         "horizon": "12 months",
-        "description": "With steady momentum and broad external sourcing, alignment-friction narratives can narrow perceived autonomy and limit room for influence in contested theatres.",
+        "description": "Leadership-credibility pressure is carried through Ukraine/Russia theatre framing that repeatedly references Keir Starmer, Boris Johnson, and John Healey in escalation and attribution-linked narratives; external attention concentrates across Ukraine, Russia, and Europe, where credibility judgements attach directly to perceived strategic judgement and restraint.",
         "structural_position": "Confirmed",
         "mechanism": "Unresolved",
-        "trend_ref": "T5",
-        "evidence": "EVD-7LX-SS-007; EVD-7LX-SS-015"
+        "trend_ref": "T6",
+        "evidence": "(EVD-7LX-SS-016)"
       },
       {
         "id": "VS-003",
-        "title": "Escalation Management Deterrence Credibility Pressure Hormuz Context",
-        "arena": "Deterrence Posture And Escalation Management",
+        "title": "Burden-Sharing Pressure Narratives Question Alliance Dependability",
+        "arena": "Strategic And Defence Standing",
         "severity": "High",
-        "horizon": "12 months",
-        "description": "Public commentary is moderate and the signal remains steady, keeping escalation-management scrutiny active in a sensitive theatre where deterrence credibility assessments can shift quickly.",
+        "horizon": "Near term",
+        "description": "Burden-sharing and alliance-tension framing , including repeated references to Donald Trump, NATO expectations, and UK leadership positioning , creates direct pressure on perceptions of alliance dependability; attention concentrates across Europe and the Middle East, with Iran-linked theatre tension appearing as a recurrent contextual driver.",
         "structural_position": "Confirmed",
         "mechanism": "Unresolved",
         "trend_ref": "T8",
-        "evidence": "EVD-7LX-SS-020; EVD-7LX-SS-021"
+        "evidence": "(EVD-7LX-SS-022)"
       },
       {
         "id": "VS-004",
-        "title": "Basing Access Legal Friction Indian Ocean Reputational Risk",
-        "arena": "Deterrence Posture And Escalation Management",
+        "title": "Basing And Access Dispute Raises Strategic Continuity Questions",
+        "arena": "Strategic And Defence Standing",
         "severity": "Low",
-        "horizon": "12 months",
-        "description": "Evidence volume is low and the signal is concentrated across a narrow source cluster, but basing-access and legal-friction themes can introduce doubts about continuity of access in key corridors if they broaden.",
+        "horizon": "Near term",
+        "description": "Diego Garcia / Indian Ocean basing and access dispute narratives , including references to Mauritius and strategic continuity questions , create episodic doubt about UK crisis options; attention is concentrated around Mauritius and Middle East security context, with limited repetition beyond the current evidence footprint.",
         "structural_position": "Managed uncertainty",
         "mechanism": "Unresolved",
         "trend_ref": "T9",
-        "evidence": "EVD-7LX-SS-022; EVD-7LX-SS-023"
+        "evidence": "(EVD-7LX-SS-019)"
       }
     ],
     "priorities": [
       {
         "horizon": "Near-term attention",
         "action": "Address adverse narrative",
-        "arena": "Deterrence Posture And Escalation Management",
+        "arena": "Strategic And Defence Standing",
         "trend": "TRU-T8",
-        "description": "High-severity deterrence vulnerability with moderate discourse indicates sustained escalation-management scrutiny in a sensitive theatre."
+        "description": "High-severity burden-sharing and alliance-tension vulnerability is rising and materially affects alliance reliability framing."
       },
       {
         "horizon": "Near-term attention",
         "action": "Address adverse narrative",
-        "arena": "Geopolitical Influence In Security Theatres",
-        "trend": "TRU-T3",
-        "description": "High-severity credibility-drag vulnerability can degrade trust signals used in security-theatre assessments."
+        "arena": "Strategic And Defence Standing",
+        "trend": "TRU-T6",
+        "description": "High-severity credibility vulnerability persists in external escalation framing and can erode strategic-actor perceptions."
       },
       {
         "horizon": "Near-term attention",
-        "action": "Address adverse narrative",
-        "arena": "Geopolitical Influence In Security Theatres",
+        "action": "Monitor for escalation",
+        "arena": "Strategic And Defence Standing",
         "trend": "TRU-T5",
-        "description": "High-severity alignment-friction vulnerability remains stable with broad external origin share, sustaining downside positioning effects."
+        "description": "Cyber posture vulnerability has strong evidence but concentrates in a narrow set of narratives; track for spread beyond the current lane."
       },
       {
         "horizon": "Near-term attention",
         "action": "Monitor for escalation",
-        "arena": "Geopolitical Influence In Security Theatres",
-        "trend": "None",
-        "description": "High-expected arena shows silence on discourse surfaces alongside multiple negative-position trends, warranting close monitoring for sudden amplification."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Defence Industry And Procurement Credibility",
-        "trend": "None",
-        "description": "Medium-conviction favourable assessment with muted discourse indicates an under-amplified strength signal that may shift if attention rises."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Deterrence Posture And Escalation Management",
-        "trend": "TRU-T9",
-        "description": "Low-evidence access-friction signal carries echo risk; monitor for confirmation and broader pickup before it reshapes deterrence framing."
-      }
-    ],
-    "standing_overview": [
-      {
-        "dimension": "Structural Position",
-        "assessment": "Exposed",
-        "driver": "Weak positions concentrate in Deterrence Posture And Escalation Management, Cyber Capability And Security Posture, and Geopolitical Influence In Security Theatres, despite strong pockets in capability and industrial credibility."
-      },
-      {
-        "dimension": "Perception Momentum",
-        "assessment": "Stable",
-        "driver": "Most arenas remain steady, with building momentum in Military Capability And Readiness alongside easing momentum in Defence Industry And Procurement Credibility."
-      },
-      {
-        "dimension": "Vulnerability Concentration",
-        "assessment": "High",
-        "driver": "Three high-severity confirmed vulnerabilities (VS-001\u2013VS-003) plus one low-severity bounded access-friction signal (VS-004)."
-      },
-      {
-        "dimension": "Evidence Density",
-        "assessment": "High",
-        "driver": "Strong evidence base across monitored arenas."
-      }
-    ],
-    "conclusion": "United Kingdom standing this cycle shows strong, externally visible capability and industrial narratives alongside a concentration of confirmed vulnerabilities in deterrence and security-theatre influence, with additional bounded uncertainty where alliance framing is contested and where low-volume access-friction signals may amplify. Strength signals remain present but unevenly amplified across arenas.\nStanding posture this cycle: Under pressure",
-    "score": 47,
-    "posture": "Mixed",
-    "trend_count": 33,
-    "strength_count": 6,
-    "vuln_count": 4,
-    "predictions": [],
-    "arena_predictions": {},
-    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/defence-strategic-credibility-intelligence-brief-united-kingdom-geopolitical-influence-in-security-theatres-under-scrutiny-2026-02-22-xjqr",
-    "ref": "XJQR"
-  },
-  "economic": {
-    "executive_summary": "The United Kingdom presents a structurally Strong standing across the most active arenas this cycle, particularly Innovation And Technology and Financial Services And City Position, with external perception broadly aligned to these strength-heavy signals. However, the national posture is Under pressure because Macroeconomic Credibility is assessed as Weak (low-confidence arena) while a bounded vulnerability is present. This cycle\u2019s scorecard registers an overall score of 93, alongside building momentum in Regulatory And Investment Climate and easing momentum in Trade And Competitiveness.\nVulnerability concentration remains limited to one medium-severity signal (VS-001) in Innovation And Technology, while strengths are concentrated across multiple confirmed AI, partnership, and City-positioning signals (e.g., SS-001 through SS-009). Managed uncertainty remains material across the diagnostic propositions (e.g., P-SS-DIAG-SS-003 at Medium conviction and 56% sovereign view), and the Startup And Scaleup Ecosystem arena remains Insufficient data under an external-only lens.",
-    "perception_dashboard": [
-      {
-        "proposition": "How are non-UK commentators characterising the United Kingdom as a place to invest, build companies, and base international operations?",
-        "global_view": 45,
-        "sovereign_view": 50,
-        "signal_strength": "Low",
-        "arena": "Regulatory And Investment Climate",
-        "emerging": ""
-      },
-      {
-        "proposition": "What narratives are forming internationally about the strength or decline of London and the UK as a financial centre, and what is driving those narratives?",
-        "global_view": 45,
-        "sovereign_view": 51,
-        "signal_strength": "Low",
-        "arena": "Financial Services And City Position",
-        "emerging": ""
-      },
-      {
-        "proposition": "How are non-UK observers assessing the UK's competitiveness in AI, advanced technology, and innovation policy, relative to peer economies?",
-        "global_view": 45,
-        "sovereign_view": 56,
-        "signal_strength": "Medium",
-        "arena": "Innovation And Technology",
-        "emerging": ""
-      },
-      {
-        "proposition": "What is the prevailing external view of the UK's regulatory environment (pro-growth, restrictive, stable, unpredictable), and what examples are cited?",
-        "global_view": 40,
-        "sovereign_view": 37,
-        "signal_strength": "Low",
-        "arena": "Regulatory And Investment Climate",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is the UK's startup and scale-up ecosystem being perceived internationally (talent, funding, exits, R&D depth, friction), and what has shifted recently?",
-        "global_view": 45,
-        "sovereign_view": 50,
-        "signal_strength": "Low",
-        "arena": "Startup And Scaleup Ecosystem",
-        "emerging": ""
-      },
-      {
-        "proposition": "What external narratives describe the UK's trade positioning and post-Brexit economic trajectory (repositioning, stagnation, resilience, vulnerability), and which counterpart countries are most salient?",
-        "global_view": 45,
-        "sovereign_view": 41,
-        "signal_strength": "Low",
-        "arena": "Trade And Competitiveness",
-        "emerging": ""
-      }
-    ],
-    "trends": [],
-    "arena_context": {
-      "Financial Services And City Position": {
-        "name": "Financial Services And City Position",
-        "spot_checked_trends": "2",
-        "momentum": "Steady",
-        "geo_concentration": "Medium",
-        "geographies": "United States, India, China",
-        "discourse": "public commentary is moderate",
-        "echo_risk": "No",
-        "summary": "Financial Services And City Position reflects a Strong structural position with steady momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Innovation And Technology": {
-        "name": "Innovation And Technology",
-        "spot_checked_trends": "6",
-        "momentum": "Steady",
-        "geo_concentration": "Medium",
-        "geographies": "India, United States, China",
-        "discourse": "public commentary is moderate",
-        "echo_risk": "No",
-        "summary": "Innovation And Technology reflects a Strong structural position with steady momentum driven by mixed signals.",
-        "posture": "Strong"
-      },
-      "Regulatory And Investment Climate": {
-        "name": "Regulatory And Investment Climate",
-        "spot_checked_trends": "1",
-        "momentum": "Building",
-        "geo_concentration": "Medium",
-        "geographies": "United States, India, Europe",
-        "discourse": "public commentary is muted",
-        "echo_risk": "No",
-        "summary": "Regulatory And Investment Climate reflects a Strong structural position with building momentum driven by mixed signals.",
-        "posture": "Strong"
-      },
-      "Startup And Scaleup Ecosystem": {
-        "name": "Startup And Scaleup Ecosystem",
-        "spot_checked_trends": "0",
-        "momentum": "Steady",
-        "geo_concentration": "Low",
-        "geographies": "External (mixed)",
-        "discourse": "public commentary is muted",
-        "echo_risk": "No",
-        "summary": "Startup And Scaleup Ecosystem reflects a Insufficient data structural position with steady momentum driven by structural position signals.",
-        "posture": "Insufficient data"
-      },
-      "Trade And Competitiveness": {
-        "name": "Trade And Competitiveness",
-        "spot_checked_trends": "2",
-        "momentum": "Easing",
-        "geo_concentration": "Low",
-        "geographies": "India, United States, China",
-        "discourse": "public commentary is moderate",
-        "echo_risk": "No",
-        "summary": "Trade And Competitiveness reflects a Strong structural position with easing momentum driven by mixed signals.",
-        "posture": "Strong"
-      },
-      "Macroeconomic Credibility": {
-        "name": "Macroeconomic Credibility",
-        "spot_checked_trends": "0",
-        "momentum": "Building",
-        "geo_concentration": "Medium",
-        "geographies": "External (mixed)",
-        "discourse": "public commentary is muted",
-        "echo_risk": "No",
-        "summary": "Macroeconomic Credibility reflects a Weak structural position with building momentum driven by vulnerability signals.",
-        "posture": "Weak"
-      }
-    },
-    "strength_signals": [
-      "SS-002",
-      "SS-007",
-      "SS-008",
-      "SS-010",
-      "SS-011",
-      "SS-003",
-      "SS-009",
-      "SS-012",
-      "SS-013",
-      "SS-001",
-      "SS-004",
-      "SS-005",
-      "SS-006",
-      "SS-014"
-    ],
-    "strength_signal_details": [
-      {
-        "id": "SS-002",
-        "arena": "Innovation And Technology",
-        "character": "Reputational",
-        "horizon": "12 months",
-        "description": "International exposure is prominent and steady, and the signal is supported by a clear external reference point that reinforces capability perceptions.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T3",
-        "evidence": ""
-      },
-      {
-        "id": "SS-007",
-        "arena": "Financial Services And City Position",
-        "character": "Reputational",
-        "horizon": "3\u20135 years",
-        "description": "The signal is present in international commentary at a moderate level and is supported by multiple references, though attention appears to be easing rather than accelerating.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T8",
-        "evidence": ""
-      },
-      {
-        "id": "SS-008",
-        "arena": "Regulatory And Investment Climate",
-        "character": "Reputational",
-        "horizon": "Near term",
-        "description": "Visibility is building in a relatively quiet public lane, supported by a single well-defined reference that signals sector capital formation more than broad narrative amplification.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T9",
-        "evidence": ""
-      },
-      {
-        "id": "SS-010",
-        "arena": "Innovation And Technology",
-        "character": "Reputational",
-        "horizon": "12 months",
-        "description": "International exposure is present and steady, but the evidence footprint remains thin in this cycle, so the signal is treated as emerging context rather than a fully consolidated strength.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T12",
-        "evidence": ""
-      },
-      {
-        "id": "SS-011",
-        "arena": "Innovation And Technology",
-        "character": "Reputational",
-        "horizon": "Near term",
-        "description": "Attention is building despite a limited evidence base, indicating a developing external narrative that could gain visibility if reinforced by additional independent references.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T13",
-        "evidence": ""
-      },
-      {
-        "id": "SS-003",
-        "arena": "Innovation And Technology",
-        "character": "Policy",
-        "horizon": "12 months",
-        "description": "The signal is well-evidenced and visible in international commentary, with steady momentum and multiple references that frame governance-and-controls expectations as part of capability positioning.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T4",
-        "evidence": ""
-      },
-      {
-        "id": "SS-009",
-        "arena": "Innovation And Technology",
-        "character": "Policy",
-        "horizon": "Near term",
-        "description": "International exposure is present and building, with multiple references supporting a workforce-and-research positioning narrative that is gaining visibility.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T10",
-        "evidence": ""
-      },
-      {
-        "id": "SS-012",
-        "arena": "Regulatory And Investment Climate",
-        "character": "Policy",
-        "horizon": "Near term",
-        "description": "The signal is building under muted public commentary, and it reflects governance scrutiny and oversight capacity rather than a simple endorsement narrative.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T14",
-        "evidence": ""
-      },
-      {
-        "id": "SS-013",
-        "arena": "Financial Services And City Position",
-        "character": "Policy",
-        "horizon": "12 months",
-        "description": "The signal is visible at a moderate level and supports stability framing, but the cycle\u2019s evidence remains limited enough to keep confidence bounded.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T15",
-        "evidence": ""
-      },
-      {
-        "id": "SS-001",
-        "arena": "Innovation And Technology",
-        "character": "Strategic",
-        "horizon": "12 months",
-        "description": "International exposure is prominent and steady, backed by multiple independent references, while public commentary remains active without clear signs of acceleration.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T1",
-        "evidence": ""
-      },
-      {
-        "id": "SS-004",
-        "arena": "Innovation And Technology",
-        "character": "Strategic",
-        "horizon": "3\u20135 years",
-        "description": "The signal has steady international visibility and is supported by a clear external reference, though the trajectory appears to be easing rather than building.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T5",
-        "evidence": ""
-      },
-      {
-        "id": "SS-005",
-        "arena": "Trade And Competitiveness",
-        "character": "Strategic",
-        "horizon": "3\u20135 years",
-        "description": "International exposure is present and supported by a single external reference, but the trajectory is easing, suggesting potential near-term saturation of attention.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T6",
-        "evidence": ""
-      },
-      {
-        "id": "SS-006",
-        "arena": "Innovation And Technology",
-        "character": "Strategic",
-        "horizon": "12 months",
-        "description": "The signal maintains steady momentum with moderate external visibility and a single anchored reference in international reporting.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T7",
-        "evidence": ""
-      },
-      {
-        "id": "SS-014",
-        "arena": "Innovation And Technology",
-        "character": "Strategic",
-        "horizon": "12 months",
-        "description": "External visibility is present and steady through a single authoritative reference, but the limited breadth of supporting material keeps the strength bounded.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T20",
-        "evidence": ""
-      }
-    ],
-    "vulnerability_signals": [
-      "VS-001"
-    ],
-    "vuln_signal_details": [
-      {
-        "id": "VS-001",
-        "title": "Higher-Education Ai Governance Contested; Ethics Oversight Framed As Uneven",
-        "arena": "Innovation And Technology",
-        "severity": "Medium",
-        "horizon": "12 months",
-        "description": "Perceived governance gaps in the talent pipeline can weaken external trust in responsible AI capability.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T16",
-        "evidence": ""
-      }
-    ],
-    "priorities": [
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Startup And Scaleup Ecosystem",
-        "trend": "None",
-        "description": "Expected external discussion on startup and scale-up topics is limited this cycle; monitor for activation or sustained under-engagement."
+        "arena": "Strategic And Defence Standing",
+        "trend": "TRU-T10",
+        "description": "Innovation-related signalling is thin and externally under-amplified despite expected visibility, limiting stabilised external perception."
       },
       {
         "horizon": "Medium-term monitoring",
         "action": "Reinforce structural position",
-        "arena": "Innovation And Technology",
-        "trend": "TRU-T16",
-        "description": "Innovation standing is strong but a governance-related vulnerability persists; reinforce credible safeguards and oversight capacity to prevent erosion."
-      },
-      {
-        "horizon": "Long-term structural positioning",
-        "action": "Structural mechanism requires attention",
-        "arena": "Macroeconomic Credibility",
-        "trend": "TRU-T11",
-        "description": "Macroeconomic credibility lane remains weak with rising momentum but limited external linkage evidence; strengthen the clarity of externally legible macro-resilience mechanisms."
+        "arena": "Strategic And Defence Standing",
+        "trend": "TRU-T1",
+        "description": "Overall standing is strong but coexists with multiple confirmed vulnerabilities; reinforce durable capability and alliance-commitment signals to prevent erosion."
       }
     ],
     "standing_overview": [
       {
         "dimension": "Structural Position",
         "assessment": "Strong",
-        "driver": "Standing is dominated by strength signals across Innovation And Technology, Financial Services And City Position, Regulatory And Investment Climate, and Trade And Competitiveness."
+        "driver": "Strategic And Defence Standing remains net-positive because operational and alliance signalling (NATO readiness visibility and AUKUS-linked deployments) outweighs vulnerability narratives in the same arena."
       },
       {
         "dimension": "Perception Momentum",
-        "assessment": "Stable",
-        "driver": "Most arenas are steady overall, with a building trajectory in Regulatory And Investment Climate and easing attention in Trade And Competitiveness."
+        "assessment": "Building",
+        "driver": "Most high-visibility narratives in this pillar are building, including capability-contribution framing and burden-sharing pressure framing."
       },
       {
         "dimension": "Vulnerability Concentration",
-        "assessment": "Moderate",
-        "driver": "One medium-severity vulnerability signal is present; no high-severity vulnerabilities were identified in the vulnerability register."
+        "assessment": "High",
+        "driver": "Three high-severity vulnerability signals are active in the same arena: cyber posture maturity framing, leadership credibility challenges in Ukraine/Russia context, and burden-sharing pressure narratives."
       },
       {
         "dimension": "Evidence Density",
@@ -1712,315 +1255,94 @@
         "driver": "Strong evidence base across monitored arenas."
       }
     ],
-    "conclusion": "This cycle shows a strength-weighted external perception picture anchored in technology and City positioning, with building activity in the regulatory lane but bounded clarity on several diagnostic prompts. Vulnerability remains concentrated in a single governance-related signal within Innovation And Technology, while Macroeconomic Credibility remains weak under a managed-uncertainty profile.\nStanding posture this cycle: Under pressure",
-    "score": 48,
-    "posture": "Stable",
-    "trend_count": 88,
-    "strength_count": 14,
-    "vuln_count": 1,
-    "predictions": [],
-    "arena_predictions": {},
-    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/economic-business-leadership-intelligence-brief-united-kingdom-innovation-and-technology-standing-reviewed-2026-02-22-vzkh",
-    "ref": "VZKH"
-  },
-  "trust": {
-    "executive_summary": "The United Kingdom\u2019s standing this cycle is characterised by a mostly Strong structural posture across governance and partner-reliability arenas, but with a Weak position concentrated in Political Leadership And Electoral Stability. This aligns with the scorecard\u2019s overall picture (overall score: 74; pillar momentum: rising) while highlighting a divergence between strength in policy and institutional capacity and vulnerability centred on leadership stability. The cycle is dominated by strengths in Policy Predictability And Implementation Record and Regulatory Competence And Institutional Capacity, alongside the leadership-stability vulnerability signal.\nVulnerability is concentrated in a single confirmed item (VS-001) with Medium severity and steady momentum, contributing to an overall national posture of Under pressure. Strength signals are building in policy predictability (e.g., SS-001 / SS-003) and partner reliability (SS-004), while multiple regulatory-strength items remain in Managed uncertainty (including the constitutional-cohesion proposition P-SS-DIAG-SS-005, which is bounded this cycle).",
-    "perception_dashboard": [
-      {
-        "proposition": "How is the United Kingdom being assessed by non-UK governments, multilaterals, investors, and international commentators in terms of political stability and governing reliability this cycle?",
-        "global_view": 50,
-        "sovereign_view": 61,
-        "signal_strength": "Medium",
-        "arena": "Governance Stability",
-        "emerging": ""
-      },
-      {
-        "proposition": "What external narratives describe UK political leadership stability (governing continuity, electoral mandate, party cohesion, transition risk), and what events or signals are driving the assessment?",
-        "global_view": 50,
-        "sovereign_view": 51,
-        "signal_strength": "Low",
-        "arena": "Governance Stability",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is UK judicial independence and rule of law being evaluated internationally (court credibility, legal system fairness, enforcement reliability, extradition and treaty compliance), and what specific cases or decisions are cited?",
-        "global_view": 45,
-        "sovereign_view": 52,
-        "signal_strength": "Low",
-        "arena": "Governance Stability",
-        "emerging": ""
-      },
-      {
-        "proposition": "How are UK regulatory bodies and institutions being assessed externally (competence, independence, capacity, reform trajectory), and which regulators or institutions are attracting the most attention?",
-        "global_view": 45,
-        "sovereign_view": 60,
-        "signal_strength": "Medium",
-        "arena": "Governance Stability",
-        "emerging": ""
-      },
-      {
-        "proposition": "What external narratives focus on UK constitutional integrity and territorial cohesion (devolution pressures, Scotland independence sentiment, Northern Ireland protocol dynamics, Welsh governance), and what evidence is being cited?",
-        "global_view": 45,
-        "sovereign_view": 52,
-        "signal_strength": "Low",
-        "arena": "Governance Stability",
-        "emerging": ""
-      },
-      {
-        "proposition": "How is UK policy predictability being framed externally (consistent, pragmatic, reactive, reversing), including fiscal policy follow-through, regulatory stability, and implementation credibility?",
-        "global_view": 45,
-        "sovereign_view": 60,
-        "signal_strength": "Medium",
-        "arena": "Governance Stability",
-        "emerging": "\u2713"
-      },
-      {
-        "proposition": "How is the UK being characterised externally as a long-term partner and counterparty (reliable, transactional, distracted, inward-looking), and which counterpart countries or blocs are most salient in that judgement?",
-        "global_view": 45,
-        "sovereign_view": 55,
-        "signal_strength": "Medium",
-        "arena": "Partnership Reliability",
-        "emerging": "\u2713"
-      }
-    ],
-    "trends": [],
-    "arena_context": {
-      "Political Leadership And Electoral Stability": {
-        "name": "Political Leadership And Electoral Stability",
-        "spot_checked_trends": "1",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "China, United States",
-        "discourse": "moderate",
-        "echo_risk": "No",
-        "summary": "Political Leadership And Electoral Stability reflects a Weak structural position with stable momentum driven by vulnerability signals.",
-        "posture": "Weak"
-      },
-      "Policy Predictability And Implementation Record": {
-        "name": "Policy Predictability And Implementation Record",
-        "spot_checked_trends": "2",
-        "momentum": "Rising",
-        "geo_concentration": "Low",
-        "geographies": "United States, India",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Policy Predictability And Implementation Record reflects a Strong structural position with rising momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Regulatory Competence And Institutional Capacity": {
-        "name": "Regulatory Competence And Institutional Capacity",
-        "spot_checked_trends": "4",
-        "momentum": "Stable",
-        "geo_concentration": "High",
-        "geographies": "United States, Europe, France",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Regulatory Competence And Institutional Capacity reflects a Strong structural position with stable momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Judicial Independence And Rule Of Law": {
-        "name": "Judicial Independence And Rule Of Law",
-        "spot_checked_trends": "1",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "European Union, United States, Europe",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Judicial Independence And Rule Of Law reflects a Strong structural position with stable momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Constitutional Integrity And Territorial Cohesion": {
-        "name": "Constitutional Integrity And Territorial Cohesion",
-        "spot_checked_trends": "1",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "European Union, United States, Europe",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Constitutional Integrity And Territorial Cohesion reflects a Strong structural position with stable momentum driven by strength signals.",
-        "posture": "Strong"
-      },
-      "Long Term Partner And Counterparty Reliability": {
-        "name": "Long Term Partner And Counterparty Reliability",
-        "spot_checked_trends": "1",
-        "momentum": "Rising",
-        "geo_concentration": "Low",
-        "geographies": "United States, India, European Union",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Long Term Partner And Counterparty Reliability reflects a Strong structural position with rising momentum driven by strength signals.",
-        "posture": "Strong"
-      }
-    },
-    "strength_signals": [
-      "SS-002",
-      "SS-001",
-      "SS-003",
-      "SS-005",
-      "SS-006",
-      "SS-004"
-    ],
-    "strength_signal_details": [
-      {
-        "id": "SS-002",
-        "arena": "Regulatory Competence And Institutional Capacity",
-        "character": "Structural",
-        "horizon": "Near term",
-        "description": "International exposure is present and building, supported by multiple independent references, though authoritative mechanism verification was not run for this trend in this cycle.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T3",
-        "evidence": "(EVD-7LX-SS-007) (EVD-7LX-SS-008)"
-      },
-      {
-        "id": "SS-001",
-        "arena": "Policy Predictability And Implementation Record",
-        "character": "Policy",
-        "horizon": "Near term",
-        "description": "International exposure is prominent and building, supported by more than one external reference point, while public commentary on informal surfaces remains muted.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T2",
-        "evidence": "(EVD-7LX-SS-005) (EVD-7LX-SS-006)"
-      },
-      {
-        "id": "SS-003",
-        "arena": "Policy Predictability And Implementation Record",
-        "character": "Policy",
-        "horizon": "Near term",
-        "description": "External assessment remains steady and well-referenced across multilateral materials, but visibility on informal public surfaces is limited in this cycle.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T6",
-        "evidence": "(EVD-7LX-SS-007) (EVD-7LX-SS-008)"
-      },
-      {
-        "id": "SS-005",
-        "arena": "Regulatory Competence And Institutional Capacity",
-        "character": "Policy",
-        "horizon": "12 months",
-        "description": "A coordination signal is present with moderate international exposure, but the evidentiary base is narrow relative to the wider arena, so the reinforcement remains bounded.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T8",
-        "evidence": "(EVD-7LX-SS-011) (EVD-7LX-SS-012) (EVD-7LX-SS-013)"
-      },
-      {
-        "id": "SS-006",
-        "arena": "Regulatory Competence And Institutional Capacity",
-        "character": "Policy",
-        "horizon": "12 months",
-        "description": "A competence signal is visible with moderate international exposure, but it relies on a single reference point in this cycle and is therefore kept as a monitoring-only reinforcement.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T9",
-        "evidence": "(EVD-7LX-SS-014)"
-      },
-      {
-        "id": "SS-004",
-        "arena": "Long Term Partner And Counterparty Reliability",
-        "character": "Strategic",
-        "horizon": "Near term",
-        "description": "International exposure is present and building, supported by multiple external references and an established official framework for diplomatic priorities.",
-        "mechanism": "Confirmed",
-        "trend_ref": "T7",
-        "evidence": "(EVD-7LX-SS-009) (EVD-7LX-SS-010) (EVD-72SS-008) (EVD-72SS-009)"
-      }
-    ],
-    "vulnerability_signals": [
-      "VS-001"
-    ],
-    "vuln_signal_details": [
-      {
-        "id": "VS-001",
-        "title": "Leadership Stability Pressure External Assessment",
-        "arena": "Political Leadership And Electoral Stability",
-        "severity": "Medium",
-        "horizon": "12 months",
-        "description": "Leadership stability is used externally as a proxy for governing coherence, shaping confidence in continuity and follow-through.",
-        "structural_position": "Confirmed",
-        "mechanism": "Confirmed",
-        "trend_ref": "T1",
-        "evidence": "(EVD-7LX-SS-004) (EVD-72SS-003) (EVD-72SS-005) (EVD-72SS-006)"
-      }
-    ],
-    "priorities": [
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Policy Predictability And Implementation Record",
-        "trend": "None",
-        "description": "Emerging attention flagged: positive external signal with cold discourse indicates limited public-surface amplification despite material relevance."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Long Term Partner And Counterparty Reliability",
-        "trend": "None",
-        "description": "Emerging attention flagged: partnership reliability signal remains under-amplified in discourse despite medium conviction and confirmed basis."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Policy Predictability And Implementation Record",
-        "trend": "TRU-T2",
-        "description": "Silence gap in an expected high-exposure arena suggests under-engagement on informal external surfaces; track for amplification or reversal."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Regulatory Competence And Institutional Capacity",
-        "trend": "TRU-T3",
-        "description": "Silence gap in an expected high-exposure arena suggests under-engagement on informal external surfaces; monitor for emergence of clearer external framing."
-      },
-      {
-        "horizon": "Medium-term monitoring",
-        "action": "Address adverse narrative",
-        "arena": "Political Leadership And Electoral Stability",
-        "trend": "TRU-T1",
-        "description": "This arena is net weak with a confirmed vulnerability signal and stable momentum, indicating persistent leadership-stability pressure."
-      },
-      {
-        "horizon": "Medium-term monitoring",
-        "action": "Monitor for escalation",
-        "arena": "Judicial Independence And Rule Of Law",
-        "trend": "None",
-        "description": "Low-conviction posture with thin coverage warrants building broader external evidence beyond a single anchored signal."
-      },
-      {
-        "horizon": "Medium-term monitoring",
-        "action": "Monitor for escalation",
-        "arena": "Constitutional Integrity And Territorial Cohesion",
-        "trend": "None",
-        "description": "Low-conviction posture with bounded Scotland-specific linkage requires additional authoritative external references to resolve direction."
-      }
-    ],
-    "standing_overview": [
-      {
-        "dimension": "Structural Position",
-        "assessment": "Strong",
-        "driver": "Strength is anchored in policy predictability, institutional capacity, rule-of-law framing, and partner reliability, with a single arena (political leadership stability) as the primary exposure."
-      },
-      {
-        "dimension": "Perception Momentum",
-        "assessment": "Stable",
-        "driver": "Most arenas are steady this cycle, with building momentum concentrated in policy predictability and partner reliability."
-      },
-      {
-        "dimension": "Vulnerability Concentration",
-        "assessment": "Moderate",
-        "driver": "One medium-severity vulnerability signal is present, while strengths dominate across the remaining arenas."
-      },
-      {
-        "dimension": "Evidence Density",
-        "assessment": "Moderate",
-        "driver": "Evidence base covers core arenas with some bounded areas."
-      }
-    ],
-    "conclusion": "External perception of the United Kingdom remains largely stable and structurally positive across governance and partner-reliability arenas, with building strength in policy predictability and cooperation-linked partner framing. The principal bounded area this cycle is leadership-stability pressure, which keeps overall posture under pressure despite broad strengths and limited high-severity vulnerability concentration.\nStanding posture this cycle: Under pressure",
-    "score": 56,
+    "conclusion": "The UK\u2019s Defence & Strategic Credibility picture is Mixed: NATO readiness and capability-contribution narratives and AUKUS-linked operational visibility (including HMS Anson) are building across Europe- and US-centred external attention, but they are persistently contested by burden-sharing pressure framing tied to US political discourse (including Donald Trump), leadership credibility challenges attached to Ukraine/Russia escalation and attribution narratives (including Keir Starmer, Boris Johnson, and John Healey), and a cyber posture lane that pulls deterrence credibility framing toward exposure; the overall arena standing remains Strong, but the competing narratives prevent a consolidated external judgement.\nStanding posture this cycle: Mixed",
+    "score": 57,
     "posture": "Stable",
     "trend_count": 40,
-    "strength_count": 6,
-    "vuln_count": 1,
-    "predictions": [],
-    "arena_predictions": {},
-    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/trust-stability-systemic-reliability-intelligence-brief-united-kingdom-regulatory-competence-and-institutional-capacity-standing-reviewed-2026-02-22-jtrp",
-    "ref": "JTRP"
+    "strength_count": 5,
+    "vuln_count": 4,
+    "predictions": [
+      {
+        "title": "AUKUS-linked submarine deployment reinforces UK operational credibility",
+        "probability": 83,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Trajectory stabilises if momentum shifts to stable or fading and external attention narrows over the next cycle."
+      },
+      {
+        "title": "NATO readiness exercises highlight UK capability contribution",
+        "probability": 83,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Trajectory stabilises if momentum shifts to stable or fading and external attention narrows over the next cycle."
+      },
+      {
+        "title": "Procurement reciprocity discourse shapes UK defence industry positioning",
+        "probability": 83,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Trajectory stabilises if momentum shifts to stable or fading and external attention narrows over the next cycle."
+      },
+      {
+        "title": "Basing authorisation caution influences UK alliance reliability perceptions",
+        "probability": 83,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Trajectory stabilises if momentum shifts to stable or fading and external attention narrows over the next cycle."
+      },
+      {
+        "title": "Burden-sharing pressure raises doubts about UK dependability",
+        "probability": 83,
+        "type": "Vulnerability",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Trajectory stabilises if momentum shifts to stable or fading and external attention narrows over the next cycle."
+      },
+      {
+        "title": "Ukraine theatre support debate tests UK resolve framing",
+        "probability": 68,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "180 days",
+        "trigger": "Trajectory stabilises if evidence density declines and discourse cools across the next two cycles."
+      },
+      {
+        "title": "Cyber resilience narratives question UK security posture maturity",
+        "probability": 68,
+        "type": "Vulnerability",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "180 days",
+        "trigger": "Trajectory stabilises if evidence density declines and discourse cools across the next two cycles."
+      },
+      {
+        "title": "Attribution claims in Ukraine conflict challenge UK credibility",
+        "probability": 68,
+        "type": "Vulnerability",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "180 days",
+        "trigger": "Trajectory stabilises if evidence density declines and discourse cools across the next two cycles."
+      }
+    ],
+    "arena_predictions": {
+      "Strategic And Defence Standing": {
+        "has_outlook": true,
+        "outlook_sentence": "83% probability that Strategic And Defence Standing narratives intensify over the next 90 days (Strong signal)",
+        "probability": 83
+      }
+    },
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/defence-strategic-credibility-intelligence-brief-united-kingdom-strategic-and-defence-standing-under-scrutiny-2026-02-22-fzgt",
+    "ref": "FZGT"
   }
 }

@@ -661,7 +661,7 @@ body {
   .methodology-box-text { font-size: 12px; }
   .topbar { padding: 0 16px; height: 48px; }
   .topbar-nav { display: none; }
-  .topbar-date { display: none; }
+  .topbar-date { font-size: 10px; }
   .hero-inner { flex-direction: column; padding: 32px 16px 0; min-height: auto; }
   .hero-left { max-width: 100%; }
   .hero-title { font-size: 32px; }

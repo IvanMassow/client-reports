@@ -1,5 +1,5 @@
 {
-  "2026-02-22": {
+  "2026-02-21": {
     "trust": {
       "score": 56,
       "posture": "Stable",
@@ -34,6 +34,43 @@
       "trend_count": 30,
       "strength_count": 6,
       "vuln_count": 9
+    }
+  },
+  "2026-02-22": {
+    "trust": {
+      "score": 50,
+      "posture": "Mixed",
+      "trend_count": 30,
+      "strength_count": 0,
+      "vuln_count": 0
+    },
+    "diplomatic": {
+      "score": 57,
+      "posture": "Stable",
+      "trend_count": 30,
+      "strength_count": 7,
+      "vuln_count": 2
+    },
+    "economic": {
+      "score": 62,
+      "posture": "Stable",
+      "trend_count": 10,
+      "strength_count": 6,
+      "vuln_count": 0
+    },
+    "softpower": {
+      "score": 48,
+      "posture": "Declining",
+      "trend_count": 30,
+      "strength_count": 4,
+      "vuln_count": 6
+    },
+    "defence": {
+      "score": 57,
+      "posture": "Stable",
+      "trend_count": 40,
+      "strength_count": 5,
+      "vuln_count": 4
     }
   }
 }

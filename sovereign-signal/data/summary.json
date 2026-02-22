@@ -1,58 +1,58 @@
 {
   "date": "2026-02-22",
-  "composite_score": 50,
+  "composite_score": 54,
   "composite_posture": "Mixed",
-  "composite_delta": null,
+  "composite_delta": 4,
   "pillars": {
-    "softpower": {
-      "name": "Soft Power & Cultural Standing",
-      "score": 47,
+    "trust": {
+      "name": "Trust, Stability & Systemic Reliability",
+      "score": 50,
       "posture": "Mixed",
-      "delta": null,
+      "delta": -6,
       "trend_count": 30,
-      "strength_count": 6,
-      "vuln_count": 9,
-      "executive_summary": "The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Indust"
+      "strength_count": 0,
+      "vuln_count": 0,
+      "executive_summary": "[Section not available this cycle.]"
     },
     "diplomatic": {
       "name": "Diplomatic & Global Leadership",
-      "score": 55,
+      "score": 57,
       "posture": "Stable",
-      "delta": null,
-      "trend_count": 44,
+      "delta": 2,
+      "trend_count": 30,
       "strength_count": 7,
-      "vuln_count": 1,
-      "executive_summary": "The United Kingdom\u2019s diplomatic standing this cycle is assessed as strengthening, with structural standing assessed as Strong in Multilateral Influence and Crisis Diplomacy and Mediation, and also Str"
-    },
-    "defence": {
-      "name": "Defence & Strategic Credibility",
-      "score": 47,
-      "posture": "Mixed",
-      "delta": null,
-      "trend_count": 33,
-      "strength_count": 6,
-      "vuln_count": 4,
-      "executive_summary": "United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak struct"
+      "vuln_count": 2,
+      "executive_summary": "External attention on UK diplomatic standing is anchored in alliance and multilateral-role framing , NATO posture, United Nations reform process reference points, and Ukraine-related coordination rema"
     },
     "economic": {
       "name": "Economic & Business Leadership",
-      "score": 48,
+      "score": 62,
       "posture": "Stable",
-      "delta": null,
-      "trend_count": 88,
-      "strength_count": 14,
-      "vuln_count": 1,
-      "executive_summary": "The United Kingdom presents a structurally Strong standing across the most active arenas this cycle, particularly Innovation And Technology and Financial Services And City Position, with external perc"
-    },
-    "trust": {
-      "name": "Trust, Stability & Systemic Reliability",
-      "score": 56,
-      "posture": "Stable",
-      "delta": null,
-      "trend_count": 40,
+      "delta": 14,
+      "trend_count": 10,
       "strength_count": 6,
-      "vuln_count": 1,
-      "executive_summary": "The United Kingdom\u2019s standing this cycle is characterised by a mostly Strong structural posture across governance and partner-reliability arenas, but with a Weak position concentrated in Political Lea"
+      "vuln_count": 0,
+      "executive_summary": "External attention on the United Kingdom\u2019s economic standing is concentrated in two connected storylines: London\u2019s finance-centre positioning (NASDAQ, Citi) and UK-linked AI ecosystem visibility (Open"
+    },
+    "softpower": {
+      "name": "Soft Power & Cultural Standing",
+      "score": 48,
+      "posture": "Declining",
+      "delta": 1,
+      "trend_count": 30,
+      "strength_count": 4,
+      "vuln_count": 6,
+      "executive_summary": "External perception of the United Kingdom is contested but deteriorating in tone: non-UK attention in Soft Power Culture And Moral Authority is pulled toward Prince Andrew, King Charles III, Jeffrey E"
+    },
+    "defence": {
+      "name": "Defence & Strategic Credibility",
+      "score": 57,
+      "posture": "Stable",
+      "delta": 10,
+      "trend_count": 40,
+      "strength_count": 5,
+      "vuln_count": 4,
+      "executive_summary": "External attention on the United Kingdom\u2019s Defence & Strategic Credibility is anchored in Strategic And Defence Standing, where NATO readiness/capability assessments, AUKUS-linked submarine presence, "
     }
   }
 }

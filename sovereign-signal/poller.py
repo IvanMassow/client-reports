@@ -2352,7 +2352,7 @@ def run_once(target_date, require_all=True):
     print(f"  Found {len(day_items)} items for {target_date}")
 
     # Classify each into pillars
-    # Prefer richest RSS content (longest description) per pillar,
+    # Prefer the FIRST (newest) match per pillar from the RSS feed,
     # but also track all GUIDs per pillar for prediction scraping.
     pillar_items = {}
     pillar_guids = {}  # key -> list of all GUIDs for this pillar
@@ -2363,10 +2363,12 @@ def run_once(target_date, require_all=True):
             pillar_guids.setdefault(pkey, [])
             if guid:
                 pillar_guids[pkey].append(guid)
-            # Keep the item with the richest RSS content (longest description)
-            if pkey not in pillar_items or len(item.get("description", "")) > len(pillar_items[pkey].get("description", "")):
+            # Keep the FIRST (newest) item per pillar — RSS feeds are newest-first
+            if pkey not in pillar_items:
                 pillar_items[pkey] = item
-            print(f"    {PILLARS[pkey]['short']:20s} -> {item['title'][:60]}...")
+                print(f"    {PILLARS[pkey]['short']:20s} -> {item['title'][:60]}...")
+            else:
+                print(f"    {PILLARS[pkey]['short']:20s}    (also: {item['title'][:50]}...)")
         else:
             print(f"    UNMATCHED          -> {item['title'][:60]}...")
 
