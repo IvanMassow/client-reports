@@ -270,7 +270,7 @@ body {
 }
 .score-block-delta.up { color: var(--green); background: rgba(58,138,110,0.15); }
 .score-block-delta.down { color: var(--red); background: rgba(196,84,90,0.15); }
-.score-block-delta.flat { color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.05); }
+.score-block-delta.flat { color: var(--green); background: rgba(58,138,110,0.12); }
 .score-block-posture {
   font-size: 10px;
   font-weight: 600;
@@ -309,7 +309,7 @@ body {
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.7);
   margin-bottom: 10px;
   line-height: 1.3;
   min-height: 24px;
@@ -333,14 +333,14 @@ body {
 }
 .pillar-score-delta.up { color: var(--green); }
 .pillar-score-delta.down { color: var(--red); }
-.pillar-score-delta.flat { color: rgba(255,255,255,0.2); }
+.pillar-score-delta.flat { color: var(--green); }
 .pillar-score-posture {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   margin-top: 6px;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.5);
 }
 
 /* Subtle pillar colour — bottom accent */
@@ -378,245 +378,143 @@ body {
   font-weight: 400;
 }
 
-/* === PILLAR TILES — cleaner cards === */
-.pillar-tiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 20px;
+/* === BRIEFING CARDS — horizontal summary per pillar === */
+.briefing-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 56px;
 }
-.pillar-tile {
+.briefing-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--card-radius);
   overflow: hidden;
   box-shadow: var(--card-shadow);
-  transition: transform 0.2s, box-shadow 0.2s;
   text-decoration: none;
   color: inherit;
   display: block;
+  transition: box-shadow 0.15s;
 }
-.pillar-tile:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+.briefing-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
-.pillar-tile-header {
-  padding: 20px 22px 16px;
+.briefing-card-top {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
+  padding: 16px 22px 14px;
   border-bottom: 1px solid var(--border-light);
 }
-.pillar-tile-left { flex: 1; }
-.pillar-tile-tag {
+.briefing-card-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+.briefing-card-tag {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 3px 10px;
   border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 8px;
+  white-space: nowrap;
 }
-.pillar-tile-name {
+.briefing-card-title {
   font-family: 'Lora', Georgia, serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text);
   line-height: 1.3;
 }
-.pillar-tile-score-box {
-  text-align: center;
+.briefing-card-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
   padding-left: 16px;
 }
-.pillar-tile-score {
+.briefing-card-score {
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 800;
   line-height: 1;
 }
-.pillar-tile-score-label {
-  font-size: 9px;
+.briefing-card-meta {
+  text-align: center;
+}
+.briefing-card-meta-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+.briefing-card-meta-label {
+  font-size: 8px;
   color: var(--text-muted);
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-.pillar-tile-delta {
-  font-size: 11px;
-  font-weight: 600;
-  margin-top: 4px;
+.briefing-card-body {
+  padding: 16px 22px 18px;
 }
-.pillar-tile-body {
-  padding: 18px 22px 22px;
-}
-.pillar-tile-summary {
+.briefing-card-summary {
   font-size: 13px;
   color: var(--text-mid);
   line-height: 1.7;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
-.pillar-tile-metrics {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+.briefing-card-findings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
-.ptm {
-  text-align: center;
-  padding: 10px 4px;
-  background: var(--bg);
-  border-radius: 6px;
-}
-.ptm-val {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-}
-.ptm-label {
-  font-size: 8px;
+.finding-tag {
+  font-size: 10px;
   font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 3px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text-mid);
+  border: 1px solid var(--border-light);
 }
-.pillar-tile-footer {
-  padding: 12px 22px;
+.finding-tag.strength { color: var(--green); background: rgba(58,138,110,0.06); border-color: rgba(58,138,110,0.15); }
+.finding-tag.vuln { color: var(--red); background: rgba(196,84,90,0.06); border-color: rgba(196,84,90,0.15); }
+.briefing-card-cta {
+  padding: 10px 22px;
   background: var(--bg);
   border-top: 1px solid var(--border-light);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.pillar-tile-cta {
   font-size: 11px;
   font-weight: 600;
 }
-.pillar-tile-time {
-  font-size: 10px;
-  color: var(--text-muted);
-}
 
-/* Pillar colour accents on tiles — left border, not top */
-.pillar-tile[data-pillar="softpower"] { border-left: 3px solid var(--p-softpower); }
-.pillar-tile[data-pillar="softpower"] .pillar-tile-tag { background: var(--p-softpower-light); color: var(--p-softpower); }
-.pillar-tile[data-pillar="softpower"] .pillar-tile-score { color: var(--p-softpower); }
-.pillar-tile[data-pillar="softpower"] .pillar-tile-cta { color: var(--p-softpower); }
+/* Pillar colour accents on briefing cards */
+.briefing-card[data-pillar="softpower"] { border-left: 3px solid var(--p-softpower); }
+.briefing-card[data-pillar="softpower"] .briefing-card-tag { background: var(--p-softpower-light); color: var(--p-softpower); }
+.briefing-card[data-pillar="softpower"] .briefing-card-score { color: var(--p-softpower); }
+.briefing-card[data-pillar="softpower"] .briefing-card-cta { color: var(--p-softpower); }
 
-.pillar-tile[data-pillar="defence"] { border-left: 3px solid var(--p-defence); }
-.pillar-tile[data-pillar="defence"] .pillar-tile-tag { background: var(--p-defence-light); color: var(--p-defence); }
-.pillar-tile[data-pillar="defence"] .pillar-tile-score { color: var(--p-defence); }
-.pillar-tile[data-pillar="defence"] .pillar-tile-cta { color: var(--p-defence); }
+.briefing-card[data-pillar="defence"] { border-left: 3px solid var(--p-defence); }
+.briefing-card[data-pillar="defence"] .briefing-card-tag { background: var(--p-defence-light); color: var(--p-defence); }
+.briefing-card[data-pillar="defence"] .briefing-card-score { color: var(--p-defence); }
+.briefing-card[data-pillar="defence"] .briefing-card-cta { color: var(--p-defence); }
 
-.pillar-tile[data-pillar="economic"] { border-left: 3px solid var(--p-economic); }
-.pillar-tile[data-pillar="economic"] .pillar-tile-tag { background: var(--p-economic-light); color: var(--p-economic); }
-.pillar-tile[data-pillar="economic"] .pillar-tile-score { color: var(--p-economic); }
-.pillar-tile[data-pillar="economic"] .pillar-tile-cta { color: var(--p-economic); }
+.briefing-card[data-pillar="economic"] { border-left: 3px solid var(--p-economic); }
+.briefing-card[data-pillar="economic"] .briefing-card-tag { background: var(--p-economic-light); color: var(--p-economic); }
+.briefing-card[data-pillar="economic"] .briefing-card-score { color: var(--p-economic); }
+.briefing-card[data-pillar="economic"] .briefing-card-cta { color: var(--p-economic); }
 
-.pillar-tile[data-pillar="diplomatic"] { border-left: 3px solid var(--p-diplomatic); }
-.pillar-tile[data-pillar="diplomatic"] .pillar-tile-tag { background: var(--p-diplomatic-light); color: var(--p-diplomatic); }
-.pillar-tile[data-pillar="diplomatic"] .pillar-tile-score { color: var(--p-diplomatic); }
-.pillar-tile[data-pillar="diplomatic"] .pillar-tile-cta { color: var(--p-diplomatic); }
+.briefing-card[data-pillar="diplomatic"] { border-left: 3px solid var(--p-diplomatic); }
+.briefing-card[data-pillar="diplomatic"] .briefing-card-tag { background: var(--p-diplomatic-light); color: var(--p-diplomatic); }
+.briefing-card[data-pillar="diplomatic"] .briefing-card-score { color: var(--p-diplomatic); }
+.briefing-card[data-pillar="diplomatic"] .briefing-card-cta { color: var(--p-diplomatic); }
 
-.pillar-tile[data-pillar="trust"] { border-left: 3px solid var(--p-trust); }
-.pillar-tile[data-pillar="trust"] .pillar-tile-tag { background: var(--p-trust-light); color: var(--p-trust); }
-.pillar-tile[data-pillar="trust"] .pillar-tile-score { color: var(--p-trust); }
-.pillar-tile[data-pillar="trust"] .pillar-tile-cta { color: var(--p-trust); }
+.briefing-card[data-pillar="trust"] { border-left: 3px solid var(--p-trust); }
+.briefing-card[data-pillar="trust"] .briefing-card-tag { background: var(--p-trust-light); color: var(--p-trust); }
+.briefing-card[data-pillar="trust"] .briefing-card-score { color: var(--p-trust); }
+.briefing-card[data-pillar="trust"] .briefing-card-cta { color: var(--p-trust); }
 
-/* === SIGNALS SUMMARY === */
-.signals-strip { margin-bottom: 56px; }
-.signals-summary {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-}
-.signal-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--card-radius);
-  padding: 20px;
-  box-shadow: var(--card-shadow);
-}
-.signal-card-pillar {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 4px;
-  display: inline-block;
-  margin-bottom: 12px;
-}
-.signal-card-stats {
-  display: flex;
-  gap: 20px;
-}
-.signal-stat {
-  text-align: center;
-}
-.signal-stat-num {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1;
-}
-.signal-stat-num.strength { color: var(--green); }
-.signal-stat-num.vuln { color: var(--red); }
-.signal-stat-label {
-  font-size: 8px;
-  font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-top: 4px;
-}
-
-/* Legacy signal rows (kept for backwards compat) */
-.signals-list { display: grid; grid-template-columns: 1fr; gap: 6px; }
-.signal-row {
-  display: grid;
-  grid-template-columns: 56px 100px 1fr 80px 70px;
-  gap: 12px;
-  align-items: center;
-  padding: 10px 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 12px;
-}
-.signal-row:hover { background: #FBFBF9; }
-.signal-id {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--text);
-  background: var(--bg);
-  padding: 3px 6px;
-  text-align: center;
-  border-radius: 4px;
-}
-.signal-pillar {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
-}
-.signal-text { font-weight: 500; color: var(--text); }
-.signal-type-tag {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: 4px;
-  text-align: center;
-}
-.tag-strength { background: rgba(58,138,110,0.1); color: var(--green); }
-.tag-vuln { background: rgba(196,84,90,0.1); color: var(--red); }
-.signal-horizon { font-size: 10px; color: var(--text-muted); text-align: right; }
-
-/* === TREND === */
+/* === TREND (kept for future use) === */
 .trend-section { margin-bottom: 56px; }
 .trend-note {
   font-size: 13px;
@@ -694,12 +592,9 @@ body {
   .container { padding: 24px 16px 0; }
   .section-head { flex-direction: column; gap: 4px; }
   .section-title { font-size: 20px; }
-  .pillar-tiles { grid-template-columns: 1fr; gap: 14px; }
-  .signals-summary { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .signal-row { grid-template-columns: 56px 1fr; gap: 8px; }
-  .signal-row .signal-pillar,
-  .signal-row .signal-type-tag,
-  .signal-row .signal-horizon { display: none; }
+  .briefing-card-top { flex-direction: column; gap: 10px; }
+  .briefing-card-stats { padding-left: 0; justify-content: flex-start; }
+  .briefing-card-findings { gap: 4px; }
   .footer { padding: 20px 16px; }
   .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
   .footer-credit { font-size: 8px; }
@@ -721,16 +616,13 @@ body {
   .pillar-score-cell { padding: 14px 8px 12px; }
   .pillar-score-num { font-size: 24px; }
   .pillar-score-name { font-size: 7px; letter-spacing: 0.5px; }
-  .pillar-tile-header { padding: 14px 16px 12px; }
-  .pillar-tile-body { padding: 14px 16px 16px; }
-  .pillar-tile-summary { font-size: 12px; }
-  .pillar-tile-metrics { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-  .ptm { padding: 8px 4px; }
-  .ptm-val { font-size: 14px; }
-  .pillar-tile-footer { padding: 10px 16px; }
-  .signals-summary { grid-template-columns: 1fr; }
-  .signal-card { padding: 14px; }
-  .signal-stat-num { font-size: 18px; }
+  .briefing-card-top { padding: 12px 16px 10px; }
+  .briefing-card-body { padding: 12px 16px 14px; }
+  .briefing-card-summary { font-size: 12px; }
+  .briefing-card-title { font-size: 14px; }
+  .briefing-card-score { font-size: 22px; }
+  .briefing-card-cta { padding: 8px 16px; font-size: 10px; }
+  .finding-tag { font-size: 9px; padding: 2px 8px; }
   .trend-note { padding: 24px 16px; font-size: 12px; }
 }
 
@@ -815,224 +707,150 @@ body {
 <div class="container">
   <div id="pillars">
     <div class="section-head">
-      <h2 class="section-title">Pillar Assessments</h2>
-      <span class="section-meta">Cycle: 22 February 2026</span>
+      <h2 class="section-title">Pillar Briefings</h2>
+      <span class="section-meta">Cycle: 22 February 2026 &middot; 55 strengths &middot; 16 vulnerabilities</span>
     </div>
-    <div class="pillar-tiles">
-      <a class="pillar-tile" data-pillar="softpower" id="tile-softpower" href="uk-softpower-2026-02-22.html">
-        <div class="pillar-tile-header">
-          <div class="pillar-tile-left">
-            <span class="pillar-tile-tag">Soft Power</span>
-            <div class="pillar-tile-name">Soft Power & Cultural Standing</div>
+    <div class="briefing-cards">
+      <a class="briefing-card" data-pillar="softpower" id="tile-softpower" href="uk-softpower-2026-02-22.html">
+        <div class="briefing-card-top">
+          <div class="briefing-card-left">
+            <span class="briefing-card-tag">Soft Power</span>
+            <span class="briefing-card-title">Soft Power & Cultural Standing</span>
           </div>
-          <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">43</div>
-            <div class="pillar-tile-score-label">Score</div>
-            <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
+          <div class="briefing-card-stats">
+            <div class="briefing-card-score">43</div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--green)">12</div>
+              <div class="briefing-card-meta-label">Strengths</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--red)">9</div>
+              <div class="briefing-card-meta-label">Vulns</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val">60</div>
+              <div class="briefing-card-meta-label">Trends</div>
+            </div>
           </div>
         </div>
-        <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Industries And Talent present Strong positions, while He</p>
-          <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">12</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">9</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">60</div><div class="ptm-label">Trends</div></div>
-            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
-          </div>
+        <div class="briefing-card-body">
+          <p class="briefing-card-summary">The United Kingdom is assessed this cycle as Under pressure, with external perception described as mixed while structural standing is split across arenas: Culture And Media Exports and Creative Industries And Talent present Strong positions, while Heritage Identity And Nation Brand and Values And...</p>
+          <div class="briefing-card-findings"><span class="finding-tag strength">Culture And Media Exports</span><span class="finding-tag strength">Creative Industries And Talent</span><span class="finding-tag vuln">Heritage Identity And Nation Brand</span><span class="finding-tag vuln">Values And Human Rights Reputation</span></div>
         </div>
-        <div class="pillar-tile-footer">
-          <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated</span>
-        </div>
+        <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
-      <a class="pillar-tile" data-pillar="defence" id="tile-defence" href="uk-defence-2026-02-22.html">
-        <div class="pillar-tile-header">
-          <div class="pillar-tile-left">
-            <span class="pillar-tile-tag">Defence</span>
-            <div class="pillar-tile-name">Defence & Strategic Credibility</div>
+      <a class="briefing-card" data-pillar="defence" id="tile-defence" href="uk-defence-2026-02-22.html">
+        <div class="briefing-card-top">
+          <div class="briefing-card-left">
+            <span class="briefing-card-tag">Defence</span>
+            <span class="briefing-card-title">Defence & Strategic Credibility</span>
           </div>
-          <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">47</div>
-            <div class="pillar-tile-score-label">Score</div>
-            <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
+          <div class="briefing-card-stats">
+            <div class="briefing-card-score">47</div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--green)">18</div>
+              <div class="briefing-card-meta-label">Strengths</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--red)">4</div>
+              <div class="briefing-card-meta-label">Vulns</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val">33</div>
+              <div class="briefing-card-meta-label">Trends</div>
+            </div>
           </div>
         </div>
-        <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak structural positions in Deterrence Posture And Escalatio</p>
-          <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">18</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">4</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">33</div><div class="ptm-label">Trends</div></div>
-            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
-          </div>
+        <div class="briefing-card-body">
+          <p class="briefing-card-summary">United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak structural positions in Deterrence Posture And Escalation Management, Cyber Capability And Security Pos...</p>
+          <div class="briefing-card-findings"><span class="finding-tag strength">Military Capability And Readiness</span><span class="finding-tag strength">Defence Industry And Procurement Credibility</span><span class="finding-tag vuln">Deterrence Posture And Escalation Management</span><span class="finding-tag vuln">Cyber Capability And Security Posture</span></div>
         </div>
-        <div class="pillar-tile-footer">
-          <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated</span>
-        </div>
+        <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
-      <a class="pillar-tile" data-pillar="economic" id="tile-economic" href="uk-economic-2026-02-22.html">
-        <div class="pillar-tile-header">
-          <div class="pillar-tile-left">
-            <span class="pillar-tile-tag">Economic</span>
-            <div class="pillar-tile-name">Economic & Business Leadership</div>
+      <a class="briefing-card" data-pillar="economic" id="tile-economic" href="uk-economic-2026-02-22.html">
+        <div class="briefing-card-top">
+          <div class="briefing-card-left">
+            <span class="briefing-card-tag">Economic</span>
+            <span class="briefing-card-title">Economic & Business Leadership</span>
           </div>
-          <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">52</div>
-            <div class="pillar-tile-score-label">Score</div>
-            <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
+          <div class="briefing-card-stats">
+            <div class="briefing-card-score">52</div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--green)">21</div>
+              <div class="briefing-card-meta-label">Strengths</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--red)">1</div>
+              <div class="briefing-card-meta-label">Vulns</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val">30</div>
+              <div class="briefing-card-meta-label">Trends</div>
+            </div>
           </div>
         </div>
-        <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">The United Kingdom’s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to competing strength and vulnerability signals. This</p>
-          <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">21</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">1</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">30</div><div class="ptm-label">Trends</div></div>
-            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
-          </div>
+        <div class="briefing-card-body">
+          <p class="briefing-card-summary">The United Kingdom’s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to competing strength and vulnerability signals. This sits alongside a global baseline framing of st...</p>
+          <div class="briefing-card-findings"><span class="finding-tag strength">Financial Services And City Position</span><span class="finding-tag strength">Innovation And Technology</span></div>
         </div>
-        <div class="pillar-tile-footer">
-          <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated</span>
-        </div>
+        <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
-      <a class="pillar-tile" data-pillar="diplomatic" id="tile-diplomatic" href="uk-diplomatic-2026-02-22.html">
-        <div class="pillar-tile-header">
-          <div class="pillar-tile-left">
-            <span class="pillar-tile-tag">Diplomatic</span>
-            <div class="pillar-tile-name">Diplomatic & Global Leadership</div>
+      <a class="briefing-card" data-pillar="diplomatic" id="tile-diplomatic" href="uk-diplomatic-2026-02-22.html">
+        <div class="briefing-card-top">
+          <div class="briefing-card-left">
+            <span class="briefing-card-tag">Diplomatic</span>
+            <span class="briefing-card-title">Diplomatic & Global Leadership</span>
           </div>
-          <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">47</div>
-            <div class="pillar-tile-score-label">Score</div>
-            <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
+          <div class="briefing-card-stats">
+            <div class="briefing-card-score">47</div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--green)">4</div>
+              <div class="briefing-card-meta-label">Strengths</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--red)">2</div>
+              <div class="briefing-card-meta-label">Vulns</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val">30</div>
+              <div class="briefing-card-meta-label">Trends</div>
+            </div>
           </div>
         </div>
-        <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomacy And Mediation is Weak. Perception and structure </p>
-          <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">4</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">2</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">30</div><div class="ptm-label">Trends</div></div>
-            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
-          </div>
+        <div class="briefing-card-body">
+          <p class="briefing-card-summary">United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomacy And Mediation is Weak. Perception and structure align on the strength arenas, but diverge where...</p>
+          <div class="briefing-card-findings"><span class="finding-tag strength">Multilateral Influence</span><span class="finding-tag strength">Climate And Energy Diplomacy</span><span class="finding-tag vuln">Crisis Diplomacy And Mediation</span></div>
         </div>
-        <div class="pillar-tile-footer">
-          <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated</span>
-        </div>
+        <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
-      <a class="pillar-tile" data-pillar="trust" id="tile-trust" href="uk-trust-2026-02-22.html">
-        <div class="pillar-tile-header">
-          <div class="pillar-tile-left">
-            <span class="pillar-tile-tag">Trust</span>
-            <div class="pillar-tile-name">Trust, Stability & Systemic Reliability</div>
+      <a class="briefing-card" data-pillar="trust" id="tile-trust" href="uk-trust-2026-02-22.html">
+        <div class="briefing-card-top">
+          <div class="briefing-card-left">
+            <span class="briefing-card-tag">Trust</span>
+            <span class="briefing-card-title">Trust, Stability & Systemic Reliability</span>
           </div>
-          <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">51</div>
-            <div class="pillar-tile-score-label">Score</div>
-            <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
+          <div class="briefing-card-stats">
+            <div class="briefing-card-score">51</div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--green)">0</div>
+              <div class="briefing-card-meta-label">Strengths</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--red)">0</div>
+              <div class="briefing-card-meta-label">Vulns</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val">30</div>
+              <div class="briefing-card-meta-label">Trends</div>
+            </div>
           </div>
         </div>
-        <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">Assessment pending — report data will populate when available.</p>
-          <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">30</div><div class="ptm-label">Trends</div></div>
-            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
-          </div>
+        <div class="briefing-card-body">
+          <p class="briefing-card-summary">Assessment pending — report data will populate when available.</p>
+          <div class="briefing-card-findings"><span class="finding-tag">30 trends tracked</span></div>
         </div>
-        <div class="pillar-tile-footer">
-          <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated</span>
-        </div>
+        <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
-    </div>
-  </div>
-
-  <div class="signals-strip" id="signals">
-    <div class="section-head">
-      <h2 class="section-title">Key Signals This Cycle</h2>
-      <span class="section-meta">55 Strengths &middot; 16 Vulnerabilities</span>
-    </div>
-    <div class="signals-summary">
-      <div class="signal-card">
-        <div class="signal-card-pillar" style="background:#F0E6F6;color:#7C5295">Soft Power</div>
-        <div class="signal-card-stats">
-          <div class="signal-stat">
-            <div class="signal-stat-num strength">12</div>
-            <div class="signal-stat-label">Strengths</div>
-          </div>
-          <div class="signal-stat">
-            <div class="signal-stat-num vuln">9</div>
-            <div class="signal-stat-label">Vulns</div>
-          </div>
-        </div>
-      </div>
-      <div class="signal-card">
-        <div class="signal-card-pillar" style="background:#E4EDF6;color:#4A6FA5">Defence</div>
-        <div class="signal-card-stats">
-          <div class="signal-stat">
-            <div class="signal-stat-num strength">18</div>
-            <div class="signal-stat-label">Strengths</div>
-          </div>
-          <div class="signal-stat">
-            <div class="signal-stat-num vuln">4</div>
-            <div class="signal-stat-label">Vulns</div>
-          </div>
-        </div>
-      </div>
-      <div class="signal-card">
-        <div class="signal-card-pillar" style="background:#F8F0DA;color:#B08830">Diplomatic</div>
-        <div class="signal-card-stats">
-          <div class="signal-stat">
-            <div class="signal-stat-num strength">4</div>
-            <div class="signal-stat-label">Strengths</div>
-          </div>
-          <div class="signal-stat">
-            <div class="signal-stat-num vuln">2</div>
-            <div class="signal-stat-label">Vulns</div>
-          </div>
-        </div>
-      </div>
-      <div class="signal-card">
-        <div class="signal-card-pillar" style="background:#F8E8E4;color:#B85C4A">Trust</div>
-        <div class="signal-card-stats">
-          <div class="signal-stat">
-            <div class="signal-stat-num strength">0</div>
-            <div class="signal-stat-label">Strengths</div>
-          </div>
-          <div class="signal-stat">
-            <div class="signal-stat-num vuln">0</div>
-            <div class="signal-stat-label">Vulns</div>
-          </div>
-        </div>
-      </div>
-      <div class="signal-card">
-        <div class="signal-card-pillar" style="background:#E2F2EB;color:#3D8B6E">Economic</div>
-        <div class="signal-card-stats">
-          <div class="signal-stat">
-            <div class="signal-stat-num strength">21</div>
-            <div class="signal-stat-label">Strengths</div>
-          </div>
-          <div class="signal-stat">
-            <div class="signal-stat-num vuln">1</div>
-            <div class="signal-stat-label">Vulns</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="trend-section">
-    <div class="section-head">
-      <h2 class="section-title">Standing History</h2>
-      <span class="section-meta">Score Trend Over Time</span>
-    </div>
-    <div class="trend-note">
-      Historical trend data will populate automatically as daily cycles accumulate. First cycle recorded: 22 February 2026.
     </div>
   </div>
 </div>

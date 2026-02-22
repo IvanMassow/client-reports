@@ -497,85 +497,123 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         <div class="pillar-score-posture">{post}</div>
       </a>'''
 
-    # Build pillar tiles
-    pillar_tiles_html = ""
+    # Build briefing cards — one horizontal card per pillar with findings
+    briefing_cards_html = ""
+    total_strengths = 0
+    total_vulns = 0
     for key, pillar in PILLARS.items():
         pdata = pillar_data.get(key, {})
         score = pdata.get("score")
         score_display = score if score is not None else "—"
         post = pdata.get("posture") or "—"
-        delta = deltas.get(key)
-        delta_text = f"+{delta}" if delta and delta > 0 else str(delta) if delta else "&mdash; First cycle"
-        delta_color = "var(--green)" if delta and delta > 0 else "var(--red)" if delta and delta < 0 else "var(--text-muted)"
-        summary = pdata.get("executive_summary", "")
-        if not summary or summary.startswith("[Section"):
-            summary = "Assessment pending — report data will populate when available."
-        summary = summary[:250]
         strength_count = pdata.get("strength_count", 0)
         vuln_count = pdata.get("vuln_count", 0)
         trend_count = pdata.get("trend_count", 0)
-        conf = "Med" if score else "—"
+        total_strengths += strength_count
+        total_vulns += vuln_count
         report_file = f"uk-{key}-{target_date}.html"
         href = report_file if (SCRIPT_DIR / report_file).exists() else "#"
 
-        pillar_tiles_html += f'''
-      <a class="pillar-tile" data-pillar="{key}" id="tile-{key}" href="{href}">
-        <div class="pillar-tile-header">
-          <div class="pillar-tile-left">
-            <span class="pillar-tile-tag">{pillar["short"]}</span>
-            <div class="pillar-tile-name">{pillar["name"]}</div>
+        # Extract a concise summary (first sentence or two)
+        summary = pdata.get("executive_summary", "")
+        if not summary or summary.startswith("[Section"):
+            summary = "Assessment pending — report data will populate when available."
+        else:
+            # Take first two sentences for brevity
+            sentences = re.split(r'(?<=[.!?])\s+', summary)
+            summary = " ".join(sentences[:2])
+            if len(summary) > 300:
+                summary = summary[:297] + "..."
+
+        # Build finding tags — extract arena-level verdicts from executive summary
+        exec_text = pdata.get("executive_summary", "")
+        findings_html = ""
+        # Pattern: "Strong [structural] position[s/ing] in ARENA [and ARENA]"
+        strong_matches = re.findall(
+            r'Strong\s+(?:structural\s+)?position(?:s|ing)?\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:,\s*(?:but|while)|\.|\s+and\s+(?=[a-z])))',
+            exec_text
+        )
+        # Pattern: "present Strong positions"
+        strong_matches += re.findall(
+            r'([A-Z][A-Za-z\s&]+?)\s+(?:present|remain(?:s)?)\s+(?:structurally\s+)?Strong',
+            exec_text
+        )
+        # Pattern: "structurally Strong in ARENA"
+        strong_matches += re.findall(
+            r'structurally\s+Strong\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:,\s*while|\.|\s+and\s+(?=[a-z])))',
+            exec_text
+        )
+        # Pattern: "Weak [structural] position[s] in ARENA"
+        weak_matches = re.findall(
+            r'Weak\s+(?:structural\s+)?position(?:s)?\s+in\s+([A-Z][A-Za-z,\s&]+?)(?:\s*(?:\.|,\s*and))',
+            exec_text
+        )
+        # Pattern: "ARENA present Weak positions" or "is Weak"
+        weak_matches += re.findall(
+            r'([A-Z][A-Za-z\s&]+?)\s+(?:present|remain(?:s)?)\s+(?:structurally\s+)?Weak',
+            exec_text
+        )
+        weak_matches += re.findall(
+            r'([A-Z][A-Za-z\s&]+?)\s+is\s+Weak',
+            exec_text
+        )
+
+        # Split combined arena strings on " and "
+        def split_arenas(matches):
+            arenas = []
+            for m in matches:
+                for part in re.split(r'\s+and\s+|\s*,\s+', m):
+                    p = part.strip().rstrip(',.')
+                    if len(p) > 4 and p[0].isupper():
+                        arenas.append(p)
+            return arenas
+
+        strong_arenas = split_arenas(strong_matches)
+        weak_arenas = split_arenas(weak_matches)
+
+        for a in strong_arenas[:4]:
+            findings_html += f'<span class="finding-tag strength">{html.escape(a)}</span>'
+        for a in weak_arenas[:3]:
+            findings_html += f'<span class="finding-tag vuln">{html.escape(a)}</span>'
+
+        # Fallback: show strength/vuln counts as tags if no arenas found
+        if not findings_html:
+            if strength_count:
+                findings_html += f'<span class="finding-tag strength">{strength_count} strengths identified</span>'
+            if vuln_count:
+                findings_html += f'<span class="finding-tag vuln">{vuln_count} vulnerabilities identified</span>'
+            if trend_count:
+                findings_html += f'<span class="finding-tag">{trend_count} trends tracked</span>'
+
+        briefing_cards_html += f'''
+      <a class="briefing-card" data-pillar="{key}" id="tile-{key}" href="{href}">
+        <div class="briefing-card-top">
+          <div class="briefing-card-left">
+            <span class="briefing-card-tag">{pillar["short"]}</span>
+            <span class="briefing-card-title">{pillar["name"]}</span>
           </div>
-          <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">{score_display}</div>
-            <div class="pillar-tile-score-label">Score</div>
-            <div class="pillar-tile-delta flat" style="color:{delta_color}">{delta_text}</div>
+          <div class="briefing-card-stats">
+            <div class="briefing-card-score">{score_display}</div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--green)">{strength_count}</div>
+              <div class="briefing-card-meta-label">Strengths</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val" style="color:var(--red)">{vuln_count}</div>
+              <div class="briefing-card-meta-label">Vulns</div>
+            </div>
+            <div class="briefing-card-meta">
+              <div class="briefing-card-meta-val">{trend_count}</div>
+              <div class="briefing-card-meta-label">Trends</div>
+            </div>
           </div>
         </div>
-        <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">{summary}</p>
-          <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">{strength_count}</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">{vuln_count}</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">{trend_count}</div><div class="ptm-label">Trends</div></div>
-            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">{conf}</div><div class="ptm-label">Confidence</div></div>
-          </div>
+        <div class="briefing-card-body">
+          <p class="briefing-card-summary">{summary}</p>
+          <div class="briefing-card-findings">{findings_html}</div>
         </div>
-        <div class="pillar-tile-footer">
-          <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">{"Updated" if key in pillar_data else "Pending"}</span>
-        </div>
+        <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>'''
-
-    # Build signals summary cards (compact, one per pillar)
-    signals_html = ""
-    total_strengths = 0
-    total_vulns = 0
-    for key, pdata in pillar_data.items():
-        pillar = PILLARS[key]
-        sc = pdata.get("strength_count", 0)
-        vc = pdata.get("vuln_count", 0)
-        total_strengths += sc
-        total_vulns += vc
-        signals_html += f'''
-      <div class="signal-card">
-        <div class="signal-card-pillar" style="background:{pillar["color_light"]};color:{pillar["color"]}">{pillar["short"]}</div>
-        <div class="signal-card-stats">
-          <div class="signal-stat">
-            <div class="signal-stat-num strength">{sc}</div>
-            <div class="signal-stat-label">Strengths</div>
-          </div>
-          <div class="signal-stat">
-            <div class="signal-stat-num vuln">{vc}</div>
-            <div class="signal-stat-label">Vulns</div>
-          </div>
-        </div>
-      </div>'''
-
-    if not signals_html:
-        signals_html = '''
-      <div class="trend-note">Signal data will populate as reports are processed.</div>'''
-
-    signals_meta = f"{total_strengths} Strengths &middot; {total_vulns} Vulnerabilities"
 
     # Date nav
     prev_date_link = ""
@@ -677,29 +715,10 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 <div class="container">
   <div id="pillars">
     <div class="section-head">
-      <h2 class="section-title">Pillar Assessments</h2>
-      <span class="section-meta">Cycle: {display_date}</span>
+      <h2 class="section-title">Pillar Briefings</h2>
+      <span class="section-meta">Cycle: {display_date} &middot; {total_strengths} strengths &middot; {total_vulns} vulnerabilities</span>
     </div>
-    <div class="pillar-tiles">{pillar_tiles_html}
-    </div>
-  </div>
-
-  <div class="signals-strip" id="signals">
-    <div class="section-head">
-      <h2 class="section-title">Key Signals This Cycle</h2>
-      <span class="section-meta">{signals_meta}</span>
-    </div>
-    <div class="signals-summary">{signals_html}
-    </div>
-  </div>
-
-  <div class="trend-section">
-    <div class="section-head">
-      <h2 class="section-title">Standing History</h2>
-      <span class="section-meta">Score Trend Over Time</span>
-    </div>
-    <div class="trend-note">
-      {"Historical trend data will populate automatically as daily cycles accumulate. First cycle recorded: " + display_date + "." if len(dates) <= 1 else "Data available for " + str(len(dates)) + " cycles."}
+    <div class="briefing-cards">{briefing_cards_html}
     </div>
   </div>
 </div>
