@@ -714,6 +714,11 @@
       }
     ],
     "arena_predictions": {
+      "Heritage Identity And Nation Brand": {
+        "has_outlook": true,
+        "outlook_sentence": "85% probability that Heritage Identity And Nation Brand narratives intensify over the next 30 days (Strong signal)",
+        "probability": 85
+      },
       "Values And Human Rights Reputation": {
         "has_outlook": true,
         "outlook_sentence": "72% probability that Values And Human Rights Reputation narratives intensify over the next 90 days (Strong signal)",

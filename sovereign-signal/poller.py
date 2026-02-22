@@ -1175,14 +1175,10 @@ def _posture_class(posture):
 
 
 def _score_color(score):
-    """Return CSS color variable for a pillar score: red (<45), amber (45-55), green (>55)."""
+    """Return CSS color variable for a score: red if <50, green if >=50."""
     if score is None:
         return "var(--text-muted)"
-    if score < 45:
-        return "var(--red)"
-    if score <= 55:
-        return "var(--amber)"
-    return "var(--green)"
+    return "var(--green)" if score >= 50 else "var(--red)"
 
 
 def _get_dashboard_css():
@@ -1612,10 +1608,12 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             p_color = "var(--green)"
         elif ap.lower() in ("weak",):
             p_color = "var(--red)"
-        elif ap.lower() in ("moderate", "mixed"):
-            p_color = "var(--amber)"
         else:
-            p_color = "var(--text-muted)"
+            # Moderate/Mixed/Insufficient — colour by score if available, else green/red by posture hint
+            if arena_score is not None:
+                p_color = "var(--green)" if arena_score >= 50 else "var(--red)"
+            else:
+                p_color = "var(--green)" if ap.lower() in ("moderate",) else "var(--red)"
 
         mom_color = "var(--green)" if momentum.lower() == "rising" else "var(--red)" if momentum.lower() == "fading" else "rgba(255,255,255,0.5)"
         mom_arrow = "&#9650;" if momentum.lower() == "rising" else "&#9660;" if momentum.lower() == "fading" else "&#8594;"
@@ -1979,7 +1977,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .hero-meta {{ font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 1px; margin-bottom: 20px; }}
 .hero-desc {{ font-family: 'Lora', Georgia, serif; font-size: 14px; color: rgba(255,255,255,0.55); max-width: 440px; line-height: 1.7; }}
 .score-block {{ width: 220px; flex-shrink: 0; margin-top: 8px; }}
-.score-block-inner {{ background: rgba(26,30,39,0.65); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px 20px 20px; text-align: center; }}
+.score-block-inner {{ background: rgba(26,30,39,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 24px 20px 20px; text-align: center; }}
 .score-block-label {{ font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 6px; }}
 .score-block-num {{ font-family: 'Montserrat', sans-serif; font-size: 64px; font-weight: 800; color: white; line-height: 1; }}
 .score-block-max {{ font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 4px; margin-bottom: 12px; }}
@@ -2009,7 +2007,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .arena-strip {{ display: flex; background: var(--slate); position: relative; z-index: 3; border-top: 1px solid rgba(255,255,255,0.06); }}
 .arena-gauge {{ flex: 1; padding: 18px 12px 16px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }}
 .arena-gauge:last-child {{ border-right: none; }}
-.arena-gauge-name {{ font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.88); margin-bottom: 10px; line-height: 1.3; min-height: 24px; }}
+.arena-gauge-name {{ font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.88); margin-bottom: 10px; line-height: 1.3; min-height: 36px; display: flex; align-items: flex-end; justify-content: center; text-align: center; }}
 .arena-gauge-score {{ font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; line-height: 1; margin-bottom: 6px; }}
 .arena-gauge-posture {{ font-size: 9px; font-weight: 600; letter-spacing: 0.5px; color: rgba(255,255,255,0.45); margin-bottom: 4px; }}
 .arena-gauge-momentum {{ font-size: 10px; opacity: 0.7; }}
@@ -2212,7 +2210,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Pillar Score</div>
-        <div class="score-block-num">{score}</div>
+        <div class="score-block-num" style="color:{"var(--green)" if isinstance(score, int) and score >= 50 else "var(--red)" if isinstance(score, int) else "white"}">{score}</div>
         <div class="score-block-max">of 100</div>
         <div class="posture posture-{posture_cls}">{posture}</div>
       </div>
