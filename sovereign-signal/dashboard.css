@@ -1,8 +1,8 @@
 :root {
   /* Core palette — warm and understated */
-  --slate: #262a33;
-  --slate-deep: #262a33;
-  --slate-mid: #3D4555;
+  --slate: #1a1e27;
+  --slate-deep: #1a1e27;
+  --slate-mid: #2e323c;
   --accent: #C9A84C;
   --accent-light: #EDE0B8;
   --accent-muted: rgba(201,168,76,0.12);
@@ -112,11 +112,11 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(105deg,
-    rgba(38,42,51,0.97) 0%,
-    rgba(38,42,51,0.93) 22%,
-    rgba(38,42,51,0.72) 48%,
-    rgba(38,42,51,0.35) 72%,
-    rgba(38,42,51,0.18) 100%);
+    rgba(26,30,39,0.97) 0%,
+    rgba(26,30,39,0.93) 22%,
+    rgba(26,30,39,0.72) 48%,
+    rgba(26,30,39,0.35) 72%,
+    rgba(26,30,39,0.18) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -211,7 +211,7 @@ body {
   margin-top: 12px;
 }
 .score-block-inner {
-  background: rgba(38,42,51,0.65);
+  background: rgba(26,30,39,0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.08);
@@ -271,20 +271,20 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1px;
-  background: #262a33;
+  background: #1a1e27;
   position: relative;
   z-index: 3;
 }
 .pillar-score-cell {
   padding: 22px 12px 20px;
   text-align: center;
-  background: #262a33;
+  background: #1a1e27;
   transition: background 0.15s;
   cursor: pointer;
   text-decoration: none;
   display: block;
 }
-.pillar-score-cell:hover { background: #2e323c; }
+.pillar-score-cell:hover { background: #242830; }
 .pillar-score-name {
   font-size: 9px;
   font-weight: 600;

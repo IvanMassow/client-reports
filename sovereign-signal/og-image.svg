@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="overlay" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1E242F;stop-opacity:0.97"/>
-      <stop offset="30%" style="stop-color:#1E242F;stop-opacity:0.90"/>
-      <stop offset="60%" style="stop-color:#1E242F;stop-opacity:0.60"/>
-      <stop offset="100%" style="stop-color:#1E242F;stop-opacity:0.30"/>
+      <stop offset="0%" style="stop-color:#1a1e27;stop-opacity:0.97"/>
+      <stop offset="30%" style="stop-color:#1a1e27;stop-opacity:0.90"/>
+      <stop offset="60%" style="stop-color:#1a1e27;stop-opacity:0.60"/>
+      <stop offset="100%" style="stop-color:#1a1e27;stop-opacity:0.30"/>
     </linearGradient>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700');
@@ -14,12 +14,12 @@
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="630" fill="#1E242F"/>
+  <rect width="1200" height="630" fill="#1a1e27"/>
 
   <!-- Flag image would go here — using colour approximation since SVG can't embed local files -->
   <!-- Deep blue with subtle red/white cross hints -->
-  <rect x="400" y="0" width="800" height="630" fill="#1E242F" opacity="1"/>
-  <rect x="520" y="0" width="680" height="630" fill="#2A3652" opacity="0.5"/>
+  <rect x="400" y="0" width="800" height="630" fill="#1a1e27" opacity="1"/>
+  <rect x="520" y="0" width="680" height="630" fill="#1e2233" opacity="0.5"/>
   <line x1="860" y1="0" x2="860" y2="630" stroke="#8B2232" stroke-width="60" opacity="0.12"/>
   <line x1="500" y1="315" x2="1200" y2="315" stroke="#8B2232" stroke-width="60" opacity="0.10"/>
   <line x1="860" y1="0" x2="860" y2="630" stroke="#FFFFFF" stroke-width="20" opacity="0.06"/>
