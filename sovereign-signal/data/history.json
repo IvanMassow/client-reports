@@ -6,6 +6,27 @@
       "trend_count": 30,
       "strength_count": 0,
       "vuln_count": 0
+    },
+    "defence": {
+      "score": 47,
+      "posture": "Mixed",
+      "trend_count": 33,
+      "strength_count": 18,
+      "vuln_count": 4
+    },
+    "diplomatic": {
+      "score": 47,
+      "posture": "Mixed",
+      "trend_count": 30,
+      "strength_count": 4,
+      "vuln_count": 2
+    },
+    "economic": {
+      "score": 52,
+      "posture": "Mixed",
+      "trend_count": 30,
+      "strength_count": 21,
+      "vuln_count": 1
     }
   }
 }

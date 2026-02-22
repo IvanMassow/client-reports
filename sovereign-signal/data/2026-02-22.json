@@ -1,4 +1,68 @@
 {
+  "defence": {
+    "executive_summary": "United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak structural positions in Deterrence Posture And Escalation Management, Cyber Capability And Security Posture, and Geopolitical Influence In Security Theatres. Perception signals align with operational and industrial strength narratives, while credibility and alignment-friction vulnerabilities weigh on the overall posture; this picture is consistent with an overall score of 54 and arena momentum that includes Military Capability And Readiness building while several arenas remain steady. The perception dashboard shows a favourable tilt on capability (P-SS-DIAG-SS-002) alongside adverse-leaning characterisation and deterrence framing (P-SS-DIAG-SS-001; P-SS-DIAG-SS-005).\nVulnerability concentration is highest in Geopolitical Influence In Security Theatres (VS-001; VS-002) and Deterrence Posture And Escalation Management (VS-003), each with High severity, while strength signals are most visible in Military Capability And Readiness (SS-001) and Defence Industry And Procurement Credibility (SS-004; SS-005; SS-006). Managed uncertainty persists where signals are high-exposure but directionally contested (notably Alliance Reliability And Burden Sharing) and where low-volume access-friction themes have bounded confirmation (VS-004).",
+    "perception_dashboard": [],
+    "trends": [],
+    "strength_signals": [
+      "SS-001",
+      "SS-007",
+      "SS-008",
+      "SS-002",
+      "SS-009",
+      "SS-010",
+      "SS-003",
+      "SS-004",
+      "SS-013",
+      "SS-004",
+      "SS-016",
+      "SS-017",
+      "SS-005",
+      "SS-018",
+      "SS-019",
+      "SS-006",
+      "SS-025",
+      "SS-026"
+    ],
+    "vulnerability_signals": [
+      "VS-001",
+      "VS-002",
+      "VS-003",
+      "VS-004"
+    ],
+    "priorities": [],
+    "conclusion": "United Kingdom standing this cycle shows strong, externally visible capability and industrial narratives alongside a concentration of confirmed vulnerabilities in deterrence and security-theatre influence, with additional bounded uncertainty where alliance framing is contested and where low-volume access-friction signals may amplify. Strength signals remain present but unevenly amplified across arenas.\nStanding posture this cycle: Under pressure",
+    "score": 47,
+    "posture": "Mixed",
+    "trend_count": 33,
+    "strength_count": 18,
+    "vuln_count": 4,
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/defence-strategic-credibility-intelligence-brief-united-kingdom-geopolitical-influence-in-security-theatres-under-scrutiny-2026-02-22-xjqr",
+    "ref": "XJQR"
+  },
+  "diplomatic": {
+    "executive_summary": "United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomacy And Mediation is Weak. Perception and structure align on the strength arenas, but diverge where crisis-linked framing introduces pressure; this is reflected in proposition P-SS-DIAG-SS-002 (53% sovereign view, Low conviction) alongside an overall score of 70 with stable pillar momentum in the scorecard.\nVulnerability concentrates around crisis-linked reliability sensitivity (VS-001) with Bounded confidence pathways, while structural strengths are sustained across multilateral and climate-linked positioning (SS-003; SS-004; SS-001). Managed uncertainty remains highest where attribution of crisis outcomes to UK action is not consistently evidenced (including proposition P-SS-DIAG-SS-003, 45% sovereign view, Low conviction) and where Sanctions And Statecraft Influence and Development And Humanitarian Credibility remain in Insufficient data.",
+    "perception_dashboard": [],
+    "trends": [],
+    "strength_signals": [
+      "SS-003",
+      "SS-004",
+      "SS-001",
+      "SS-002"
+    ],
+    "vulnerability_signals": [
+      "VS-001",
+      "VS-002"
+    ],
+    "priorities": [],
+    "conclusion": "This cycle shows confirmed structural strength in multilateral positioning and climate-linked diplomatic standing, with a parallel pressure channel concentrated in crisis-linked reliability framing and reputational spillover signals. The strongest components are steady rather than accelerating, while the principal vulnerabilities remain bounded by managed uncertainty and thin separation of arena-specific attribution in the captured external assessment set.\nStanding posture this cycle: Under pressure",
+    "score": 47,
+    "posture": "Mixed",
+    "trend_count": 30,
+    "strength_count": 4,
+    "vuln_count": 2,
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-diplomatic-global-leadership-uk-2026-02-22-qhvt",
+    "ref": "QHVT"
+  },
   "trust": {
     "executive_summary": "[Section not available this cycle.]",
     "perception_dashboard": [
@@ -50,5 +114,45 @@
     "vuln_count": 0,
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-united-kingdom-governance-standing-reviewed-2026-02-22-zkpl",
     "ref": "ZKPL"
+  },
+  "economic": {
+    "executive_summary": "The United Kingdom\u2019s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to competing strength and vulnerability signals. This sits alongside a global baseline framing of stable, but with a clear divergence where trade vulnerability narratives are rising (notably VS-001) and pull attention toward external shock exposure. The dominant arenas this cycle are Innovation And Technology, Financial Services And City Position, and Trade And Competitiveness.\nVulnerability concentration is primarily in Trade And Competitiveness with High confidence (VS-001), while strength is most consistently present in Innovation And Technology and Financial Services And City Position (e.g., SS-005 and SS-002). Multiple proposition assessments remain in Managed uncertainty, including those linked to P-SS-DIAG-SS-006-01 where the adjusted sovereign view remains contested. Pillar momentum for Economic Competence is stable in the sovereign scorecard.",
+    "perception_dashboard": [],
+    "trends": [],
+    "strength_signals": [
+      "SS-005",
+      "SS-016",
+      "SS-017",
+      "SS-002",
+      "SS-011",
+      "SS-012",
+      "SS-001",
+      "SS-007",
+      "SS-008",
+      "SS-004",
+      "SS-014",
+      "SS-015",
+      "SS-007",
+      "SS-021",
+      "SS-022",
+      "SS-003",
+      "SS-013",
+      "SS-006",
+      "SS-018",
+      "SS-019",
+      "SS-020"
+    ],
+    "vulnerability_signals": [
+      "VS-001"
+    ],
+    "priorities": [],
+    "conclusion": "This cycle shows a stable external framing overall, with structurally Strong positioning in Financial Services And City Position and Innovation And Technology and a contested Trade And Competitiveness arena where a near-term vulnerability narrative is rising alongside a policy-linked strength signal. Regulatory And Investment Climate remains structurally Strong but comparatively under-discussed on informal surfaces, and startup ecosystem perception remains bounded by reliance on proxy signals rather than direct external characterisations.\nStanding posture this cycle: Stable",
+    "score": 52,
+    "posture": "Mixed",
+    "trend_count": 30,
+    "strength_count": 21,
+    "vuln_count": 1,
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/22/sovereign-standing-brief-economic-business-leadership-uk-2026-02-22-qjtr",
+    "ref": "QJTR"
   }
 }

@@ -699,14 +699,12 @@ body {
 </head>
 <body>
 
-<!-- CLASSIFICATION BAR -->
 <div class="class-bar">
   <span>Sovereign Signal Intelligence</span>
   <span class="class-level">Official &mdash; Sensitive</span>
   <span id="class-date">22 February 2026</span>
 </div>
 
-<!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="topbar-logo">NOAH</div>
@@ -723,292 +721,563 @@ body {
   </div>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-
-    <!-- LEFT: Title & context -->
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
       <h1 class="hero-title">Sovereign<br>Standing</h1>
       <div class="hero-subtitle">Daily Intelligence Dashboard</div>
-      <p class="hero-desc">Five-pillar standing assessment across soft power, defence, economic leadership, diplomacy, and systemic trust &mdash; monitored daily from curated global discourse.</p>
+      <p class="hero-desc">Five-pillar standing assessment tracking the United Kingdom&rsquo;s external positioning across defence, diplomacy, economics, trust, and soft power.</p>
       <div class="hero-date-nav">
         <a class="date-arrow disabled" id="date-prev" title="Previous day">&larr;</a>
         <span class="date-label" id="hero-date">22 February 2026</span>
         <a class="date-arrow disabled" id="date-next" title="Next day">&rarr;</a>
       </div>
     </div>
-
-    <!-- RIGHT: Composite score block over the visible flag -->
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Composite Standing Score</div>
-        <div class="score-block-num" id="composite-score">62</div>
+        <div class="score-block-num" id="composite-score">49</div>
         <div class="score-block-max">of 100</div>
-        <div class="score-block-delta flat" id="composite-delta">
-          <span>&mdash;</span> First cycle
-        </div>
-        <div class="score-block-posture posture-mixed" id="composite-posture">Mixed</div>
+        <div class="score-block-delta flat">&mdash; First cycle</div>
+        <div class="score-block-posture posture-weak" id="composite-posture">Weak</div>
       </div>
     </div>
   </div>
-
-    <!-- 5 PILLAR SCOREBOARD -->
-    <div class="pillar-scores" id="pillar-scores">
+  <div class="pillar-scores" id="pillar-scores">
       <a class="pillar-score-cell" data-pillar="softpower" href="#tile-softpower">
-        <div class="pillar-score-name">Soft Power &amp; Cultural Standing</div>
-        <div class="pillar-score-num">58</div>
+        <div class="pillar-score-name">Soft Power & Cultural Standing</div>
+        <div class="pillar-score-num">—</div>
+        <div class="pillar-score-delta flat">&mdash;</div>
+        <div class="pillar-score-posture">—</div>
+      </a>
+      <a class="pillar-score-cell" data-pillar="defence" href="#tile-defence">
+        <div class="pillar-score-name">Defence & Strategic Credibility</div>
+        <div class="pillar-score-num">47</div>
         <div class="pillar-score-delta flat">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
-      <a class="pillar-score-cell" data-pillar="defence" href="#tile-defence">
-        <div class="pillar-score-name">Defence &amp; Strategic Credibility</div>
-        <div class="pillar-score-num">67</div>
-        <div class="pillar-score-delta flat">&mdash;</div>
-        <div class="pillar-score-posture">Moderate</div>
-      </a>
       <a class="pillar-score-cell" data-pillar="economic" href="#tile-economic">
-        <div class="pillar-score-name">Economic &amp; Business Leadership</div>
-        <div class="pillar-score-num">55</div>
+        <div class="pillar-score-name">Economic & Business Leadership</div>
+        <div class="pillar-score-num">52</div>
         <div class="pillar-score-delta flat">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
       <a class="pillar-score-cell" data-pillar="diplomatic" href="#tile-diplomatic">
-        <div class="pillar-score-name">Diplomatic &amp; Global Leadership</div>
-        <div class="pillar-score-num">64</div>
+        <div class="pillar-score-name">Diplomatic & Global Leadership</div>
+        <div class="pillar-score-num">47</div>
         <div class="pillar-score-delta flat">&mdash;</div>
         <div class="pillar-score-posture">Mixed</div>
       </a>
       <a class="pillar-score-cell" data-pillar="trust" href="#tile-trust">
-        <div class="pillar-score-name">Trust, Stability &amp; Systemic Reliability</div>
-        <div class="pillar-score-num">66</div>
+        <div class="pillar-score-name">Trust, Stability & Systemic Reliability</div>
+        <div class="pillar-score-num">51</div>
         <div class="pillar-score-delta flat">&mdash;</div>
-        <div class="pillar-score-posture">Moderate</div>
+        <div class="pillar-score-posture">Mixed</div>
       </a>
-    </div>
   </div>
 </div>
 
-<!-- ============================================= -->
-<!-- MAIN CONTENT -->
-<!-- ============================================= -->
 <div class="container">
-
-  <!-- PILLAR DETAIL TILES -->
   <div id="pillars">
     <div class="section-head">
       <h2 class="section-title">Pillar Assessments</h2>
-      <span class="section-meta">Cycle: 22 Feb 2026</span>
+      <span class="section-meta">Cycle: 22 February 2026</span>
     </div>
-
     <div class="pillar-tiles">
-
-      <!-- SOFT POWER -->
-      <a class="pillar-tile" data-pillar="softpower" id="tile-softpower" href="uk-softpower-2026-02-22.html">
+      <a class="pillar-tile" data-pillar="softpower" id="tile-softpower" href="#">
         <div class="pillar-tile-header">
           <div class="pillar-tile-left">
             <span class="pillar-tile-tag">Soft Power</span>
-            <div class="pillar-tile-name">Soft Power &amp; Cultural Standing</div>
+            <div class="pillar-tile-name">Soft Power & Cultural Standing</div>
           </div>
           <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">58</div>
+            <div class="pillar-tile-score">—</div>
             <div class="pillar-tile-score-label">Score</div>
             <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
           </div>
         </div>
         <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">Cultural exports and soft power assets maintain structural strength. British Council reach and creative industries visibility remain positive, though post-Brexit cultural perception friction persists in EU corridors.</p>
+          <p class="pillar-tile-summary">Assessment pending — report data will populate when available.</p>
           <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">4</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">2</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">8</div><div class="ptm-label">Trends</div></div>
-            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
+            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Strengths</div></div>
+            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Vulns</div></div>
+            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Trends</div></div>
+            <div class="ptm"><div class="ptm-val" style="color:var(--amber)">—</div><div class="ptm-label">Confidence</div></div>
           </div>
         </div>
         <div class="pillar-tile-footer">
           <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated 09:43 UTC</span>
+          <span class="pillar-tile-time">Pending</span>
         </div>
       </a>
-
-      <!-- DEFENCE -->
       <a class="pillar-tile" data-pillar="defence" id="tile-defence" href="uk-defence-2026-02-22.html">
         <div class="pillar-tile-header">
           <div class="pillar-tile-left">
             <span class="pillar-tile-tag">Defence</span>
-            <div class="pillar-tile-name">Defence &amp; Strategic Credibility</div>
+            <div class="pillar-tile-name">Defence & Strategic Credibility</div>
           </div>
           <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">67</div>
+            <div class="pillar-tile-score">47</div>
             <div class="pillar-tile-score-label">Score</div>
             <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
           </div>
         </div>
         <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">NATO commitment and nuclear deterrent posture remain structural anchors. AUKUS signals long-term Indo-Pacific credibility. Defence spending narrative contested amid fiscal pressures. Recruitment pipeline concerns noted.</p>
+          <p class="pillar-tile-summary">United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak structural positions in Deterrence Posture And Escalatio</p>
           <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">5</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">1</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">12</div><div class="ptm-label">Trends</div></div>
+            <div class="ptm"><div class="ptm-val">18</div><div class="ptm-label">Strengths</div></div>
+            <div class="ptm"><div class="ptm-val">4</div><div class="ptm-label">Vulns</div></div>
+            <div class="ptm"><div class="ptm-val">33</div><div class="ptm-label">Trends</div></div>
             <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
           </div>
         </div>
         <div class="pillar-tile-footer">
           <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated 09:43 UTC</span>
+          <span class="pillar-tile-time">Updated</span>
         </div>
       </a>
-
-      <!-- ECONOMIC -->
       <a class="pillar-tile" data-pillar="economic" id="tile-economic" href="uk-economic-2026-02-22.html">
         <div class="pillar-tile-header">
           <div class="pillar-tile-left">
             <span class="pillar-tile-tag">Economic</span>
-            <div class="pillar-tile-name">Economic &amp; Business Leadership</div>
+            <div class="pillar-tile-name">Economic & Business Leadership</div>
           </div>
           <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">55</div>
+            <div class="pillar-tile-score">52</div>
             <div class="pillar-tile-score-label">Score</div>
             <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
           </div>
         </div>
         <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">Financial services hub status remains structural strength. Trade deal pipeline contested narrative between ambition and delivery. Innovation ecosystem strong but scale questions persist against US/China benchmarks.</p>
+          <p class="pillar-tile-summary">The United Kingdom’s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to competing strength and vulnerability signals. This</p>
           <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">3</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">3</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">10</div><div class="ptm-label">Trends</div></div>
+            <div class="ptm"><div class="ptm-val">21</div><div class="ptm-label">Strengths</div></div>
+            <div class="ptm"><div class="ptm-val">1</div><div class="ptm-label">Vulns</div></div>
+            <div class="ptm"><div class="ptm-val">30</div><div class="ptm-label">Trends</div></div>
             <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
           </div>
         </div>
         <div class="pillar-tile-footer">
           <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated 09:43 UTC</span>
+          <span class="pillar-tile-time">Updated</span>
         </div>
       </a>
-
-      <!-- DIPLOMATIC -->
-      <a class="pillar-tile" data-pillar="diplomatic" id="tile-diplomatic" href="uk-climate-diplomacy-2026-02-21.html">
+      <a class="pillar-tile" data-pillar="diplomatic" id="tile-diplomatic" href="uk-diplomatic-2026-02-22.html">
         <div class="pillar-tile-header">
           <div class="pillar-tile-left">
             <span class="pillar-tile-tag">Diplomatic</span>
-            <div class="pillar-tile-name">Diplomatic &amp; Global Leadership</div>
+            <div class="pillar-tile-name">Diplomatic & Global Leadership</div>
           </div>
           <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">64</div>
+            <div class="pillar-tile-score">47</div>
             <div class="pillar-tile-score-label">Score</div>
             <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
           </div>
         </div>
         <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">Structural strength in Multilateral Influence and Crisis Diplomacy. Climate leadership credibility remains contested with delivery-versus-rhetoric tension. Global Voice arena weakest with negative framing.</p>
+          <p class="pillar-tile-summary">United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomacy And Mediation is Weak. Perception and structure </p>
           <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">5</div><div class="ptm-label">Strengths</div></div>
+            <div class="ptm"><div class="ptm-val">4</div><div class="ptm-label">Strengths</div></div>
             <div class="ptm"><div class="ptm-val">2</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">22</div><div class="ptm-label">Trends</div></div>
+            <div class="ptm"><div class="ptm-val">30</div><div class="ptm-label">Trends</div></div>
             <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
           </div>
         </div>
         <div class="pillar-tile-footer">
           <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated 09:43 UTC</span>
+          <span class="pillar-tile-time">Updated</span>
         </div>
       </a>
-
-      <!-- TRUST -->
       <a class="pillar-tile" data-pillar="trust" id="tile-trust" href="uk-trust-2026-02-22.html">
         <div class="pillar-tile-header">
           <div class="pillar-tile-left">
             <span class="pillar-tile-tag">Trust</span>
-            <div class="pillar-tile-name">Trust, Stability &amp; Systemic Reliability</div>
+            <div class="pillar-tile-name">Trust, Stability & Systemic Reliability</div>
           </div>
           <div class="pillar-tile-score-box">
-            <div class="pillar-tile-score">66</div>
+            <div class="pillar-tile-score">51</div>
             <div class="pillar-tile-score-label">Score</div>
             <div class="pillar-tile-delta flat" style="color:var(--text-muted)">&mdash; First cycle</div>
           </div>
         </div>
         <div class="pillar-tile-body">
-          <p class="pillar-tile-summary">Institutional stability and rule-of-law standing remain core assets. Independent judiciary and regulatory frameworks perceived as reliable. Governance reform narratives create some friction but within normal parameters.</p>
+          <p class="pillar-tile-summary">Assessment pending — report data will populate when available.</p>
           <div class="pillar-tile-metrics">
-            <div class="ptm"><div class="ptm-val">4</div><div class="ptm-label">Strengths</div></div>
-            <div class="ptm"><div class="ptm-val">1</div><div class="ptm-label">Vulns</div></div>
-            <div class="ptm"><div class="ptm-val">9</div><div class="ptm-label">Trends</div></div>
+            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Strengths</div></div>
+            <div class="ptm"><div class="ptm-val">0</div><div class="ptm-label">Vulns</div></div>
+            <div class="ptm"><div class="ptm-val">30</div><div class="ptm-label">Trends</div></div>
             <div class="ptm"><div class="ptm-val" style="color:var(--amber)">Med</div><div class="ptm-label">Confidence</div></div>
           </div>
         </div>
         <div class="pillar-tile-footer">
           <span class="pillar-tile-cta">View Full Report &rarr;</span>
-          <span class="pillar-tile-time">Updated 09:43 UTC</span>
+          <span class="pillar-tile-time">Updated</span>
         </div>
       </a>
-
     </div>
   </div>
 
-  <!-- KEY SIGNALS -->
   <div class="signals-strip" id="signals">
     <div class="section-head">
       <h2 class="section-title">Key Signals This Cycle</h2>
-      <span class="section-meta">7 Strengths &middot; 3 Vulnerabilities</span>
+      <span class="section-meta">43 Strengths &middot; 7 Vulnerabilities</span>
     </div>
-
     <div class="signals-list">
       <div class="signal-row">
         <div class="signal-id">SS-001</div>
-        <div class="signal-pillar" style="background:var(--p-diplomatic-light);color:var(--p-diplomatic)">Diplomatic</div>
-        <div class="signal-text">Alliance-linked narrative visibility</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
-        <div class="signal-horizon">Near-term</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-007</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-008</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-002</div>
-        <div class="signal-pillar" style="background:var(--p-diplomatic-light);color:var(--p-diplomatic)">Diplomatic</div>
-        <div class="signal-text">Multilateral visibility reinforcement</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
-        <div class="signal-horizon">12-month</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-009</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-010</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-003</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-004</div>
-        <div class="signal-pillar" style="background:var(--p-diplomatic-light);color:var(--p-diplomatic)">Diplomatic</div>
-        <div class="signal-text">UK visibility in crisis-linked narratives</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
-        <div class="signal-horizon">12-month</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-013</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-004</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-016</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-017</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-005</div>
-        <div class="signal-pillar" style="background:var(--p-diplomatic-light);color:var(--p-diplomatic)">Diplomatic</div>
-        <div class="signal-text">Climate leadership external exposure (mixed framing)</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
-        <div class="signal-horizon">Near-term</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-018</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-019</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
         <div class="signal-id">SS-006</div>
-        <div class="signal-pillar" style="background:var(--p-diplomatic-light);color:var(--p-diplomatic)">Diplomatic</div>
-        <div class="signal-text">Hosting and pledging process visibility</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
         <div class="signal-type-tag tag-strength">Strength</div>
-        <div class="signal-horizon">12-month</div>
+        <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
-        <div class="signal-id" style="color:var(--red)">V-T6</div>
-        <div class="signal-pillar" style="background:var(--p-diplomatic-light);color:var(--p-diplomatic)">Diplomatic</div>
-        <div class="signal-text" style="color:var(--red)">Adverse negative framing in strategic relevance narratives</div>
-        <div class="signal-type-tag tag-vuln">Vulnerability</div>
-        <div class="signal-horizon">Near-term</div>
+        <div class="signal-id">SS-025</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
       </div>
       <div class="signal-row">
-        <div class="signal-id" style="color:var(--amber)">V-T15</div>
-        <div class="signal-pillar" style="background:var(--p-diplomatic-light);color:var(--p-diplomatic)">Diplomatic</div>
-        <div class="signal-text">Climate credibility tension with negative sub-stream</div>
+        <div class="signal-id">SS-026</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-001</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
         <div class="signal-type-tag tag-vuln">Vulnerability</div>
-        <div class="signal-horizon">Near-term</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-002</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-003</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-004</div>
+        <div class="signal-pillar" style="background:#E0ECF5;color:#1E3A5F">Defence</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-003</div>
+        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-004</div>
+        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-001</div>
+        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-002</div>
+        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-001</div>
+        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-002</div>
+        <div class="signal-pillar" style="background:#FEF3C7;color:#92650A">Diplomatic</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-005</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-016</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-017</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-002</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-011</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-012</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-001</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-007</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-008</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-004</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-014</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-015</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-007</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-021</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-022</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-003</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-013</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-006</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-018</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-019</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id">SS-020</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text">Strength signal detected</div>
+        <div class="signal-type-tag tag-strength">Strength</div>
+        <div class="signal-horizon">This cycle</div>
+      </div>
+      <div class="signal-row">
+        <div class="signal-id" style="color:var(--red)">VS-001</div>
+        <div class="signal-pillar" style="background:#DCFCE7;color:#0B6E4F">Economic</div>
+        <div class="signal-text" style="color:var(--red)">Vulnerability signal detected</div>
+        <div class="signal-type-tag tag-vuln">Vulnerability</div>
+        <div class="signal-horizon">This cycle</div>
       </div>
     </div>
   </div>
 
-  <!-- TREND HISTORY -->
   <div class="trend-section">
     <div class="section-head">
       <h2 class="section-title">Standing History</h2>
@@ -1018,10 +1287,8 @@ body {
       Historical trend data will populate automatically as daily cycles accumulate. First cycle recorded: 22 February 2026.
     </div>
   </div>
-
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
   <div class="footer-inner">
     <div class="footer-left">

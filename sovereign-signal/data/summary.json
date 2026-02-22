@@ -1,9 +1,29 @@
 {
   "date": "2026-02-22",
-  "composite_score": 51,
-  "composite_posture": "Mixed",
+  "composite_score": 49,
+  "composite_posture": "Weak",
   "composite_delta": null,
   "pillars": {
+    "defence": {
+      "name": "Defence & Strategic Credibility",
+      "score": 47,
+      "posture": "Mixed",
+      "delta": null,
+      "trend_count": 33,
+      "strength_count": 18,
+      "vuln_count": 4,
+      "executive_summary": "United Kingdom defence standing this cycle is assessed as Mixed, with Strong structural positions in Military Capability And Readiness and Defence Industry And Procurement Credibility, but Weak struct"
+    },
+    "diplomatic": {
+      "name": "Diplomatic & Global Leadership",
+      "score": 47,
+      "posture": "Mixed",
+      "delta": null,
+      "trend_count": 30,
+      "strength_count": 4,
+      "vuln_count": 2,
+      "executive_summary": "United Kingdom standing this cycle is Mixed, with Strong structural positioning in Multilateral Influence, Climate And Energy Diplomacy, and Global Voice And Strategic Relevance, while Crisis Diplomac"
+    },
     "trust": {
       "name": "Trust, Stability & Systemic Reliability",
       "score": 51,
@@ -13,6 +33,16 @@
       "strength_count": 0,
       "vuln_count": 0,
       "executive_summary": "[Section not available this cycle.]"
+    },
+    "economic": {
+      "name": "Economic & Business Leadership",
+      "score": 52,
+      "posture": "Mixed",
+      "delta": null,
+      "trend_count": 30,
+      "strength_count": 21,
+      "vuln_count": 1,
+      "executive_summary": "The United Kingdom\u2019s external standing in this cycle is structurally Strong in Financial Services And City Position and Innovation And Technology, while Trade And Competitiveness remains Mixed due to "
     }
   }
 }

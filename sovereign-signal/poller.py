@@ -593,6 +593,20 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         # Use the CSS from the original index.html if available
         css = _get_dashboard_css()
 
+    # Build score-block delta HTML
+    if composite_delta is None:
+        sb_delta_cls = "flat"
+        sb_delta_content = "&mdash; First cycle"
+    elif composite_delta > 0:
+        sb_delta_cls = "up"
+        sb_delta_content = f"&#9650; +{composite_delta} from yesterday"
+    elif composite_delta < 0:
+        sb_delta_cls = "down"
+        sb_delta_content = f"&#9660; {composite_delta} from yesterday"
+    else:
+        sb_delta_cls = "flat"
+        sb_delta_content = "&mdash; 0 from yesterday"
+
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -632,28 +646,28 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">United Kingdom</div>
-    <h1 class="hero-title">Sovereign Standing</h1>
-    <div class="hero-subtitle">Daily Intelligence Dashboard</div>
-
-    <div class="hero-date-nav">
-      <a class="date-arrow{" disabled" if not prev_date_link else ""}" id="date-prev" title="Previous day">&larr;</a>
-      <span class="date-label" id="hero-date">{display_date}</span>
-      <a class="date-arrow disabled" id="date-next" title="Next day">&rarr;</a>
-    </div>
-
-    <div class="composite-score">
-      <div class="composite-main">
-        <div class="composite-label">Composite Standing Score</div>
-        <div class="composite-num" id="composite-score">{composite}</div>
-        <div class="composite-max">of 100</div>
-        <div class="composite-delta {posture_cls}" id="composite-delta">{composite_delta_html}</div>
-        <div class="composite-posture posture-{posture_cls}" id="composite-posture">{composite_posture}</div>
+    <div class="hero-left">
+      <div class="hero-eyebrow">United Kingdom</div>
+      <h1 class="hero-title">Sovereign<br>Standing</h1>
+      <div class="hero-subtitle">Daily Intelligence Dashboard</div>
+      <p class="hero-desc">Five-pillar standing assessment tracking the United Kingdom&rsquo;s external positioning across defence, diplomacy, economics, trust, and soft power.</p>
+      <div class="hero-date-nav">
+        <a class="date-arrow{" disabled" if not prev_date_link else ""}" id="date-prev" title="Previous day">&larr;</a>
+        <span class="date-label" id="hero-date">{display_date}</span>
+        <a class="date-arrow disabled" id="date-next" title="Next day">&rarr;</a>
       </div>
     </div>
-
-    <div class="pillar-scores" id="pillar-scores">{pillar_score_cells}
+    <div class="score-block">
+      <div class="score-block-inner">
+        <div class="score-block-label">Composite Standing Score</div>
+        <div class="score-block-num" id="composite-score">{composite}</div>
+        <div class="score-block-max">of 100</div>
+        <div class="score-block-delta {sb_delta_cls}">{sb_delta_content}</div>
+        <div class="score-block-posture posture-{posture_cls}" id="composite-posture">{composite_posture}</div>
+      </div>
     </div>
+  </div>
+  <div class="pillar-scores" id="pillar-scores">{pillar_score_cells}
   </div>
 </div>
 
