@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="overlay" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E242F;stop-opacity:0.97"/>
+      <stop offset="30%" style="stop-color:#1E242F;stop-opacity:0.90"/>
+      <stop offset="60%" style="stop-color:#1E242F;stop-opacity:0.60"/>
+      <stop offset="100%" style="stop-color:#1E242F;stop-opacity:0.30"/>
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500');
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700');
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1E242F"/>
+
+  <!-- Flag image would go here — using colour approximation since SVG can't embed local files -->
+  <!-- Deep blue with subtle red/white cross hints -->
+  <rect x="400" y="0" width="800" height="630" fill="#1E242F" opacity="1"/>
+  <rect x="520" y="0" width="680" height="630" fill="#2A3652" opacity="0.5"/>
+  <line x1="860" y1="0" x2="860" y2="630" stroke="#8B2232" stroke-width="60" opacity="0.12"/>
+  <line x1="500" y1="315" x2="1200" y2="315" stroke="#8B2232" stroke-width="60" opacity="0.10"/>
+  <line x1="860" y1="0" x2="860" y2="630" stroke="#FFFFFF" stroke-width="20" opacity="0.06"/>
+  <line x1="500" y1="315" x2="1200" y2="315" stroke="#FFFFFF" stroke-width="20" opacity="0.05"/>
+  <!-- Diagonal cross hints -->
+  <line x1="500" y1="0" x2="1200" y2="630" stroke="#FFFFFF" stroke-width="12" opacity="0.04"/>
+  <line x1="1200" y1="0" x2="500" y2="630" stroke="#FFFFFF" stroke-width="12" opacity="0.04"/>
+
+  <!-- Gradient overlay -->
+  <rect width="1200" height="630" fill="url(#overlay)"/>
+
+  <!-- Eyebrow -->
+  <text x="72" y="230" font-family="Inter, sans-serif" font-size="14" font-weight="500" letter-spacing="4" fill="rgba(255,255,255,0.35)" text-transform="uppercase">UNITED KINGDOM</text>
+
+  <!-- Title -->
+  <text x="72" y="300" font-family="Lora, Georgia, serif" font-size="72" font-weight="700" fill="#FFFFFF">Sovereign</text>
+  <text x="72" y="378" font-family="Lora, Georgia, serif" font-size="72" font-weight="700" fill="#FFFFFF">Signal</text>
+
+  <!-- Subtitle -->
+  <text x="72" y="424" font-family="Lora, Georgia, serif" font-size="18" fill="rgba(255,255,255,0.38)">National standing intelligence report</text>
+
+  <!-- Bottom brand -->
+  <text x="72" y="580" font-family="Montserrat, sans-serif" font-size="14" font-weight="700" letter-spacing="1" fill="rgba(255,255,255,0.28)">NOAH</text>
+  <line x1="122" y1="568" x2="122" y2="584" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="134" y="580" font-family="Inter, sans-serif" font-size="11" font-weight="400" letter-spacing="1" fill="rgba(255,255,255,0.18)">WIRE SERVICES</text>
+
+  <!-- Bottom line -->
+  <line x1="0" y1="629" x2="1200" y2="629" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+</svg>

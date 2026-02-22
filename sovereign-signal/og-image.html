@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+.card {
+  width: 1200px;
+  height: 630px;
+  background: #1E242F;
+  position: relative;
+  overflow: hidden;
+}
+.flag {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('union-flag.png') center center / cover no-repeat;
+  opacity: 0.45;
+  filter: saturate(0.5) contrast(1.1);
+}
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(115deg,
+    rgba(30,36,47,0.96) 0%,
+    rgba(30,36,47,0.88) 30%,
+    rgba(30,36,47,0.55) 60%,
+    rgba(30,36,47,0.25) 100%);
+}
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 72px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.eyebrow {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+}
+.title {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.08;
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+.subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.5;
+  max-width: 440px;
+  font-family: 'Lora', Georgia, serif;
+}
+.bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+.brand {
+  position: absolute;
+  bottom: 40px;
+  left: 72px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 2;
+}
+.brand-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+.brand-divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255,255,255,0.1);
+}
+.brand-label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="card">
+  <div class="flag"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="eyebrow">United Kingdom</div>
+    <div class="title">Sovereign<br>Signal</div>
+    <div class="subtitle">National standing and perception intelligence</div>
+  </div>
+  <div class="brand">
+    <span class="brand-logo">Noah</span>
+    <span class="brand-divider"></span>
+    <span class="brand-label">Wire Services</span>
+  </div>
+  <div class="bottom-bar"></div>
+</div>
+</body>
+</html>
