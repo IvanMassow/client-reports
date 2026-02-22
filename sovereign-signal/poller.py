@@ -744,6 +744,14 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{headline}</title>
+<meta property="og:title" content="{pillar['name']} — Sovereign Signal">
+<meta property="og:description" content="UK {pillar['short']} standing intelligence — {display_date}">
+<meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{pillar['name']} — Sovereign Signal">
+<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
