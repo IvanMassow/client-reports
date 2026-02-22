@@ -651,7 +651,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow">United Kingdom</div>
-      <h1 class="hero-title">Sovereign<br><span style="color:var(--accent)">Signal</span></h1>
+      <h1 class="hero-title">Sovereign<br><span style="color:#D4A59A">Signal</span></h1>
       <div class="hero-subtitle">Daily Intelligence Dashboard</div>
       <p class="hero-desc">Five-pillar standing assessment tracking the United Kingdom&rsquo;s external positioning across defence, diplomacy, economics, trust, and soft power.</p>
       <div class="hero-date-nav">
