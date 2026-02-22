@@ -129,19 +129,25 @@ body {
   background: var(--navy-deep);
   position: relative;
   overflow: hidden;
-  padding: 56px 32px 0;
+  min-height: 420px;
 }
 .hero-bg {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: url('union-flag.png') center center / cover no-repeat;
-  opacity: 0.2;
+  opacity: 0.55;
+  filter: saturate(0.7) contrast(1.1);
 }
 .hero::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, rgba(15,27,51,0.95) 0%, rgba(15,27,51,0.8) 40%, rgba(15,27,51,0.6) 100%);
+  background: linear-gradient(105deg,
+    rgba(15,27,51,0.97) 0%,
+    rgba(15,27,51,0.92) 25%,
+    rgba(15,27,51,0.7) 50%,
+    rgba(15,27,51,0.35) 75%,
+    rgba(15,27,51,0.25) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -151,14 +157,23 @@ body {
   bottom: 0; left: 0; right: 0;
   height: 2px;
   background: linear-gradient(90deg, var(--gold), var(--gold), transparent);
-  z-index: 2;
+  z-index: 3;
 }
 .hero-inner {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 56px 32px 0;
   position: relative;
   z-index: 2;
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  min-height: 340px;
+}
+.hero-left {
+  flex: 1;
+  max-width: 560px;
+  padding-top: 8px;
 }
 .hero-eyebrow {
   font-size: 10px;
@@ -166,40 +181,45 @@ body {
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 .hero-title {
   font-family: 'Lora', Georgia, serif;
-  font-size: 42px;
+  font-size: 44px;
   font-weight: 700;
   color: white;
-  line-height: 1.15;
-  margin-bottom: 6px;
+  line-height: 1.12;
+  margin-bottom: 10px;
 }
 .hero-subtitle {
-  font-size: 14px;
+  font-size: 13px;
   color: rgba(255,255,255,0.4);
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+}
+.hero-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 20px;
 }
 .hero-date-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 32px;
+  gap: 14px;
 }
 .hero-date-nav .date-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  color: white;
+  color: rgba(255,255,255,0.6);
   letter-spacing: 1px;
 }
 .hero-date-nav .date-arrow {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.2);
   display: flex;
@@ -209,67 +229,76 @@ body {
   cursor: pointer;
   transition: all 0.15s;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
 }
 .hero-date-nav .date-arrow:hover { border-color: var(--gold); color: var(--gold); }
 .hero-date-nav .date-arrow.disabled { opacity: 0.2; pointer-events: none; }
 
-/* === COMPOSITE SCORE === */
-.composite-score {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 48px;
-  padding: 24px 0 36px;
+/* === COMPOSITE SCORE BLOCK (right side of hero) === */
+.score-block {
+  position: relative;
+  width: 280px;
+  flex-shrink: 0;
+  margin-top: 8px;
 }
-.composite-main { text-align: center; }
-.composite-label {
+.score-block-inner {
+  background: rgba(15,27,51,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212,175,55,0.25);
+  border-radius: 8px;
+  padding: 32px 28px 28px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.score-block-label {
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 6px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 8px;
 }
-.composite-num {
+.score-block-num {
   font-family: 'Montserrat', sans-serif;
-  font-size: 80px;
+  font-size: 88px;
   font-weight: 900;
   color: var(--gold);
   line-height: 1;
+  text-shadow: 0 2px 20px rgba(212,175,55,0.3);
 }
-.composite-max {
+.score-block-max {
   font-size: 11px;
   color: rgba(255,255,255,0.3);
-  margin-top: 2px;
+  margin-top: 4px;
+  margin-bottom: 12px;
 }
-.composite-delta {
+.score-block-delta {
   display: inline-flex;
   align-items: center;
   gap: 4px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
-  margin-top: 8px;
   padding: 4px 12px;
   border-radius: 4px;
 }
-.composite-delta.up { color: var(--green); background: rgba(11,132,87,0.12); }
-.composite-delta.down { color: var(--red); background: rgba(196,49,75,0.12); }
-.composite-delta.flat { color: var(--amber); background: rgba(212,146,10,0.12); }
-.composite-posture {
+.score-block-delta.up { color: var(--green); background: rgba(11,132,87,0.15); }
+.score-block-delta.down { color: var(--red); background: rgba(196,49,75,0.15); }
+.score-block-delta.flat { color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.06); }
+.score-block-posture {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-top: 10px;
-  padding: 5px 14px;
+  padding: 5px 16px;
   border-radius: 3px;
   display: inline-block;
 }
-.posture-mixed { color: var(--amber); background: rgba(212,146,10,0.12); }
-.posture-strong { color: var(--green); background: rgba(11,132,87,0.12); }
-.posture-weak { color: var(--red); background: rgba(196,49,75,0.12); }
+.posture-mixed { color: var(--amber); background: rgba(212,146,10,0.15); }
+.posture-strong { color: var(--green); background: rgba(11,132,87,0.15); }
+.posture-weak { color: var(--red); background: rgba(196,49,75,0.15); }
 
 /* === PILLAR SCOREBOARD (in hero) === */
 .pillar-scores {
@@ -644,9 +673,11 @@ body {
 /* === RESPONSIVE === */
 @media (max-width: 900px) {
   .topbar { padding: 0 16px; height: 48px; }
-  .hero { padding: 36px 16px 0; }
-  .hero-title { font-size: 28px; }
-  .composite-num { font-size: 56px; }
+  .hero-inner { flex-direction: column; padding: 36px 16px 0; min-height: auto; }
+  .hero-left { max-width: 100%; }
+  .hero-title { font-size: 32px; }
+  .score-block { width: 100%; margin-top: 24px; }
+  .score-block-num { font-size: 64px; }
   .pillar-scores { grid-template-columns: repeat(3, 1fr); }
   .container { padding: 24px 16px 0; }
   .pillar-tiles { grid-template-columns: 1fr; }
@@ -659,7 +690,7 @@ body {
 @media (max-width: 600px) {
   .pillar-scores { grid-template-columns: repeat(2, 1fr); }
   .pillar-score-num { font-size: 28px; }
-  .composite-score { flex-direction: column; gap: 16px; }
+  .score-block-num { font-size: 52px; }
   .pillar-tile-metrics { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
@@ -694,29 +725,33 @@ body {
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">United Kingdom</div>
-    <h1 class="hero-title">Sovereign Standing</h1>
-    <div class="hero-subtitle">Daily Intelligence Dashboard</div>
 
-    <!-- DATE NAVIGATION -->
-    <div class="hero-date-nav">
-      <a class="date-arrow disabled" id="date-prev" title="Previous day">&larr;</a>
-      <span class="date-label" id="hero-date">22 February 2026</span>
-      <a class="date-arrow disabled" id="date-next" title="Next day">&rarr;</a>
-    </div>
-
-    <!-- COMPOSITE SCORE -->
-    <div class="composite-score">
-      <div class="composite-main">
-        <div class="composite-label">Composite Standing Score</div>
-        <div class="composite-num" id="composite-score">62</div>
-        <div class="composite-max">of 100</div>
-        <div class="composite-delta flat" id="composite-delta">
-          <span>&mdash;</span> First cycle
-        </div>
-        <div class="composite-posture posture-mixed" id="composite-posture">Mixed</div>
+    <!-- LEFT: Title & context -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">United Kingdom</div>
+      <h1 class="hero-title">Sovereign<br>Standing</h1>
+      <div class="hero-subtitle">Daily Intelligence Dashboard</div>
+      <p class="hero-desc">Five-pillar standing assessment across soft power, defence, economic leadership, diplomacy, and systemic trust &mdash; monitored daily from curated global discourse.</p>
+      <div class="hero-date-nav">
+        <a class="date-arrow disabled" id="date-prev" title="Previous day">&larr;</a>
+        <span class="date-label" id="hero-date">22 February 2026</span>
+        <a class="date-arrow disabled" id="date-next" title="Next day">&rarr;</a>
       </div>
     </div>
+
+    <!-- RIGHT: Composite score block over the visible flag -->
+    <div class="score-block">
+      <div class="score-block-inner">
+        <div class="score-block-label">Composite Standing Score</div>
+        <div class="score-block-num" id="composite-score">62</div>
+        <div class="score-block-max">of 100</div>
+        <div class="score-block-delta flat" id="composite-delta">
+          <span>&mdash;</span> First cycle
+        </div>
+        <div class="score-block-posture posture-mixed" id="composite-posture">Mixed</div>
+      </div>
+    </div>
+  </div>
 
     <!-- 5 PILLAR SCOREBOARD -->
     <div class="pillar-scores" id="pillar-scores">
