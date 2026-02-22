@@ -15,19 +15,21 @@
   --gold: #D4AF37;
   --gold-light: #F0E0A0;
   --gold-muted: rgba(212,175,55,0.15);
-  --red: #C0392B;
-  --green: #1A8F5C;
-  --green-light: #D5F5E3;
-  --amber: #E8961A;
-  --amber-light: #FEF5E7;
-  --red-light: #FDEDEB;
+  --red: #C4314B;
+  --green: #0B8457;
+  --green-light: #E8F5EE;
+  --amber: #D4920A;
+  --amber-light: #FEF3E2;
+  --red-light: #FDEAED;
   --text: #1D1D1D;
   --text-mid: #4A5568;
   --text-muted: #6B7280;
-  --bg: #F8F7F4;
+  --bg: #FFFFFF;
   --bg-card: #FFFFFF;
   --border: #E5E7EB;
   --border-light: #F0F0EC;
+  --card-radius: 4px;
+  --card-shadow: 0 1px 3px rgba(5,19,54,0.06), 0 1px 2px rgba(5,19,54,0.04);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -110,35 +112,38 @@ body {
 
 /* === HERO === */
 .hero {
-  background: var(--navy);
-  background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 40%, var(--navy-mid) 100%);
+  background: var(--navy-deep);
   position: relative;
   overflow: hidden;
   padding: 48px 32px 0;
 }
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('union-flag.png') center center / cover no-repeat;
+  opacity: 0.35;
+}
 .hero::before {
   content: '';
   position: absolute;
-  top: -20%; right: -10%;
-  width: 70%; height: 140%;
-  background:
-    linear-gradient(135deg, transparent 30%, rgba(197,164,78,0.03) 30%, rgba(197,164,78,0.03) 32%, transparent 32%),
-    linear-gradient(135deg, transparent 48%, rgba(192,57,43,0.04) 48%, rgba(192,57,43,0.04) 52%, transparent 52%),
-    linear-gradient(135deg, transparent 68%, rgba(255,255,255,0.02) 68%, rgba(255,255,255,0.02) 70%, transparent 70%);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(15,27,51,0.92) 0%, rgba(15,27,51,0.78) 35%, rgba(15,27,51,0.45) 65%, rgba(15,27,51,0.2) 100%);
+  z-index: 1;
   pointer-events: none;
 }
 .hero::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold), transparent);
+  z-index: 2;
 }
 .hero-inner {
   max-width: 1120px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .hero-top {
   display: flex;
@@ -211,7 +216,7 @@ body {
 .hero-posture svg { width: 12px; height: 12px; }
 .posture--mixed {
   color: var(--amber);
-  background: rgba(212,136,15,0.12);
+  background: rgba(212,146,10,0.12);
   padding: 5px 14px;
   border-radius: 3px;
 }
@@ -223,6 +228,8 @@ body {
   gap: 1px;
   background: rgba(255,255,255,0.06);
   border-top: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  z-index: 2;
 }
 .gauge-cell {
   padding: 24px 16px 20px;
@@ -262,25 +269,25 @@ body {
 
 /* === SECTION === */
 .sec {
-  margin-top: 40px;
+  margin-top: 56px;
 }
 .sec-head {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--navy);
-  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
 }
 .sec-num {
   font-size: 11px;
   font-weight: 800;
   color: var(--gold);
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
 }
 .sec-title {
   font-family: 'Lora', Georgia, serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--navy);
 }
@@ -298,7 +305,8 @@ body {
   border: 1px solid var(--border);
   border-left: 4px solid var(--gold);
   padding: 28px 32px;
-  border-radius: 2px;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
 }
 .exec-card p {
   font-family: 'Lora', Georgia, serif;
@@ -338,18 +346,20 @@ body {
   border-collapse: collapse;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--card-radius);
   overflow: hidden;
+  box-shadow: var(--card-shadow);
 }
 .profile-table th {
-  background: var(--navy);
-  color: rgba(255,255,255,0.7);
+  background: #F4F5F7;
+  color: var(--text-muted);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 10px 18px;
+  padding: 12px 18px;
   text-align: left;
+  border-bottom: 1px solid var(--border);
 }
 .profile-table td {
   padding: 10px 18px;
@@ -372,20 +382,22 @@ body {
   border-collapse: collapse;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--card-radius);
   overflow: hidden;
   font-size: 12px;
+  box-shadow: var(--card-shadow);
 }
 .dash-table thead th {
-  background: var(--navy);
-  color: rgba(255,255,255,0.7);
+  background: #F4F5F7;
+  color: var(--text-muted);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 10px 14px;
+  padding: 12px 14px;
   text-align: left;
   white-space: nowrap;
+  border-bottom: 1px solid var(--border);
 }
 .dash-table tbody td {
   padding: 12px 14px;
@@ -432,10 +444,11 @@ body {
 .pillar-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--card-radius);
   padding: 22px 24px;
   position: relative;
   border-top: 3px solid var(--navy);
+  box-shadow: var(--card-shadow);
 }
 .pillar-card--strong { border-top-color: var(--green); }
 .pillar-card--moderate { border-top-color: var(--amber); }
@@ -474,21 +487,22 @@ body {
 .signal-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--card-radius);
   padding: 18px 24px;
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 20px;
   align-items: start;
+  box-shadow: var(--card-shadow);
 }
 .signal-id {
   font-size: 11px;
   font-weight: 800;
   color: var(--navy);
-  background: var(--bg);
+  background: #F4F5F7;
   padding: 6px 12px;
   text-align: center;
-  border-radius: 2px;
+  border-radius: var(--card-radius);
   border: 1px solid var(--border);
 }
 .signal-content h4 {
@@ -530,8 +544,9 @@ body {
 .priority-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--card-radius);
   padding: 22px 24px;
+  box-shadow: var(--card-shadow);
 }
 .priority-card h4 {
   font-size: 10px;
@@ -559,9 +574,10 @@ body {
 .uncertainty-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: var(--card-radius);
   padding: 18px 22px;
   border-left: 3px solid var(--amber);
+  box-shadow: var(--card-shadow);
 }
 .uncertainty-card h4 {
   font-size: 12px;
@@ -722,6 +738,7 @@ body {
 
 <!-- HERO -->
 <div class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-top">
       <div>
@@ -746,7 +763,7 @@ body {
       <div class="gauge-cell">
         <svg viewBox="0 0 120 70" width="100">
           <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
-          <path d="M 15 60 A 45 45 0 0 1 82 18" fill="none" stroke="#1A8F5C" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 82 18" fill="none" stroke="#0B8457" stroke-width="8" stroke-linecap="round"/>
           <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(50, 60, 60)"/>
           <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
         </svg>
@@ -757,7 +774,7 @@ body {
       <div class="gauge-cell">
         <svg viewBox="0 0 120 70" width="100">
           <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
-          <path d="M 15 60 A 45 45 0 0 1 82 18" fill="none" stroke="#1A8F5C" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 82 18" fill="none" stroke="#0B8457" stroke-width="8" stroke-linecap="round"/>
           <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(45, 60, 60)"/>
           <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
         </svg>
@@ -768,7 +785,7 @@ body {
       <div class="gauge-cell">
         <svg viewBox="0 0 120 70" width="100">
           <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
-          <path d="M 15 60 A 45 45 0 0 1 75 20" fill="none" stroke="#E8961A" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 75 20" fill="none" stroke="#D4920A" stroke-width="8" stroke-linecap="round"/>
           <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(30, 60, 60)"/>
           <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
         </svg>
@@ -779,7 +796,7 @@ body {
       <div class="gauge-cell">
         <svg viewBox="0 0 120 70" width="100">
           <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
-          <path d="M 15 60 A 45 45 0 0 1 60 15" fill="none" stroke="#E8961A" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 60 15" fill="none" stroke="#D4920A" stroke-width="8" stroke-linecap="round"/>
           <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(10, 60, 60)"/>
           <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
         </svg>
@@ -790,7 +807,7 @@ body {
       <div class="gauge-cell">
         <svg viewBox="0 0 120 70" width="100">
           <path d="M 15 60 A 45 45 0 0 1 105 60" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8" stroke-linecap="round"/>
-          <path d="M 15 60 A 45 45 0 0 1 40 28" fill="none" stroke="#C0392B" stroke-width="8" stroke-linecap="round"/>
+          <path d="M 15 60 A 45 45 0 0 1 40 28" fill="none" stroke="#C4314B" stroke-width="8" stroke-linecap="round"/>
           <line x1="60" y1="60" x2="60" y2="22" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" transform="rotate(-20, 60, 60)"/>
           <circle cx="60" cy="60" r="3" fill="var(--gold)"/>
         </svg>
@@ -810,7 +827,7 @@ body {
   <!-- 01 EXECUTIVE SUMMARY -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">01</span>
+      <span class="sec-num">Section 01</span>
       <h2 class="sec-title">Executive Summary</h2>
     </div>
     <div class="exec-card">
@@ -826,7 +843,7 @@ body {
   <!-- 02 SOVEREIGN PROFILE -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">02</span>
+      <span class="sec-num">Section 02</span>
       <h2 class="sec-title">Sovereign Profile Snapshot</h2>
     </div>
     <table class="profile-table">
@@ -846,7 +863,7 @@ body {
   <!-- 03 PERCEPTION DASHBOARD -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">03</span>
+      <span class="sec-num">Section 03</span>
       <h2 class="sec-title">Sovereign Perception Dashboard</h2>
     </div>
     <p class="sec-desc">Diagnostic propositions assessed against global and sovereign discourse. Higher percentages indicate stronger positive perception signal.</p>
@@ -910,7 +927,7 @@ body {
   <!-- 04 ARENA ANALYSIS -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">04</span>
+      <span class="sec-num">Section 04</span>
       <h2 class="sec-title">Arena Analysis</h2>
     </div>
     <div class="pillars">
@@ -970,7 +987,7 @@ body {
   <!-- 05 STRENGTH SIGNALS -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">05</span>
+      <span class="sec-num">Section 05</span>
       <h2 class="sec-title">Sovereign Strength Signals</h2>
     </div>
     <div class="signals-grid">
@@ -1040,7 +1057,7 @@ body {
   <!-- 06 VULNERABILITY SIGNALS -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">06</span>
+      <span class="sec-num">Section 06</span>
       <h2 class="sec-title">Sovereign Vulnerability Signals</h2>
     </div>
     <p class="sec-desc">No confirmed high-relevance vulnerability signals this cycle. Medium-exposure vulnerabilities noted below.</p>
@@ -1084,7 +1101,7 @@ body {
   <!-- 07 STRATEGIC ATTENTION PRIORITIES -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">07</span>
+      <span class="sec-num">Section 07</span>
       <h2 class="sec-title">Strategic Attention Priorities</h2>
     </div>
     <div class="priorities">
@@ -1106,7 +1123,7 @@ body {
   <!-- 08 MANAGED UNCERTAINTY -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">08</span>
+      <span class="sec-num">Section 08</span>
       <h2 class="sec-title">Managed Uncertainty Watchlist</h2>
     </div>
     <p class="sec-desc">All six standing questions remain in managed uncertainty status. Next step for all: monitor policy release.</p>
@@ -1165,7 +1182,7 @@ body {
   <!-- 09 CONCLUSION -->
   <div class="sec">
     <div class="sec-head">
-      <span class="sec-num">09</span>
+      <span class="sec-num">Section 09</span>
       <h2 class="sec-title">Conclusion</h2>
     </div>
     <div class="exec-card">
