@@ -173,6 +173,61 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Executive Summary — What/Why/Watch sub-blocks */
+.exec-sub { margin-bottom: 20px; }
+.exec-sub:last-child { margin-bottom: 0; }
+.exec-sub-head { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.exec-sub-head::before { content: ''; width: 3px; height: 14px; background: var(--pillar); border-radius: 2px; flex-shrink: 0; }
+.exec-sub p { font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; }
+
+/* Arena-grouped Perception Dashboard */
+.pd-arena-row { background: var(--bg) !important; }
+.pd-arena-row td { border-bottom: 2px solid var(--border) !important; padding-top: 14px !important; padding-bottom: 14px !important; }
+.pd-arena-name { font-size: 14px; }
+.pd-prop-row td { padding-left: 20px !important; }
+.pd-indent { color: var(--text-muted); font-size: 11px; margin-right: 4px; }
+.pd-emerging { text-align: center; width: 80px; font-size: 13px; color: var(--green); }
+.pd-footnote { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px; font-style: italic; line-height: 1.5; }
+
+/* Standing Context — unified arena cards */
+.standing-arena-grid { display: flex; flex-direction: column; gap: 16px; }
+.standing-arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); box-shadow: var(--card-shadow); overflow: hidden; }
+.arena-narrative { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }
+
+/* Inline strength/vulnerability signals within standing context */
+.standing-signals { padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }
+.standing-signals-strength { background: rgba(46,155,110,0.03); }
+.standing-signals-vuln { background: rgba(217,64,72,0.03); }
+.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.ss-icon { font-size: 10px; }
+.ss-icon-strength { color: var(--green); }
+.ss-icon-vuln { color: var(--red); }
+.standing-signals ul { list-style: none; padding: 0; }
+.standing-signals li { font-size: 12px; color: var(--text-mid); line-height: 1.65; margin-bottom: 6px; padding-left: 16px; position: relative; }
+.standing-signals-strength li::before { content: '+'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.standing-signals-vuln li::before { content: '−'; position: absolute; left: 0; color: var(--red); font-weight: 700; font-size: 14px; }
+.standing-signals li strong { color: var(--text); font-weight: 600; }
+.signal-horizon-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); margin-left: 4px; white-space: nowrap; }
+.sev-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; }
+.sev-tag-high { background: rgba(217,64,72,0.12); color: #991b1b; }
+.sev-tag-medium { background: rgba(196,146,10,0.1); color: #92400e; }
+.sev-tag-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* Redirect sections (Sections 7, 8) */
+.sec-redirect { opacity: 0.7; }
+.redirect-text { font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }
+.redirect-text em { color: var(--pillar); font-style: italic; }
+
+/* Strategic Priorities — risk/opportunity framing */
+.priority-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.priority-type { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; }
+.pri-risk { background: rgba(217,64,72,0.12); color: #991b1b; }
+.pri-opportunity { background: rgba(46,155,110,0.12); color: #166534; }
+.pri-watch { background: rgba(196,146,10,0.1); color: #92400e; }
+.priority-arena-tag { font-size: 10px; font-weight: 600; color: var(--pillar); background: var(--pillar-light); padding: 3px 10px; border-radius: 3px; }
+.priority-response { font-size: 12px; color: var(--text-mid); line-height: 1.6; margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--border-light); }
+.priority-response strong { color: var(--text); }
+
 /* Forward Outlook / Predictions */
 .pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .pred-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }
@@ -344,11 +399,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
 <div class="main">
 
-  <!-- Section 01: Executive Intelligence Summary -->
+  <!-- Section 02: Executive Intelligence Summary -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Executive Intelligence Summary</h2>
-      <span class="sec-num">Section 01</span>
+      <span class="sec-num">Section 02</span>
     </div>
     <div class="exec-card">
       <p style="font-weight:600">External attention on the United Kingdom’s economic standing is being pulled in two directions: strong, high-volume technology and financial-centre competence framing (Wayve Technologies autonomy trials; Microsoft and OpenAI ecosystem signalling) is competing with adverse trade credibility narratives driven by US tariff and legal-policy uncertainty (Donald Trump tariff signalling; U.S. Supreme Court trade-policy uncertainty), concentrated in the United States, China, and the European Union. The headline Sovereign Perception Score this cycle is 64.</p>
@@ -385,11 +440,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         </div>
       </div>
 
-  <!-- Section 02: Forward Outlook -->
+  <!-- Section 03: Forward Outlook -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Forward Outlook</h2>
-      <span class="sec-num">Section 02</span>
+      <span class="sec-num">Section 03</span>
     </div>
     
       <div class="pred-grid">
@@ -408,363 +463,386 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="pred-summary">Outlook: 1 signals assessed, dominant direction Intensifying. 1 arenas show intensifying predictions.</div>
   </div>
 
-  <!-- Section 03: Sentiment & Perception Dashboard -->
+  <!-- Section 04: Sovereign Perception Dashboard -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Sentiment &amp; Perception Dashboard</h2>
-      <span class="sec-num">Section 03</span>
+      <h2 class="sec-title">Sovereign Perception Dashboard</h2>
+      <span class="sec-num">Section 04</span>
     </div>
     
       <div class="table-scroll">
       <table class="pd-table">
-        <thead><tr><th>Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Arena</th></tr></thead>
+        <thead><tr><th>Arena / Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Emerging</th></tr></thead>
         <tbody>
-        <tr>
-          <td class="pd-prop">Trade positioning and post-Brexit trajectory</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Trade &amp;amp; Competitiveness</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">21% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Trade positioning and post-Brexit trajectory</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">21% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-low">Low</span></td>
-          <td class="pd-arena">Trade &amp;amp; Competitiveness</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Startup and scale-up ecosystem perception</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Startup &amp;amp; Scaleup Ecosystem</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">39% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Startup and scale-up ecosystem perception</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">39% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-low">Low</span></td>
-          <td class="pd-arena">Startup &amp;amp; Scaleup Ecosystem</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">London as a financial centre</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Financial Services &amp;amp; City Position</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">72% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> London as a financial centre</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">72% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Financial Services &amp;amp; City Position</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Regulatory environment stability</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Regulatory &amp;amp; Investment Climate</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">78% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Regulatory environment stability</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">75% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Regulatory &amp;amp; Investment Climate</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Invest, build, and base operations</td>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Invest, build, and base operations</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">80% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Regulatory &amp;amp; Investment Climate</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">AI and advanced technology competitiveness</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Innovation &amp;amp; Technology</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">80% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> AI and advanced technology competitiveness</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">80% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Innovation &amp;amp; Technology</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">: the UK&#x27;s innovation and financial-services credentials are well-evidenced, but a high-severity trade vulnerability backed by dense evidence is concentrating adverse attention and driving the escalating-vulnerability posture.</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Arenas Strong</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">6% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">2</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> : the UK&#x27;s innovation and financial-services credentials are well-evidenced, but a high-severity trade vulnerability backed by dense evidence is concentrating adverse attention and driving the escalating-vulnerability posture.</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">6% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-high">2</span></td>
-          <td class="pd-arena">Arenas Strong</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Vulnerability Signals</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Evidence Items</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">24% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">26</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Vulnerability Signals</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">24% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-high">26</span></td>
-          <td class="pd-arena">Evidence Items</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">The international view of UK trade credibility is adverse and getting worse. Coverage is dominated by US tariff threats and legal-policy uncertainty, and the countries that matter most — the US, China, and the EU — are all framing Britain&#x27;s trade position through a lens of risk and vulnerability. A structured EU process signal provides a partial counter-narrative, but it is not yet strong enough to shift the overall picture.</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>109</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">4% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">Articles</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> The international view of UK trade credibility is adverse and getting worse. Coverage is dominated by US tariff threats and legal-policy uncertainty, and the countries that matter most — the US, China, and the EU — are all framing Britain&#x27;s trade position through a lens of risk and vulnerability. A structured EU process signal provides a partial counter-narrative, but it is not yet strong enough to shift the overall picture.</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">4% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-high">Articles</span></td>
-          <td class="pd-arena">109</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Articles</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Temperature</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">122% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">US, China, India</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Articles</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">122% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">US, China, India</span></td>
-          <td class="pd-arena">Temperature</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
         </tbody>
       </table>
       </div>
+      <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>
   </div>
 
-  <!-- Section 04: Trend & Arena Analysis -->
+  <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Trend &amp; Arena Analysis</h2>
-      <span class="sec-num">Section 04 &middot; 6 arenas assessed</span>
+      <h2 class="sec-title">Sovereign Standing Context</h2>
+      <span class="sec-num">Section 06 &middot; 6 arenas assessed</span>
     </div>
-    <div class="arena-grid">
-        <div class="arena-card" style="border-top:3px solid var(--green)">
+    <div class="standing-arena-grid">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
             <div class="arena-card-name">Financial Services And City Position</div>
             <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Europe, United States, India</div>
+          <p class="arena-narrative">Financial Services And City Position is Strong with steady momentum, driven by recurring competence framing around London-linked insurance/financial performance signals and benchmarking references, with external attention concentrated in Europe, the United States, and India.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Europe, United States, India</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Reputational:</strong> London financial-centre competence framing is steady and supported by multiple independent references that cite performance and benchmarking narratives, with attention concentrated in Europe, the United States, and India. (EVD-7LX-SS-021) <span class="signal-horizon-tag">12 months</span></li>
+</ul>
+          </div>
+          
           <div class="arena-outlook">70% probability that Financial Services And City Position narratives intensify over the next 90 days (Strong signal)</div>
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--green)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
             <div class="arena-card-name">Innovation And Technology</div>
             <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Elevated</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">United States, China, India</div>
+          <p class="arena-narrative">Innovation And Technology is Strong and building, anchored to visible UK-linked autonomy trials (Wayve Technologies) and major-platform ecosystem signalling (Microsoft; OpenAI) with attention concentrated in the United States, China, and India.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, China, India</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Structural:</strong> UK hosting and data-residency availability framing is well-evidenced and building, with repeated infrastructure and service-jurisdiction references concentrated in the United States, China, and India. (EVD-7LX-SS-010) <span class="signal-horizon-tag">Near term</span></li>
+<li><strong>Strategic:</strong> High-volume external attention around UK-linked autonomy trials (Wayve Technologies) is building and actively amplified in international commentary, concentrated in the United States, China, and India. (EVD-7LX-SS-011) <span class="signal-horizon-tag">Near term</span></li>
+<li><strong>Strategic:</strong> Major-platform positioning (Microsoft) is building and repeatedly cited as London ecosystem validation across the United States, India, and China; the signal has multiple independent reference points rather than a single anchor. (EVD-7LX-SS-009) <span class="signal-horizon-tag">Near term</span></li>
+</ul>
+          </div>
+          
           <div class="arena-outlook">88% probability that Innovation And Technology narratives intensify over the next 30 days (Strong signal)</div>
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--green)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
             <div class="arena-card-name">Regulatory And Investment Climate</div>
             <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--red)">Fading</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">United States, China, European Union</div>
+          <p class="arena-narrative">Regulatory And Investment Climate is Strong with easing momentum, shaped by cross-border compliance and supervisory-cooperation references (including SEC-linked cooperation framing and data-residency signalling) concentrated in the United States, China, and the European Union.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, China, European Union</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Policy:</strong> Cross-border compliance interoperability is well-evidenced in institutional-lane coverage, with UK/London referenced as an interoperable node in finance and technology compliance discussions concentrated in the United States, China, and the European Union. (EVD-7LX-SS-013) <span class="signal-horizon-tag">12 months</span></li>
+<li><strong>Policy:</strong> Supervisory-cooperation references position the UK within cross-border oversight frameworks; the signal is well-evidenced but public commentary remains muted, with concentration in the United States and European Union policy and regulator discourse. (EVD-7LX-SS-013) <span class="signal-horizon-tag">3–5 years</span></li>
+</ul>
+          </div>
+          
           
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--amber)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--amber)">
           <div class="arena-card-header">
             <div class="arena-card-name">Startup And Scaleup Ecosystem</div>
             <span class="arena-badge" style="background:rgba(196,146,10,0.1);color:#92400e">MIXED</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">External (mixed)</div>
+          <p class="arena-narrative">Startup And Scaleup Ecosystem is Mixed with steady momentum, with thin signals dominated by domestically concentrated items and limited external amplification; external geography concentration is not resolved this cycle.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> External (mixed)</div>
+          
+          
           
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--red)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
             <div class="arena-card-name">Trade And Competitiveness</div>
             <span class="arena-badge" style="background:rgba(217,64,72,0.1);color:#991b1b">WEAK</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Elevated</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">United States, China, European Union</div>
+          <p class="arena-narrative">Trade And Competitiveness is Weak with steady momentum, driven by adverse tariff and legal-policy uncertainty narratives centred on Donald Trump trade-policy signalling and U.S. Supreme Court-related uncertainty, concentrated in the United States, China, and the European Union.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, China, European Union</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Policy:</strong> European Commission-led process signalling on UK–EU trade pathways is being repeated in external coverage and provides a structured counter-lane to tariff and uncertainty narratives, with attention concentrated in the European Union and the United States. (EVD-7LX-SS-020) <span class="signal-horizon-tag">12 months</span></li>
+</ul>
+          </div>
+          
+          <div class="standing-signals standing-signals-vuln">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-vuln">&#9660;</span> Pressure on this standing</h5>
+            <ul><li><span class="sev-tag sev-tag-high">HIGH</span> <span class="signal-horizon-tag">Near term</span> External coverage centred on Donald Trump trade-policy signalling and tariff change narratives is concentrated in the United States, China, and the European Union, and it is shaping UK-linked trade expectations in ways that dominate near-term credibility framing.</li>
+<li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">12 months</span> Trade-policy and legal uncertainty references linked to U.S. Supreme Court-related volatility remain repeated across the United States, China, and the European Union, sustaining planning-risk narratives for UK-linked trade channels even when tariff headlines are not the sole driver.</li>
+</ul>
+          </div>
           <div class="arena-outlook">88% probability that Trade And Competitiveness narratives intensify over the next 30 days (Strong signal)</div>
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--red)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
             <div class="arena-card-name">Macroeconomic Credibility</div>
             <span class="arena-badge" style="background:rgba(217,64,72,0.1);color:#991b1b">WEAK</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">United States, China, India</div>
+          <p class="arena-narrative">Macroeconomic Credibility is Weak with steady momentum, pulled down by risk and demand-caution framing (including tech/market-risk coupling narratives and labour-market cooling references) alongside thinner policy-cost downside narratives, concentrated in the United States, China, and India.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, China, India</div>
+          
+          
+          <div class="standing-signals standing-signals-vuln">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-vuln">&#9660;</span> Pressure on this standing</h5>
+            <ul><li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">12 months</span> A policy-cost narrative linked to visitor levies is present in external commentary and can feed wider assumptions about UK competitiveness and demand; the concentration of attention is not yet consistently mapped across external geographies in this cycle.</li>
+<li><span class="sev-tag sev-tag-low">LOW</span> <span class="signal-horizon-tag">Near term</span> Labour-market cooling references are being repeated as a caution cue in macro coverage and can be read externally as an early demand-weakening signal; the geographic concentration is not resolved in this cycle’s external-only strip.</li>
+</ul>
+          </div>
           
         </div></div>
   </div>
 
-  <!-- Section 05: Strength Signals -->
-  <div class="sec">
-    <div class="sec-head">
-      <h2 class="sec-title">Strength Signals</h2>
-      <span class="sec-num">Section 05 &middot; 7 signals</span>
-    </div>
-    
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-T5</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Innovation And Technology</span>
-          <span class="signal-badge char-structural">Structural</span>
-        </div>
-        <h4 class="signal-card-title">Innovation And Technology — Structural Signal</h4>
-        <p class="signal-card-desc">UK hosting and data-residency availability framing is well-evidenced and building, with repeated infrastructure and service-jurisdiction references concentrated in the United States, China, and India. (EVD-7LX-SS-010)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: Near term</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T5</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-T11</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Financial Services And City Position</span>
-          <span class="signal-badge char-reputational">Reputational</span>
-        </div>
-        <h4 class="signal-card-title">Financial Services And City Position — Reputational Signal</h4>
-        <p class="signal-card-desc">London financial-centre competence framing is steady and supported by multiple independent references that cite performance and benchmarking narratives, with attention concentrated in Europe, the United States, and India. (EVD-7LX-SS-021)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 12 months</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T11</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-T2</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Regulatory And Investment Climate</span>
-          <span class="signal-badge char-policy">Policy</span>
-        </div>
-        <h4 class="signal-card-title">Regulatory And Investment Climate — Policy Signal</h4>
-        <p class="signal-card-desc">Cross-border compliance interoperability is well-evidenced in institutional-lane coverage, with UK/London referenced as an interoperable node in finance and technology compliance discussions concentrated in the United States, China, and the European Union. (EVD-7LX-SS-013)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 12 months</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T2</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-T7</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Regulatory And Investment Climate</span>
-          <span class="signal-badge char-policy">Policy</span>
-        </div>
-        <h4 class="signal-card-title">Regulatory And Investment Climate — Policy Signal</h4>
-        <p class="signal-card-desc">Supervisory-cooperation references position the UK within cross-border oversight frameworks; the signal is well-evidenced but public commentary remains muted, with concentration in the United States and European Union policy and regulator discourse. (EVD-7LX-SS-013)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 3–5 years</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T7</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-T9</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Trade And Competitiveness</span>
-          <span class="signal-badge char-policy">Policy</span>
-        </div>
-        <h4 class="signal-card-title">Trade And Competitiveness — Policy Signal</h4>
-        <p class="signal-card-desc">European Commission-led process signalling on UK–EU trade pathways is being repeated in external coverage and provides a structured counter-lane to tariff and uncertainty narratives, with attention concentrated in the European Union and the United States. (EVD-7LX-SS-020)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 12 months</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T9</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-T3</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Innovation And Technology</span>
-          <span class="signal-badge char-strategic">Strategic</span>
-        </div>
-        <h4 class="signal-card-title">Innovation And Technology — Strategic Signal</h4>
-        <p class="signal-card-desc">High-volume external attention around UK-linked autonomy trials (Wayve Technologies) is building and actively amplified in international commentary, concentrated in the United States, China, and India. (EVD-7LX-SS-011)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: Near term</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T3</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-T4</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Innovation And Technology</span>
-          <span class="signal-badge char-strategic">Strategic</span>
-        </div>
-        <h4 class="signal-card-title">Innovation And Technology — Strategic Signal</h4>
-        <p class="signal-card-desc">Major-platform positioning (Microsoft) is building and repeatedly cited as London ecosystem validation across the United States, India, and China; the signal has multiple independent reference points rather than a single anchor. (EVD-7LX-SS-009)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: Near term</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T4</span>
-        </div>
-      </div>
-  </div>
-
-  <!-- Section 06: Vulnerability Signals -->
-  <div class="sec">
+  <!-- Section 07: Vulnerability Signals (redirect) -->
+  <div class="sec sec-redirect">
     <div class="sec-head">
       <h2 class="sec-title">Vulnerability Signals</h2>
-      <span class="sec-num">Section 06 &middot; 4 signals</span>
+      <span class="sec-num">Section 07</span>
     </div>
-    
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-T1</span>
-          <span class="signal-badge signal-badge-vuln">HIGH SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Trade And Competitiveness</span>
-          <span class="signal-badge signal-badge-horizon">Near term</span>
-        </div>
-        <h4 class="signal-card-title">Tariff-Risk Spillovers Shaping Uk-Linked Trade Expectations</h4>
-        <p class="signal-card-desc">External coverage centred on Donald Trump trade-policy signalling and tariff change narratives is concentrated in the United States, China, and the European Union, and it is shaping UK-linked trade expectations in ways that dominate near-term credibility framing.</p>
-        <div class="signal-card-meta">
-          <span>Position: Confirmed</span>
-          <span>Mechanism: Confirmed</span>
-          <span>Trend: T1</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-T6</span>
-          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Trade And Competitiveness</span>
-          <span class="signal-badge signal-badge-horizon">12 months</span>
-        </div>
-        <h4 class="signal-card-title">Ongoing Us Trade-Policy Uncertainty Sustaining Risk Premium Narratives</h4>
-        <p class="signal-card-desc">Trade-policy and legal uncertainty references linked to U.S. Supreme Court-related volatility remain repeated across the United States, China, and the European Union, sustaining planning-risk narratives for UK-linked trade channels even when tariff headlines are not the sole driver.</p>
-        <div class="signal-card-meta">
-          <span>Position: Confirmed</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T6</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-T17</span>
-          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Macroeconomic Credibility</span>
-          <span class="signal-badge signal-badge-horizon">12 months</span>
-        </div>
-        <h4 class="signal-card-title">Policy-Cost Framing Creating Potential Tourism And Demand Headwinds</h4>
-        <p class="signal-card-desc">A policy-cost narrative linked to visitor levies is present in external commentary and can feed wider assumptions about UK competitiveness and demand; the concentration of attention is not yet consistently mapped across external geographies in this cycle.</p>
-        <div class="signal-card-meta">
-          <span>Position: Managed uncertainty</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T17</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-T23</span>
-          <span class="signal-badge signal-badge-vuln">LOW SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Macroeconomic Credibility</span>
-          <span class="signal-badge signal-badge-horizon">Near term</span>
-        </div>
-        <h4 class="signal-card-title">Labour-Market Cooling Signal Adding Caution To External Macro Framing</h4>
-        <p class="signal-card-desc">Labour-market cooling references are being repeated as a caution cue in macro coverage and can be read externally as an early demand-weakening signal; the geographic concentration is not resolved in this cycle’s external-only strip.</p>
-        <div class="signal-card-meta">
-          <span>Position: Managed uncertainty</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T23</span>
-        </div>
-      </div>
+    <p class="redirect-text">Vulnerability signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Pressure on this standing&rdquo;</em> blocks for detail.</p>
   </div>
 
-  <!-- Section 07: Standing & Sentiment Overview -->
+  <!-- Section 08: Strength Signals (redirect) -->
+  <div class="sec sec-redirect">
+    <div class="sec-head">
+      <h2 class="sec-title">Strength Signals</h2>
+      <span class="sec-num">Section 08</span>
+    </div>
+    <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
+  </div>
+
+  <!-- Section 11: Strategic Priorities -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Standing &amp; Sentiment Overview</h2>
-      <span class="sec-num">Section 07</span>
+      <h2 class="sec-title">Strategic Attention Priorities</h2>
+      <span class="sec-num">Section 11</span>
+    </div>
+        <h4 class="priority-horizon">Near-term risks and opportunities</h4>
+    <div class="priority-group">
+      <div class="priority-item priority-item-pri-risk">
+        <div class="priority-type-row">
+          <span class="priority-type pri-risk">Risk</span>
+          <span class="priority-arena-tag">Trade And Competitiveness</span>
+        </div>
+        <p class="priority-desc">High-severity trade vulnerability is accelerating in elevated public commentary and is likely to dominate near-term external framing.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in Trade And Competitiveness.</p>
+      </div>
+      <div class="priority-item priority-item-pri-risk">
+        <div class="priority-type-row">
+          <span class="priority-type pri-risk">Risk</span>
+          <span class="priority-arena-tag">Trade And Competitiveness</span>
+        </div>
+        <p class="priority-desc">High-severity trade arena tension is driven by an accelerating vulnerability signal alongside weaker positive process cues.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Structural response required in Trade And Competitiveness to address root cause.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Regulatory And Investment Climate</span>
+        </div>
+        <p class="priority-desc">Strong positive baseline exists while public discourse remains quiet, creating a risk of under-amplified positioning.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Regulatory And Investment Climate for escalation signals.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Regulatory And Investment Climate</span>
+        </div>
+        <p class="priority-desc">Regulatory strength signal remains evidence-led but under-amplified on informal surfaces in a high-expected arena.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Regulatory And Investment Climate for escalation signals.</p>
+      </div>
+    </div>
+    <h4 class="priority-horizon">Medium-term risks and opportunities</h4>
+    <div class="priority-group">
+      <div class="priority-item priority-item-pri-opportunity">
+        <div class="priority-type-row">
+          <span class="priority-type pri-opportunity">Opportunity</span>
+          <span class="priority-arena-tag">Innovation And Technology</span>
+        </div>
+        <p class="priority-desc">Arena is strongly positive overall but contains an emerging negative dissent signal; reinforcement reduces erosion risk.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Proactively reinforce Innovation And Technology positioning before adverse framing erodes position.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Startup And Scaleup Ecosystem</span>
+        </div>
+        <p class="priority-desc">Coverage is thin and low-confidence; external perception cannot be characterised reliably without broader signal capture.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Startup And Scaleup Ecosystem for escalation signals.</p>
+      </div>
+    </div>
+    <h4 class="priority-horizon">Long-term risks and opportunities</h4>
+    <div class="priority-group">
+      <div class="priority-item priority-item-pri-risk">
+        <div class="priority-type-row">
+          <span class="priority-type pri-risk">Risk</span>
+          <span class="priority-arena-tag">Macroeconomic Credibility</span>
+        </div>
+        <p class="priority-desc">Macroeconomic credibility is weak with multiple vulnerability signals and requires sustained structural positioning to offset recurrent negative framing.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Structural response required in Macroeconomic Credibility to address root cause.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Section 12: Position Summary -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Position Summary</h2>
+      <span class="sec-num">Section 12</span>
     </div>
     
       <div class="table-scroll">
@@ -780,64 +858,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       </div>
   </div>
 
-  <!-- Section 08: Strategic Priorities & Watch List -->
+  <!-- Section 13: Conclusion -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Strategic Priorities &amp; Watch List</h2>
-      <span class="sec-num">Section 08</span>
-    </div>
-        <h4 class="priority-horizon">Near-term attention</h4>
-    <div class="priority-group">
-      <div class="priority-item">
-        <span class="priority-action pri-address">Address adverse narrative</span>
-        <span class="priority-arena">Trade And Competitiveness</span>
-        <p class="priority-desc">High-severity trade vulnerability is accelerating in elevated public commentary and is likely to dominate near-term external framing.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-build">Structural mechanism requires attention</span>
-        <span class="priority-arena">Trade And Competitiveness</span>
-        <p class="priority-desc">High-severity trade arena tension is driven by an accelerating vulnerability signal alongside weaker positive process cues.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Regulatory And Investment Climate</span>
-        <p class="priority-desc">Strong positive baseline exists while public discourse remains quiet, creating a risk of under-amplified positioning.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Regulatory And Investment Climate</span>
-        <p class="priority-desc">Regulatory strength signal remains evidence-led but under-amplified on informal surfaces in a high-expected arena.</p>
-      </div>
-    </div>
-    <h4 class="priority-horizon">Medium-term monitoring</h4>
-    <div class="priority-group">
-      <div class="priority-item">
-        <span class="priority-action pri-reinforce">Reinforce structural position</span>
-        <span class="priority-arena">Innovation And Technology</span>
-        <p class="priority-desc">Arena is strongly positive overall but contains an emerging negative dissent signal; reinforcement reduces erosion risk.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Startup And Scaleup Ecosystem</span>
-        <p class="priority-desc">Coverage is thin and low-confidence; external perception cannot be characterised reliably without broader signal capture.</p>
-      </div>
-    </div>
-    <h4 class="priority-horizon">Long-term structural positioning</h4>
-    <div class="priority-group">
-      <div class="priority-item">
-        <span class="priority-action pri-build">Structural mechanism requires attention</span>
-        <span class="priority-arena">Macroeconomic Credibility</span>
-        <p class="priority-desc">Macroeconomic credibility is weak with multiple vulnerability signals and requires sustained structural positioning to offset recurrent negative framing.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Conclusion -->
-  <div class="sec">
-    <div class="sec-head">
-      <h2 class="sec-title">Sentiment Assessment</h2>
-      <span class="sec-num">Conclusion</span>
+      <h2 class="sec-title">Conclusion</h2>
+      <span class="sec-num">Section 13</span>
     </div>
     <div class="conclusion-card">
       <p>The UK’s external economic standing is holding a strong technology and financial-centre competence lane , driven by Wayve Technologies visibility in autonomy trials and repeated platform and infrastructure signalling from Microsoft and OpenAI, alongside London performance-and-benchmarking references , but the dominant pressure point is trade credibility, where tariff and legal-policy uncertainty centred on Donald Trump trade-policy signalling and U.S. Supreme Court-linked volatility is concentrating attention in the United States, China, and the European Union. The net picture is not a collapse in perceived capability; it is an external framing environment where an intensifying trade vulnerability can overshadow otherwise favourable investment-and-innovation narratives.</p>

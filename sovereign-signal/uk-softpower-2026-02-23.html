@@ -173,6 +173,61 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Executive Summary — What/Why/Watch sub-blocks */
+.exec-sub { margin-bottom: 20px; }
+.exec-sub:last-child { margin-bottom: 0; }
+.exec-sub-head { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.exec-sub-head::before { content: ''; width: 3px; height: 14px; background: var(--pillar); border-radius: 2px; flex-shrink: 0; }
+.exec-sub p { font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; }
+
+/* Arena-grouped Perception Dashboard */
+.pd-arena-row { background: var(--bg) !important; }
+.pd-arena-row td { border-bottom: 2px solid var(--border) !important; padding-top: 14px !important; padding-bottom: 14px !important; }
+.pd-arena-name { font-size: 14px; }
+.pd-prop-row td { padding-left: 20px !important; }
+.pd-indent { color: var(--text-muted); font-size: 11px; margin-right: 4px; }
+.pd-emerging { text-align: center; width: 80px; font-size: 13px; color: var(--green); }
+.pd-footnote { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px; font-style: italic; line-height: 1.5; }
+
+/* Standing Context — unified arena cards */
+.standing-arena-grid { display: flex; flex-direction: column; gap: 16px; }
+.standing-arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); box-shadow: var(--card-shadow); overflow: hidden; }
+.arena-narrative { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }
+
+/* Inline strength/vulnerability signals within standing context */
+.standing-signals { padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }
+.standing-signals-strength { background: rgba(46,155,110,0.03); }
+.standing-signals-vuln { background: rgba(217,64,72,0.03); }
+.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.ss-icon { font-size: 10px; }
+.ss-icon-strength { color: var(--green); }
+.ss-icon-vuln { color: var(--red); }
+.standing-signals ul { list-style: none; padding: 0; }
+.standing-signals li { font-size: 12px; color: var(--text-mid); line-height: 1.65; margin-bottom: 6px; padding-left: 16px; position: relative; }
+.standing-signals-strength li::before { content: '+'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.standing-signals-vuln li::before { content: '−'; position: absolute; left: 0; color: var(--red); font-weight: 700; font-size: 14px; }
+.standing-signals li strong { color: var(--text); font-weight: 600; }
+.signal-horizon-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); margin-left: 4px; white-space: nowrap; }
+.sev-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; }
+.sev-tag-high { background: rgba(217,64,72,0.12); color: #991b1b; }
+.sev-tag-medium { background: rgba(196,146,10,0.1); color: #92400e; }
+.sev-tag-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* Redirect sections (Sections 7, 8) */
+.sec-redirect { opacity: 0.7; }
+.redirect-text { font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }
+.redirect-text em { color: var(--pillar); font-style: italic; }
+
+/* Strategic Priorities — risk/opportunity framing */
+.priority-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.priority-type { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; }
+.pri-risk { background: rgba(217,64,72,0.12); color: #991b1b; }
+.pri-opportunity { background: rgba(46,155,110,0.12); color: #166534; }
+.pri-watch { background: rgba(196,146,10,0.1); color: #92400e; }
+.priority-arena-tag { font-size: 10px; font-weight: 600; color: var(--pillar); background: var(--pillar-light); padding: 3px 10px; border-radius: 3px; }
+.priority-response { font-size: 12px; color: var(--text-mid); line-height: 1.6; margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--border-light); }
+.priority-response strong { color: var(--text); }
+
 /* Forward Outlook / Predictions */
 .pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .pred-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }
@@ -344,11 +399,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
 <div class="main">
 
-  <!-- Section 01: Executive Intelligence Summary -->
+  <!-- Section 02: Executive Intelligence Summary -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Executive Intelligence Summary</h2>
-      <span class="sec-num">Section 01</span>
+      <span class="sec-num">Section 02</span>
     </div>
     <div class="exec-card">
       <p style="font-weight:600">External perception of the UK this cycle is under pressure, driven primarily by heritage and identity coverage centred on Prince Andrew, King Charles III, Prince William, and Queen Elizabeth II legacy framing, with attention concentrated in Australia and the United States (and secondary spillover into Canada and Germany); the headline Sovereign Perception Score is 40.</p>
@@ -385,11 +440,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         </div>
       </div>
 
-  <!-- Section 02: Forward Outlook -->
+  <!-- Section 03: Forward Outlook -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Forward Outlook</h2>
-      <span class="sec-num">Section 02</span>
+      <span class="sec-num">Section 03</span>
     </div>
     
       <div class="exec-card">
@@ -397,378 +452,393 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       </div>
   </div>
 
-  <!-- Section 03: Sentiment & Perception Dashboard -->
+  <!-- Section 04: Sovereign Perception Dashboard -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Sentiment &amp; Perception Dashboard</h2>
-      <span class="sec-num">Section 03</span>
+      <h2 class="sec-title">Sovereign Perception Dashboard</h2>
+      <span class="sec-num">Section 04</span>
     </div>
     
       <div class="table-scroll">
       <table class="pd-table">
-        <thead><tr><th>Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Arena</th></tr></thead>
+        <thead><tr><th>Arena / Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Emerging</th></tr></thead>
         <tbody>
-        <tr>
-          <td class="pd-prop">International law &amp;amp; sovereignty norms in territorial disputes</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Values &amp;amp; Human Rights</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">8% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> International law &amp;amp; sovereignty norms in territorial disputes</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">5% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-low">Low</span></td>
-          <td class="pd-arena">Values &amp;amp; Human Rights</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Monarchy &amp;amp; nation-brand credibility amid legal scrutiny</td>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Institutional integrity &amp;amp; rule-of-law credibility (high-visibility investigations)</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">10% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-low">Low</span></td>
-          <td class="pd-arena">Heritage Identity</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">National identity &amp;amp; political cohesion debates touching the nation brand</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Heritage Identity</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">24% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Monarchy &amp;amp; nation-brand credibility amid legal scrutiny</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">10% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-low">Low</span></td>
-          <td class="pd-arena">Heritage Identity</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Institutional integrity &amp;amp; rule-of-law credibility (high-visibility investigations)</td>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> National identity &amp;amp; political cohesion debates touching the nation brand</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">10% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-low">Low</span></td>
-          <td class="pd-arena">Values &amp;amp; Human Rights</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Sport integrity, discrimination &amp;amp; governance in UK-linked ecosystems</td>
-          <td class="pd-pct" style="color:var(--red);font-weight:700">37% <span style='font-size:0.7em'>&#9660;</span></td>
-          <td><span class="conf-badge conf-low">Low</span></td>
-          <td class="pd-arena">Sporting Brand</td>
-        </tr>
-        <tr>
-          <td class="pd-prop">Royal soft-power symbolism via appearances &amp;amp; heritage events</td>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Royal soft-power symbolism via appearances &amp;amp; heritage events</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">53% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-low">Low</span></td>
-          <td class="pd-arena">Heritage Identity</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Cultural reach &amp;amp; competitiveness via film/TV &amp;amp; cultural events</td>
-          <td class="pd-pct" style="color:var(--green);font-weight:700">83% <span style='font-size:0.7em'>&#9650;</span></td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Sporting Brand</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">66% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Culture &amp;amp; Media</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Creative industries &amp;amp; talent competitiveness</td>
-          <td class="pd-pct" style="color:var(--green);font-weight:700">83% <span style='font-size:0.7em'>&#9650;</span></td>
-          <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Creative Industries</td>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Sport integrity, discrimination &amp;amp; governance in UK-linked ecosystems</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">37% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-low">Low</span></td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">UK culture &amp;amp; media export reach — engaged geographies</td>
-          <td class="pd-pct" style="color:var(--green);font-weight:700">90% <span style='font-size:0.7em'>&#9650;</span></td>
-          <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Culture &amp;amp; Media</td>
-        </tr>
-        <tr>
-          <td class="pd-prop">Team GB sporting brand, performance credibility &amp;amp; global prestige</td>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Team GB sporting brand, performance credibility &amp;amp; global prestige</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">95% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Sporting Brand</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Arenas Positive</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Culture &amp;amp; Media</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">86% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Cultural reach &amp;amp; competitiveness via film/TV &amp;amp; cultural events</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">83% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> UK culture &amp;amp; media export reach — engaged geographies</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">90% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Creative Industries</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">83% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Creative industries &amp;amp; talent competitiveness</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">83% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Trends Tracked</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">8% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">13</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Arenas Positive</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">8% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-high">13</span></td>
-          <td class="pd-arena">Trends Tracked</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Trends:</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Temperature:</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">25% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">0</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Trends:</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">0% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-high">0</span></td>
-          <td class="pd-arena">Temperature:</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Articles:</td>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Articles:</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">50% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">US, Ireland, France</span></td>
-          <td class="pd-arena">Temperature:</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">2</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>US, Italy, Spain</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">52% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Geography:</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> 2</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">52% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">Geography:</span></td>
-          <td class="pd-arena">US, Italy, Spain</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">This is the UK&#x27;s strongest soft-power arena this cycle. Team GB prestige coverage is structurally favourable and widely distributed across Italy, Canada, and the US. Monarchy-linked sport diplomacy cues reinforce the positive picture. The principal offsetting pressure is a high-visibility integrity lane covering discrimination and governance themes in UK-linked sport — this is contested but not dominant.</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>134</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">4% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">Articles:</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> This is the UK&#x27;s strongest soft-power arena this cycle. Team GB prestige coverage is structurally favourable and widely distributed across Italy, Canada, and the US. Monarchy-linked sport diplomacy cues reinforce the positive picture. The principal offsetting pressure is a high-visibility integrity lane covering discrimination and governance themes in UK-linked sport — this is contested but not dominant.</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">4% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-high">Articles:</span></td>
-          <td class="pd-arena">134</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
         </tbody>
       </table>
       </div>
+      <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>
   </div>
 
-  <!-- Section 04: Trend & Arena Analysis -->
+  <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Trend &amp; Arena Analysis</h2>
-      <span class="sec-num">Section 04 &middot; 6 arenas assessed</span>
+      <h2 class="sec-title">Sovereign Standing Context</h2>
+      <span class="sec-num">Section 06 &middot; 6 arenas assessed</span>
     </div>
-    <div class="arena-grid">
-        <div class="arena-card" style="border-top:3px solid var(--amber)">
+    <div class="standing-arena-grid">
+        <div class="standing-arena-card" style="border-top:3px solid var(--amber)">
           <div class="arena-card-header">
             <div class="arena-card-name">Culture And Media Exports</div>
             <span class="arena-badge" style="background:rgba(196,146,10,0.1);color:#92400e">MODERATE</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Australia, Italy, United States</div>
+          <p class="arena-narrative">Culture And Media Exports reflects a moderate structural position with rising momentum, driven by King / cultural diplomacy , market/operational signal , public affairs/sport.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Australia, Italy, United States</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Strategic:</strong> Ceremonial diplomacy and partner-facing visibility anchored on King Charles III is registering as a favourable soft-power projection cue, concentrated in Australia and Italy with the United States recurring; the signal is present but not yet broadly amplified outside its current audiences. <span class="signal-horizon-tag">Near term</span></li>
+</ul>
+          </div>
+          
           <div class="arena-outlook">77% probability that Culture And Media Exports narratives intensify over the next 90 days (Strong signal)</div>
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--text-muted)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--text-muted)">
           <div class="arena-card-header">
             <div class="arena-card-name">Education And Research Prestige</div>
             <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)"></span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">External (mixed)</div>
+          <p class="arena-narrative">Education And Research Prestige is assessed as insufficient data this cycle; no external narrative clusters were admitted for UK universities and research institutions.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> External (mixed)</div>
+          
+          
           
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--green)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
             <div class="arena-card-name">Sporting Brand And Influence</div>
             <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Italy, United States, France</div>
+          <p class="arena-narrative">Sporting Brand And Influence reflects a strong structural position with stable momentum, driven by Sport integrity , operational/policy signal , sports governance.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Italy, United States, France</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Structural:</strong> UK-linked sport governance infrastructure is being referenced through enforcement and integrity actions, positioning UK-hosted integrity bodies as competence nodes; external attention concentrates in Italy and the United States, with France recurring in the monitored geography mix. <span class="signal-horizon-tag">12 months</span></li>
+</ul>
+          </div>
+          
           
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--amber)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--amber)">
           <div class="arena-card-header">
             <div class="arena-card-name">Creative Industries And Talent</div>
             <span class="arena-badge" style="background:rgba(196,146,10,0.1);color:#92400e">MODERATE</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">India, United States, France</div>
+          <p class="arena-narrative">Creative Industries And Talent reflects a moderate structural position with rising momentum, driven by Kate Middleton , market/other signal , creative industries/fashion.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> India, United States, France</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Reputational:</strong> Catherine’s high-visibility cultural signalling is creating a creative-sector association cue for the UK, with attention concentrated in India and the United States and secondary visibility in France; public amplification remains limited beyond the institutional and lifestyle lanes. <span class="signal-horizon-tag">Near term</span></li>
+</ul>
+          </div>
+          
           <div class="arena-outlook">67% probability that Creative Industries And Talent narratives intensify over the next 90 days (Strong signal)</div>
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--red)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
             <div class="arena-card-name">Heritage Identity And Nation Brand</div>
             <span class="arena-badge" style="background:rgba(217,64,72,0.1);color:#991b1b">WEAK</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Australia, United States, Canada</div>
+          <p class="arena-narrative">Heritage Identity And Nation Brand reflects a weak structural position with rising momentum, driven by Prince Andrew / monarchy , legal-other signal , public affairs; Prince Andrew , legal/policy signal , public sector/public affairs; and William / royal crisis , legal/other signal , public sector.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Australia, United States, Canada</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Reputational:</strong> Alongside the Andrew-linked adverse lane, a separate strand tracks Prince William’s public positioning as reputation management and stabilisation, keeping a limited counterweight visible in external coverage concentrated in Australia and the United States (with Canada recurring). <span class="signal-horizon-tag">Near term</span></li>
+</ul>
+          </div>
+          
+          <div class="standing-signals standing-signals-vuln">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-vuln">&#9660;</span> Pressure on this standing</h5>
+            <ul><li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Near term</span> External attention is concentrated on Prince Andrew’s legal exposure and accountability framing, with spillover onto King Charles III and monarchy-institution legitimacy; the concentration is most visible across Australia and the United States, with additional carry into Canada. This compresses soft-power symbolism into an institutional-trust test rather than cultural affinity.</li>
+<li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Near term</span> Coverage links succession changes to constitutional and realm-consent complexity, keeping the monarchy’s legitimacy in an institutional-governance lane rather than a purely ceremonial one; the highest external attention registers in Australia and the United States, with Canada recurring as a secondary audience.</li>
+<li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Near term</span> Crisis framing collapses individual conduct into institution-level judgement, pulling nation-brand resilience cues downward; attention is concentrated in the United States and Australia, with Switzerland appearing as a secondary external geography in the monitored set.</li>
+<li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Near term</span> Queen Elizabeth II’s legacy and symbolic soft-power assets are being re-read through the Andrew-linked credibility shock, which reduces continuity cues in external commentary; the most visible external concentration is the United States and Australia, with Canada recurring as a secondary audience.</li>
+</ul>
+          </div>
           <div class="arena-outlook">65% probability that Heritage Identity And Nation Brand narratives intensify over the next 90 days (Strong signal)</div>
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--red)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
             <div class="arena-card-name">Values And Human Rights Reputation</div>
             <span class="arena-badge" style="background:rgba(217,64,72,0.1);color:#991b1b">WEAK</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">United States, Germany, Australia</div>
+          <p class="arena-narrative">Values And Human Rights Reputation reflects a weak structural position with rising momentum, driven by Migration enforcement , legal/policy signal , civil liberties/government and Keir Starmer / Crown context , legal/policy signal , politics/international relations.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, Germany, Australia</div>
+          
+          
+          <div class="standing-signals standing-signals-vuln">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-vuln">&#9660;</span> Pressure on this standing</h5>
+            <ul><li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Near term</span> Rights-based critique attaches to governance credibility via migration enforcement, surveillance, and protest-law tightening, shifting values leadership assessment into a constraint narrative; the highest concentration registers in the United States and Germany, with China recurring in the monitored geography mix.</li>
+<li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Near term</span> Sovereignty-transfer dispute framing is pulling external judgement toward state-credibility and legitimacy tests, including political leadership references around Keir Starmer and Crown-adjacent symbolism; attention concentrates in the United States and Australia, with Germany present as a secondary external geography.</li>
+</ul>
+          </div>
           <div class="arena-outlook">77% probability that Values And Human Rights Reputation narratives intensify over the next 90 days (Strong signal)</div>
         </div></div>
   </div>
 
-  <!-- Section 05: Strength Signals -->
-  <div class="sec">
-    <div class="sec-head">
-      <h2 class="sec-title">Strength Signals</h2>
-      <span class="sec-num">Section 05 &middot; 4 signals</span>
-    </div>
-    
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-003</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Sporting Brand And Influence</span>
-          <span class="signal-badge char-structural">Structural</span>
-        </div>
-        <h4 class="signal-card-title">Sporting Brand And Influence — Structural Signal</h4>
-        <p class="signal-card-desc">UK-linked sport governance infrastructure is being referenced through enforcement and integrity actions, positioning UK-hosted integrity bodies as competence nodes; external attention concentrates in Italy and the United States, with France recurring in the monitored geography mix.</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 12 months</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T7</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-001</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
-          <span class="signal-badge char-reputational">Reputational</span>
-        </div>
-        <h4 class="signal-card-title">Heritage Identity And Nation Brand — Reputational Signal</h4>
-        <p class="signal-card-desc">Alongside the Andrew-linked adverse lane, a separate strand tracks Prince William’s public positioning as reputation management and stabilisation, keeping a limited counterweight visible in external coverage concentrated in Australia and the United States (with Canada recurring).</p>
-        <div class="signal-card-meta">
-          <span>Horizon: Near term</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T3</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-002</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Creative Industries And Talent</span>
-          <span class="signal-badge char-reputational">Reputational</span>
-        </div>
-        <h4 class="signal-card-title">Creative Industries And Talent — Reputational Signal</h4>
-        <p class="signal-card-desc">Catherine’s high-visibility cultural signalling is creating a creative-sector association cue for the UK, with attention concentrated in India and the United States and secondary visibility in France; public amplification remains limited beyond the institutional and lifestyle lanes.</p>
-        <div class="signal-card-meta">
-          <span>Horizon: Near term</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T6</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-004</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Culture And Media Exports</span>
-          <span class="signal-badge char-strategic">Strategic</span>
-        </div>
-        <h4 class="signal-card-title">Culture And Media Exports — Strategic Signal</h4>
-        <p class="signal-card-desc">Ceremonial diplomacy and partner-facing visibility anchored on King Charles III is registering as a favourable soft-power projection cue, concentrated in Australia and Italy with the United States recurring; the signal is present but not yet broadly amplified outside its current audiences.</p>
-        <div class="signal-card-meta">
-          <span>Horizon: Near term</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T10</span>
-        </div>
-      </div>
-  </div>
-
-  <!-- Section 06: Vulnerability Signals -->
-  <div class="sec">
+  <!-- Section 07: Vulnerability Signals (redirect) -->
+  <div class="sec sec-redirect">
     <div class="sec-head">
       <h2 class="sec-title">Vulnerability Signals</h2>
-      <span class="sec-num">Section 06 &middot; 6 signals</span>
+      <span class="sec-num">Section 07</span>
     </div>
-    
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-001</span>
-          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
-          <span class="signal-badge signal-badge-horizon">Near term</span>
-        </div>
-        <h4 class="signal-card-title">Monarchy Legitimacy And Accountability Scrutiny (Andrew-Linked)</h4>
-        <p class="signal-card-desc">External attention is concentrated on Prince Andrew’s legal exposure and accountability framing, with spillover onto King Charles III and monarchy-institution legitimacy; the concentration is most visible across Australia and the United States, with additional carry into Canada. This compresses soft-power symbolism into an institutional-trust test rather than cultural affinity.</p>
-        <div class="signal-card-meta">
-          <span>Position: Managed uncertainty</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T1</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-002</span>
-          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
-          <span class="signal-badge signal-badge-horizon">Near term</span>
-        </div>
-        <h4 class="signal-card-title">Succession Legitimacy And Realm-Consent Strain Narratives</h4>
-        <p class="signal-card-desc">Coverage links succession changes to constitutional and realm-consent complexity, keeping the monarchy’s legitimacy in an institutional-governance lane rather than a purely ceremonial one; the highest external attention registers in Australia and the United States, with Canada recurring as a secondary audience.</p>
-        <div class="signal-card-meta">
-          <span>Position: Managed uncertainty</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T2</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-003</span>
-          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
-          <span class="signal-badge signal-badge-horizon">Near term</span>
-        </div>
-        <h4 class="signal-card-title">Royal Crisis Reputational Shock Framing</h4>
-        <p class="signal-card-desc">Crisis framing collapses individual conduct into institution-level judgement, pulling nation-brand resilience cues downward; attention is concentrated in the United States and Australia, with Switzerland appearing as a secondary external geography in the monitored set.</p>
-        <div class="signal-card-meta">
-          <span>Position: Managed uncertainty</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T4</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-004</span>
-          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Heritage Identity And Nation Brand</span>
-          <span class="signal-badge signal-badge-horizon">Near term</span>
-        </div>
-        <h4 class="signal-card-title">Legacy Symbolism Contested Under Reputational Stress</h4>
-        <p class="signal-card-desc">Queen Elizabeth II’s legacy and symbolic soft-power assets are being re-read through the Andrew-linked credibility shock, which reduces continuity cues in external commentary; the most visible external concentration is the United States and Australia, with Canada recurring as a secondary audience.</p>
-        <div class="signal-card-meta">
-          <span>Position: Managed uncertainty</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T5</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-005</span>
-          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Values And Human Rights Reputation</span>
-          <span class="signal-badge signal-badge-horizon">Near term</span>
-        </div>
-        <h4 class="signal-card-title">Civil-Liberties And Enforcement Critique With Governance Linkage</h4>
-        <p class="signal-card-desc">Rights-based critique attaches to governance credibility via migration enforcement, surveillance, and protest-law tightening, shifting values leadership assessment into a constraint narrative; the highest concentration registers in the United States and Germany, with China recurring in the monitored geography mix.</p>
-        <div class="signal-card-meta">
-          <span>Position: Managed uncertainty</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T8</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-006</span>
-          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Values And Human Rights Reputation</span>
-          <span class="signal-badge signal-badge-horizon">Near term</span>
-        </div>
-        <h4 class="signal-card-title">Sovereignty And Legitimacy Dispute Framing Tied To State Credibility</h4>
-        <p class="signal-card-desc">Sovereignty-transfer dispute framing is pulling external judgement toward state-credibility and legitimacy tests, including political leadership references around Keir Starmer and Crown-adjacent symbolism; attention concentrates in the United States and Australia, with Germany present as a secondary external geography.</p>
-        <div class="signal-card-meta">
-          <span>Position: Managed uncertainty</span>
-          <span>Mechanism: Unresolved</span>
-          <span>Trend: T9</span>
-        </div>
-      </div>
+    <p class="redirect-text">Vulnerability signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Pressure on this standing&rdquo;</em> blocks for detail.</p>
   </div>
 
-  <!-- Section 07: Standing & Sentiment Overview -->
+  <!-- Section 08: Strength Signals (redirect) -->
+  <div class="sec sec-redirect">
+    <div class="sec-head">
+      <h2 class="sec-title">Strength Signals</h2>
+      <span class="sec-num">Section 08</span>
+    </div>
+    <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
+  </div>
+
+  <!-- Section 11: Strategic Priorities -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Standing &amp; Sentiment Overview</h2>
-      <span class="sec-num">Section 07</span>
+      <h2 class="sec-title">Strategic Attention Priorities</h2>
+      <span class="sec-num">Section 11</span>
+    </div>
+        <h4 class="priority-horizon">Near-term risks and opportunities</h4>
+    <div class="priority-group">
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Culture And Media Exports</span>
+        </div>
+        <p class="priority-desc">Emerging favourable cultural visibility signal with cold public amplification surfaces suggests potential for later narrative escalation.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Culture And Media Exports for escalation signals.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Creative Industries And Talent</span>
+        </div>
+        <p class="priority-desc">Favourable creative visibility signal is present but not mirrored in informal discourse, warranting tracking for amplification.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Creative Industries And Talent for escalation signals.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Sporting Brand And Influence</span>
+        </div>
+        <p class="priority-desc">Sport governance competence signal exists with limited breadth; monitor for additional sport and event-driven framing clusters.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Sporting Brand And Influence for escalation signals.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Heritage Identity And Nation Brand</span>
+        </div>
+        <p class="priority-desc">High-expected arena shows broad trend activity while informal discourse surfaces remain quiet; monitor for sudden amplification of adverse legitimacy framing.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Heritage Identity And Nation Brand for escalation signals.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Values And Human Rights Reputation</span>
+        </div>
+        <p class="priority-desc">High-expected values arena is vulnerability-weighted with limited informal amplification; monitor for rapid uptake of civil-liberties critique.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Values And Human Rights Reputation for escalation signals.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Section 12: Position Summary -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Position Summary</h2>
+      <span class="sec-num">Section 12</span>
     </div>
     
       <div class="table-scroll">
@@ -784,48 +854,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       </div>
   </div>
 
-  <!-- Section 08: Strategic Priorities & Watch List -->
+  <!-- Section 13: Conclusion -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Strategic Priorities &amp; Watch List</h2>
-      <span class="sec-num">Section 08</span>
-    </div>
-        <h4 class="priority-horizon">Near-term attention</h4>
-    <div class="priority-group">
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Culture And Media Exports</span>
-        <p class="priority-desc">Emerging favourable cultural visibility signal with cold public amplification surfaces suggests potential for later narrative escalation.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Creative Industries And Talent</span>
-        <p class="priority-desc">Favourable creative visibility signal is present but not mirrored in informal discourse, warranting tracking for amplification.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Sporting Brand And Influence</span>
-        <p class="priority-desc">Sport governance competence signal exists with limited breadth; monitor for additional sport and event-driven framing clusters.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Heritage Identity And Nation Brand</span>
-        <p class="priority-desc">High-expected arena shows broad trend activity while informal discourse surfaces remain quiet; monitor for sudden amplification of adverse legitimacy framing.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Values And Human Rights Reputation</span>
-        <p class="priority-desc">High-expected values arena is vulnerability-weighted with limited informal amplification; monitor for rapid uptake of civil-liberties critique.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Conclusion -->
-  <div class="sec">
-    <div class="sec-head">
-      <h2 class="sec-title">Sentiment Assessment</h2>
-      <span class="sec-num">Conclusion</span>
+      <h2 class="sec-title">Conclusion</h2>
+      <span class="sec-num">Section 13</span>
     </div>
     <div class="conclusion-card">
       <p>The UK’s soft-power standing is being shaped less by export competitiveness narratives and more by identity-and-values scrutiny anchored on the Royal Family and governance credibility: Prince Andrew’s legal exposure and the institutional spillover onto King Charles III and monarchy legitimacy are the dominant adverse drivers, amplified most visibly across Australia and the United States, while civil-liberties critique and sovereignty/legitimacy dispute framing sustains pressure in the values arena. Countervailing strength remains visible in sport-governance competence (UK-linked integrity infrastructure) and in cultural visibility cues tied to King Charles III and Catherine, but these favourable lanes are not displacing the heritage and values drag in external attention.</p>

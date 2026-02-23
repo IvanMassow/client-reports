@@ -229,6 +229,9 @@ def parse_report_content(desc_html):
         "vuln_count": 0,
         "predictions": [],
         "arena_predictions": {},
+        "exec_what": "",
+        "exec_why": "",
+        "exec_watch": "",
     }
 
     # ─── Executive Summary ───
@@ -237,7 +240,26 @@ def parse_report_content(desc_html):
         desc_html, re.DOTALL | re.IGNORECASE
     )
     if exec_match:
-        data["executive_summary"] = _strip_tags(exec_match.group(1))
+        exec_block = exec_match.group(1)
+        data["executive_summary"] = _strip_tags(exec_block)
+
+        # Try to parse v2.2 "What is happening / Why it matters / What to watch" sub-blocks
+        what_match = re.search(
+            r"(?:<h3[^>]*>)?.*?What is happening.*?(?:</h3>)?\s*(.*?)(?=<h3|<h2|$)",
+            exec_block, re.DOTALL | re.IGNORECASE
+        )
+        why_match = re.search(
+            r"(?:<h3[^>]*>)?.*?Why it matters.*?(?:</h3>)?\s*(.*?)(?=<h3|<h2|$)",
+            exec_block, re.DOTALL | re.IGNORECASE
+        )
+        watch_match = re.search(
+            r"(?:<h3[^>]*>)?.*?What to watch.*?(?:</h3>)?\s*(.*?)(?=<h3|<h2|$)",
+            exec_block, re.DOTALL | re.IGNORECASE
+        )
+        if what_match or why_match or watch_match:
+            data["exec_what"] = _strip_tags(what_match.group(1)).strip() if what_match else ""
+            data["exec_why"] = _strip_tags(why_match.group(1)).strip() if why_match else ""
+            data["exec_watch"] = _strip_tags(watch_match.group(1)).strip() if watch_match else ""
 
     # ─── Perception Dashboard ───
     # Pipe-delimited table rows: | Proposition | Global View | Sovereign View | Signal Strength | Arena | Emerging |
@@ -1688,12 +1710,27 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     if not exec_summary or exec_summary.startswith("[Section"):
         exec_summary = "Assessment data not available for this cycle. The intelligence pipeline did not return a structured executive summary for this pillar."
 
-    # Split executive summary into paragraphs
-    exec_paragraphs = [p.strip() for p in exec_summary.split("\n") if p.strip()]
-    exec_html = ""
-    for i, para in enumerate(exec_paragraphs):
-        weight = ' style="font-weight:600"' if i == 0 else ""
-        exec_html += f"      <p{weight}>{html.escape(para)}</p>\n"
+    # Build executive summary HTML — use What/Why/Watch if available (v2.2), else single block
+    exec_what = pdata.get("exec_what", "")
+    exec_why = pdata.get("exec_why", "")
+    exec_watch = pdata.get("exec_watch", "")
+
+    if exec_what or exec_why or exec_watch:
+        # v2.2 structured executive summary
+        exec_html = ""
+        if exec_what:
+            exec_html += f'      <div class="exec-sub">\n        <h4 class="exec-sub-head">What is happening</h4>\n        <p>{html.escape(exec_what)}</p>\n      </div>\n'
+        if exec_why:
+            exec_html += f'      <div class="exec-sub">\n        <h4 class="exec-sub-head">Why it matters</h4>\n        <p>{html.escape(exec_why)}</p>\n      </div>\n'
+        if exec_watch:
+            exec_html += f'      <div class="exec-sub">\n        <h4 class="exec-sub-head">What to watch</h4>\n        <p>{html.escape(exec_watch)}</p>\n      </div>\n'
+    else:
+        # Legacy single-block executive summary
+        exec_paragraphs = [p.strip() for p in exec_summary.split("\n") if p.strip()]
+        exec_html = ""
+        for i, para in enumerate(exec_paragraphs):
+            weight = ' style="font-weight:600"' if i == 0 else ""
+            exec_html += f"      <p{weight}>{html.escape(para)}</p>\n"
 
     # Extract arena findings (from exec summary text patterns)
     findings = extract_arena_findings(exec_summary, conclusion)
@@ -1791,41 +1828,96 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         </div>
       </div>'''
 
-    # Build perception dashboard table
+    # Build perception dashboard table — arena-grouped (v2.2)
     perc_dash = pdata.get("perception_dashboard", [])
     perception_html = ""
     if perc_dash:
-        rows = ""
+        # Group propositions by arena
+        arena_groups = {}
         for p in perc_dash:
-            sv = p.get("sovereign_view") if p.get("sovereign_view") is not None else p.get("global_view")
-            sv_str = f"{sv}%" if sv is not None else "—"
-            # Colour by score: green >=50, red <50
-            sv_style = ""
-            if sv is not None:
-                sv_color = "var(--green)" if sv >= 50 else "var(--red)"
-                sv_arrow = "&#9650;" if sv >= 50 else "&#9660;"
-                sv_str = f"{sv}% <span style='font-size:0.7em'>{sv_arrow}</span>"
-                sv_style = f' style="color:{sv_color};font-weight:700"'
-            conf = p.get("signal_strength", "") or p.get("confidence", "")
-            conf_cls = "conf-medium" if conf.lower() == "medium" else "conf-low" if conf.lower() == "low" else "conf-high"
-            arena = p.get("arena", "")
-            rows += f'''        <tr>
-          <td class="pd-prop">{html.escape(p.get("proposition", ""))}</td>
+            arena = p.get("arena", "Unassigned")
+            arena_groups.setdefault(arena, []).append(p)
+
+        rows = ""
+        for arena_name, props in arena_groups.items():
+            # Compute arena summary score (weighted mean of propositions)
+            arena_scores = []
+            for p in props:
+                sv = p.get("sovereign_view") if p.get("sovereign_view") is not None else p.get("global_view")
+                if sv is not None:
+                    arena_scores.append(sv)
+            arena_avg = round(sum(arena_scores) / len(arena_scores)) if arena_scores else None
+
+            # Arena summary row (bold)
+            if arena_avg is not None:
+                a_color = "var(--green)" if arena_avg >= 50 else "var(--red)"
+                a_arrow = "&#9650;" if arena_avg >= 50 else "&#9660;"
+                a_str = f"{arena_avg}% <span style='font-size:0.7em'>{a_arrow}</span>"
+                a_style = f' style="color:{a_color};font-weight:800"'
+            else:
+                a_str = "—"
+                a_style = ""
+            # Get dominant signal strength for arena
+            strengths = [p.get("signal_strength", "") for p in props if p.get("signal_strength")]
+            arena_signal = max(set(strengths), key=strengths.count) if strengths else "—"
+            arena_signal_cls = "conf-medium" if arena_signal.lower() == "medium" else "conf-low" if arena_signal.lower() in ("low", "thin") else "conf-high"
+            # Check for emerging attention in arena
+            has_emerging = any(p.get("emerging", "").strip() not in ("", "—", "-") for p in props)
+            emerging_str = "&#10003;" if has_emerging else "—"
+
+            rows += f'''        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>{html.escape(arena_name)}</strong></td>
+          <td class="pd-pct"{a_style}>{a_str}</td>
+          <td><span class="conf-badge {arena_signal_cls}">{html.escape(arena_signal)}</span></td>
+          <td class="pd-emerging">{emerging_str}</td>
+        </tr>\n'''
+
+            # Indented proposition detail rows
+            for p in props:
+                sv = p.get("sovereign_view") if p.get("sovereign_view") is not None else p.get("global_view")
+                sv_str = f"{sv}%" if sv is not None else "—"
+                sv_style = ""
+                if sv is not None:
+                    sv_color = "var(--green)" if sv >= 50 else "var(--red)"
+                    sv_arrow = "&#9650;" if sv >= 50 else "&#9660;"
+                    sv_str = f"{sv}% <span style='font-size:0.7em'>{sv_arrow}</span>"
+                    sv_style = f' style="color:{sv_color};font-weight:700"'
+                conf = p.get("signal_strength", "") or p.get("confidence", "")
+                conf_cls = "conf-medium" if conf.lower() == "medium" else "conf-low" if conf.lower() in ("low", "thin") else "conf-high"
+                prop_emerging = p.get("emerging", "").strip()
+                prop_emerging_str = "&#10003;" if prop_emerging and prop_emerging not in ("—", "-") else "—"
+                rows += f'''        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> {html.escape(p.get("proposition", ""))}</td>
           <td class="pd-pct"{sv_style}>{sv_str}</td>
           <td><span class="conf-badge {conf_cls}">{html.escape(conf)}</span></td>
-          <td class="pd-arena">{html.escape(arena)}</td>
+          <td class="pd-emerging">{prop_emerging_str}</td>
         </tr>\n'''
+
         perception_html = f'''
       <div class="table-scroll">
       <table class="pd-table">
-        <thead><tr><th>Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Arena</th></tr></thead>
+        <thead><tr><th>Arena / Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Emerging</th></tr></thead>
         <tbody>
 {rows}        </tbody>
       </table>
-      </div>'''
+      </div>
+      <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>'''
 
-    # Build arena analysis cards
-    arena_cards_html = ""
+    # Build Standing Context — unified per-arena cards with inline strength/vulnerability signals
+    strength_details = pdata.get("strength_signal_details", [])
+    vuln_details = pdata.get("vuln_signal_details", [])
+
+    # Index signals by arena for inline rendering
+    strength_by_arena = {}
+    for s in strength_details:
+        a = s.get("arena", "Unassigned")
+        strength_by_arena.setdefault(a, []).append(s)
+    vuln_by_arena = {}
+    for v in vuln_details:
+        a = v.get("arena", "Unassigned")
+        vuln_by_arena.setdefault(a, []).append(v)
+
+    standing_context_html = ""
     for name, ctx in arena_ctx.items():
         ap = ctx.get("posture", "")
         if ap.lower() in ("strong",):
@@ -1850,73 +1942,95 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         geographies = ctx.get("geographies", "")
         verified = ctx.get("spot_checked_trends", "0")
         echo_risk = ctx.get("echo_risk", "No")
+        summary_text = ctx.get("summary", "")
 
         mom_color = "var(--green)" if momentum.lower() == "rising" else "var(--red)" if momentum.lower() == "fading" else "var(--text-mid)"
 
-        arena_cards_html += f'''
-        <div class="arena-card" style="border-top:3px solid {border_color}">
+        # Arena metadata grid
+        meta_html = f'''
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">{html.escape(str(verified))}</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:{mom_color}">{html.escape(momentum)}</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">{html.escape(discourse.replace("public commentary is ", "").title())}</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">{html.escape(echo_risk)}</span></div>
+          </div>'''
+
+        # Arena narrative summary
+        narrative_html = ""
+        if summary_text:
+            narrative_html = f'<p class="arena-narrative">{html.escape(summary_text)}</p>'
+
+        # Geographies
+        geo_html = f'<div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> {html.escape(geographies)}</div>' if geographies else ""
+
+        # Inline strength signals — "Reinforcing this standing"
+        arena_strengths = strength_by_arena.get(name, [])
+        # Also fuzzy match
+        if not arena_strengths:
+            for a_key, s_list in strength_by_arena.items():
+                if a_key.lower() in name.lower() or name.lower() in a_key.lower():
+                    arena_strengths = s_list
+                    break
+        reinforcing_html = ""
+        if arena_strengths:
+            items = ""
+            for s in arena_strengths:
+                character = s.get("character", "")
+                desc = s.get("description", "")
+                horizon = s.get("horizon", "")
+                items += f'<li><strong>{html.escape(character)}:</strong> {html.escape(desc)}'
+                if horizon:
+                    items += f' <span class="signal-horizon-tag">{html.escape(horizon)}</span>'
+                items += '</li>\n'
+            reinforcing_html = f'''
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul>{items}</ul>
+          </div>'''
+
+        # Inline vulnerability signals — "Pressure on this standing"
+        arena_vulns = vuln_by_arena.get(name, [])
+        if not arena_vulns:
+            for a_key, v_list in vuln_by_arena.items():
+                if a_key.lower() in name.lower() or name.lower() in a_key.lower():
+                    arena_vulns = v_list
+                    break
+        pressure_html = ""
+        if arena_vulns:
+            items = ""
+            for v in arena_vulns:
+                severity = v.get("severity", "")
+                horizon = v.get("horizon", "")
+                desc = v.get("description", "")
+                sev_cls = "sev-tag-high" if "high" in severity.lower() else "sev-tag-medium" if "medium" in severity.lower() else "sev-tag-low"
+                items += f'<li><span class="sev-tag {sev_cls}">{html.escape(severity).upper()}</span> '
+                if horizon:
+                    items += f'<span class="signal-horizon-tag">{html.escape(horizon)}</span> '
+                items += f'{html.escape(desc)}</li>\n'
+            pressure_html = f'''
+          <div class="standing-signals standing-signals-vuln">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-vuln">&#9660;</span> Pressure on this standing</h5>
+            <ul>{items}</ul>
+          </div>'''
+
+        # Arena micro-outlook (conditional)
+        outlook_html_arena = ""
+        if arena_preds.get(name, {}).get("has_outlook"):
+            outlook_html_arena = f'<div class="arena-outlook">{html.escape(arena_preds[name]["outlook_sentence"])}</div>'
+
+        standing_context_html += f'''
+        <div class="standing-arena-card" style="border-top:3px solid {border_color}">
           <div class="arena-card-header">
             <div class="arena-card-name">{html.escape(name)}</div>
             <span class="arena-badge" style="background:{badge_bg};color:{badge_color}">{html.escape(ap).upper()}</span>
           </div>
-          <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">{html.escape(str(verified))}</span></div>
-            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:{mom_color}">{html.escape(momentum)}</span></div>
-            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">{html.escape(discourse.replace("public commentary is ", "").title())}</span></div>
-            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">{html.escape(echo_risk)}</span></div>
-          </div>
-          {('<div class="arena-card-geo">' + html.escape(geographies) + '</div>') if geographies else ''}
-          {('<div class="arena-outlook">' + html.escape(arena_preds.get(name, {}).get("outlook_sentence", "")) + '</div>') if arena_preds.get(name, {}).get("has_outlook") else ''}
+          {meta_html}
+          {narrative_html}
+          {geo_html}
+          {reinforcing_html}
+          {pressure_html}
+          {outlook_html_arena}
         </div>'''
-
-    # Build strength signal cards
-    strength_details = pdata.get("strength_signal_details", [])
-    strength_cards_html = ""
-    for s in strength_details:
-        character = s.get("character", "")
-        char_cls = "char-reputational" if "reput" in character.lower() else "char-structural" if "struct" in character.lower() else "char-policy" if "polic" in character.lower() else "char-strategic"
-        # Build a human-readable title from arena + character
-        s_arena = s.get("arena", "")
-        s_title = f"{s_arena} — {character} Signal" if s_arena else character
-        strength_cards_html += f'''
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">{html.escape(s.get("id", ""))}</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">{html.escape(s_arena)}</span>
-          <span class="signal-badge {char_cls}">{html.escape(character)}</span>
-        </div>
-        <h4 class="signal-card-title">{html.escape(s_title)}</h4>
-        <p class="signal-card-desc">{html.escape(s.get("description", ""))}</p>
-        <div class="signal-card-meta">
-          <span>Horizon: {html.escape(s.get("horizon", ""))}</span>
-          <span>Mechanism: {html.escape(s.get("mechanism", ""))}</span>
-          <span>Trend: {html.escape(s.get("trend_ref", ""))}</span>
-        </div>
-      </div>'''
-
-    # Build vulnerability signal cards
-    vuln_details = pdata.get("vuln_signal_details", [])
-    vuln_cards_html = ""
-    for v in vuln_details:
-        severity = v.get("severity", "")
-        sev_cls = "sev-high" if "high" in severity.lower() else "sev-medium" if "medium" in severity.lower() else "sev-low"
-        vuln_cards_html += f'''
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">{html.escape(v.get("id", ""))}</span>
-          <span class="signal-badge signal-badge-vuln">{html.escape(severity).upper()} SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">{html.escape(v.get("arena", ""))}</span>
-          <span class="signal-badge signal-badge-horizon">{html.escape(v.get("horizon", ""))}</span>
-        </div>
-        <h4 class="signal-card-title">{html.escape(v.get("title", ""))}</h4>
-        <p class="signal-card-desc">{html.escape(v.get("description", ""))}</p>
-        <div class="signal-card-meta">
-          <span>Position: {html.escape(v.get("structural_position", ""))}</span>
-          <span>Mechanism: {html.escape(v.get("mechanism", ""))}</span>
-          <span>Trend: {html.escape(v.get("trend_ref", ""))}</span>
-        </div>
-      </div>'''
 
     # Build standing overview table
     standing_overview = pdata.get("standing_overview", [])
@@ -1934,24 +2048,67 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
       </table>
       </div>'''
 
-    # Build priorities section
+    # Build priorities section — risk/opportunity framing (v2.2)
     priorities = pdata.get("priorities", [])
     priorities_html = ""
     if priorities:
         current_horizon = ""
         for p in priorities:
             h = p.get("horizon", "Unspecified")
-            if h != current_horizon:
+            # Normalise horizon labels for risk/opportunity framing
+            horizon_label = h
+            h_lower = h.lower()
+            if "near" in h_lower or "immediate" in h_lower:
+                horizon_label = "Near-term risks and opportunities"
+            elif "medium" in h_lower:
+                horizon_label = "Medium-term risks and opportunities"
+            elif "long" in h_lower:
+                horizon_label = "Long-term risks and opportunities"
+
+            if horizon_label != current_horizon:
                 if current_horizon:
                     priorities_html += "    </div>\n"
-                current_horizon = h
+                current_horizon = horizon_label
                 priorities_html += f'    <h4 class="priority-horizon">{html.escape(current_horizon)}</h4>\n    <div class="priority-group">\n'
+
             action = p.get("action", "")
-            act_cls = "pri-address" if "address" in action.lower() else "pri-monitor" if "monitor" in action.lower() else "pri-reinforce" if "reinforce" in action.lower() else "pri-build"
-            priorities_html += f'''      <div class="priority-item">
-        <span class="priority-action {act_cls}">{html.escape(action)}</span>
-        <span class="priority-arena">{html.escape(p.get("arena", ""))}</span>
-        <p class="priority-desc">{html.escape(p.get("description", ""))}</p>
+            desc = p.get("description", "")
+            arena = p.get("arena", "")
+
+            # Determine if this is a risk or opportunity based on action verb
+            action_lower = action.lower()
+            if any(w in action_lower for w in ("address", "correct", "structural_response", "mitigate")):
+                risk_type = "Risk"
+                risk_cls = "pri-risk"
+            elif any(w in action_lower for w in ("reinforce", "build", "leverage", "capitalise")):
+                risk_type = "Opportunity"
+                risk_cls = "pri-opportunity"
+            elif "monitor" in action_lower:
+                risk_type = "Watch"
+                risk_cls = "pri-watch"
+            else:
+                risk_type = "Risk" if "vuln" in desc.lower() or "weak" in desc.lower() else "Opportunity"
+                risk_cls = "pri-risk" if risk_type == "Risk" else "pri-opportunity"
+
+            # Map action to recommended response framing
+            if "monitor" in action_lower:
+                response = f"Track {html.escape(arena)} for escalation signals."
+            elif "reinforce" in action_lower:
+                response = f"Proactively reinforce {html.escape(arena)} positioning before adverse framing erodes position."
+            elif "correct" in action_lower or "address" in action_lower:
+                response = f"Develop counter-narrative or corrective positioning to address adverse framing in {html.escape(arena)}."
+            elif "structural" in action_lower:
+                response = f"Structural response required in {html.escape(arena)} to address root cause."
+            else:
+                response = ""
+
+            priorities_html += f'''      <div class="priority-item priority-item-{risk_cls}">
+        <div class="priority-type-row">
+          <span class="priority-type {risk_cls}">{risk_type}</span>
+          {('<span class="priority-arena-tag">' + html.escape(arena) + '</span>') if arena else ''}
+        </div>
+        <p class="priority-desc">{html.escape(desc)}</p>
+        {('<p class="priority-response"><strong>Recommended response:</strong> ' + response + '</p>') if response else ''}
       </div>\n'''
         if current_horizon:
             priorities_html += "    </div>\n"
@@ -2232,6 +2389,61 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .conclusion-posture {{ display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }}
 .conclusion-posture-badge {{ font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }}
 
+/* Executive Summary — What/Why/Watch sub-blocks */
+.exec-sub {{ margin-bottom: 20px; }}
+.exec-sub:last-child {{ margin-bottom: 0; }}
+.exec-sub-head {{ font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }}
+.exec-sub-head::before {{ content: ''; width: 3px; height: 14px; background: var(--pillar); border-radius: 2px; flex-shrink: 0; }}
+.exec-sub p {{ font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; }}
+
+/* Arena-grouped Perception Dashboard */
+.pd-arena-row {{ background: var(--bg) !important; }}
+.pd-arena-row td {{ border-bottom: 2px solid var(--border) !important; padding-top: 14px !important; padding-bottom: 14px !important; }}
+.pd-arena-name {{ font-size: 14px; }}
+.pd-prop-row td {{ padding-left: 20px !important; }}
+.pd-indent {{ color: var(--text-muted); font-size: 11px; margin-right: 4px; }}
+.pd-emerging {{ text-align: center; width: 80px; font-size: 13px; color: var(--green); }}
+.pd-footnote {{ font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px; font-style: italic; line-height: 1.5; }}
+
+/* Standing Context — unified arena cards */
+.standing-arena-grid {{ display: flex; flex-direction: column; gap: 16px; }}
+.standing-arena-card {{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); box-shadow: var(--card-shadow); overflow: hidden; }}
+.arena-narrative {{ font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }}
+
+/* Inline strength/vulnerability signals within standing context */
+.standing-signals {{ padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }}
+.standing-signals-strength {{ background: rgba(46,155,110,0.03); }}
+.standing-signals-vuln {{ background: rgba(217,64,72,0.03); }}
+.standing-signal-head {{ font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }}
+.ss-icon {{ font-size: 10px; }}
+.ss-icon-strength {{ color: var(--green); }}
+.ss-icon-vuln {{ color: var(--red); }}
+.standing-signals ul {{ list-style: none; padding: 0; }}
+.standing-signals li {{ font-size: 12px; color: var(--text-mid); line-height: 1.65; margin-bottom: 6px; padding-left: 16px; position: relative; }}
+.standing-signals-strength li::before {{ content: '+'; position: absolute; left: 0; color: var(--green); font-weight: 700; }}
+.standing-signals-vuln li::before {{ content: '−'; position: absolute; left: 0; color: var(--red); font-weight: 700; font-size: 14px; }}
+.standing-signals li strong {{ color: var(--text); font-weight: 600; }}
+.signal-horizon-tag {{ font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); margin-left: 4px; white-space: nowrap; }}
+.sev-tag {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; }}
+.sev-tag-high {{ background: rgba(217,64,72,0.12); color: #991b1b; }}
+.sev-tag-medium {{ background: rgba(196,146,10,0.1); color: #92400e; }}
+.sev-tag-low {{ background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }}
+
+/* Redirect sections (Sections 7, 8) */
+.sec-redirect {{ opacity: 0.7; }}
+.redirect-text {{ font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }}
+.redirect-text em {{ color: var(--pillar); font-style: italic; }}
+
+/* Strategic Priorities — risk/opportunity framing */
+.priority-type-row {{ display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }}
+.priority-type {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; }}
+.pri-risk {{ background: rgba(217,64,72,0.12); color: #991b1b; }}
+.pri-opportunity {{ background: rgba(46,155,110,0.12); color: #166534; }}
+.pri-watch {{ background: rgba(196,146,10,0.1); color: #92400e; }}
+.priority-arena-tag {{ font-size: 10px; font-weight: 600; color: var(--pillar); background: var(--pillar-light); padding: 3px 10px; border-radius: 3px; }}
+.priority-response {{ font-size: 12px; color: var(--text-mid); line-height: 1.6; margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--border-light); }}
+.priority-response strong {{ color: var(--text); }}
+
 /* Forward Outlook / Predictions */
 .pred-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }}
 .pred-tile {{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }}
@@ -2362,11 +2574,11 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 
 <div class="main">
 
-  <!-- Section 01: Executive Intelligence Summary -->
+  <!-- Section 02: Executive Intelligence Summary -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Executive Intelligence Summary</h2>
-      <span class="sec-num">Section 01</span>
+      <span class="sec-num">Section 02</span>
     </div>
     <div class="exec-card">
 {exec_html}    </div>
@@ -2375,74 +2587,74 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   <!-- Signal Summary -->
   {stats_html}
 
-  <!-- Section 02: Forward Outlook -->
+  <!-- Section 03: Forward Outlook -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Forward Outlook</h2>
-      <span class="sec-num">Section 02</span>
+      <span class="sec-num">Section 03</span>
     </div>
     {outlook_html}
   </div>
 
-  <!-- Section 03: Sentiment & Perception Dashboard -->
+  <!-- Section 04: Sovereign Perception Dashboard -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Sentiment &amp; Perception Dashboard</h2>
-      <span class="sec-num">Section 03</span>
+      <h2 class="sec-title">Sovereign Perception Dashboard</h2>
+      <span class="sec-num">Section 04</span>
     </div>
     {perception_html if perception_html else '<div class="exec-card"><p>External perception data not available this cycle. Scores will populate when source coverage meets the assessment threshold.</p></div>'}
   </div>
 
-  <!-- Section 04: Trend & Arena Analysis -->
+  <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Trend &amp; Arena Analysis</h2>
-      <span class="sec-num">Section 04 &middot; {len(arena_ctx)} arena{"s" if len(arena_ctx) != 1 else ""} assessed</span>
+      <h2 class="sec-title">Sovereign Standing Context</h2>
+      <span class="sec-num">Section 06 &middot; {len(arena_ctx)} arena{"s" if len(arena_ctx) != 1 else ""} assessed</span>
     </div>
-    {('<div class="arena-grid">' + arena_cards_html + '</div>') if arena_cards_html else '<div class="exec-card"><p>No arenas met the assessment threshold this cycle. Arena analysis will populate when sufficient source coverage is detected.</p></div>'}
+    {('<div class="standing-arena-grid">' + standing_context_html + '</div>') if standing_context_html else '<div class="exec-card"><p>No arenas met the assessment threshold this cycle. Standing context will populate when sufficient source coverage is detected.</p></div>'}
   </div>
 
-  <!-- Section 05: Strength Signals -->
-  <div class="sec">
-    <div class="sec-head">
-      <h2 class="sec-title">Strength Signals</h2>
-      <span class="sec-num">Section 05 &middot; {strength_count} signals</span>
-    </div>
-    {strength_cards_html if strength_cards_html else '<div class="exec-card"><p>No strength signals recorded this cycle.</p></div>'}
-  </div>
-
-  <!-- Section 06: Vulnerability Signals -->
-  <div class="sec">
+  <!-- Section 07: Vulnerability Signals (redirect) -->
+  <div class="sec sec-redirect">
     <div class="sec-head">
       <h2 class="sec-title">Vulnerability Signals</h2>
-      <span class="sec-num">Section 06 &middot; {vuln_count} signals</span>
-    </div>
-    {vuln_cards_html if vuln_cards_html else '<div class="exec-card"><p>No vulnerability signals recorded this cycle.</p></div>'}
-  </div>
-
-  <!-- Section 07: Standing & Sentiment Overview -->
-  <div class="sec">
-    <div class="sec-head">
-      <h2 class="sec-title">Standing &amp; Sentiment Overview</h2>
       <span class="sec-num">Section 07</span>
     </div>
-    {overview_html if overview_html else '<div class="exec-card"><p>Standing overview not assessed this cycle.</p></div>'}
+    <p class="redirect-text">Vulnerability signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Pressure on this standing&rdquo;</em> blocks for detail.</p>
   </div>
 
-  <!-- Section 08: Strategic Priorities & Watch List -->
+  <!-- Section 08: Strength Signals (redirect) -->
+  <div class="sec sec-redirect">
+    <div class="sec-head">
+      <h2 class="sec-title">Strength Signals</h2>
+      <span class="sec-num">Section 08</span>
+    </div>
+    <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
+  </div>
+
+  <!-- Section 11: Strategic Priorities -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Strategic Priorities &amp; Watch List</h2>
-      <span class="sec-num">Section 08</span>
+      <h2 class="sec-title">Strategic Attention Priorities</h2>
+      <span class="sec-num">Section 11</span>
     </div>
     {priorities_html if priorities_html else '<div class="exec-card"><p>No strategic priorities flagged this cycle.</p></div>'}
   </div>
 
-  <!-- Conclusion -->
+  <!-- Section 12: Position Summary -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Sentiment Assessment</h2>
-      <span class="sec-num">Conclusion</span>
+      <h2 class="sec-title">Position Summary</h2>
+      <span class="sec-num">Section 12</span>
+    </div>
+    {overview_html if overview_html else '<div class="exec-card"><p>Position summary not assessed this cycle.</p></div>'}
+  </div>
+
+  <!-- Section 13: Conclusion -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Conclusion</h2>
+      <span class="sec-num">Section 13</span>
     </div>
     <div class="conclusion-card">
 {conclusion_html}      <div class="conclusion-posture">

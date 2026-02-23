@@ -173,6 +173,61 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Executive Summary — What/Why/Watch sub-blocks */
+.exec-sub { margin-bottom: 20px; }
+.exec-sub:last-child { margin-bottom: 0; }
+.exec-sub-head { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.exec-sub-head::before { content: ''; width: 3px; height: 14px; background: var(--pillar); border-radius: 2px; flex-shrink: 0; }
+.exec-sub p { font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; }
+
+/* Arena-grouped Perception Dashboard */
+.pd-arena-row { background: var(--bg) !important; }
+.pd-arena-row td { border-bottom: 2px solid var(--border) !important; padding-top: 14px !important; padding-bottom: 14px !important; }
+.pd-arena-name { font-size: 14px; }
+.pd-prop-row td { padding-left: 20px !important; }
+.pd-indent { color: var(--text-muted); font-size: 11px; margin-right: 4px; }
+.pd-emerging { text-align: center; width: 80px; font-size: 13px; color: var(--green); }
+.pd-footnote { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px; font-style: italic; line-height: 1.5; }
+
+/* Standing Context — unified arena cards */
+.standing-arena-grid { display: flex; flex-direction: column; gap: 16px; }
+.standing-arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); box-shadow: var(--card-shadow); overflow: hidden; }
+.arena-narrative { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }
+
+/* Inline strength/vulnerability signals within standing context */
+.standing-signals { padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }
+.standing-signals-strength { background: rgba(46,155,110,0.03); }
+.standing-signals-vuln { background: rgba(217,64,72,0.03); }
+.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.ss-icon { font-size: 10px; }
+.ss-icon-strength { color: var(--green); }
+.ss-icon-vuln { color: var(--red); }
+.standing-signals ul { list-style: none; padding: 0; }
+.standing-signals li { font-size: 12px; color: var(--text-mid); line-height: 1.65; margin-bottom: 6px; padding-left: 16px; position: relative; }
+.standing-signals-strength li::before { content: '+'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.standing-signals-vuln li::before { content: '−'; position: absolute; left: 0; color: var(--red); font-weight: 700; font-size: 14px; }
+.standing-signals li strong { color: var(--text); font-weight: 600; }
+.signal-horizon-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); margin-left: 4px; white-space: nowrap; }
+.sev-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; }
+.sev-tag-high { background: rgba(217,64,72,0.12); color: #991b1b; }
+.sev-tag-medium { background: rgba(196,146,10,0.1); color: #92400e; }
+.sev-tag-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* Redirect sections (Sections 7, 8) */
+.sec-redirect { opacity: 0.7; }
+.redirect-text { font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }
+.redirect-text em { color: var(--pillar); font-style: italic; }
+
+/* Strategic Priorities — risk/opportunity framing */
+.priority-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.priority-type { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; }
+.pri-risk { background: rgba(217,64,72,0.12); color: #991b1b; }
+.pri-opportunity { background: rgba(46,155,110,0.12); color: #166534; }
+.pri-watch { background: rgba(196,146,10,0.1); color: #92400e; }
+.priority-arena-tag { font-size: 10px; font-weight: 600; color: var(--pillar); background: var(--pillar-light); padding: 3px 10px; border-radius: 3px; }
+.priority-response { font-size: 12px; color: var(--text-mid); line-height: 1.6; margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--border-light); }
+.priority-response strong { color: var(--text); }
+
 /* Forward Outlook / Predictions */
 .pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .pred-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }
@@ -350,11 +405,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 
 <div class="main">
 
-  <!-- Section 01: Executive Intelligence Summary -->
+  <!-- Section 02: Executive Intelligence Summary -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Executive Intelligence Summary</h2>
-      <span class="sec-num">Section 01</span>
+      <span class="sec-num">Section 02</span>
     </div>
     <div class="exec-card">
       <p style="font-weight:600">External defence-and-security coverage continues to treat the UK as a credible allied actor across Military Capability And Readiness and Alliance Reliability And Burden Sharing, anchored in AUKUS visibility and Ukraine-linked operational framing, while Geopolitical Influence In Security Theatres is the cycle’s pressure point, dominated by Donald Trump-linked alliance-volatility discussion and Chagos Archipelago / Mauritius / Diego Garcia strategic-access dispute framing across Europe, the United States, and Russia; headline sovereign perception score: 73.</p>
@@ -391,11 +446,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         </div>
       </div>
 
-  <!-- Section 02: Forward Outlook -->
+  <!-- Section 03: Forward Outlook -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Forward Outlook</h2>
-      <span class="sec-num">Section 02</span>
+      <span class="sec-num">Section 03</span>
     </div>
     
       <div class="pred-grid">
@@ -491,359 +546,425 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="pred-summary">Outlook: 8 signals assessed, dominant direction Intensifying. 6 arenas show intensifying predictions.</div>
   </div>
 
-  <!-- Section 03: Sentiment & Perception Dashboard -->
+  <!-- Section 04: Sovereign Perception Dashboard -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Sentiment &amp; Perception Dashboard</h2>
-      <span class="sec-num">Section 03</span>
+      <h2 class="sec-title">Sovereign Perception Dashboard</h2>
+      <span class="sec-num">Section 04</span>
     </div>
     
       <div class="table-scroll">
       <table class="pd-table">
-        <thead><tr><th>Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Arena</th></tr></thead>
+        <thead><tr><th>Arena / Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Emerging</th></tr></thead>
         <tbody>
-        <tr>
-          <td class="pd-prop">Strategic actor characterisation</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Geopolitical Influence</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">55% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Strategic actor characterisation</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">55% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-medium">Medium</span></td>
-          <td class="pd-arena">Geopolitical Influence</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">NATO role description</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>NATO Role</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">72% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> NATO role description</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">72% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">NATO Role</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Defence industry and procurement credibility</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Defence Industry</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">73% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Defence industry and procurement credibility</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">73% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Defence Industry</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Deterrence posture portrayal</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Deterrence Posture</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">75% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Deterrence posture portrayal</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">75% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Deterrence Posture</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Cyber capability and security posture</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Cyber Capability</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">75% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Cyber capability and security posture</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">75% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Cyber Capability</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Military capability and readiness</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Military Capability</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">78% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Military capability and readiness</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">78% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Military Capability</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Alliance reliability framing</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Alliance Reliability</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">80% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">High</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Alliance reliability framing</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">80% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">High</span></td>
-          <td class="pd-arena">Alliance Reliability</td>
+          <td class="pd-emerging">—</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Arenas Positive</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Trends Tracked</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">1% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">15</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Arenas Positive</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">1% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-high">15</span></td>
-          <td class="pd-arena">Trends Tracked</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Articles</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Military Capability And Readiness</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">0% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">Cold</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Articles</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">0% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-high">Cold</span></td>
-          <td class="pd-arena">Military Capability And Readiness</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Articles</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Temperature</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">88% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Russia, Europe, Ukraine</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Articles</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">88% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">Russia, Europe, Ukraine</span></td>
-          <td class="pd-arena">Temperature</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">3</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Europe, Russia, Ukraine</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">94% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Geography</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> 3</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">94% <span style='font-size:0.7em'>&#9650;</span></td>
           <td><span class="conf-badge conf-high">Geography</span></td>
-          <td class="pd-arena">Europe, Russia, Ukraine</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
-        <tr>
-          <td class="pd-prop">Trends</td>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Geography</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">2% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">51</span></td>
+          <td class="pd-emerging">&#10003;</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Trends</td>
           <td class="pd-pct" style="color:var(--red);font-weight:700">2% <span style='font-size:0.7em'>&#9660;</span></td>
           <td><span class="conf-badge conf-high">51</span></td>
-          <td class="pd-arena">Geography</td>
+          <td class="pd-emerging">&#10003;</td>
         </tr>
         </tbody>
       </table>
       </div>
+      <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>
   </div>
 
-  <!-- Section 04: Trend & Arena Analysis -->
+  <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Trend &amp; Arena Analysis</h2>
-      <span class="sec-num">Section 04 &middot; 7 arenas assessed</span>
+      <h2 class="sec-title">Sovereign Standing Context</h2>
+      <span class="sec-num">Section 06 &middot; 7 arenas assessed</span>
     </div>
-    <div class="arena-grid">
-        <div class="arena-card" style="border-top:3px solid var(--green)">
+    <div class="standing-arena-grid">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
             <div class="arena-card-name">Military Capability And Readiness</div>
             <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Russia, Europe, Ukraine</div>
+          <p class="arena-narrative">Military Capability And Readiness is strong and is building, driven by Russia / operational-led / defence and Russian Navy / operational-led / defence framing concentrated in Russia, Europe, and Ukraine.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Russia, Europe, Ukraine</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Structural:</strong> NATO-command-linked maritime tasking is explicitly evidenced via UK reporting on monitoring a Russian warship under Allied Maritime Command activation, with coverage concentrated across Russia and Europe lanes where operational posture is repeatedly referenced. (EVD-72SS-003) <span class="signal-horizon-tag">Near term</span></li>
+<li><strong>Reputational:</strong> NATO high-readiness force and exercise context keeps UK readiness posture framed favourably in Russia/Ukraine/Europe discussion, with repeated external references maintaining visibility even when the narrative is embedded in broader threat assessment. (EVD-72SS-001, EVD-72SS-002) <span class="signal-horizon-tag">12 months</span></li>
+</ul>
+          </div>
+          
           <div class="arena-outlook">68% probability that Military Capability And Readiness narratives intensify over the next 90 days (Strong signal)</div>
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--green)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
             <div class="arena-card-name">Alliance Reliability And Burden Sharing</div>
             <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Europe, Russia, Middle East</div>
+          <p class="arena-narrative">Alliance Reliability And Burden Sharing is strong and is steady, anchored in AUKUS / operational-led / defence plus Ukraine / operational-led / defence and USFK / operational-led / defence framing across Europe, Russia, and Australia.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Europe, Russia, Middle East</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Strategic:</strong> Partner-government documentation of AUKUS submarine cooperation sustains reliability and interoperability narratives, with repeated external coverage anchored in Australia and broader Indo-Pacific security framing. (EVD-7LX-SS-005) <span class="signal-horizon-tag">12 months</span></li>
+</ul>
+          </div>
+          
           
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--green)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
             <div class="arena-card-name">Nato Role And Positioning</div>
             <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Russia, Europe, Ukraine</div>
+          <p class="arena-narrative">Nato Role And Positioning is strong and is building, with Ukraine / operational-led / defence and US State Department / policy-led / defence-security as the primary reference points across Russia, Europe, and Ukraine.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Russia, Europe, Ukraine</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Strategic:</strong> Ukraine-support coverage positions the UK as an active NATO-adjacent contributor, with building attention across Russia/Ukraine/Europe discourse even while broader public amplification remains muted. (EVD-7LX-SS-009) <span class="signal-horizon-tag">Near term</span></li>
+</ul>
+          </div>
+          
           
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--green)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
             <div class="arena-card-name">Deterrence Posture And Escalation Management</div>
             <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Europe, Russia, Ukraine</div>
+          <p class="arena-narrative">Deterrence Posture And Escalation Management is strong and is steady, shaped by Vladimir Putin / operational-led / defence alongside Boris Pistorius / operational-led / defence, with a bounded adverse adjunct from Information warfare risk / other / security concentrated in Iran, Israel, and the United States.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Europe, Russia, Ukraine</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Strategic:</strong> UK-linked deterrence discussion is repeatedly coupled to Vladimir Putin / Russia modernisation framing and NATO nuclear-coordination context, maintaining credibility signalling in Europe and United States-linked lanes where alliance resolve is a primary reference point. (EVD-7LX-SS-006, EVD-7LX-SS-007) <span class="signal-horizon-tag">12 months</span></li>
+<li><strong>Strategic:</strong> European deterrence and resilience discussion, linked to Germany-facing capability discourse, keeps the UK contextually salient in allied posture comparisons across Europe and Middle East commentary lanes, even when UK-specific positioning is not always explicit. (EVD-7LX-SS-012, EVD-72SS-006) <span class="signal-horizon-tag">12 months</span></li>
+</ul>
+          </div>
+          
           <div class="arena-outlook">68% probability that Deterrence Posture And Escalation Management narratives intensify over the next 90 days (Strong signal)</div>
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--text-muted)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--text-muted)">
           <div class="arena-card-header">
             <div class="arena-card-name">Defence Industry And Procurement Credibility</div>
             <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)">INSUFFICIENT DATA</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Muted</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">External (mixed)</div>
+          <p class="arena-narrative">Defence Industry And Procurement Credibility has insufficient data this cycle; monitoring shows silence rather than a dedicated external narrative lane.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> External (mixed)</div>
+          
+          
           
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--green)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
             <div class="arena-card-name">Cyber Capability And Security Posture</div>
             <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Moderate</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Europe, Russia, United States</div>
+          <p class="arena-narrative">Cyber Capability And Security Posture is strong and is steady, anchored by Cyber security / operational-led / cyber security competence framing plus a thin cyber espionage risk / operational / cybersecurity adjunct referenced in Taiwan and East Asia.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Europe, Russia, United States</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Policy:</strong> NCSC-UK co-authorship in joint AI-security guidance is repeatedly cited in external cyber-security framing, with visibility strongest in Europe and United States-linked policy lanes even as overall public commentary remains moderate. (EVD-7LX-SS-011) <span class="signal-horizon-tag">3–5 years</span></li>
+</ul>
+          </div>
+          
           
         </div>
-        <div class="arena-card" style="border-top:3px solid var(--red)">
+        <div class="standing-arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
             <div class="arena-card-name">Geopolitical Influence In Security Theatres</div>
             <span class="arena-badge" style="background:rgba(217,64,72,0.1);color:#991b1b">WEAK</span>
           </div>
+          
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Spot-checked</span><span class="arena-field-val">0</span></div>
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">0</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--green)">Rising</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">Public Commentary Intensity Is Elevated</span></div>
             <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">No</span></div>
           </div>
-          <div class="arena-card-geo">Europe, Middle East, Russia</div>
+          <p class="arena-narrative">Geopolitical Influence In Security Theatres is weak and is building, dominated by Donald Trump / policy-heavy / geopolitics and basing/diplomatic dispute risk / mixed / defence (Chagos Archipelago / Mauritius / Diego Garcia) across Europe, the United States, the Middle East, and Russia, with a countervailing policy-visibility lane from Tech-infrastructure discourse / policy-led / defence context.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Europe, Middle East, Russia</div>
+          
+          <div class="standing-signals standing-signals-strength">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-strength">&#9650;</span> Reinforcing this standing</h5>
+            <ul><li><strong>Policy:</strong> OECD technology-governance references keep the UK present in multilateral strategic-technology discourse, providing a steady counter-lane to the arena’s basing and volatility-driven adverse framing. (EVD-72SS-009) <span class="signal-horizon-tag">12 months</span></li>
+</ul>
+          </div>
+          
+          <div class="standing-signals standing-signals-vuln">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-vuln">&#9660;</span> Pressure on this standing</h5>
+            <ul><li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Near term</span> Coverage centred on Chagos Archipelago sovereignty and basing continuity around Diego Garcia, linked to Mauritius and amplified in Iran/Middle East framing, puts strategic-access reliability under scrutiny in external discourse, with attention concentrated in Mauritius, the Middle East, and the United States.</li>
+</ul>
+          </div>
           <div class="arena-outlook">73% probability that Geopolitical Influence In Security Theatres narratives intensify over the next 90 days (Strong signal)</div>
         </div></div>
   </div>
 
-  <!-- Section 05: Strength Signals -->
-  <div class="sec">
-    <div class="sec-head">
-      <h2 class="sec-title">Strength Signals</h2>
-      <span class="sec-num">Section 05 &middot; 8 signals</span>
-    </div>
-    
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-005</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Military Capability And Readiness</span>
-          <span class="signal-badge char-structural">Structural</span>
-        </div>
-        <h4 class="signal-card-title">Military Capability And Readiness — Structural Signal</h4>
-        <p class="signal-card-desc">NATO-command-linked maritime tasking is explicitly evidenced via UK reporting on monitoring a Russian warship under Allied Maritime Command activation, with coverage concentrated across Russia and Europe lanes where operational posture is repeatedly referenced. (EVD-72SS-003)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: Near term</span>
-          <span>Mechanism: confirmed</span>
-          <span>Trend: T4</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-004</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Military Capability And Readiness</span>
-          <span class="signal-badge char-reputational">Reputational</span>
-        </div>
-        <h4 class="signal-card-title">Military Capability And Readiness — Reputational Signal</h4>
-        <p class="signal-card-desc">NATO high-readiness force and exercise context keeps UK readiness posture framed favourably in Russia/Ukraine/Europe discussion, with repeated external references maintaining visibility even when the narrative is embedded in broader threat assessment. (EVD-72SS-001, EVD-72SS-002)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 12 months</span>
-          <span>Mechanism: confirmed</span>
-          <span>Trend: T2</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-002</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Cyber Capability And Security Posture</span>
-          <span class="signal-badge char-policy">Policy</span>
-        </div>
-        <h4 class="signal-card-title">Cyber Capability And Security Posture — Policy Signal</h4>
-        <p class="signal-card-desc">NCSC-UK co-authorship in joint AI-security guidance is repeatedly cited in external cyber-security framing, with visibility strongest in Europe and United States-linked policy lanes even as overall public commentary remains moderate. (EVD-7LX-SS-011)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 3–5 years</span>
-          <span>Mechanism: unresolved</span>
-          <span>Trend: T6</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-008</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Geopolitical Influence In Security Theatres</span>
-          <span class="signal-badge char-policy">Policy</span>
-        </div>
-        <h4 class="signal-card-title">Geopolitical Influence In Security Theatres — Policy Signal</h4>
-        <p class="signal-card-desc">OECD technology-governance references keep the UK present in multilateral strategic-technology discourse, providing a steady counter-lane to the arena’s basing and volatility-driven adverse framing. (EVD-72SS-009)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 12 months</span>
-          <span>Mechanism: confirmed</span>
-          <span>Trend: T12</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-001</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Alliance Reliability And Burden Sharing</span>
-          <span class="signal-badge char-strategic">Strategic</span>
-        </div>
-        <h4 class="signal-card-title">Alliance Reliability And Burden Sharing — Strategic Signal</h4>
-        <p class="signal-card-desc">Partner-government documentation of AUKUS submarine cooperation sustains reliability and interoperability narratives, with repeated external coverage anchored in Australia and broader Indo-Pacific security framing. (EVD-7LX-SS-005)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 12 months</span>
-          <span>Mechanism: confirmed</span>
-          <span>Trend: T7</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-003</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Deterrence Posture And Escalation Management</span>
-          <span class="signal-badge char-strategic">Strategic</span>
-        </div>
-        <h4 class="signal-card-title">Deterrence Posture And Escalation Management — Strategic Signal</h4>
-        <p class="signal-card-desc">UK-linked deterrence discussion is repeatedly coupled to Vladimir Putin / Russia modernisation framing and NATO nuclear-coordination context, maintaining credibility signalling in Europe and United States-linked lanes where alliance resolve is a primary reference point. (EVD-7LX-SS-006, EVD-7LX-SS-007)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 12 months</span>
-          <span>Mechanism: unresolved</span>
-          <span>Trend: T1</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-006</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Nato Role And Positioning</span>
-          <span class="signal-badge char-strategic">Strategic</span>
-        </div>
-        <h4 class="signal-card-title">Nato Role And Positioning — Strategic Signal</h4>
-        <p class="signal-card-desc">Ukraine-support coverage positions the UK as an active NATO-adjacent contributor, with building attention across Russia/Ukraine/Europe discourse even while broader public amplification remains muted. (EVD-7LX-SS-009)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: Near term</span>
-          <span>Mechanism: unresolved</span>
-          <span>Trend: T3</span>
-        </div>
-      </div>
-      <div class="signal-card signal-card-strength">
-        <div class="signal-card-header">
-          <span class="signal-card-id">SS-007</span>
-          <span class="signal-badge signal-badge-strength">STRENGTH</span>
-          <span class="signal-badge signal-badge-arena">Deterrence Posture And Escalation Management</span>
-          <span class="signal-badge char-strategic">Strategic</span>
-        </div>
-        <h4 class="signal-card-title">Deterrence Posture And Escalation Management — Strategic Signal</h4>
-        <p class="signal-card-desc">European deterrence and resilience discussion, linked to Germany-facing capability discourse, keeps the UK contextually salient in allied posture comparisons across Europe and Middle East commentary lanes, even when UK-specific positioning is not always explicit. (EVD-7LX-SS-012, EVD-72SS-006)</p>
-        <div class="signal-card-meta">
-          <span>Horizon: 12 months</span>
-          <span>Mechanism: unresolved</span>
-          <span>Trend: T9</span>
-        </div>
-      </div>
-  </div>
-
-  <!-- Section 06: Vulnerability Signals -->
-  <div class="sec">
+  <!-- Section 07: Vulnerability Signals (redirect) -->
+  <div class="sec sec-redirect">
     <div class="sec-head">
       <h2 class="sec-title">Vulnerability Signals</h2>
-      <span class="sec-num">Section 06 &middot; 1 signals</span>
+      <span class="sec-num">Section 07</span>
     </div>
-    
-      <div class="signal-card signal-card-vuln">
-        <div class="signal-card-header">
-          <span class="signal-card-id">VS-001</span>
-          <span class="signal-badge signal-badge-vuln">MEDIUM SEVERITY</span>
-          <span class="signal-badge signal-badge-arena">Geopolitical Influence In Security Theatres</span>
-          <span class="signal-badge signal-badge-horizon">Near term</span>
-        </div>
-        <h4 class="signal-card-title">Strategic Access And Basing Sovereignty Dispute Framing</h4>
-        <p class="signal-card-desc">Coverage centred on Chagos Archipelago sovereignty and basing continuity around Diego Garcia, linked to Mauritius and amplified in Iran/Middle East framing, puts strategic-access reliability under scrutiny in external discourse, with attention concentrated in Mauritius, the Middle East, and the United States.</p>
-        <div class="signal-card-meta">
-          <span>Position: Confirmed</span>
-          <span>Mechanism: Confirmed</span>
-          <span>Trend: T14</span>
-        </div>
-      </div>
+    <p class="redirect-text">Vulnerability signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Pressure on this standing&rdquo;</em> blocks for detail.</p>
   </div>
 
-  <!-- Section 07: Standing & Sentiment Overview -->
+  <!-- Section 08: Strength Signals (redirect) -->
+  <div class="sec sec-redirect">
+    <div class="sec-head">
+      <h2 class="sec-title">Strength Signals</h2>
+      <span class="sec-num">Section 08</span>
+    </div>
+    <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
+  </div>
+
+  <!-- Section 11: Strategic Priorities -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Standing &amp; Sentiment Overview</h2>
-      <span class="sec-num">Section 07</span>
+      <h2 class="sec-title">Strategic Attention Priorities</h2>
+      <span class="sec-num">Section 11</span>
+    </div>
+        <h4 class="priority-horizon">Near-term risks and opportunities</h4>
+    <div class="priority-group">
+      <div class="priority-item priority-item-pri-risk">
+        <div class="priority-type-row">
+          <span class="priority-type pri-risk">Risk</span>
+          <span class="priority-arena-tag">Geopolitical Influence In Security Theatres</span>
+        </div>
+        <p class="priority-desc">Hot rising vulnerability framing tied to strategic access and basing sovereignty dispute dynamics.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in Geopolitical Influence In Security Theatres.</p>
+      </div>
+      <div class="priority-item priority-item-pri-risk">
+        <div class="priority-type-row">
+          <span class="priority-type pri-risk">Risk</span>
+          <span class="priority-arena-tag">Geopolitical Influence In Security Theatres</span>
+        </div>
+        <p class="priority-desc">Hot rising vulnerability framing driven by US leadership volatility and allied exposure narratives.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in Geopolitical Influence In Security Theatres.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Nato Role And Positioning</span>
+        </div>
+        <p class="priority-desc">Cold discourse with high positive perception indicates an under-amplified lane that could shift quickly if institutional commentary increases.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Nato Role And Positioning for escalation signals.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          <span class="priority-arena-tag">Defence Industry And Procurement Credibility</span>
+        </div>
+        <p class="priority-desc">Cold and silent discourse conditions coexist with a positive inferred perception signal, indicating a visibility gap in this arena.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track Defence Industry And Procurement Credibility for escalation signals.</p>
+      </div>
+      <div class="priority-item priority-item-pri-risk">
+        <div class="priority-type-row">
+          <span class="priority-type pri-risk">Risk</span>
+          <span class="priority-arena-tag">Geopolitical Influence In Security Theatres</span>
+        </div>
+        <p class="priority-desc">High structural tension detected in this arena (STENS-002) with hot rising vulnerabilities outweighing strength signals.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Structural response required in Geopolitical Influence In Security Theatres to address root cause.</p>
+      </div>
+    </div>
+    <h4 class="priority-horizon">Medium-term risks and opportunities</h4>
+    <div class="priority-group">
+      <div class="priority-item priority-item-pri-opportunity">
+        <div class="priority-type-row">
+          <span class="priority-type pri-opportunity">Opportunity</span>
+          <span class="priority-arena-tag">Deterrence Posture And Escalation Management</span>
+        </div>
+        <p class="priority-desc">Arena is strong overall but contains a rising vulnerability adjunct; reinforce the strength framing before erosion occurs.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Proactively reinforce Deterrence Posture And Escalation Management positioning before adverse framing erodes position.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Section 12: Position Summary -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Position Summary</h2>
+      <span class="sec-num">Section 12</span>
     </div>
     
       <div class="table-scroll">
@@ -859,56 +980,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       </div>
   </div>
 
-  <!-- Section 08: Strategic Priorities & Watch List -->
+  <!-- Section 13: Conclusion -->
   <div class="sec">
     <div class="sec-head">
-      <h2 class="sec-title">Strategic Priorities &amp; Watch List</h2>
-      <span class="sec-num">Section 08</span>
-    </div>
-        <h4 class="priority-horizon">Near-term attention</h4>
-    <div class="priority-group">
-      <div class="priority-item">
-        <span class="priority-action pri-address">Address adverse narrative</span>
-        <span class="priority-arena">Geopolitical Influence In Security Theatres</span>
-        <p class="priority-desc">Hot rising vulnerability framing tied to strategic access and basing sovereignty dispute dynamics.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-address">Address adverse narrative</span>
-        <span class="priority-arena">Geopolitical Influence In Security Theatres</span>
-        <p class="priority-desc">Hot rising vulnerability framing driven by US leadership volatility and allied exposure narratives.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Nato Role And Positioning</span>
-        <p class="priority-desc">Cold discourse with high positive perception indicates an under-amplified lane that could shift quickly if institutional commentary increases.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-monitor">Monitor for escalation</span>
-        <span class="priority-arena">Defence Industry And Procurement Credibility</span>
-        <p class="priority-desc">Cold and silent discourse conditions coexist with a positive inferred perception signal, indicating a visibility gap in this arena.</p>
-      </div>
-      <div class="priority-item">
-        <span class="priority-action pri-build">Structural mechanism requires attention</span>
-        <span class="priority-arena">Geopolitical Influence In Security Theatres</span>
-        <p class="priority-desc">High structural tension detected in this arena (STENS-002) with hot rising vulnerabilities outweighing strength signals.</p>
-      </div>
-    </div>
-    <h4 class="priority-horizon">Medium-term monitoring</h4>
-    <div class="priority-group">
-      <div class="priority-item">
-        <span class="priority-action pri-reinforce">Reinforce structural position</span>
-        <span class="priority-arena">Deterrence Posture And Escalation Management</span>
-        <p class="priority-desc">Arena is strong overall but contains a rising vulnerability adjunct; reinforce the strength framing before erosion occurs.</p>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Conclusion -->
-  <div class="sec">
-    <div class="sec-head">
-      <h2 class="sec-title">Sentiment Assessment</h2>
-      <span class="sec-num">Conclusion</span>
+      <h2 class="sec-title">Conclusion</h2>
+      <span class="sec-num">Section 13</span>
     </div>
     <div class="conclusion-card">
       <p>The UK’s defence standing remains strongly supported by alliance and operational contribution framing, AUKUS partnership documentation, Ukraine-linked NATO-adjacent signalling, and cyber/AI-security guidance co-authorship keep credibility lanes positive across Europe, Russia, and United States discourse, yet the national posture is under pressure because Geopolitical Influence In Security Theatres is being pulled by Donald Trump-linked alliance-volatility narratives and the Chagos Archipelago / Mauritius / Diego Garcia strategic-access dispute framing, where public commentary intensity is elevated and attention is building.</p>
