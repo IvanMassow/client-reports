@@ -72,5 +72,14 @@
       "strength_count": 5,
       "vuln_count": 4
     }
+  },
+  "2026-02-23": {
+    "softpower": {
+      "score": 50,
+      "posture": "Declining",
+      "trend_count": 39,
+      "strength_count": 5,
+      "vuln_count": 8
+    }
   }
 }

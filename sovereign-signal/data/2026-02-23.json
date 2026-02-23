@@ -1,0 +1,477 @@
+{
+  "softpower": {
+    "executive_summary": "External perception of the United Kingdom this cycle sits at a 48 sovereign perception score, with the strongest adverse pull coming from Prince Andrew / King Charles III-linked heritage credibility pressure and spillover integrity framing , most visible across the United States, Australia, and Canada; this is reflected in Heritage Identity And Nation Brand (Weak) and anchored by proposition P-SS-DER-SS-001.\nThe counterweight is concentrated in Sporting Brand And Influence (Strong) and visible cultural-event signalling: Team GB prestige coverage remains structurally favourable, while Prince William and Kate Middleton-linked cultural visibility holds a positive posture even as it competes with monarchy-scandal coupling (notably the near-balanced 53% signal in P-SS-DER-SS-010). Education And Research Prestige registers as external silence this cycle, limiting visibility in a high-expected arena.",
+    "perception_dashboard": [
+      {
+        "proposition": "What narrative is forming externally about the United Kingdom\u2019s monarchy and nation brand credibility amid legal and integrity scrutiny?",
+        "global_view": 10,
+        "sovereign_view": null,
+        "signal_strength": "Heritage Identity And Nation Brand",
+        "arena": ",",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the United Kingdom perceived internationally regarding national identity and political cohesion debates that touch the nation brand?",
+        "global_view": 10,
+        "sovereign_view": null,
+        "signal_strength": "Heritage Identity And Nation Brand",
+        "arena": ",",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the United Kingdom perceived internationally regarding cultural reach and competitiveness as reflected through major film/TV and cultural-event visibility signals this cycle?",
+        "global_view": 83,
+        "sovereign_view": null,
+        "signal_strength": "Culture And Media Exports",
+        "arena": ",",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the United Kingdom perceived internationally regarding its creative industries and talent competitiveness (including fashion/film adjacent signals), and are growth-or-decline narratives strengthening?",
+        "global_view": 83,
+        "sovereign_view": null,
+        "signal_strength": "Creative Industries And Talent",
+        "arena": "\u2713",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the United Kingdom perceived internationally regarding Team GB\u2019s sporting brand, performance credibility, and global prestige?",
+        "global_view": 95,
+        "sovereign_view": null,
+        "signal_strength": "Sporting Brand And Influence",
+        "arena": ",",
+        "emerging": ""
+      },
+      {
+        "proposition": "What external narrative is forming about integrity, discrimination, or governance concerns in UK-linked sport ecosystems, and is it polarising?",
+        "global_view": 37,
+        "sovereign_view": null,
+        "signal_strength": "Sporting Brand And Influence",
+        "arena": ",",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the United Kingdom perceived internationally regarding institutional integrity and rule-of-law credibility in relation to high-visibility investigations?",
+        "global_view": 10,
+        "sovereign_view": null,
+        "signal_strength": "Values And Human Rights Reputation",
+        "arena": ",",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the United Kingdom perceived internationally regarding adherence to international law and sovereignty norms in territorial disputes?",
+        "global_view": 5,
+        "sovereign_view": null,
+        "signal_strength": "Values And Human Rights Reputation",
+        "arena": ",",
+        "emerging": ""
+      },
+      {
+        "proposition": "What external narratives describe the reach of UK culture and media exports, and which geographies appear most engaged in that narrative this cycle?",
+        "global_view": 90,
+        "sovereign_view": null,
+        "signal_strength": "Culture And Media Exports",
+        "arena": ",",
+        "emerging": ""
+      },
+      {
+        "proposition": "How is the United Kingdom perceived internationally regarding soft-power symbolism through royal appearances and heritage-linked cultural events, and is the posture net-favourable or net-adverse?",
+        "global_view": 53,
+        "sovereign_view": null,
+        "signal_strength": "Heritage Identity And Nation Brand",
+        "arena": ",",
+        "emerging": ""
+      }
+    ],
+    "trends": [],
+    "arena_context": {
+      "Culture And Media Exports": {
+        "name": "Culture And Media Exports",
+        "momentum": "Rising",
+        "geo_concentration": "Low",
+        "geographies": "United States, Ireland, France",
+        "discourse": "public commentary is moderate",
+        "echo_risk": "No",
+        "summary": "Culture And Media Exports is Moderate with momentum Rising, driven primarily by Prince William + entertainment/fashion visibility alongside the adjacent spillover of King Charles III heritage-credibility pressure in external cultural-event attention.",
+        "posture": "Moderate"
+      },
+      "Education And Research Prestige": {
+        "name": "Education And Research Prestige",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "External (mixed)",
+        "discourse": "public commentary is muted",
+        "echo_risk": "No",
+        "summary": "Education And Research Prestige is Insufficient data with momentum Stable; expected external discourse on universities, research output, and academic prestige did not register this cycle.",
+        "posture": "Insufficient data"
+      },
+      "Sporting Brand And Influence": {
+        "name": "Sporting Brand And Influence",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "Italy, Canada, United States",
+        "discourse": "public commentary is moderate",
+        "echo_risk": "No",
+        "summary": "Sporting Brand And Influence is Strong with momentum Stable, anchored by Team GB + sport performance + global prestige coverage and reinforced by monarchy-linked sport diplomacy cues; the principal offsetting pressure is the high-visibility integrity lane covering discrimination and governance themes.",
+        "posture": "Strong"
+      },
+      "Creative Industries And Talent": {
+        "name": "Creative Industries And Talent",
+        "momentum": "Rising",
+        "geo_concentration": "Low",
+        "geographies": "United States, Italy, Spain",
+        "discourse": "public commentary is muted",
+        "echo_risk": "Yes , signal concentrated",
+        "summary": "Creative Industries And Talent is Moderate with momentum Rising, led by positive visibility cues around Kate Middleton and adjacent creative-industry touchpoints, while a thin competitiveness-drag lane focused on founder/talent relocation framing persists at low volume.",
+        "posture": "Moderate"
+      },
+      "Heritage Identity And Nation Brand": {
+        "name": "Heritage Identity And Nation Brand",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "United States, Australia, Canada",
+        "discourse": "public commentary is moderate",
+        "echo_risk": "No",
+        "summary": "Heritage Identity And Nation Brand is Weak with momentum Stable, driven by adverse monarchy-linked scrutiny centred on Prince Andrew and King Charles III, plus identity-politics spillover involving Reform UK and UK political cohesion framing in external coverage.",
+        "posture": "Weak"
+      },
+      "Values And Human Rights Reputation": {
+        "name": "Values And Human Rights Reputation",
+        "momentum": "Rising",
+        "geo_concentration": "Medium",
+        "geographies": "United States, Australia, Canada",
+        "discourse": "public commentary is moderate",
+        "echo_risk": "No",
+        "summary": "Values And Human Rights Reputation is Weak with momentum Rising, led by rule-of-law and institutional-integrity scrutiny tied to Thames Valley Police and high-visibility investigations, with additional international-law compliance pressure linked to Mauritius / Diego Garcia framing.",
+        "posture": "Weak"
+      }
+    },
+    "strength_signals": [
+      "SS-001",
+      "SS-002",
+      "SS-003",
+      "SS-004",
+      "SS-005"
+    ],
+    "strength_signal_details": [
+      {
+        "id": "SS-001",
+        "arena": "Culture And Media Exports",
+        "character": "Reputational",
+        "horizon": "Near term",
+        "description": "External culture coverage is registering a favourable reach signal led by Prince William-linked event and lifestyle visibility, with attention concentrated in the United States, Ireland, and France; the signal is well-evidenced and actively repeated even as heritage scrutiny continues to run in parallel. (EVD-7LX-SS-008)",
+        "mechanism": "unresolved",
+        "trend_ref": "T4",
+        "evidence": "(EVD-7LX-SS-008)"
+      },
+      {
+        "id": "SS-002",
+        "arena": "Creative Industries And Talent",
+        "character": "Reputational",
+        "horizon": "Near term",
+        "description": "Positive creative-visibility and image-resilience cues linked to Kate Middleton are present but not widely amplified in public discourse, with concentration in the United States and Italy; despite muted visibility, the signal remains stable enough to support a favourable talent narrative on the monitored evidence base. (EVD-7LX-SS-010)",
+        "mechanism": "unresolved",
+        "trend_ref": "T5",
+        "evidence": "(EVD-7LX-SS-010)"
+      },
+      {
+        "id": "SS-003",
+        "arena": "Sporting Brand And Influence",
+        "character": "Reputational",
+        "horizon": "3\u20135 years",
+        "description": "International sports coverage continues to frame Team GB results as prestige and competence signalling, with sustained external engagement led by Italy, Canada, and the United States; the signal is high-relevance, supported by multiple independent references, and remains a durable positive lane even as momentum eases. (EVD-7LX-SS-012)",
+        "mechanism": "unresolved",
+        "trend_ref": "T6",
+        "evidence": "(EVD-7LX-SS-012)"
+      },
+      {
+        "id": "SS-004",
+        "arena": "Sporting Brand And Influence",
+        "character": "Reputational",
+        "horizon": "12 months",
+        "description": "The integrity-and-discrimination lane in UK-linked sport ecosystems is high-visibility and geographically distributed (notably Italy, the United States, and Canada); even with contested posture, its persistence keeps governance and inclusion standards in view as an active accountability frame rather than a silent vulnerability. (EVD-7LX-SS-015)",
+        "mechanism": "unresolved",
+        "trend_ref": "T7",
+        "evidence": "(EVD-7LX-SS-015)"
+      },
+      {
+        "id": "SS-005",
+        "arena": "Sporting Brand And Influence",
+        "character": "Strategic",
+        "horizon": "3\u20135 years",
+        "description": "Commonwealth-facing soft-power signalling tied to King Charles III and sport-linked ceremonial messaging remains present across Italy, Canada, and the United States; the signal is steady rather than expanding, but it continues to reinforce alignment and visibility in sport-adjacent attention lanes. (EVD-7LX-SS-020)",
+        "mechanism": "unresolved",
+        "trend_ref": "T8",
+        "evidence": "(EVD-7LX-SS-020)"
+      }
+    ],
+    "vulnerability_signals": [
+      "VS-001",
+      "VS-002",
+      "VS-003",
+      "VS-004",
+      "VS-005",
+      "VS-006",
+      "VS-007",
+      "VS-008"
+    ],
+    "vuln_signal_details": [
+      {
+        "id": "VS-001",
+        "title": "Monarchy Scandal Framing Pressures Uk Nation-Brand Credibility",
+        "arena": "Heritage Identity And Nation Brand",
+        "severity": "Medium",
+        "horizon": "3\u20135 years",
+        "description": "External coverage linking Prince Andrew and the wider Royal Family to legal-and-reputation scrutiny continues to generate nation-brand drag, concentrated in the United States, Australia, and Canada; the volume is high, but the longer-run standing impact remains bounded by whether external attention stays engaged as the immediate scandal cadence eases. (EVD-7LX-SS-005)",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T1",
+        "evidence": "(EVD-7LX-SS-005)"
+      },
+      {
+        "id": "VS-002",
+        "title": "Succession And Constitutional Stability Concerns Amplify Adverse Nation-Brand Signal",
+        "arena": "Heritage Identity And Nation Brand",
+        "severity": "Medium",
+        "horizon": "Near term",
+        "description": "In external discourse, the Prince Andrew investigation is being coupled to succession and constitutional-stability talk involving King Charles III and Commonwealth consultation themes; attention clusters most in the United States, Canada, and Australia, with additional visibility in China and the United Arab Emirates, creating an adverse credibility lane that can persist even if scandal framing softens. (EVD-7LX-SS-007)",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T2",
+        "evidence": "(EVD-7LX-SS-007)"
+      },
+      {
+        "id": "VS-003",
+        "title": "Cultural-Event Visibility Coexists With Reputational Noise In Heritage Symbolism",
+        "arena": "Heritage Identity And Nation Brand",
+        "severity": "Medium",
+        "horizon": "12 months",
+        "description": "BAFTA-linked cultural visibility is being interpreted through competing frames, where favourable culture signalling coexists with reputational noise tied to the active investigation context around a senior royal figure; the signal is repeated across United States, Canada, and Australia attention lanes, and the mechanism context is established even though the culture-first versus scandal-first balance remains bounded. (EVD-72SS-004)",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Confirmed",
+        "trend_ref": "T3",
+        "evidence": "(EVD-72SS-004)"
+      },
+      {
+        "id": "VS-004",
+        "title": "Rule-Of-Law And Institutional Integrity Scrutiny Creates Reputational Drag",
+        "arena": "Values And Human Rights Reputation",
+        "severity": "Medium",
+        "horizon": "Near term",
+        "description": "External integrity framing tied to Thames Valley Police and law-enforcement process messaging is registering as an adverse institutional-reliability cue, concentrated in the United States, Australia, and Canada with spillover visibility in Jamaica and Ireland, adding a governance-reliability pressure lane alongside heritage scrutiny. (EVD-7LX-SS-006)",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T9",
+        "evidence": "(EVD-7LX-SS-006)"
+      },
+      {
+        "id": "VS-005",
+        "title": "Identity-Politics Spillover Contributes To Adverse Cohesion And Values Framing",
+        "arena": "Heritage Identity And Nation Brand",
+        "severity": "Medium",
+        "horizon": "12 months",
+        "description": "External reporting that uses Reform UK momentum and UK identity debate involving figures such as Keir Starmer and Suella Braverman is feeding a cohesion-and-values lens that can condition wider brand perceptions; the signal is most visible in the United States, with additional attention in Iran, Mauritius, Pakistan, and India. (EVD-7LX-SS-017)",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T10",
+        "evidence": "(EVD-7LX-SS-017)"
+      },
+      {
+        "id": "VS-006",
+        "title": "International-Law And Sovereignty Compliance Pressure In Territorial Dispute Context",
+        "arena": "Values And Human Rights Reputation",
+        "severity": "Medium",
+        "horizon": "12 months",
+        "description": "Multilateral-facing summaries describing sovereignty and long-term base-operation arrangements involving Mauritius, Diego Garcia, and the UK\u2019s position in Chagos-related framing create a legitimacy and compliance pressure lane; attention is concentrated in Mauritius and Iran, and the mechanism is established through authoritative records even though wider uptake remains bounded this cycle. (EVD-72SS-003)",
+        "structural_position": "Confirmed",
+        "mechanism": "Confirmed",
+        "trend_ref": "T11",
+        "evidence": "(EVD-72SS-003)"
+      },
+      {
+        "id": "VS-007",
+        "title": "Competitiveness Drag Narrative Linked To Talent And Founder Relocation Stories",
+        "arena": "Creative Industries And Talent",
+        "severity": "Low",
+        "horizon": "Near term",
+        "description": "A low-volume but externally driven competitiveness lane links UK tax-policy uncertainty to relocation framing involving destinations such as Spain and the United Arab Emirates; it is concentrated in Spain and the United States, and remains bounded until corroborated beyond a narrow evidence base. (EVD-7LX-SS-022)",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T12",
+        "evidence": "(EVD-7LX-SS-022)"
+      },
+      {
+        "id": "VS-008",
+        "title": "Early-Stage Adverse Sport Reputational Micro-Signal Around Officiating Controversy",
+        "arena": "Sporting Brand And Influence",
+        "severity": "Low",
+        "horizon": "12 months",
+        "description": "A narrow officiating-and-rules controversy lane in winter-sport coverage is generating a short-lived integrity risk with Team GB visibility, concentrated in Italy and Canada; the evidence base remains thin, but the theme can compound broader sport-governance scrutiny if repeated. (EVD-7LX-SS-013)",
+        "structural_position": "Managed uncertainty",
+        "mechanism": "Unresolved",
+        "trend_ref": "T13",
+        "evidence": "(EVD-7LX-SS-013)"
+      }
+    ],
+    "priorities": [
+      {
+        "horizon": "Near-term attention",
+        "action": "Monitor for escalation",
+        "arena": "Creative Industries And Talent",
+        "trend": "TRU-T5",
+        "description": "Creative competitiveness signal is strongly favourable but remains under-amplified in broader discourse, creating a monitoring priority for potential narrative expansion."
+      },
+      {
+        "horizon": "Medium-term monitoring",
+        "action": "Reinforce structural position",
+        "arena": "Sporting Brand And Influence",
+        "trend": "TRU-T6",
+        "description": "Sporting standing is strong while a small adverse micro-signal exists in the same arena, suggesting reinforcement to prevent erosion."
+      },
+      {
+        "horizon": "Medium-term monitoring",
+        "action": "Address adverse narrative",
+        "arena": "Heritage Identity And Nation Brand",
+        "trend": "TRU-T2",
+        "description": "Heritage and nation-brand credibility is persistently adverse with rising stability concerns, warranting active attention to contain reputational drag."
+      },
+      {
+        "horizon": "Long-term structural positioning",
+        "action": "Structural mechanism requires attention",
+        "arena": "Values And Human Rights Reputation",
+        "trend": "TRU-T9",
+        "description": "Values and integrity standing remains weak with repeating institutional credibility pressure, indicating a long-horizon structural priority."
+      }
+    ],
+    "standing_overview": [
+      {
+        "dimension": "Structural Position",
+        "assessment": "Mixed",
+        "driver": "Weak standing in Heritage Identity And Nation Brand and Values And Human Rights Reputation offsets Strong Sporting Brand And Influence and Moderate culture/creative arenas."
+      },
+      {
+        "dimension": "Perception Momentum",
+        "assessment": "Stable",
+        "driver": "Rising momentum in Culture And Media Exports and Creative Industries And Talent is balanced by steady trajectories in Heritage Identity And Nation Brand and Sporting Brand And Influence."
+      },
+      {
+        "dimension": "Vulnerability Concentration",
+        "assessment": "Moderate",
+        "driver": "Multiple medium-severity vulnerability signals are concentrated in Heritage Identity And Nation Brand and Values And Human Rights Reputation, with additional low-severity early warnings in sport and creative competitiveness lanes."
+      },
+      {
+        "dimension": "Evidence Density",
+        "assessment": "Moderate",
+        "driver": "Moderate evidence base across monitored arenas this cycle."
+      }
+    ],
+    "conclusion": "The UK's soft-power standing is being pulled in two directions: external attention in the United States, Australia, and Canada is dominated by the monarchy-and-integrity lane centred on Prince Andrew, King Charles III, Thames Valley Police, and related rule-of-law framing, while Team GB prestige coverage and royal-linked cultural visibility signals led by Prince William and Kate Middleton continue to provide credible offsetting strengths. With two arenas assessed as weak (heritage identity and values/integrity) and narrative drift hardening in those lanes, the overall posture remains under pressure even as sport and culture retain favourable structural anchors.\nStanding posture this cycle: Under pressure",
+    "score": 50,
+    "posture": "Declining",
+    "trend_count": 39,
+    "strength_count": 5,
+    "vuln_count": 8,
+    "predictions": [
+      {
+        "title": "Succession stability concerns around monarchy investigation",
+        "probability": 77,
+        "type": "Vulnerability",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Intensification moderates if momentum drops from rising or coverage narrows to fewer independent sources in the next cycle."
+      },
+      {
+        "title": "Royal-linked cultural visibility lifts event salience",
+        "probability": 77,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Intensification moderates if momentum drops from rising or if coverage becomes more geographically concentrated next cycle."
+      },
+      {
+        "title": "Institutional integrity scrutiny intensifies in external framing",
+        "probability": 77,
+        "type": "Vulnerability",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Intensification moderates if momentum drops from rising or if the narrative becomes more geographically concentrated next cycle."
+      },
+      {
+        "title": "Royal image resilience supports creative visibility signal",
+        "probability": 67,
+        "type": "Strength",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "horizon": "90 days",
+        "trigger": "Signal slows if broader discourse remains cold and momentum falls from rising in the next cycle."
+      },
+      {
+        "title": "Populist politics framing shapes UK identity image",
+        "probability": 65,
+        "type": "Vulnerability",
+        "direction": "Stable",
+        "signal_strength": "Strong",
+        "horizon": "180 days",
+        "trigger": "Outlook turns intensifying if momentum becomes rising or if discourse moves from warm toward hotter amplification."
+      },
+      {
+        "title": "BAFTA visibility mixed with heritage reputation noise",
+        "probability": 62,
+        "type": "Vulnerability",
+        "direction": "Stable",
+        "signal_strength": "Strong",
+        "horizon": "180 days",
+        "trigger": "Outlook turns intensifying if momentum becomes rising or if discourse shifts from warm to hot while remaining geographically distributed."
+      },
+      {
+        "title": "Team GB prestige signal softens after peak attention",
+        "probability": 53,
+        "type": "Strength",
+        "direction": "Stable",
+        "signal_strength": "Strong",
+        "horizon": "12 months",
+        "trigger": "Outlook turns intensifying if momentum returns to rising or discourse strengthens beyond warm while remaining widely distributed."
+      },
+      {
+        "title": "Royal sport diplomacy cues persist but fade",
+        "probability": 50,
+        "type": "Strength",
+        "direction": "Stable",
+        "signal_strength": "Strong",
+        "horizon": "12 months",
+        "trigger": "Signal re-energises if momentum becomes rising or external attention share increases beyond current mid-range levels."
+      },
+      {
+        "title": "Monarchy scandal reputational drag gradually recedes",
+        "probability": 47,
+        "type": "Vulnerability",
+        "direction": "Stable",
+        "signal_strength": "Strong",
+        "horizon": "12 months",
+        "trigger": "Trajectory shifts if momentum turns back to rising or external attention share increases beyond current low levels."
+      }
+    ],
+    "arena_predictions": {
+      "Values And Human Rights Reputation": {
+        "has_outlook": true,
+        "outlook_sentence": "77% probability that Values And Human Rights Reputation narratives intensify over the next 90 days (Strong signal)",
+        "probability": 77
+      },
+      "Culture And Media Exports": {
+        "has_outlook": true,
+        "outlook_sentence": "77% probability that Culture And Media Exports narratives intensify over the next 90 days (Strong signal)",
+        "probability": 77
+      },
+      "Creative Industries And Talent": {
+        "has_outlook": true,
+        "outlook_sentence": "67% probability that Creative Industries And Talent narratives intensify over the next 90 days (Strong signal)",
+        "probability": 67
+      }
+    },
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/soft-power-cultural-standing-intelligence-brief-united-kingdom-sporting-brand-and-influence-prestige-holds-2026-02-23-rhfm",
+    "ref": "RHFM"
+  }
+}

@@ -349,12 +349,15 @@ def parse_report_content(desc_html):
                     ctx[key] = val
 
             # Extract the summary sentence (paragraph after the list)
+            # Use .*? instead of [^<]+ so we capture paragraphs containing
+            # inline tags like <strong>Moderate</strong>
             summary_match = re.search(
-                r"</ul>\s*<p>([^<]+)</p>",
-                block_html
+                r"</ul>\s*<p>(.*?)</p>",
+                block_html,
+                re.DOTALL
             )
             if summary_match:
-                ctx["summary"] = summary_match.group(1).strip()
+                ctx["summary"] = _strip_tags(summary_match.group(1)).strip()
 
             # Extract posture from summary — multiple patterns used by reports:
             #  "X is Strong and is building"
@@ -373,7 +376,7 @@ def parse_report_content(desc_html):
                 )
             if not posture_m:
                 posture_m = re.search(
-                    r"has\s+(Insufficient data)",
+                    r"(?:has|is)\s+(Insufficient data)",
                     summary_text, re.IGNORECASE
                 )
             if posture_m:
@@ -1260,7 +1263,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
                 if not pm:
                     pm = re.search(r"(?:standing\s+is)\s+(strong|weak|mixed|moderate)", summary_text, re.IGNORECASE)
                 if not pm:
-                    pm = re.search(r"has\s+(Insufficient data)", summary_text, re.IGNORECASE)
+                    pm = re.search(r"(?:has|is)\s+(Insufficient data)", summary_text, re.IGNORECASE)
                 if pm:
                     ctx["posture"] = pm.group(1).capitalize()
 
