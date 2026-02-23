@@ -1030,79 +1030,23 @@ def _generate_og_image(display_date, composite, composite_posture, pillar_data):
     """Generate og-image.html with live scores, then capture as og-image.png via headless Chrome."""
     import shutil
 
-    posture_color = "#C4545A" if composite_posture == "Weak" else "#C4920A" if composite_posture == "Mixed" else "#3A8A6E"
-    posture_bg = "rgba(217,64,72,0.12)" if composite_posture == "Weak" else "rgba(196,146,10,0.12)" if composite_posture == "Mixed" else "rgba(46,155,110,0.12)"
-
-    pillar_cells = ""
-    for key, pillar in PILLARS.items():
-        pdata = pillar_data.get(key, {})
-        score = pdata.get("score", "—")
-        post = pdata.get("posture", "—")
-        pillar_cells += f"""    <div class="pillar">
-      <div class="pillar-name">{pillar['short']}</div>
-      <div class="pillar-num">{score}</div>
-      <div class="pillar-post">{post.upper()}</div>
-    </div>\n"""
-
     og_html = f"""<!DOCTYPE html>
 <html><head><meta charset="UTF-8">
 <style>
 * {{ margin: 0; padding: 0; box-sizing: border-box; }}
-body {{ width: 1200px; height: 630px; overflow: hidden; font-family: 'Inter', -apple-system, sans-serif; }}
-.card {{ width: 1200px; height: 630px; background: #1a1e27; position: relative; overflow: hidden; }}
-.flag {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.35; filter: saturate(0.4) contrast(1.1); }}
-.overlay {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(115deg, rgba(26,30,39,0.97) 0%, rgba(26,30,39,0.92) 35%, rgba(26,30,39,0.65) 65%, rgba(26,30,39,0.35) 100%); }}
-.content {{ position: relative; z-index: 2; padding: 56px 72px 0; }}
-.eyebrow {{ font-size: 13px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }}
-.title-row {{ display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }}
-.title {{ font-family: 'Lora', Georgia, serif; font-size: 64px; font-weight: 700; color: #FFFFFF; line-height: 1.08; }}
-.score-block {{ text-align: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 24px 40px 20px; backdrop-filter: blur(12px); margin-top: 4px; }}
-.score-label {{ font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px; }}
-.score-num {{ font-family: 'Montserrat', sans-serif; font-size: 72px; font-weight: 800; color: #3A8A6E; line-height: 1; }}
-.score-of {{ font-size: 13px; color: rgba(255,255,255,0.25); margin-top: 4px; }}
-.score-posture {{ display: inline-block; margin-top: 10px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: {posture_color}; background: {posture_bg}; padding: 4px 14px; border-radius: 20px; }}
-.subtitle {{ font-size: 16px; color: rgba(255,255,255,0.32); font-family: 'Lora', Georgia, serif; }}
-.date-line {{ font-size: 13px; color: rgba(255,255,255,0.25); margin-top: 8px; letter-spacing: 0.5px; }}
-.pillars {{ position: absolute; bottom: 72px; left: 0; right: 0; z-index: 2; display: flex; padding: 0 72px; }}
-.pillar {{ flex: 1; text-align: center; padding: 18px 8px 14px; border-right: 1px solid rgba(255,255,255,0.06); }}
-.pillar:last-child {{ border-right: none; }}
-.pillar-name {{ font-size: 8px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px; }}
-.pillar-num {{ font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; color: #3A8A6E; line-height: 1; margin-bottom: 5px; }}
-.pillar-post {{ font-size: 8px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); }}
-.brand {{ position: absolute; bottom: 28px; left: 72px; display: flex; align-items: center; gap: 12px; z-index: 2; }}
-.brand-logo {{ font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.25); text-transform: uppercase; }}
-.brand-divider {{ width: 1px; height: 14px; background: rgba(255,255,255,0.08); }}
-.brand-label {{ font-size: 10px; font-weight: 400; letter-spacing: 1px; color: rgba(255,255,255,0.15); text-transform: uppercase; }}
+body {{ width: 1200px; height: 630px; overflow: hidden; }}
+.card {{ width: 1200px; height: 630px; background: #1a1e27; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }}
+.flag {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }}
+.overlay {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.92) 0%, rgba(26,30,39,0.85) 22%, rgba(26,30,39,0.55) 48%, rgba(26,30,39,0.25) 72%, rgba(26,30,39,0.12) 100%); }}
+.title {{ position: relative; z-index: 2; font-family: 'Montserrat', sans-serif; font-size: 72px; font-weight: 700; color: #FFFFFF; letter-spacing: 0.28em; text-transform: uppercase; }}
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="card">
   <div class="flag"></div>
   <div class="overlay"></div>
-  <div class="content">
-    <div class="eyebrow">United Kingdom</div>
-    <div class="title-row">
-      <div>
-        <div class="title">Sovereign<br>Signal</div>
-        <div class="subtitle">Sentiment, Trends &amp; Predictions</div>
-        <div class="date-line">{display_date}</div>
-      </div>
-      <div class="score-block">
-        <div class="score-label">Composite Sentiment Score</div>
-        <div class="score-num">{composite}</div>
-        <div class="score-of">of 100</div>
-        <div class="score-posture">{composite_posture.upper()}</div>
-      </div>
-    </div>
-  </div>
-  <div class="pillars">
-{pillar_cells}  </div>
-  <div class="brand">
-    <span class="brand-logo">DipTel</span>
-    <span class="brand-divider"></span>
-    <span class="brand-label">Powered by NOAH</span>
-  </div>
+  <div class="title">DIPTEL</div>
 </div>
 </body></html>"""
 
@@ -1429,14 +1373,14 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 <title>Sovereign Signal — Sentiment, Trends &amp; Predictions</title>
 <meta property="og:title" content="Sovereign Signal — Sentiment, Trends & Predictions">
 <meta property="og:description" content="Daily intelligence on the United Kingdom's external positioning — sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.">
-<meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
+<meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sovereign Signal — Sentiment, Trends & Predictions">
 <meta name="twitter:description" content="Daily intelligence — sentiment, trends & predictions">
-<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
+<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -1918,12 +1862,12 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 <title>{headline}</title>
 <meta property="og:title" content="{html.escape(headline)}">
 <meta property="og:description" content="UK {pillar['short']} standing intelligence &mdash; {display_date}">
-<meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
+<meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(headline)}">
-<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png">
+<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
