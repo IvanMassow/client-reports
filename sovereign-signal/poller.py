@@ -356,11 +356,26 @@ def parse_report_content(desc_html):
             if summary_match:
                 ctx["summary"] = summary_match.group(1).strip()
 
-            # Extract posture from summary
+            # Extract posture from summary — multiple patterns used by reports:
+            #  "X is Strong and is building"
+            #  "X standing is strong and is steady"
+            #  "X has Insufficient data this cycle"
+            #  "X reflects a Strong structural position"
+            summary_text = ctx.get("summary", "")
             posture_m = re.search(
-                r"reflects?\s+(?:a|an)\s+(Strong|Weak|Mixed|Moderate|Insufficient data)\s+(?:structural\s+)?position",
-                ctx.get("summary", ""), re.IGNORECASE
+                r"(?:is|reflects?\s+(?:a|an)\s+)\s*(Strong|Weak|Mixed|Moderate)(?:\s|,|\.|\band)",
+                summary_text, re.IGNORECASE
             )
+            if not posture_m:
+                posture_m = re.search(
+                    r"(?:standing\s+is)\s+(strong|weak|mixed|moderate)",
+                    summary_text, re.IGNORECASE
+                )
+            if not posture_m:
+                posture_m = re.search(
+                    r"has\s+(Insufficient data)",
+                    summary_text, re.IGNORECASE
+                )
             if posture_m:
                 ctx["posture"] = posture_m.group(1).capitalize()
 
@@ -1237,6 +1252,24 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         # Merge with arena_context for momentum data
         arena_ctx = pdata.get("arena_context", {})
 
+        # Re-derive posture from summaries if missing (handles saved JSON without posture)
+        for arena_name, ctx in arena_ctx.items():
+            if "posture" not in ctx and "summary" in ctx:
+                summary_text = ctx["summary"]
+                pm = re.search(r"(?:is|reflects?\s+(?:a|an)\s+)\s*(Strong|Weak|Mixed|Moderate)(?:\s|,|\.|\band)", summary_text, re.IGNORECASE)
+                if not pm:
+                    pm = re.search(r"(?:standing\s+is)\s+(strong|weak|mixed|moderate)", summary_text, re.IGNORECASE)
+                if not pm:
+                    pm = re.search(r"has\s+(Insufficient data)", summary_text, re.IGNORECASE)
+                if pm:
+                    ctx["posture"] = pm.group(1).capitalize()
+
+        # Override findings posture with arena_context posture (more reliable than regex extraction)
+        for f in findings:
+            ctx = arena_ctx.get(f["arena"], {})
+            if ctx.get("posture"):
+                f["posture"] = ctx["posture"].capitalize()
+
         # Supplement findings with any arena_context entries the regex missed
         if arena_ctx:
             found_names = {f["arena"] for f in findings}
@@ -1259,15 +1292,22 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         if findings:
             for f in findings:
                 posture = f["posture"]
-                if posture == "Strong":
+                if posture.lower() in ("strong",):
                     dot_cls = "finding-dot-strong"
                     badge_cls = "finding-badge-strong"
-                elif posture == "Weak":
+                    posture = "Strong"
+                elif posture.lower() in ("weak",):
                     dot_cls = "finding-dot-weak"
                     badge_cls = "finding-badge-weak"
-                elif posture == "Mixed":
+                    posture = "Weak"
+                elif posture.lower() in ("mixed", "moderate"):
                     dot_cls = "finding-dot-mixed"
                     badge_cls = "finding-badge-mixed"
+                    posture = "Mixed"
+                elif posture.lower() in ("insufficient data",):
+                    dot_cls = "finding-dot-uncertain"
+                    badge_cls = "finding-badge-uncertain"
+                    posture = "Low Data"
                 else:
                     dot_cls = "finding-dot-uncertain"
                     badge_cls = "finding-badge-uncertain"
