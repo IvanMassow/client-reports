@@ -768,9 +768,9 @@ body {
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Composite Sentiment Score</div>
-        <div class="score-block-num" id="composite-score" style="color:var(--green)">50 <span style="font-size:0.45em;vertical-align:middle">&#9650;</span></div>
+        <div class="score-block-num" id="composite-score" style="color:var(--red)">50 <span style="font-size:0.45em;vertical-align:middle">&#9660;</span></div>
         <div class="score-block-max">of 100</div>
-        <div class="score-block-delta up">&#9650; +2 <span style="color:var(--green);opacity:0.6">was 48</span></div>
+        <div class="score-block-delta down">&#9660; -4 <span style="color:var(--green);opacity:0.6">was 54</span></div>
         <div class="score-block-posture posture-mixed" id="composite-posture">Mixed</div>
       </div>
     </div>
@@ -784,29 +784,29 @@ body {
         <div class="pillar-score-prev" style="color:var(--green)">48</div>
         <div class="pillar-score-posture">Declining</div>
       </a>
-      <a class="pillar-score-cell" data-pillar="defence" href="uk-defence-2026-02-23.html">
+      <a class="pillar-score-cell delta-down" data-pillar="defence" href="uk-defence-2026-02-23.html">
         <div class="pillar-score-name">Defence & Strategic Credibility</div>
-        <div class="pillar-score-num" style="color:var(--red)">—</div>
-        <div class="pillar-score-prev">&mdash;</div>
-        <div class="pillar-score-posture">—</div>
+        <div class="pillar-score-num" style="color:var(--red)">50 <span style="font-size:0.5em;vertical-align:middle">&#9660;</span></div>
+        <div class="pillar-score-prev" style="color:var(--red)">57</div>
+        <div class="pillar-score-posture">Declining</div>
       </a>
-      <a class="pillar-score-cell" data-pillar="economic" href="uk-economic-2026-02-23.html">
+      <a class="pillar-score-cell delta-down" data-pillar="economic" href="uk-economic-2026-02-23.html">
         <div class="pillar-score-name">Economic & Business Leadership</div>
-        <div class="pillar-score-num" style="color:var(--red)">—</div>
-        <div class="pillar-score-prev">&mdash;</div>
-        <div class="pillar-score-posture">—</div>
+        <div class="pillar-score-num" style="color:var(--red)">50 <span style="font-size:0.5em;vertical-align:middle">&#9660;</span></div>
+        <div class="pillar-score-prev" style="color:var(--red)">62</div>
+        <div class="pillar-score-posture">Mixed</div>
       </a>
-      <a class="pillar-score-cell" data-pillar="diplomatic" href="uk-diplomatic-2026-02-23.html">
+      <a class="pillar-score-cell delta-down" data-pillar="diplomatic" href="uk-diplomatic-2026-02-23.html">
         <div class="pillar-score-name">Diplomatic & Global Leadership</div>
-        <div class="pillar-score-num" style="color:var(--red)">—</div>
-        <div class="pillar-score-prev">&mdash;</div>
-        <div class="pillar-score-posture">—</div>
+        <div class="pillar-score-num" style="color:var(--red)">50 <span style="font-size:0.5em;vertical-align:middle">&#9660;</span></div>
+        <div class="pillar-score-prev" style="color:var(--red)">57</div>
+        <div class="pillar-score-posture">Stable</div>
       </a>
       <a class="pillar-score-cell" data-pillar="trust" href="uk-trust-2026-02-23.html">
         <div class="pillar-score-name">Trust, Stability & Systemic Reliability</div>
-        <div class="pillar-score-num" style="color:var(--red)">—</div>
-        <div class="pillar-score-prev">&mdash;</div>
-        <div class="pillar-score-posture">—</div>
+        <div class="pillar-score-num" style="color:var(--green)">50</div>
+        <div class="pillar-score-prev" style="color:var(--green)">50</div>
+        <div class="pillar-score-posture">Stable</div>
       </a>
 </div>
 
@@ -814,7 +814,7 @@ body {
   <div id="pillars">
     <div class="section-head">
       <h2 class="section-title">Daily Intelligence Briefings</h2>
-      <span class="section-meta">Cycle: 23 February 2026 &middot; 5 strengths &middot; 8 vulnerabilities</span>
+      <span class="section-meta">Cycle: 23 February 2026 &middot; 30 strengths &middot; 16 vulnerabilities</span>
     </div>
     <div class="briefing-cards">
       <a class="briefing-card" data-pillar="softpower" id="tile-softpower" href="uk-softpower-2026-02-23.html">
@@ -880,94 +880,164 @@ body {
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
-      <a class="briefing-card" data-pillar="defence" id="tile-defence" href="#">
+      <a class="briefing-card" data-pillar="defence" id="tile-defence" href="uk-defence-2026-02-23.html">
         <div class="briefing-card-top">
           <div class="briefing-card-left">
             <span class="briefing-card-tag">Defence</span>
             <span class="briefing-card-title">Defence & Strategic Credibility</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score" style="color:var(--text)">—</div>
+            <div class="briefing-card-score" style="color:var(--red)">50 <span style="font-size:0.55em;vertical-align:middle">&#9660;</span></div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val" style="color:var(--green)">0</div>
+              <div class="briefing-card-meta-val" style="color:var(--green)">7</div>
               <div class="briefing-card-meta-label">Strengths</div>
             </div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val" style="color:var(--red)">0</div>
+              <div class="briefing-card-meta-val" style="color:var(--red)">2</div>
               <div class="briefing-card-meta-label">Vulns</div>
             </div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val">0</div>
+              <div class="briefing-card-meta-val">33</div>
               <div class="briefing-card-meta-label">Trends</div>
             </div>
           </div>
         </div>
-        <div class="briefing-card-findings-grid"><div class="finding-row finding-row-fallback"></div>
+        <div class="briefing-card-findings-grid">
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Military Capability And Readiness</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Alliance Reliability And Burden Sharing</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Nato Role And Positioning</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Deterrence Posture And Escalation Management</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Defence Industry And Procurement Credibility</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Cyber Capability And Security Posture</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Geopolitical Influence In Security Theatres</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
-      <a class="briefing-card" data-pillar="economic" id="tile-economic" href="#">
+      <a class="briefing-card" data-pillar="economic" id="tile-economic" href="uk-economic-2026-02-23.html">
         <div class="briefing-card-top">
           <div class="briefing-card-left">
             <span class="briefing-card-tag">Economic</span>
             <span class="briefing-card-title">Economic & Business Leadership</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score" style="color:var(--text)">—</div>
+            <div class="briefing-card-score" style="color:var(--red)">50 <span style="font-size:0.55em;vertical-align:middle">&#9660;</span></div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val" style="color:var(--green)">0</div>
+              <div class="briefing-card-meta-val" style="color:var(--green)">7</div>
               <div class="briefing-card-meta-label">Strengths</div>
             </div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val" style="color:var(--red)">0</div>
+              <div class="briefing-card-meta-val" style="color:var(--red)">2</div>
               <div class="briefing-card-meta-label">Vulns</div>
             </div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val">0</div>
+              <div class="briefing-card-meta-val">78</div>
               <div class="briefing-card-meta-label">Trends</div>
             </div>
           </div>
         </div>
-        <div class="briefing-card-findings-grid"><div class="finding-row finding-row-fallback"></div>
+        <div class="briefing-card-findings-grid">
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Economic Competence</span> <span class="finding-momentum finding-mom-rising">&#9650;</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Strategic Credibility</span> <span class="finding-momentum finding-mom-rising">&#9650;</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Governance Stability</span> <span class="finding-momentum">&#8594;</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Partnership Reliability</span> <span class="finding-momentum">&#8594;</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-uncertain"></span>
+                <span class="finding-arena">Cultural Soft Power</span> <span class="finding-momentum">&#8594;</span>
+                <span class="finding-badge finding-badge-uncertain">Uncertain</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Economic Power</span> <span class="finding-momentum finding-mom-rising">&#9650;</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
-      <a class="briefing-card" data-pillar="diplomatic" id="tile-diplomatic" href="#">
+      <a class="briefing-card" data-pillar="diplomatic" id="tile-diplomatic" href="uk-diplomatic-2026-02-23.html">
         <div class="briefing-card-top">
           <div class="briefing-card-left">
             <span class="briefing-card-tag">Diplomatic</span>
             <span class="briefing-card-title">Diplomatic & Global Leadership</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score" style="color:var(--text)">—</div>
+            <div class="briefing-card-score" style="color:var(--red)">50 <span style="font-size:0.55em;vertical-align:middle">&#9660;</span></div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val" style="color:var(--green)">0</div>
+              <div class="briefing-card-meta-val" style="color:var(--green)">7</div>
               <div class="briefing-card-meta-label">Strengths</div>
             </div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val" style="color:var(--red)">0</div>
+              <div class="briefing-card-meta-val" style="color:var(--red)">4</div>
               <div class="briefing-card-meta-label">Vulns</div>
             </div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val">0</div>
+              <div class="briefing-card-meta-val">66</div>
               <div class="briefing-card-meta-label">Trends</div>
             </div>
           </div>
         </div>
-        <div class="briefing-card-findings-grid"><div class="finding-row finding-row-fallback"></div>
+        <div class="briefing-card-findings-grid">
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Diplomatic Standing And Global Leadership Posture</span> <span class="finding-momentum">&#8594;</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>
-      <a class="briefing-card" data-pillar="trust" id="tile-trust" href="#">
+      <a class="briefing-card" data-pillar="trust" id="tile-trust" href="uk-trust-2026-02-23.html">
         <div class="briefing-card-top">
           <div class="briefing-card-left">
             <span class="briefing-card-tag">Trust</span>
             <span class="briefing-card-title">Trust, Stability & Systemic Reliability</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score" style="color:var(--text)">—</div>
+            <div class="briefing-card-score" style="color:var(--green)">50</div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val" style="color:var(--green)">0</div>
+              <div class="briefing-card-meta-val" style="color:var(--green)">4</div>
               <div class="briefing-card-meta-label">Strengths</div>
             </div>
             <div class="briefing-card-meta">
@@ -975,12 +1045,42 @@ body {
               <div class="briefing-card-meta-label">Vulns</div>
             </div>
             <div class="briefing-card-meta">
-              <div class="briefing-card-meta-val">0</div>
+              <div class="briefing-card-meta-val">30</div>
               <div class="briefing-card-meta-label">Trends</div>
             </div>
           </div>
         </div>
-        <div class="briefing-card-findings-grid"><div class="finding-row finding-row-fallback"></div>
+        <div class="briefing-card-findings-grid">
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-mixed"></span>
+                <span class="finding-arena">Political Leadership And Electoral Stability</span>
+                <span class="finding-badge finding-badge-mixed">Mixed</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-weak"></span>
+                <span class="finding-arena">Judicial Independence And Rule Of Law</span>
+                <span class="finding-badge finding-badge-weak">Weak</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Regulatory Competence And Institutional Capacity</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-mixed"></span>
+                <span class="finding-arena">Constitutional Integrity And Territorial Cohesion</span>
+                <span class="finding-badge finding-badge-mixed">Mixed</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Policy Predictability And Implementation Record</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
+              <div class="finding-row">
+                <span class="finding-dot finding-dot-strong"></span>
+                <span class="finding-arena">Long Term Partner And Counterparty Reliability</span>
+                <span class="finding-badge finding-badge-strong">Strong</span>
+              </div>
         </div>
         <div class="briefing-card-cta">View Full Report &rarr;</div>
       </a>

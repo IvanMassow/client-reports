@@ -80,6 +80,34 @@
       "trend_count": 39,
       "strength_count": 5,
       "vuln_count": 8
+    },
+    "trust": {
+      "score": 50,
+      "posture": "Stable",
+      "trend_count": 30,
+      "strength_count": 4,
+      "vuln_count": 0
+    },
+    "diplomatic": {
+      "score": 50,
+      "posture": "Stable",
+      "trend_count": 66,
+      "strength_count": 7,
+      "vuln_count": 4
+    },
+    "economic": {
+      "score": 50,
+      "posture": "Mixed",
+      "trend_count": 78,
+      "strength_count": 7,
+      "vuln_count": 2
+    },
+    "defence": {
+      "score": 50,
+      "posture": "Declining",
+      "trend_count": 33,
+      "strength_count": 7,
+      "vuln_count": 2
     }
   }
 }

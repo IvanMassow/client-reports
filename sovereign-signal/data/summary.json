@@ -2,8 +2,48 @@
   "date": "2026-02-23",
   "composite_score": 50,
   "composite_posture": "Mixed",
-  "composite_delta": 2,
+  "composite_delta": -4,
   "pillars": {
+    "trust": {
+      "name": "Trust, Stability & Systemic Reliability",
+      "score": 50,
+      "posture": "Stable",
+      "delta": 0,
+      "trend_count": 30,
+      "strength_count": 4,
+      "vuln_count": 0,
+      "executive_summary": "External perception of the UK\u2019s governance reliability is running favourable in the partner-and-institutions lanes, anchored by NATO coordination and AUKUS cooperation signalling, and by EU-linked fin"
+    },
+    "diplomatic": {
+      "name": "Diplomatic & Global Leadership",
+      "score": 50,
+      "posture": "Stable",
+      "delta": -7,
+      "trend_count": 66,
+      "strength_count": 7,
+      "vuln_count": 4,
+      "executive_summary": "External perception of the United Kingdom\u2019s diplomatic posture is favourable and strengthening, with coverage concentrated on Keir Starmer\u2019s multi-theatre crisis diplomacy, Ukraine\u2013NATO security coord"
+    },
+    "economic": {
+      "name": "Economic & Business Leadership",
+      "score": 50,
+      "posture": "Mixed",
+      "delta": -12,
+      "trend_count": 78,
+      "strength_count": 7,
+      "vuln_count": 2,
+      "executive_summary": "External perception of UK economic and business standing is assessed as favourable and strengthening, with attention anchored in cross-border finance/regulatory mechanics and technology capability nar"
+    },
+    "defence": {
+      "name": "Defence & Strategic Credibility",
+      "score": 50,
+      "posture": "Declining",
+      "delta": -7,
+      "trend_count": 33,
+      "strength_count": 7,
+      "vuln_count": 2,
+      "executive_summary": "External perception of the United Kingdom\u2019s defence standing is assessed as strongly favourable this cycle, with the headline Sovereign Perception Score at 91 and the strongest lift coming through NAT"
+    },
     "softpower": {
       "name": "Soft Power & Cultural Standing",
       "score": 50,
