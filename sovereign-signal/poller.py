@@ -1401,6 +1401,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://ivanmassow.github.io/client-reports/sovereign-signal/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sovereign Signal — Sentiment, Trends & Predictions">
 <meta name="twitter:description" content="Daily intelligence — sentiment, trends & predictions">
@@ -1913,6 +1914,8 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 <meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=5">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ivanmassow.github.io/client-reports/sovereign-signal/uk-{key}-{target_date}.html">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(headline)}">
 <meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=5">
