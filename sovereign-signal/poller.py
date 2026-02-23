@@ -1940,10 +1940,11 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     if priorities:
         current_horizon = ""
         for p in priorities:
-            if p["horizon"] != current_horizon:
+            h = p.get("horizon", "Unspecified")
+            if h != current_horizon:
                 if current_horizon:
                     priorities_html += "    </div>\n"
-                current_horizon = p["horizon"]
+                current_horizon = h
                 priorities_html += f'    <h4 class="priority-horizon">{html.escape(current_horizon)}</h4>\n    <div class="priority-group">\n'
             action = p.get("action", "")
             act_cls = "pri-address" if "address" in action.lower() else "pri-monitor" if "monitor" in action.lower() else "pri-reinforce" if "reinforce" in action.lower() else "pri-build"
@@ -2145,8 +2146,8 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .key-stat-label {{ font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }}
 
 /* Arena Strip — gauges below hero on white */
-.arena-strip {{ display: flex; background: var(--bg); position: relative; z-index: 3; border-bottom: 1px solid var(--border); }}
-.arena-gauge {{ flex: 1; padding: 20px 12px 18px; text-align: center; border-right: 1px solid var(--border-light); }}
+.arena-strip {{ display: flex; flex-wrap: wrap; justify-content: center; background: var(--bg); position: relative; z-index: 3; border-bottom: 1px solid var(--border); }}
+.arena-gauge {{ flex: 1; min-width: 120px; max-width: 220px; padding: 20px 12px 18px; text-align: center; border-right: 1px solid var(--border-light); }}
 .arena-gauge:last-child {{ border-right: none; }}
 .arena-gauge-name {{ font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text); margin-bottom: 10px; line-height: 1.3; min-height: 36px; display: flex; align-items: flex-end; justify-content: center; text-align: center; }}
 .arena-gauge-score {{ font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; line-height: 1; margin-bottom: 6px; }}
@@ -2384,16 +2385,21 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   </div>
 
   <!-- Section 03: Sentiment & Perception Dashboard -->
-  {('<div class="sec"><div class="sec-head"><h2 class="sec-title">Sentiment &amp; Perception Dashboard</h2><span class="sec-num">Section 03</span></div>' + perception_html + '</div>') if perception_html else ''}
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sentiment &amp; Perception Dashboard</h2>
+      <span class="sec-num">Section 03</span>
+    </div>
+    {perception_html if perception_html else '<div class="exec-card"><p>External perception data not available this cycle. Scores will populate when source coverage meets the assessment threshold.</p></div>'}
+  </div>
 
   <!-- Section 04: Trend & Arena Analysis -->
   <div class="sec">
     <div class="sec-head">
       <h2 class="sec-title">Trend &amp; Arena Analysis</h2>
-      <span class="sec-num">Section 04 &middot; {len(arena_ctx)} arenas</span>
+      <span class="sec-num">Section 04 &middot; {len(arena_ctx)} arena{"s" if len(arena_ctx) != 1 else ""} assessed</span>
     </div>
-    <div class="arena-grid">{arena_cards_html}
-    </div>
+    {('<div class="arena-grid">' + arena_cards_html + '</div>') if arena_cards_html else '<div class="exec-card"><p>No arenas met the assessment threshold this cycle. Arena analysis will populate when sufficient source coverage is detected.</p></div>'}
   </div>
 
   <!-- Section 05: Strength Signals -->
@@ -2415,10 +2421,22 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   </div>
 
   <!-- Section 07: Standing & Sentiment Overview -->
-  {('<div class="sec"><div class="sec-head"><h2 class="sec-title">Standing &amp; Sentiment Overview</h2><span class="sec-num">Section 07</span></div>' + overview_html + '</div>') if overview_html else ''}
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Standing &amp; Sentiment Overview</h2>
+      <span class="sec-num">Section 07</span>
+    </div>
+    {overview_html if overview_html else '<div class="exec-card"><p>Standing overview not assessed this cycle.</p></div>'}
+  </div>
 
   <!-- Section 08: Strategic Priorities & Watch List -->
-  {('<div class="sec"><div class="sec-head"><h2 class="sec-title">Strategic Priorities &amp; Watch List</h2><span class="sec-num">Section 08</span></div>' + priorities_html + '</div>') if priorities_html else ''}
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Strategic Priorities &amp; Watch List</h2>
+      <span class="sec-num">Section 08</span>
+    </div>
+    {priorities_html if priorities_html else '<div class="exec-card"><p>No strategic priorities flagged this cycle.</p></div>'}
+  </div>
 
   <!-- Conclusion -->
   <div class="sec">
