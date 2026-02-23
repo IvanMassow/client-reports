@@ -6,56 +6,56 @@
         "proposition": "How is the United Kingdom being assessed by non-UK governments, multilaterals, investors, and international commentators in terms of political stability and governing reliability this cycle?",
         "global_view": 85,
         "sovereign_view": null,
-        "signal_strength": "Political Leadership And Electoral Stability",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Political Leadership And Electoral Stability",
+        "emerging": "\u2713"
       },
       {
         "proposition": "What external narratives describe UK political leadership stability (governing continuity, electoral mandate, party cohesion, transition risk), and what events or signals are driving the assessment?",
         "global_view": 85,
         "sovereign_view": null,
-        "signal_strength": "Political Leadership And Electoral Stability",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Political Leadership And Electoral Stability",
+        "emerging": "\u2713"
       },
       {
         "proposition": "How is UK judicial independence and rule of law being evaluated internationally (court credibility, legal system fairness, enforcement reliability, extradition and treaty compliance), and what specific cases or decisions are cited?",
         "global_view": 72,
         "sovereign_view": null,
-        "signal_strength": "Judicial Independence And Rule Of Law",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Judicial Independence And Rule Of Law",
+        "emerging": "\u2713"
       },
       {
         "proposition": "How are UK regulatory bodies and institutions being assessed externally (competence, independence, capacity, reform trajectory), and which regulators or institutions are attracting the most attention?",
         "global_view": 90,
         "sovereign_view": null,
-        "signal_strength": "Regulatory Competence And Institutional Capacity",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Regulatory Competence And Institutional Capacity",
+        "emerging": "\u2713"
       },
       {
         "proposition": "What external narratives focus on UK constitutional integrity and territorial cohesion (devolution pressures, Scotland independence sentiment, Northern Ireland protocol dynamics, Welsh governance), and what evidence is being cited?",
         "global_view": 83,
         "sovereign_view": null,
-        "signal_strength": "Constitutional Integrity And Territorial Cohesion",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Constitutional Integrity And Territorial Cohesion",
+        "emerging": "\u2713"
       },
       {
         "proposition": "How is UK policy predictability being framed externally (consistent, pragmatic, reactive, reversing), including fiscal policy follow-through, regulatory stability, and implementation credibility?",
         "global_view": 90,
         "sovereign_view": null,
-        "signal_strength": "Policy Predictability And Implementation Record",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Policy Predictability And Implementation Record",
+        "emerging": "\u2713"
       },
       {
         "proposition": "How is the UK being characterised externally as a long-term partner and counterparty (reliable, transactional, distracted, inward-looking), and which counterpart countries or blocs are most salient in that judgement?",
         "global_view": 95,
         "sovereign_view": null,
-        "signal_strength": "Long Term Partner And Counterparty Reliability",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Long Term Partner And Counterparty Reliability",
         "emerging": ""
       }
     ],
@@ -195,7 +195,7 @@
       }
     ],
     "conclusion": "The UK\u2019s external standing on governance credibility is favourable where counterparties and institutions look for delivery capacity and alignment , NATO coordination, AUKUS cooperation signalling, and EU-linked regulatory coordination are the primary drivers, concentrated across the United States, India, and the European Union. The pressure point is narrowly defined but material: the rule-of-law arena is weak because the visible scrutiny lane is justice evidence-chain integrity and forensic-capability strain, and if this framing repeats and gains wider external uptake it will act as a persistent drag against an otherwise strong partner-and-competence profile.\nStanding posture this cycle: Under pressure",
-    "score": 50,
+    "score": 86,
     "posture": "Stable",
     "trend_count": 30,
     "strength_count": 4,
@@ -228,56 +228,56 @@
         "proposition": "How is the United Kingdom being assessed by non-UK governments, multilaterals, and international commentators as a diplomatic actor this cycle?",
         "global_view": 95,
         "sovereign_view": null,
-        "signal_strength": "Diplomatic Standing And Global Leadership Posture",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Diplomatic Standing And Global Leadership Posture",
         "emerging": ""
       },
       {
         "proposition": "What is the prevailing external view of UK influence inside multilateral institutions (UN, NATO, G7/G20, Commonwealth, WTO and related bodies), and where is influence perceived to be growing or shrinking?",
         "global_view": 95,
         "sovereign_view": null,
-        "signal_strength": "Diplomatic Standing And Global Leadership Posture",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Diplomatic Standing And Global Leadership Posture",
         "emerging": ""
       },
       {
         "proposition": "How is UK crisis diplomacy being characterised internationally (effective, symbolic, constrained, marginal), and which crises are driving the assessment?",
         "global_view": 94,
         "sovereign_view": null,
-        "signal_strength": "Diplomatic Standing And Global Leadership Posture",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Diplomatic Standing And Global Leadership Posture",
         "emerging": ""
       },
       {
         "proposition": "How credible is the UK's climate and energy diplomacy being treated externally (delivery vs rhetoric, COP legacy, energy transition positioning), and what specific policy actions or outcomes are cited?",
         "global_view": 78,
         "sovereign_view": null,
-        "signal_strength": "Diplomatic Standing And Global Leadership Posture",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Diplomatic Standing And Global Leadership Posture",
         "emerging": ""
       },
       {
         "proposition": "How is the UK's sanctions posture being viewed by non-UK actors (agenda-setting, aligned follower, overreach, underpowered), and what is the perceived impact on counterpart states and alliances?",
         "global_view": 39,
         "sovereign_view": null,
-        "signal_strength": "Diplomatic Standing And Global Leadership Posture",
-        "arena": ",",
+        "signal_strength": "Thin",
+        "arena": "Diplomatic Standing And Global Leadership Posture",
         "emerging": ""
       },
       {
         "proposition": "Which international narratives describe the UK's geopolitical voice and strategic relevance (bridge, junior partner, independent actor, diminished), and which regions are most associated with each narrative?",
         "global_view": 94,
         "sovereign_view": null,
-        "signal_strength": "Diplomatic Standing And Global Leadership Posture",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Diplomatic Standing And Global Leadership Posture",
         "emerging": ""
       },
       {
         "proposition": "How is the UK's development and humanitarian role being perceived internationally (generous, declining, strategic, tokenistic), and what has shifted since ODA commitments changed?",
         "global_view": 48,
         "sovereign_view": null,
-        "signal_strength": "Diplomatic Standing And Global Leadership Posture",
-        "arena": ",",
+        "signal_strength": "Thin",
+        "arena": "Diplomatic Standing And Global Leadership Posture",
         "emerging": ""
       }
     ],
@@ -484,7 +484,7 @@
       }
     ],
     "conclusion": "The UK\u2019s external diplomatic standing is holding in a favourable lane, anchored in repeated coverage of Keir Starmer\u2019s crisis-diplomacy visibility, Ukraine\u2013NATO security coordination, and UN institutional positioning, with attention concentrated across the United States, Europe, and China; the trajectory is strengthening as alliance-access and crisis-positioning narratives continue to build. The main constraints are bounded adverse lanes , senior-figure reputational spillover, sanctions-credibility questioning within allied framing, foreign-interference resilience comparisons, and sustainability-commitments scrutiny , alongside a persistent visibility gap on development and humanitarian credibility.\nStanding posture this cycle: Strengthening",
-    "score": 50,
+    "score": 78,
     "posture": "Stable",
     "trend_count": 66,
     "strength_count": 7,
@@ -507,49 +507,49 @@
         "proposition": "How is the United Kingdom being characterised by non-UK commentators as a place to invest, build companies, and base international operations?",
         "global_view": 88,
         "sovereign_view": null,
-        "signal_strength": "Economic Competence",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Economic Competence",
+        "emerging": "\u2713"
       },
       {
         "proposition": "What narratives are forming internationally about the strength or decline of London and the UK as a financial centre, and what is driving those narratives?",
         "global_view": 83,
         "sovereign_view": null,
-        "signal_strength": "Economic Power",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Economic Power",
+        "emerging": "\u2713"
       },
       {
         "proposition": "How are non-UK observers assessing the UK's competitiveness in AI, advanced technology, and innovation policy, relative to peer economies?",
         "global_view": 83,
         "sovereign_view": null,
-        "signal_strength": "Economic Power",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Economic Power",
+        "emerging": "\u2713"
       },
       {
         "proposition": "What is the prevailing external view of the UK's regulatory environment (pro-growth, restrictive, stable, unpredictable), and what examples are cited?",
         "global_view": 94,
         "sovereign_view": null,
-        "signal_strength": "Governance Stability",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Governance Stability",
+        "emerging": "\u2713"
       },
       {
         "proposition": "How is the UK's startup and scale-up ecosystem being perceived internationally (talent, funding, exits, R&D depth, friction), and what has shifted recently?",
         "global_view": 84,
         "sovereign_view": null,
-        "signal_strength": "Economic Competence",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Economic Competence",
+        "emerging": "\u2713"
       },
       {
         "proposition": "What external narratives describe the UK's trade positioning and post-Brexit economic trajectory (repositioning, stagnation, resilience, vulnerability), and which counterpart countries are most salient?",
         "global_view": 50,
         "sovereign_view": null,
-        "signal_strength": "Partnership Reliability",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Partnership Reliability",
+        "emerging": "\u2713"
       }
     ],
     "trends": [],
@@ -786,8 +786,8 @@
       }
     ],
     "conclusion": "The UK's external economic standing is assessed as strengthening, with the perception picture anchored in cross-border financial and regulatory mechanics (including Switzerland-linked recognition and broader interoperability references) and technology capability coverage where AI benchmarking and infrastructure narratives dominate. Attention remains concentrated in the United States and India across both Economic Competence and Economic Power, while Partnership Reliability sits at a genuine near-balance: the signal is high-volume but adjacency-driven, leaving trajectory framing unresolved at 50%. The main watch items are early-stage adverse competence framing (ratings/competitiveness-linked) and thin alliance burden-sharing risk coverage; neither is yet driving the cycle, but both provide clear escalation lanes if repetition increases.\nStanding posture this cycle: Strengthening",
-    "score": 50,
-    "posture": "Mixed",
+    "score": 80,
+    "posture": "Strong",
     "trend_count": 78,
     "strength_count": 7,
     "vuln_count": 2,
@@ -809,57 +809,57 @@
         "proposition": "How is the United Kingdom being characterised by non-UK defence and security commentators as a strategic actor this cycle?",
         "global_view": 95,
         "sovereign_view": null,
-        "signal_strength": "Geopolitical Influence In Security Theatres",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Geopolitical Influence In Security Theatres",
         "emerging": ""
       },
       {
         "proposition": "What external narratives assess UK military capability and readiness (mass, modernisation, sustainment, deployment capacity), and what evidence is cited?",
         "global_view": 90,
         "sovereign_view": null,
-        "signal_strength": "Military Capability And Readiness",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Military Capability And Readiness",
         "emerging": ""
       },
       {
         "proposition": "How is UK alliance reliability being framed internationally (dependable, constrained, inconsistent, overcommitted), and which alliances or theatres are driving the assessment?",
         "global_view": 90,
         "sovereign_view": null,
-        "signal_strength": "Alliance Reliability And Burden Sharing",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Alliance Reliability And Burden Sharing",
+        "emerging": "\u2713"
       },
       {
         "proposition": "How is the UK's NATO role being described externally (leader, specialist contributor, junior partner, bridge actor), and what signals or decisions are referenced?",
         "global_view": 95,
         "sovereign_view": null,
-        "signal_strength": "Nato Role And Positioning",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Nato Role And Positioning",
+        "emerging": "\u2713"
       },
       {
         "proposition": "How is UK deterrence posture being portrayed (credible, ambiguous, escalatory, underpowered), including conventional, cyber, and (where referenced) nuclear dimensions?",
         "global_view": 90,
         "sovereign_view": null,
-        "signal_strength": "Deterrence Posture And Escalation Management",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Deterrence Posture And Escalation Management",
         "emerging": ""
       },
       {
         "proposition": "How is the UK defence industrial base being evaluated externally (innovation, export credibility, procurement competence, delivery risk), and which programmes or contracts are central to the narrative?",
         "global_view": 95,
         "sovereign_view": null,
-        "signal_strength": "Defence Industry And Procurement Credibility",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Defence Industry And Procurement Credibility",
         "emerging": ""
       },
       {
         "proposition": "What is the prevailing non-UK view of UK cyber capability and security posture (offensive capacity, resilience, attribution credibility), and what incidents or policy moves are shaping perception?",
         "global_view": 83,
         "sovereign_view": null,
-        "signal_strength": "Cyber Capability And Security Posture",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Cyber Capability And Security Posture",
+        "emerging": "\u2713"
       }
     ],
     "trends": [],
@@ -1071,7 +1071,7 @@
       }
     ],
     "conclusion": "This cycle\u2019s defence standing picture is assessed as strong across every configured arena, with the external narrative centre of gravity anchored in NATO participation and readiness evaluation, AUKUS-linked Indo-Pacific integration (including HMS Anson-related visibility), and Russia\u2013Ukraine escalation-management framing that continues to keep UK posture signalling in view across Europe and the United States. The drag factors remain bounded rather than dominant: procurement scrutiny remains attached to the Ajax programme oversight issue, while lower-volume vulnerabilities sit in manpower/recruitment strain framing and Indian Ocean basing governance sensitivity (Mauritius-/Diego Garcia-linked access narratives). The pipeline\u2019s net posture is Strengthening because momentum is rising in most arenas and no weak arena is present.\nStanding posture this cycle: Strengthening",
-    "score": 50,
+    "score": 91,
     "posture": "Declining",
     "trend_count": 33,
     "strength_count": 7,
@@ -1119,80 +1119,80 @@
         "proposition": "What narrative is forming externally about the United Kingdom\u2019s monarchy and nation brand credibility amid legal and integrity scrutiny?",
         "global_view": 10,
         "sovereign_view": null,
-        "signal_strength": "Heritage Identity And Nation Brand",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Heritage Identity And Nation Brand",
         "emerging": ""
       },
       {
         "proposition": "How is the United Kingdom perceived internationally regarding national identity and political cohesion debates that touch the nation brand?",
         "global_view": 10,
         "sovereign_view": null,
-        "signal_strength": "Heritage Identity And Nation Brand",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Heritage Identity And Nation Brand",
         "emerging": ""
       },
       {
         "proposition": "How is the United Kingdom perceived internationally regarding cultural reach and competitiveness as reflected through major film/TV and cultural-event visibility signals this cycle?",
         "global_view": 83,
         "sovereign_view": null,
-        "signal_strength": "Culture And Media Exports",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Culture And Media Exports",
         "emerging": ""
       },
       {
         "proposition": "How is the United Kingdom perceived internationally regarding its creative industries and talent competitiveness (including fashion/film adjacent signals), and are growth-or-decline narratives strengthening?",
         "global_view": 83,
         "sovereign_view": null,
-        "signal_strength": "Creative Industries And Talent",
-        "arena": "\u2713",
-        "emerging": ""
+        "signal_strength": "Strong",
+        "arena": "Creative Industries And Talent",
+        "emerging": "\u2713"
       },
       {
         "proposition": "How is the United Kingdom perceived internationally regarding Team GB\u2019s sporting brand, performance credibility, and global prestige?",
         "global_view": 95,
         "sovereign_view": null,
-        "signal_strength": "Sporting Brand And Influence",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Sporting Brand And Influence",
         "emerging": ""
       },
       {
         "proposition": "What external narrative is forming about integrity, discrimination, or governance concerns in UK-linked sport ecosystems, and is it polarising?",
         "global_view": 37,
         "sovereign_view": null,
-        "signal_strength": "Sporting Brand And Influence",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Sporting Brand And Influence",
         "emerging": ""
       },
       {
         "proposition": "How is the United Kingdom perceived internationally regarding institutional integrity and rule-of-law credibility in relation to high-visibility investigations?",
         "global_view": 10,
         "sovereign_view": null,
-        "signal_strength": "Values And Human Rights Reputation",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Values And Human Rights Reputation",
         "emerging": ""
       },
       {
         "proposition": "How is the United Kingdom perceived internationally regarding adherence to international law and sovereignty norms in territorial disputes?",
         "global_view": 5,
         "sovereign_view": null,
-        "signal_strength": "Values And Human Rights Reputation",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Values And Human Rights Reputation",
         "emerging": ""
       },
       {
         "proposition": "What external narratives describe the reach of UK culture and media exports, and which geographies appear most engaged in that narrative this cycle?",
         "global_view": 90,
         "sovereign_view": null,
-        "signal_strength": "Culture And Media Exports",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Culture And Media Exports",
         "emerging": ""
       },
       {
         "proposition": "How is the United Kingdom perceived internationally regarding soft-power symbolism through royal appearances and heritage-linked cultural events, and is the posture net-favourable or net-adverse?",
         "global_view": 53,
         "sovereign_view": null,
-        "signal_strength": "Heritage Identity And Nation Brand",
-        "arena": ",",
+        "signal_strength": "Strong",
+        "arena": "Heritage Identity And Nation Brand",
         "emerging": ""
       }
     ],
@@ -1479,7 +1479,7 @@
       }
     ],
     "conclusion": "The UK's soft-power standing is being pulled in two directions: external attention in the United States, Australia, and Canada is dominated by the monarchy-and-integrity lane centred on Prince Andrew, King Charles III, Thames Valley Police, and related rule-of-law framing, while Team GB prestige coverage and royal-linked cultural visibility signals led by Prince William and Kate Middleton continue to provide credible offsetting strengths. With two arenas assessed as weak (heritage identity and values/integrity) and narrative drift hardening in those lanes, the overall posture remains under pressure even as sport and culture retain favourable structural anchors.\nStanding posture this cycle: Under pressure",
-    "score": 50,
+    "score": 48,
     "posture": "Declining",
     "trend_count": 39,
     "strength_count": 5,

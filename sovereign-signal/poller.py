@@ -247,6 +247,16 @@ def parse_report_content(desc_html):
     )
     if dashboard_section:
         section_text = _strip_tags(dashboard_section.group(1))
+        # Detect table format: v2.2 has 5 columns (no Sovereign View),
+        # older format has 6 columns (Global View + Sovereign View)
+        header_row = ""
+        for row in section_text.split("\n"):
+            row = row.strip()
+            if row.startswith("|") and "Proposition" in row:
+                header_row = row
+                break
+        has_sovereign_col = "Sovereign" in header_row or "Global" in header_row
+
         # Parse each row — skip header and separator rows
         for row in section_text.split("\n"):
             row = row.strip()
@@ -255,32 +265,44 @@ def parse_report_content(desc_html):
             cols = [c.strip() for c in row.split("|")]
             # cols[0] is empty (before first |), cols[-1] may be empty (after last |)
             cols = [c for c in cols if c]
-            if len(cols) >= 5:
+
+            if has_sovereign_col and len(cols) >= 6:
+                # Old format: Proposition | Global View | Sovereign View | Signal | Arena | Emerging
                 prop_text = cols[0]
                 global_view = cols[1].replace("%", "").strip()
                 sovereign_view = cols[2].replace("%", "").strip()
                 signal_strength = cols[3].strip()
                 arena = cols[4].strip()
                 emerging = cols[5] if len(cols) > 5 else ""
+            elif len(cols) >= 4:
+                # v2.2 format: Proposition | External Perception | Signal | Arena | Emerging
+                prop_text = cols[0]
+                global_view = cols[1].replace("%", "").strip()
+                sovereign_view = ""
+                signal_strength = cols[2].strip()
+                arena = cols[3].strip()
+                emerging = cols[4] if len(cols) > 4 else ""
+            else:
+                continue
 
-                # Parse percentage values
-                try:
-                    gv = int(global_view)
-                except ValueError:
-                    gv = None
-                try:
-                    sv = int(sovereign_view)
-                except ValueError:
-                    sv = None
+            # Parse percentage values
+            try:
+                gv = int(global_view)
+            except ValueError:
+                gv = None
+            try:
+                sv = int(sovereign_view)
+            except ValueError:
+                sv = None
 
-                data["perception_dashboard"].append({
-                    "proposition": prop_text,
-                    "global_view": gv,
-                    "sovereign_view": sv,
-                    "signal_strength": signal_strength,
-                    "arena": arena,
-                    "emerging": emerging.strip(", "),
-                })
+            data["perception_dashboard"].append({
+                "proposition": prop_text,
+                "global_view": gv,
+                "sovereign_view": sv,
+                "signal_strength": signal_strength,
+                "arena": arena,
+                "emerging": emerging.strip(", "),
+            })
 
     # ─── Trend Matrix ───
     trend_section = re.search(
@@ -568,11 +590,16 @@ def parse_report_content(desc_html):
         data["conclusion"] = _strip_tags(conclusion_match.group(1))
 
     # ─── Score & Posture Extraction ───
-    # Primary: sovereign_view average from perception dashboard (most reliable)
+    # Primary: perception dashboard average (sovereign_view if available, else global_view)
     if data["perception_dashboard"]:
         sv_scores = [p["sovereign_view"] for p in data["perception_dashboard"] if p.get("sovereign_view") is not None]
         if sv_scores:
             data["score"] = round(sum(sv_scores) / len(sv_scores))
+        else:
+            # v2.2 reports have only global_view (External Perception)
+            gv_scores = [p["global_view"] for p in data["perception_dashboard"] if p.get("global_view") is not None]
+            if gv_scores:
+                data["score"] = round(sum(gv_scores) / len(gv_scores))
 
     # Fallback 1: "score: 74/100" format from exec summary
     if data["score"] is None:
@@ -1600,12 +1627,13 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     # Merge with arena_context data for richer metadata
     arena_ctx = pdata.get("arena_context", {})
 
-    # Compute per-arena average sovereign view scores from perception dashboard
+    # Compute per-arena average scores from perception dashboard
+    # Use sovereign_view if available, else fall back to global_view (v2.2 format)
     perc_dash_raw = pdata.get("perception_dashboard", [])
     arena_sv_scores = {}
     for p in perc_dash_raw:
         a = p.get("arena", "")
-        sv = p.get("sovereign_view")
+        sv = p.get("sovereign_view") if p.get("sovereign_view") is not None else p.get("global_view")
         if a and sv is not None:
             arena_sv_scores.setdefault(a, []).append(sv)
     arena_avg_scores = {a: round(sum(vs) / len(vs)) for a, vs in arena_sv_scores.items() if vs}
@@ -1695,7 +1723,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     if perc_dash:
         rows = ""
         for p in perc_dash:
-            sv = p.get("sovereign_view")
+            sv = p.get("sovereign_view") if p.get("sovereign_view") is not None else p.get("global_view")
             sv_str = f"{sv}%" if sv is not None else "—"
             # Colour by score: green >=50, red <50
             sv_style = ""
