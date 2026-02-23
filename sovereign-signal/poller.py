@@ -1197,10 +1197,17 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
         else:
             score_color = "var(--green)" if (score or 0) >= 50 else "var(--red)"
         report_href = f"uk-{key}-{target_date}.html"
+        # Directional triangle for score
+        if delta is not None and delta > 0:
+            score_arrow = f' <span style="font-size:0.5em;vertical-align:middle">&#9650;</span>'
+        elif delta is not None and delta < 0:
+            score_arrow = f' <span style="font-size:0.5em;vertical-align:middle">&#9660;</span>'
+        else:
+            score_arrow = ""
         pillar_score_cells += f'''
       <a class="pillar-score-cell{" " + cell_cls if cell_cls else ""}" data-pillar="{key}" href="{report_href}">
         <div class="pillar-score-name">{pillar["name"]}</div>
-        <div class="pillar-score-num" style="color:{score_color}">{score_display}</div>
+        <div class="pillar-score-num" style="color:{score_color}">{score_display}{score_arrow}</div>
         {prev_html}
         <div class="pillar-score-posture">{post}</div>
       </a>'''
@@ -1313,6 +1320,18 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
           <span class="key-pred-horizon">{html.escape(tp_horizon)}</span>
         </div>'''
 
+        # Briefing card score arrow
+        bc_delta = deltas.get(key)
+        if bc_delta is not None and bc_delta > 0:
+            bc_arrow = ' <span style="font-size:0.55em;vertical-align:middle">&#9650;</span>'
+            bc_color = "var(--green)"
+        elif bc_delta is not None and bc_delta < 0:
+            bc_arrow = ' <span style="font-size:0.55em;vertical-align:middle">&#9660;</span>'
+            bc_color = "var(--red)"
+        else:
+            bc_arrow = ""
+            bc_color = "var(--green)" if isinstance(score, int) and score >= 50 else "var(--red)" if isinstance(score, int) else "var(--text)"
+
         briefing_cards_html += f'''
       <a class="briefing-card" data-pillar="{key}" id="tile-{key}" href="{href}">
         <div class="briefing-card-top">
@@ -1321,7 +1340,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
             <span class="briefing-card-title">{pillar["name"]}</span>
           </div>
           <div class="briefing-card-stats">
-            <div class="briefing-card-score" style="color:{"var(--green)" if isinstance(score, int) and score >= 50 else "var(--red)" if isinstance(score, int) else "var(--text)"}">{score_display}</div>
+            <div class="briefing-card-score" style="color:{bc_color}">{score_display}{bc_arrow}</div>
             <div class="briefing-card-meta">
               <div class="briefing-card-meta-val" style="color:var(--green)">{strength_count}</div>
               <div class="briefing-card-meta-label">Strengths</div>
@@ -1427,7 +1446,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Composite Sentiment Score</div>
-        <div class="score-block-num" id="composite-score" style="color:{composite_num_color}">{composite}</div>
+        <div class="score-block-num" id="composite-score" style="color:{composite_num_color}">{composite}{' <span style="font-size:0.45em;vertical-align:middle">&#9650;</span>' if composite_delta and composite_delta > 0 else ' <span style="font-size:0.45em;vertical-align:middle">&#9660;</span>' if composite_delta and composite_delta < 0 else ''}</div>
         <div class="score-block-max">of 100</div>
         <div class="score-block-delta {sb_delta_cls}">{sb_delta_content}</div>
         <div class="score-block-posture posture-{posture_cls}" id="composite-posture">{composite_posture}</div>
@@ -1497,6 +1516,18 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     ref_code = pdata.get("ref", "")
     headline = f"{pillar['name']} — Sovereign Signal"
     arena_preds = pdata.get("arena_predictions", {})
+    pillar_delta = pdata.get("_delta")
+
+    # Score colour and arrow based on delta
+    if pillar_delta is not None and pillar_delta > 0:
+        hero_score_color = "var(--green)"
+        hero_score_arrow = ' <span style="font-size:0.45em;vertical-align:middle">&#9650;</span>'
+    elif pillar_delta is not None and pillar_delta < 0:
+        hero_score_color = "var(--red)"
+        hero_score_arrow = ' <span style="font-size:0.45em;vertical-align:middle">&#9660;</span>'
+    else:
+        hero_score_color = "var(--green)" if isinstance(score, int) and score >= 50 else "var(--red)" if isinstance(score, int) else "white"
+        hero_score_arrow = ""
 
     # Title — clean white, no highlight colour
     title_html = html.escape(pillar["name"])
@@ -1564,10 +1595,20 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         mom_color = "var(--green)" if momentum.lower() == "rising" else "var(--red)" if momentum.lower() == "fading" else "rgba(255,255,255,0.5)"
         mom_arrow = "&#9650;" if momentum.lower() == "rising" else "&#9660;" if momentum.lower() == "fading" else "&#8594;"
 
+        # Score arrow based on posture
+        if ap.lower() in ("strong",):
+            ag_arrow = ' <span style="font-size:0.6em">&#9650;</span>'
+        elif ap.lower() in ("weak",):
+            ag_arrow = ' <span style="font-size:0.6em">&#9660;</span>'
+        elif arena_score is not None:
+            ag_arrow = ' <span style="font-size:0.6em">&#9650;</span>' if arena_score >= 50 else ' <span style="font-size:0.6em">&#9660;</span>'
+        else:
+            ag_arrow = ""
+
         arena_strip_html += f'''
         <div class="arena-gauge">
           <div class="arena-gauge-name">{html.escape(name).upper()}</div>
-          <div class="arena-gauge-score" style="color:{p_color}">{score_display}</div>
+          <div class="arena-gauge-score" style="color:{p_color}">{score_display}{ag_arrow}</div>
           <div class="arena-gauge-posture">{html.escape(ap).upper()}</div>
           <div class="arena-gauge-momentum" style="color:{mom_color}">{mom_arrow} {html.escape(momentum)}</div>
         </div>'''
@@ -1616,6 +1657,8 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             sv_style = ""
             if sv is not None:
                 sv_color = "var(--green)" if sv >= 50 else "var(--red)"
+                sv_arrow = "&#9650;" if sv >= 50 else "&#9660;"
+                sv_str = f"{sv}% <span style='font-size:0.7em'>{sv_arrow}</span>"
                 sv_style = f' style="color:{sv_color};font-weight:700"'
             conf = p.get("signal_strength", "") or p.get("confidence", "")
             conf_cls = "conf-medium" if conf.lower() == "medium" else "conf-low" if conf.lower() == "low" else "conf-high"
@@ -2150,7 +2193,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Pillar Score</div>
-        <div class="score-block-num" style="color:{"var(--green)" if isinstance(score, int) and score >= 50 else "var(--red)" if isinstance(score, int) else "white"}">{score}</div>
+        <div class="score-block-num" style="color:{hero_score_color}">{score}{hero_score_arrow}</div>
         <div class="score-block-max">of 100</div>
         <div class="posture posture-{posture_cls}">{posture}</div>
       </div>
@@ -2351,6 +2394,19 @@ def run_once(target_date, require_all=True):
     # Save data
     print("\n  Saving data...")
     history = save_day_data(target_date, pillar_data)
+
+    # Compute per-pillar deltas for pillar reports
+    prev_date = None
+    for d in sorted(history.keys()):
+        if d < target_date:
+            prev_date = d
+    if prev_date and prev_date in history:
+        prev_scores = history[prev_date]
+        for key in pillar_data:
+            prev_s = prev_scores.get(key, {}).get("score")
+            curr_s = pillar_data[key].get("score")
+            if prev_s is not None and curr_s is not None:
+                pillar_data[key]["_delta"] = curr_s - prev_s
 
     # Generate per-pillar reports
     print("\n  Generating pillar reports...")
