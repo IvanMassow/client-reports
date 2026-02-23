@@ -1981,7 +1981,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             signal = pred.get("signal_strength", "")
             pred_type = pred.get("type", "")
 
-            # Type badge class
+            # Type badge class (may be empty in v2.2 format)
             type_lower = pred_type.lower()
             type_cls = "pred-type-vuln" if "vuln" in type_lower else "pred-type-strength"
 
@@ -1996,15 +1996,23 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             else:
                 dir_cls = "pred-dir-stable"
 
-            # Tile border colour: teal for strength, red for vulnerability
-            border_color = "var(--red)" if "vuln" in type_lower else "var(--green)"
+            # Tile border colour: use type if available, else direction
+            if pred_type:
+                border_color = "var(--red)" if "vuln" in type_lower else "var(--green)"
+            elif "fading" in dir_lower or "revers" in dir_lower:
+                border_color = "var(--red)"
+            else:
+                border_color = "var(--green)"
+
+            # Type badge only shown when type is present
+            type_badge = f'<span class="pred-badge {type_cls}">{html.escape(pred_type.upper())}</span>' if pred_type else ''
 
             tiles_html += f'''
         <div class="pred-tile" style="border-left: 3px solid {border_color}">
           <div class="pred-prob">{html.escape(prob_str)}</div>
           <div class="pred-title">{html.escape(title)}</div>
           <div class="pred-badges">
-            <span class="pred-badge {type_cls}">{html.escape(pred_type.upper())}</span>
+            {type_badge}
             <span class="pred-badge {dir_cls}">{html.escape(direction.upper())}</span>
             {('<span class="pred-badge pred-signal-strong">' + html.escape(signal.upper()) + '</span>') if signal else ''}
             <span class="pred-badge pred-horizon">{html.escape(horizon.upper())}</span>
