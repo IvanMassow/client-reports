@@ -1,7 +1,7 @@
 {
   "2026-02-21": {
     "trust": {
-      "score": 56,
+      "score": 48,
       "posture": "Stable",
       "trend_count": 40,
       "strength_count": 6,
@@ -15,21 +15,21 @@
       "vuln_count": 4
     },
     "diplomatic": {
-      "score": 55,
+      "score": 47,
       "posture": "Stable",
       "trend_count": 44,
       "strength_count": 7,
       "vuln_count": 1
     },
     "economic": {
-      "score": 48,
+      "score": 41,
       "posture": "Stable",
       "trend_count": 88,
       "strength_count": 14,
       "vuln_count": 1
     },
     "softpower": {
-      "score": 47,
+      "score": 40,
       "posture": "Mixed",
       "trend_count": 30,
       "strength_count": 6,
@@ -38,28 +38,28 @@
   },
   "2026-02-22": {
     "trust": {
-      "score": 50,
+      "score": 42,
       "posture": "Mixed",
       "trend_count": 30,
       "strength_count": 0,
       "vuln_count": 0
     },
     "diplomatic": {
-      "score": 57,
+      "score": 48,
       "posture": "Stable",
       "trend_count": 30,
       "strength_count": 7,
       "vuln_count": 2
     },
     "economic": {
-      "score": 62,
+      "score": 53,
       "posture": "Stable",
       "trend_count": 10,
       "strength_count": 6,
       "vuln_count": 0
     },
     "softpower": {
-      "score": 48,
+      "score": 41,
       "posture": "Declining",
       "trend_count": 30,
       "strength_count": 4,
