@@ -684,12 +684,21 @@ def fetch_predictions_from_rendered(guid):
     text = re.sub(r"\n+", "\n", text)
 
     # ─── Parse prediction tiles ───
-    # Pattern: XX% probability\nStatement\nType\nDirection\nStrength\nHorizon\nWhat would change it: text
+    # Tile layout from rendered reports:
+    #   XX% probability
+    #   Title text
+    #   Direction (Intensifying|Stable|Fading|Reversing)
+    #   [optional: Strength|Vulnerability type]
+    #   Signal strength (Strong|Thin|Medium)
+    #   [optional whitespace]
+    #   Horizon (90 days, 12 months, etc.)
+    #   What would change it: trigger text
     predictions = []
     blocks = re.findall(
-        r"(\d+)%\s*probability\s*\n\s*([^\n]+)\s*\n\s*"
-        r"(Strength|Vulnerability)\s*\n\s*"
+        r"(\d+)%\s*probability\s*\n\s*"
+        r"([^\n]+)\s*\n\s*"
         r"(Intensifying|Stable|Fading|Reversing)\s*\n\s*"
+        r"(?:(Strength|Vulnerability)\s*\n\s*)?"
         r"(Strong|Thin|Medium)\s*\n\s*"
         r"(\d+\s*(?:days?|months?))\s*\n\s*"
         r"(?:What would change it:\s*)?([^\n]+)",
@@ -699,8 +708,8 @@ def fetch_predictions_from_rendered(guid):
         predictions.append({
             "title": b[1].strip(),
             "probability": int(b[0]),
-            "type": b[2].strip(),
-            "direction": b[3].strip(),
+            "type": (b[3] or "").strip(),
+            "direction": b[2].strip(),
             "signal_strength": b[4].strip(),
             "horizon": b[5].strip(),
             "trigger": b[6].strip(),
@@ -723,7 +732,72 @@ def fetch_predictions_from_rendered(guid):
             "probability": int(prob_str),
         }
 
-    return predictions, arena_preds
+    # ─── Parse perception dashboard from rendered page ───
+    # The rendered page often has the full 6-column table with Sovereign View,
+    # which may be absent or different in the RSS description.
+    rendered_perception = []
+    pd_section = re.search(
+        r"SOVEREIGN PERCEPTION DASHBOARD(.*?)(?:ARENA ANALYSIS|TREND MATRIX|FORWARD OUTLOOK|$)",
+        text, re.DOTALL | re.IGNORECASE
+    )
+    if pd_section:
+        pd_text = pd_section.group(1)
+        pd_lines = [l.strip() for l in pd_text.split("\n") if l.strip()]
+        # Detect if we have Sovereign View column
+        has_sv = any("Sovereign View" in l for l in pd_lines[:10])
+        # Find header row index
+        header_idx = None
+        for i, l in enumerate(pd_lines):
+            if "Proposition" in l or "Arena" in l:
+                header_idx = i
+                break
+        if header_idx is not None:
+            # Data rows start after header fields
+            # Each row has: Proposition, Global View %, [Sovereign View %], Confidence, Arena, [Emerging]
+            # Rendered as one field per line
+            data_start = header_idx + (6 if has_sv else 5)
+            fields_per_row = 6 if has_sv else 5
+            data_lines = pd_lines[data_start:]
+            row_data = []
+            for l in data_lines:
+                row_data.append(l)
+                if len(row_data) == fields_per_row:
+                    prop = row_data[0]
+                    gv_str = row_data[1].replace("%", "").strip()
+                    if has_sv:
+                        sv_str = row_data[2].replace("%", "").strip()
+                        conf = row_data[3]
+                        arena = row_data[4]
+                        emerging = row_data[5] if len(row_data) > 5 else ""
+                    else:
+                        sv_str = ""
+                        conf = row_data[2]
+                        arena = row_data[3]
+                        emerging = row_data[4] if len(row_data) > 4 else ""
+                    try:
+                        gv = int(gv_str)
+                    except ValueError:
+                        gv = None
+                    try:
+                        sv = int(sv_str)
+                    except ValueError:
+                        sv = None
+                    # Only include rows where at least one score parsed
+                    if gv is not None or sv is not None:
+                        rendered_perception.append({
+                            "proposition": prop,
+                            "global_view": gv,
+                            "sovereign_view": sv,
+                            "signal_strength": conf,
+                            "arena": arena,
+                            "emerging": emerging.strip(", "),
+                        })
+                    row_data = []
+                # Stop if we hit a non-data line
+                elif len(row_data) == 1 and row_data[0].startswith("External Perception"):
+                    row_data = []
+
+    return predictions, arena_preds, rendered_perception
 
 
 def extract_arena_findings(exec_text, conclusion_text=""):
@@ -2447,19 +2521,28 @@ def run_once(target_date, require_all=True):
         pdata["link"] = item["link"]
         pdata["ref"] = extract_ref_from_title(item["title"])
 
-        # If RSS didn't have predictions, try ALL rendered report pages for this pillar
-        if not pdata["predictions"]:
-            for guid in pillar_guids.get(key, []):
-                print(f"      Fetching predictions from rendered report ({guid[:12]})...")
-                preds, arena_preds_scraped = fetch_predictions_from_rendered(guid)
-                if preds:
-                    pdata["predictions"] = preds
-                    print(f"      Found {len(preds)} predictions")
-                if arena_preds_scraped:
-                    pdata["arena_predictions"].update(arena_preds_scraped)
-                    print(f"      Found {len(arena_preds_scraped)} arena outlooks")
-                if preds:
-                    break  # Got predictions, stop checking other GUIDs
+        # Fetch predictions and richer perception data from rendered report pages
+        for guid in pillar_guids.get(key, []):
+            print(f"      Fetching predictions from rendered report ({guid[:12]})...")
+            preds, arena_preds_scraped, rendered_perc = fetch_predictions_from_rendered(guid)
+            if preds and not pdata["predictions"]:
+                pdata["predictions"] = preds
+                print(f"      Found {len(preds)} predictions")
+            if arena_preds_scraped:
+                pdata["arena_predictions"].update(arena_preds_scraped)
+                print(f"      Found {len(arena_preds_scraped)} arena outlooks")
+            # Use rendered perception data if it has sovereign_view (more accurate)
+            if rendered_perc:
+                has_sv = any(p.get("sovereign_view") is not None for p in rendered_perc)
+                if has_sv:
+                    pdata["perception_dashboard"] = rendered_perc
+                    # Recompute score from sovereign_view
+                    sv_scores = [p["sovereign_view"] for p in rendered_perc if p.get("sovereign_view") is not None]
+                    if sv_scores:
+                        pdata["score"] = round(sum(sv_scores) / len(sv_scores))
+                        print(f"      Updated score from rendered sovereign view: {pdata['score']}")
+            if preds:
+                break  # Got predictions, stop checking other GUIDs
 
         pillar_data[key] = pdata
         print(f"      Score: {pdata.get('score', '?')}, Posture: {pdata.get('posture', '?')}, "

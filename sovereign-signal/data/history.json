@@ -75,7 +75,7 @@
   },
   "2026-02-23": {
     "softpower": {
-      "score": 48,
+      "score": 44,
       "posture": "Declining",
       "trend_count": 39,
       "strength_count": 5,
@@ -96,18 +96,18 @@
       "vuln_count": 4
     },
     "economic": {
-      "score": 80,
+      "score": 71,
       "posture": "Strong",
       "trend_count": 78,
       "strength_count": 7,
       "vuln_count": 2
     },
     "defence": {
-      "score": 91,
-      "posture": "Declining",
-      "trend_count": 33,
-      "strength_count": 7,
-      "vuln_count": 2
+      "score": 75,
+      "posture": "Strong",
+      "trend_count": 45,
+      "strength_count": 8,
+      "vuln_count": 1
     }
   }
 }

@@ -296,7 +296,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <div class="score-block">
       <div class="score-block-inner">
         <div class="score-block-label">Pillar Score</div>
-        <div class="score-block-num" style="color:var(--green)">80 <span style="font-size:0.45em;vertical-align:middle">&#9650;</span></div>
+        <div class="score-block-num" style="color:var(--green)">71 <span style="font-size:0.45em;vertical-align:middle">&#9650;</span></div>
         <div class="score-block-max">of 100</div>
         <div class="posture posture-strong">Strong</div>
       </div>
@@ -392,9 +392,20 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <span class="sec-num">Section 02</span>
     </div>
     
-      <div class="exec-card">
-        <p>Prediction depth limited this cycle &mdash; signal strength insufficient for forward outlook on current trends.</p>
+      <div class="pred-grid">
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">73% probability</div>
+          <div class="pred-title">Cross-border finance and technology framing of UK rules</div>
+          <div class="pred-badges">
+            <span class="pred-badge pred-type-strength"></span>
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">90 DAYS</span>
+          </div>
+          <div class="pred-trigger"><strong>What would change it:</strong> Trajectory stabilises if momentum shifts from rising to stable and geographic spread narrows materially in the next cycle.</div>
+        </div>
       </div>
+      <div class="pred-summary">Outlook: 1 signals assessed, dominant direction Intensifying. 1 arenas show intensifying predictions.</div>
   </div>
 
   <!-- Section 03: Sentiment & Perception Dashboard -->
@@ -404,40 +415,70 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         <thead><tr><th>Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Arena</th></tr></thead>
         <tbody>
         <tr>
-          <td class="pd-prop">How is the United Kingdom being characterised by non-UK commentators as a place to invest, build companies, and base international operations?</td>
-          <td class="pd-pct" style="color:var(--green);font-weight:700">88% <span style='font-size:0.7em'>&#9650;</span></td>
-          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-prop">Trade positioning and post-Brexit economic trajectory</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">50% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-low">LOW</span></td>
+          <td class="pd-arena">Partnership Reliability</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">AI and advanced technology competitiveness</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">83% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">HIGH</span></td>
+          <td class="pd-arena">Economic Power</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">London and the UK as a financial centre</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">83% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">HIGH</span></td>
+          <td class="pd-arena">Economic Power</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">Startup and scale-up ecosystem</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">84% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">HIGH</span></td>
           <td class="pd-arena">Economic Competence</td>
         </tr>
         <tr>
-          <td class="pd-prop">What narratives are forming internationally about the strength or decline of London and the UK as a financial centre, and what is driving those narratives?</td>
-          <td class="pd-pct" style="color:var(--green);font-weight:700">83% <span style='font-size:0.7em'>&#9650;</span></td>
-          <td><span class="conf-badge conf-high">Strong</span></td>
-          <td class="pd-arena">Economic Power</td>
+          <td class="pd-prop">Place to invest, build companies, base operations</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">88% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">HIGH</span></td>
+          <td class="pd-arena">Economic Competence</td>
         </tr>
         <tr>
-          <td class="pd-prop">How are non-UK observers assessing the UK&#x27;s competitiveness in AI, advanced technology, and innovation policy, relative to peer economies?</td>
-          <td class="pd-pct" style="color:var(--green);font-weight:700">83% <span style='font-size:0.7em'>&#9650;</span></td>
-          <td><span class="conf-badge conf-high">Strong</span></td>
-          <td class="pd-arena">Economic Power</td>
-        </tr>
-        <tr>
-          <td class="pd-prop">What is the prevailing external view of the UK&#x27;s regulatory environment (pro-growth, restrictive, stable, unpredictable), and what examples are cited?</td>
+          <td class="pd-prop">Regulatory environment — predictability and pro-growth stance</td>
           <td class="pd-pct" style="color:var(--green);font-weight:700">94% <span style='font-size:0.7em'>&#9650;</span></td>
-          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td><span class="conf-badge conf-high">HIGH</span></td>
           <td class="pd-arena">Governance Stability</td>
         </tr>
         <tr>
-          <td class="pd-prop">How is the UK&#x27;s startup and scale-up ecosystem being perceived internationally (talent, funding, exits, R&amp;D depth, friction), and what has shifted recently?</td>
-          <td class="pd-pct" style="color:var(--green);font-weight:700">84% <span style='font-size:0.7em'>&#9650;</span></td>
-          <td><span class="conf-badge conf-high">Strong</span></td>
-          <td class="pd-arena">Economic Competence</td>
+          <td class="pd-prop">Arenas Assessed</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">5% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">2</span></td>
+          <td class="pd-arena">Vulnerability Signals</td>
         </tr>
         <tr>
-          <td class="pd-prop">What external narratives describe the UK&#x27;s trade positioning and post-Brexit economic trajectory (repositioning, stagnation, resilience, vulnerability), and which counterpart countries are most salient?</td>
-          <td class="pd-pct" style="color:var(--green);font-weight:700">50% <span style='font-size:0.7em'>&#9650;</span></td>
-          <td><span class="conf-badge conf-high">Strong</span></td>
-          <td class="pd-arena">Partnership Reliability</td>
+          <td class="pd-prop">Trends Tracked</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">35% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">SOVEREIGN STANDING CONTEXT</span></td>
+          <td class="pd-arena">How the World Perceives the UK — Arena by Arena</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">5</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">83% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Geography:</span></td>
+          <td class="pd-arena">US, India, Switzerland</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">Trends:</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">11% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">167</span></td>
+          <td class="pd-arena">Geography:</td>
+        </tr>
+        <tr>
+          <td class="pd-prop">The UK&#x27;s regulatory environment is being framed as stable, predictable, and pro-growth by international observers — this is the highest-scoring proposition in the entire dashboard at 94%. The signal is underpinned by officially documented cross-border regulatory frameworks, not just editorial opinion.</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">5% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">Articles:</span></td>
+          <td class="pd-arena">43</td>
         </tr>
         </tbody>
       </table>

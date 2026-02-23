@@ -1,9 +1,19 @@
 {
   "date": "2026-02-23",
-  "composite_score": 76,
+  "composite_score": 70,
   "composite_posture": "Strong",
-  "composite_delta": 22,
+  "composite_delta": 16,
   "pillars": {
+    "defence": {
+      "name": "Defence & Strategic Credibility",
+      "score": 75,
+      "posture": "Strong",
+      "delta": 18,
+      "trend_count": 45,
+      "strength_count": 8,
+      "vuln_count": 1,
+      "executive_summary": "External defence-and-security coverage continues to treat the UK as a credible allied actor across Military Capability And Readiness and Alliance Reliability And Burden Sharing, anchored in AUKUS visi"
+    },
     "trust": {
       "name": "Trust, Stability & Systemic Reliability",
       "score": 86,
@@ -26,29 +36,19 @@
     },
     "economic": {
       "name": "Economic & Business Leadership",
-      "score": 80,
+      "score": 71,
       "posture": "Strong",
-      "delta": 18,
+      "delta": 9,
       "trend_count": 78,
       "strength_count": 7,
       "vuln_count": 2,
       "executive_summary": "External perception of UK economic and business standing is assessed as favourable and strengthening, with attention anchored in cross-border finance/regulatory mechanics and technology capability nar"
     },
-    "defence": {
-      "name": "Defence & Strategic Credibility",
-      "score": 91,
-      "posture": "Declining",
-      "delta": 34,
-      "trend_count": 33,
-      "strength_count": 7,
-      "vuln_count": 2,
-      "executive_summary": "External perception of the United Kingdom\u2019s defence standing is assessed as strongly favourable this cycle, with the headline Sovereign Perception Score at 91 and the strongest lift coming through NAT"
-    },
     "softpower": {
       "name": "Soft Power & Cultural Standing",
-      "score": 48,
+      "score": 44,
       "posture": "Declining",
-      "delta": 0,
+      "delta": -4,
       "trend_count": 39,
       "strength_count": 5,
       "vuln_count": 8,
