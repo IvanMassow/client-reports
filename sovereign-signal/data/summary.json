@@ -1,9 +1,49 @@
 {
   "date": "2026-02-23",
-  "composite_score": 70,
-  "composite_posture": "Strong",
-  "composite_delta": 22,
+  "composite_score": 56,
+  "composite_posture": "Mixed",
+  "composite_delta": 8,
   "pillars": {
+    "economic": {
+      "name": "Economic & Business Leadership",
+      "score": 53,
+      "posture": "Stable",
+      "delta": 0,
+      "trend_count": 72,
+      "strength_count": 7,
+      "vuln_count": 4,
+      "executive_summary": "External attention on the United Kingdom\u2019s economic standing is being pulled in two directions: strong, high-volume technology and financial-centre competence framing (Wayve Technologies autonomy tria"
+    },
+    "softpower": {
+      "name": "Soft Power & Cultural Standing",
+      "score": 44,
+      "posture": "Weak",
+      "delta": 3,
+      "trend_count": 30,
+      "strength_count": 4,
+      "vuln_count": 6,
+      "executive_summary": "External perception of the UK this cycle is under pressure, driven primarily by heritage and identity coverage centred on Prince Andrew, King Charles III, Prince William, and Queen Elizabeth II legacy"
+    },
+    "diplomatic": {
+      "name": "Diplomatic & Global Leadership",
+      "score": 60,
+      "posture": "Strong",
+      "delta": 12,
+      "trend_count": 39,
+      "strength_count": 8,
+      "vuln_count": 0,
+      "executive_summary": "External perception of the UK\u2019s diplomatic standing is assessed as favourable overall (Sovereign Perception Score: 73), with strength signals anchored in UN-system visibility, alliance and security-th"
+    },
+    "trust": {
+      "name": "Trust, Stability & Systemic Reliability",
+      "score": 50,
+      "posture": "Stable",
+      "delta": 8,
+      "trend_count": 24,
+      "strength_count": 4,
+      "vuln_count": 1,
+      "executive_summary": "External perception of the United Kingdom sits at 58 this cycle, with the strongest favourable coverage concentrated in Policy Predictability And Implementation Record (notably UK Government / HMRC fi"
+    },
     "defence": {
       "name": "Defence & Strategic Credibility",
       "score": 75,
@@ -13,46 +53,6 @@
       "strength_count": 8,
       "vuln_count": 1,
       "executive_summary": "External defence-and-security coverage continues to treat the UK as a credible allied actor across Military Capability And Readiness and Alliance Reliability And Burden Sharing, anchored in AUKUS visi"
-    },
-    "trust": {
-      "name": "Trust, Stability & Systemic Reliability",
-      "score": 86,
-      "posture": "Stable",
-      "delta": 44,
-      "trend_count": 30,
-      "strength_count": 4,
-      "vuln_count": 0,
-      "executive_summary": "External perception of the UK\u2019s governance reliability is running favourable in the partner-and-institutions lanes, anchored by NATO coordination and AUKUS cooperation signalling, and by EU-linked fin"
-    },
-    "diplomatic": {
-      "name": "Diplomatic & Global Leadership",
-      "score": 78,
-      "posture": "Stable",
-      "delta": 30,
-      "trend_count": 66,
-      "strength_count": 7,
-      "vuln_count": 4,
-      "executive_summary": "External perception of the United Kingdom\u2019s diplomatic posture is favourable and strengthening, with coverage concentrated on Keir Starmer\u2019s multi-theatre crisis diplomacy, Ukraine\u2013NATO security coord"
-    },
-    "economic": {
-      "name": "Economic & Business Leadership",
-      "score": 71,
-      "posture": "Strong",
-      "delta": 18,
-      "trend_count": 78,
-      "strength_count": 7,
-      "vuln_count": 2,
-      "executive_summary": "External perception of UK economic and business standing is assessed as favourable and strengthening, with attention anchored in cross-border finance/regulatory mechanics and technology capability nar"
-    },
-    "softpower": {
-      "name": "Soft Power & Cultural Standing",
-      "score": 44,
-      "posture": "Declining",
-      "delta": 3,
-      "trend_count": 39,
-      "strength_count": 5,
-      "vuln_count": 8,
-      "executive_summary": "External perception of the United Kingdom this cycle sits at a 48 sovereign perception score, with the strongest adverse pull coming from Prince Andrew / King Charles III-linked heritage credibility p"
     }
   }
 }

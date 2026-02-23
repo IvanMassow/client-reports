@@ -2548,6 +2548,8 @@ def run_once(target_date, require_all=True):
         pdata["ref"] = extract_ref_from_title(item["title"])
 
         # Fetch predictions and richer perception data from rendered report pages
+        # GUIDs are ordered newest-first; first SV data wins (most recent report)
+        got_sv = False
         for guid in pillar_guids.get(key, []):
             print(f"      Fetching predictions from rendered report ({guid[:12]})...")
             preds, arena_preds_scraped, rendered_perc = fetch_predictions_from_rendered(guid)
@@ -2558,7 +2560,8 @@ def run_once(target_date, require_all=True):
                 pdata["arena_predictions"].update(arena_preds_scraped)
                 print(f"      Found {len(arena_preds_scraped)} arena outlooks")
             # Use rendered perception data if it has sovereign_view (more accurate)
-            if rendered_perc:
+            # Only use the FIRST (newest) rendered page's SV data
+            if rendered_perc and not got_sv:
                 has_sv = any(p.get("sovereign_view") is not None for p in rendered_perc)
                 if has_sv:
                     pdata["perception_dashboard"] = rendered_perc
@@ -2567,8 +2570,9 @@ def run_once(target_date, require_all=True):
                     if sv_scores:
                         pdata["score"] = round(sum(sv_scores) / len(sv_scores))
                         print(f"      Updated score from rendered sovereign view: {pdata['score']}")
-            if preds:
-                break  # Got predictions, stop checking other GUIDs
+                    got_sv = True
+            if preds and got_sv:
+                break  # Got both predictions and SV data
 
         pillar_data[key] = pdata
         print(f"      Score: {pdata.get('score', '?')}, Posture: {pdata.get('posture', '?')}, "

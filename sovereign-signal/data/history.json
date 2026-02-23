@@ -76,31 +76,31 @@
   "2026-02-23": {
     "softpower": {
       "score": 44,
-      "posture": "Declining",
-      "trend_count": 39,
-      "strength_count": 5,
-      "vuln_count": 8
-    },
-    "trust": {
-      "score": 86,
-      "posture": "Stable",
+      "posture": "Weak",
       "trend_count": 30,
       "strength_count": 4,
-      "vuln_count": 0
+      "vuln_count": 6
+    },
+    "trust": {
+      "score": 50,
+      "posture": "Stable",
+      "trend_count": 24,
+      "strength_count": 4,
+      "vuln_count": 1
     },
     "diplomatic": {
-      "score": 78,
-      "posture": "Stable",
-      "trend_count": 66,
-      "strength_count": 7,
-      "vuln_count": 4
+      "score": 60,
+      "posture": "Strong",
+      "trend_count": 39,
+      "strength_count": 8,
+      "vuln_count": 0
     },
     "economic": {
-      "score": 71,
-      "posture": "Strong",
-      "trend_count": 78,
+      "score": 53,
+      "posture": "Stable",
+      "trend_count": 72,
       "strength_count": 7,
-      "vuln_count": 2
+      "vuln_count": 4
     },
     "defence": {
       "score": 75,
