@@ -1039,8 +1039,8 @@ body {{ width: 1200px; height: 630px; overflow: hidden; }}
 .flag {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('union-flag.png') center center / cover no-repeat; opacity: 0.5; filter: saturate(0.6) contrast(1.05); }}
 .overlay {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(26,30,39,0.92) 0%, rgba(26,30,39,0.85) 22%, rgba(26,30,39,0.55) 48%, rgba(26,30,39,0.25) 72%, rgba(26,30,39,0.12) 100%); }}
 .brand {{ position: relative; z-index: 2; text-align: center; margin-top: -20px; }}
-.title {{ font-family: 'Montserrat', sans-serif; font-size: 72px; font-weight: 700; color: #FFFFFF; letter-spacing: 0.28em; text-transform: uppercase; }}
-.subtitle {{ font-family: 'Lora', Georgia, serif; font-size: 18px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.4); letter-spacing: 0.12em; margin-top: 14px; }}
+.title {{ font-family: 'Montserrat', sans-serif; font-size: 120px; font-weight: 700; color: #FFFFFF; letter-spacing: 0.30em; text-transform: uppercase; }}
+.subtitle {{ font-family: 'Lora', Georgia, serif; font-size: 32px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.65); letter-spacing: 0.14em; margin-top: 18px; }}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 </head>
@@ -1378,14 +1378,14 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
 <title>Sovereign Signal — Sentiment, Trends &amp; Predictions</title>
 <meta property="og:title" content="Sovereign Signal — Sentiment, Trends & Predictions">
 <meta property="og:description" content="Daily intelligence on the United Kingdom's external positioning — sentiment analysis, trend monitoring, and forward predictions across five strategic pillars.">
-<meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=3">
+<meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=4">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sovereign Signal — Sentiment, Trends & Predictions">
 <meta name="twitter:description" content="Daily intelligence — sentiment, trends & predictions">
-<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=3">
+<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -1867,12 +1867,12 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
 <title>{headline}</title>
 <meta property="og:title" content="{html.escape(headline)}">
 <meta property="og:description" content="UK {pillar['short']} standing intelligence &mdash; {display_date}">
-<meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=3">
+<meta property="og:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=4">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{html.escape(headline)}">
-<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=3">
+<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/sovereign-signal/og-image.png?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
