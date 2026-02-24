@@ -38,39 +38,39 @@
   },
   "2026-02-22": {
     "trust": {
-      "score": 42,
+      "score": 53,
       "posture": "Mixed",
-      "trend_count": 30,
+      "trend_count": 11,
       "strength_count": 0,
       "vuln_count": 0
     },
     "diplomatic": {
-      "score": 48,
-      "posture": "Stable",
-      "trend_count": 30,
+      "score": 57,
+      "posture": "Under pressure",
+      "trend_count": 11,
       "strength_count": 7,
       "vuln_count": 2
     },
     "economic": {
-      "score": 53,
+      "score": 62,
       "posture": "Stable",
       "trend_count": 10,
       "strength_count": 6,
       "vuln_count": 0
     },
     "softpower": {
-      "score": 41,
-      "posture": "Declining",
-      "trend_count": 30,
-      "strength_count": 4,
-      "vuln_count": 6
+      "score": 48,
+      "posture": "Mixed",
+      "trend_count": 10,
+      "strength_count": 3,
+      "vuln_count": 3
     },
     "defence": {
       "score": 57,
-      "posture": "Stable",
-      "trend_count": 40,
+      "posture": "Mixed",
+      "trend_count": 10,
       "strength_count": 5,
-      "vuln_count": 4
+      "vuln_count": 1
     }
   },
   "2026-02-23": {
