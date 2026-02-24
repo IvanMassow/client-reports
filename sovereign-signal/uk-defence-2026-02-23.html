@@ -280,11 +280,15 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .priority-response strong { color: var(--text); }
 
 /* Forward Outlook / Predictions */
-.pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .pred-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }
 .pred-tile:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
-.pred-prob { font-family: 'Lora', Georgia, serif; font-size: 26px; font-weight: 700; color: #0d7680; line-height: 1; margin-bottom: 8px; }
-.pred-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 12px; }
+.pred-plain-english { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light); }
+.pred-prob-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+.pred-prob-number { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; }
+.pred-prob-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+.pred-arena { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.pred-narrative { font-family: 'Lora', Georgia, serif; font-size: 12.5px; color: var(--text-mid); line-height: 1.7; margin: 10px 0; padding: 10px 14px; background: rgba(13,118,128,0.03); border-left: 2px solid rgba(13,118,128,0.15); border-radius: 0 4px 4px 0; }
 .pred-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
 .pred-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }
 .pred-type-strength { background: #0d7680; color: white; }
@@ -367,7 +371,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .signal-table thead th { padding: 8px 12px; }
   .signal-table tbody td { padding: 8px 12px; }
   .pred-grid { grid-template-columns: 1fr; }
-  .pred-prob { font-size: 22px; }
+  .pred-plain-english { font-size: 14px; }
+  .pred-prob-number { font-size: 26px; }
   .pillar-nav { display: none; }
   .back-link { display: none; }
 }
@@ -505,71 +510,101 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     </div>
     
       <div class="pred-grid">
-        <div class="pred-tile" style="border-left: 3px solid var(--green)">
-          <div class="pred-prob">73% probability</div>
-          <div class="pred-title">Nato Role And Positioning outlook</div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in nato role and positioning is likely to continue building over the next 90 days.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">73%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Nato Role And Positioning</div>
           <div class="pred-badges">
             
             <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
-            
+            <span class="pred-badge pred-signal-strong">STRONG</span>
             <span class="pred-badge pred-horizon">90 DAYS</span>
           </div>
-          <div class="pred-trigger"><strong>What would change it:</strong> public commentary remains muted across subsequent cycles despite high evidence density</div>
-        </div>
-        <div class="pred-tile" style="border-left: 3px solid var(--green)">
-          <div class="pred-prob">68% probability</div>
-          <div class="pred-title">Deterrence Posture And Escalation Management outlook</div>
-          <div class="pred-badges">
-            
-            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
-            
-            <span class="pred-badge pred-horizon"></span>
-          </div>
-          <div class="pred-trigger"><strong>What would change it:</strong> public commentary becomes muted and geographic spread narrows while momentum holds steady</div>
-        </div>
-        <div class="pred-tile" style="border-left: 3px solid var(--green)">
-          <div class="pred-prob">68% probability</div>
-          <div class="pred-title">Military Capability And Readiness outlook</div>
-          <div class="pred-badges">
-            
-            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
-            
-            <span class="pred-badge pred-horizon">90 DAYS</span>
-          </div>
-          <div class="pred-trigger"><strong>What would change it:</strong> public commentary drops below moderate while momentum stays steady</div>
-        </div>
-        <div class="pred-tile" style="border-left: 3px solid var(--green)">
-          <div class="pred-prob">68% probability</div>
-          <div class="pred-title">Alliance Reliability And Burden Sharing outlook</div>
-          <div class="pred-badges">
-            
-            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
-            
-            <span class="pred-badge pred-horizon"></span>
-          </div>
-          <div class="pred-trigger"><strong>What would change it:</strong> public commentary falls below moderate</div>
-        </div>
-        <div class="pred-tile" style="border-left: 3px solid var(--green)">
-          <div class="pred-prob">53% probability</div>
-          <div class="pred-title">Alliance Reliability And Burden Sharing outlook</div>
-          <div class="pred-badges">
-            
-            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
-            
-            <span class="pred-badge pred-horizon"></span>
-          </div>
+          <div class="pred-narrative">Ukraine-cooperation coverage is assessed as building: 73% probability of intensification over the next 90 days (Strong signal, Intensifying).</div>
           
         </div>
-        <div class="pred-tile" style="border-left: 3px solid var(--green)">
-          <div class="pred-prob">53% probability</div>
-          <div class="pred-title">Cyber Capability And Security Posture outlook</div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in deterrence posture and escalation management is moderately likely to continue building over the next 90 days.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">68%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Deterrence Posture And Escalation Management</div>
           <div class="pred-badges">
             
             <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
-            
-            <span class="pred-badge pred-horizon"></span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">90 DAYS</span>
           </div>
-          <div class="pred-trigger"><strong>What would change it:</strong> public commentary intensity becomes elevated with sustained, geographically distributed coverage</div>
+          <div class="pred-narrative">Across the 90 days horizon, deterrence-credibility discourse sits at 68% probability of intensification (Strong signal, Intensifying), spanning Vladimir Putin-linked deterrence framing and European de...</div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in military capability and readiness is moderately likely to continue building over the next 90 days.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">68%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Military Capability And Readiness</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">90 DAYS</span>
+          </div>
+          <div class="pred-narrative">Readiness-context coverage shows 68% probability of intensifying over the next 90 days (Strong signal, Intensifying), with the signal stabilising if source diversity contracts and public commentary dr...</div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in alliance reliability and burden sharing is moderately likely to continue building over the next 90 days.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">68%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Alliance Reliability And Burden Sharing</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">90 DAYS</span>
+          </div>
+          <div class="pred-narrative">AUKUS partnership visibility continues to carry the reliability narrative: 68% probability of intensifying over 90 days (Strong signal, Intensifying).</div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in alliance reliability and burden sharing is assessed as possible to continue building over the next 12 months.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">53%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Alliance Reliability And Burden Sharing</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">12 MONTHS</span>
+          </div>
+          <div class="pred-narrative">Australia-partnership framing is assessed as holding rather than accelerating: 53% probability of intensification over 12 months (Strong signal, Stable).</div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in cyber capability and security posture is assessed as possible to continue building over the next 12 months.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">53%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Cyber Capability And Security Posture</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">12 MONTHS</span>
+          </div>
+          <div class="pred-narrative">Cyber and AI-security guidance co-authorship remains steady at 53% probability of intensification over 12 months (Strong signal, Stable).</div>
+          
         </div>
       </div>
       <div class="pred-summary">Outlook: 6 signals assessed, dominant direction Intensifying. 6 arenas show intensifying predictions.</div>

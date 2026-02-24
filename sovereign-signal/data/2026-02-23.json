@@ -271,76 +271,84 @@
     "vuln_count": 2,
     "predictions": [
       {
-        "title": "Sporting Brand And Influence outlook",
+        "title": "Sporting Brand And Influence",
         "probability": 75,
         "horizon": "90 days",
         "direction": "Intensifying",
         "signal_strength": "Strong",
         "trigger": "momentum returns to steady and geographic pickup narrows within the next cycle",
-        "type": ""
+        "type": "",
+        "narrative": "Across the next 90 days, three linked sport narratives sit on the same trajectory: Team GB prestige visibility, UK sport pipeline framing, and sport-integrity context are each assessed at 75% probabil..."
       },
       {
-        "title": "Heritage Identity And Nation Brand outlook",
+        "title": "Heritage Identity And Nation Brand",
         "probability": 71,
         "horizon": "30 days",
         "direction": "Intensifying",
         "signal_strength": "Strong",
-        "trigger": "public commentary intensity cools materially, succession-legitimacy framing is assessed as building quickly: 71% probability of Intensifying over the next 30 days (Strong signal), with attention concentrated in Australia and the United States",
-        "type": ""
+        "trigger": "public commentary intensity cools materially, succession-legitimacy framing is assessed as building quickly",
+        "type": "",
+        "narrative": "Unless public commentary intensity cools materially, succession-legitimacy framing is assessed as building quickly: 71% probability of Intensifying over the next 30 days (Strong signal), with attentio..."
       },
       {
-        "title": "Heritage Identity And Nation Brand outlook",
+        "title": "Heritage Identity And Nation Brand",
         "probability": 56,
-        "horizon": "12 months",
+        "horizon": "90 days",
         "direction": "Intensifying",
         "signal_strength": "Strong",
-        "trigger": "",
-        "type": ""
+        "trigger": "steady momentum turns into a renewed build, or if attention cools across the next cycles",
+        "type": "",
+        "narrative": "At the same time, monarchy-symbolism narratives are assessed as holding in place rather than accelerating \u2014 56% probability of intensification over 90 days (Strong signal)."
       },
       {
-        "title": "Heritage Identity And Nation Brand outlook",
+        "title": "Heritage Identity And Nation Brand",
         "probability": 50,
         "horizon": "12 months",
         "direction": "Intensifying",
         "signal_strength": "Strong",
-        "trigger": "",
-        "type": ""
+        "trigger": "attention accelerates again across additional geographies, or cools materially over the next cycle",
+        "type": "",
+        "narrative": "Even with fading momentum, monarchy reputation pressure is assessed as persistent: 50% probability of intensification over the next 12 months (Strong signal)."
       },
       {
-        "title": "Values And Human Rights Reputation outlook",
+        "title": "Values And Human Rights Reputation",
         "probability": 65,
-        "horizon": "12 months",
+        "horizon": "90 days",
         "direction": "Intensifying",
         "signal_strength": "Strong",
         "trigger": "public commentary cools materially, or if momentum shifts away from steady toward easing",
-        "type": ""
+        "type": "",
+        "narrative": "Border-security framing remains an active driver of the UK\u2019s values debate externally \u2014 65% probability of Intensifying over 90 days (Strong signal)."
       },
       {
-        "title": "Values And Human Rights Reputation outlook",
+        "title": "Values And Human Rights Reputation",
         "probability": 47,
         "horizon": "12 months",
         "direction": "Intensifying",
-        "signal_strength": "Strong",
-        "trigger": "",
-        "type": ""
+        "signal_strength": "",
+        "trigger": "coverage returns to a building momentum profile, or if commentary intensity cools from elevated levels",
+        "type": "",
+        "narrative": "The related immigration hardline framing is assessed as steady over the next 12 months (47% intensification probability; Strong signal)."
       },
       {
-        "title": "Culture And Media Exports outlook",
+        "title": "Culture And Media Exports",
         "probability": 42,
         "horizon": "12 months",
         "direction": "Intensifying",
         "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "While the underlying tone is favourable, attention is not assessed as building: 42% probability of intensification over the next 12 months (Strong signal)."
       },
       {
-        "title": "Creative Industries And Talent outlook",
+        "title": "Creative Industries And Talent",
         "probability": 36,
         "horizon": "12 months",
         "direction": "Intensifying",
         "signal_strength": "Strong",
-        "trigger": "",
-        "type": ""
+        "trigger": "coverage expands beyond its current concentration and momentum shifts back into a build",
+        "type": "",
+        "narrative": "Creative talent narratives are assessed as steady but cooling \u2014 36% probability of intensification over the next 12 months (Strong signal)."
       }
     ],
     "arena_predictions": {
@@ -1007,22 +1015,24 @@
     "vuln_count": 4,
     "predictions": [
       {
-        "title": "Financial Services And City Position outlook",
+        "title": "Financial Services And City Position",
         "probability": 70,
-        "horizon": "",
+        "horizon": "90 days",
         "direction": "Intensifying",
-        "signal_strength": "",
+        "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "Performance and benchmarking references are assessed at 70% intensification probability over 90 days (Strong signal, Intensifying), with London financial-services competence framing sustained by recur..."
       },
       {
-        "title": "Regulatory And Investment Climate outlook",
+        "title": "Regulatory And Investment Climate",
         "probability": 58,
-        "horizon": "",
+        "horizon": "180 days",
         "direction": "Intensifying",
-        "signal_strength": "",
-        "trigger": "attention warms and cross-border commentary widens beyond current isolated discussion, the cross-border compliance interoperability framing remains steady: 58% intensification probability over 180 days (Strong signal, Stable), with supervisory-cooperation references expected to hold rather than accelerate",
-        "type": ""
+        "signal_strength": "Strong",
+        "trigger": "attention warms and cross-border commentary widens beyond current isolated discussion",
+        "type": "",
+        "narrative": "Unless attention warms and cross-border commentary widens beyond current isolated discussion, the cross-border compliance interoperability framing remains steady: 58% intensification probability over ..."
       }
     ],
     "arena_predictions": {
@@ -1745,67 +1755,74 @@
     "vuln_count": 0,
     "predictions": [
       {
-        "title": "Global Voice And Strategic Relevance outlook",
+        "title": "Global Voice And Strategic Relevance",
         "probability": 88,
         "horizon": "30 days",
         "direction": "Intensifying",
-        "signal_strength": "",
+        "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "Across US- and Europe-centred strategic commentary, alliance-posture framing linked to international security discourse is assessed as on an intensifying trajectory: 88% probability of intensifying ov..."
       },
       {
-        "title": "Global Voice And Strategic Relevance outlook",
+        "title": "Global Voice And Strategic Relevance",
         "probability": 70,
-        "horizon": "30 days",
+        "horizon": "90 days",
         "direction": "Intensifying",
-        "signal_strength": "",
+        "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "Defence-engagement narratives anchored in UK Government defence-linked engagement references show 70% probability of intensifying over 90 days (Strong signal, Intensifying); the trajectory arrests if ..."
       },
       {
-        "title": "Crisis Diplomacy And Mediation outlook",
+        "title": "Crisis Diplomacy And Mediation",
         "probability": 83,
         "horizon": "90 days",
         "direction": "Intensifying",
-        "signal_strength": "",
-        "trigger": "the current build in attention slows materially, crisis diplomacy narratives centred on the Chagos Archipelago / Mauritius legal framing and the Belarus security framing are jointly assessed at 83% probability of intensifying over the next 90 days (Strong signal, Intensifying)",
-        "type": ""
+        "signal_strength": "Strong",
+        "trigger": "the current build in attention slows materially",
+        "type": "",
+        "narrative": "Unless the current build in attention slows materially, crisis diplomacy narratives centred on the Chagos Archipelago / Mauritius legal framing and the Belarus security framing are jointly assessed at..."
       },
       {
-        "title": "Climate And Energy Diplomacy outlook",
+        "title": "Climate And Energy Diplomacy",
         "probability": 73,
-        "horizon": "",
+        "horizon": "90 days",
         "direction": "Intensifying",
-        "signal_strength": "",
+        "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "North Seas energy coordination narratives (cross-border offshore energy cooperation framing) show a 73% probability of intensifying over 90 days (Strong signal, Intensifying)."
       },
       {
-        "title": "Climate And Energy Diplomacy outlook",
+        "title": "Climate And Energy Diplomacy",
         "probability": 58,
-        "horizon": "",
+        "horizon": "180 days",
         "direction": "Intensifying",
-        "signal_strength": "",
+        "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "By contrast, climate-governance alignment framing linked to EU climate-trade governance remains steady: 58% probability of intensification over 180 days (Strong signal, Stable), becoming more active i..."
       },
       {
-        "title": "Multilateral Influence outlook",
+        "title": "Multilateral Influence",
         "probability": 58,
-        "horizon": "",
+        "horizon": "180 days",
         "direction": "Intensifying",
-        "signal_strength": "",
+        "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "Institutional influence framing linked to UN-system visibility is assessed as holding: 58% probability of intensification over 180 days (Strong signal, Stable)."
       },
       {
-        "title": "Sanctions And Statecraft Influence outlook",
+        "title": "Sanctions And Statecraft Influence",
         "probability": 53,
-        "horizon": "",
+        "horizon": "12 months",
         "direction": "Intensifying",
-        "signal_strength": "",
+        "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "Sanctions coordination context remains mixed and is assessed as holding: 53% probability of intensification over 12 months (Strong signal, Stable)."
       }
     ],
     "arena_predictions": {
@@ -2400,22 +2417,24 @@
     "vuln_count": 1,
     "predictions": [
       {
-        "title": "Long Term Partner And Counterparty Reliability outlook",
+        "title": "Long Term Partner And Counterparty Reliability",
         "probability": 73,
         "horizon": "90 days",
         "direction": "Intensifying",
-        "signal_strength": "",
-        "trigger": "public commentary cools within the next cycle",
-        "type": ""
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "Security-coordination and partner-signalling scrutiny centred on Keir Starmer, Ukraine alignment, and coalition feasibility carries a 73% probability of intensifying over the next 90 days (Strong sign..."
       },
       {
-        "title": "Judicial Independence And Rule Of Law outlook",
+        "title": "Judicial Independence And Rule Of Law",
         "probability": 53,
-        "horizon": "",
+        "horizon": "12 months",
         "direction": "Intensifying",
-        "signal_strength": "",
+        "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "Rule-of-law framing linked to Supreme Court\u2013adjacent legal reform and corporate liability reform commentary is assessed as holding rather than accelerating: 53% probability of intensification over 12 ..."
       }
     ],
     "arena_predictions": {
@@ -2999,58 +3018,64 @@
     "vuln_count": 1,
     "predictions": [
       {
-        "title": "Nato Role And Positioning outlook",
+        "title": "Nato Role And Positioning",
         "probability": 73,
         "horizon": "90 days",
         "direction": "Intensifying",
-        "signal_strength": "",
-        "trigger": "public commentary remains muted across subsequent cycles despite high evidence density",
-        "type": ""
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "Ukraine-cooperation coverage is assessed as building: 73% probability of intensification over the next 90 days (Strong signal, Intensifying)."
       },
       {
-        "title": "Deterrence Posture And Escalation Management outlook",
-        "probability": 68,
-        "horizon": "",
-        "direction": "Intensifying",
-        "signal_strength": "",
-        "trigger": "public commentary becomes muted and geographic spread narrows while momentum holds steady",
-        "type": ""
-      },
-      {
-        "title": "Military Capability And Readiness outlook",
+        "title": "Deterrence Posture And Escalation Management",
         "probability": 68,
         "horizon": "90 days",
         "direction": "Intensifying",
-        "signal_strength": "",
-        "trigger": "public commentary drops below moderate while momentum stays steady",
-        "type": ""
-      },
-      {
-        "title": "Alliance Reliability And Burden Sharing outlook",
-        "probability": 68,
-        "horizon": "",
-        "direction": "Intensifying",
-        "signal_strength": "",
-        "trigger": "public commentary falls below moderate",
-        "type": ""
-      },
-      {
-        "title": "Alliance Reliability And Burden Sharing outlook",
-        "probability": 53,
-        "horizon": "",
-        "direction": "Intensifying",
-        "signal_strength": "",
+        "signal_strength": "Strong",
         "trigger": "",
-        "type": ""
+        "type": "",
+        "narrative": "Across the 90 days horizon, deterrence-credibility discourse sits at 68% probability of intensification (Strong signal, Intensifying), spanning Vladimir Putin-linked deterrence framing and European de..."
       },
       {
-        "title": "Cyber Capability And Security Posture outlook",
-        "probability": 53,
-        "horizon": "",
+        "title": "Military Capability And Readiness",
+        "probability": 68,
+        "horizon": "90 days",
         "direction": "Intensifying",
-        "signal_strength": "",
-        "trigger": "public commentary intensity becomes elevated with sustained, geographically distributed coverage",
-        "type": ""
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "Readiness-context coverage shows 68% probability of intensifying over the next 90 days (Strong signal, Intensifying), with the signal stabilising if source diversity contracts and public commentary dr..."
+      },
+      {
+        "title": "Alliance Reliability And Burden Sharing",
+        "probability": 68,
+        "horizon": "90 days",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "AUKUS partnership visibility continues to carry the reliability narrative: 68% probability of intensifying over 90 days (Strong signal, Intensifying)."
+      },
+      {
+        "title": "Alliance Reliability And Burden Sharing",
+        "probability": 53,
+        "horizon": "12 months",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "Australia-partnership framing is assessed as holding rather than accelerating: 53% probability of intensification over 12 months (Strong signal, Stable)."
+      },
+      {
+        "title": "Cyber Capability And Security Posture",
+        "probability": 53,
+        "horizon": "12 months",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "Cyber and AI-security guidance co-authorship remains steady at 53% probability of intensification over 12 months (Strong signal, Stable)."
       }
     ],
     "arena_predictions": {

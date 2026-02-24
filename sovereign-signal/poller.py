@@ -202,6 +202,101 @@ def _display_arena(name):
     return name
 
 
+def _plain_english_outlook(pred, arena_scores):
+    """
+    Generate a plain-English one-liner that explains what a prediction means.
+    Uses the arena's perception score to determine if the arena is a strength
+    (high score = good) or vulnerability (low score = bad), then frames the
+    direction in language a non-specialist reader can understand.
+
+    arena_scores: dict of {arena_name: sovereign_view_score}
+    """
+    arena = pred.get("title", "")
+    prob = pred.get("probability")
+    direction = (pred.get("direction") or "").lower()
+    horizon = pred.get("horizon", "")
+    arena_display = _display_arena(arena).lower()
+
+    # Exact match first, then fuzzy match on arena name prefixes
+    score = arena_scores.get(arena)
+    if score is None:
+        # Normalise for comparison: decode HTML entities, replace & with And, lowercase
+        def _norm(s):
+            s = s.replace("&amp;", "and").replace("&", "and").lower()
+            return re.sub(r"\s+", " ", s).strip()
+        arena_norm = _norm(arena)
+        for key, val in arena_scores.items():
+            key_norm = _norm(key)
+            # Match if one name starts with the other (prefix matching)
+            if arena_norm.startswith(key_norm) or key_norm.startswith(arena_norm):
+                score = val
+                break
+            # Match if all key words appear within the prediction arena name
+            # e.g. "Partner Reliability" words in "Long Term Partner And Counterparty Reliability"
+            key_words = [w for w in key_norm.split() if w not in ("and", "the", "of")]
+            if key_words and all(w in arena_norm for w in key_words):
+                score = val
+                break
+            # Also try matching first two significant words
+            arena_words = [w for w in arena_norm.split() if w not in ("and", "the", "of")][:2]
+            key_words_2 = [w for w in key_norm.split() if w not in ("and", "the", "of")][:2]
+            if arena_words == key_words_2 and len(arena_words) >= 2:
+                score = val
+                break
+
+    # Determine if arena is a strength or vulnerability by score
+    # <40 = clear vulnerability, 40-60 = mixed, >60 = clear strength
+    if score is not None:
+        is_vulnerability = score < 40
+        is_strength = score > 60
+    else:
+        is_vulnerability = False
+        is_strength = False
+
+    # Build timeframe phrase
+    time_phrase = f"over the next {horizon}" if horizon else "in the near term"
+
+    # Confidence framing
+    if prob is not None and prob >= 70:
+        confidence = "likely"
+    elif prob is not None and prob >= 55:
+        confidence = "moderately likely"
+    elif prob is not None and prob >= 45:
+        confidence = "assessed as possible"
+    else:
+        confidence = "assessed as less likely"
+
+    # Plain-English interpretation based on arena type + direction
+    if "intensif" in direction:
+        if is_vulnerability:
+            return f"Negative scrutiny of the UK\u2019s {arena_display} is {confidence} to increase {time_phrase}."
+        elif is_strength:
+            return f"Positive momentum in {arena_display} is {confidence} to continue building {time_phrase}."
+        else:
+            return f"Attention on {arena_display} is {confidence} to intensify {time_phrase}."
+    elif "fading" in direction:
+        if is_vulnerability:
+            return f"Pressure on the UK\u2019s {arena_display} is {confidence} to ease {time_phrase}."
+        elif is_strength:
+            return f"Positive momentum in {arena_display} is {confidence} to slow {time_phrase}."
+        else:
+            return f"Attention on {arena_display} is {confidence} to fade {time_phrase}."
+    elif "revers" in direction:
+        if is_vulnerability:
+            return f"The UK\u2019s {arena_display} outlook is {confidence} to begin recovering {time_phrase}."
+        elif is_strength:
+            return f"Positive trends in {arena_display} are {confidence} to reverse {time_phrase}."
+        else:
+            return f"The direction on {arena_display} is {confidence} to reverse {time_phrase}."
+    else:  # Stable
+        if is_vulnerability:
+            return f"Pressure on the UK\u2019s {arena_display} is {confidence} to hold steady {time_phrase}."
+        elif is_strength:
+            return f"Positive standing in {arena_display} is {confidence} to remain stable {time_phrase}."
+        else:
+            return f"Attention on {arena_display} is {confidence} to remain steady {time_phrase}."
+
+
 def _extract_li_field(li_html, field_name):
     """Extract a named field from a <li> item like '<strong>Arena:</strong> Foo'"""
     m = re.search(
@@ -695,51 +790,96 @@ def parse_report_content(desc_html):
             for i in range(1, len(outlook_blocks), 2):
                 arena_name = _strip_tags(outlook_blocks[i]).strip()
                 block_html = outlook_blocks[i + 1] if i + 1 < len(outlook_blocks) else ""
-                block_text = _strip_tags(block_html).strip()
 
-                # Extract ALL probability mentions from the prose (not just the first)
-                # Match both "XX% probability of Intensifying" and "XX% intensification probability"
-                prob_matches = re.findall(
-                    r"(\d+)%\s*(?:probability\s+of\s+)?(Intensifying|Stable|Fading|Reversing|intensification)",
-                    block_text, re.IGNORECASE
-                )
-                # Extract signal strength
-                signal_m = re.search(r"\((Strong|Moderate|Thin)\s+signal\)", block_text, re.IGNORECASE)
-                signal = signal_m.group(1) if signal_m else ""
-                # Extract trigger / what would change it — broader patterns
-                trigger_m = re.search(
-                    r"(?:arrested if|unless|change.?(?:if|when)|would change it[:\s]*|What would change it[:\s]*)\s*(.*?)(?:\.|$)",
-                    block_text, re.IGNORECASE
-                )
-                trigger = trigger_m.group(1).strip() if trigger_m else ""
-                # If trigger still empty, look for "momentum returns" style phrasing
-                if not trigger:
-                    trigger_m2 = re.search(r"(?:momentum\s+returns|visibility\s+expands|attention\s+shifts|public commentary)\s*[^.]*", block_text, re.IGNORECASE)
-                    if trigger_m2:
-                        trigger = trigger_m2.group(0).strip()
+                # Split into individual paragraphs — each <p> typically has one prediction
+                paragraphs = re.findall(r"<p>(.*?)</p>", block_html, re.DOTALL)
+                if not paragraphs:
+                    paragraphs = [block_html]
 
-                # Extract ALL horizons from the prose
-                horizon_matches = re.findall(r"(?:next|over the next|within)\s+(\d+\s*(?:days?|months?|years?))", block_text, re.IGNORECASE)
+                arena_probs = []
+                for para_html in paragraphs:
+                    para_text = _strip_tags(para_html).strip()
+                    if not para_text:
+                        continue
+                    # Skip blockquote-style summary lines
+                    if para_text.startswith("Outlook:") or para_text.startswith("Note:"):
+                        continue
 
-                if prob_matches:
-                    # Store EACH probability as a separate prediction
-                    for idx, (prob_str, direction_raw) in enumerate(prob_matches):
-                        prob = int(prob_str)
-                        direction = "Intensifying" if "intensif" in direction_raw.lower() else direction_raw.capitalize()
-                        # Match horizon to this prediction (by index or nearest)
-                        horizon = horizon_matches[idx] if idx < len(horizon_matches) else (horizon_matches[-1] if horizon_matches else "")
-                        title = f"{arena_name} outlook"
-                        data["predictions"].append({
-                            "title": title,
-                            "probability": prob,
-                            "horizon": horizon,
-                            "direction": direction,
-                            "signal_strength": signal,
-                            "trigger": trigger if idx == 0 else "",
-                            "type": "",
-                        })
-                    # Store the LEAD (highest) probability as the arena prediction
-                    lead_prob = max(int(p[0]) for p in prob_matches)
+                    # Extract probability + direction from this paragraph
+                    prob_m = re.search(
+                        r"(\d+)%\s*(?:probability\s+of\s+)?(Intensifying|Stable|Fading|Reversing|intensification)",
+                        para_text, re.IGNORECASE
+                    )
+                    if not prob_m:
+                        # Also match "47% intensification probability"
+                        prob_m = re.search(r"(\d+)%\s*intensification\s+probability", para_text, re.IGNORECASE)
+                    if not prob_m:
+                        continue
+
+                    prob = int(prob_m.group(1))
+                    direction_raw = prob_m.group(2) if prob_m.lastindex >= 2 else "Intensifying"
+                    direction = "Intensifying" if "intensif" in direction_raw.lower() else direction_raw.capitalize()
+
+                    # Extract horizon from this paragraph
+                    # Matches: "over 90 days", "over the next 90 days", "next 12 months",
+                    #          "within 30 days", "Across the 90 days horizon"
+                    horizon_m = re.search(
+                        r"(?:over\s+(?:the\s+)?(?:next\s+)?|next\s+|within\s+|across\s+(?:the\s+)?)(\d+\s*(?:days?|months?|years?))\s*(?:horizon)?",
+                        para_text, re.IGNORECASE
+                    )
+                    horizon = horizon_m.group(1).strip() if horizon_m else ""
+
+                    # Extract signal strength — handles both "(Strong signal)" and "(Strong signal, Intensifying)"
+                    signal_m = re.search(r"\((Strong|Moderate|Thin)\s+signal", para_text, re.IGNORECASE)
+                    signal = signal_m.group(1) if signal_m else ""
+
+                    # Extract trigger / what would change it
+                    # Stop at period, colon, or probability statement to avoid over-capturing
+                    trigger_m = re.search(
+                        r"(?:arrested if|unless|change.?(?:if|when)|would change it[:\s]*|What would change it[:\s]*|shifts? if)\s*(.*?)(?:\.|:|;\s*\d+%|$)",
+                        para_text, re.IGNORECASE
+                    )
+                    trigger = trigger_m.group(1).strip() if trigger_m else ""
+                    # Truncate overly long triggers (should be a concise condition)
+                    if len(trigger) > 120:
+                        cut = trigger[:120].rfind(",")
+                        if cut > 40:
+                            trigger = trigger[:cut]
+                        else:
+                            trigger = trigger[:120].rstrip() + "..."
+                    if not trigger:
+                        trigger_m2 = re.search(r"(?:The (?:trajectory|picture|signal) (?:changes|shifts|rebuilds) if)\s*(.*?)(?:\.|:|$)", para_text, re.IGNORECASE)
+                        if trigger_m2:
+                            trigger = trigger_m2.group(1).strip()
+
+                    # Build a meaningful narrative from the paragraph
+                    # Take the opening clause up to the probability statement as context
+                    narrative = para_text
+                    # Truncate at a sensible length for display
+                    if len(narrative) > 200:
+                        # Cut at the last full sentence within 200 chars
+                        cut = narrative[:200].rfind(".")
+                        if cut > 80:
+                            narrative = narrative[:cut + 1]
+                        else:
+                            narrative = narrative[:200] + "..."
+
+                    arena_probs.append(prob)
+                    data["predictions"].append({
+                        "title": arena_name,
+                        "probability": prob,
+                        "horizon": horizon,
+                        "direction": direction,
+                        "signal_strength": signal,
+                        "trigger": trigger,
+                        "type": "",
+                        "narrative": narrative,
+                    })
+
+                # Store the LEAD (highest) probability as the arena prediction
+                if arena_probs:
+                    lead_prob = max(arena_probs)
+                    block_text = _strip_tags(block_html).strip()
                     data["arena_predictions"][arena_name] = {
                         "has_outlook": True,
                         "outlook_sentence": block_text[:300],
@@ -2667,12 +2807,26 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     predictions = pdata.get("predictions", [])
     outlook_html = ""
     if predictions:
+        # Build arena score lookup from perception dashboard for plain-English framing
+        # Build arena score lookup from perception dashboard
+        # Some pillars have is_arena_summary flags, others have one row per arena
+        # Also store by abbreviated name for fuzzy matching
+        arena_scores = {}
+        pd_rows = pdata.get("perception_dashboard", [])
+        has_summaries = any(r.get("is_arena_summary") for r in pd_rows)
+        for row in pd_rows:
+            if has_summaries and not row.get("is_arena_summary"):
+                continue
+            arena_name = row.get("arena", "")
+            sv = row.get("sovereign_view") or row.get("global_view")
+            if arena_name and sv is not None:
+                arena_scores[arena_name] = sv
+
         # Sort by probability descending
         sorted_preds = sorted(predictions, key=lambda p: p.get("probability") or 0, reverse=True)
         tiles_html = ""
         for pred in sorted_preds[:10]:  # Max 10 tiles
             prob = pred.get("probability")
-            prob_str = str(prob) + "% probability" if prob is not None else "?"
             title = pred.get("title", "")
             horizon = pred.get("horizon", "")
             direction = pred.get("direction", "")
@@ -2695,27 +2849,77 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             else:
                 dir_cls = "pred-dir-stable"
 
-            # Tile border colour: use type if available, else direction
+            # Tile border + accent colour: based on arena score + direction
+            arena_sv = arena_scores.get(title)
+            if arena_sv is None:
+                def _norm_tile(s):
+                    s = s.replace("&amp;", "and").replace("&", "and").lower()
+                    return re.sub(r"\s+", " ", s).strip()
+                title_norm = _norm_tile(title)
+                for akey, aval in arena_scores.items():
+                    key_norm = _norm_tile(akey)
+                    if title_norm.startswith(key_norm) or key_norm.startswith(title_norm):
+                        arena_sv = aval
+                        break
+                    key_sig = [w for w in key_norm.split() if w not in ("and", "the", "of")]
+                    if key_sig and all(w in title_norm for w in key_sig):
+                        arena_sv = aval
+                        break
+                    title_sig = [w for w in title_norm.split() if w not in ("and", "the", "of")][:2]
+                    key_sig2 = [w for w in key_norm.split() if w not in ("and", "the", "of")][:2]
+                    if title_sig == key_sig2 and len(title_sig) >= 2:
+                        arena_sv = aval
+                        break
+            is_vuln_arena = arena_sv is not None and arena_sv < 40
+            is_strength_arena = arena_sv is not None and arena_sv > 60
             if pred_type:
                 border_color = "var(--red)" if "vuln" in type_lower else "var(--green)"
+            elif is_vuln_arena and "intensif" in dir_lower:
+                border_color = "var(--red)"  # Vulnerability getting worse
+            elif is_strength_arena and "intensif" in dir_lower:
+                border_color = "var(--green)"  # Strength getting stronger
             elif "fading" in dir_lower or "revers" in dir_lower:
-                border_color = "var(--red)"
+                border_color = "#d4a843"  # Amber — things are shifting
             else:
-                border_color = "var(--green)"
+                border_color = "var(--teal)"
+
+            # Prob colour: red if vulnerability intensifying, green if strength intensifying, amber if moderate
+            if is_vuln_arena and "intensif" in dir_lower:
+                prob_color = "var(--red)"
+            elif is_strength_arena and "intensif" in dir_lower:
+                prob_color = "var(--green)"
+            elif prob is not None and prob >= 65:
+                prob_color = "var(--teal)"
+            else:
+                prob_color = "#d4a843"
 
             # Type badge only shown when type is present
             type_badge = f'<span class="pred-badge {type_cls}">{html.escape(pred_type.upper())}</span>' if pred_type else ''
 
+            # Plain-English bottom line — the most important element
+            plain_english = _plain_english_outlook(pred, arena_scores)
+
+            # Narrative context from the source prose (shown as supporting detail)
+            narrative = pred.get("narrative", "")
+            narrative_html = ""
+            if narrative:
+                narrative_html = f'<div class="pred-narrative">{html.escape(_fix_emdashes(narrative))}</div>'
+
             tiles_html += f'''
-        <div class="pred-tile" style="border-left: 3px solid {border_color}">
-          <div class="pred-prob">{html.escape(prob_str)}</div>
-          <div class="pred-title">{html.escape(title)}</div>
+        <div class="pred-tile" style="border-left: 4px solid {border_color}">
+          <div class="pred-plain-english">{html.escape(plain_english)}</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:{prob_color}">{prob}%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">{html.escape(_display_arena(title))}</div>
           <div class="pred-badges">
             {type_badge}
             <span class="pred-badge {dir_cls}">{html.escape(direction.upper())}</span>
             {('<span class="pred-badge pred-signal-strong">' + html.escape(signal.upper()) + '</span>') if signal else ''}
-            <span class="pred-badge pred-horizon">{html.escape(horizon.upper())}</span>
+            {('<span class="pred-badge pred-horizon">' + html.escape(horizon.upper()) + '</span>') if horizon else ''}
           </div>
+          {narrative_html}
           {('<div class="pred-trigger"><strong>What would change it:</strong> ' + html.escape(_fix_emdashes(trigger)) + '</div>') if trigger else ''}
         </div>'''
 
@@ -3213,11 +3417,15 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .priority-response strong {{ color: var(--text); }}
 
 /* Forward Outlook / Predictions */
-.pred-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }}
+.pred-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }}
 .pred-tile {{ background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }}
 .pred-tile:hover {{ transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }}
-.pred-prob {{ font-family: 'Lora', Georgia, serif; font-size: 26px; font-weight: 700; color: #0d7680; line-height: 1; margin-bottom: 8px; }}
-.pred-title {{ font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 12px; }}
+.pred-plain-english {{ font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light); }}
+.pred-prob-row {{ display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }}
+.pred-prob-number {{ font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; }}
+.pred-prob-label {{ font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }}
+.pred-arena {{ font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }}
+.pred-narrative {{ font-family: 'Lora', Georgia, serif; font-size: 12.5px; color: var(--text-mid); line-height: 1.7; margin: 10px 0; padding: 10px 14px; background: rgba(13,118,128,0.03); border-left: 2px solid rgba(13,118,128,0.15); border-radius: 0 4px 4px 0; }}
 .pred-badges {{ display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }}
 .pred-badge {{ font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }}
 .pred-type-strength {{ background: #0d7680; color: white; }}
@@ -3300,7 +3508,8 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
   .signal-table thead th {{ padding: 8px 12px; }}
   .signal-table tbody td {{ padding: 8px 12px; }}
   .pred-grid {{ grid-template-columns: 1fr; }}
-  .pred-prob {{ font-size: 22px; }}
+  .pred-plain-english {{ font-size: 14px; }}
+  .pred-prob-number {{ font-size: 26px; }}
   .pillar-nav {{ display: none; }}
   .back-link {{ display: none; }}
 }}

@@ -280,11 +280,15 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .priority-response strong { color: var(--text); }
 
 /* Forward Outlook / Predictions */
-.pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .pred-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }
 .pred-tile:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
-.pred-prob { font-family: 'Lora', Georgia, serif; font-size: 26px; font-weight: 700; color: #0d7680; line-height: 1; margin-bottom: 8px; }
-.pred-title { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.4; margin-bottom: 12px; }
+.pred-plain-english { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light); }
+.pred-prob-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+.pred-prob-number { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; }
+.pred-prob-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+.pred-arena { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.pred-narrative { font-family: 'Lora', Georgia, serif; font-size: 12.5px; color: var(--text-mid); line-height: 1.7; margin: 10px 0; padding: 10px 14px; background: rgba(13,118,128,0.03); border-left: 2px solid rgba(13,118,128,0.15); border-radius: 0 4px 4px 0; }
 .pred-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
 .pred-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }
 .pred-type-strength { background: #0d7680; color: white; }
@@ -367,7 +371,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
   .signal-table thead th { padding: 8px 12px; }
   .signal-table tbody td { padding: 8px 12px; }
   .pred-grid { grid-template-columns: 1fr; }
-  .pred-prob { font-size: 22px; }
+  .pred-plain-english { font-size: 14px; }
+  .pred-prob-number { font-size: 26px; }
   .pillar-nav { display: none; }
   .back-link { display: none; }
 }
@@ -499,26 +504,36 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     </div>
     
       <div class="pred-grid">
-        <div class="pred-tile" style="border-left: 3px solid var(--green)">
-          <div class="pred-prob">73% probability</div>
-          <div class="pred-title">Long Term Partner And Counterparty Reliability outlook</div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in long term partner and counterparty reliability is likely to continue building over the next 90 days.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">73%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Long Term Partner And Counterparty Reliability</div>
           <div class="pred-badges">
             
             <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
-            
+            <span class="pred-badge pred-signal-strong">STRONG</span>
             <span class="pred-badge pred-horizon">90 DAYS</span>
           </div>
-          <div class="pred-trigger"><strong>What would change it:</strong> public commentary cools within the next cycle</div>
+          <div class="pred-narrative">Security-coordination and partner-signalling scrutiny centred on Keir Starmer, Ukraine alignment, and coalition feasibility carries a 73% probability of intensifying over the next 90 days (Strong sign...</div>
+          
         </div>
-        <div class="pred-tile" style="border-left: 3px solid var(--green)">
-          <div class="pred-prob">53% probability</div>
-          <div class="pred-title">Judicial Independence And Rule Of Law outlook</div>
+        <div class="pred-tile" style="border-left: 4px solid var(--teal)">
+          <div class="pred-plain-english">Attention on judicial independence and rule of law is assessed as possible to intensify over the next 12 months.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:#d4a843">53%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Judicial Independence And Rule Of Law</div>
           <div class="pred-badges">
             
             <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
-            
-            <span class="pred-badge pred-horizon"></span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">12 MONTHS</span>
           </div>
+          <div class="pred-narrative">Rule-of-law framing linked to Supreme Court–adjacent legal reform and corporate liability reform commentary is assessed as holding rather than accelerating: 53% probability of intensification over 12 ...</div>
           
         </div>
       </div>
