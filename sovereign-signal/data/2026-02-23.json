@@ -1,4 +1,218 @@
 {
+  "softpower": {
+    "executive_summary": "What is happening\nExternal attention on the United Kingdom is being pulled in two directions: strong international admiration signals in sport and creative output are being offset by concentrated adverse scrutiny of the monarchy and identity/values narratives. The headline sovereign perception score this cycle is 48, with external focus concentrated in the United States, Australia, France, and (for sport visibility) Italy. Heritage Identity And Nation Brand and Values And Human Rights Reputation are the arenas under pressure, while Sporting Brand And Influence, Culture And Media Exports, and Creative Industries And Talent are holding strong.\nWhy it matters\nThe current pattern splits the UK\u2019s soft-power picture into \u201cpull\u201d and \u201cdrag\u201d: sporting and cultural export visibility continues to reinforce global competitiveness, but monarchy-linked legitimacy narratives (King Charles III / Prince Andrew / succession framing) and hardline immigration-policy framing (Reform UK / Nigel Farage) are shaping broader trust and values judgements. In practice, this keeps the UK\u2019s cultural appeal visible while leaving its heritage and moral-authority standing exposed to fast-moving external commentary.\nWhat to watch\nNear-term escalation risk sits inside Heritage Identity And Nation Brand, where succession-legitimacy framing is assessed as building and is the most time-sensitive vulnerability this cycle. The other indicator is whether the Education And Research Prestige lane stays externally quiet (a continued silence gap) or re-emerges abruptly. Over the medium term, monitor whether the adverse values narrative around immigration and enforcement framing stabilises into a persistent baseline across the United States and France.",
+    "perception_dashboard": [
+      {
+        "proposition": "\u2014",
+        "global_view": null,
+        "sovereign_view": 26,
+        "signal_strength": "Strong",
+        "arena": "\u2014",
+        "emerging": "\u2514 Heritage, identity and nation-brand standing"
+      },
+      {
+        "proposition": "\u2014",
+        "global_view": null,
+        "sovereign_view": 43,
+        "signal_strength": "Thin",
+        "arena": "\u2014",
+        "emerging": "\u2514 Universities and research prestige"
+      },
+      {
+        "proposition": "\u2014",
+        "global_view": null,
+        "sovereign_view": 73,
+        "signal_strength": "Strong",
+        "arena": "\u2014",
+        "emerging": "Creative Industries And Talent"
+      },
+      {
+        "proposition": "\u2014",
+        "global_view": null,
+        "sovereign_view": 78,
+        "signal_strength": "Strong",
+        "arena": "\u2014",
+        "emerging": "\u2514 Sporting influence and benchmark status"
+      },
+      {
+        "proposition": ": structurally strong in sport and creative output, perception stable overall, with two active vulnerability drivers and a moderate evidence base.",
+        "global_view": 6,
+        "sovereign_view": null,
+        "signal_strength": "3",
+        "arena": "Arenas Positive",
+        "emerging": "2"
+      },
+      {
+        "proposition": "Vulnerability Signals",
+        "global_view": 14,
+        "sovereign_view": null,
+        "signal_strength": "9",
+        "arena": "Evidence Items",
+        "emerging": "SOVEREIGN STANDING CONTEXT"
+      },
+      {
+        "proposition": "The world's view of UK moral authority is sharply negative this cycle. International coverage \u2014 led by the United States, France, and Pakistan \u2014 is dominated by hardline immigration-enforcement proposals associated with Reform UK and Nigel Farage. This framing is acting as a shortcut judgement on broader UK values credibility, and the evidence supporting it is strong.",
+        "global_view": null,
+        "sovereign_view": 4,
+        "signal_strength": "Articles",
+        "arena": "98",
+        "emerging": "Geography"
+      },
+      {
+        "proposition": "The UK's heritage and nation-brand standing is under real pressure. International coverage is heavily focused on monarchy legitimacy questions \u2014 King Charles III, Prince Andrew, and succession framing \u2014 particularly in Australia, the United States, and France. This is not background noise: the discourse is elevated and the evidence base is strong. The risk is that these narratives harden into a persistent drag on the UK's broader identity projection.",
+        "global_view": null,
+        "sovereign_view": 3,
+        "signal_strength": "Articles",
+        "arena": "150",
+        "emerging": "Geography"
+      },
+      {
+        "proposition": "There is a notable silence gap here. The perception map found no linked trends for UK universities or research prestige this cycle \u2014 meaning the world is simply not talking about this arena right now. This is itself intelligence: it could indicate stable baseline assumptions, or it could mean the UK's education brand is not being actively reinforced at a time when competitors may be gaining ground.",
+        "global_view": null,
+        "sovereign_view": 0,
+        "signal_strength": "Articles",
+        "arena": "0",
+        "emerging": "Geography"
+      },
+      {
+        "proposition": "The international view of UK culture and media exports remains strongly positive. Coverage from the United States, India, and Canada reflects genuine admiration for UK creative output and competitiveness. However, momentum is fading \u2014 attention is easing rather than building, which means this strength is coasting rather than accelerating.",
+        "global_view": null,
+        "sovereign_view": 1,
+        "signal_strength": "Articles",
+        "arena": "48",
+        "emerging": "Geography"
+      }
+    ],
+    "trends": [],
+    "arena_context": {
+      "Culture And Media Exports": {
+        "name": "Culture And Media Exports",
+        "momentum": "Fading",
+        "geo_concentration": "Medium",
+        "geographies": "United States, India, Canada",
+        "discourse": "moderate",
+        "echo_risk": "No",
+        "summary": "Culture and media export standing is strong, with external attention anchored in culture/media export competitiveness signals concentrated in the United States, India, and Canada , momentum is fading.",
+        "posture": "Strong"
+      },
+      "Education And Research Prestige": {
+        "name": "Education And Research Prestige",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "External (mixed)",
+        "discourse": "muted",
+        "echo_risk": "No",
+        "summary": "Education and research prestige standing is assessed as insufficient data this cycle, with an external discourse silence gap and no mapped trend drivers."
+      },
+      "Sporting Brand And Influence": {
+        "name": "Sporting Brand And Influence",
+        "momentum": "Rising",
+        "geo_concentration": "Medium",
+        "geographies": "Italy, United States, China",
+        "discourse": "moderate",
+        "echo_risk": "No",
+        "summary": "Sporting brand and influence standing is strong, driven by Team GB prestige and pipeline narratives alongside rising integrity-context visibility , momentum is rising with attention concentrated in Italy and the United States.",
+        "posture": "Strong"
+      },
+      "Creative Industries And Talent": {
+        "name": "Creative Industries And Talent",
+        "momentum": "Fading",
+        "geo_concentration": "High",
+        "geographies": "United States, India, Canada",
+        "discourse": "moderate",
+        "echo_risk": "No",
+        "summary": "Creative industries and talent standing is strong, led by recurring visibility of UK-linked entertainment and creative-economy competitiveness signals across the United States and India , momentum is fading.",
+        "posture": "Strong"
+      },
+      "Heritage Identity And Nation Brand": {
+        "name": "Heritage Identity And Nation Brand",
+        "momentum": "Stable",
+        "geo_concentration": "Medium",
+        "geographies": "Australia, United States, France",
+        "discourse": "elevated",
+        "echo_risk": "No",
+        "summary": "Heritage, identity and nation-brand standing is weak, with pressure concentrated in external scrutiny of King Charles III, Prince Andrew, and succession-legitimacy framing , momentum is stable and attention is elevated, led by Australia and the United States.",
+        "posture": "Weak"
+      },
+      "Values And Human Rights Reputation": {
+        "name": "Values And Human Rights Reputation",
+        "momentum": "Stable",
+        "geo_concentration": "High",
+        "geographies": "United States, France, Pakistan",
+        "discourse": "elevated",
+        "echo_risk": "No",
+        "summary": "Values and human-rights reputation standing is weak, dominated by identity/cohesion and immigration-enforcement narratives (Reform UK / Nigel Farage framing) and associated border-security context , momentum is stable with elevated attention led by the United States and France.",
+        "posture": "Weak"
+      }
+    },
+    "strength_signals": [],
+    "strength_signal_details": [],
+    "vulnerability_signals": [],
+    "vuln_signal_details": [],
+    "priorities": [
+      {
+        "horizon": "Near-term risks and opportunities",
+        "action": "Risk: Succession-legitimacy and monarchy framing is building in external coverage",
+        "arena": "",
+        "trend": "",
+        "description": "this is actively building and requires intervention. \n Arena: Heritage Identity And Nation Brand | Trend: TRU-T8"
+      },
+      {
+        "horizon": "Near-term risks and opportunities",
+        "action": "Risk: Education and research prestige discourse is externally quiet",
+        "arena": "",
+        "trend": "",
+        "description": "prepare contingency messaging if public commentary intensity rises to elevated. \n Arena: Education And Research Prestige | Trend: None"
+      },
+      {
+        "horizon": "Medium-term monitoring",
+        "action": "Risk: Values standing remains weak with persistent adverse framing around immigration enforcement and cohesion narratives",
+        "arena": "",
+        "trend": "",
+        "description": "this is actively building and requires intervention. \n Arena: Values And Human Rights Reputation | Trend: TRU-T2"
+      }
+    ],
+    "standing_overview": [],
+    "conclusion": "This cycle\u2019s external perception picture is under pressure because two high-salience narratives , monarchy legitimacy scrutiny (King Charles III / Prince Andrew / succession framing) and values/rights judgement via immigration enforcement framing (Reform UK / Nigel Farage) , are repeatedly amplified in the United States, Australia, and France. At the same time, the UK continues to generate clear soft-power pull through Sporting Brand And Influence (notably with Italy as a visibility driver) and sustained culture/creative competitiveness signals tied to the United States, India, and Canada. The result is a stable overall trajectory with exposed heritage and values standing acting as a persistent drag on an otherwise resilient cultural and sporting profile.\nStanding posture this cycle: Under pressure",
+    "score": 28,
+    "posture": "Stable",
+    "trend_count": 20,
+    "strength_count": 0,
+    "vuln_count": 0,
+    "predictions": [],
+    "arena_predictions": {
+      "Sporting Brand And Influence": {
+        "has_outlook": true,
+        "outlook_sentence": "75% probability that Sporting Brand And Influence narratives intensify over the next 90 days (Strong signal)",
+        "probability": 75
+      },
+      "Heritage Identity And Nation Brand": {
+        "has_outlook": true,
+        "outlook_sentence": "65% probability that Heritage Identity And Nation Brand narratives intensify over the next 90 days (Strong signal)",
+        "probability": 65
+      },
+      "Values And Human Rights Reputation": {
+        "has_outlook": true,
+        "outlook_sentence": "77% probability that Values And Human Rights Reputation narratives intensify over the next 90 days (Strong signal)",
+        "probability": 77
+      },
+      "Culture And Media Exports": {
+        "has_outlook": true,
+        "outlook_sentence": "77% probability that Culture And Media Exports narratives intensify over the next 90 days (Strong signal)",
+        "probability": 77
+      },
+      "Creative Industries And Talent": {
+        "has_outlook": true,
+        "outlook_sentence": "67% probability that Creative Industries And Talent narratives intensify over the next 90 days (Strong signal)",
+        "probability": 67
+      }
+    },
+    "exec_what": "External attention on the United Kingdom is being pulled in two directions: strong international admiration signals in sport and creative output are being offset by concentrated adverse scrutiny of the monarchy and identity/values narratives. The headline sovereign perception score this cycle is 48, with external focus concentrated in the United States, Australia, France, and (for sport visibility) Italy. Heritage Identity And Nation Brand and Values And Human Rights Reputation are the arenas under pressure, while Sporting Brand And Influence, Culture And Media Exports, and Creative Industries And Talent are holding strong.",
+    "exec_why": "The current pattern splits the UK\u2019s soft-power picture into \u201cpull\u201d and \u201cdrag\u201d: sporting and cultural export visibility continues to reinforce global competitiveness, but monarchy-linked legitimacy narratives (King Charles III / Prince Andrew / succession framing) and hardline immigration-policy framing (Reform UK / Nigel Farage) are shaping broader trust and values judgements. In practice, this keeps the UK\u2019s cultural appeal visible while leaving its heritage and moral-authority standing exposed to fast-moving external commentary.",
+    "exec_watch": "Near-term escalation risk sits inside Heritage Identity And Nation Brand, where succession-legitimacy framing is assessed as building and is the most time-sensitive vulnerability this cycle. The other indicator is whether the Education And Research Prestige lane stays externally quiet (a continued silence gap) or re-emerges abruptly. Over the medium term, monitor whether the adverse values narrative around immigration and enforcement framing stabilises into a persistent baseline across the United States and France.",
+    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/soft-power-cultural-standing-intelligence-brief-united-kingdom-heritage-identity-and-nation-brand-under-scrutiny-2026-02-23-qhml",
+    "ref": "QHML"
+  },
   "economic": {
     "executive_summary": "External attention on the United Kingdom\u2019s economic standing is being pulled in two directions: strong, high-volume technology and financial-centre competence framing (Wayve Technologies autonomy trials; Microsoft and OpenAI ecosystem signalling) is competing with adverse trade credibility narratives driven by US tariff and legal-policy uncertainty (Donald Trump tariff signalling; U.S. Supreme Court trade-policy uncertainty), concentrated in the United States, China, and the European Union. The headline Sovereign Perception Score this cycle is 64.\nFinancial Services And City Position and Innovation And Technology are assessed Strong, but the posture is under pressure because Trade And Competitiveness and Macroeconomic Credibility are assessed Weak; the conviction register entry for DIAG-SS-006 (trade positioning) sits at 21% external perception while DIAG-SS-003 (AI and advanced technology competitiveness) holds at 80%, with strength evidence notably dense across autonomy trials, platform commitments, and infrastructure hosting narratives.",
     "perception_dashboard": [
@@ -400,416 +614,6 @@
     "exec_watch": "",
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/economic-business-leadership-intelligence-brief-united-kingdom-trade-and-competitiveness-under-scrutiny-2026-02-23-nvkj",
     "ref": "NVKJ"
-  },
-  "softpower": {
-    "executive_summary": "External perception of the UK this cycle is under pressure, driven primarily by heritage and identity coverage centred on Prince Andrew, King Charles III, Prince William, and Queen Elizabeth II legacy framing, with attention concentrated in Australia and the United States (and secondary spillover into Canada and Germany); the headline Sovereign Perception Score is 40.\nThe balance sheet is asymmetric: Heritage Identity And Nation Brand and Values And Human Rights Reputation are both assessed as Weak with building momentum, while Sporting Brand And Influence remains Strong on governance-competence signalling. The perception picture is anchored by strongly negative proposition resolution in P-SS-DIAG-SS-006 (14% external perception) and P-SS-DIAG-SS-007 (14%), while the strongest favourable lane sits in Culture And Media Exports and Creative Industries And Talent via P-SS-DIAG-SS-002 and P-SS-DIAG-SS-005 (both 73%) but with limited broader public amplification.",
-    "perception_dashboard": [
-      {
-        "proposition": "International law &amp; sovereignty norms in territorial disputes",
-        "global_view": 20,
-        "sovereign_view": 5,
-        "signal_strength": "Low",
-        "arena": "Values &amp; Human Rights",
-        "emerging": "\u2014"
-      },
-      {
-        "proposition": "Monarchy &amp; nation-brand credibility amid legal scrutiny",
-        "global_view": 25,
-        "sovereign_view": 10,
-        "signal_strength": "Low",
-        "arena": "Heritage Identity",
-        "emerging": "\u2014"
-      },
-      {
-        "proposition": "National identity &amp; political cohesion debates touching the nation brand",
-        "global_view": 25,
-        "sovereign_view": 10,
-        "signal_strength": "Low",
-        "arena": "Heritage Identity",
-        "emerging": "\u2014"
-      },
-      {
-        "proposition": "Institutional integrity &amp; rule-of-law credibility (high-visibility investigations)",
-        "global_view": 25,
-        "sovereign_view": 10,
-        "signal_strength": "Low",
-        "arena": "Values &amp; Human Rights",
-        "emerging": "\u2014"
-      },
-      {
-        "proposition": "Sport integrity, discrimination &amp; governance in UK-linked ecosystems",
-        "global_view": 45,
-        "sovereign_view": 37,
-        "signal_strength": "Low",
-        "arena": "Sporting Brand",
-        "emerging": "\u2014"
-      },
-      {
-        "proposition": "Royal soft-power symbolism via appearances &amp; heritage events",
-        "global_view": 45,
-        "sovereign_view": 53,
-        "signal_strength": "Low",
-        "arena": "Heritage Identity",
-        "emerging": "\u2014"
-      },
-      {
-        "proposition": "Cultural reach &amp; competitiveness via film/TV &amp; cultural events",
-        "global_view": 75,
-        "sovereign_view": 83,
-        "signal_strength": "High",
-        "arena": "Culture &amp; Media",
-        "emerging": "\u2014"
-      },
-      {
-        "proposition": "Creative industries &amp; talent competitiveness",
-        "global_view": 75,
-        "sovereign_view": 83,
-        "signal_strength": "High",
-        "arena": "Creative Industries",
-        "emerging": "\u2713"
-      },
-      {
-        "proposition": "UK culture &amp; media export reach \u2014 engaged geographies",
-        "global_view": 75,
-        "sovereign_view": 90,
-        "signal_strength": "High",
-        "arena": "Culture &amp; Media",
-        "emerging": "\u2014"
-      },
-      {
-        "proposition": "Team GB sporting brand, performance credibility &amp; global prestige",
-        "global_view": 80,
-        "sovereign_view": 95,
-        "signal_strength": "High",
-        "arena": "Sporting Brand",
-        "emerging": "\u2014"
-      },
-      {
-        "proposition": "Arenas Positive",
-        "global_view": 8,
-        "sovereign_view": null,
-        "signal_strength": "13",
-        "arena": "Trends Tracked",
-        "emerging": "22"
-      },
-      {
-        "proposition": "Trends:",
-        "global_view": 0,
-        "sovereign_view": null,
-        "signal_strength": "0",
-        "arena": "Temperature:",
-        "emerging": "Cold"
-      },
-      {
-        "proposition": "Articles:",
-        "global_view": 50,
-        "sovereign_view": null,
-        "signal_strength": "US, Ireland, France",
-        "arena": "Temperature:",
-        "emerging": "Warm"
-      },
-      {
-        "proposition": "2",
-        "global_view": null,
-        "sovereign_view": 52,
-        "signal_strength": "Geography:",
-        "arena": "US, Italy, Spain",
-        "emerging": "Temperature:"
-      },
-      {
-        "proposition": "This is the UK's strongest soft-power arena this cycle. Team GB prestige coverage is structurally favourable and widely distributed across Italy, Canada, and the US. Monarchy-linked sport diplomacy cues reinforce the positive picture. The principal offsetting pressure is a high-visibility integrity lane covering discrimination and governance themes in UK-linked sport \u2014 this is contested but not dominant.",
-        "global_view": null,
-        "sovereign_view": 4,
-        "signal_strength": "Articles:",
-        "arena": "134",
-        "emerging": "Geography:"
-      }
-    ],
-    "trends": [],
-    "arena_context": {
-      "Culture And Media Exports": {
-        "name": "Culture And Media Exports",
-        "momentum": "Rising",
-        "geo_concentration": "Medium",
-        "geographies": "Australia, Italy, United States",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Culture And Media Exports reflects a moderate structural position with rising momentum, driven by King / cultural diplomacy , market/operational signal , public affairs/sport.",
-        "posture": "Moderate"
-      },
-      "Education And Research Prestige": {
-        "name": "Education And Research Prestige",
-        "momentum": "Stable",
-        "geo_concentration": "Low",
-        "geographies": "External (mixed)",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Education And Research Prestige is assessed as insufficient data this cycle; no external narrative clusters were admitted for UK universities and research institutions."
-      },
-      "Sporting Brand And Influence": {
-        "name": "Sporting Brand And Influence",
-        "momentum": "Stable",
-        "geo_concentration": "Medium",
-        "geographies": "Italy, United States, France",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Sporting Brand And Influence reflects a strong structural position with stable momentum, driven by Sport integrity , operational/policy signal , sports governance.",
-        "posture": "Strong"
-      },
-      "Creative Industries And Talent": {
-        "name": "Creative Industries And Talent",
-        "momentum": "Rising",
-        "geo_concentration": "Medium",
-        "geographies": "India, United States, France",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Creative Industries And Talent reflects a moderate structural position with rising momentum, driven by Kate Middleton , market/other signal , creative industries/fashion.",
-        "posture": "Moderate"
-      },
-      "Heritage Identity And Nation Brand": {
-        "name": "Heritage Identity And Nation Brand",
-        "momentum": "Rising",
-        "geo_concentration": "Medium",
-        "geographies": "Australia, United States, Canada",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Heritage Identity And Nation Brand reflects a weak structural position with rising momentum, driven by Prince Andrew / monarchy , legal-other signal , public affairs; Prince Andrew , legal/policy signal , public sector/public affairs; and William / royal crisis , legal/other signal , public sector.",
-        "posture": "Weak"
-      },
-      "Values And Human Rights Reputation": {
-        "name": "Values And Human Rights Reputation",
-        "momentum": "Rising",
-        "geo_concentration": "Medium",
-        "geographies": "United States, Germany, Australia",
-        "discourse": "muted",
-        "echo_risk": "No",
-        "summary": "Values And Human Rights Reputation reflects a weak structural position with rising momentum, driven by Migration enforcement , legal/policy signal , civil liberties/government and Keir Starmer / Crown context , legal/policy signal , politics/international relations.",
-        "posture": "Weak"
-      }
-    },
-    "strength_signals": [
-      "SS-003",
-      "SS-001",
-      "SS-002",
-      "SS-004"
-    ],
-    "strength_signal_details": [
-      {
-        "id": "SS-003",
-        "arena": "Sporting Brand And Influence",
-        "character": "Structural",
-        "horizon": "12 months",
-        "description": "UK-linked sport governance infrastructure is being referenced through enforcement and integrity actions, positioning UK-hosted integrity bodies as competence nodes; external attention concentrates in Italy and the United States, with France recurring in the monitored geography mix.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T7",
-        "evidence": "(EVD-7LX-SS-015)"
-      },
-      {
-        "id": "SS-001",
-        "arena": "Heritage Identity And Nation Brand",
-        "character": "Reputational",
-        "horizon": "Near term",
-        "description": "Alongside the Andrew-linked adverse lane, a separate strand tracks Prince William\u2019s public positioning as reputation management and stabilisation, keeping a limited counterweight visible in external coverage concentrated in Australia and the United States (with Canada recurring).",
-        "mechanism": "Unresolved",
-        "trend_ref": "T3",
-        "evidence": "(EVD-7LX-SS-012)"
-      },
-      {
-        "id": "SS-002",
-        "arena": "Creative Industries And Talent",
-        "character": "Reputational",
-        "horizon": "Near term",
-        "description": "Catherine\u2019s high-visibility cultural signalling is creating a creative-sector association cue for the UK, with attention concentrated in India and the United States and secondary visibility in France; public amplification remains limited beyond the institutional and lifestyle lanes.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T6",
-        "evidence": "(EVD-7LX-SS-013)"
-      },
-      {
-        "id": "SS-004",
-        "arena": "Culture And Media Exports",
-        "character": "Strategic",
-        "horizon": "Near term",
-        "description": "Ceremonial diplomacy and partner-facing visibility anchored on King Charles III is registering as a favourable soft-power projection cue, concentrated in Australia and Italy with the United States recurring; the signal is present but not yet broadly amplified outside its current audiences.",
-        "mechanism": "Unresolved",
-        "trend_ref": "T10",
-        "evidence": "(EVD-7LX-SS-024)"
-      }
-    ],
-    "vulnerability_signals": [
-      "VS-001",
-      "VS-002",
-      "VS-003",
-      "VS-004",
-      "VS-005",
-      "VS-006"
-    ],
-    "vuln_signal_details": [
-      {
-        "id": "VS-001",
-        "title": "Monarchy Legitimacy And Accountability Scrutiny (Andrew-Linked)",
-        "arena": "Heritage Identity And Nation Brand",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "External attention is concentrated on Prince Andrew\u2019s legal exposure and accountability framing, with spillover onto King Charles III and monarchy-institution legitimacy; the concentration is most visible across Australia and the United States, with additional carry into Canada. This compresses soft-power symbolism into an institutional-trust test rather than cultural affinity.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T1",
-        "evidence": "(EVD-7LX-SS-009)"
-      },
-      {
-        "id": "VS-002",
-        "title": "Succession Legitimacy And Realm-Consent Strain Narratives",
-        "arena": "Heritage Identity And Nation Brand",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "Coverage links succession changes to constitutional and realm-consent complexity, keeping the monarchy\u2019s legitimacy in an institutional-governance lane rather than a purely ceremonial one; the highest external attention registers in Australia and the United States, with Canada recurring as a secondary audience.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T2",
-        "evidence": "(EVD-7LX-SS-010)"
-      },
-      {
-        "id": "VS-003",
-        "title": "Royal Crisis Reputational Shock Framing",
-        "arena": "Heritage Identity And Nation Brand",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "Crisis framing collapses individual conduct into institution-level judgement, pulling nation-brand resilience cues downward; attention is concentrated in the United States and Australia, with Switzerland appearing as a secondary external geography in the monitored set.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T4",
-        "evidence": "(EVD-7LX-SS-011)"
-      },
-      {
-        "id": "VS-004",
-        "title": "Legacy Symbolism Contested Under Reputational Stress",
-        "arena": "Heritage Identity And Nation Brand",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "Queen Elizabeth II\u2019s legacy and symbolic soft-power assets are being re-read through the Andrew-linked credibility shock, which reduces continuity cues in external commentary; the most visible external concentration is the United States and Australia, with Canada recurring as a secondary audience.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T5",
-        "evidence": "(EVD-7LX-SS-014)"
-      },
-      {
-        "id": "VS-005",
-        "title": "Civil-Liberties And Enforcement Critique With Governance Linkage",
-        "arena": "Values And Human Rights Reputation",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "Rights-based critique attaches to governance credibility via migration enforcement, surveillance, and protest-law tightening, shifting values leadership assessment into a constraint narrative; the highest concentration registers in the United States and Germany, with China recurring in the monitored geography mix.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T8",
-        "evidence": "(EVD-7LX-SS-017)"
-      },
-      {
-        "id": "VS-006",
-        "title": "Sovereignty And Legitimacy Dispute Framing Tied To State Credibility",
-        "arena": "Values And Human Rights Reputation",
-        "severity": "Medium",
-        "horizon": "Near term",
-        "description": "Sovereignty-transfer dispute framing is pulling external judgement toward state-credibility and legitimacy tests, including political leadership references around Keir Starmer and Crown-adjacent symbolism; attention concentrates in the United States and Australia, with Germany present as a secondary external geography.",
-        "structural_position": "Managed uncertainty",
-        "mechanism": "Unresolved",
-        "trend_ref": "T9",
-        "evidence": "(EVD-7LX-SS-021)"
-      }
-    ],
-    "priorities": [
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Culture And Media Exports",
-        "trend": "None",
-        "description": "Emerging favourable cultural visibility signal with cold public amplification surfaces suggests potential for later narrative escalation."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Creative Industries And Talent",
-        "trend": "None",
-        "description": "Favourable creative visibility signal is present but not mirrored in informal discourse, warranting tracking for amplification."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Sporting Brand And Influence",
-        "trend": "None",
-        "description": "Sport governance competence signal exists with limited breadth; monitor for additional sport and event-driven framing clusters."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Heritage Identity And Nation Brand",
-        "trend": "TRU-T1",
-        "description": "High-expected arena shows broad trend activity while informal discourse surfaces remain quiet; monitor for sudden amplification of adverse legitimacy framing."
-      },
-      {
-        "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Values And Human Rights Reputation",
-        "trend": "TRU-T8",
-        "description": "High-expected values arena is vulnerability-weighted with limited informal amplification; monitor for rapid uptake of civil-liberties critique."
-      }
-    ],
-    "standing_overview": [
-      {
-        "dimension": "Structural Position",
-        "assessment": "Mixed",
-        "driver": "Heritage Identity And Nation Brand (TRU-T1, TRU-T2, TRU-T4, TRU-T5) and Values And Human Rights Reputation (TRU-T8, TRU-T9) pull adverse, while Sporting Brand And Influence (TRU-T7) and Culture And Media Exports / Creative Industries And Talent (TRU-T10, TRU-T6) provide counterweight."
-      },
-      {
-        "dimension": "Perception Momentum",
-        "assessment": "Building",
-        "driver": "Rising momentum dominates across Heritage Identity And Nation Brand, Values And Human Rights Reputation, Culture And Media Exports, and Creative Industries And Talent."
-      },
-      {
-        "dimension": "Vulnerability Concentration",
-        "assessment": "Moderate",
-        "driver": "Six medium-severity vulnerability signals are active (VS-001 to VS-006); no high-severity vulnerabilities were confirmed this cycle."
-      },
-      {
-        "dimension": "Evidence Density",
-        "assessment": "Moderate",
-        "driver": "Moderate evidence base across monitored arenas."
-      }
-    ],
-    "conclusion": "The UK\u2019s soft-power standing is being shaped less by export competitiveness narratives and more by identity-and-values scrutiny anchored on the Royal Family and governance credibility: Prince Andrew\u2019s legal exposure and the institutional spillover onto King Charles III and monarchy legitimacy are the dominant adverse drivers, amplified most visibly across Australia and the United States, while civil-liberties critique and sovereignty/legitimacy dispute framing sustains pressure in the values arena. Countervailing strength remains visible in sport-governance competence (UK-linked integrity infrastructure) and in cultural visibility cues tied to King Charles III and Catherine, but these favourable lanes are not displacing the heritage and values drag in external attention.\nStanding posture this cycle: Under pressure",
-    "score": 44,
-    "posture": "Weak",
-    "trend_count": 30,
-    "strength_count": 4,
-    "vuln_count": 6,
-    "predictions": [],
-    "arena_predictions": {
-      "Heritage Identity And Nation Brand": {
-        "has_outlook": true,
-        "outlook_sentence": "65% probability that Heritage Identity And Nation Brand narratives intensify over the next 90 days (Strong signal)",
-        "probability": 65
-      },
-      "Values And Human Rights Reputation": {
-        "has_outlook": true,
-        "outlook_sentence": "77% probability that Values And Human Rights Reputation narratives intensify over the next 90 days (Strong signal)",
-        "probability": 77
-      },
-      "Culture And Media Exports": {
-        "has_outlook": true,
-        "outlook_sentence": "77% probability that Culture And Media Exports narratives intensify over the next 90 days (Strong signal)",
-        "probability": 77
-      },
-      "Creative Industries And Talent": {
-        "has_outlook": true,
-        "outlook_sentence": "67% probability that Creative Industries And Talent narratives intensify over the next 90 days (Strong signal)",
-        "probability": 67
-      }
-    },
-    "exec_what": "",
-    "exec_why": "",
-    "exec_watch": "",
-    "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/soft-power-cultural-standing-intelligence-brief-united-kingdom-sporting-brand-and-influence-holds-2026-02-23-xjrv",
-    "ref": "XJRV"
   },
   "diplomatic": {
     "executive_summary": "External perception of the UK\u2019s diplomatic standing is assessed as favourable overall (Sovereign Perception Score: 73), with strength signals anchored in UN-system visibility, alliance and security-theatre relevance, and policy-adjacent climate/energy coordination; the highest-volume external attention concentrates around the United States, Europe, and China.\nThe strongest standing lane is Global Voice And Strategic Relevance (overall standing: Strong), where evidence-rich trends are favourable while negative \u201cjunior partner to Washington\u201d framing is still active in high-intensity commentary; this balance is reflected in the confirmed proposition P-SS-DIAG-SS-006 (80% external perception, Strong signal) alongside the broader diplomatic-actor assessment P-SS-DIAG-SS-001 (83%, Strong). Managed uncertainty concentrates in sanctions leadership and effectiveness: P-SS-DIAG-SS-005 sits at 39% with Thin evidence, and development/humanitarian visibility remains under-mapped as a dedicated external narrative lane.",

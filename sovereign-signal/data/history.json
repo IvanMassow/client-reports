@@ -75,11 +75,11 @@
   },
   "2026-02-23": {
     "softpower": {
-      "score": 44,
-      "posture": "Weak",
-      "trend_count": 30,
-      "strength_count": 4,
-      "vuln_count": 6
+      "score": 28,
+      "posture": "Stable",
+      "trend_count": 20,
+      "strength_count": 0,
+      "vuln_count": 0
     },
     "trust": {
       "score": 50,

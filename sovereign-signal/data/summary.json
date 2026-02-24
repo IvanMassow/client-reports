@@ -1,9 +1,19 @@
 {
   "date": "2026-02-23",
-  "composite_score": 56,
+  "composite_score": 53,
   "composite_posture": "Mixed",
-  "composite_delta": 8,
+  "composite_delta": 5,
   "pillars": {
+    "softpower": {
+      "name": "Soft Power & Cultural Standing",
+      "score": 28,
+      "posture": "Stable",
+      "delta": -13,
+      "trend_count": 20,
+      "strength_count": 0,
+      "vuln_count": 0,
+      "executive_summary": "What is happening\nExternal attention on the United Kingdom is being pulled in two directions: strong international admiration signals in sport and creative output are being offset by concentrated adve"
+    },
     "economic": {
       "name": "Economic & Business Leadership",
       "score": 53,
@@ -13,16 +23,6 @@
       "strength_count": 7,
       "vuln_count": 4,
       "executive_summary": "External attention on the United Kingdom\u2019s economic standing is being pulled in two directions: strong, high-volume technology and financial-centre competence framing (Wayve Technologies autonomy tria"
-    },
-    "softpower": {
-      "name": "Soft Power & Cultural Standing",
-      "score": 44,
-      "posture": "Weak",
-      "delta": 3,
-      "trend_count": 30,
-      "strength_count": 4,
-      "vuln_count": 6,
-      "executive_summary": "External perception of the UK this cycle is under pressure, driven primarily by heritage and identity coverage centred on Prince Andrew, King Charles III, Prince William, and Queen Elizabeth II legacy"
     },
     "diplomatic": {
       "name": "Diplomatic & Global Leadership",
