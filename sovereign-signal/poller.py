@@ -262,33 +262,77 @@ def parse_report_content(desc_html):
             data["exec_watch"] = _strip_tags(watch_match.group(1)).strip() if watch_match else ""
 
     # ─── Perception Dashboard ───
-    # Pipe-delimited table rows: | Proposition | Global View | Sovereign View | Signal Strength | Arena | Emerging |
     dashboard_section = re.search(
         r"Sovereign Perception Dashboard.*?</h2>(.*?)(?=<h2|$)",
         desc_html, re.DOTALL | re.IGNORECASE
     )
     if dashboard_section:
         section_text = _strip_tags(dashboard_section.group(1))
-        # Detect table format: v2.2 has 5 columns (no Sovereign View),
-        # older format has 6 columns (Global View + Sovereign View)
+        # Detect table format from header row
         header_row = ""
         for row in section_text.split("\n"):
             row = row.strip()
-            if row.startswith("|") and "Proposition" in row:
+            if row.startswith("|") and ("Proposition" in row or "Arena" in row):
                 header_row = row
                 break
         has_sovereign_col = "Sovereign" in header_row or "Global" in header_row
+        # v2.2 arena-grouped format: Arena | External Perception | Signal Strength | Detail | Emerging
+        is_arena_grouped = "Arena" in header_row and "Detail" in header_row
 
-        # Parse each row — skip header and separator rows
+        current_arena = ""
         for row in section_text.split("\n"):
             row = row.strip()
-            if not row.startswith("|") or row.startswith("|---") or "Proposition" in row:
+            if not row.startswith("|") or row.startswith("|---"):
+                continue
+            # Skip header rows
+            if "Proposition" in row or ("Arena" in row and "External" in row):
                 continue
             cols = [c.strip() for c in row.split("|")]
-            # cols[0] is empty (before first |), cols[-1] may be empty (after last |)
             cols = [c for c in cols if c]
 
-            if has_sovereign_col and len(cols) >= 6:
+            if is_arena_grouped and len(cols) >= 3:
+                # v2.2 arena-grouped format
+                # Arena summary rows are bold: **Arena Name** | **XX%** | **Strong** | | , |
+                # Proposition rows have └ prefix: └ Prop text | XX% | Strong | Detail | , |
+                raw_name = cols[0]
+                is_arena_row = "**" in raw_name or (not raw_name.startswith("└") and not raw_name.startswith("&lfloor;"))
+                clean_name = raw_name.replace("**", "").replace("└", "").strip()
+
+                pct_str = cols[1].replace("**", "").replace("%", "").strip() if len(cols) > 1 else ""
+                signal = cols[2].replace("**", "").strip() if len(cols) > 2 else ""
+                detail = cols[3].strip() if len(cols) > 3 else ""
+                emerging = cols[4].strip() if len(cols) > 4 else ""
+
+                try:
+                    pct = int(pct_str)
+                except ValueError:
+                    pct = None
+
+                if is_arena_row:
+                    current_arena = clean_name
+                    # Arena summary row — store with arena as both proposition and arena
+                    data["perception_dashboard"].append({
+                        "proposition": clean_name,
+                        "global_view": pct,
+                        "sovereign_view": None,
+                        "signal_strength": signal,
+                        "arena": clean_name,
+                        "emerging": emerging.strip(", "),
+                        "is_arena_summary": True,
+                    })
+                else:
+                    # Proposition detail row
+                    data["perception_dashboard"].append({
+                        "proposition": clean_name,
+                        "global_view": pct,
+                        "sovereign_view": None,
+                        "signal_strength": signal,
+                        "arena": current_arena,
+                        "emerging": emerging.strip(", "),
+                        "is_arena_summary": False,
+                    })
+
+            elif has_sovereign_col and len(cols) >= 6:
                 # Old format: Proposition | Global View | Sovereign View | Signal | Arena | Emerging
                 prop_text = cols[0]
                 global_view = cols[1].replace("%", "").strip()
@@ -296,35 +340,47 @@ def parse_report_content(desc_html):
                 signal_strength = cols[3].strip()
                 arena = cols[4].strip()
                 emerging = cols[5] if len(cols) > 5 else ""
+                try:
+                    gv = int(global_view)
+                except ValueError:
+                    gv = None
+                try:
+                    sv = int(sovereign_view)
+                except ValueError:
+                    sv = None
+                data["perception_dashboard"].append({
+                    "proposition": prop_text,
+                    "global_view": gv,
+                    "sovereign_view": sv,
+                    "signal_strength": signal_strength,
+                    "arena": arena,
+                    "emerging": emerging.strip(", "),
+                })
+
             elif len(cols) >= 4:
-                # v2.2 format: Proposition | External Perception | Signal | Arena | Emerging
+                # Earlier v2.2: Proposition | External Perception | Signal | Arena | Emerging
                 prop_text = cols[0]
                 global_view = cols[1].replace("%", "").strip()
                 sovereign_view = ""
                 signal_strength = cols[2].strip()
                 arena = cols[3].strip()
                 emerging = cols[4] if len(cols) > 4 else ""
-            else:
-                continue
-
-            # Parse percentage values
-            try:
-                gv = int(global_view)
-            except ValueError:
-                gv = None
-            try:
-                sv = int(sovereign_view)
-            except ValueError:
-                sv = None
-
-            data["perception_dashboard"].append({
-                "proposition": prop_text,
-                "global_view": gv,
-                "sovereign_view": sv,
-                "signal_strength": signal_strength,
-                "arena": arena,
-                "emerging": emerging.strip(", "),
-            })
+                try:
+                    gv = int(global_view)
+                except ValueError:
+                    gv = None
+                try:
+                    sv = int(sovereign_view)
+                except ValueError:
+                    sv = None
+                data["perception_dashboard"].append({
+                    "proposition": prop_text,
+                    "global_view": gv,
+                    "sovereign_view": sv,
+                    "signal_strength": signal_strength,
+                    "arena": arena,
+                    "emerging": emerging.strip(", "),
+                })
 
     # ─── Trend Matrix ───
     trend_section = re.search(
@@ -379,18 +435,22 @@ def parse_report_content(desc_html):
             block_text = _strip_tags(block_html)
 
             ctx = {"name": arena_name}
-            # Extract structured fields
-            for field, key in [
-                ("Verified trend count", "spot_checked_trends"),
-                ("Dominant momentum", "momentum"),
-                ("Geographic concentration", "geo_concentration"),
-                ("Top geographies", "geographies"),
-                ("Discourse activity", "discourse"),
-                ("Echo chamber risk", "echo_risk"),
+            # Extract structured fields — support both old and v2.2 field names
+            for fields, key in [
+                (["Verified trend count", "Active trends"], "spot_checked_trends"),
+                (["Dominant momentum"], "momentum"),
+                (["Geographic concentration"], "geo_concentration"),
+                (["Top geographies"], "geographies"),
+                (["Discourse activity"], "discourse"),
+                (["Echo chamber risk"], "echo_risk"),
+                (["Articles this cycle"], "articles_count"),
+                (["Data sources"], "data_sources"),
             ]:
-                val = _extract_li_field(block_html, field)
-                if val:
-                    ctx[key] = val
+                for field in fields:
+                    val = _extract_li_field(block_html, field)
+                    if val:
+                        ctx[key] = val
+                        break
 
             # Extract the summary sentence (paragraph after the list)
             # Use .*? instead of [^<]+ so we capture paragraphs containing
@@ -430,7 +490,7 @@ def parse_report_content(desc_html):
 
     # ─── Vulnerability Signals (full details) ───
     vuln_section = re.search(
-        r"Sovereign Vulnerability Signals.*?</h2>(.*?)(?=<h2|$)",
+        r"(?:Sovereign )?Vulnerability Signals.*?</h2>(.*?)(?=<h2|$)",
         desc_html, re.DOTALL | re.IGNORECASE
     )
     if vuln_section:
@@ -467,7 +527,7 @@ def parse_report_content(desc_html):
 
     # ─── Strength Signals (full details) ───
     strength_section = re.search(
-        r"Sovereign Strength Signals.*?</h2>(.*?)(?=<h2|$)",
+        r"(?:Sovereign )?Strength Signals.*?</h2>(.*?)(?=<h2|$)",
         desc_html, re.DOTALL | re.IGNORECASE
     )
     if strength_section:
@@ -506,38 +566,59 @@ def parse_report_content(desc_html):
     if priorities_section:
         pri_html = priorities_section.group(1)
         # Split by h3 for time horizons
-        horizon_blocks = re.split(r"<h3>([^<]+)</h3>", pri_html)
+        horizon_blocks = re.split(r"<h3>(.*?)</h3>", pri_html)
         for i in range(1, len(horizon_blocks), 2):
-            horizon = horizon_blocks[i].strip()
+            horizon = _strip_tags(horizon_blocks[i]).strip()
             block_html = horizon_blocks[i + 1] if i + 1 < len(horizon_blocks) else ""
             # Each priority is a <li>
             for li_match in re.finditer(r"<li>(.*?)</li>", block_html, re.DOTALL):
-                li_text = _strip_tags(li_match.group(1))
-                # Parse: "Action , Arena: X , Trend: Y , Description"
-                parts = [p.strip() for p in li_text.split(",", 3)]
-                action = parts[0].replace("- ", "").strip() if parts else ""
-                arena = ""
-                trend = ""
-                desc = ""
-                for p in parts[1:]:
-                    p = p.strip()
-                    if p.startswith("Arena:"):
-                        arena = p.replace("Arena:", "").strip()
-                    elif p.startswith("Trend:"):
-                        trend = p.replace("Trend:", "").strip()
-                    else:
-                        desc = p
-                data["priorities"].append({
-                    "horizon": horizon,
-                    "action": action,
-                    "arena": arena,
-                    "trend": trend,
-                    "description": desc,
-                })
+                li_html = li_match.group(1)
+                li_text = _strip_tags(li_html).strip()
 
-    # ─── Standing Assessment Overview ───
+                # v2.2 format: "Risk: description... Recommended response: ... Arena: X | Trend: Y"
+                risk_match = re.match(
+                    r"(?:- )?(Risk|Opportunity|Watch)[:\s]+(.*?)(?:\s*Recommended response:\s*(.*?))?(?:\s*Arena:\s*([\w\s&]+?))?(?:\s*\|\s*Trend:\s*(\S+))?\s*$",
+                    li_text, re.DOTALL | re.IGNORECASE
+                )
+                if risk_match:
+                    action = risk_match.group(1).strip()
+                    desc = risk_match.group(2).strip().rstrip(",. ")
+                    # recommended = risk_match.group(3).strip() if risk_match.group(3) else ""
+                    arena = risk_match.group(4).strip() if risk_match.group(4) else ""
+                    trend = risk_match.group(5).strip() if risk_match.group(5) else ""
+                    data["priorities"].append({
+                        "horizon": horizon,
+                        "action": action,
+                        "arena": arena,
+                        "trend": trend,
+                        "description": desc,
+                    })
+                else:
+                    # Legacy format: "Action , Arena: X , Trend: Y , Description"
+                    parts = [p.strip() for p in li_text.split(",", 3)]
+                    action = parts[0].replace("- ", "").strip() if parts else ""
+                    arena = ""
+                    trend = ""
+                    desc = ""
+                    for p in parts[1:]:
+                        p = p.strip()
+                        if p.startswith("Arena:"):
+                            arena = p.replace("Arena:", "").strip()
+                        elif p.startswith("Trend:"):
+                            trend = p.replace("Trend:", "").strip()
+                        else:
+                            desc = p
+                    data["priorities"].append({
+                        "horizon": horizon,
+                        "action": action,
+                        "arena": arena,
+                        "trend": trend,
+                        "description": desc,
+                    })
+
+    # ─── Standing Assessment Overview / Position Summary ───
     overview_section = re.search(
-        r"Standing Assessment Overview.*?</h2>(.*?)(?=<h2|$)",
+        r"(?:Standing Assessment Overview|Position Summary).*?</h2>(.*?)(?=<h2|$)",
         desc_html, re.DOTALL | re.IGNORECASE
     )
     if overview_section:
@@ -562,29 +643,73 @@ def parse_report_content(desc_html):
         desc_html, re.DOTALL | re.IGNORECASE
     )
     if outlook_section:
-        section_text = _strip_tags(outlook_section.group(1))
-        # Parse pipe-delimited prediction rows:
-        # | Title | Probability | Horizon | Direction | Signal Strength | Trigger |
-        for row in section_text.split("\n"):
-            row = row.strip()
-            if not row.startswith("|") or row.startswith("|---") or "Title" in row or "Probability" in row:
-                continue
-            cols = [c.strip() for c in row.split("|")]
-            cols = [c for c in cols if c]
-            if len(cols) >= 4:
-                prob_str = cols[1].replace("%", "").strip()
-                try:
-                    prob = int(prob_str)
-                except ValueError:
-                    prob = None
-                data["predictions"].append({
-                    "title": cols[0],
-                    "probability": prob,
-                    "horizon": cols[2] if len(cols) > 2 else "",
-                    "direction": cols[3] if len(cols) > 3 else "",
-                    "signal_strength": cols[4] if len(cols) > 4 else "",
-                    "trigger": cols[5] if len(cols) > 5 else "",
-                })
+        outlook_raw = outlook_section.group(1)
+        section_text = _strip_tags(outlook_raw)
+
+        # Try pipe-delimited table format first (old format)
+        table_rows = [r for r in section_text.split("\n") if r.strip().startswith("|") and not r.strip().startswith("|---") and "Title" not in r and "Probability" not in r]
+        if table_rows:
+            for row in table_rows:
+                cols = [c.strip() for c in row.split("|")]
+                cols = [c for c in cols if c]
+                if len(cols) >= 4:
+                    prob_str = cols[1].replace("%", "").strip()
+                    try:
+                        prob = int(prob_str)
+                    except ValueError:
+                        prob = None
+                    data["predictions"].append({
+                        "title": cols[0],
+                        "probability": prob,
+                        "horizon": cols[2] if len(cols) > 2 else "",
+                        "direction": cols[3] if len(cols) > 3 else "",
+                        "signal_strength": cols[4] if len(cols) > 4 else "",
+                        "trigger": cols[5] if len(cols) > 5 else "",
+                    })
+        else:
+            # v2.2 prose-based format: <h3>Arena</h3><p>...XX% probability...Intensifying...30 days...</p>
+            outlook_blocks = re.split(r"<h3>(.*?)</h3>", outlook_raw)
+            for i in range(1, len(outlook_blocks), 2):
+                arena_name = _strip_tags(outlook_blocks[i]).strip()
+                block_html = outlook_blocks[i + 1] if i + 1 < len(outlook_blocks) else ""
+                block_text = _strip_tags(block_html).strip()
+
+                # Extract all probability mentions from the prose
+                prob_matches = re.findall(
+                    r"(\d+)%\s*probability\s+of\s+(Intensifying|Stable|Fading|Reversing)",
+                    block_text, re.IGNORECASE
+                )
+                # Extract horizon
+                horizon_m = re.search(r"(?:next|over the next|within)\s+(\d+\s*(?:days?|months?))", block_text, re.IGNORECASE)
+                horizon = horizon_m.group(1) if horizon_m else ""
+                # Extract signal strength
+                signal_m = re.search(r"\((Strong|Moderate|Thin)\s+signal\)", block_text, re.IGNORECASE)
+                signal = signal_m.group(1) if signal_m else ""
+                # Extract trigger / what would change it
+                trigger_m = re.search(r"(?:arrested if|unless|change.?(?:if|when))\s+(.*?)(?:\.|$)", block_text, re.IGNORECASE)
+                trigger = trigger_m.group(1).strip() if trigger_m else ""
+
+                if prob_matches:
+                    # Use the first/main probability
+                    prob = int(prob_matches[0][0])
+                    direction = prob_matches[0][1].capitalize()
+                    # Build a concise title from the arena name
+                    title = f"{arena_name} outlook"
+                    data["predictions"].append({
+                        "title": title,
+                        "probability": prob,
+                        "horizon": horizon,
+                        "direction": direction,
+                        "signal_strength": signal,
+                        "trigger": trigger,
+                        "type": "",
+                    })
+                    # Store as arena prediction too
+                    data["arena_predictions"][arena_name] = {
+                        "has_outlook": True,
+                        "outlook_sentence": block_text[:200],
+                        "probability": prob,
+                    }
 
     # Parse per-arena prediction outlook sentences
     arena_outlook_matches = re.finditer(
@@ -605,7 +730,7 @@ def parse_report_content(desc_html):
 
     # ─── Conclusion ───
     conclusion_match = re.search(
-        r"<h2[^>]*>.*?Conclusion.*?</h2>(.*?)(?=<h2|$)",
+        r"<h2[^>]*>[^<]*Conclusion[^<]*</h2>(.*?)(?=<h2|$)",
         desc_html, re.DOTALL | re.IGNORECASE
     )
     if conclusion_match:
@@ -614,14 +739,23 @@ def parse_report_content(desc_html):
     # ─── Score & Posture Extraction ───
     # Primary: perception dashboard average (sovereign_view if available, else global_view)
     if data["perception_dashboard"]:
-        sv_scores = [p["sovereign_view"] for p in data["perception_dashboard"] if p.get("sovereign_view") is not None]
-        if sv_scores:
-            data["score"] = round(sum(sv_scores) / len(sv_scores))
+        # Check if we have arena-grouped data — if so, use arena summary rows only
+        has_arena_groups = any(p.get("is_arena_summary") for p in data["perception_dashboard"])
+        if has_arena_groups:
+            # Use arena summary rows for score (avoids double-counting propositions)
+            arena_scores = [p["global_view"] for p in data["perception_dashboard"]
+                           if p.get("is_arena_summary") and p.get("global_view") is not None]
+            if arena_scores:
+                data["score"] = round(sum(arena_scores) / len(arena_scores))
         else:
-            # v2.2 reports have only global_view (External Perception)
-            gv_scores = [p["global_view"] for p in data["perception_dashboard"] if p.get("global_view") is not None]
-            if gv_scores:
-                data["score"] = round(sum(gv_scores) / len(gv_scores))
+            sv_scores = [p["sovereign_view"] for p in data["perception_dashboard"] if p.get("sovereign_view") is not None]
+            if sv_scores:
+                data["score"] = round(sum(sv_scores) / len(sv_scores))
+            else:
+                # v2.2 reports have only global_view (External Perception)
+                gv_scores = [p["global_view"] for p in data["perception_dashboard"] if p.get("global_view") is not None]
+                if gv_scores:
+                    data["score"] = round(sum(gv_scores) / len(gv_scores))
 
     # Fallback 1: "score: 74/100" format from exec summary
     if data["score"] is None:
@@ -651,7 +785,7 @@ def parse_report_content(desc_html):
 
     # Fallback signal counts from ID matching if detailed parsing missed them
     if data["strength_count"] == 0:
-        ss_section = re.search(r"Sovereign Strength Signals(.*?)(?=<h2|$)", desc_html, re.DOTALL | re.IGNORECASE)
+        ss_section = re.search(r"(?:Sovereign )?Strength Signals(.*?)(?=<h2|$)", desc_html, re.DOTALL | re.IGNORECASE)
         if ss_section:
             ss_ids = re.findall(r"SS-\d+", ss_section.group(1))
             data["strength_count"] = len(set(ss_ids))
@@ -659,12 +793,44 @@ def parse_report_content(desc_html):
                 data["strength_signals"] = list(dict.fromkeys(ss_ids))
 
     if data["vuln_count"] == 0:
-        vs_section = re.search(r"Sovereign Vulnerability Signals(.*?)(?=<h2|Structural|$)", desc_html, re.DOTALL | re.IGNORECASE)
+        vs_section = re.search(r"(?:Sovereign )?Vulnerability Signals(.*?)(?=<h2|Structural|$)", desc_html, re.DOTALL | re.IGNORECASE)
         if vs_section:
             vs_ids = re.findall(r"VS-\d+", vs_section.group(1))
             data["vuln_count"] = len(set(vs_ids))
             if not data["vulnerability_signals"]:
                 data["vulnerability_signals"] = list(dict.fromkeys(vs_ids))
+
+    # v2.2: Extract strength/vulnerability counts and details from Standing Context
+    # when inline within arena blocks (Reinforcing/Pressure sub-sections)
+    if data["strength_count"] == 0 or data["vuln_count"] == 0:
+        ctx_section = re.search(
+            r"(?:Sovereign )?Standing Context.*?</h2>(.*?)(?=<h2|$)",
+            desc_html, re.DOTALL | re.IGNORECASE
+        )
+        if ctx_section:
+            ctx_html = ctx_section.group(1)
+            # Count inline strength signals from "Reinforcing this standing" blocks
+            if data["strength_count"] == 0:
+                reinforcing_blocks = re.findall(
+                    r"Reinforcing this standing.*?(?=Pressure on|</h4>|<h4|$)",
+                    ctx_html, re.DOTALL | re.IGNORECASE
+                )
+                inline_ss = 0
+                for rb in reinforcing_blocks:
+                    inline_ss += len(re.findall(r"<li>", rb))
+                if inline_ss > 0:
+                    data["strength_count"] = inline_ss
+            # Count inline vulnerability signals from "Pressure on this standing" blocks
+            if data["vuln_count"] == 0:
+                pressure_blocks = re.findall(
+                    r"Pressure on this standing.*?(?=Reinforcing|</h4>|<h4|$)",
+                    ctx_html, re.DOTALL | re.IGNORECASE
+                )
+                inline_vs = 0
+                for pb in pressure_blocks:
+                    inline_vs += len(re.findall(r"<li>", pb))
+                if inline_vs > 0:
+                    data["vuln_count"] = inline_vs
 
     # Default posture based on score
     if data["score"] is not None:
@@ -755,69 +921,117 @@ def fetch_predictions_from_rendered(guid):
         }
 
     # ─── Parse perception dashboard from rendered page ───
-    # The rendered page often has the full 6-column table with Sovereign View,
+    # The rendered page often has the full table with Sovereign View,
     # which may be absent or different in the RSS description.
+    # v2.2 format: arena-grouped with 4 fields per row (Proposition, Sovereign View, Signal, Emerging)
+    # Old format: 5-6 fields per row (Proposition, Global View, [Sovereign View], Confidence, Arena, Emerging)
     rendered_perception = []
     pd_section = re.search(
-        r"SOVEREIGN PERCEPTION DASHBOARD(.*?)(?:ARENA ANALYSIS|TREND MATRIX|FORWARD OUTLOOK|$)",
+        r"SOVEREIGN PERCEPTION DASHBOARD(.*?)(?:ARENA ANALYSIS|TREND MATRIX|FORWARD OUTLOOK|SOVEREIGN PROFILE|POSITION SUMMARY|COMPASS NOTES|SOVEREIGN STANDING|$)",
         text, re.DOTALL | re.IGNORECASE
     )
     if pd_section:
         pd_text = pd_section.group(1)
         pd_lines = [l.strip() for l in pd_text.split("\n") if l.strip()]
-        # Detect if we have Sovereign View column
-        has_sv = any("Sovereign View" in l for l in pd_lines[:10])
-        # Find header row index
+        # Detect format from header fields — only match exact header lines, not prose
+        has_sv = any(l == "Sovereign View" or l == "Sovereign View %" for l in pd_lines[:10])
+        has_gv = any(l in ("Global View", "Global View %", "External Perception", "External Perception %") for l in pd_lines[:10])
+        has_arena_col = any(l == "Arena" for l in pd_lines[:10])
+        # v2.2 arena-grouped: headers are Proposition, Sovereign View, Signal Strength, Emerging (4 fields, no Arena col)
+        is_v22_grouped = has_sv and not has_arena_col and not has_gv
+        # Find header row index — match exact "Proposition" header, not prose containing the word
         header_idx = None
         for i, l in enumerate(pd_lines):
-            if "Proposition" in l or "Arena" in l:
+            if l == "Proposition" or (l == "Arena" and i < 10):
                 header_idx = i
                 break
         if header_idx is not None:
-            # Data rows start after header fields
-            # Each row has: Proposition, Global View %, [Sovereign View %], Confidence, Arena, [Emerging]
-            # Rendered as one field per line
-            data_start = header_idx + (6 if has_sv else 5)
-            fields_per_row = 6 if has_sv else 5
-            data_lines = pd_lines[data_start:]
-            row_data = []
-            for l in data_lines:
-                row_data.append(l)
-                if len(row_data) == fields_per_row:
-                    prop = row_data[0]
-                    gv_str = row_data[1].replace("%", "").strip()
-                    if has_sv:
-                        sv_str = row_data[2].replace("%", "").strip()
-                        conf = row_data[3]
-                        arena = row_data[4]
-                        emerging = row_data[5] if len(row_data) > 5 else ""
-                    else:
-                        sv_str = ""
-                        conf = row_data[2]
-                        arena = row_data[3]
-                        emerging = row_data[4] if len(row_data) > 4 else ""
-                    try:
-                        gv = int(gv_str)
-                    except ValueError:
-                        gv = None
-                    try:
-                        sv = int(sv_str)
-                    except ValueError:
-                        sv = None
-                    # Only include rows where at least one score parsed
-                    if gv is not None or sv is not None:
-                        rendered_perception.append({
-                            "proposition": prop,
-                            "global_view": gv,
-                            "sovereign_view": sv,
-                            "signal_strength": conf,
-                            "arena": arena,
-                            "emerging": emerging.strip(", "),
-                        })
-                    row_data = []
-                # Stop if we hit a non-data line
-                elif len(row_data) == 1 and row_data[0].startswith("External Perception"):
-                    row_data = []
+            if is_v22_grouped:
+                # v2.2 arena-grouped: 4 header fields, then 4 fields per row
+                # Headers: Proposition | Sovereign View | Signal Strength | Emerging
+                # Data: arena name or └ proposition | XX% | Strong/Thin/Medium | — or ✓
+                data_start = header_idx + 4
+                data_lines = pd_lines[data_start:]
+                row_data = []
+                current_arena = ""
+                for l in data_lines:
+                    row_data.append(l)
+                    if len(row_data) == 4:
+                        prop_name = row_data[0]
+                        sv_str = row_data[1].replace("%", "").strip()
+                        signal = row_data[2]
+                        emerging = row_data[3]
+                        try:
+                            sv = int(sv_str)
+                        except ValueError:
+                            sv = None
+                        # Detect arena summary vs proposition
+                        is_arena = not prop_name.startswith("\u2514") and not prop_name.startswith("&lfloor;")
+                        clean_name = prop_name.replace("\u2514", "").replace("&lfloor;", "").replace("&amp;", "&").strip()
+                        if is_arena:
+                            current_arena = clean_name
+                        if sv is not None:
+                            rendered_perception.append({
+                                "proposition": clean_name,
+                                "global_view": sv,  # Use SV as the primary score
+                                "sovereign_view": sv,
+                                "signal_strength": signal,
+                                "arena": current_arena if not is_arena else clean_name,
+                                "emerging": emerging.strip(", "),
+                                "is_arena_summary": is_arena,
+                            })
+                        row_data = []
+                    # Stop if we hit a section break
+                    elif len(row_data) == 1 and (
+                        row_data[0].startswith("External Perception") or
+                        row_data[0].startswith("Compass Notes") or
+                        row_data[0].startswith("Propositions are grouped")
+                    ):
+                        row_data = []
+                        break
+            else:
+                # Old format: 5-6 fields per row
+                data_start = header_idx + (6 if has_sv else 5)
+                fields_per_row = 6 if has_sv else 5
+                data_lines = pd_lines[data_start:]
+                row_data = []
+                for l in data_lines:
+                    row_data.append(l)
+                    if len(row_data) == fields_per_row:
+                        prop = row_data[0]
+                        gv_str = row_data[1].replace("%", "").strip()
+                        if has_sv:
+                            sv_str = row_data[2].replace("%", "").strip()
+                            conf = row_data[3]
+                            arena = row_data[4]
+                            emerging = row_data[5] if len(row_data) > 5 else ""
+                        else:
+                            sv_str = ""
+                            conf = row_data[2]
+                            arena = row_data[3]
+                            emerging = row_data[4] if len(row_data) > 4 else ""
+                        try:
+                            gv = int(gv_str)
+                        except ValueError:
+                            gv = None
+                        try:
+                            sv = int(sv_str)
+                        except ValueError:
+                            sv = None
+                        # Only include rows where at least one score parsed
+                        if gv is not None or sv is not None:
+                            rendered_perception.append({
+                                "proposition": prop,
+                                "global_view": gv,
+                                "sovereign_view": sv,
+                                "signal_strength": conf,
+                                "arena": arena,
+                                "emerging": emerging.strip(", "),
+                            })
+                        row_data = []
+                    # Stop if we hit a non-data line
+                    elif len(row_data) == 1 and row_data[0].startswith("External Perception"):
+                        row_data = []
 
     return predictions, arena_preds, rendered_perception
 
@@ -1738,6 +1952,29 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     # Merge with arena_context data for richer metadata
     arena_ctx = pdata.get("arena_context", {})
 
+    # Override findings posture with arena_context posture (more reliable than regex extraction)
+    for f in findings:
+        ctx = arena_ctx.get(f["arena"], {})
+        if ctx.get("posture"):
+            f["posture"] = ctx["posture"].capitalize()
+
+    # Supplement findings with any arena_context entries the regex missed
+    if arena_ctx:
+        found_names = {f["arena"] for f in findings}
+        for arena_name, ctx in arena_ctx.items():
+            if arena_name not in found_names:
+                ap = ctx.get("posture", "")
+                if ap.lower() in ("strong",):
+                    findings.append({"arena": arena_name, "posture": "Strong", "detail": ""})
+                elif ap.lower() in ("weak",):
+                    findings.append({"arena": arena_name, "posture": "Weak", "detail": ""})
+                elif ap.lower() in ("moderate", "mixed"):
+                    findings.append({"arena": arena_name, "posture": "Mixed", "detail": ""})
+                elif ap.lower() in ("insufficient data",):
+                    findings.append({"arena": arena_name, "posture": "Uncertain", "detail": "Insufficient data"})
+                else:
+                    findings.append({"arena": arena_name, "posture": "Uncertain", "detail": ap})
+
     # Compute per-arena average scores from perception dashboard
     # Use sovereign_view if available, else fall back to global_view (v2.2 format)
     perc_dash_raw = pdata.get("perception_dashboard", [])
@@ -1832,48 +2069,13 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     perc_dash = pdata.get("perception_dashboard", [])
     perception_html = ""
     if perc_dash:
-        # Group propositions by arena
-        arena_groups = {}
-        for p in perc_dash:
-            arena = p.get("arena", "Unassigned")
-            arena_groups.setdefault(arena, []).append(p)
+        # Check if data is already arena-grouped from parser (v2.2 format)
+        already_grouped = any(p.get("is_arena_summary") for p in perc_dash)
 
         rows = ""
-        for arena_name, props in arena_groups.items():
-            # Compute arena summary score (weighted mean of propositions)
-            arena_scores = []
-            for p in props:
-                sv = p.get("sovereign_view") if p.get("sovereign_view") is not None else p.get("global_view")
-                if sv is not None:
-                    arena_scores.append(sv)
-            arena_avg = round(sum(arena_scores) / len(arena_scores)) if arena_scores else None
-
-            # Arena summary row (bold)
-            if arena_avg is not None:
-                a_color = "var(--green)" if arena_avg >= 50 else "var(--red)"
-                a_arrow = "&#9650;" if arena_avg >= 50 else "&#9660;"
-                a_str = f"{arena_avg}% <span style='font-size:0.7em'>{a_arrow}</span>"
-                a_style = f' style="color:{a_color};font-weight:800"'
-            else:
-                a_str = "—"
-                a_style = ""
-            # Get dominant signal strength for arena
-            strengths = [p.get("signal_strength", "") for p in props if p.get("signal_strength")]
-            arena_signal = max(set(strengths), key=strengths.count) if strengths else "—"
-            arena_signal_cls = "conf-medium" if arena_signal.lower() == "medium" else "conf-low" if arena_signal.lower() in ("low", "thin") else "conf-high"
-            # Check for emerging attention in arena
-            has_emerging = any(p.get("emerging", "").strip() not in ("", "—", "-") for p in props)
-            emerging_str = "&#10003;" if has_emerging else "—"
-
-            rows += f'''        <tr class="pd-arena-row">
-          <td class="pd-arena-name"><strong>{html.escape(arena_name)}</strong></td>
-          <td class="pd-pct"{a_style}>{a_str}</td>
-          <td><span class="conf-badge {arena_signal_cls}">{html.escape(arena_signal)}</span></td>
-          <td class="pd-emerging">{emerging_str}</td>
-        </tr>\n'''
-
-            # Indented proposition detail rows
-            for p in props:
+        if already_grouped:
+            # Data already has arena summary and proposition rows — render directly
+            for p in perc_dash:
                 sv = p.get("sovereign_view") if p.get("sovereign_view") is not None else p.get("global_view")
                 sv_str = f"{sv}%" if sv is not None else "—"
                 sv_style = ""
@@ -1881,12 +2083,74 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
                     sv_color = "var(--green)" if sv >= 50 else "var(--red)"
                     sv_arrow = "&#9650;" if sv >= 50 else "&#9660;"
                     sv_str = f"{sv}% <span style='font-size:0.7em'>{sv_arrow}</span>"
-                    sv_style = f' style="color:{sv_color};font-weight:700"'
+                    sv_style = f' style="color:{sv_color};font-weight:{"800" if p.get("is_arena_summary") else "700"}"'
                 conf = p.get("signal_strength", "") or p.get("confidence", "")
                 conf_cls = "conf-medium" if conf.lower() == "medium" else "conf-low" if conf.lower() in ("low", "thin") else "conf-high"
                 prop_emerging = p.get("emerging", "").strip()
-                prop_emerging_str = "&#10003;" if prop_emerging and prop_emerging not in ("—", "-") else "—"
-                rows += f'''        <tr class="pd-prop-row">
+                em_str = "&#10003;" if prop_emerging and prop_emerging not in ("—", "-", ",") else "—"
+
+                if p.get("is_arena_summary"):
+                    rows += f'''        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>{html.escape(p.get("proposition", ""))}</strong></td>
+          <td class="pd-pct"{sv_style}>{sv_str}</td>
+          <td><span class="conf-badge {conf_cls}">{html.escape(conf)}</span></td>
+          <td class="pd-emerging">{em_str}</td>
+        </tr>\n'''
+                else:
+                    rows += f'''        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> {html.escape(p.get("proposition", ""))}</td>
+          <td class="pd-pct"{sv_style}>{sv_str}</td>
+          <td><span class="conf-badge {conf_cls}">{html.escape(conf)}</span></td>
+          <td class="pd-emerging">{em_str}</td>
+        </tr>\n'''
+        else:
+            # Legacy format — group by arena and compute summaries
+            arena_groups = {}
+            for p in perc_dash:
+                arena = p.get("arena", "Unassigned")
+                arena_groups.setdefault(arena, []).append(p)
+
+            for arena_name, props in arena_groups.items():
+                arena_scores_list = []
+                for p in props:
+                    sv = p.get("sovereign_view") if p.get("sovereign_view") is not None else p.get("global_view")
+                    if sv is not None:
+                        arena_scores_list.append(sv)
+                arena_avg = round(sum(arena_scores_list) / len(arena_scores_list)) if arena_scores_list else None
+                if arena_avg is not None:
+                    a_color = "var(--green)" if arena_avg >= 50 else "var(--red)"
+                    a_arrow = "&#9650;" if arena_avg >= 50 else "&#9660;"
+                    a_str = f"{arena_avg}% <span style='font-size:0.7em'>{a_arrow}</span>"
+                    a_style = f' style="color:{a_color};font-weight:800"'
+                else:
+                    a_str = "—"
+                    a_style = ""
+                strengths = [p.get("signal_strength", "") for p in props if p.get("signal_strength")]
+                arena_signal = max(set(strengths), key=strengths.count) if strengths else "—"
+                arena_signal_cls = "conf-medium" if arena_signal.lower() == "medium" else "conf-low" if arena_signal.lower() in ("low", "thin") else "conf-high"
+                has_emerging = any(p.get("emerging", "").strip() not in ("", "—", "-") for p in props)
+                emerging_str = "&#10003;" if has_emerging else "—"
+
+                rows += f'''        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>{html.escape(arena_name)}</strong></td>
+          <td class="pd-pct"{a_style}>{a_str}</td>
+          <td><span class="conf-badge {arena_signal_cls}">{html.escape(arena_signal)}</span></td>
+          <td class="pd-emerging">{emerging_str}</td>
+        </tr>\n'''
+                for p in props:
+                    sv = p.get("sovereign_view") if p.get("sovereign_view") is not None else p.get("global_view")
+                    sv_str = f"{sv}%" if sv is not None else "—"
+                    sv_style = ""
+                    if sv is not None:
+                        sv_color = "var(--green)" if sv >= 50 else "var(--red)"
+                        sv_arrow = "&#9650;" if sv >= 50 else "&#9660;"
+                        sv_str = f"{sv}% <span style='font-size:0.7em'>{sv_arrow}</span>"
+                        sv_style = f' style="color:{sv_color};font-weight:700"'
+                    conf = p.get("signal_strength", "") or p.get("confidence", "")
+                    conf_cls = "conf-medium" if conf.lower() == "medium" else "conf-low" if conf.lower() in ("low", "thin") else "conf-high"
+                    prop_emerging = p.get("emerging", "").strip()
+                    prop_emerging_str = "&#10003;" if prop_emerging and prop_emerging not in ("—", "-") else "—"
+                    rows += f'''        <tr class="pd-prop-row">
           <td class="pd-prop"><span class="pd-indent">&lfloor;</span> {html.escape(p.get("proposition", ""))}</td>
           <td class="pd-pct"{sv_style}>{sv_str}</td>
           <td><span class="conf-badge {conf_cls}">{html.escape(conf)}</span></td>
@@ -1942,17 +2206,28 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         geographies = ctx.get("geographies", "")
         verified = ctx.get("spot_checked_trends", "0")
         echo_risk = ctx.get("echo_risk", "No")
+        articles = ctx.get("articles_count", "")
         summary_text = ctx.get("summary", "")
 
         mom_color = "var(--green)" if momentum.lower() == "rising" else "var(--red)" if momentum.lower() == "fading" else "var(--text-mid)"
 
-        # Arena metadata grid
+        # Arena metadata grid — adaptive based on available fields
+        meta_fields = [
+            ("Active trends", str(verified), ""),
+        ]
+        if articles:
+            meta_fields.append(("Articles", str(articles), ""))
+        meta_fields.append(("Momentum", momentum, f'style="color:{mom_color}"'))
+        meta_fields.append(("Discourse", discourse.replace("public commentary is ", "").title(), ""))
+        meta_fields.append(("Echo risk", echo_risk, ""))
+
+        meta_cells = ""
+        for label, val, style_attr in meta_fields:
+            if val:
+                meta_cells += f'<div class="arena-card-field"><span class="arena-field-label">{label}</span><span class="arena-field-val" {style_attr}>{html.escape(val)}</span></div>\n'
         meta_html = f'''
           <div class="arena-card-grid">
-            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val">{html.escape(str(verified))}</span></div>
-            <div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:{mom_color}">{html.escape(momentum)}</span></div>
-            <div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val">{html.escape(discourse.replace("public commentary is ", "").title())}</span></div>
-            <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val">{html.escape(echo_risk)}</span></div>
+            {meta_cells}
           </div>'''
 
         # Arena narrative summary
@@ -2075,9 +2350,20 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             desc = p.get("description", "")
             arena = p.get("arena", "")
 
-            # Determine if this is a risk or opportunity based on action verb
-            action_lower = action.lower()
-            if any(w in action_lower for w in ("address", "correct", "structural_response", "mitigate")):
+            # Determine if this is a risk or opportunity
+            action_lower = action.lower().strip()
+            # v2.2 format: action is directly "Risk", "Opportunity", or "Watch"
+            if action_lower == "risk":
+                risk_type = "Risk"
+                risk_cls = "pri-risk"
+            elif action_lower == "opportunity":
+                risk_type = "Opportunity"
+                risk_cls = "pri-opportunity"
+            elif action_lower == "watch":
+                risk_type = "Watch"
+                risk_cls = "pri-watch"
+            # Old format: action is a verb like "Address", "Reinforce", "Monitor"
+            elif any(w in action_lower for w in ("address", "correct", "structural_response", "mitigate")):
                 risk_type = "Risk"
                 risk_cls = "pri-risk"
             elif any(w in action_lower for w in ("reinforce", "build", "leverage", "capitalise")):
@@ -2778,7 +3064,13 @@ def run_once(target_date, require_all=True):
                 if has_sv:
                     pdata["perception_dashboard"] = rendered_perc
                     # Recompute score from sovereign_view
-                    sv_scores = [p["sovereign_view"] for p in rendered_perc if p.get("sovereign_view") is not None]
+                    # If arena-grouped, use only arena summary rows to avoid double-counting
+                    has_arena_groups = any(p.get("is_arena_summary") for p in rendered_perc)
+                    if has_arena_groups:
+                        sv_scores = [p["sovereign_view"] for p in rendered_perc
+                                     if p.get("is_arena_summary") and p.get("sovereign_view") is not None]
+                    else:
+                        sv_scores = [p["sovereign_view"] for p in rendered_perc if p.get("sovereign_view") is not None]
                     if sv_scores:
                         pdata["score"] = round(sum(sv_scores) / len(sv_scores))
                         print(f"      Updated score from rendered sovereign view: {pdata['score']}")
