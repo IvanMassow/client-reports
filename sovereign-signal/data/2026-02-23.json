@@ -480,6 +480,179 @@
         "bounded": "How are UK universities and research institutions being assessed internationally (prestige, access, funding, talent magnetism, visa friction), and what has shifted recently? \u2014 Not covered this cycle. No linked trends or propositions detected in perception map."
       }
     ],
+    "sector_monitoring": "Structured sector monitoring data for 7 arenas is available in the accompanying data payload. Top rising entities this cycle: Team GB pipeline / operational-policy / sports signal, Succession legitimacy / legal-operational / public sector signal, Border security framing / legal-policy / public sector signal, Culture/media exports / market / creative industries signal. Top negative entities: Succession legitimacy / legal-operational / public sector signal, Identity/cohesion policy / policy-other / politics signal, Risk anomaly / creative economy shift / low-evidence signal, Monarchy symbolism / mixed signals / public institutions signal.",
+    "evidence_trends": [
+      {
+        "tru_id": "TRU-T1",
+        "cluster_id": "T1",
+        "arena": "Heritage Identity And Nation Brand",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T2",
+        "cluster_id": "T2",
+        "arena": "Values And Human Rights Reputation",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T3",
+        "cluster_id": "T3",
+        "arena": "Sporting Brand And Influence",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T4",
+        "cluster_id": "T4",
+        "arena": "Sporting Brand And Influence",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T5",
+        "cluster_id": "T5",
+        "arena": "Culture And Media Exports",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T6",
+        "cluster_id": "T6",
+        "arena": "Creative Industries And Talent",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T7",
+        "cluster_id": "T7",
+        "arena": "Heritage Identity And Nation Brand",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T8",
+        "cluster_id": "T8",
+        "arena": "Heritage Identity And Nation Brand",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T9",
+        "cluster_id": "T9",
+        "arena": "Sporting Brand And Influence",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T10",
+        "cluster_id": "T10",
+        "arena": "Values And Human Rights Reputation",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-RA1",
+        "cluster_id": "RA1",
+        "arena": "Values And Human Rights Reputation",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-RA3",
+        "cluster_id": "RA3",
+        "arena": "Creative Industries And Talent",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-RA4",
+        "cluster_id": "RA4",
+        "arena": "Values And Human Rights Reputation",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-RA5",
+        "cluster_id": "RA5",
+        "arena": "Sporting Brand And Influence",
+        "signal_strength": "Thin"
+      }
+    ],
+    "evidence_keys": {
+      "T1": [
+        "166",
+        "125",
+        "135",
+        "132",
+        "70",
+        "74",
+        "93",
+        "26",
+        "92",
+        "2",
+        "22",
+        "17"
+      ],
+      "T2": [
+        "184",
+        "23",
+        "11",
+        "146",
+        "104",
+        "102",
+        "8",
+        "26",
+        "307",
+        "60",
+        "140",
+        "211"
+      ]
+    },
+    "evidence_sources": [
+      {
+        "evidence_id": "EVD-7LX-SS-001",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-002",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-003",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-004",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-005",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-006",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-007",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Heritage Identity And Nation Brand"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-008",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Heritage Identity And Nation Brand"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-009",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Values And Human Rights Reputation"
+      }
+    ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/soft-power-cultural-standing-intelligence-brief-united-kingdom-heritage-identity-and-nation-brand-under-scrutiny-2026-02-23-qhml",
     "ref": "QHML"
   },
@@ -972,6 +1145,341 @@
         "bounded": "Trade positioning is dominated by adverse uncertainty framing, partially offset by structured EU process signals."
       }
     ],
+    "sector_monitoring": "Structured sector monitoring data for 7 arenas is available in the accompanying data payload. Top rising entities this cycle: Donald Trump | policy | trade, Wayve Technologies | technological | technology, Microsoft | technological | technology, OpenAI | technological | technology. Top negative entities: Donald Trump | policy | trade, U.S. Supreme Court | policy | trade, US Department of Defense | policy | trade/finance, Adzuna | market | economy.",
+    "evidence_trends": [
+      {
+        "tru_id": "TRU-T1",
+        "cluster_id": "T1",
+        "arena": "Trade And Competitiveness",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T2",
+        "cluster_id": "T2",
+        "arena": "Regulatory And Investment Climate",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T3",
+        "cluster_id": "T3",
+        "arena": "Innovation And Technology",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T4",
+        "cluster_id": "T4",
+        "arena": "Innovation And Technology",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T5",
+        "cluster_id": "T5",
+        "arena": "Innovation And Technology",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T6",
+        "cluster_id": "T6",
+        "arena": "Trade And Competitiveness",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T7",
+        "cluster_id": "T7",
+        "arena": "Regulatory And Investment Climate",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T8",
+        "cluster_id": "T8",
+        "arena": "Macroeconomic Credibility",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T9",
+        "cluster_id": "T9",
+        "arena": "Trade And Competitiveness",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T10",
+        "cluster_id": "T10",
+        "arena": "Macroeconomic Credibility",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T11",
+        "cluster_id": "T11",
+        "arena": "Financial Services And City Position",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T12",
+        "cluster_id": "T12",
+        "arena": "Startup And Scaleup Ecosystem",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T13",
+        "cluster_id": "T13",
+        "arena": "Innovation And Technology",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T14",
+        "cluster_id": "T14",
+        "arena": "Innovation And Technology",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T15",
+        "cluster_id": "T15",
+        "arena": "Innovation And Technology",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T16",
+        "cluster_id": "T16",
+        "arena": "Trade And Competitiveness",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T17",
+        "cluster_id": "T17",
+        "arena": "Macroeconomic Credibility",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T18",
+        "cluster_id": "T18",
+        "arena": "Startup And Scaleup Ecosystem",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T19",
+        "cluster_id": "T19",
+        "arena": "Regulatory And Investment Climate",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T20",
+        "cluster_id": "T20",
+        "arena": "Financial Services And City Position",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T21",
+        "cluster_id": "T21",
+        "arena": "Startup And Scaleup Ecosystem",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T22",
+        "cluster_id": "T22",
+        "arena": "Regulatory And Investment Climate",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T23",
+        "cluster_id": "T23",
+        "arena": "Macroeconomic Credibility",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T24",
+        "cluster_id": "T24",
+        "arena": "Regulatory And Investment Climate",
+        "signal_strength": "Thin"
+      }
+    ],
+    "evidence_keys": {
+      "T1": [
+        "77",
+        "177",
+        "143",
+        "90",
+        "119",
+        "147",
+        "130",
+        "99",
+        "146",
+        "102",
+        "107",
+        "140"
+      ],
+      "T2": [
+        "87",
+        "88",
+        "94",
+        "144",
+        "183",
+        "255",
+        "316",
+        "96",
+        "198",
+        "285",
+        "149",
+        "212"
+      ]
+    },
+    "evidence_sources": [
+      {
+        "evidence_id": "EVD-7LX-SS-005",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Trade And Competitiveness"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-006",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Trade And Competitiveness"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-007",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Trade And Competitiveness"
+      },
+      {
+        "evidence_id": "EVD-72SS-008",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Trade And Competitiveness"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-013",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Regulatory And Investment Climate"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-014",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Innovation And Technology"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-011",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Innovation And Technology"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-012",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Innovation And Technology"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-022",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Innovation And Technology"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-009",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Innovation And Technology"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-010",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Innovation And Technology"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-008",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Financial Services And City Position"
+      },
+      {
+        "evidence_id": "EVD-72SS-001",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Macroeconomic Credibility"
+      },
+      {
+        "evidence_id": "EVD-72SS-002",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Macroeconomic Credibility"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-020",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Trade And Competitiveness"
+      },
+      {
+        "evidence_id": "EVD-72SS-003",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Macroeconomic Credibility"
+      },
+      {
+        "evidence_id": "EVD-72SS-004",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Macroeconomic Credibility"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-021",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Financial Services And City Position"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-015",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Macroeconomic Credibility"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-016",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Startup And Scaleup Ecosystem"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-017",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Regulatory And Investment Climate"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-018",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Regulatory And Investment Climate"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-019",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Macroeconomic Credibility"
+      },
+      {
+        "evidence_id": "EVD-72SS-005",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Regulatory And Investment Climate"
+      },
+      {
+        "evidence_id": "EVD-72SS-006",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Regulatory And Investment Climate"
+      },
+      {
+        "evidence_id": "EVD-72SS-007",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Regulatory And Investment Climate"
+      }
+    ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/economic-business-leadership-intelligence-brief-united-kingdom-trade-and-competitiveness-under-scrutiny-2026-02-23-nvkj",
     "ref": "NVKJ"
   },
@@ -1431,6 +1939,198 @@
         "bounded": "Development and humanitarian credibility is not separately visible as a dedicated trend this cycle and appears embedded within broader government engagement coverage."
       }
     ],
+    "sector_monitoring": "Structured sector monitoring data for 6 arenas is available in the accompanying data payload. Top rising entities this cycle: US State Department | policy | diplomacy, Mauritius | policy | diplomacy, International sustainability standards | policy | climate adaptation, US Department of Defense | policy | defence. Top negative entities: Russia | policy | diplomacy.",
+    "evidence_trends": [
+      {
+        "tru_id": "TRU-T1",
+        "cluster_id": "T1",
+        "arena": "Sanctions And Statecraft Influence",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T2",
+        "cluster_id": "T2",
+        "arena": "Multilateral Influence",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T3",
+        "cluster_id": "T3",
+        "arena": "Global Voice And Strategic Relevance",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T4",
+        "cluster_id": "T4",
+        "arena": "Climate And Energy Diplomacy",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T5",
+        "cluster_id": "T5",
+        "arena": "Crisis Diplomacy And Mediation",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T6",
+        "cluster_id": "T6",
+        "arena": "Global Voice And Strategic Relevance",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T7",
+        "cluster_id": "T7",
+        "arena": "Global Voice And Strategic Relevance",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T8",
+        "cluster_id": "T8",
+        "arena": "Crisis Diplomacy And Mediation",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T9",
+        "cluster_id": "T9",
+        "arena": "Climate And Energy Diplomacy",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T10",
+        "cluster_id": "T10",
+        "arena": "Climate And Energy Diplomacy",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T11",
+        "cluster_id": "T11",
+        "arena": "Global Voice And Strategic Relevance",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T12",
+        "cluster_id": "T12",
+        "arena": "Crisis Diplomacy And Mediation",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T13",
+        "cluster_id": "T13",
+        "arena": "Sanctions And Statecraft Influence",
+        "signal_strength": "Thin"
+      }
+    ],
+    "evidence_keys": {},
+    "evidence_sources": [
+      {
+        "evidence_id": "EVD-7LX-SS-003",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Multilateral Influence"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-004",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Sanctions And Statecraft Influence"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-005",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Sanctions And Statecraft Influence"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-006",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Crisis Diplomacy And Mediation"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-007",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Crisis Diplomacy And Mediation"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-008",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Global Voice And Strategic Relevance"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-009",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Climate And Energy Diplomacy"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-010",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_c",
+        "arena": "Climate And Energy Diplomacy"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-011",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Climate And Energy Diplomacy"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-012",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Climate And Energy Diplomacy"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-013",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Climate And Energy Diplomacy"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-014",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Crisis Diplomacy And Mediation"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-015",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_c",
+        "arena": "Crisis Diplomacy And Mediation"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-017",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "Global Voice And Strategic Relevance"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-018",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_c",
+        "arena": "Sanctions And Statecraft Influence"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-019",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "Multilateral Influence"
+      },
+      {
+        "evidence_id": "EVD-72SS-001",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Crisis Diplomacy And Mediation"
+      },
+      {
+        "evidence_id": "EVD-72SS-004",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "Crisis Diplomacy And Mediation"
+      }
+    ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/diplomatic-global-leadership-intelligence-brief-united-kingdom-global-voice-and-strategic-relevance-holds-2026-02-23-xbqf",
     "ref": "XBQF"
   },
@@ -1837,6 +2537,126 @@
         "coverage": "Confirmed",
         "clear": "42% external perception, Strong signal",
         "bounded": "Determine whether partner-reliability scrutiny persists beyond the current security and coalition coordination lane."
+      }
+    ],
+    "sector_monitoring": "Structured sector monitoring data for 7 arenas is available in the accompanying data payload. Top rising entities this cycle: Bank of England | policy signal | finance / central banking, Energy transition | policy signal | energy / decarbonisation, Supreme Court | legal signal | public policy / legal reform, UK strategic growth | policy signal | devolved-nation governance context. Top negative entities: UK leadership | policy signal | diplomacy / international relations.",
+    "evidence_trends": [
+      {
+        "tru_id": "TRU-T1",
+        "cluster_id": "T1",
+        "arena": "policy_predictability_and_implementation_record",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T2",
+        "cluster_id": "T2",
+        "arena": "policy_predictability_and_implementation_record",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T3",
+        "cluster_id": "T3",
+        "arena": "long_term_partner_and_counterparty_reliability",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T4",
+        "cluster_id": "T4",
+        "arena": "regulatory_competence_and_institutional_capacity",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T5",
+        "cluster_id": "T5",
+        "arena": "regulatory_competence_and_institutional_capacity",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T6",
+        "cluster_id": "T6",
+        "arena": "judicial_independence_and_rule_of_law",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T7",
+        "cluster_id": "T7",
+        "arena": "policy_predictability_and_implementation_record",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T8",
+        "cluster_id": "T8",
+        "arena": "constitutional_integrity_and_territorial_cohesion",
+        "signal_strength": "Strong"
+      }
+    ],
+    "evidence_keys": {},
+    "evidence_sources": [
+      {
+        "evidence_id": "EVD-7LX-SS-005",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "policy_predictability_and_implementation_record"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-006",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "policy_predictability_and_implementation_record"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-007",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "long_term_partner_and_counterparty_reliability"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-008",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "long_term_partner_and_counterparty_reliability"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-009",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "regulatory_competence_and_institutional_capacity"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-010",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "regulatory_competence_and_institutional_capacity"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-011",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "regulatory_competence_and_institutional_capacity"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-012",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "judicial_independence_and_rule_of_law"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-013",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "judicial_independence_and_rule_of_law"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-014",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "policy_predictability_and_implementation_record"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-015",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "policy_predictability_and_implementation_record"
       }
     ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/trust-stability-systemic-reliability-intelligence-brief-united-kingdom-long-term-partner-and-counterparty-reliability-under-scrutiny-2026-02-23-zprk",
@@ -2372,6 +3192,258 @@
         "coverage": "Confirmed",
         "clear": "75% external perception, Strong signal",
         "bounded": "Coverage is moderate and positive overall, with one thin threat-landscape adjunct that does not materially change direction."
+      }
+    ],
+    "sector_monitoring": "Structured sector monitoring data for 7 arenas is available in the accompanying data payload. Top rising entities this cycle: Russian Navy / operational-led / defence, Ukraine / operational-led / defence, Information warfare risk / other / security, Donald Trump / policy-heavy / geopolitics. Top negative entities: Donald Trump / policy-heavy / geopolitics, Basing/diplomatic dispute risk / mixed / defence.",
+    "evidence_trends": [
+      {
+        "tru_id": "TRU-T1",
+        "cluster_id": "T1",
+        "arena": "deterrence_posture_and_escalation_management",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T2",
+        "cluster_id": "T2",
+        "arena": "military_capability_and_readiness",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T3",
+        "cluster_id": "T3",
+        "arena": "nato_role_and_positioning",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T4",
+        "cluster_id": "T4",
+        "arena": "military_capability_and_readiness",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T5",
+        "cluster_id": "T5",
+        "arena": "alliance_reliability_and_burden_sharing",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T6",
+        "cluster_id": "T6",
+        "arena": "cyber_capability_and_security_posture",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T7",
+        "cluster_id": "T7",
+        "arena": "alliance_reliability_and_burden_sharing",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T8",
+        "cluster_id": "T8",
+        "arena": "alliance_reliability_and_burden_sharing",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T9",
+        "cluster_id": "T9",
+        "arena": "deterrence_posture_and_escalation_management",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T10",
+        "cluster_id": "T10",
+        "arena": "geopolitical_influence_in_security_theatres",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T11",
+        "cluster_id": "T11",
+        "arena": "nato_role_and_positioning",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T12",
+        "cluster_id": "T12",
+        "arena": "geopolitical_influence_in_security_theatres",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T13",
+        "cluster_id": "T13",
+        "arena": "deterrence_posture_and_escalation_management",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T14",
+        "cluster_id": "T14",
+        "arena": "geopolitical_influence_in_security_theatres",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T15",
+        "cluster_id": "T15",
+        "arena": "cyber_capability_and_security_posture",
+        "signal_strength": "Thin"
+      }
+    ],
+    "evidence_keys": {},
+    "evidence_sources": [
+      {
+        "evidence_id": "EVD-7LX-SS-005",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-006",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-007",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-008",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-009",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-010",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-011",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-012",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-013",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-014",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_b",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-015",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-7LX-SS-016",
+        "source_workflow": "7LX-SS",
+        "authority_tier": "tier_a",
+        "arena": "unmapped"
+      },
+      {
+        "evidence_id": "EVD-72SS-001",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "military_capability_and_readiness"
+      },
+      {
+        "evidence_id": "EVD-72SS-002",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "military_capability_and_readiness"
+      },
+      {
+        "evidence_id": "EVD-72SS-003",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "military_capability_and_readiness"
+      },
+      {
+        "evidence_id": "EVD-72SS-004",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "alliance_reliability_and_burden_sharing"
+      },
+      {
+        "evidence_id": "EVD-72SS-005",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "alliance_reliability_and_burden_sharing"
+      },
+      {
+        "evidence_id": "EVD-72SS-006",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "deterrence_posture_and_escalation_management"
+      },
+      {
+        "evidence_id": "EVD-72SS-007",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "deterrence_posture_and_escalation_management"
+      },
+      {
+        "evidence_id": "EVD-72SS-008",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "geopolitical_influence_in_security_theatres"
+      },
+      {
+        "evidence_id": "EVD-72SS-009",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "geopolitical_influence_in_security_theatres"
+      },
+      {
+        "evidence_id": "EVD-72SS-010",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "deterrence_posture_and_escalation_management"
+      },
+      {
+        "evidence_id": "EVD-72SS-011",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "deterrence_posture_and_escalation_management"
+      },
+      {
+        "evidence_id": "EVD-72SS-012",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "geopolitical_influence_in_security_theatres"
+      },
+      {
+        "evidence_id": "EVD-72SS-013",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "geopolitical_influence_in_security_theatres"
+      },
+      {
+        "evidence_id": "EVD-72SS-014",
+        "source_workflow": "7.2-SS",
+        "authority_tier": "tier_a",
+        "arena": "geopolitical_influence_in_security_theatres"
       }
     ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/defence-strategic-credibility-intelligence-brief-united-kingdom-geopolitical-influence-in-security-theatres-under-scrutiny-2026-02-23-qzmp",

@@ -195,6 +195,13 @@ def _strip_tags(html_text):
     return _fix_emdashes(text)
 
 
+def _display_arena(name):
+    """Convert snake_case arena names to Title Case for display."""
+    if "_" in name and name == name.lower():
+        return name.replace("_", " ").title()
+    return name
+
+
 def _extract_li_field(li_html, field_name):
     """Extract a named field from a <li> item like '<strong>Arena:</strong> Foo'"""
     m = re.search(
@@ -244,6 +251,10 @@ def parse_report_content(desc_html):
         "profile_snapshot": {},
         "structural_contradictions": "",
         "diagnostic_coverage": [],
+        "sector_monitoring": "",
+        "evidence_trends": [],
+        "evidence_keys": {},
+        "evidence_sources": [],
     }
 
     # ─── Executive Summary ───
@@ -818,6 +829,82 @@ def parse_report_content(desc_html):
                 if text:
                     diag_rows.append({"prompt": text[:80], "coverage": "Not covered", "clear": "", "bounded": text})
         data["diagnostic_coverage"] = diag_rows
+
+    # ─── Section 14: Sector Monitoring Panel ───
+    sector_section = re.search(
+        r"Sector Monitoring Panel.*?</h2>(.*?)(?=<h2|Evidence Index|$)",
+        desc_html, re.DOTALL | re.IGNORECASE
+    )
+    if sector_section:
+        data["sector_monitoring"] = _strip_tags(sector_section.group(1)).strip()
+
+    # ─── Evidence Index ───
+    evidence_section = re.search(
+        r"Evidence Index.*?</h[23]>(.*?)(?=<!--\s*RENDER|<blockquote|$)",
+        desc_html, re.DOTALL | re.IGNORECASE
+    )
+    if evidence_section:
+        evd_html = evidence_section.group(1)
+
+        # 1. Trend Analytics Envelope — table of TRU IDs
+        trend_envelope = re.search(
+            r"Trend Analytics Envelope.*?</h3>(.*?)(?=<h3|$)",
+            evd_html, re.DOTALL | re.IGNORECASE
+        )
+        if trend_envelope:
+            for line in trend_envelope.group(1).split("\n"):
+                line_text = _strip_tags(line).strip()
+                if "|" in line_text and not line_text.startswith("|--"):
+                    cols = [c.strip() for c in line_text.split("|") if c.strip()]
+                    # Skip header row
+                    if cols and cols[0] in ("TRU ID",):
+                        continue
+                    if len(cols) >= 4 and cols[0].startswith("TRU-"):
+                        data["evidence_trends"].append({
+                            "tru_id": cols[0],
+                            "cluster_id": cols[1],
+                            "arena": cols[2],
+                            "signal_strength": cols[3],
+                        })
+
+        # 2. Trend Evidence Key — article ID lists per trend
+        evidence_key = re.search(
+            r"Trend Evidence Key.*?</h3>(.*?)(?=<h3|$)",
+            evd_html, re.DOTALL | re.IGNORECASE
+        )
+        if evidence_key:
+            key_text = _strip_tags(evidence_key.group(1)).strip()
+            for line in key_text.split("\n"):
+                line = line.strip()
+                if not line:
+                    continue
+                # Format: "T1: 166, 125, 135, ..."
+                km = re.match(r"(T\d+|RA\d+):\s*(.*)", line)
+                if km:
+                    cluster_id = km.group(1)
+                    article_ids = [a.strip() for a in km.group(2).split(",") if a.strip()]
+                    data["evidence_keys"][cluster_id] = article_ids
+
+        # 3. Primary Source Ledger Index — EVD IDs
+        source_ledger = re.search(
+            r"Primary Source Ledger.*?</h3>(.*?)(?=<h3|<blockquote|$)",
+            evd_html, re.DOTALL | re.IGNORECASE
+        )
+        if source_ledger:
+            for line in source_ledger.group(1).split("\n"):
+                line_text = _strip_tags(line).strip()
+                if "|" in line_text and not line_text.startswith("|--"):
+                    cols = [c.strip() for c in line_text.split("|") if c.strip()]
+                    # Skip header row
+                    if cols and cols[0] in ("Evidence ID",):
+                        continue
+                    if len(cols) >= 4 and cols[0].startswith("EVD-"):
+                        data["evidence_sources"].append({
+                            "evidence_id": cols[0],
+                            "source_workflow": cols[1],
+                            "authority_tier": cols[2],
+                            "arena": cols[3],
+                        })
 
     # ─── Conclusion ───
     conclusion_match = re.search(
@@ -2718,6 +2805,120 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     </div>
   </div>''' if diagnostic_rows else ''
 
+    # ─── Section 14: Sector Monitoring Panel ───
+    sector_text = pdata.get("sector_monitoring", "")
+    sector_section_html = ""
+    if sector_text:
+        # Split into: introductory sentence + entity list
+        # The text typically starts with "Structured sector monitoring data for N arenas..."
+        # then lists "Top rising entities:" and "Top negative entities:"
+        sector_parts = re.split(r"(Top (?:rising|negative|stable) entities[^:]*:)", sector_text, flags=re.IGNORECASE)
+        sector_inner = ""
+        if len(sector_parts) >= 3:
+            # First part is the intro sentence
+            intro = sector_parts[0].strip()
+            if intro:
+                sector_inner += f'<p class="sector-intro">{html.escape(_fix_emdashes(intro))}</p>\n'
+            # Then alternating label / entity-list pairs
+            for j in range(1, len(sector_parts), 2):
+                label = sector_parts[j].strip().rstrip(":")
+                entities_str = sector_parts[j + 1].strip() if j + 1 < len(sector_parts) else ""
+                # Parse comma-separated entities, each in format "Name / type / sector signal"
+                entities = [e.strip().rstrip(".") for e in entities_str.split(",") if "/" in e]
+                if entities:
+                    is_rising = "rising" in label.lower()
+                    is_negative = "negative" in label.lower()
+                    label_cls = "sector-label-rising" if is_rising else "sector-label-negative" if is_negative else "sector-label-neutral"
+                    sector_inner += f'<div class="sector-group">\n'
+                    sector_inner += f'  <div class="sector-group-label {label_cls}">{html.escape(label)}</div>\n'
+                    sector_inner += '  <div class="sector-entity-list">\n'
+                    for ent in entities:
+                        parts = [p.strip() for p in ent.split("/")]
+                        name = parts[0] if parts else ent
+                        etype = parts[1] if len(parts) > 1 else ""
+                        sector = parts[2] if len(parts) > 2 else ""
+                        sector_inner += f'    <div class="sector-entity">'
+                        sector_inner += f'<span class="sector-entity-name">{html.escape(_fix_emdashes(name))}</span>'
+                        if etype:
+                            sector_inner += f' <span class="sector-entity-type">{html.escape(etype)}</span>'
+                        if sector:
+                            sector_inner += f' <span class="sector-entity-sector">{html.escape(sector)}</span>'
+                        sector_inner += '</div>\n'
+                    sector_inner += '  </div>\n</div>\n'
+        else:
+            # Fallback: render as single paragraph
+            sector_inner = f'<p>{html.escape(_fix_emdashes(sector_text))}</p>'
+
+        sector_section_html = f'''
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sector Monitoring Panel</h2>
+      <span class="sec-num">Section 14</span>
+    </div>
+    <div class="exec-card">
+      {sector_inner}
+    </div>
+  </div>'''
+
+    # ─── Evidence Index ───
+    evidence_trends = pdata.get("evidence_trends", [])
+    evidence_keys = pdata.get("evidence_keys", {})
+    evidence_sources = pdata.get("evidence_sources", [])
+    has_evidence = evidence_trends or evidence_keys or evidence_sources
+
+    evidence_section_html = ""
+    if has_evidence:
+        evidence_inner = ""
+
+        # 1. Trend Analytics Envelope
+        if evidence_trends:
+            evidence_inner += '<h3 class="evidence-sub-title">Trend Analytics Envelope</h3>\n'
+            evidence_inner += '<table class="evidence-table"><thead><tr><th>TRU ID</th><th>Cluster</th><th>Arena</th><th>Signal</th></tr></thead><tbody>\n'
+            for t in evidence_trends:
+                sig = t.get("signal_strength", "")
+                sig_cls = "sig-strong" if "strong" in sig.lower() else "sig-thin" if "thin" in sig.lower() else ""
+                evidence_inner += f'<tr><td class="evd-id">{html.escape(t.get("tru_id", ""))}</td>'
+                evidence_inner += f'<td>{html.escape(t.get("cluster_id", ""))}</td>'
+                evidence_inner += f'<td>{html.escape(_display_arena(t.get("arena", "")))}</td>'
+                evidence_inner += f'<td class="{sig_cls}">{html.escape(sig)}</td></tr>\n'
+            evidence_inner += '</tbody></table>\n'
+
+        # 2. Trend Evidence Key
+        if evidence_keys:
+            evidence_inner += '<h3 class="evidence-sub-title">Trend Evidence Key</h3>\n'
+            evidence_inner += '<div class="evidence-key-grid">\n'
+            for cluster_id in sorted(evidence_keys.keys(), key=lambda x: (x[0], int(re.search(r"\d+", x).group()) if re.search(r"\d+", x) else 0)):
+                article_ids = evidence_keys[cluster_id]
+                evidence_inner += f'<div class="evidence-key-row">'
+                evidence_inner += f'<span class="evidence-key-cluster">{html.escape(cluster_id)}</span>'
+                evidence_inner += f'<span class="evidence-key-articles">{html.escape(", ".join(article_ids))}</span>'
+                evidence_inner += '</div>\n'
+            evidence_inner += '</div>\n'
+
+        # 3. Primary Source Ledger Index
+        if evidence_sources:
+            evidence_inner += '<h3 class="evidence-sub-title">Primary Source Ledger</h3>\n'
+            evidence_inner += '<table class="evidence-table"><thead><tr><th>Evidence ID</th><th>Source</th><th>Tier</th><th>Arena</th></tr></thead><tbody>\n'
+            for s in evidence_sources:
+                tier = s.get("authority_tier", "")
+                tier_cls = "tier-a" if "tier_a" in tier.lower() else "tier-b" if "tier_b" in tier.lower() else ""
+                evidence_inner += f'<tr><td class="evd-id">{html.escape(s.get("evidence_id", ""))}</td>'
+                evidence_inner += f'<td>{html.escape(s.get("source_workflow", ""))}</td>'
+                evidence_inner += f'<td class="{tier_cls}">{html.escape(tier.replace("_", " ").title())}</td>'
+                evidence_inner += f'<td>{html.escape(_display_arena(s.get("arena", "")))}</td></tr>\n'
+            evidence_inner += '</tbody></table>\n'
+
+        evidence_section_html = f'''
+  <div class="sec evidence-index-sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Evidence Index</h2>
+      <span class="sec-num">{len(evidence_trends)} trends &middot; {len(evidence_sources)} sources</span>
+    </div>
+    <div class="exec-card evidence-index-card">
+      {evidence_inner}
+    </div>
+  </div>'''
+
     # Source link — raw template reference at the very bottom
     source_section = ""
     if report_link:
@@ -2904,6 +3105,38 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .conclusion-card p:last-child {{ margin-bottom: 0; }}
 .conclusion-posture {{ display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }}
 .conclusion-posture-badge {{ font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }}
+
+/* Sector Monitoring Panel */
+.sector-intro {{ font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 18px; }}
+.sector-group {{ margin-bottom: 16px; }}
+.sector-group:last-child {{ margin-bottom: 0; }}
+.sector-group-label {{ font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; padding: 4px 0; }}
+.sector-label-rising {{ color: var(--green); }}
+.sector-label-negative {{ color: var(--red); }}
+.sector-label-neutral {{ color: var(--text-muted); }}
+.sector-entity-list {{ display: flex; flex-wrap: wrap; gap: 8px; }}
+.sector-entity {{ font-size: 12px; padding: 6px 12px; background: var(--bg); border: 1px solid var(--border-light); border-radius: 4px; display: inline-flex; align-items: center; gap: 6px; }}
+.sector-entity-name {{ font-weight: 600; color: var(--text); }}
+.sector-entity-type {{ font-size: 10px; color: var(--text-muted); font-style: italic; }}
+.sector-entity-sector {{ font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); }}
+
+/* Evidence Index */
+.evidence-index-sec {{ margin-top: 32px; }}
+.evidence-index-card {{ padding: 24px 28px; }}
+.evidence-sub-title {{ font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 20px 0 10px; }}
+.evidence-sub-title:first-child {{ margin-top: 0; }}
+.evidence-table {{ width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 16px; }}
+.evidence-table th {{ font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 6px 8px; text-align: left; border-bottom: 2px solid var(--border); }}
+.evidence-table td {{ padding: 5px 8px; border-bottom: 1px solid var(--border-light); color: var(--text-mid); vertical-align: top; }}
+.evd-id {{ font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; font-weight: 600; color: var(--text); white-space: nowrap; }}
+.sig-strong {{ color: var(--green); font-weight: 600; }}
+.sig-thin {{ color: var(--amber); font-weight: 600; }}
+.tier-a {{ color: var(--green); font-weight: 600; }}
+.tier-b {{ color: var(--amber); font-weight: 600; }}
+.evidence-key-grid {{ display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }}
+.evidence-key-row {{ display: flex; gap: 12px; padding: 4px 0; border-bottom: 1px solid var(--border-light); }}
+.evidence-key-cluster {{ font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; font-weight: 700; color: var(--text); min-width: 40px; }}
+.evidence-key-articles {{ font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; color: var(--text-muted); line-height: 1.6; word-break: break-all; }}
 
 /* Profile Snapshot tables */
 .profile-sub-title {{ font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 16px 0 8px; }}
@@ -3203,6 +3436,10 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
       </div>
     </div>
   </div>
+
+  {sector_section_html}
+
+  {evidence_section_html}
 
 </div>
 

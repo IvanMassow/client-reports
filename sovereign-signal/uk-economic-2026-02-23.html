@@ -173,6 +173,38 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Sector Monitoring Panel */
+.sector-intro { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 18px; }
+.sector-group { margin-bottom: 16px; }
+.sector-group:last-child { margin-bottom: 0; }
+.sector-group-label { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; padding: 4px 0; }
+.sector-label-rising { color: var(--green); }
+.sector-label-negative { color: var(--red); }
+.sector-label-neutral { color: var(--text-muted); }
+.sector-entity-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.sector-entity { font-size: 12px; padding: 6px 12px; background: var(--bg); border: 1px solid var(--border-light); border-radius: 4px; display: inline-flex; align-items: center; gap: 6px; }
+.sector-entity-name { font-weight: 600; color: var(--text); }
+.sector-entity-type { font-size: 10px; color: var(--text-muted); font-style: italic; }
+.sector-entity-sector { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); }
+
+/* Evidence Index */
+.evidence-index-sec { margin-top: 32px; }
+.evidence-index-card { padding: 24px 28px; }
+.evidence-sub-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 20px 0 10px; }
+.evidence-sub-title:first-child { margin-top: 0; }
+.evidence-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 16px; }
+.evidence-table th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 6px 8px; text-align: left; border-bottom: 2px solid var(--border); }
+.evidence-table td { padding: 5px 8px; border-bottom: 1px solid var(--border-light); color: var(--text-mid); vertical-align: top; }
+.evd-id { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; font-weight: 600; color: var(--text); white-space: nowrap; }
+.sig-strong { color: var(--green); font-weight: 600; }
+.sig-thin { color: var(--amber); font-weight: 600; }
+.tier-a { color: var(--green); font-weight: 600; }
+.tier-b { color: var(--amber); font-weight: 600; }
+.evidence-key-grid { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+.evidence-key-row { display: flex; gap: 12px; padding: 4px 0; border-bottom: 1px solid var(--border-light); }
+.evidence-key-cluster { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; font-weight: 700; color: var(--text); min-width: 40px; }
+.evidence-key-articles { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; color: var(--text-muted); line-height: 1.6; word-break: break-all; }
+
 /* Profile Snapshot tables */
 .profile-sub-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 16px 0 8px; }
 .profile-sub-title:first-child { margin-top: 0; }
@@ -925,6 +957,96 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="conclusion-posture">
         Standing posture this cycle: <span class="conclusion-posture-badge posture-stable">Stable</span>
       </div>
+    </div>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sector Monitoring Panel</h2>
+      <span class="sec-num">Section 14</span>
+    </div>
+    <div class="exec-card">
+      <p class="sector-intro">Structured sector monitoring data for 7 arenas is available in the accompanying data payload.</p>
+<div class="sector-group">
+  <div class="sector-group-label sector-label-negative">Top negative entities</div>
+  <div class="sector-entity-list">
+    <div class="sector-entity"><span class="sector-entity-name">US Department of Defense | policy | trade</span> <span class="sector-entity-type">finance</span></div>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+  
+  <div class="sec evidence-index-sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Evidence Index</h2>
+      <span class="sec-num">24 trends &middot; 26 sources</span>
+    </div>
+    <div class="exec-card evidence-index-card">
+      <h3 class="evidence-sub-title">Trend Analytics Envelope</h3>
+<table class="evidence-table"><thead><tr><th>TRU ID</th><th>Cluster</th><th>Arena</th><th>Signal</th></tr></thead><tbody>
+<tr><td class="evd-id">TRU-T1</td><td>T1</td><td>Trade And Competitiveness</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T2</td><td>T2</td><td>Regulatory And Investment Climate</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T3</td><td>T3</td><td>Innovation And Technology</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T4</td><td>T4</td><td>Innovation And Technology</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T5</td><td>T5</td><td>Innovation And Technology</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T6</td><td>T6</td><td>Trade And Competitiveness</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T7</td><td>T7</td><td>Regulatory And Investment Climate</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T8</td><td>T8</td><td>Macroeconomic Credibility</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T9</td><td>T9</td><td>Trade And Competitiveness</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T10</td><td>T10</td><td>Macroeconomic Credibility</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T11</td><td>T11</td><td>Financial Services And City Position</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T12</td><td>T12</td><td>Startup And Scaleup Ecosystem</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T13</td><td>T13</td><td>Innovation And Technology</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T14</td><td>T14</td><td>Innovation And Technology</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T15</td><td>T15</td><td>Innovation And Technology</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T16</td><td>T16</td><td>Trade And Competitiveness</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T17</td><td>T17</td><td>Macroeconomic Credibility</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T18</td><td>T18</td><td>Startup And Scaleup Ecosystem</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T19</td><td>T19</td><td>Regulatory And Investment Climate</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T20</td><td>T20</td><td>Financial Services And City Position</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T21</td><td>T21</td><td>Startup And Scaleup Ecosystem</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T22</td><td>T22</td><td>Regulatory And Investment Climate</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T23</td><td>T23</td><td>Macroeconomic Credibility</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T24</td><td>T24</td><td>Regulatory And Investment Climate</td><td class="sig-thin">Thin</td></tr>
+</tbody></table>
+<h3 class="evidence-sub-title">Trend Evidence Key</h3>
+<div class="evidence-key-grid">
+<div class="evidence-key-row"><span class="evidence-key-cluster">T1</span><span class="evidence-key-articles">77, 177, 143, 90, 119, 147, 130, 99, 146, 102, 107, 140</span></div>
+<div class="evidence-key-row"><span class="evidence-key-cluster">T2</span><span class="evidence-key-articles">87, 88, 94, 144, 183, 255, 316, 96, 198, 285, 149, 212</span></div>
+</div>
+<h3 class="evidence-sub-title">Primary Source Ledger</h3>
+<table class="evidence-table"><thead><tr><th>Evidence ID</th><th>Source</th><th>Tier</th><th>Arena</th></tr></thead><tbody>
+<tr><td class="evd-id">EVD-7LX-SS-005</td><td>7LX-SS</td><td class="tier-a">Tier A</td><td>Trade And Competitiveness</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-006</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Trade And Competitiveness</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-007</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Trade And Competitiveness</td></tr>
+<tr><td class="evd-id">EVD-72SS-008</td><td>7.2-SS</td><td class="tier-a">Tier A</td><td>Trade And Competitiveness</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-013</td><td>7LX-SS</td><td class="tier-a">Tier A</td><td>Regulatory And Investment Climate</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-014</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Innovation And Technology</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-011</td><td>7LX-SS</td><td class="tier-a">Tier A</td><td>Innovation And Technology</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-012</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Innovation And Technology</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-022</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Innovation And Technology</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-009</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Innovation And Technology</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-010</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Innovation And Technology</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-008</td><td>7LX-SS</td><td class="tier-a">Tier A</td><td>Financial Services And City Position</td></tr>
+<tr><td class="evd-id">EVD-72SS-001</td><td>7.2-SS</td><td class="tier-a">Tier A</td><td>Macroeconomic Credibility</td></tr>
+<tr><td class="evd-id">EVD-72SS-002</td><td>7.2-SS</td><td class="tier-a">Tier A</td><td>Macroeconomic Credibility</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-020</td><td>7LX-SS</td><td class="tier-a">Tier A</td><td>Trade And Competitiveness</td></tr>
+<tr><td class="evd-id">EVD-72SS-003</td><td>7.2-SS</td><td class="tier-a">Tier A</td><td>Macroeconomic Credibility</td></tr>
+<tr><td class="evd-id">EVD-72SS-004</td><td>7.2-SS</td><td class="tier-a">Tier A</td><td>Macroeconomic Credibility</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-021</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Financial Services And City Position</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-015</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Macroeconomic Credibility</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-016</td><td>7LX-SS</td><td class="tier-b">Tier B</td><td>Startup And Scaleup Ecosystem</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-017</td><td>7LX-SS</td><td class="tier-a">Tier A</td><td>Regulatory And Investment Climate</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-018</td><td>7LX-SS</td><td class="tier-a">Tier A</td><td>Regulatory And Investment Climate</td></tr>
+<tr><td class="evd-id">EVD-7LX-SS-019</td><td>7LX-SS</td><td class="tier-a">Tier A</td><td>Macroeconomic Credibility</td></tr>
+<tr><td class="evd-id">EVD-72SS-005</td><td>7.2-SS</td><td class="tier-a">Tier A</td><td>Regulatory And Investment Climate</td></tr>
+<tr><td class="evd-id">EVD-72SS-006</td><td>7.2-SS</td><td class="tier-a">Tier A</td><td>Regulatory And Investment Climate</td></tr>
+<tr><td class="evd-id">EVD-72SS-007</td><td>7.2-SS</td><td class="tier-a">Tier A</td><td>Regulatory And Investment Climate</td></tr>
+</tbody></table>
+
     </div>
   </div>
 
