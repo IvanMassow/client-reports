@@ -173,6 +173,22 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Profile Snapshot tables */
+.profile-sub-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 16px 0 8px; }
+.profile-sub-title:first-child { margin-top: 0; }
+.profile-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.profile-table td { padding: 6px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.profile-field { font-weight: 600; color: var(--text); width: 30%; white-space: nowrap; }
+.profile-detail { color: var(--text-mid); }
+
+/* Diagnostic Coverage table */
+.diag-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.diag-table th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 8px 10px; text-align: left; border-bottom: 2px solid var(--border); }
+.diag-table td { padding: 8px 10px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-mid); line-height: 1.5; }
+.diag-prompt { font-weight: 600; color: var(--text); }
+.diag-covered { color: var(--green); font-weight: 600; }
+.diag-not-covered { color: var(--red); font-weight: 600; }
+
 /* Executive Summary — What/Why/Watch sub-blocks */
 .exec-sub { margin-bottom: 20px; }
 .exec-sub:last-child { margin-bottom: 0; }
@@ -195,10 +211,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .arena-narrative { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }
 
 /* Inline strength/vulnerability signals within standing context */
-.standing-signals { padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }
-.standing-signals-strength { background: rgba(46,155,110,0.03); }
-.standing-signals-vuln { background: rgba(217,64,72,0.03); }
-.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.standing-signals { padding: 12px 18px 14px; margin: 10px 0 6px; border-radius: 6px; border-top: none; }
+.standing-signals-strength { background: rgba(46,155,110,0.06); border-left: 3px solid var(--green); }
+.standing-signals-vuln { background: rgba(217,64,72,0.06); border-left: 3px solid var(--red); }
+.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
 .ss-icon { font-size: 10px; }
 .ss-icon-strength { color: var(--green); }
 .ss-icon-vuln { color: var(--red); }
@@ -213,10 +229,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .sev-tag-medium { background: rgba(196,146,10,0.1); color: #92400e; }
 .sev-tag-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
 
-/* Redirect sections (Sections 7, 8) */
-.sec-redirect { opacity: 0.7; }
-.redirect-text { font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }
-.redirect-text em { color: var(--pillar); font-style: italic; }
+/* Redirect sections (Sections 7, 8) — styled as subtle cross-references */
+.sec-redirect { opacity: 1; }
+.sec-redirect .sec-head { border-bottom: none; padding-bottom: 0; margin-bottom: 4px; }
+.sec-redirect .sec-title { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+.sec-redirect .sec-num { font-size: 9px; }
+.redirect-text { font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.5; padding: 8px 14px; background: var(--bg); border-left: 3px solid var(--border); border-radius: 0 4px 4px 0; margin: 0; }
+.redirect-text em { color: var(--pillar); font-style: normal; font-weight: 600; }
 
 /* Strategic Priorities — risk/opportunity framing */
 .priority-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -353,7 +372,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         <div class="score-block-label">Pillar Score</div>
         <div class="score-block-num" style="color:var(--green)">56 <span style="font-size:0.45em;vertical-align:middle">&#9650;</span></div>
         <div class="score-block-max">of 100</div>
-        <div class="posture posture-stable">Stable</div>
+        <div class="posture posture-weak">Under pressure</div>
       </div>
     </div>
   </div>
@@ -407,7 +426,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     </div>
     <div class="exec-card">
       <p style="font-weight:600">External perception of the United Kingdom sits at 58 this cycle, with the strongest favourable coverage concentrated in Policy Predictability And Implementation Record (notably UK Government / HMRC fiscal signalling and Bank of England guidance) while the dominant adverse pressure is channelled through Keir Starmer–linked diplomacy and security-coordination scrutiny around Ukraine, concentrated across the United States, Russia, and Europe.</p>
-      <p>The balance sheet is uneven: policy predictability is running decisively favourable (see proposition P-SS-DIAG-SS-006) and judicial-system credibility is supported by sustained legal-reform attention, but two arenas are structurally weak , Long Term Partner And Counterparty Reliability under repeated security-coordination questioning and Regulatory Competence And Institutional Capacity under thin, adverse-leaning regulator-capacity signals (FCA/PSR-related). Political leadership stability and constitutional/territorial cohesion are also marked by low external engagement in this cycle’s indexed set, leaving bounded uncertainty around those themes.</p>
+      <p>The balance sheet is uneven: policy predictability is running decisively favourable (see proposition P-SS-DIAG-SS-006) and judicial-system credibility is supported by sustained legal-reform attention, but two arenas are structurally weak — Long Term Partner And Counterparty Reliability under repeated security-coordination questioning and Regulatory Competence And Institutional Capacity under thin, adverse-leaning regulator-capacity signals (FCA/PSR-related). Political leadership stability and constitutional/territorial cohesion are also marked by low external engagement in this cycle’s indexed set, leaving bounded uncertainty around those themes.</p>
     </div>
   </div>
 
@@ -435,7 +454,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <div class="key-stat-label">Vulnerability Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num">24</div>
+          <div class="key-stat-num">8</div>
           <div class="key-stat-label">Trends Monitored</div>
         </div>
       </div>
@@ -457,10 +476,21 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             
             <span class="pred-badge pred-horizon">90 DAYS</span>
           </div>
+          <div class="pred-trigger"><strong>What would change it:</strong> public commentary cools within the next cycle</div>
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">53% probability</div>
+          <div class="pred-title">Judicial Independence And Rule Of Law outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon"></span>
+          </div>
           
         </div>
       </div>
-      <div class="pred-summary">Outlook: 1 signals assessed, dominant direction Intensifying. 1 arenas show intensifying predictions.</div>
+      <div class="pred-summary">Outlook: 2 signals assessed, dominant direction Intensifying. 2 arenas show intensifying predictions.</div>
   </div>
 
   <!-- Section 04: Sovereign Perception Dashboard -->
@@ -501,7 +531,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         <tr class="pd-arena-row">
           <td class="pd-arena-name"><strong>Partner Reliability</strong></td>
           <td class="pd-pct" style="color:var(--green);font-weight:800">54% <span style='font-size:0.7em'>&#9650;</span></td>
-          <td><span class="conf-badge conf-medium">Medium</span></td>
+          <td><span class="conf-badge conf-low">Low</span></td>
           <td class="pd-emerging">—</td>
         </tr>
         <tr class="pd-prop-row">
@@ -552,6 +582,38 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>
   </div>
 
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Profile Snapshot</h2>
+      <span class="sec-num">Section 05</span>
+    </div>
+    <div class="exec-card">
+      <h4 class="profile-sub-title">5.1 Identity and Political Structure</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Status</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Government structure</td><td class="profile-detail">Constitutional monarchy with parliamentary government</td></tr>
+<tr><td class="profile-field">Head of state</td><td class="profile-detail">King Charles III (The King)</td></tr>
+<tr><td class="profile-field">Head of government</td><td class="profile-detail">Keir Starmer (Prime Minister)</td></tr>
+<tr><td class="profile-field">Geopolitical alignment</td><td class="profile-detail">Euro-Atlantic alignment; NATO ally; permanent UN Security Council member</td></tr>
+<tr><td class="profile-field">Defence alliances</td><td class="profile-detail">NATO</td></tr>
+<tr><td class="profile-field">Major international memberships</td><td class="profile-detail">UN; UN Security Council (permanent member); NATO</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.2 Institutional and Policy Footprint</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Core diplomatic posture</td><td class="profile-detail">Permanent UN Security Council member; active on Ukraine diplomacy via UN fora</td></tr>
+<tr><td class="profile-field">Official languages</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Official domains</td><td class="profile-detail">gov.uk; royal.uk</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.3 Standing Boundaries</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">What is known</td><td class="profile-detail">What remains to verify</td></tr>
+<tr><td class="profile-field">Government structure; Head of state; Head of government; NATO alignment; UN Security Council permanent membership; Official domains</td><td class="profile-detail">Official languages</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
   <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
@@ -559,10 +621,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <span class="sec-num">Section 06 &middot; 6 arenas assessed</span>
     </div>
     <div class="standing-arena-grid">
-        <div class="standing-arena-card" style="border-top:3px solid var(--text-muted)">
+        <div class="standing-arena-card" style="border-top:3px solid #999">
           <div class="arena-card-header">
             <div class="arena-card-name">Political Leadership And Electoral Stability</div>
-            <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)">INSUFFICIENT DATA</span>
+            <span class="arena-badge" style="background:rgba(120,120,120,0.08);color:#666">INSUFFICIENT DATA</span>
           </div>
           
           <div class="arena-card-grid">
@@ -602,7 +664,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          
+          <div class="arena-outlook">Rule-of-law framing linked to Supreme Court–adjacent legal reform and corporate liability reform commentary is assessed as holding rather than accelerating: 53% probability of intensification over 12 months (Strong signal, Stable). The picture shifts meaningfully if momentum turns from easing to bui</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
@@ -685,7 +747,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Long Term Partner And Counterparty Reliability is weak with stable momentum, shaped by repeated adverse attention to UK leadership | policy signal | diplomacy / international relations , centred on Keir Starmer and UK security-coordination positioning on Ukraine , concentrated in the United States, Russia, Europe, the European Union, and France.</p>
+          <p class="arena-narrative">Long Term Partner And Counterparty Reliability is weak with stable momentum, shaped by repeated adverse attention to UK leadership | policy signal | diplomacy / international relations — centred on Keir Starmer and UK security-coordination positioning on Ukraine — concentrated in the United States, Russia, Europe, the European Union, and France.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, Russia, Europe</div>
           
           
@@ -694,7 +756,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             <ul><li><span class="sev-tag sev-tag-high">HIGH</span> <span class="signal-horizon-tag">12 months</span> External coverage concentrated in the United States, Russia, and Europe is driven by scrutiny of Keir Starmer–linked diplomacy and coalition security coordination around Ukraine, which is being framed as a test of UK reliability under pressure.</li>
 </ul>
           </div>
-          <div class="arena-outlook">73% probability that Long Term Partner And Counterparty Reliability narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="arena-outlook">Security-coordination and partner-signalling scrutiny centred on Keir Starmer, Ukraine alignment, and coalition feasibility carries a 73% probability of intensifying over the next 90 days (Strong signal, Intensifying). The pressure stabilises only if cross-geography repetition narrows and the curren</div>
         </div></div>
   </div>
 
@@ -716,6 +778,37 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
   </div>
 
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Structural Contradictions</h2>
+      <span class="sec-num">Section 09</span>
+    </div>
+    <div class="exec-card">
+      <p>No structural contradictions identified. All active trends are internally consistent.</p>
+    </div>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Standing Diagnostic Coverage</h2>
+      <span class="sec-num">Section 10</span>
+    </div>
+    <div class="exec-card">
+      <table class="diag-table"><thead><tr><th>Diagnostic prompt</th><th>Coverage</th><th>What is clear</th><th>What remains bounded</th></tr></thead><tbody>
+<tr><td class="diag-prompt">Political stability and governing reliability</td><td class="diag-coverage ">Confirmed</td><td>80% external perception, Strong signal</td><td>Clarify whether partner-reliability scrutiny broadens beyond current security-coordination framing.</td></tr>
+<tr><td class="diag-prompt">Political leadership stability</td><td class="diag-coverage ">Confirmed</td><td>67% external perception, Strong signal</td><td>Resolve whether leadership stability narratives decouple from the current partner-signalling scrutiny lane.</td></tr>
+<tr><td class="diag-prompt">Judicial independence and rule of law</td><td class="diag-coverage ">Confirmed</td><td>44% external perception, Strong signal</td><td>Identify whether the adverse governance-pressure framing becomes case-specific or remains diffuse.</td></tr>
+<tr><td class="diag-prompt">Regulatory competence and institutional capacity</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>39% external perception, Thin signal</td><td>Confirm whether non-UK sources amplify regulator-capacity narratives beyond the initial thin signal.</td></tr>
+<tr><td class="diag-prompt">Constitutional integrity and territorial cohesion</td><td class="diag-coverage ">Confirmed</td><td>40% external perception, Strong signal</td><td>Acquire externally sourced evidence linking devolution dynamics to territorial-cohesion assessment.</td></tr>
+<tr><td class="diag-prompt">Policy predictability and implementation</td><td class="diag-coverage ">Confirmed</td><td>83% external perception, Strong signal</td><td>No open boundaries identified.</td></tr>
+<tr><td class="diag-prompt">Long-term partner and counterparty reliability</td><td class="diag-coverage ">Confirmed</td><td>42% external perception, Strong signal</td><td>Determine whether partner-reliability scrutiny persists beyond the current security and coalition coordination lane.</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
   <!-- Section 11: Strategic Priorities -->
   <div class="sec">
     <div class="sec-head">
@@ -727,26 +820,26 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="priority-item priority-item-pri-risk">
         <div class="priority-type-row">
           <span class="priority-type pri-risk">Risk</span>
-          <span class="priority-arena-tag">Long Term Partner And Counterparty Reliability</span>
+          
         </div>
-        <p class="priority-desc">High-severity vulnerability with public commentary intensity elevated indicates partner-reliability pressure in the current cycle.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in Long Term Partner And Counterparty Reliability.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in .</p>
       </div>
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Political Leadership And Electoral Stability</span>
+          
         </div>
-        <p class="priority-desc">Expected external attention is low this cycle, creating a visibility gap around leadership stability narratives.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Political Leadership And Electoral Stability for escalation signals.</p>
+        <p class="priority-desc">creating a visibility gap around leadership stability narratives.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Constitutional Integrity And Territorial Cohesion</span>
+          
         </div>
-        <p class="priority-desc">Expected external attention is low this cycle, creating a visibility gap around territorial-cohesion narratives.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Constitutional Integrity And Territorial Cohesion for escalation signals.</p>
+        <p class="priority-desc">creating a visibility gap around territorial-cohesion narratives.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
     </div>
     <h4 class="priority-horizon">Medium-term risks and opportunities</h4>
@@ -754,10 +847,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="priority-item priority-item-pri-risk">
         <div class="priority-type-row">
           <span class="priority-type pri-risk">Risk</span>
-          <span class="priority-arena-tag">Regulatory Competence And Institutional Capacity</span>
+          
         </div>
-        <p class="priority-desc">Arena is weak with thin, adverse-leaning signals; correction window exists before evidence volume scales.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in Regulatory Competence And Institutional Capacity.</p>
+        <p class="priority-desc">adverse-leaning signals; correction window exists before evidence volume scales.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in .</p>
       </div>
     </div>
 
@@ -791,9 +884,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     </div>
     <div class="conclusion-card">
       <p>The UK’s external standing in trust-and-reliability terms is being pulled in two directions: policy predictability and implementation credibility is registering favourably through UK Government/HMRC fiscal signalling, Bank of England guidance, and multilateral energy coordination visibility across the United States, Europe, and India, while partner-reliability framing is under sustained pressure from Keir Starmer–linked diplomacy and security-coordination scrutiny around Ukraine concentrated in the United States, Russia, and Europe. The net picture remains stable in momentum but under strain because the adverse partner-reliability lane is both well-evidenced and actively amplified internationally, while regulator-capacity criticism remains thin and not yet established as a broad external narrative.</p>
-      <p>Standing posture this cycle: Under pressure</p>
       <div class="conclusion-posture">
-        Standing posture this cycle: <span class="conclusion-posture-badge posture-stable">Stable</span>
+        Standing posture this cycle: <span class="conclusion-posture-badge posture-weak">Under pressure</span>
       </div>
     </div>
   </div>

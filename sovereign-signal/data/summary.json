@@ -7,11 +7,11 @@
     "softpower": {
       "name": "Soft Power & Cultural Standing",
       "score": 51,
-      "posture": "Stable",
+      "posture": "Under pressure",
       "delta": 10,
-      "trend_count": 20,
+      "trend_count": 14,
       "strength_count": 0,
-      "vuln_count": 0,
+      "vuln_count": 2,
       "executive_summary": "What is happening\nExternal attention on the United Kingdom is being pulled in two directions: strong international admiration signals in sport and creative output are being offset by concentrated adve"
     },
     "economic": {
@@ -19,7 +19,7 @@
       "score": 61,
       "posture": "Stable",
       "delta": 8,
-      "trend_count": 72,
+      "trend_count": 24,
       "strength_count": 7,
       "vuln_count": 4,
       "executive_summary": "External attention on the United Kingdom\u2019s economic standing is being pulled in two directions: strong, high-volume technology and financial-centre competence framing (Wayve Technologies autonomy tria"
@@ -29,7 +29,7 @@
       "score": 70,
       "posture": "Strong",
       "delta": 22,
-      "trend_count": 39,
+      "trend_count": 13,
       "strength_count": 5,
       "vuln_count": 0,
       "executive_summary": "External perception of the UK\u2019s diplomatic standing is assessed as favourable overall (Sovereign Perception Score: 73), with strength signals anchored in UN-system visibility, alliance and security-th"
@@ -37,9 +37,9 @@
     "trust": {
       "name": "Trust, Stability & Systemic Reliability",
       "score": 56,
-      "posture": "Stable",
+      "posture": "Under pressure",
       "delta": 14,
-      "trend_count": 24,
+      "trend_count": 8,
       "strength_count": 4,
       "vuln_count": 1,
       "executive_summary": "External perception of the United Kingdom sits at 58 this cycle, with the strongest favourable coverage concentrated in Policy Predictability And Implementation Record (notably UK Government / HMRC fi"
@@ -47,9 +47,9 @@
     "defence": {
       "name": "Defence & Strategic Credibility",
       "score": 73,
-      "posture": "Strong",
+      "posture": "Under pressure",
       "delta": 16,
-      "trend_count": 45,
+      "trend_count": 15,
       "strength_count": 8,
       "vuln_count": 1,
       "executive_summary": "External defence-and-security coverage continues to treat the UK as a credible allied actor across Military Capability And Readiness and Alliance Reliability And Burden Sharing, anchored in AUKUS visi"

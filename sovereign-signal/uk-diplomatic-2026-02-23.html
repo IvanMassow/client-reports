@@ -173,6 +173,22 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Profile Snapshot tables */
+.profile-sub-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 16px 0 8px; }
+.profile-sub-title:first-child { margin-top: 0; }
+.profile-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.profile-table td { padding: 6px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.profile-field { font-weight: 600; color: var(--text); width: 30%; white-space: nowrap; }
+.profile-detail { color: var(--text-mid); }
+
+/* Diagnostic Coverage table */
+.diag-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.diag-table th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 8px 10px; text-align: left; border-bottom: 2px solid var(--border); }
+.diag-table td { padding: 8px 10px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-mid); line-height: 1.5; }
+.diag-prompt { font-weight: 600; color: var(--text); }
+.diag-covered { color: var(--green); font-weight: 600; }
+.diag-not-covered { color: var(--red); font-weight: 600; }
+
 /* Executive Summary — What/Why/Watch sub-blocks */
 .exec-sub { margin-bottom: 20px; }
 .exec-sub:last-child { margin-bottom: 0; }
@@ -195,10 +211,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .arena-narrative { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }
 
 /* Inline strength/vulnerability signals within standing context */
-.standing-signals { padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }
-.standing-signals-strength { background: rgba(46,155,110,0.03); }
-.standing-signals-vuln { background: rgba(217,64,72,0.03); }
-.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.standing-signals { padding: 12px 18px 14px; margin: 10px 0 6px; border-radius: 6px; border-top: none; }
+.standing-signals-strength { background: rgba(46,155,110,0.06); border-left: 3px solid var(--green); }
+.standing-signals-vuln { background: rgba(217,64,72,0.06); border-left: 3px solid var(--red); }
+.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
 .ss-icon { font-size: 10px; }
 .ss-icon-strength { color: var(--green); }
 .ss-icon-vuln { color: var(--red); }
@@ -213,10 +229,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .sev-tag-medium { background: rgba(196,146,10,0.1); color: #92400e; }
 .sev-tag-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
 
-/* Redirect sections (Sections 7, 8) */
-.sec-redirect { opacity: 0.7; }
-.redirect-text { font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }
-.redirect-text em { color: var(--pillar); font-style: italic; }
+/* Redirect sections (Sections 7, 8) — styled as subtle cross-references */
+.sec-redirect { opacity: 1; }
+.sec-redirect .sec-head { border-bottom: none; padding-bottom: 0; margin-bottom: 4px; }
+.sec-redirect .sec-title { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+.sec-redirect .sec-num { font-size: 9px; }
+.redirect-text { font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.5; padding: 8px 14px; background: var(--bg); border-left: 3px solid var(--border); border-radius: 0 4px 4px 0; margin: 0; }
+.redirect-text em { color: var(--pillar); font-style: normal; font-weight: 600; }
 
 /* Strategic Priorities — risk/opportunity framing */
 .priority-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -393,7 +412,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         <div class="arena-gauge">
           <div class="arena-gauge-name">DEVELOPMENT AND HUMANITARIAN CREDIBILITY</div>
           <div class="arena-gauge-score" style="color:var(--red)">—</div>
-          <div class="arena-gauge-posture">MIXED</div>
+          <div class="arena-gauge-posture">INSUFFICIENT DATA</div>
           <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
         </div></div>
 
@@ -435,7 +454,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <div class="key-stat-label">Vulnerability Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num">39</div>
+          <div class="key-stat-num">13</div>
           <div class="key-stat-label">Trends Monitored</div>
         </div>
       </div>
@@ -481,8 +500,52 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           </div>
           
         </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">70% probability</div>
+          <div class="pred-title">Global Voice And Strategic Relevance outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon">30 DAYS</span>
+          </div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">58% probability</div>
+          <div class="pred-title">Climate And Energy Diplomacy outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon"></span>
+          </div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">58% probability</div>
+          <div class="pred-title">Multilateral Influence outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon"></span>
+          </div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">53% probability</div>
+          <div class="pred-title">Sanctions And Statecraft Influence outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon"></span>
+          </div>
+          
+        </div>
       </div>
-      <div class="pred-summary">Outlook: 3 signals assessed, dominant direction Intensifying. 3 arenas show intensifying predictions.</div>
+      <div class="pred-summary">Outlook: 7 signals assessed, dominant direction Intensifying. 7 arenas show intensifying predictions.</div>
   </div>
 
   <!-- Section 04: Sovereign Perception Dashboard -->
@@ -580,6 +643,38 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>
   </div>
 
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Profile Snapshot</h2>
+      <span class="sec-num">Section 05</span>
+    </div>
+    <div class="exec-card">
+      <h4 class="profile-sub-title">5.1 Identity and Political Structure</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Status</td><td class="profile-detail">Managed uncertainty</td></tr>
+<tr><td class="profile-field">Government structure</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Head of state</td><td class="profile-detail">King Charles III (Monarch)</td></tr>
+<tr><td class="profile-field">Head of government</td><td class="profile-detail">Sir Keir Starmer (Prime Minister)</td></tr>
+<tr><td class="profile-field">Geopolitical alignment</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Defence alliances</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Major international memberships</td><td class="profile-detail">United Nations (Security Council permanent member)</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.2 Institutional and Policy Footprint</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Core diplomatic posture</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Official languages</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Official domains</td><td class="profile-detail">gov.uk</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.3 Standing Boundaries</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">What is known</td><td class="profile-detail">What remains to verify</td></tr>
+<tr><td class="profile-field">Sovereign name: United Kingdom; Head of state: King Charles III; Head of government: Sir Keir Starmer; UN Security Council permanent membership; Official domain: gov.uk</td><td class="profile-detail">Government structure; Geopolitical alignment; Defence alliances; Core diplomatic posture; Official languages</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
   <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
@@ -601,7 +696,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Multilateral influence standing is strong, anchored in United Nations / UN-system visibility and institutional-lane framing , momentum is stable and public amplification remains limited.</p>
+          <p class="arena-narrative">Multilateral influence standing is strong, anchored in United Nations / UN-system visibility and institutional-lane framing — momentum is stable and public amplification remains limited.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, China, Gaza</div>
           
           <div class="standing-signals standing-signals-strength">
@@ -614,7 +709,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          
+          <div class="arena-outlook">Institutional influence framing linked to UN-system visibility is assessed as holding: 58% probability of intensification over 180 days (Strong signal, Stable). The outlook turns intensifying if muted attention lifts and momentum shifts from steady to building.</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
@@ -630,7 +725,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Crisis diplomacy standing is strong and is building, driven by Chagos Archipelago / Mauritius decolonisation-and-sovereignty framing (including Diego Garcia governance) alongside Belarus-linked security framing , external attention is most visible across the United States, China, and Mauritius.</p>
+          <p class="arena-narrative">Crisis diplomacy standing is strong and is building, driven by Chagos Archipelago / Mauritius decolonisation-and-sovereignty framing (including Diego Garcia governance) alongside Belarus-linked security framing — external attention is most visible across the United States, China, and Mauritius.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> External (mixed)</div>
           
           <div class="standing-signals standing-signals-strength">
@@ -643,7 +738,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          <div class="arena-outlook">83% probability that Crisis Diplomacy And Mediation narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="arena-outlook">Unless the current build in attention slows materially, crisis diplomacy narratives centred on the Chagos Archipelago / Mauritius legal framing and the Belarus security framing are jointly assessed at 83% probability of intensifying over the next 90 days (Strong signal, Intensifying). The signal ste</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
@@ -659,7 +754,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Climate and energy diplomacy standing is strong and is building, anchored in European Commission climate-policy governance framing and North Seas offshore energy coordination , the signal is visible across the European Union, the United States, and China while broader public attention remains limited.</p>
+          <p class="arena-narrative">Climate and energy diplomacy standing is strong and is building, anchored in European Commission climate-policy governance framing and North Seas offshore energy coordination — the signal is visible across the European Union, the United States, and China while broader public attention remains limited.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> European Union, United States, China</div>
           
           <div class="standing-signals standing-signals-strength">
@@ -672,7 +767,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          <div class="arena-outlook">North Seas energy coordination narratives (cross-border offshore energy cooperation framing) show a 73% probability of intensifying over 90 days (Strong signal, Intensifying). This moderates if wider </div>
+          <div class="arena-outlook">North Seas energy coordination narratives (cross-border offshore energy cooperation framing) show a 73% probability of intensifying over 90 days (Strong signal, Intensifying). This moderates if wider attention remains muted and momentum shifts away from building.
+By contrast, climate-governance alig</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--amber)">
           <div class="arena-card-header">
@@ -688,7 +784,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Sanctions and statecraft standing is mixed, driven by sanctions-adjacent Russia policy and diplomacy coverage (including shadow-fleet enforcement context) where UK-specific external evaluation remains episodic , momentum is easing across Europe-, Russia-, and Ukraine-centred attention.</p>
+          <p class="arena-narrative">Sanctions and statecraft standing is mixed, driven by sanctions-adjacent Russia policy and diplomacy coverage (including shadow-fleet enforcement context) where UK-specific external evaluation remains episodic — momentum is easing across Europe-, Russia-, and Ukraine-centred attention.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Europe, Russia, Ukraine</div>
           
           <div class="standing-signals standing-signals-strength">
@@ -701,7 +797,9 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          
+          <div class="arena-outlook">Sanctions coordination context remains mixed and is assessed as holding: 53% probability of intensification over 12 months (Strong signal, Stable). The signal could intensify if momentum reverses from easing to building or if attention rises to sustained elevated intensity.
+
+Outlook: 8 signals asses</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
@@ -730,12 +828,12 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          <div class="arena-outlook">88% probability that Global Voice And Strategic Relevance narratives intensify over the next 30 days (Strong signal)</div>
+          <div class="arena-outlook">Across US- and Europe-centred strategic commentary, alliance-posture framing linked to international security discourse is assessed as on an intensifying trajectory: 88% probability of intensifying over the next 30 days (Strong signal, Intensifying). This stabilises if public attention cools and ris</div>
         </div>
-        <div class="standing-arena-card" style="border-top:3px solid var(--text-muted)">
+        <div class="standing-arena-card" style="border-top:3px solid #999">
           <div class="arena-card-header">
             <div class="arena-card-name">Development And Humanitarian Credibility</div>
-            <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)"></span>
+            <span class="arena-badge" style="background:rgba(120,120,120,0.08);color:#666">INSUFFICIENT DATA</span>
           </div>
           
           <div class="arena-card-grid">
@@ -781,6 +879,37 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
   </div>
 
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Structural Contradictions</h2>
+      <span class="sec-num">Section 09</span>
+    </div>
+    <div class="exec-card">
+      <p>No structural contradictions identified. All active trends are internally consistent.</p>
+    </div>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Standing Diagnostic Coverage</h2>
+      <span class="sec-num">Section 10</span>
+    </div>
+    <div class="exec-card">
+      <table class="diag-table"><thead><tr><th>Diagnostic prompt</th><th>Coverage</th><th>What is clear</th><th>What remains bounded</th></tr></thead><tbody>
+<tr><td class="diag-prompt">Diplomatic actor assessment</td><td class="diag-coverage ">Confirmed</td><td>83% external perception, Strong signal</td><td>Across multiple high-evidence diplomacy and institutional trends, external framing is broadly favourable; some high-intensity commentary in the strategic relevance arena remains contested.</td></tr>
+<tr><td class="diag-prompt">Influence inside multilateral institutions</td><td class="diag-coverage ">Confirmed</td><td>80% external perception, Strong signal</td><td>Formal multilateral standing signal remains favourable, but public amplification around this lane is limited in the current cycle.</td></tr>
+<tr><td class="diag-prompt">Crisis diplomacy characterisation</td><td class="diag-coverage ">Confirmed</td><td>83% external perception, Strong signal</td><td>Crisis-diplomacy signals are broadly favourable across several high-evidence trends, with some crisis-attribution specifics remaining unresolved in official records.</td></tr>
+<tr><td class="diag-prompt">Climate and energy diplomacy credibility</td><td class="diag-coverage ">Confirmed</td><td>80% external perception, Strong signal</td><td>Policy and governance-linked climate and energy diplomacy signal is favourable, but wider public attention to this lane remains limited in the current cycle.</td></tr>
+<tr><td class="diag-prompt">Sanctions posture and impact</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>39% external perception, Thin signal</td><td>Sanctions-related framing is present and sometimes mixed, but UK-specific external evaluation remains thin and episodic in the current set.</td></tr>
+<tr><td class="diag-prompt">Geopolitical voice and relevance narratives</td><td class="diag-coverage ">Confirmed</td><td>80% external perception, Strong signal</td><td>Strategic relevance signal is favourable in evidence-rich trends, while high-intensity negative framing in commentary remains active and contested.</td></tr>
+<tr><td class="diag-prompt">Development and humanitarian role</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>45% external perception, Strong signal</td><td>Development and humanitarian credibility is not separately visible as a dedicated trend this cycle and appears embedded within broader government engagement coverage.</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
   <!-- Section 11: Strategic Priorities -->
   <div class="sec">
     <div class="sec-head">
@@ -792,18 +921,18 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Multilateral Influence</span>
+          
         </div>
-        <p class="priority-desc">Strong multilateral influence signal is present while broader attention remains limited; track for amplification or narrative shift.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Multilateral Influence for escalation signals.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Climate And Energy Diplomacy</span>
+          
         </div>
-        <p class="priority-desc">Climate and energy diplomacy signal is strong but remains low-visibility in wider discourse; monitor for escalation and clearer external evaluation.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Climate And Energy Diplomacy for escalation signals.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
     </div>
     <h4 class="priority-horizon">Medium-term risks and opportunities</h4>
@@ -811,10 +940,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Sanctions And Statecraft Influence</span>
+          
         </div>
-        <p class="priority-desc">Sanctions posture remains mixed with thin UK-specific evaluation; prioritise tracking for clearer external judgments of effectiveness or overreach.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Sanctions And Statecraft Influence for escalation signals.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
     </div>
     <h4 class="priority-horizon">Long-term risks and opportunities</h4>
@@ -822,10 +951,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Development And Humanitarian Credibility</span>
+          
         </div>
-        <p class="priority-desc">Development and humanitarian credibility lacks a dedicated external narrative lane this cycle; sustain monitoring for re-emergence and clearer theme separation.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Development And Humanitarian Credibility for escalation signals.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
     </div>
 
@@ -859,7 +988,6 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     </div>
     <div class="conclusion-card">
       <p>The UK&#x27;s external diplomatic standing is assessed as strengthening on the back of evidence-rich, institution- and alliance-anchored narratives: UN-system visibility, NATO and strategic-theatre relevance, and policy-lane climate/energy coordination remain favourable across coverage concentrated in the United States, Europe, and China. The primary standing boundary remains sanctions leadership effectiveness (thin UK-specific external evaluation despite high sanctions-adjacent volume), alongside under-engagement on development and humanitarian credibility as a distinct narrative lane.</p>
-      <p>Standing posture this cycle: Strengthening</p>
       <div class="conclusion-posture">
         Standing posture this cycle: <span class="conclusion-posture-badge posture-strong">Strong</span>
       </div>

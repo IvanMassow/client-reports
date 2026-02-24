@@ -173,6 +173,22 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Profile Snapshot tables */
+.profile-sub-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 16px 0 8px; }
+.profile-sub-title:first-child { margin-top: 0; }
+.profile-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.profile-table td { padding: 6px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.profile-field { font-weight: 600; color: var(--text); width: 30%; white-space: nowrap; }
+.profile-detail { color: var(--text-mid); }
+
+/* Diagnostic Coverage table */
+.diag-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.diag-table th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 8px 10px; text-align: left; border-bottom: 2px solid var(--border); }
+.diag-table td { padding: 8px 10px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-mid); line-height: 1.5; }
+.diag-prompt { font-weight: 600; color: var(--text); }
+.diag-covered { color: var(--green); font-weight: 600; }
+.diag-not-covered { color: var(--red); font-weight: 600; }
+
 /* Executive Summary — What/Why/Watch sub-blocks */
 .exec-sub { margin-bottom: 20px; }
 .exec-sub:last-child { margin-bottom: 0; }
@@ -195,10 +211,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .arena-narrative { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }
 
 /* Inline strength/vulnerability signals within standing context */
-.standing-signals { padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }
-.standing-signals-strength { background: rgba(46,155,110,0.03); }
-.standing-signals-vuln { background: rgba(217,64,72,0.03); }
-.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.standing-signals { padding: 12px 18px 14px; margin: 10px 0 6px; border-radius: 6px; border-top: none; }
+.standing-signals-strength { background: rgba(46,155,110,0.06); border-left: 3px solid var(--green); }
+.standing-signals-vuln { background: rgba(217,64,72,0.06); border-left: 3px solid var(--red); }
+.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
 .ss-icon { font-size: 10px; }
 .ss-icon-strength { color: var(--green); }
 .ss-icon-vuln { color: var(--red); }
@@ -213,10 +229,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .sev-tag-medium { background: rgba(196,146,10,0.1); color: #92400e; }
 .sev-tag-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
 
-/* Redirect sections (Sections 7, 8) */
-.sec-redirect { opacity: 0.7; }
-.redirect-text { font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }
-.redirect-text em { color: var(--pillar); font-style: italic; }
+/* Redirect sections (Sections 7, 8) — styled as subtle cross-references */
+.sec-redirect { opacity: 1; }
+.sec-redirect .sec-head { border-bottom: none; padding-bottom: 0; margin-bottom: 4px; }
+.sec-redirect .sec-title { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+.sec-redirect .sec-num { font-size: 9px; }
+.redirect-text { font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.5; padding: 8px 14px; background: var(--bg); border-left: 3px solid var(--border); border-radius: 0 4px 4px 0; margin: 0; }
+.redirect-text em { color: var(--pillar); font-style: normal; font-weight: 600; }
 
 /* Strategic Priorities — risk/opportunity framing */
 .priority-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -435,7 +454,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <div class="key-stat-label">Vulnerability Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num">72</div>
+          <div class="key-stat-num">24</div>
           <div class="key-stat-label">Trends Monitored</div>
         </div>
       </div>
@@ -449,18 +468,29 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     
       <div class="pred-grid">
         <div class="pred-tile" style="border-left: 3px solid var(--green)">
-          <div class="pred-prob">73% probability</div>
-          <div class="pred-title">Cross-border finance and technology framing of UK rules</div>
+          <div class="pred-prob">70% probability</div>
+          <div class="pred-title">Financial Services And City Position outlook</div>
           <div class="pred-badges">
             
             <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
-            <span class="pred-badge pred-signal-strong">STRONG</span>
-            <span class="pred-badge pred-horizon">90 DAYS</span>
+            
+            <span class="pred-badge pred-horizon"></span>
           </div>
-          <div class="pred-trigger"><strong>What would change it:</strong> Trajectory stabilises if momentum shifts from rising to stable and geographic spread narrows materially in the next cycle.</div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">58% probability</div>
+          <div class="pred-title">Regulatory And Investment Climate outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon"></span>
+          </div>
+          <div class="pred-trigger"><strong>What would change it:</strong> attention warms and cross-border commentary widens beyond current isolated discussion, the cross-border compliance interoperability framing remains steady: 58% intensification probability over 180 days (Strong signal, Stable), with supervisory-cooperation references expected to hold rather than accelerate</div>
         </div>
       </div>
-      <div class="pred-summary">Outlook: 1 signals assessed, dominant direction Intensifying. 1 arenas show intensifying predictions.</div>
+      <div class="pred-summary">Outlook: 2 signals assessed, dominant direction Intensifying. 2 arenas show intensifying predictions.</div>
   </div>
 
   <!-- Section 04: Sovereign Perception Dashboard -->
@@ -546,6 +576,38 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>
   </div>
 
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Profile Snapshot</h2>
+      <span class="sec-num">Section 05</span>
+    </div>
+    <div class="exec-card">
+      <h4 class="profile-sub-title">5.1 Identity and Political Structure</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Status</td><td class="profile-detail">Confirmed</td></tr>
+<tr><td class="profile-field">Government structure</td><td class="profile-detail">Constitutional monarchy with parliamentary government</td></tr>
+<tr><td class="profile-field">Head of state</td><td class="profile-detail">King Charles III (Head of State)</td></tr>
+<tr><td class="profile-field">Head of government</td><td class="profile-detail">Prime Minister Sir Keir Starmer</td></tr>
+<tr><td class="profile-field">Geopolitical alignment</td><td class="profile-detail">Euro-Atlantic security alignment; UN Security Council permanent member; NATO Ally</td></tr>
+<tr><td class="profile-field">Defence alliances</td><td class="profile-detail">NATO (member since 1949)</td></tr>
+<tr><td class="profile-field">Major international memberships</td><td class="profile-detail">United Nations (including UN Security Council permanent membership)</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.2 Institutional and Policy Footprint</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Core diplomatic posture</td><td class="profile-detail">Allied, rules-based positioning in Euro-Atlantic security and UN diplomacy</td></tr>
+<tr><td class="profile-field">Official languages</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Official domains</td><td class="profile-detail">royal.uk; parliament.uk; gov.uk</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.3 Standing Boundaries</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">What is known</td><td class="profile-detail">What remains to verify</td></tr>
+<tr><td class="profile-field">Baseline sovereign identity and core institutional structure are established.</td><td class="profile-detail">Official languages are not confirmed in the baseline profile this cycle.</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
   <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
@@ -576,7 +638,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          <div class="arena-outlook">70% probability that Financial Services And City Position narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="arena-outlook">Performance and benchmarking references are assessed at 70% intensification probability over 90 days (Strong signal, Intensifying), with London financial-services competence framing sustained by recurring market-performance anchors. The signal slows if benchmarks stop being cited as a competence ref</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
@@ -629,7 +691,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          
+          <div class="arena-outlook">Unless attention warms and cross-border commentary widens beyond current isolated discussion, the cross-border compliance interoperability framing remains steady: 58% intensification probability over 180 days (Strong signal, Stable), with supervisory-cooperation references expected to hold rather th</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--amber)">
           <div class="arena-card-header">
@@ -728,6 +790,36 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
   </div>
 
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Structural Contradictions</h2>
+      <span class="sec-num">Section 09</span>
+    </div>
+    <div class="exec-card">
+      <p>No structural contradictions identified. All active trends are internally consistent.</p>
+    </div>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Standing Diagnostic Coverage</h2>
+      <span class="sec-num">Section 10</span>
+    </div>
+    <div class="exec-card">
+      <table class="diag-table"><thead><tr><th>Diagnostic prompt</th><th>Coverage</th><th>What is clear</th><th>What remains bounded</th></tr></thead><tbody>
+<tr><td class="diag-prompt">Invest, build, and base operations</td><td class="diag-coverage ">Confirmed</td><td>80% external perception, Strong signal</td><td>Favourable regulatory and financial-centre signals dominate, with limited labour-market caution remaining bounded.</td></tr>
+<tr><td class="diag-prompt">London as a financial centre</td><td class="diag-coverage ">Confirmed</td><td>72% external perception, Strong signal</td><td>Financial-centre performance signals remain favourable while trade-policy spillover framing injects near-term caution.</td></tr>
+<tr><td class="diag-prompt">AI and advanced technology competitiveness</td><td class="diag-coverage ">Confirmed</td><td>80% external perception, Strong signal</td><td>External assessment is strongly favourable on capability and platform commitment, with dissent remaining low-corroboration.</td></tr>
+<tr><td class="diag-prompt">Regulatory environment stability</td><td class="diag-coverage ">Confirmed</td><td>75% external perception, Strong signal</td><td>The prevailing view is favourable on stability and interoperability, while singleton regulatory notes remain too thin to shift direction.</td></tr>
+<tr><td class="diag-prompt">Startup and scale-up ecosystem perception</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>39% external perception, Thin signal</td><td>External perception cannot be inferred reliably from the current thin, domestically concentrated items.</td></tr>
+<tr><td class="diag-prompt">Trade positioning and post-Brexit trajectory</td><td class="diag-coverage ">Confirmed</td><td>21% external perception, Strong signal</td><td>Trade positioning is dominated by adverse uncertainty framing, partially offset by structured EU process signals.</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
   <!-- Section 11: Strategic Priorities -->
   <div class="sec">
     <div class="sec-head">
@@ -739,34 +831,34 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="priority-item priority-item-pri-risk">
         <div class="priority-type-row">
           <span class="priority-type pri-risk">Risk</span>
-          <span class="priority-arena-tag">Trade And Competitiveness</span>
+          
         </div>
-        <p class="priority-desc">High-severity trade vulnerability is accelerating in elevated public commentary and is likely to dominate near-term external framing.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in Trade And Competitiveness.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in .</p>
       </div>
-      <div class="priority-item priority-item-pri-risk">
+      <div class="priority-item priority-item-pri-opportunity">
         <div class="priority-type-row">
-          <span class="priority-type pri-risk">Risk</span>
-          <span class="priority-arena-tag">Trade And Competitiveness</span>
+          <span class="priority-type pri-opportunity">Opportunity</span>
+          
         </div>
-        <p class="priority-desc">High-severity trade arena tension is driven by an accelerating vulnerability signal alongside weaker positive process cues.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Structural response required in Trade And Competitiveness to address root cause.</p>
-      </div>
-      <div class="priority-item priority-item-pri-watch">
-        <div class="priority-type-row">
-          <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Regulatory And Investment Climate</span>
-        </div>
-        <p class="priority-desc">Strong positive baseline exists while public discourse remains quiet, creating a risk of under-amplified positioning.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Regulatory And Investment Climate for escalation signals.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Structural response required in  to address root cause.</p>
       </div>
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Regulatory And Investment Climate</span>
+          
         </div>
-        <p class="priority-desc">Regulatory strength signal remains evidence-led but under-amplified on informal surfaces in a high-expected arena.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Regulatory And Investment Climate for escalation signals.</p>
+        <p class="priority-desc">creating a risk of under-amplified positioning.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
+      </div>
+      <div class="priority-item priority-item-pri-watch">
+        <div class="priority-type-row">
+          <span class="priority-type pri-watch">Watch</span>
+          
+        </div>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
     </div>
     <h4 class="priority-horizon">Medium-term risks and opportunities</h4>
@@ -774,29 +866,29 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="priority-item priority-item-pri-opportunity">
         <div class="priority-type-row">
           <span class="priority-type pri-opportunity">Opportunity</span>
-          <span class="priority-arena-tag">Innovation And Technology</span>
+          
         </div>
-        <p class="priority-desc">Arena is strongly positive overall but contains an emerging negative dissent signal; reinforcement reduces erosion risk.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Proactively reinforce Innovation And Technology positioning before adverse framing erodes position.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Proactively reinforce  positioning before adverse framing erodes position.</p>
       </div>
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Startup And Scaleup Ecosystem</span>
+          
         </div>
-        <p class="priority-desc">Coverage is thin and low-confidence; external perception cannot be characterised reliably without broader signal capture.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Startup And Scaleup Ecosystem for escalation signals.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
     </div>
     <h4 class="priority-horizon">Long-term risks and opportunities</h4>
     <div class="priority-group">
-      <div class="priority-item priority-item-pri-risk">
+      <div class="priority-item priority-item-pri-opportunity">
         <div class="priority-type-row">
-          <span class="priority-type pri-risk">Risk</span>
-          <span class="priority-arena-tag">Macroeconomic Credibility</span>
+          <span class="priority-type pri-opportunity">Opportunity</span>
+          
         </div>
-        <p class="priority-desc">Macroeconomic credibility is weak with multiple vulnerability signals and requires sustained structural positioning to offset recurrent negative framing.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Structural response required in Macroeconomic Credibility to address root cause.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Structural response required in  to address root cause.</p>
       </div>
     </div>
 
@@ -829,8 +921,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <span class="sec-num">Section 13</span>
     </div>
     <div class="conclusion-card">
-      <p>The UK’s external economic standing is holding a strong technology and financial-centre competence lane , driven by Wayve Technologies visibility in autonomy trials and repeated platform and infrastructure signalling from Microsoft and OpenAI, alongside London performance-and-benchmarking references , but the dominant pressure point is trade credibility, where tariff and legal-policy uncertainty centred on Donald Trump trade-policy signalling and U.S. Supreme Court-linked volatility is concentrating attention in the United States, China, and the European Union. The net picture is not a collapse in perceived capability; it is an external framing environment where an intensifying trade vulnerability can overshadow otherwise favourable investment-and-innovation narratives.</p>
-      <p>Standing posture this cycle: Escalating vulnerability</p>
+      <p>The UK’s external economic standing is holding a strong technology and financial-centre competence lane — driven by Wayve Technologies visibility in autonomy trials and repeated platform and infrastructure signalling from Microsoft and OpenAI, alongside London performance-and-benchmarking references — but the dominant pressure point is trade credibility, where tariff and legal-policy uncertainty centred on Donald Trump trade-policy signalling and U.S. Supreme Court-linked volatility is concentrating attention in the United States, China, and the European Union. The net picture is not a collapse in perceived capability; it is an external framing environment where an intensifying trade vulnerability can overshadow otherwise favourable investment-and-innovation narratives.</p>
       <div class="conclusion-posture">
         Standing posture this cycle: <span class="conclusion-posture-badge posture-stable">Stable</span>
       </div>

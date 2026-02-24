@@ -132,7 +132,7 @@
         "echo_risk": "No",
         "articles_count": "48",
         "data_sources": "Newsfeed + web check",
-        "summary": "Culture and media export standing is strong, with external attention anchored in culture/media export competitiveness signals concentrated in the United States, India, and Canada , momentum is fading.",
+        "summary": "Culture and media export standing is strong, with external attention anchored in culture/media export competitiveness signals concentrated in the United States, India, and Canada \u2014 momentum is fading.",
         "posture": "Strong"
       },
       "Education And Research Prestige": {
@@ -145,7 +145,8 @@
         "echo_risk": "No",
         "articles_count": "0",
         "data_sources": "Newsfeed only",
-        "summary": "Education and research prestige standing is assessed as insufficient data this cycle, with an external discourse silence gap and no mapped trend drivers."
+        "summary": "Education and research prestige standing is assessed as insufficient data this cycle, with an external discourse silence gap and no mapped trend drivers.",
+        "posture": "Insufficient data"
       },
       "Sporting Brand And Influence": {
         "name": "Sporting Brand And Influence",
@@ -157,7 +158,7 @@
         "echo_risk": "No",
         "articles_count": "149",
         "data_sources": "Newsfeed + web check",
-        "summary": "Sporting brand and influence standing is strong, driven by Team GB prestige and pipeline narratives alongside rising integrity-context visibility , momentum is rising with attention concentrated in Italy and the United States.",
+        "summary": "Sporting brand and influence standing is strong, driven by Team GB prestige and pipeline narratives alongside rising integrity-context visibility \u2014 momentum is rising with attention concentrated in Italy and the United States.",
         "posture": "Strong"
       },
       "Creative Industries And Talent": {
@@ -170,7 +171,7 @@
         "echo_risk": "No",
         "articles_count": "52",
         "data_sources": "Newsfeed + web check",
-        "summary": "Creative industries and talent standing is strong, led by recurring visibility of UK-linked entertainment and creative-economy competitiveness signals across the United States and India , momentum is fading.",
+        "summary": "Creative industries and talent standing is strong, led by recurring visibility of UK-linked entertainment and creative-economy competitiveness signals across the United States and India \u2014 momentum is fading.",
         "posture": "Strong"
       },
       "Heritage Identity And Nation Brand": {
@@ -183,7 +184,7 @@
         "echo_risk": "No",
         "articles_count": "150",
         "data_sources": "Newsfeed + web check",
-        "summary": "Heritage, identity and nation-brand standing is weak, with pressure concentrated in external scrutiny of King Charles III, Prince Andrew, and succession-legitimacy framing , momentum is stable and attention is elevated, led by Australia and the United States.",
+        "summary": "Heritage, identity and nation-brand standing is weak, with pressure concentrated in external scrutiny of King Charles III, Prince Andrew, and succession-legitimacy framing \u2014 momentum is stable and attention is elevated, led by Australia and the United States.",
         "posture": "Weak"
       },
       "Values And Human Rights Reputation": {
@@ -196,14 +197,27 @@
         "echo_risk": "No",
         "articles_count": "98",
         "data_sources": "Newsfeed + web check",
-        "summary": "Values and human-rights reputation standing is weak, dominated by identity/cohesion and immigration-enforcement narratives (Reform UK / Nigel Farage framing) and associated border-security context , momentum is stable with elevated attention led by the United States and France.",
+        "summary": "Values and human-rights reputation standing is weak, dominated by identity/cohesion and immigration-enforcement narratives (Reform UK / Nigel Farage framing) and associated border-security context \u2014 momentum is stable with elevated attention led by the United States and France.",
         "posture": "Weak"
       }
     },
     "strength_signals": [],
     "strength_signal_details": [],
     "vulnerability_signals": [],
-    "vuln_signal_details": [],
+    "vuln_signal_details": [
+      {
+        "severity": "Medium",
+        "horizon": "Long",
+        "description": "Institutional legitimacy narratives tied to Prince Andrew / King Charles III / succession framing are assessed as degrading UK nation-brand stability among external observers, with external attention concentrated in Australia, the United States, and France.",
+        "arena": "Heritage Identity And Nation Brand"
+      },
+      {
+        "severity": "Medium",
+        "horizon": "Long",
+        "description": "Hardline immigration policy framing centred on Reform UK proposals is assessed as shaping values and rule-of-law perceptions that act as shortcut judgements on broader UK credibility in external discourse, with attention led by the United States and France and additional pickup in Pakistan.",
+        "arena": "Values And Human Rights Reputation"
+      }
+    ],
     "priorities": [
       {
         "horizon": "Near-term risks and opportunities",
@@ -249,12 +263,12 @@
         "driver": "Moderate evidence base across monitored arenas this cycle."
       }
     ],
-    "conclusion": "This cycle\u2019s external perception picture is under pressure because two high-salience narratives , monarchy legitimacy scrutiny (King Charles III / Prince Andrew / succession framing) and values/rights judgement via immigration enforcement framing (Reform UK / Nigel Farage) , are repeatedly amplified in the United States, Australia, and France. At the same time, the UK continues to generate clear soft-power pull through Sporting Brand And Influence (notably with Italy as a visibility driver) and sustained culture/creative competitiveness signals tied to the United States, India, and Canada. The result is a stable overall trajectory with exposed heritage and values standing acting as a persistent drag on an otherwise resilient cultural and sporting profile.\nStanding posture this cycle: Under pressure",
+    "conclusion": "This cycle\u2019s external perception picture is under pressure because two high-salience narratives \u2014 monarchy legitimacy scrutiny (King Charles III / Prince Andrew / succession framing) and values/rights judgement via immigration enforcement framing (Reform UK / Nigel Farage) \u2014 are repeatedly amplified in the United States, Australia, and France. At the same time, the UK continues to generate clear soft-power pull through Sporting Brand And Influence (notably with Italy as a visibility driver) and sustained culture/creative competitiveness signals tied to the United States, India, and Canada. The result is a stable overall trajectory with exposed heritage and values standing acting as a persistent drag on an otherwise resilient cultural and sporting profile.\nStanding posture this cycle: Under pressure",
     "score": 51,
-    "posture": "Stable",
-    "trend_count": 20,
+    "posture": "Under pressure",
+    "trend_count": 14,
     "strength_count": 0,
-    "vuln_count": 0,
+    "vuln_count": 2,
     "predictions": [
       {
         "title": "Sporting Brand And Influence outlook",
@@ -275,6 +289,24 @@
         "type": ""
       },
       {
+        "title": "Heritage Identity And Nation Brand outlook",
+        "probability": 56,
+        "horizon": "12 months",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": ""
+      },
+      {
+        "title": "Heritage Identity And Nation Brand outlook",
+        "probability": 50,
+        "horizon": "12 months",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": ""
+      },
+      {
         "title": "Values And Human Rights Reputation outlook",
         "probability": 65,
         "horizon": "12 months",
@@ -282,38 +314,172 @@
         "signal_strength": "Strong",
         "trigger": "public commentary cools materially, or if momentum shifts away from steady toward easing",
         "type": ""
+      },
+      {
+        "title": "Values And Human Rights Reputation outlook",
+        "probability": 47,
+        "horizon": "12 months",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": ""
+      },
+      {
+        "title": "Culture And Media Exports outlook",
+        "probability": 42,
+        "horizon": "12 months",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": ""
+      },
+      {
+        "title": "Creative Industries And Talent outlook",
+        "probability": 36,
+        "horizon": "12 months",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": ""
       }
     ],
     "arena_predictions": {
       "Sporting Brand And Influence": {
         "has_outlook": true,
-        "outlook_sentence": "75% probability that Sporting Brand And Influence narratives intensify over the next 90 days (Strong signal)",
+        "outlook_sentence": "Across the next 90 days, three linked sport narratives sit on the same trajectory: Team GB prestige visibility, UK sport pipeline framing, and sport-integrity context are each assessed at 75% probability of Intensifying (Strong signal). The intensification is arrested if momentum returns to steady a",
         "probability": 75
       },
       "Heritage Identity And Nation Brand": {
         "has_outlook": true,
-        "outlook_sentence": "65% probability that Heritage Identity And Nation Brand narratives intensify over the next 90 days (Strong signal)",
-        "probability": 65
+        "outlook_sentence": "Unless public commentary intensity cools materially, succession-legitimacy framing is assessed as building quickly: 71% probability of Intensifying over the next 30 days (Strong signal), with attention concentrated in Australia and the United States.\nAt the same time, monarchy-symbolism narratives a",
+        "probability": 71
       },
       "Values And Human Rights Reputation": {
         "has_outlook": true,
-        "outlook_sentence": "77% probability that Values And Human Rights Reputation narratives intensify over the next 90 days (Strong signal)",
-        "probability": 77
+        "outlook_sentence": "Border-security framing remains an active driver of the UK\u2019s values debate externally \u2014 65% probability of Intensifying over 90 days (Strong signal). This intensification is arrested if public commentary cools materially, or if momentum shifts away from steady toward easing.\nThe related immigration ",
+        "probability": 65
       },
       "Culture And Media Exports": {
         "has_outlook": true,
-        "outlook_sentence": "77% probability that Culture And Media Exports narratives intensify over the next 90 days (Strong signal)",
-        "probability": 77
+        "outlook_sentence": "While the underlying tone is favourable, attention is not assessed as building: 42% probability of intensification over the next 12 months (Strong signal). The signal re-energises if momentum turns into a build and the share of external-origin coverage increases beyond the current level.",
+        "probability": 42
       },
       "Creative Industries And Talent": {
         "has_outlook": true,
-        "outlook_sentence": "67% probability that Creative Industries And Talent narratives intensify over the next 90 days (Strong signal)",
-        "probability": 67
+        "outlook_sentence": "Creative talent narratives are assessed as steady but cooling \u2014 36% probability of intensification over the next 12 months (Strong signal). The signal rebuilds if coverage expands beyond its current concentration and momentum shifts back into a build.\n\nOutlook: 10 signals assessed, direction is mixe",
+        "probability": 36
       }
     },
     "exec_what": "External attention on the United Kingdom is being pulled in two directions: strong international admiration signals in sport and creative output are being offset by concentrated adverse scrutiny of the monarchy and identity/values narratives. The headline sovereign perception score this cycle is 48, with external focus concentrated in the United States, Australia, France, and (for sport visibility) Italy. Heritage Identity And Nation Brand and Values And Human Rights Reputation are the arenas under pressure, while Sporting Brand And Influence, Culture And Media Exports, and Creative Industries And Talent are holding strong.",
     "exec_why": "The current pattern splits the UK\u2019s soft-power picture into \u201cpull\u201d and \u201cdrag\u201d: sporting and cultural export visibility continues to reinforce global competitiveness, but monarchy-linked legitimacy narratives (King Charles III / Prince Andrew / succession framing) and hardline immigration-policy framing (Reform UK / Nigel Farage) are shaping broader trust and values judgements. In practice, this keeps the UK\u2019s cultural appeal visible while leaving its heritage and moral-authority standing exposed to fast-moving external commentary.",
     "exec_watch": "Near-term escalation risk sits inside Heritage Identity And Nation Brand, where succession-legitimacy framing is assessed as building and is the most time-sensitive vulnerability this cycle. The other indicator is whether the Education And Research Prestige lane stays externally quiet (a continued silence gap) or re-emerges abruptly. Over the medium term, monitor whether the adverse values narrative around immigration and enforcement framing stabilises into a persistent baseline across the United States and France.",
+    "profile_snapshot": {
+      "5.1 Identity and Political Structure": [
+        {
+          "field": "Status",
+          "detail": "Managed uncertainty"
+        },
+        {
+          "field": "Government structure",
+          "detail": "Constitutional monarchy; Crown is part of Parliament; elected Parliament forms government"
+        },
+        {
+          "field": "Head of state",
+          "detail": "King Charles III (The King)"
+        },
+        {
+          "field": "Head of government",
+          "detail": "Prime Minister Sir Keir Starmer"
+        },
+        {
+          "field": "Geopolitical alignment",
+          "detail": "Euro-Atlantic alignment; NATO ally; UN Security Council permanent member"
+        },
+        {
+          "field": "Defence alliances",
+          "detail": "NATO"
+        },
+        {
+          "field": "Major international memberships",
+          "detail": "United Nations; UN Security Council (permanent member); NATO"
+        }
+      ],
+      "5.2 Institutional and Policy Footprint": [
+        {
+          "field": "Core diplomatic posture",
+          "detail": "NATO-first posture emphasised in UK messaging on defence and alliance commitments"
+        },
+        {
+          "field": "Official languages",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Official domains",
+          "detail": "gov.uk; parliament.uk; royal.uk"
+        }
+      ],
+      "5.3 Standing Boundaries": [
+        {
+          "field": "What is known",
+          "detail": "What remains to verify"
+        },
+        {
+          "field": "United Kingdom of Great Britain and Northern Ireland; Constitutional monarchy; King Charles III; Prime Minister Sir Keir Starmer; Euro-Atlantic alignment; NATO; United Nations memberships; NATO-first diplomatic posture; official domains",
+          "detail": "Official languages"
+        }
+      ]
+    },
+    "structural_contradictions": "No structural contradictions identified. All active trends are internally consistent.",
+    "diagnostic_coverage": [
+      {
+        "prompt": "Cultural and soft power portrayal",
+        "coverage": "Managed uncertainty",
+        "clear": "37% external perception, Strong signal",
+        "bounded": "External portrayal is split, with strong positive pull from sport and creative output alongside sustained negative drag from heritage and identity narratives."
+      },
+      {
+        "prompt": "Culture and media export competitiveness",
+        "coverage": "Managed uncertainty",
+        "clear": "73% external perception, Strong signal",
+        "bounded": "Coverage is directionally favourable but evidence references are limited in this cycle\u2019s curated evidence index."
+      },
+      {
+        "prompt": "Universities and research prestige",
+        "coverage": "Not covered",
+        "clear": "43% external perception, Thin signal",
+        "bounded": "No linked trends were detected in this cycle for universities or research prestige."
+      },
+      {
+        "prompt": "Sporting influence framing",
+        "coverage": "Managed uncertainty",
+        "clear": "78% external perception, Strong signal",
+        "bounded": "Sporting influence framing is strongly favourable, while integrity-context discourse remains present as background signal."
+      },
+      {
+        "prompt": "Creative industries and talent pipeline",
+        "coverage": "Managed uncertainty",
+        "clear": "73% external perception, Strong signal",
+        "bounded": "Creative industries signals skew favourable, with a thin adjunct negative signal about industry reconfiguration."
+      },
+      {
+        "prompt": "Heritage, identity and nation brand",
+        "coverage": "Managed uncertainty",
+        "clear": "14% external perception, Strong signal",
+        "bounded": "Heritage and identity narratives lean adverse this cycle, with accelerating attention to legitimacy framing."
+      },
+      {
+        "prompt": "Moral authority and values leadership",
+        "coverage": "Managed uncertainty",
+        "clear": "14% external perception, Strong signal",
+        "bounded": "Values and moral-authority perception leans adverse, dominated by identity and immigration-policy framing in external discourse."
+      },
+      {
+        "prompt": "How are UK universities and research institutions being assessed internationally",
+        "coverage": "Not covered",
+        "clear": "",
+        "bounded": "How are UK universities and research institutions being assessed internationally (prestige, access, funding, talent magnetism, visa friction), and what has shifted recently? \u2014 Not covered this cycle. No linked trends or propositions detected in perception map."
+      }
+    ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/soft-power-cultural-standing-intelligence-brief-united-kingdom-heritage-identity-and-nation-brand-under-scrutiny-2026-02-23-qhml",
     "ref": "QHML"
   },
@@ -590,52 +756,52 @@
     "priorities": [
       {
         "horizon": "Near-term attention",
-        "action": "Address adverse narrative",
-        "arena": "Trade And Competitiveness",
-        "trend": "TRU-T1",
-        "description": "High-severity trade vulnerability is accelerating in elevated public commentary and is likely to dominate near-term external framing."
+        "action": "Address adverse narrative \u2014 Arena: Trade And Competitiveness \u2014 Trend: TRU-T1 \u2014 High-severity trade vulnerability is accelerating in elevated public commentary and is likely to dominate near-term external framing.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Near-term attention",
-        "action": "Structural mechanism requires attention",
-        "arena": "Trade And Competitiveness",
-        "trend": "TRU-T1",
-        "description": "High-severity trade arena tension is driven by an accelerating vulnerability signal alongside weaker positive process cues."
+        "action": "Structural mechanism requires attention \u2014 Arena: Trade And Competitiveness \u2014 Trend: TRU-T1 \u2014 High-severity trade arena tension is driven by an accelerating vulnerability signal alongside weaker positive process cues.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Regulatory And Investment Climate",
-        "trend": "None",
-        "description": "Strong positive baseline exists while public discourse remains quiet, creating a risk of under-amplified positioning."
+        "action": "Monitor for escalation \u2014 Arena: Regulatory And Investment Climate \u2014 Trend: None \u2014 Strong positive baseline exists while public discourse remains quiet",
+        "arena": "",
+        "trend": "",
+        "description": "creating a risk of under-amplified positioning."
       },
       {
         "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Regulatory And Investment Climate",
-        "trend": "None",
-        "description": "Regulatory strength signal remains evidence-led but under-amplified on informal surfaces in a high-expected arena."
+        "action": "Monitor for escalation \u2014 Arena: Regulatory And Investment Climate \u2014 Trend: None \u2014 Regulatory strength signal remains evidence-led but under-amplified on informal surfaces in a high-expected arena.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Medium-term monitoring",
-        "action": "Reinforce structural position",
-        "arena": "Innovation And Technology",
-        "trend": "TRU-T3",
-        "description": "Arena is strongly positive overall but contains an emerging negative dissent signal; reinforcement reduces erosion risk."
+        "action": "Reinforce structural position \u2014 Arena: Innovation And Technology \u2014 Trend: TRU-T3 \u2014 Arena is strongly positive overall but contains an emerging negative dissent signal; reinforcement reduces erosion risk.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Medium-term monitoring",
-        "action": "Monitor for escalation",
-        "arena": "Startup And Scaleup Ecosystem",
-        "trend": "None",
-        "description": "Coverage is thin and low-confidence; external perception cannot be characterised reliably without broader signal capture."
+        "action": "Monitor for escalation \u2014 Arena: Startup And Scaleup Ecosystem \u2014 Trend: None \u2014 Coverage is thin and low-confidence; external perception cannot be characterised reliably without broader signal capture.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Long-term structural positioning",
-        "action": "Structural mechanism requires attention",
-        "arena": "Macroeconomic Credibility",
-        "trend": "TRU-T10",
-        "description": "Macroeconomic credibility is weak with multiple vulnerability signals and requires sustained structural positioning to offset recurrent negative framing."
+        "action": "Structural mechanism requires attention \u2014 Arena: Macroeconomic Credibility \u2014 Trend: TRU-T10 \u2014 Macroeconomic credibility is weak with multiple vulnerability signals and requires sustained structural positioning to offset recurrent negative framing.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       }
     ],
     "standing_overview": [
@@ -660,48 +826,152 @@
         "driver": "Strong evidence base across monitored arenas (cycle coverage confidence rated high)."
       }
     ],
-    "conclusion": "The UK\u2019s external economic standing is holding a strong technology and financial-centre competence lane , driven by Wayve Technologies visibility in autonomy trials and repeated platform and infrastructure signalling from Microsoft and OpenAI, alongside London performance-and-benchmarking references , but the dominant pressure point is trade credibility, where tariff and legal-policy uncertainty centred on Donald Trump trade-policy signalling and U.S. Supreme Court-linked volatility is concentrating attention in the United States, China, and the European Union. The net picture is not a collapse in perceived capability; it is an external framing environment where an intensifying trade vulnerability can overshadow otherwise favourable investment-and-innovation narratives.\nStanding posture this cycle: Escalating vulnerability",
+    "conclusion": "The UK\u2019s external economic standing is holding a strong technology and financial-centre competence lane \u2014 driven by Wayve Technologies visibility in autonomy trials and repeated platform and infrastructure signalling from Microsoft and OpenAI, alongside London performance-and-benchmarking references \u2014 but the dominant pressure point is trade credibility, where tariff and legal-policy uncertainty centred on Donald Trump trade-policy signalling and U.S. Supreme Court-linked volatility is concentrating attention in the United States, China, and the European Union. The net picture is not a collapse in perceived capability; it is an external framing environment where an intensifying trade vulnerability can overshadow otherwise favourable investment-and-innovation narratives.\nStanding posture this cycle: Escalating vulnerability",
     "score": 61,
     "posture": "Stable",
-    "trend_count": 72,
+    "trend_count": 24,
     "strength_count": 7,
     "vuln_count": 4,
     "predictions": [
       {
-        "title": "Cross-border finance and technology framing of UK rules",
-        "probability": 73,
-        "type": "",
+        "title": "Financial Services And City Position outlook",
+        "probability": 70,
+        "horizon": "",
         "direction": "Intensifying",
-        "signal_strength": "Strong",
-        "horizon": "90 days",
-        "trigger": "Trajectory stabilises if momentum shifts from rising to stable and geographic spread narrows materially in the next cycle."
+        "signal_strength": "",
+        "trigger": "",
+        "type": ""
+      },
+      {
+        "title": "Regulatory And Investment Climate outlook",
+        "probability": 58,
+        "horizon": "",
+        "direction": "Intensifying",
+        "signal_strength": "",
+        "trigger": "attention warms and cross-border commentary widens beyond current isolated discussion, the cross-border compliance interoperability framing remains steady: 58% intensification probability over 180 days (Strong signal, Stable), with supervisory-cooperation references expected to hold rather than accelerate",
+        "type": ""
       }
     ],
     "arena_predictions": {
+      "Financial Services And City Position": {
+        "has_outlook": true,
+        "outlook_sentence": "Performance and benchmarking references are assessed at 70% intensification probability over 90 days (Strong signal, Intensifying), with London financial-services competence framing sustained by recurring market-performance anchors. The signal slows if benchmarks stop being cited as a competence ref",
+        "probability": 70
+      },
+      "Regulatory And Investment Climate": {
+        "has_outlook": true,
+        "outlook_sentence": "Unless attention warms and cross-border commentary widens beyond current isolated discussion, the cross-border compliance interoperability framing remains steady: 58% intensification probability over 180 days (Strong signal, Stable), with supervisory-cooperation references expected to hold rather th",
+        "probability": 58
+      },
       "Trade And Competitiveness": {
         "has_outlook": true,
         "outlook_sentence": "88% probability that Trade And Competitiveness narratives intensify over the next 30 days (Strong signal)",
         "probability": 88
       },
-      "Financial Services And City Position": {
-        "has_outlook": true,
-        "outlook_sentence": "70% probability that Financial Services And City Position narratives intensify over the next 90 days (Strong signal)",
-        "probability": 70
-      },
       "Innovation And Technology": {
         "has_outlook": true,
         "outlook_sentence": "88% probability that Innovation And Technology narratives intensify over the next 30 days (Strong signal)",
         "probability": 88
-      },
-      "Economic Competence": {
-        "has_outlook": true,
-        "outlook_sentence": "73% probability that Economic Competence narratives intensify over the next 90 days (Strong signal)",
-        "probability": 73
       }
     },
     "exec_what": "",
     "exec_why": "",
     "exec_watch": "",
+    "profile_snapshot": {
+      "5.1 Identity and Political Structure": [
+        {
+          "field": "Status",
+          "detail": "Confirmed"
+        },
+        {
+          "field": "Government structure",
+          "detail": "Constitutional monarchy with parliamentary government"
+        },
+        {
+          "field": "Head of state",
+          "detail": "King Charles III (Head of State)"
+        },
+        {
+          "field": "Head of government",
+          "detail": "Prime Minister Sir Keir Starmer"
+        },
+        {
+          "field": "Geopolitical alignment",
+          "detail": "Euro-Atlantic security alignment; UN Security Council permanent member; NATO Ally"
+        },
+        {
+          "field": "Defence alliances",
+          "detail": "NATO (member since 1949)"
+        },
+        {
+          "field": "Major international memberships",
+          "detail": "United Nations (including UN Security Council permanent membership)"
+        }
+      ],
+      "5.2 Institutional and Policy Footprint": [
+        {
+          "field": "Core diplomatic posture",
+          "detail": "Allied, rules-based positioning in Euro-Atlantic security and UN diplomacy"
+        },
+        {
+          "field": "Official languages",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Official domains",
+          "detail": "royal.uk; parliament.uk; gov.uk"
+        }
+      ],
+      "5.3 Standing Boundaries": [
+        {
+          "field": "What is known",
+          "detail": "What remains to verify"
+        },
+        {
+          "field": "Baseline sovereign identity and core institutional structure are established.",
+          "detail": "Official languages are not confirmed in the baseline profile this cycle."
+        }
+      ]
+    },
+    "structural_contradictions": "No structural contradictions identified. All active trends are internally consistent.",
+    "diagnostic_coverage": [
+      {
+        "prompt": "Invest, build, and base operations",
+        "coverage": "Confirmed",
+        "clear": "80% external perception, Strong signal",
+        "bounded": "Favourable regulatory and financial-centre signals dominate, with limited labour-market caution remaining bounded."
+      },
+      {
+        "prompt": "London as a financial centre",
+        "coverage": "Confirmed",
+        "clear": "72% external perception, Strong signal",
+        "bounded": "Financial-centre performance signals remain favourable while trade-policy spillover framing injects near-term caution."
+      },
+      {
+        "prompt": "AI and advanced technology competitiveness",
+        "coverage": "Confirmed",
+        "clear": "80% external perception, Strong signal",
+        "bounded": "External assessment is strongly favourable on capability and platform commitment, with dissent remaining low-corroboration."
+      },
+      {
+        "prompt": "Regulatory environment stability",
+        "coverage": "Confirmed",
+        "clear": "75% external perception, Strong signal",
+        "bounded": "The prevailing view is favourable on stability and interoperability, while singleton regulatory notes remain too thin to shift direction."
+      },
+      {
+        "prompt": "Startup and scale-up ecosystem perception",
+        "coverage": "Managed uncertainty",
+        "clear": "39% external perception, Thin signal",
+        "bounded": "External perception cannot be inferred reliably from the current thin, domestically concentrated items."
+      },
+      {
+        "prompt": "Trade positioning and post-Brexit trajectory",
+        "coverage": "Confirmed",
+        "clear": "21% external perception, Strong signal",
+        "bounded": "Trade positioning is dominated by adverse uncertainty framing, partially offset by structured EU process signals."
+      }
+    ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/economic-business-leadership-intelligence-brief-united-kingdom-trade-and-competitiveness-under-scrutiny-2026-02-23-nvkj",
     "ref": "NVKJ"
   },
@@ -777,7 +1047,7 @@
         "echo_risk": "No",
         "articles_count": "50",
         "data_sources": "Newsfeed + web check",
-        "summary": "Multilateral influence standing is strong, anchored in United Nations / UN-system visibility and institutional-lane framing , momentum is stable and public amplification remains limited.",
+        "summary": "Multilateral influence standing is strong, anchored in United Nations / UN-system visibility and institutional-lane framing \u2014 momentum is stable and public amplification remains limited.",
         "posture": "Strong"
       },
       "Crisis Diplomacy And Mediation": {
@@ -790,7 +1060,7 @@
         "echo_risk": "No",
         "articles_count": "125",
         "data_sources": "Full pipeline",
-        "summary": "Crisis diplomacy standing is strong and is building, driven by Chagos Archipelago / Mauritius decolonisation-and-sovereignty framing (including Diego Garcia governance) alongside Belarus-linked security framing , external attention is most visible across the United States, China, and Mauritius.",
+        "summary": "Crisis diplomacy standing is strong and is building, driven by Chagos Archipelago / Mauritius decolonisation-and-sovereignty framing (including Diego Garcia governance) alongside Belarus-linked security framing \u2014 external attention is most visible across the United States, China, and Mauritius.",
         "posture": "Strong"
       },
       "Climate And Energy Diplomacy": {
@@ -803,7 +1073,7 @@
         "echo_risk": "No",
         "articles_count": "115",
         "data_sources": "Newsfeed + web check",
-        "summary": "Climate and energy diplomacy standing is strong and is building, anchored in European Commission climate-policy governance framing and North Seas offshore energy coordination , the signal is visible across the European Union, the United States, and China while broader public attention remains limited.",
+        "summary": "Climate and energy diplomacy standing is strong and is building, anchored in European Commission climate-policy governance framing and North Seas offshore energy coordination \u2014 the signal is visible across the European Union, the United States, and China while broader public attention remains limited.",
         "posture": "Strong"
       },
       "Sanctions And Statecraft Influence": {
@@ -816,7 +1086,7 @@
         "echo_risk": "No",
         "articles_count": "51",
         "data_sources": "Newsfeed + web check",
-        "summary": "Sanctions and statecraft standing is mixed, driven by sanctions-adjacent Russia policy and diplomacy coverage (including shadow-fleet enforcement context) where UK-specific external evaluation remains episodic , momentum is easing across Europe-, Russia-, and Ukraine-centred attention.",
+        "summary": "Sanctions and statecraft standing is mixed, driven by sanctions-adjacent Russia policy and diplomacy coverage (including shadow-fleet enforcement context) where UK-specific external evaluation remains episodic \u2014 momentum is easing across Europe-, Russia-, and Ukraine-centred attention.",
         "posture": "Mixed"
       },
       "Global Voice And Strategic Relevance": {
@@ -842,7 +1112,8 @@
         "echo_risk": "No",
         "articles_count": "0",
         "data_sources": "Newsfeed + web check",
-        "summary": "Development and humanitarian credibility is assessed as insufficient data this cycle: no dedicated external narrative lane is mapped, and coverage remains largely embedded inside broader UK government engagement references."
+        "summary": "Development and humanitarian credibility is assessed as insufficient data this cycle: no dedicated external narrative lane is mapped, and coverage remains largely embedded inside broader UK government engagement references.",
+        "posture": "Insufficient data"
       }
     },
     "strength_signals": [
@@ -909,31 +1180,31 @@
     "priorities": [
       {
         "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Multilateral Influence",
-        "trend": "TRU-T2",
-        "description": "Strong multilateral influence signal is present while broader attention remains limited; track for amplification or narrative shift."
+        "action": "Monitor for escalation \u2014 Arena: Multilateral Influence \u2014 Trend: TRU-T2 \u2014 Strong multilateral influence signal is present while broader attention remains limited; track for amplification or narrative shift.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Climate And Energy Diplomacy",
-        "trend": "TRU-T4",
-        "description": "Climate and energy diplomacy signal is strong but remains low-visibility in wider discourse; monitor for escalation and clearer external evaluation."
+        "action": "Monitor for escalation \u2014 Arena: Climate And Energy Diplomacy \u2014 Trend: TRU-T4 \u2014 Climate and energy diplomacy signal is strong but remains low-visibility in wider discourse; monitor for escalation and clearer external evaluation.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Medium-term monitoring",
-        "action": "Monitor for escalation",
-        "arena": "Sanctions And Statecraft Influence",
-        "trend": "TRU-T1",
-        "description": "Sanctions posture remains mixed with thin UK-specific evaluation; prioritise tracking for clearer external judgments of effectiveness or overreach."
+        "action": "Monitor for escalation \u2014 Arena: Sanctions And Statecraft Influence \u2014 Trend: TRU-T1 \u2014 Sanctions posture remains mixed with thin UK-specific evaluation; prioritise tracking for clearer external judgments of effectiveness or overreach.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Long-term structural positioning",
-        "action": "Monitor for escalation",
-        "arena": "Development And Humanitarian Credibility",
-        "trend": "None",
-        "description": "Development and humanitarian credibility lacks a dedicated external narrative lane this cycle; sustain monitoring for re-emergence and clearer theme separation."
+        "action": "Monitor for escalation \u2014 Arena: Development And Humanitarian Credibility \u2014 Trend: None \u2014 Development and humanitarian credibility lacks a dedicated external narrative lane this cycle; sustain monitoring for re-emergence and clearer theme separation.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       }
     ],
     "standing_overview": [
@@ -961,13 +1232,22 @@
     "conclusion": "The UK's external diplomatic standing is assessed as strengthening on the back of evidence-rich, institution- and alliance-anchored narratives: UN-system visibility, NATO and strategic-theatre relevance, and policy-lane climate/energy coordination remain favourable across coverage concentrated in the United States, Europe, and China. The primary standing boundary remains sanctions leadership effectiveness (thin UK-specific external evaluation despite high sanctions-adjacent volume), alongside under-engagement on development and humanitarian credibility as a distinct narrative lane.\nStanding posture this cycle: Strengthening",
     "score": 70,
     "posture": "Strong",
-    "trend_count": 39,
+    "trend_count": 13,
     "strength_count": 5,
     "vuln_count": 0,
     "predictions": [
       {
         "title": "Global Voice And Strategic Relevance outlook",
         "probability": 88,
+        "horizon": "30 days",
+        "direction": "Intensifying",
+        "signal_strength": "",
+        "trigger": "",
+        "type": ""
+      },
+      {
+        "title": "Global Voice And Strategic Relevance outlook",
+        "probability": 70,
         "horizon": "30 days",
         "direction": "Intensifying",
         "signal_strength": "",
@@ -991,33 +1271,171 @@
         "signal_strength": "",
         "trigger": "",
         "type": ""
+      },
+      {
+        "title": "Climate And Energy Diplomacy outlook",
+        "probability": 58,
+        "horizon": "",
+        "direction": "Intensifying",
+        "signal_strength": "",
+        "trigger": "",
+        "type": ""
+      },
+      {
+        "title": "Multilateral Influence outlook",
+        "probability": 58,
+        "horizon": "",
+        "direction": "Intensifying",
+        "signal_strength": "",
+        "trigger": "",
+        "type": ""
+      },
+      {
+        "title": "Sanctions And Statecraft Influence outlook",
+        "probability": 53,
+        "horizon": "",
+        "direction": "Intensifying",
+        "signal_strength": "",
+        "trigger": "",
+        "type": ""
       }
     ],
     "arena_predictions": {
       "Global Voice And Strategic Relevance": {
         "has_outlook": true,
-        "outlook_sentence": "88% probability that Global Voice And Strategic Relevance narratives intensify over the next 30 days (Strong signal)",
+        "outlook_sentence": "Across US- and Europe-centred strategic commentary, alliance-posture framing linked to international security discourse is assessed as on an intensifying trajectory: 88% probability of intensifying over the next 30 days (Strong signal, Intensifying). This stabilises if public attention cools and ris",
         "probability": 88
       },
       "Crisis Diplomacy And Mediation": {
         "has_outlook": true,
-        "outlook_sentence": "83% probability that Crisis Diplomacy And Mediation narratives intensify over the next 90 days (Strong signal)",
+        "outlook_sentence": "Unless the current build in attention slows materially, crisis diplomacy narratives centred on the Chagos Archipelago / Mauritius legal framing and the Belarus security framing are jointly assessed at 83% probability of intensifying over the next 90 days (Strong signal, Intensifying). The signal ste",
         "probability": 83
       },
       "Climate And Energy Diplomacy": {
         "has_outlook": true,
-        "outlook_sentence": "North Seas energy coordination narratives (cross-border offshore energy cooperation framing) show a 73% probability of intensifying over 90 days (Strong signal, Intensifying). This moderates if wider ",
+        "outlook_sentence": "North Seas energy coordination narratives (cross-border offshore energy cooperation framing) show a 73% probability of intensifying over 90 days (Strong signal, Intensifying). This moderates if wider attention remains muted and momentum shifts away from building.\nBy contrast, climate-governance alig",
         "probability": 73
+      },
+      "Multilateral Influence": {
+        "has_outlook": true,
+        "outlook_sentence": "Institutional influence framing linked to UN-system visibility is assessed as holding: 58% probability of intensification over 180 days (Strong signal, Stable). The outlook turns intensifying if muted attention lifts and momentum shifts from steady to building.",
+        "probability": 58
+      },
+      "Sanctions And Statecraft Influence": {
+        "has_outlook": true,
+        "outlook_sentence": "Sanctions coordination context remains mixed and is assessed as holding: 53% probability of intensification over 12 months (Strong signal, Stable). The signal could intensify if momentum reverses from easing to building or if attention rises to sustained elevated intensity.\n\nOutlook: 8 signals asses",
+        "probability": 53
       }
     },
     "exec_what": "",
     "exec_why": "",
     "exec_watch": "",
+    "profile_snapshot": {
+      "5.1 Identity and Political Structure": [
+        {
+          "field": "Status",
+          "detail": "Managed uncertainty"
+        },
+        {
+          "field": "Government structure",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Head of state",
+          "detail": "King Charles III (Monarch)"
+        },
+        {
+          "field": "Head of government",
+          "detail": "Sir Keir Starmer (Prime Minister)"
+        },
+        {
+          "field": "Geopolitical alignment",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Defence alliances",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Major international memberships",
+          "detail": "United Nations (Security Council permanent member)"
+        }
+      ],
+      "5.2 Institutional and Policy Footprint": [
+        {
+          "field": "Core diplomatic posture",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Official languages",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Official domains",
+          "detail": "gov.uk"
+        }
+      ],
+      "5.3 Standing Boundaries": [
+        {
+          "field": "What is known",
+          "detail": "What remains to verify"
+        },
+        {
+          "field": "Sovereign name: United Kingdom; Head of state: King Charles III; Head of government: Sir Keir Starmer; UN Security Council permanent membership; Official domain: gov.uk",
+          "detail": "Government structure; Geopolitical alignment; Defence alliances; Core diplomatic posture; Official languages"
+        }
+      ]
+    },
+    "structural_contradictions": "No structural contradictions identified. All active trends are internally consistent.",
+    "diagnostic_coverage": [
+      {
+        "prompt": "Diplomatic actor assessment",
+        "coverage": "Confirmed",
+        "clear": "83% external perception, Strong signal",
+        "bounded": "Across multiple high-evidence diplomacy and institutional trends, external framing is broadly favourable; some high-intensity commentary in the strategic relevance arena remains contested."
+      },
+      {
+        "prompt": "Influence inside multilateral institutions",
+        "coverage": "Confirmed",
+        "clear": "80% external perception, Strong signal",
+        "bounded": "Formal multilateral standing signal remains favourable, but public amplification around this lane is limited in the current cycle."
+      },
+      {
+        "prompt": "Crisis diplomacy characterisation",
+        "coverage": "Confirmed",
+        "clear": "83% external perception, Strong signal",
+        "bounded": "Crisis-diplomacy signals are broadly favourable across several high-evidence trends, with some crisis-attribution specifics remaining unresolved in official records."
+      },
+      {
+        "prompt": "Climate and energy diplomacy credibility",
+        "coverage": "Confirmed",
+        "clear": "80% external perception, Strong signal",
+        "bounded": "Policy and governance-linked climate and energy diplomacy signal is favourable, but wider public attention to this lane remains limited in the current cycle."
+      },
+      {
+        "prompt": "Sanctions posture and impact",
+        "coverage": "Managed uncertainty",
+        "clear": "39% external perception, Thin signal",
+        "bounded": "Sanctions-related framing is present and sometimes mixed, but UK-specific external evaluation remains thin and episodic in the current set."
+      },
+      {
+        "prompt": "Geopolitical voice and relevance narratives",
+        "coverage": "Confirmed",
+        "clear": "80% external perception, Strong signal",
+        "bounded": "Strategic relevance signal is favourable in evidence-rich trends, while high-intensity negative framing in commentary remains active and contested."
+      },
+      {
+        "prompt": "Development and humanitarian role",
+        "coverage": "Managed uncertainty",
+        "clear": "45% external perception, Strong signal",
+        "bounded": "Development and humanitarian credibility is not separately visible as a dedicated trend this cycle and appears embedded within broader government engagement coverage."
+      }
+    ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/diplomatic-global-leadership-intelligence-brief-united-kingdom-global-voice-and-strategic-relevance-holds-2026-02-23-xbqf",
     "ref": "XBQF"
   },
   "trust": {
-    "executive_summary": "External perception of the United Kingdom sits at 58 this cycle, with the strongest favourable coverage concentrated in Policy Predictability And Implementation Record (notably UK Government / HMRC fiscal signalling and Bank of England guidance) while the dominant adverse pressure is channelled through Keir Starmer\u2013linked diplomacy and security-coordination scrutiny around Ukraine, concentrated across the United States, Russia, and Europe.\nThe balance sheet is uneven: policy predictability is running decisively favourable (see proposition P-SS-DIAG-SS-006) and judicial-system credibility is supported by sustained legal-reform attention, but two arenas are structurally weak , Long Term Partner And Counterparty Reliability under repeated security-coordination questioning and Regulatory Competence And Institutional Capacity under thin, adverse-leaning regulator-capacity signals (FCA/PSR-related). Political leadership stability and constitutional/territorial cohesion are also marked by low external engagement in this cycle\u2019s indexed set, leaving bounded uncertainty around those themes.",
+    "executive_summary": "External perception of the United Kingdom sits at 58 this cycle, with the strongest favourable coverage concentrated in Policy Predictability And Implementation Record (notably UK Government / HMRC fiscal signalling and Bank of England guidance) while the dominant adverse pressure is channelled through Keir Starmer\u2013linked diplomacy and security-coordination scrutiny around Ukraine, concentrated across the United States, Russia, and Europe.\nThe balance sheet is uneven: policy predictability is running decisively favourable (see proposition P-SS-DIAG-SS-006) and judicial-system credibility is supported by sustained legal-reform attention, but two arenas are structurally weak \u2014 Long Term Partner And Counterparty Reliability under repeated security-coordination questioning and Regulatory Competence And Institutional Capacity under thin, adverse-leaning regulator-capacity signals (FCA/PSR-related). Political leadership stability and constitutional/territorial cohesion are also marked by low external engagement in this cycle\u2019s indexed set, leaving bounded uncertainty around those themes.",
     "perception_dashboard": [
       {
         "proposition": "How are UK regulatory bodies and institutions being assessed externally?",
@@ -1153,7 +1571,7 @@
         "echo_risk": "No",
         "articles_count": "46",
         "data_sources": "Newsfeed + web check",
-        "summary": "Long Term Partner And Counterparty Reliability is weak with stable momentum, shaped by repeated adverse attention to UK leadership | policy signal | diplomacy / international relations , centred on Keir Starmer and UK security-coordination positioning on Ukraine , concentrated in the United States, Russia, Europe, the European Union, and France.",
+        "summary": "Long Term Partner And Counterparty Reliability is weak with stable momentum, shaped by repeated adverse attention to UK leadership | policy signal | diplomacy / international relations \u2014 centred on Keir Starmer and UK security-coordination positioning on Ukraine \u2014 concentrated in the United States, Russia, Europe, the European Union, and France.",
         "posture": "Weak"
       }
     },
@@ -1225,31 +1643,31 @@
     "priorities": [
       {
         "horizon": "Near-term attention",
-        "action": "Address adverse narrative",
-        "arena": "Long Term Partner And Counterparty Reliability",
-        "trend": "TRU-T3",
-        "description": "High-severity vulnerability with public commentary intensity elevated indicates partner-reliability pressure in the current cycle."
+        "action": "Address adverse narrative \u2014 Arena: Long Term Partner And Counterparty Reliability \u2014 Trend: TRU-T3 \u2014 High-severity vulnerability with public commentary intensity elevated indicates partner-reliability pressure in the current cycle.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Political Leadership And Electoral Stability",
-        "trend": "None",
-        "description": "Expected external attention is low this cycle, creating a visibility gap around leadership stability narratives."
+        "action": "Monitor for escalation \u2014 Arena: Political Leadership And Electoral Stability \u2014 Trend: None \u2014 Expected external attention is low this cycle",
+        "arena": "",
+        "trend": "",
+        "description": "creating a visibility gap around leadership stability narratives."
       },
       {
         "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Constitutional Integrity And Territorial Cohesion",
-        "trend": "None",
-        "description": "Expected external attention is low this cycle, creating a visibility gap around territorial-cohesion narratives."
+        "action": "Monitor for escalation \u2014 Arena: Constitutional Integrity And Territorial Cohesion \u2014 Trend: None \u2014 Expected external attention is low this cycle",
+        "arena": "",
+        "trend": "",
+        "description": "creating a visibility gap around territorial-cohesion narratives."
       },
       {
         "horizon": "Medium-term monitoring",
-        "action": "Address adverse narrative",
-        "arena": "Regulatory Competence And Institutional Capacity",
-        "trend": "TRU-T4",
-        "description": "Arena is weak with thin, adverse-leaning signals; correction window exists before evidence volume scales."
+        "action": "Address adverse narrative \u2014 Arena: Regulatory Competence And Institutional Capacity \u2014 Trend: TRU-T4 \u2014 Arena is weak with thin",
+        "arena": "",
+        "trend": "",
+        "description": "adverse-leaning signals; correction window exists before evidence volume scales."
       }
     ],
     "standing_overview": [
@@ -1276,8 +1694,8 @@
     ],
     "conclusion": "The UK\u2019s external standing in trust-and-reliability terms is being pulled in two directions: policy predictability and implementation credibility is registering favourably through UK Government/HMRC fiscal signalling, Bank of England guidance, and multilateral energy coordination visibility across the United States, Europe, and India, while partner-reliability framing is under sustained pressure from Keir Starmer\u2013linked diplomacy and security-coordination scrutiny around Ukraine concentrated in the United States, Russia, and Europe. The net picture remains stable in momentum but under strain because the adverse partner-reliability lane is both well-evidenced and actively amplified internationally, while regulator-capacity criticism remains thin and not yet established as a broad external narrative.\nStanding posture this cycle: Under pressure",
     "score": 56,
-    "posture": "Stable",
-    "trend_count": 24,
+    "posture": "Under pressure",
+    "trend_count": 8,
     "strength_count": 4,
     "vuln_count": 1,
     "predictions": [
@@ -1287,6 +1705,15 @@
         "horizon": "90 days",
         "direction": "Intensifying",
         "signal_strength": "",
+        "trigger": "public commentary cools within the next cycle",
+        "type": ""
+      },
+      {
+        "title": "Judicial Independence And Rule Of Law outlook",
+        "probability": 53,
+        "horizon": "",
+        "direction": "Intensifying",
+        "signal_strength": "",
         "trigger": "",
         "type": ""
       }
@@ -1294,8 +1721,13 @@
     "arena_predictions": {
       "Long Term Partner And Counterparty Reliability": {
         "has_outlook": true,
-        "outlook_sentence": "73% probability that Long Term Partner And Counterparty Reliability narratives intensify over the next 90 days (Strong signal)",
+        "outlook_sentence": "Security-coordination and partner-signalling scrutiny centred on Keir Starmer, Ukraine alignment, and coalition feasibility carries a 73% probability of intensifying over the next 90 days (Strong signal, Intensifying). The pressure stabilises only if cross-geography repetition narrows and the curren",
         "probability": 73
+      },
+      "Judicial Independence And Rule Of Law": {
+        "has_outlook": true,
+        "outlook_sentence": "Rule-of-law framing linked to Supreme Court\u2013adjacent legal reform and corporate liability reform commentary is assessed as holding rather than accelerating: 53% probability of intensification over 12 months (Strong signal, Stable). The picture shifts meaningfully if momentum turns from easing to bui",
+        "probability": 53
       },
       "Policy Predictability And Implementation Record": {
         "has_outlook": true,
@@ -1306,6 +1738,107 @@
     "exec_what": "",
     "exec_why": "",
     "exec_watch": "",
+    "profile_snapshot": {
+      "5.1 Identity and Political Structure": [
+        {
+          "field": "Status",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Government structure",
+          "detail": "Constitutional monarchy with parliamentary government"
+        },
+        {
+          "field": "Head of state",
+          "detail": "King Charles III (The King)"
+        },
+        {
+          "field": "Head of government",
+          "detail": "Keir Starmer (Prime Minister)"
+        },
+        {
+          "field": "Geopolitical alignment",
+          "detail": "Euro-Atlantic alignment; NATO ally; permanent UN Security Council member"
+        },
+        {
+          "field": "Defence alliances",
+          "detail": "NATO"
+        },
+        {
+          "field": "Major international memberships",
+          "detail": "UN; UN Security Council (permanent member); NATO"
+        }
+      ],
+      "5.2 Institutional and Policy Footprint": [
+        {
+          "field": "Core diplomatic posture",
+          "detail": "Permanent UN Security Council member; active on Ukraine diplomacy via UN fora"
+        },
+        {
+          "field": "Official languages",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Official domains",
+          "detail": "gov.uk; royal.uk"
+        }
+      ],
+      "5.3 Standing Boundaries": [
+        {
+          "field": "What is known",
+          "detail": "What remains to verify"
+        },
+        {
+          "field": "Government structure; Head of state; Head of government; NATO alignment; UN Security Council permanent membership; Official domains",
+          "detail": "Official languages"
+        }
+      ]
+    },
+    "structural_contradictions": "No structural contradictions identified. All active trends are internally consistent.",
+    "diagnostic_coverage": [
+      {
+        "prompt": "Political stability and governing reliability",
+        "coverage": "Confirmed",
+        "clear": "80% external perception, Strong signal",
+        "bounded": "Clarify whether partner-reliability scrutiny broadens beyond current security-coordination framing."
+      },
+      {
+        "prompt": "Political leadership stability",
+        "coverage": "Confirmed",
+        "clear": "67% external perception, Strong signal",
+        "bounded": "Resolve whether leadership stability narratives decouple from the current partner-signalling scrutiny lane."
+      },
+      {
+        "prompt": "Judicial independence and rule of law",
+        "coverage": "Confirmed",
+        "clear": "44% external perception, Strong signal",
+        "bounded": "Identify whether the adverse governance-pressure framing becomes case-specific or remains diffuse."
+      },
+      {
+        "prompt": "Regulatory competence and institutional capacity",
+        "coverage": "Managed uncertainty",
+        "clear": "39% external perception, Thin signal",
+        "bounded": "Confirm whether non-UK sources amplify regulator-capacity narratives beyond the initial thin signal."
+      },
+      {
+        "prompt": "Constitutional integrity and territorial cohesion",
+        "coverage": "Confirmed",
+        "clear": "40% external perception, Strong signal",
+        "bounded": "Acquire externally sourced evidence linking devolution dynamics to territorial-cohesion assessment."
+      },
+      {
+        "prompt": "Policy predictability and implementation",
+        "coverage": "Confirmed",
+        "clear": "83% external perception, Strong signal",
+        "bounded": "No open boundaries identified."
+      },
+      {
+        "prompt": "Long-term partner and counterparty reliability",
+        "coverage": "Confirmed",
+        "clear": "42% external perception, Strong signal",
+        "bounded": "Determine whether partner-reliability scrutiny persists beyond the current security and coalition coordination lane."
+      }
+    ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/trust-stability-systemic-reliability-intelligence-brief-united-kingdom-long-term-partner-and-counterparty-reliability-under-scrutiny-2026-02-23-zprk",
     "ref": "ZPRK"
   },
@@ -1575,45 +2108,45 @@
     "priorities": [
       {
         "horizon": "Near-term attention",
-        "action": "Address adverse narrative",
-        "arena": "Geopolitical Influence In Security Theatres",
-        "trend": "TRU-T14",
-        "description": "Hot rising vulnerability framing tied to strategic access and basing sovereignty dispute dynamics."
+        "action": "Address adverse narrative \u2014 Arena: Geopolitical Influence In Security Theatres \u2014 Trend: TRU-T14 \u2014 Hot rising vulnerability framing tied to strategic access and basing sovereignty dispute dynamics.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Near-term attention",
-        "action": "Address adverse narrative",
-        "arena": "Geopolitical Influence In Security Theatres",
-        "trend": "TRU-T10",
-        "description": "Hot rising vulnerability framing driven by US leadership volatility and allied exposure narratives."
+        "action": "Address adverse narrative \u2014 Arena: Geopolitical Influence In Security Theatres \u2014 Trend: TRU-T10 \u2014 Hot rising vulnerability framing driven by US leadership volatility and allied exposure narratives.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Nato Role And Positioning",
-        "trend": "None",
-        "description": "Cold discourse with high positive perception indicates an under-amplified lane that could shift quickly if institutional commentary increases."
+        "action": "Monitor for escalation \u2014 Arena: Nato Role And Positioning \u2014 Trend: None \u2014 Cold discourse with high positive perception indicates an under-amplified lane that could shift quickly if institutional commentary increases.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Near-term attention",
-        "action": "Monitor for escalation",
-        "arena": "Defence Industry And Procurement Credibility",
-        "trend": "None",
-        "description": "Cold and silent discourse conditions coexist with a positive inferred perception signal, indicating a visibility gap in this arena."
+        "action": "Monitor for escalation \u2014 Arena: Defence Industry And Procurement Credibility \u2014 Trend: None \u2014 Cold and silent discourse conditions coexist with a positive inferred perception signal",
+        "arena": "",
+        "trend": "",
+        "description": "indicating a visibility gap in this arena."
       },
       {
         "horizon": "Near-term attention",
-        "action": "Structural mechanism requires attention",
-        "arena": "Geopolitical Influence In Security Theatres",
-        "trend": "TRU-T10",
-        "description": "High structural tension detected in this arena (STENS-002) with hot rising vulnerabilities outweighing strength signals."
+        "action": "Structural mechanism requires attention \u2014 Arena: Geopolitical Influence In Security Theatres \u2014 Trend: TRU-T10 \u2014 High structural tension detected in this arena (STENS-002) with hot rising vulnerabilities outweighing strength signals.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       },
       {
         "horizon": "Medium-term monitoring",
-        "action": "Reinforce structural position",
-        "arena": "Deterrence Posture And Escalation Management",
-        "trend": "TRU-T13",
-        "description": "Arena is strong overall but contains a rising vulnerability adjunct; reinforce the strength framing before erosion occurs."
+        "action": "Reinforce structural position \u2014 Arena: Deterrence Posture And Escalation Management \u2014 Trend: TRU-T13 \u2014 Arena is strong overall but contains a rising vulnerability adjunct; reinforce the strength framing before erosion occurs.",
+        "arena": "",
+        "trend": "",
+        "description": ""
       }
     ],
     "standing_overview": [
@@ -1640,18 +2173,36 @@
     ],
     "conclusion": "The UK\u2019s defence standing remains strongly supported by alliance and operational contribution framing, AUKUS partnership documentation, Ukraine-linked NATO-adjacent signalling, and cyber/AI-security guidance co-authorship keep credibility lanes positive across Europe, Russia, and United States discourse, yet the national posture is under pressure because Geopolitical Influence In Security Theatres is being pulled by Donald Trump-linked alliance-volatility narratives and the Chagos Archipelago / Mauritius / Diego Garcia strategic-access dispute framing, where public commentary intensity is elevated and attention is building.\nStanding posture this cycle: Under pressure",
     "score": 73,
-    "posture": "Strong",
-    "trend_count": 45,
+    "posture": "Under pressure",
+    "trend_count": 15,
     "strength_count": 8,
     "vuln_count": 1,
     "predictions": [
+      {
+        "title": "Nato Role And Positioning outlook",
+        "probability": 73,
+        "horizon": "90 days",
+        "direction": "Intensifying",
+        "signal_strength": "",
+        "trigger": "public commentary remains muted across subsequent cycles despite high evidence density",
+        "type": ""
+      },
+      {
+        "title": "Deterrence Posture And Escalation Management outlook",
+        "probability": 68,
+        "horizon": "",
+        "direction": "Intensifying",
+        "signal_strength": "",
+        "trigger": "public commentary becomes muted and geographic spread narrows while momentum holds steady",
+        "type": ""
+      },
       {
         "title": "Military Capability And Readiness outlook",
         "probability": 68,
         "horizon": "90 days",
         "direction": "Intensifying",
         "signal_strength": "",
-        "trigger": "",
+        "trigger": "public commentary drops below moderate while momentum stays steady",
         "type": ""
       },
       {
@@ -1660,20 +2211,53 @@
         "horizon": "",
         "direction": "Intensifying",
         "signal_strength": "",
+        "trigger": "public commentary falls below moderate",
+        "type": ""
+      },
+      {
+        "title": "Alliance Reliability And Burden Sharing outlook",
+        "probability": 53,
+        "horizon": "",
+        "direction": "Intensifying",
+        "signal_strength": "",
         "trigger": "",
+        "type": ""
+      },
+      {
+        "title": "Cyber Capability And Security Posture outlook",
+        "probability": 53,
+        "horizon": "",
+        "direction": "Intensifying",
+        "signal_strength": "",
+        "trigger": "public commentary intensity becomes elevated with sustained, geographically distributed coverage",
         "type": ""
       }
     ],
     "arena_predictions": {
+      "Nato Role And Positioning": {
+        "has_outlook": true,
+        "outlook_sentence": "Ukraine-cooperation coverage is assessed as building: 73% probability of intensification over the next 90 days (Strong signal, Intensifying). The trajectory weakens if rising momentum stalls and public commentary remains muted across subsequent cycles despite high evidence density.",
+        "probability": 73
+      },
+      "Deterrence Posture And Escalation Management": {
+        "has_outlook": true,
+        "outlook_sentence": "Across the 90 days horizon, deterrence-credibility discourse sits at 68% probability of intensification (Strong signal, Intensifying), spanning Vladimir Putin-linked deterrence framing and European deterrence/resilience dialogue. This moderates if public commentary becomes muted and geographic sprea",
+        "probability": 68
+      },
       "Military Capability And Readiness": {
         "has_outlook": true,
-        "outlook_sentence": "68% probability that Military Capability And Readiness narratives intensify over the next 90 days (Strong signal)",
+        "outlook_sentence": "Readiness-context coverage shows 68% probability of intensifying over the next 90 days (Strong signal, Intensifying), with the signal stabilising if source diversity contracts and public commentary drops below moderate while momentum stays steady.",
         "probability": 68
       },
       "Alliance Reliability And Burden Sharing": {
         "has_outlook": true,
-        "outlook_sentence": "AUKUS partnership visibility continues to carry the reliability narrative: 68% probability of intensifying over 90 days (Strong signal, Intensifying). The pace slows if distributed attention concentra",
+        "outlook_sentence": "AUKUS partnership visibility continues to carry the reliability narrative: 68% probability of intensifying over 90 days (Strong signal, Intensifying). The pace slows if distributed attention concentrates into a single geography band and public commentary falls below moderate.\nAustralia-partnership f",
         "probability": 68
+      },
+      "Cyber Capability And Security Posture": {
+        "has_outlook": true,
+        "outlook_sentence": "Cyber and AI-security guidance co-authorship remains steady at 53% probability of intensification over 12 months (Strong signal, Stable). The signal re-energises if momentum turns building or public commentary intensity becomes elevated with sustained, geographically distributed coverage.\n\nOutlook: ",
+        "probability": 53
       },
       "Geopolitical Influence In Security Theatres": {
         "has_outlook": true,
@@ -1684,16 +2268,112 @@
         "has_outlook": true,
         "outlook_sentence": "73% probability that NATO Role And Positioning narratives intensify over the next 90 days (Strong signal)",
         "probability": 73
-      },
-      "Deterrence Posture And Escalation Management": {
-        "has_outlook": true,
-        "outlook_sentence": "68% probability that Deterrence Posture And Escalation Management narratives intensify over the next 90 days (Strong signal)",
-        "probability": 68
       }
     },
     "exec_what": "",
     "exec_why": "",
     "exec_watch": "",
+    "profile_snapshot": {
+      "5.1 Identity and Political Structure": [
+        {
+          "field": "Status",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Government structure",
+          "detail": "Constitutional monarchy with parliamentary democracy"
+        },
+        {
+          "field": "Head of state",
+          "detail": "King Charles III (monarch)"
+        },
+        {
+          "field": "Head of government",
+          "detail": "Sir Keir Starmer (Prime Minister)"
+        },
+        {
+          "field": "Geopolitical alignment",
+          "detail": "Euro-Atlantic aligned; NATO Ally; close security partnership with the United States; Indo-Pacific security engagement via AUKUS"
+        },
+        {
+          "field": "Defence alliances",
+          "detail": "NATO, AUKUS"
+        },
+        {
+          "field": "Major international memberships",
+          "detail": "United Nations, UN Security Council (permanent member)"
+        }
+      ],
+      "5.2 Institutional and Policy Footprint": [
+        {
+          "field": "Core diplomatic posture",
+          "detail": "Collective-defence centric; emphasises NATO primacy plus close US partnership and deeper European security coordination"
+        },
+        {
+          "field": "Official languages",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Official domains",
+          "detail": "gov.uk"
+        }
+      ],
+      "5.3 Standing Boundaries": [
+        {
+          "field": "What is known",
+          "detail": "What remains to verify"
+        },
+        {
+          "field": "Sovereign name; government structure; head of state; head of government; geopolitical alignment; defence alliances; major international memberships; core diplomatic posture; official domains",
+          "detail": "Official languages"
+        }
+      ]
+    },
+    "structural_contradictions": "No structural contradictions identified. All active trends are internally consistent.",
+    "diagnostic_coverage": [
+      {
+        "prompt": "Strategic actor characterisation",
+        "coverage": "Managed uncertainty",
+        "clear": "55% external perception, Strong signal",
+        "bounded": "Coverage is strong and directionally favourable overall, but hot strategic-access dispute framing remains a bounded drag in this arena."
+      },
+      {
+        "prompt": "Military capability and readiness",
+        "coverage": "Confirmed",
+        "clear": "78% external perception, Strong signal",
+        "bounded": "Coverage is strong with positive-leaning readiness context, while some narratives remain indirect and anchored in broader threat assessment rather than UK-only metrics."
+      },
+      {
+        "prompt": "Alliance reliability framing",
+        "coverage": "Confirmed",
+        "clear": "80% external perception, Strong signal",
+        "bounded": "Alliance reliability is supported by strong multi-cluster coverage, with bounded adverse noise tied to strategic-access dispute framing."
+      },
+      {
+        "prompt": "NATO role description",
+        "coverage": "Confirmed",
+        "clear": "72% external perception, Strong signal",
+        "bounded": "NATO-role coverage is strong and positive overall, while institutional and geopolitical shading limits clean resolution of role labelling."
+      },
+      {
+        "prompt": "Deterrence posture portrayal",
+        "coverage": "Confirmed",
+        "clear": "75% external perception, Strong signal",
+        "bounded": "Deterrence posture is supported by strong evidence, with a thin escalation-risk adjunct that adds bounded adverse shading."
+      },
+      {
+        "prompt": "Defence industry and procurement credibility",
+        "coverage": "Confirmed",
+        "clear": "73% external perception, Strong signal",
+        "bounded": "Coverage is moderate and directionally favourable, but the signal is largely embedded in wider cooperation and capability narratives rather than dedicated industrial evaluation."
+      },
+      {
+        "prompt": "Cyber capability and security posture",
+        "coverage": "Confirmed",
+        "clear": "75% external perception, Strong signal",
+        "bounded": "Coverage is moderate and positive overall, with one thin threat-landscape adjunct that does not materially change direction."
+      }
+    ],
     "link": "http://sovereignsignal.makes.news/gb/en/sovereign-signal-reports/2026/02/23/defence-strategic-credibility-intelligence-brief-united-kingdom-geopolitical-influence-in-security-theatres-under-scrutiny-2026-02-23-qzmp",
     "ref": "QZMP"
   }

@@ -181,9 +181,18 @@ def filter_items_for_date(items, target_date):
 
 # ─── Content Parsing ──────────────────────────────────────────────
 
+def _fix_emdashes(text):
+    """Fix upstream LLM ` , ` substitution for em-dashes in prose text.
+    Replaces ' , ' with ' — ' in mid-sentence contexts (not table cells or lists)."""
+    # Pattern: word/punctuation/closing-bracket, space-comma-space, word
+    # This avoids hitting table pipe fields or legitimate comma usage
+    return re.sub(r'(?<=[\w\)\]\.\?!])\s,\s(?=[A-Za-z0-9])', ' \u2014 ', text)
+
+
 def _strip_tags(html_text):
-    """Strip HTML tags, returning plain text."""
-    return re.sub(r"<[^>]+>", "", html_text).strip()
+    """Strip HTML tags, returning plain text. Also fixes em-dash encoding."""
+    text = re.sub(r"<[^>]+>", "", html_text).strip()
+    return _fix_emdashes(text)
 
 
 def _extract_li_field(li_html, field_name):
@@ -232,6 +241,9 @@ def parse_report_content(desc_html):
         "exec_what": "",
         "exec_why": "",
         "exec_watch": "",
+        "profile_snapshot": {},
+        "structural_contradictions": "",
+        "diagnostic_coverage": [],
     }
 
     # ─── Executive Summary ───
@@ -480,7 +492,7 @@ def parse_report_content(desc_html):
                 )
             if not posture_m:
                 posture_m = re.search(
-                    r"(?:has|is)\s+(Insufficient data)",
+                    r"(?:has|is|as)\s+(Insufficient data)",
                     summary_text, re.IGNORECASE
                 )
             if posture_m:
@@ -674,41 +686,53 @@ def parse_report_content(desc_html):
                 block_html = outlook_blocks[i + 1] if i + 1 < len(outlook_blocks) else ""
                 block_text = _strip_tags(block_html).strip()
 
-                # Extract all probability mentions from the prose
+                # Extract ALL probability mentions from the prose (not just the first)
+                # Match both "XX% probability of Intensifying" and "XX% intensification probability"
                 prob_matches = re.findall(
-                    r"(\d+)%\s*probability\s+of\s+(Intensifying|Stable|Fading|Reversing)",
+                    r"(\d+)%\s*(?:probability\s+of\s+)?(Intensifying|Stable|Fading|Reversing|intensification)",
                     block_text, re.IGNORECASE
                 )
-                # Extract horizon
-                horizon_m = re.search(r"(?:next|over the next|within)\s+(\d+\s*(?:days?|months?))", block_text, re.IGNORECASE)
-                horizon = horizon_m.group(1) if horizon_m else ""
                 # Extract signal strength
                 signal_m = re.search(r"\((Strong|Moderate|Thin)\s+signal\)", block_text, re.IGNORECASE)
                 signal = signal_m.group(1) if signal_m else ""
-                # Extract trigger / what would change it
-                trigger_m = re.search(r"(?:arrested if|unless|change.?(?:if|when))\s+(.*?)(?:\.|$)", block_text, re.IGNORECASE)
+                # Extract trigger / what would change it — broader patterns
+                trigger_m = re.search(
+                    r"(?:arrested if|unless|change.?(?:if|when)|would change it[:\s]*|What would change it[:\s]*)\s*(.*?)(?:\.|$)",
+                    block_text, re.IGNORECASE
+                )
                 trigger = trigger_m.group(1).strip() if trigger_m else ""
+                # If trigger still empty, look for "momentum returns" style phrasing
+                if not trigger:
+                    trigger_m2 = re.search(r"(?:momentum\s+returns|visibility\s+expands|attention\s+shifts|public commentary)\s*[^.]*", block_text, re.IGNORECASE)
+                    if trigger_m2:
+                        trigger = trigger_m2.group(0).strip()
+
+                # Extract ALL horizons from the prose
+                horizon_matches = re.findall(r"(?:next|over the next|within)\s+(\d+\s*(?:days?|months?|years?))", block_text, re.IGNORECASE)
 
                 if prob_matches:
-                    # Use the first/main probability
-                    prob = int(prob_matches[0][0])
-                    direction = prob_matches[0][1].capitalize()
-                    # Build a concise title from the arena name
-                    title = f"{arena_name} outlook"
-                    data["predictions"].append({
-                        "title": title,
-                        "probability": prob,
-                        "horizon": horizon,
-                        "direction": direction,
-                        "signal_strength": signal,
-                        "trigger": trigger,
-                        "type": "",
-                    })
-                    # Store as arena prediction too
+                    # Store EACH probability as a separate prediction
+                    for idx, (prob_str, direction_raw) in enumerate(prob_matches):
+                        prob = int(prob_str)
+                        direction = "Intensifying" if "intensif" in direction_raw.lower() else direction_raw.capitalize()
+                        # Match horizon to this prediction (by index or nearest)
+                        horizon = horizon_matches[idx] if idx < len(horizon_matches) else (horizon_matches[-1] if horizon_matches else "")
+                        title = f"{arena_name} outlook"
+                        data["predictions"].append({
+                            "title": title,
+                            "probability": prob,
+                            "horizon": horizon,
+                            "direction": direction,
+                            "signal_strength": signal,
+                            "trigger": trigger if idx == 0 else "",
+                            "type": "",
+                        })
+                    # Store the LEAD (highest) probability as the arena prediction
+                    lead_prob = max(int(p[0]) for p in prob_matches)
                     data["arena_predictions"][arena_name] = {
                         "has_outlook": True,
-                        "outlook_sentence": block_text[:200],
-                        "probability": prob,
+                        "outlook_sentence": block_text[:300],
+                        "probability": lead_prob,
                     }
 
     # Parse per-arena prediction outlook sentences
@@ -727,6 +751,73 @@ def parse_report_content(desc_html):
                 "has_outlook": True,
                 "outlook_sentence": outlook_sentence,
             }
+
+    # ─── Section 5: Sovereign Profile Snapshot ───
+    profile_section = re.search(
+        r"(?:Sovereign )?Profile Snapshot.*?</h[23]>(.*?)(?=<h2|$)",
+        desc_html, re.DOTALL | re.IGNORECASE
+    )
+    if profile_section:
+        profile_html = profile_section.group(1)
+        profile_data = {}
+        # Parse sub-sections (h3 blocks with pipe-delimited tables)
+        sub_sections = re.split(r"<h3[^>]*>(.*?)</h3>", profile_html)
+        for i in range(1, len(sub_sections), 2):
+            sub_title = _strip_tags(sub_sections[i]).strip()
+            sub_content = sub_sections[i + 1] if i + 1 < len(sub_sections) else ""
+            # Parse pipe-delimited table rows
+            rows = []
+            for line in sub_content.split("\n"):
+                line = _strip_tags(line).strip()
+                if "|" in line and not line.startswith("|--") and not line.startswith("| Field"):
+                    cols = [c.strip() for c in line.split("|") if c.strip()]
+                    if len(cols) >= 2:
+                        rows.append({"field": cols[0], "detail": cols[1]})
+                    elif len(cols) == 3:
+                        rows.append({"field": cols[0], "detail": cols[1], "note": cols[2]})
+            if rows:
+                profile_data[sub_title] = rows
+        data["profile_snapshot"] = profile_data
+
+    # ─── Section 9: Structural Contradictions ───
+    contradictions_section = re.search(
+        r"Structural Contradictions.*?</h2>(.*?)(?=<h2|$)",
+        desc_html, re.DOTALL | re.IGNORECASE
+    )
+    if contradictions_section:
+        data["structural_contradictions"] = _strip_tags(contradictions_section.group(1)).strip()
+
+    # ─── Section 10: Standing Diagnostic Coverage ───
+    diagnostic_section = re.search(
+        r"(?:Standing )?Diagnostic Coverage.*?</h2>(.*?)(?=<h2|$)",
+        desc_html, re.DOTALL | re.IGNORECASE
+    )
+    if diagnostic_section:
+        diag_html = diagnostic_section.group(1)
+        diag_rows = []
+        for line in diag_html.split("\n"):
+            line_text = _strip_tags(line).strip()
+            if "|" in line_text and not line_text.startswith("|--") and "---" not in line_text:
+                cols = [c.strip() for c in line_text.split("|") if c.strip()]
+                # Skip header row (first col is exactly "Diagnostic prompt" without colon)
+                if cols and cols[0] == "Diagnostic prompt":
+                    continue
+                if len(cols) >= 3 and cols[0].startswith("Diagnostic prompt"):
+                    prompt_name = cols[0].replace("Diagnostic prompt:", "").replace("Diagnostic prompt", "").strip()
+                    diag_rows.append({
+                        "prompt": prompt_name,
+                        "coverage": cols[1] if len(cols) > 1 else "",
+                        "clear": cols[2] if len(cols) > 2 else "",
+                        "bounded": cols[3] if len(cols) > 3 else "",
+                    })
+        # Also capture any trailing text (uncovered diagnostic narrative)
+        trailing = re.findall(r"</p>\s*<p>([^<|]+(?:Not covered|not confirmed)[^<]*)</p>", diag_html, re.DOTALL)
+        if trailing:
+            for t in trailing:
+                text = _strip_tags(t).strip()
+                if text:
+                    diag_rows.append({"prompt": text[:80], "coverage": "Not covered", "clear": "", "bounded": text})
+        data["diagnostic_coverage"] = diag_rows
 
     # ─── Conclusion ───
     conclusion_match = re.search(
@@ -771,17 +862,41 @@ def parse_report_content(desc_html):
             if 0 <= val <= 100:
                 data["score"] = val
 
-    posture_match = re.search(
-        r"(?:perceived as|posture[:\s]*|standing[:\s]*)\s*(strong|mixed|moderate|weak|declining|under pressure|stable)",
+    # Posture extraction: prioritize the authoritative "Standing posture this cycle:" from conclusion
+    # This is the 7A decision — takes precedence over general "perceived as" matches
+    conclusion_posture = re.search(
+        r"Standing posture this cycle[:\s]*</strong>\s*(Strong|Mixed|Moderate|Weak|Declining|Under pressure|Stable|Under Pressure)",
         desc_html, re.IGNORECASE
     )
-    if posture_match:
-        data["posture"] = posture_match.group(1).capitalize()
+    if not conclusion_posture:
+        conclusion_posture = re.search(
+            r"Standing posture this cycle[:\s]*(Strong|Mixed|Moderate|Weak|Declining|Under pressure|Stable)",
+            _strip_tags(data.get("conclusion", "")), re.IGNORECASE
+        )
+    if conclusion_posture:
+        data["posture"] = conclusion_posture.group(1).strip().capitalize()
+        # Normalize "Under pressure" to title case
+        if data["posture"].lower() == "under pressure":
+            data["posture"] = "Under pressure"
+    else:
+        # Fallback: general regex on full HTML
+        posture_match = re.search(
+            r"(?:perceived as|posture[:\s]*|standing[:\s]*)\s*(strong|mixed|moderate|weak|declining|under pressure|stable)",
+            desc_html, re.IGNORECASE
+        )
+        if posture_match:
+            data["posture"] = posture_match.group(1).capitalize()
 
     # Fallback from trend count if we didn't parse individual trends
     if data["trend_count"] == 0:
-        trend_matches = re.findall(r"T\d+\s*\|", desc_html)
-        data["trend_count"] = len(trend_matches)
+        # Count unique TRU-* IDs (more accurate than T\d+ which double-counts)
+        tru_ids = set(re.findall(r"TRU-\w+", desc_html))
+        if tru_ids:
+            data["trend_count"] = len(tru_ids)
+        else:
+            # Older format: count unique T-id patterns
+            trend_matches = set(re.findall(r"TRU-T\d+|T\d+(?=\s*\|)", desc_html))
+            data["trend_count"] = len(trend_matches)
 
     # Fallback signal counts from ID matching if detailed parsing missed them
     if data["strength_count"] == 0:
@@ -800,37 +915,76 @@ def parse_report_content(desc_html):
             if not data["vulnerability_signals"]:
                 data["vulnerability_signals"] = list(dict.fromkeys(vs_ids))
 
-    # v2.2: Extract strength/vulnerability counts and details from Standing Context
+    # v2.2: Extract strength/vulnerability counts AND details from Standing Context
     # when inline within arena blocks (Reinforcing/Pressure sub-sections)
-    if data["strength_count"] == 0 or data["vuln_count"] == 0:
-        ctx_section = re.search(
-            r"(?:Sovereign )?Standing Context.*?</h2>(.*?)(?=<h2|$)",
-            desc_html, re.DOTALL | re.IGNORECASE
-        )
-        if ctx_section:
-            ctx_html = ctx_section.group(1)
-            # Count inline strength signals from "Reinforcing this standing" blocks
-            if data["strength_count"] == 0:
-                reinforcing_blocks = re.findall(
-                    r"Reinforcing this standing.*?(?=Pressure on|</h4>|<h4|$)",
-                    ctx_html, re.DOTALL | re.IGNORECASE
+    ctx_section = re.search(
+        r"(?:Sovereign )?Standing Context.*?</h2>(.*?)(?=<h2|$)",
+        desc_html, re.DOTALL | re.IGNORECASE
+    )
+    if ctx_section:
+        ctx_html = ctx_section.group(1)
+        # Split by arena headers (h4 tags) to attribute signals to arenas
+        arena_blocks = re.split(r"<h4[^>]*>(.*?)</h4>", ctx_html)
+        current_arena = ""
+        inline_ss_total = 0
+        inline_vs_total = 0
+        for i in range(1, len(arena_blocks), 2):
+            current_arena = _strip_tags(arena_blocks[i]).strip()
+            block = arena_blocks[i + 1] if i + 1 < len(arena_blocks) else ""
+
+            # Extract "Pressure on this standing" signals
+            pressure_match = re.findall(
+                r"Pressure on this standing.*?(?=Reinforcing|<h4|<h3|$)",
+                block, re.DOTALL | re.IGNORECASE
+            )
+            for pb in pressure_match:
+                # Parse each bullet: "* <strong>SEVERITY , HORIZON:</strong> DESCRIPTION"
+                bullets = re.findall(
+                    r"(?:<li>|^\*)\s*(?:<strong>)?\s*(\w+)\s+severity\s*(?:,|—|\u2014)\s*(\w+)[:\s]*(?:</strong>)?\s*(.*?)(?=<li>|^\*|\Z)",
+                    pb, re.DOTALL | re.MULTILINE | re.IGNORECASE
                 )
-                inline_ss = 0
-                for rb in reinforcing_blocks:
-                    inline_ss += len(re.findall(r"<li>", rb))
-                if inline_ss > 0:
-                    data["strength_count"] = inline_ss
-            # Count inline vulnerability signals from "Pressure on this standing" blocks
-            if data["vuln_count"] == 0:
-                pressure_blocks = re.findall(
-                    r"Pressure on this standing.*?(?=Reinforcing|</h4>|<h4|$)",
-                    ctx_html, re.DOTALL | re.IGNORECASE
+                for sev, horizon, desc_raw in bullets:
+                    desc_clean = _strip_tags(desc_raw).strip().rstrip(")")
+                    # Truncate at evidence references
+                    evd_pos = desc_clean.find("(EVD-")
+                    if evd_pos > 0:
+                        desc_clean = desc_clean[:evd_pos].strip()
+                    data["vuln_signal_details"].append({
+                        "severity": sev.capitalize(),
+                        "horizon": horizon.capitalize(),
+                        "description": desc_clean,
+                        "arena": current_arena,
+                    })
+                    inline_vs_total += 1
+
+            # Extract "Reinforcing this standing" signals
+            reinforcing_match = re.findall(
+                r"Reinforcing this standing.*?(?=Pressure on|<h4|<h3|$)",
+                block, re.DOTALL | re.IGNORECASE
+            )
+            for rb in reinforcing_match:
+                bullets = re.findall(
+                    r"(?:<li>|^\*)\s*(?:<strong>)?\s*(\w+)\s+(?:character|strength)\s*(?:,|—|\u2014)\s*(\w+)[:\s]*(?:</strong>)?\s*(.*?)(?=<li>|^\*|\Z)",
+                    rb, re.DOTALL | re.MULTILINE | re.IGNORECASE
                 )
-                inline_vs = 0
-                for pb in pressure_blocks:
-                    inline_vs += len(re.findall(r"<li>", pb))
-                if inline_vs > 0:
-                    data["vuln_count"] = inline_vs
+                for char, horizon, desc_raw in bullets:
+                    desc_clean = _strip_tags(desc_raw).strip().rstrip(")")
+                    evd_pos = desc_clean.find("(EVD-")
+                    if evd_pos > 0:
+                        desc_clean = desc_clean[:evd_pos].strip()
+                    data["strength_signal_details"].append({
+                        "character": char.capitalize(),
+                        "horizon": horizon.capitalize(),
+                        "description": desc_clean,
+                        "arena": current_arena,
+                    })
+                    inline_ss_total += 1
+
+        # Update counts if not already set from standalone sections
+        if data["strength_count"] == 0 and inline_ss_total > 0:
+            data["strength_count"] = inline_ss_total
+        if data["vuln_count"] == 0 and inline_vs_total > 0:
+            data["vuln_count"] = inline_vs_total
 
     # Default posture based on score
     if data["score"] is not None:
@@ -1473,7 +1627,7 @@ def _posture_class(posture):
     p = posture.lower()
     if p in ("strong",):
         return "strong"
-    if p in ("weak", "declining"):
+    if p in ("weak", "declining", "under pressure"):
         return "weak"
     if p in ("stable",):
         return "stable"
@@ -1568,10 +1722,16 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
       </a>'''
 
     # Build briefing cards — one horizontal card per pillar with all findings
+    # Sort worst-first (lowest score first) for editorial emphasis
     briefing_cards_html = ""
     total_strengths = 0
     total_vulns = 0
-    for key, pillar in PILLARS.items():
+    sorted_pillar_keys = sorted(
+        PILLARS.keys(),
+        key=lambda k: pillar_data.get(k, {}).get("score") or 999
+    )
+    for key in sorted_pillar_keys:
+        pillar = PILLARS[key]
         pdata = pillar_data.get(key, {})
         score = pdata.get("score")
         score_display = score if score is not None else "—"
@@ -1600,7 +1760,7 @@ def _build_dashboard_html(target_date, display_date, composite, composite_delta,
                 if not pm:
                     pm = re.search(r"(?:standing\s+is)\s+(strong|weak|mixed|moderate)", summary_text, re.IGNORECASE)
                 if not pm:
-                    pm = re.search(r"(?:has|is)\s+(Insufficient data)", summary_text, re.IGNORECASE)
+                    pm = re.search(r"(?:has|is|as)\s+(Insufficient data)", summary_text, re.IGNORECASE)
                 if pm:
                     ctx["posture"] = pm.group(1).capitalize()
 
@@ -2196,6 +2356,11 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             border_color = "var(--amber)"
             badge_bg = "rgba(196,146,10,0.1)"
             badge_color = "#92400e"
+        elif ap.lower() in ("insufficient data",):
+            border_color = "#999"
+            badge_bg = "rgba(120,120,120,0.08)"
+            badge_color = "#666"
+            ap = "Insufficient Data"
         else:
             border_color = "var(--text-muted)"
             badge_bg = "var(--bg)"
@@ -2233,7 +2398,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         # Arena narrative summary
         narrative_html = ""
         if summary_text:
-            narrative_html = f'<p class="arena-narrative">{html.escape(summary_text)}</p>'
+            narrative_html = f'<p class="arena-narrative">{html.escape(_fix_emdashes(summary_text))}</p>'
 
         # Geographies
         geo_html = f'<div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> {html.escape(geographies)}</div>' if geographies else ""
@@ -2291,7 +2456,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
         # Arena micro-outlook (conditional)
         outlook_html_arena = ""
         if arena_preds.get(name, {}).get("has_outlook"):
-            outlook_html_arena = f'<div class="arena-outlook">{html.escape(arena_preds[name]["outlook_sentence"])}</div>'
+            outlook_html_arena = f'<div class="arena-outlook">{html.escape(_fix_emdashes(arena_preds[name]["outlook_sentence"]))}</div>'
 
         standing_context_html += f'''
         <div class="standing-arena-card" style="border-top:3px solid {border_color}">
@@ -2404,7 +2569,10 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     if conclusion and not conclusion.startswith("[Section"):
         conclusion_paras = [p.strip() for p in conclusion.split("\n") if p.strip()]
         for para in conclusion_paras:
-            conclusion_html += f"      <p>{html.escape(para)}</p>\n"
+            # Skip "Standing posture this cycle: X" lines — the template adds its own badge
+            if re.match(r"^Standing posture this cycle\s*[:\s]", para, re.IGNORECASE):
+                continue
+            conclusion_html += f"      <p>{html.escape(_fix_emdashes(para))}</p>\n"
     else:
         conclusion_html = "      <p>Standing assessment data will populate when available.</p>\n"
 
@@ -2461,7 +2629,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
             {('<span class="pred-badge pred-signal-strong">' + html.escape(signal.upper()) + '</span>') if signal else ''}
             <span class="pred-badge pred-horizon">{html.escape(horizon.upper())}</span>
           </div>
-          {('<div class="pred-trigger"><strong>What would change it:</strong> ' + html.escape(trigger) + '</div>') if trigger else ''}
+          {('<div class="pred-trigger"><strong>What would change it:</strong> ' + html.escape(_fix_emdashes(trigger)) + '</div>') if trigger else ''}
         </div>'''
 
         pred_count = len(sorted_preds)
@@ -2487,6 +2655,68 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
       <div class="exec-card">
         <p>Prediction depth limited this cycle &mdash; signal strength insufficient for forward outlook on current trends.</p>
       </div>'''
+
+    # ─── Section 5: Sovereign Profile Snapshot ───
+    profile_snapshot = pdata.get("profile_snapshot", {})
+    profile_html = ""
+    if profile_snapshot:
+        for sub_title, rows in profile_snapshot.items():
+            profile_html += f'<h4 class="profile-sub-title">{html.escape(sub_title)}</h4>\n'
+            profile_html += '<table class="profile-table"><tbody>\n'
+            for row in rows:
+                field = html.escape(_fix_emdashes(row.get("field", "")))
+                detail = html.escape(_fix_emdashes(row.get("detail", "")))
+                profile_html += f'<tr><td class="profile-field">{field}</td><td class="profile-detail">{detail}</td></tr>\n'
+            profile_html += '</tbody></table>\n'
+    profile_section_html = f'''
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Profile Snapshot</h2>
+      <span class="sec-num">Section 05</span>
+    </div>
+    <div class="exec-card">
+      {profile_html if profile_html else '<p>Profile snapshot not available this cycle.</p>'}
+    </div>
+  </div>''' if profile_snapshot else ''
+
+    # ─── Section 9: Structural Contradictions ───
+    contradictions_text = pdata.get("structural_contradictions", "")
+    contradictions_section_html = ""
+    if contradictions_text:
+        contradictions_section_html = f'''
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Structural Contradictions</h2>
+      <span class="sec-num">Section 09</span>
+    </div>
+    <div class="exec-card">
+      <p>{html.escape(_fix_emdashes(contradictions_text))}</p>
+    </div>
+  </div>'''
+
+    # ─── Section 10: Standing Diagnostic Coverage ───
+    diagnostic_rows = pdata.get("diagnostic_coverage", [])
+    diagnostic_html = ""
+    if diagnostic_rows:
+        diagnostic_html += '<table class="diag-table"><thead><tr><th>Diagnostic prompt</th><th>Coverage</th><th>What is clear</th><th>What remains bounded</th></tr></thead><tbody>\n'
+        for dr in diagnostic_rows:
+            prompt = html.escape(_fix_emdashes(dr.get("prompt", "")))
+            coverage = dr.get("coverage", "")
+            cov_cls = "diag-covered" if "managed" in coverage.lower() else "diag-not-covered" if "not covered" in coverage.lower() else ""
+            clear = html.escape(_fix_emdashes(dr.get("clear", "")))
+            bounded = html.escape(_fix_emdashes(dr.get("bounded", "")))
+            diagnostic_html += f'<tr><td class="diag-prompt">{prompt}</td><td class="diag-coverage {cov_cls}">{html.escape(coverage)}</td><td>{clear}</td><td>{bounded}</td></tr>\n'
+        diagnostic_html += '</tbody></table>\n'
+    diagnostic_section_html = f'''
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Standing Diagnostic Coverage</h2>
+      <span class="sec-num">Section 10</span>
+    </div>
+    <div class="exec-card">
+      {diagnostic_html if diagnostic_html else '<p>Diagnostic coverage data not available this cycle.</p>'}
+    </div>
+  </div>''' if diagnostic_rows else ''
 
     # Source link — raw template reference at the very bottom
     source_section = ""
@@ -2675,6 +2905,22 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .conclusion-posture {{ display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }}
 .conclusion-posture-badge {{ font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }}
 
+/* Profile Snapshot tables */
+.profile-sub-title {{ font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 16px 0 8px; }}
+.profile-sub-title:first-child {{ margin-top: 0; }}
+.profile-table {{ width: 100%; border-collapse: collapse; font-size: 12px; }}
+.profile-table td {{ padding: 6px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }}
+.profile-field {{ font-weight: 600; color: var(--text); width: 30%; white-space: nowrap; }}
+.profile-detail {{ color: var(--text-mid); }}
+
+/* Diagnostic Coverage table */
+.diag-table {{ width: 100%; border-collapse: collapse; font-size: 12px; }}
+.diag-table th {{ font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 8px 10px; text-align: left; border-bottom: 2px solid var(--border); }}
+.diag-table td {{ padding: 8px 10px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-mid); line-height: 1.5; }}
+.diag-prompt {{ font-weight: 600; color: var(--text); }}
+.diag-covered {{ color: var(--green); font-weight: 600; }}
+.diag-not-covered {{ color: var(--red); font-weight: 600; }}
+
 /* Executive Summary — What/Why/Watch sub-blocks */
 .exec-sub {{ margin-bottom: 20px; }}
 .exec-sub:last-child {{ margin-bottom: 0; }}
@@ -2697,10 +2943,10 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .arena-narrative {{ font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }}
 
 /* Inline strength/vulnerability signals within standing context */
-.standing-signals {{ padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }}
-.standing-signals-strength {{ background: rgba(46,155,110,0.03); }}
-.standing-signals-vuln {{ background: rgba(217,64,72,0.03); }}
-.standing-signal-head {{ font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }}
+.standing-signals {{ padding: 12px 18px 14px; margin: 10px 0 6px; border-radius: 6px; border-top: none; }}
+.standing-signals-strength {{ background: rgba(46,155,110,0.06); border-left: 3px solid var(--green); }}
+.standing-signals-vuln {{ background: rgba(217,64,72,0.06); border-left: 3px solid var(--red); }}
+.standing-signal-head {{ font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px; }}
 .ss-icon {{ font-size: 10px; }}
 .ss-icon-strength {{ color: var(--green); }}
 .ss-icon-vuln {{ color: var(--red); }}
@@ -2715,10 +2961,13 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 .sev-tag-medium {{ background: rgba(196,146,10,0.1); color: #92400e; }}
 .sev-tag-low {{ background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }}
 
-/* Redirect sections (Sections 7, 8) */
-.sec-redirect {{ opacity: 0.7; }}
-.redirect-text {{ font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }}
-.redirect-text em {{ color: var(--pillar); font-style: italic; }}
+/* Redirect sections (Sections 7, 8) — styled as subtle cross-references */
+.sec-redirect {{ opacity: 1; }}
+.sec-redirect .sec-head {{ border-bottom: none; padding-bottom: 0; margin-bottom: 4px; }}
+.sec-redirect .sec-title {{ font-size: 13px; color: var(--text-muted); font-weight: 600; }}
+.sec-redirect .sec-num {{ font-size: 9px; }}
+.redirect-text {{ font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.5; padding: 8px 14px; background: var(--bg); border-left: 3px solid var(--border); border-radius: 0 4px 4px 0; margin: 0; }}
+.redirect-text em {{ color: var(--pillar); font-style: normal; font-weight: 600; }}
 
 /* Strategic Priorities — risk/opportunity framing */
 .priority-type-row {{ display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }}
@@ -2843,7 +3092,7 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
       <span class="hero-tag">{pillar['short']}</span>
       <h1 class="hero-title">{title_html}</h1>
       <div class="hero-meta">United Kingdom &mdash; {display_date} &middot; Ref: {ref_code}</div>
-      <p class="hero-desc">{html.escape(exec_summary[:200])}</p>
+      <p class="hero-desc">{html.escape(_fix_emdashes(exec_summary[:200]))}</p>
     </div>
     <div class="score-block">
       <div class="score-block-inner">
@@ -2891,6 +3140,8 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
     {perception_html if perception_html else '<div class="exec-card"><p>External perception data not available this cycle. Scores will populate when source coverage meets the assessment threshold.</p></div>'}
   </div>
 
+  {profile_section_html}
+
   <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
@@ -2917,6 +3168,10 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
     </div>
     <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
   </div>
+
+  {contradictions_section_html}
+
+  {diagnostic_section_html}
 
   <!-- Section 11: Strategic Priorities -->
   <div class="sec">
@@ -3046,17 +3301,23 @@ def run_once(target_date, require_all=True):
         pdata["ref"] = extract_ref_from_title(item["title"])
 
         # Fetch predictions and richer perception data from rendered report pages
-        # GUIDs are ordered newest-first; first SV data wins (most recent report)
+        # GUIDs are ordered newest-first; first data wins (most recent report)
         got_sv = False
+        got_arena_preds = False
         for guid in pillar_guids.get(key, []):
             print(f"      Fetching predictions from rendered report ({guid[:12]})...")
             preds, arena_preds_scraped, rendered_perc = fetch_predictions_from_rendered(guid)
             if preds and not pdata["predictions"]:
                 pdata["predictions"] = preds
                 print(f"      Found {len(preds)} predictions")
-            if arena_preds_scraped:
-                pdata["arena_predictions"].update(arena_preds_scraped)
-                print(f"      Found {len(arena_preds_scraped)} arena outlooks")
+            # Only use arena predictions from the FIRST (newest) report that has them
+            # RSS-parsed arena_predictions are authoritative; scraped ones fill gaps only
+            if arena_preds_scraped and not got_arena_preds:
+                for arena_key, arena_val in arena_preds_scraped.items():
+                    if arena_key not in pdata["arena_predictions"]:
+                        pdata["arena_predictions"][arena_key] = arena_val
+                got_arena_preds = True
+                print(f"      Found {len(arena_preds_scraped)} arena outlooks (filling gaps)")
             # Use rendered perception data if it has sovereign_view (more accurate)
             # Only use the FIRST (newest) rendered page's SV data
             if rendered_perc and not got_sv:
@@ -3075,8 +3336,8 @@ def run_once(target_date, require_all=True):
                         pdata["score"] = round(sum(sv_scores) / len(sv_scores))
                         print(f"      Updated score from rendered sovereign view: {pdata['score']}")
                     got_sv = True
-            if preds and got_sv:
-                break  # Got both predictions and SV data
+            if preds and got_sv and got_arena_preds:
+                break  # Got predictions, SV data, and arena outlooks from newest report
 
         pillar_data[key] = pdata
         print(f"      Score: {pdata.get('score', '?')}, Posture: {pdata.get('posture', '?')}, "

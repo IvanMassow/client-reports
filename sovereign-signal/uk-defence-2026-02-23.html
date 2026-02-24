@@ -173,6 +173,22 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Profile Snapshot tables */
+.profile-sub-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 16px 0 8px; }
+.profile-sub-title:first-child { margin-top: 0; }
+.profile-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.profile-table td { padding: 6px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.profile-field { font-weight: 600; color: var(--text); width: 30%; white-space: nowrap; }
+.profile-detail { color: var(--text-mid); }
+
+/* Diagnostic Coverage table */
+.diag-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.diag-table th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 8px 10px; text-align: left; border-bottom: 2px solid var(--border); }
+.diag-table td { padding: 8px 10px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-mid); line-height: 1.5; }
+.diag-prompt { font-weight: 600; color: var(--text); }
+.diag-covered { color: var(--green); font-weight: 600; }
+.diag-not-covered { color: var(--red); font-weight: 600; }
+
 /* Executive Summary — What/Why/Watch sub-blocks */
 .exec-sub { margin-bottom: 20px; }
 .exec-sub:last-child { margin-bottom: 0; }
@@ -195,10 +211,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .arena-narrative { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }
 
 /* Inline strength/vulnerability signals within standing context */
-.standing-signals { padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }
-.standing-signals-strength { background: rgba(46,155,110,0.03); }
-.standing-signals-vuln { background: rgba(217,64,72,0.03); }
-.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.standing-signals { padding: 12px 18px 14px; margin: 10px 0 6px; border-radius: 6px; border-top: none; }
+.standing-signals-strength { background: rgba(46,155,110,0.06); border-left: 3px solid var(--green); }
+.standing-signals-vuln { background: rgba(217,64,72,0.06); border-left: 3px solid var(--red); }
+.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
 .ss-icon { font-size: 10px; }
 .ss-icon-strength { color: var(--green); }
 .ss-icon-vuln { color: var(--red); }
@@ -213,10 +229,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .sev-tag-medium { background: rgba(196,146,10,0.1); color: #92400e; }
 .sev-tag-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
 
-/* Redirect sections (Sections 7, 8) */
-.sec-redirect { opacity: 0.7; }
-.redirect-text { font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }
-.redirect-text em { color: var(--pillar); font-style: italic; }
+/* Redirect sections (Sections 7, 8) — styled as subtle cross-references */
+.sec-redirect { opacity: 1; }
+.sec-redirect .sec-head { border-bottom: none; padding-bottom: 0; margin-bottom: 4px; }
+.sec-redirect .sec-title { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+.sec-redirect .sec-num { font-size: 9px; }
+.redirect-text { font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.5; padding: 8px 14px; background: var(--bg); border-left: 3px solid var(--border); border-radius: 0 4px 4px 0; margin: 0; }
+.redirect-text em { color: var(--pillar); font-style: normal; font-weight: 600; }
 
 /* Strategic Priorities — risk/opportunity framing */
 .priority-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -353,7 +372,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
         <div class="score-block-label">Pillar Score</div>
         <div class="score-block-num" style="color:var(--green)">73 <span style="font-size:0.45em;vertical-align:middle">&#9650;</span></div>
         <div class="score-block-max">of 100</div>
-        <div class="posture posture-strong">Strong</div>
+        <div class="posture posture-weak">Under pressure</div>
       </div>
     </div>
   </div>
@@ -441,7 +460,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
           <div class="key-stat-label">Vulnerability Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num">45</div>
+          <div class="key-stat-num">15</div>
           <div class="key-stat-label">Trends Monitored</div>
         </div>
       </div>
@@ -455,6 +474,28 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     
       <div class="pred-grid">
         <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">73% probability</div>
+          <div class="pred-title">Nato Role And Positioning outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon">90 DAYS</span>
+          </div>
+          <div class="pred-trigger"><strong>What would change it:</strong> public commentary remains muted across subsequent cycles despite high evidence density</div>
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">68% probability</div>
+          <div class="pred-title">Deterrence Posture And Escalation Management outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon"></span>
+          </div>
+          <div class="pred-trigger"><strong>What would change it:</strong> public commentary becomes muted and geographic spread narrows while momentum holds steady</div>
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
           <div class="pred-prob">68% probability</div>
           <div class="pred-title">Military Capability And Readiness outlook</div>
           <div class="pred-badges">
@@ -463,7 +504,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             
             <span class="pred-badge pred-horizon">90 DAYS</span>
           </div>
-          
+          <div class="pred-trigger"><strong>What would change it:</strong> public commentary drops below moderate while momentum stays steady</div>
         </div>
         <div class="pred-tile" style="border-left: 3px solid var(--green)">
           <div class="pred-prob">68% probability</div>
@@ -474,10 +515,32 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
             
             <span class="pred-badge pred-horizon"></span>
           </div>
+          <div class="pred-trigger"><strong>What would change it:</strong> public commentary falls below moderate</div>
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">53% probability</div>
+          <div class="pred-title">Alliance Reliability And Burden Sharing outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon"></span>
+          </div>
           
         </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">53% probability</div>
+          <div class="pred-title">Cyber Capability And Security Posture outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            
+            <span class="pred-badge pred-horizon"></span>
+          </div>
+          <div class="pred-trigger"><strong>What would change it:</strong> public commentary intensity becomes elevated with sustained, geographically distributed coverage</div>
+        </div>
       </div>
-      <div class="pred-summary">Outlook: 2 signals assessed, dominant direction Intensifying. 2 arenas show intensifying predictions.</div>
+      <div class="pred-summary">Outlook: 6 signals assessed, dominant direction Intensifying. 6 arenas show intensifying predictions.</div>
   </div>
 
   <!-- Section 04: Sovereign Perception Dashboard -->
@@ -581,6 +644,38 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>
   </div>
 
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Profile Snapshot</h2>
+      <span class="sec-num">Section 05</span>
+    </div>
+    <div class="exec-card">
+      <h4 class="profile-sub-title">5.1 Identity and Political Structure</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Status</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Government structure</td><td class="profile-detail">Constitutional monarchy with parliamentary democracy</td></tr>
+<tr><td class="profile-field">Head of state</td><td class="profile-detail">King Charles III (monarch)</td></tr>
+<tr><td class="profile-field">Head of government</td><td class="profile-detail">Sir Keir Starmer (Prime Minister)</td></tr>
+<tr><td class="profile-field">Geopolitical alignment</td><td class="profile-detail">Euro-Atlantic aligned; NATO Ally; close security partnership with the United States; Indo-Pacific security engagement via AUKUS</td></tr>
+<tr><td class="profile-field">Defence alliances</td><td class="profile-detail">NATO, AUKUS</td></tr>
+<tr><td class="profile-field">Major international memberships</td><td class="profile-detail">United Nations, UN Security Council (permanent member)</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.2 Institutional and Policy Footprint</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Core diplomatic posture</td><td class="profile-detail">Collective-defence centric; emphasises NATO primacy plus close US partnership and deeper European security coordination</td></tr>
+<tr><td class="profile-field">Official languages</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Official domains</td><td class="profile-detail">gov.uk</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.3 Standing Boundaries</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">What is known</td><td class="profile-detail">What remains to verify</td></tr>
+<tr><td class="profile-field">Sovereign name; government structure; head of state; head of government; geopolitical alignment; defence alliances; major international memberships; core diplomatic posture; official domains</td><td class="profile-detail">Official languages</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
   <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
@@ -612,7 +707,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          <div class="arena-outlook">68% probability that Military Capability And Readiness narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="arena-outlook">Readiness-context coverage shows 68% probability of intensifying over the next 90 days (Strong signal, Intensifying), with the signal stabilising if source diversity contracts and public commentary drops below moderate while momentum stays steady.</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
@@ -637,7 +732,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          <div class="arena-outlook">AUKUS partnership visibility continues to carry the reliability narrative: 68% probability of intensifying over 90 days (Strong signal, Intensifying). The pace slows if distributed attention concentra</div>
+          <div class="arena-outlook">AUKUS partnership visibility continues to carry the reliability narrative: 68% probability of intensifying over 90 days (Strong signal, Intensifying). The pace slows if distributed attention concentrates into a single geography band and public commentary falls below moderate.
+Australia-partnership f</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
@@ -662,7 +758,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          
+          <div class="arena-outlook">Ukraine-cooperation coverage is assessed as building: 73% probability of intensification over the next 90 days (Strong signal, Intensifying). The trajectory weakens if rising momentum stalls and public commentary remains muted across subsequent cycles despite high evidence density.</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
@@ -688,12 +784,12 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          <div class="arena-outlook">68% probability that Deterrence Posture And Escalation Management narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="arena-outlook">Across the 90 days horizon, deterrence-credibility discourse sits at 68% probability of intensification (Strong signal, Intensifying), spanning Vladimir Putin-linked deterrence framing and European deterrence/resilience dialogue. This moderates if public commentary becomes muted and geographic sprea</div>
         </div>
-        <div class="standing-arena-card" style="border-top:3px solid var(--text-muted)">
+        <div class="standing-arena-card" style="border-top:3px solid #999">
           <div class="arena-card-header">
             <div class="arena-card-name">Defence Industry And Procurement Credibility</div>
-            <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)">INSUFFICIENT DATA</span>
+            <span class="arena-badge" style="background:rgba(120,120,120,0.08);color:#666">INSUFFICIENT DATA</span>
           </div>
           
           <div class="arena-card-grid">
@@ -733,7 +829,9 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 </ul>
           </div>
           
-          
+          <div class="arena-outlook">Cyber and AI-security guidance co-authorship remains steady at 53% probability of intensification over 12 months (Strong signal, Stable). The signal re-energises if momentum turns building or public commentary intensity becomes elevated with sustained, geographically distributed coverage.
+
+Outlook: </div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
@@ -785,6 +883,37 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
   </div>
 
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Structural Contradictions</h2>
+      <span class="sec-num">Section 09</span>
+    </div>
+    <div class="exec-card">
+      <p>No structural contradictions identified. All active trends are internally consistent.</p>
+    </div>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Standing Diagnostic Coverage</h2>
+      <span class="sec-num">Section 10</span>
+    </div>
+    <div class="exec-card">
+      <table class="diag-table"><thead><tr><th>Diagnostic prompt</th><th>Coverage</th><th>What is clear</th><th>What remains bounded</th></tr></thead><tbody>
+<tr><td class="diag-prompt">Strategic actor characterisation</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>55% external perception, Strong signal</td><td>Coverage is strong and directionally favourable overall, but hot strategic-access dispute framing remains a bounded drag in this arena.</td></tr>
+<tr><td class="diag-prompt">Military capability and readiness</td><td class="diag-coverage ">Confirmed</td><td>78% external perception, Strong signal</td><td>Coverage is strong with positive-leaning readiness context, while some narratives remain indirect and anchored in broader threat assessment rather than UK-only metrics.</td></tr>
+<tr><td class="diag-prompt">Alliance reliability framing</td><td class="diag-coverage ">Confirmed</td><td>80% external perception, Strong signal</td><td>Alliance reliability is supported by strong multi-cluster coverage, with bounded adverse noise tied to strategic-access dispute framing.</td></tr>
+<tr><td class="diag-prompt">NATO role description</td><td class="diag-coverage ">Confirmed</td><td>72% external perception, Strong signal</td><td>NATO-role coverage is strong and positive overall, while institutional and geopolitical shading limits clean resolution of role labelling.</td></tr>
+<tr><td class="diag-prompt">Deterrence posture portrayal</td><td class="diag-coverage ">Confirmed</td><td>75% external perception, Strong signal</td><td>Deterrence posture is supported by strong evidence, with a thin escalation-risk adjunct that adds bounded adverse shading.</td></tr>
+<tr><td class="diag-prompt">Defence industry and procurement credibility</td><td class="diag-coverage ">Confirmed</td><td>73% external perception, Strong signal</td><td>Coverage is moderate and directionally favourable, but the signal is largely embedded in wider cooperation and capability narratives rather than dedicated industrial evaluation.</td></tr>
+<tr><td class="diag-prompt">Cyber capability and security posture</td><td class="diag-coverage ">Confirmed</td><td>75% external perception, Strong signal</td><td>Coverage is moderate and positive overall, with one thin threat-landscape adjunct that does not materially change direction.</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
   <!-- Section 11: Strategic Priorities -->
   <div class="sec">
     <div class="sec-head">
@@ -796,42 +925,42 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="priority-item priority-item-pri-risk">
         <div class="priority-type-row">
           <span class="priority-type pri-risk">Risk</span>
-          <span class="priority-arena-tag">Geopolitical Influence In Security Theatres</span>
+          
         </div>
-        <p class="priority-desc">Hot rising vulnerability framing tied to strategic access and basing sovereignty dispute dynamics.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in Geopolitical Influence In Security Theatres.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in .</p>
       </div>
       <div class="priority-item priority-item-pri-risk">
         <div class="priority-type-row">
           <span class="priority-type pri-risk">Risk</span>
-          <span class="priority-arena-tag">Geopolitical Influence In Security Theatres</span>
+          
         </div>
-        <p class="priority-desc">Hot rising vulnerability framing driven by US leadership volatility and allied exposure narratives.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in Geopolitical Influence In Security Theatres.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Develop counter-narrative or corrective positioning to address adverse framing in .</p>
       </div>
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Nato Role And Positioning</span>
+          
         </div>
-        <p class="priority-desc">Cold discourse with high positive perception indicates an under-amplified lane that could shift quickly if institutional commentary increases.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Nato Role And Positioning for escalation signals.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
       <div class="priority-item priority-item-pri-watch">
         <div class="priority-type-row">
           <span class="priority-type pri-watch">Watch</span>
-          <span class="priority-arena-tag">Defence Industry And Procurement Credibility</span>
+          
         </div>
-        <p class="priority-desc">Cold and silent discourse conditions coexist with a positive inferred perception signal, indicating a visibility gap in this arena.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Track Defence Industry And Procurement Credibility for escalation signals.</p>
+        <p class="priority-desc">indicating a visibility gap in this arena.</p>
+        <p class="priority-response"><strong>Recommended response:</strong> Track  for escalation signals.</p>
       </div>
-      <div class="priority-item priority-item-pri-risk">
+      <div class="priority-item priority-item-pri-opportunity">
         <div class="priority-type-row">
-          <span class="priority-type pri-risk">Risk</span>
-          <span class="priority-arena-tag">Geopolitical Influence In Security Theatres</span>
+          <span class="priority-type pri-opportunity">Opportunity</span>
+          
         </div>
-        <p class="priority-desc">High structural tension detected in this arena (STENS-002) with hot rising vulnerabilities outweighing strength signals.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Structural response required in Geopolitical Influence In Security Theatres to address root cause.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Structural response required in  to address root cause.</p>
       </div>
     </div>
     <h4 class="priority-horizon">Medium-term risks and opportunities</h4>
@@ -839,10 +968,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
       <div class="priority-item priority-item-pri-opportunity">
         <div class="priority-type-row">
           <span class="priority-type pri-opportunity">Opportunity</span>
-          <span class="priority-arena-tag">Deterrence Posture And Escalation Management</span>
+          
         </div>
-        <p class="priority-desc">Arena is strong overall but contains a rising vulnerability adjunct; reinforce the strength framing before erosion occurs.</p>
-        <p class="priority-response"><strong>Recommended response:</strong> Proactively reinforce Deterrence Posture And Escalation Management positioning before adverse framing erodes position.</p>
+        <p class="priority-desc"></p>
+        <p class="priority-response"><strong>Recommended response:</strong> Proactively reinforce  positioning before adverse framing erodes position.</p>
       </div>
     </div>
 
@@ -876,9 +1005,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
     </div>
     <div class="conclusion-card">
       <p>The UK’s defence standing remains strongly supported by alliance and operational contribution framing, AUKUS partnership documentation, Ukraine-linked NATO-adjacent signalling, and cyber/AI-security guidance co-authorship keep credibility lanes positive across Europe, Russia, and United States discourse, yet the national posture is under pressure because Geopolitical Influence In Security Theatres is being pulled by Donald Trump-linked alliance-volatility narratives and the Chagos Archipelago / Mauritius / Diego Garcia strategic-access dispute framing, where public commentary intensity is elevated and attention is building.</p>
-      <p>Standing posture this cycle: Under pressure</p>
       <div class="conclusion-posture">
-        Standing posture this cycle: <span class="conclusion-posture-badge posture-strong">Strong</span>
+        Standing posture this cycle: <span class="conclusion-posture-badge posture-weak">Under pressure</span>
       </div>
     </div>
   </div>

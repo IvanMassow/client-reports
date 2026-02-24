@@ -173,6 +173,22 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
 .conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
 
+/* Profile Snapshot tables */
+.profile-sub-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 16px 0 8px; }
+.profile-sub-title:first-child { margin-top: 0; }
+.profile-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.profile-table td { padding: 6px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.profile-field { font-weight: 600; color: var(--text); width: 30%; white-space: nowrap; }
+.profile-detail { color: var(--text-mid); }
+
+/* Diagnostic Coverage table */
+.diag-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.diag-table th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 8px 10px; text-align: left; border-bottom: 2px solid var(--border); }
+.diag-table td { padding: 8px 10px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-mid); line-height: 1.5; }
+.diag-prompt { font-weight: 600; color: var(--text); }
+.diag-covered { color: var(--green); font-weight: 600; }
+.diag-not-covered { color: var(--red); font-weight: 600; }
+
 /* Executive Summary — What/Why/Watch sub-blocks */
 .exec-sub { margin-bottom: 20px; }
 .exec-sub:last-child { margin-bottom: 0; }
@@ -195,10 +211,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .arena-narrative { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }
 
 /* Inline strength/vulnerability signals within standing context */
-.standing-signals { padding: 12px 18px 14px; border-top: 1px solid var(--border-light); }
-.standing-signals-strength { background: rgba(46,155,110,0.03); }
-.standing-signals-vuln { background: rgba(217,64,72,0.03); }
-.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.standing-signals { padding: 12px 18px 14px; margin: 10px 0 6px; border-radius: 6px; border-top: none; }
+.standing-signals-strength { background: rgba(46,155,110,0.06); border-left: 3px solid var(--green); }
+.standing-signals-vuln { background: rgba(217,64,72,0.06); border-left: 3px solid var(--red); }
+.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
 .ss-icon { font-size: 10px; }
 .ss-icon-strength { color: var(--green); }
 .ss-icon-vuln { color: var(--red); }
@@ -213,10 +229,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 .sev-tag-medium { background: rgba(196,146,10,0.1); color: #92400e; }
 .sev-tag-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
 
-/* Redirect sections (Sections 7, 8) */
-.sec-redirect { opacity: 0.7; }
-.redirect-text { font-size: 13px; color: var(--text-muted); font-style: italic; line-height: 1.6; }
-.redirect-text em { color: var(--pillar); font-style: italic; }
+/* Redirect sections (Sections 7, 8) — styled as subtle cross-references */
+.sec-redirect { opacity: 1; }
+.sec-redirect .sec-head { border-bottom: none; padding-bottom: 0; margin-bottom: 4px; }
+.sec-redirect .sec-title { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+.sec-redirect .sec-num { font-size: 9px; }
+.redirect-text { font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.5; padding: 8px 14px; background: var(--bg); border-left: 3px solid var(--border); border-radius: 0 4px 4px 0; margin: 0; }
+.redirect-text em { color: var(--pillar); font-style: normal; font-weight: 600; }
 
 /* Strategic Priorities — risk/opportunity framing */
 .priority-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -354,7 +373,7 @@ External attention on the United Kingdom is being pulled in two directions: stro
         <div class="score-block-label">Pillar Score</div>
         <div class="score-block-num" style="color:var(--green)">51 <span style="font-size:0.45em;vertical-align:middle">&#9650;</span></div>
         <div class="score-block-max">of 100</div>
-        <div class="posture posture-stable">Stable</div>
+        <div class="posture posture-weak">Under pressure</div>
       </div>
     </div>
   </div>
@@ -370,7 +389,7 @@ External attention on the United Kingdom is being pulled in two directions: stro
         <div class="arena-gauge">
           <div class="arena-gauge-name">EDUCATION AND RESEARCH PRESTIGE</div>
           <div class="arena-gauge-score" style="color:var(--red)">43 <span style="font-size:0.6em">&#9660;</span></div>
-          <div class="arena-gauge-posture">MIXED</div>
+          <div class="arena-gauge-posture">INSUFFICIENT DATA</div>
           <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
         </div>
         <div class="arena-gauge">
@@ -442,11 +461,11 @@ External attention on the United Kingdom is being pulled in two directions: stro
           <div class="key-stat-label">Strength Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num" style="color:var(--red)">0</div>
+          <div class="key-stat-num" style="color:var(--red)">2</div>
           <div class="key-stat-label">Vulnerability Signals</div>
         </div>
         <div class="key-stat">
-          <div class="key-stat-num">20</div>
+          <div class="key-stat-num">14</div>
           <div class="key-stat-label">Trends Monitored</div>
         </div>
       </div>
@@ -492,8 +511,63 @@ External attention on the United Kingdom is being pulled in two directions: stro
           </div>
           <div class="pred-trigger"><strong>What would change it:</strong> public commentary cools materially, or if momentum shifts away from steady toward easing</div>
         </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">56% probability</div>
+          <div class="pred-title">Heritage Identity And Nation Brand outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">12 MONTHS</span>
+          </div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">50% probability</div>
+          <div class="pred-title">Heritage Identity And Nation Brand outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">12 MONTHS</span>
+          </div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">47% probability</div>
+          <div class="pred-title">Values And Human Rights Reputation outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">12 MONTHS</span>
+          </div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">42% probability</div>
+          <div class="pred-title">Culture And Media Exports outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">12 MONTHS</span>
+          </div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 3px solid var(--green)">
+          <div class="pred-prob">36% probability</div>
+          <div class="pred-title">Creative Industries And Talent outlook</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">12 MONTHS</span>
+          </div>
+          
+        </div>
       </div>
-      <div class="pred-summary">Outlook: 3 signals assessed, dominant direction Intensifying. 3 arenas show intensifying predictions.</div>
+      <div class="pred-summary">Outlook: 8 signals assessed, dominant direction Intensifying. 8 arenas show intensifying predictions.</div>
   </div>
 
   <!-- Section 04: Sovereign Perception Dashboard -->
@@ -591,6 +665,38 @@ External attention on the United Kingdom is being pulled in two directions: stro
       <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>
   </div>
 
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sovereign Profile Snapshot</h2>
+      <span class="sec-num">Section 05</span>
+    </div>
+    <div class="exec-card">
+      <h4 class="profile-sub-title">5.1 Identity and Political Structure</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Status</td><td class="profile-detail">Managed uncertainty</td></tr>
+<tr><td class="profile-field">Government structure</td><td class="profile-detail">Constitutional monarchy; Crown is part of Parliament; elected Parliament forms government</td></tr>
+<tr><td class="profile-field">Head of state</td><td class="profile-detail">King Charles III (The King)</td></tr>
+<tr><td class="profile-field">Head of government</td><td class="profile-detail">Prime Minister Sir Keir Starmer</td></tr>
+<tr><td class="profile-field">Geopolitical alignment</td><td class="profile-detail">Euro-Atlantic alignment; NATO ally; UN Security Council permanent member</td></tr>
+<tr><td class="profile-field">Defence alliances</td><td class="profile-detail">NATO</td></tr>
+<tr><td class="profile-field">Major international memberships</td><td class="profile-detail">United Nations; UN Security Council (permanent member); NATO</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.2 Institutional and Policy Footprint</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Core diplomatic posture</td><td class="profile-detail">NATO-first posture emphasised in UK messaging on defence and alliance commitments</td></tr>
+<tr><td class="profile-field">Official languages</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Official domains</td><td class="profile-detail">gov.uk; parliament.uk; royal.uk</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.3 Standing Boundaries</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">What is known</td><td class="profile-detail">What remains to verify</td></tr>
+<tr><td class="profile-field">United Kingdom of Great Britain and Northern Ireland; Constitutional monarchy; King Charles III; Prime Minister Sir Keir Starmer; Euro-Atlantic alignment; NATO; United Nations memberships; NATO-first diplomatic posture; official domains</td><td class="profile-detail">Official languages</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
   <!-- Section 06: Sovereign Standing Context -->
   <div class="sec">
     <div class="sec-head">
@@ -612,16 +718,16 @@ External attention on the United Kingdom is being pulled in two directions: stro
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Culture and media export standing is strong, with external attention anchored in culture/media export competitiveness signals concentrated in the United States, India, and Canada , momentum is fading.</p>
+          <p class="arena-narrative">Culture and media export standing is strong, with external attention anchored in culture/media export competitiveness signals concentrated in the United States, India, and Canada — momentum is fading.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, India, Canada</div>
           
           
-          <div class="arena-outlook">77% probability that Culture And Media Exports narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="arena-outlook">While the underlying tone is favourable, attention is not assessed as building: 42% probability of intensification over the next 12 months (Strong signal). The signal re-energises if momentum turns into a build and the share of external-origin coverage increases beyond the current level.</div>
         </div>
-        <div class="standing-arena-card" style="border-top:3px solid var(--text-muted)">
+        <div class="standing-arena-card" style="border-top:3px solid #999">
           <div class="arena-card-header">
             <div class="arena-card-name">Education And Research Prestige</div>
-            <span class="arena-badge" style="background:var(--bg);color:var(--text-muted)"></span>
+            <span class="arena-badge" style="background:rgba(120,120,120,0.08);color:#666">INSUFFICIENT DATA</span>
           </div>
           
           <div class="arena-card-grid">
@@ -652,11 +758,11 @@ External attention on the United Kingdom is being pulled in two directions: stro
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Sporting brand and influence standing is strong, driven by Team GB prestige and pipeline narratives alongside rising integrity-context visibility , momentum is rising with attention concentrated in Italy and the United States.</p>
+          <p class="arena-narrative">Sporting brand and influence standing is strong, driven by Team GB prestige and pipeline narratives alongside rising integrity-context visibility — momentum is rising with attention concentrated in Italy and the United States.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Italy, United States, China</div>
           
           
-          <div class="arena-outlook">75% probability that Sporting Brand And Influence narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="arena-outlook">Across the next 90 days, three linked sport narratives sit on the same trajectory: Team GB prestige visibility, UK sport pipeline framing, and sport-integrity context are each assessed at 75% probability of Intensifying (Strong signal). The intensification is arrested if momentum returns to steady a</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--green)">
           <div class="arena-card-header">
@@ -672,11 +778,13 @@ External attention on the United Kingdom is being pulled in two directions: stro
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Creative industries and talent standing is strong, led by recurring visibility of UK-linked entertainment and creative-economy competitiveness signals across the United States and India , momentum is fading.</p>
+          <p class="arena-narrative">Creative industries and talent standing is strong, led by recurring visibility of UK-linked entertainment and creative-economy competitiveness signals across the United States and India — momentum is fading.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, India, Canada</div>
           
           
-          <div class="arena-outlook">67% probability that Creative Industries And Talent narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="arena-outlook">Creative talent narratives are assessed as steady but cooling — 36% probability of intensification over the next 12 months (Strong signal). The signal rebuilds if coverage expands beyond its current concentration and momentum shifts back into a build.
+
+Outlook: 10 signals assessed, direction is mixe</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
@@ -692,11 +800,17 @@ External attention on the United Kingdom is being pulled in two directions: stro
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Heritage, identity and nation-brand standing is weak, with pressure concentrated in external scrutiny of King Charles III, Prince Andrew, and succession-legitimacy framing , momentum is stable and attention is elevated, led by Australia and the United States.</p>
+          <p class="arena-narrative">Heritage, identity and nation-brand standing is weak, with pressure concentrated in external scrutiny of King Charles III, Prince Andrew, and succession-legitimacy framing — momentum is stable and attention is elevated, led by Australia and the United States.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> Australia, United States, France</div>
           
           
-          <div class="arena-outlook">65% probability that Heritage Identity And Nation Brand narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="standing-signals standing-signals-vuln">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-vuln">&#9660;</span> Pressure on this standing</h5>
+            <ul><li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Long</span> Institutional legitimacy narratives tied to Prince Andrew / King Charles III / succession framing are assessed as degrading UK nation-brand stability among external observers, with external attention concentrated in Australia, the United States, and France.</li>
+</ul>
+          </div>
+          <div class="arena-outlook">Unless public commentary intensity cools materially, succession-legitimacy framing is assessed as building quickly: 71% probability of Intensifying over the next 30 days (Strong signal), with attention concentrated in Australia and the United States.
+At the same time, monarchy-symbolism narratives a</div>
         </div>
         <div class="standing-arena-card" style="border-top:3px solid var(--red)">
           <div class="arena-card-header">
@@ -712,11 +826,17 @@ External attention on the United Kingdom is being pulled in two directions: stro
 <div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
 
           </div>
-          <p class="arena-narrative">Values and human-rights reputation standing is weak, dominated by identity/cohesion and immigration-enforcement narratives (Reform UK / Nigel Farage framing) and associated border-security context , momentum is stable with elevated attention led by the United States and France.</p>
+          <p class="arena-narrative">Values and human-rights reputation standing is weak, dominated by identity/cohesion and immigration-enforcement narratives (Reform UK / Nigel Farage framing) and associated border-security context — momentum is stable with elevated attention led by the United States and France.</p>
           <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, France, Pakistan</div>
           
           
-          <div class="arena-outlook">77% probability that Values And Human Rights Reputation narratives intensify over the next 90 days (Strong signal)</div>
+          <div class="standing-signals standing-signals-vuln">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-vuln">&#9660;</span> Pressure on this standing</h5>
+            <ul><li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Long</span> Hardline immigration policy framing centred on Reform UK proposals is assessed as shaping values and rule-of-law perceptions that act as shortcut judgements on broader UK credibility in external discourse, with attention led by the United States and France and additional pickup in Pakistan.</li>
+</ul>
+          </div>
+          <div class="arena-outlook">Border-security framing remains an active driver of the UK’s values debate externally — 65% probability of Intensifying over 90 days (Strong signal). This intensification is arrested if public commentary cools materially, or if momentum shifts away from steady toward easing.
+The related immigration </div>
         </div></div>
   </div>
 
@@ -736,6 +856,38 @@ External attention on the United Kingdom is being pulled in two directions: stro
       <span class="sec-num">Section 08</span>
     </div>
     <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Structural Contradictions</h2>
+      <span class="sec-num">Section 09</span>
+    </div>
+    <div class="exec-card">
+      <p>No structural contradictions identified. All active trends are internally consistent.</p>
+    </div>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Standing Diagnostic Coverage</h2>
+      <span class="sec-num">Section 10</span>
+    </div>
+    <div class="exec-card">
+      <table class="diag-table"><thead><tr><th>Diagnostic prompt</th><th>Coverage</th><th>What is clear</th><th>What remains bounded</th></tr></thead><tbody>
+<tr><td class="diag-prompt">Cultural and soft power portrayal</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>37% external perception, Strong signal</td><td>External portrayal is split, with strong positive pull from sport and creative output alongside sustained negative drag from heritage and identity narratives.</td></tr>
+<tr><td class="diag-prompt">Culture and media export competitiveness</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>73% external perception, Strong signal</td><td>Coverage is directionally favourable but evidence references are limited in this cycle’s curated evidence index.</td></tr>
+<tr><td class="diag-prompt">Universities and research prestige</td><td class="diag-coverage diag-not-covered">Not covered</td><td>43% external perception, Thin signal</td><td>No linked trends were detected in this cycle for universities or research prestige.</td></tr>
+<tr><td class="diag-prompt">Sporting influence framing</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>78% external perception, Strong signal</td><td>Sporting influence framing is strongly favourable, while integrity-context discourse remains present as background signal.</td></tr>
+<tr><td class="diag-prompt">Creative industries and talent pipeline</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>73% external perception, Strong signal</td><td>Creative industries signals skew favourable, with a thin adjunct negative signal about industry reconfiguration.</td></tr>
+<tr><td class="diag-prompt">Heritage, identity and nation brand</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>14% external perception, Strong signal</td><td>Heritage and identity narratives lean adverse this cycle, with accelerating attention to legitimacy framing.</td></tr>
+<tr><td class="diag-prompt">Moral authority and values leadership</td><td class="diag-coverage diag-covered">Managed uncertainty</td><td>14% external perception, Strong signal</td><td>Values and moral-authority perception leans adverse, dominated by identity and immigration-policy framing in external discourse.</td></tr>
+<tr><td class="diag-prompt">How are UK universities and research institutions being assessed internationally</td><td class="diag-coverage diag-not-covered">Not covered</td><td></td><td>How are UK universities and research institutions being assessed internationally (prestige, access, funding, talent magnetism, visa friction), and what has shifted recently? — Not covered this cycle. No linked trends or propositions detected in perception map.</td></tr>
+</tbody></table>
+
+    </div>
   </div>
 
   <!-- Section 11: Strategic Priorities -->
@@ -804,10 +956,9 @@ External attention on the United Kingdom is being pulled in two directions: stro
       <span class="sec-num">Section 13</span>
     </div>
     <div class="conclusion-card">
-      <p>This cycle’s external perception picture is under pressure because two high-salience narratives , monarchy legitimacy scrutiny (King Charles III / Prince Andrew / succession framing) and values/rights judgement via immigration enforcement framing (Reform UK / Nigel Farage) , are repeatedly amplified in the United States, Australia, and France. At the same time, the UK continues to generate clear soft-power pull through Sporting Brand And Influence (notably with Italy as a visibility driver) and sustained culture/creative competitiveness signals tied to the United States, India, and Canada. The result is a stable overall trajectory with exposed heritage and values standing acting as a persistent drag on an otherwise resilient cultural and sporting profile.</p>
-      <p>Standing posture this cycle: Under pressure</p>
+      <p>This cycle’s external perception picture is under pressure because two high-salience narratives — monarchy legitimacy scrutiny (King Charles III / Prince Andrew / succession framing) and values/rights judgement via immigration enforcement framing (Reform UK / Nigel Farage) — are repeatedly amplified in the United States, Australia, and France. At the same time, the UK continues to generate clear soft-power pull through Sporting Brand And Influence (notably with Italy as a visibility driver) and sustained culture/creative competitiveness signals tied to the United States, India, and Canada. The result is a stable overall trajectory with exposed heritage and values standing acting as a persistent drag on an otherwise resilient cultural and sporting profile.</p>
       <div class="conclusion-posture">
-        Standing posture this cycle: <span class="conclusion-posture-badge posture-stable">Stable</span>
+        Standing posture this cycle: <span class="conclusion-posture-badge posture-weak">Under pressure</span>
       </div>
     </div>
   </div>
