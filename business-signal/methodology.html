@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methodology — 73 Intelligence</title>
+<meta property="og:title" content="Methodology — 73 Intelligence · Business Signal">
+<meta property="og:description" content="How narrative signal processing powers institutional-grade intelligence on corporate perception, trends, and predictions.">
+<meta property="og:image" content="og-card.png">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --slate: #181D35; --slate-deep: #141929; --slate-mid: #282D45;
+  --accent: #CFA64C; --accent-light: #EDE0B8;
+  --red: #C4545A; --green: #3A8A6E; --amber: #C4920A;
+  --text: #2C2C2C; --text-mid: #555B66; --text-muted: #8A8F98;
+  --bg: #FAFAF8; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
+  --card-radius: 8px; --card-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  --brand-blue: #3538FF; --brand-gold: #FFD32B; --brand-cyan: #5CF3FF;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+
+/* Topbar */
+.topbar { background: var(--slate); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 52px; position: sticky; top: 0; z-index: 100; }
+.topbar-left { display: flex; align-items: center; gap: 14px; }
+.topbar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.topbar-logo svg { flex-shrink: 0; }
+.topbar-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.04em; color: rgba(255,255,255,0.9); text-transform: uppercase; }
+.topbar-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+.topbar-brand { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.topbar-right { display: flex; align-items: center; gap: 20px; }
+.back-link { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; }
+.back-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+/* Hero — abstract corporate background */
+.hero { background: var(--slate-deep); position: relative; overflow: hidden; }
+.hero-bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse 120% 80% at 85% 40%, rgba(53,56,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 120% at 10% 80%, rgba(207,166,76,0.06) 0%, transparent 50%),
+    linear-gradient(135deg, rgba(24,29,53,0.4) 0%, rgba(20,25,41,0.1) 100%);
+  opacity: 1;
+}
+/* Subtle grid pattern */
+.hero-bg::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(20,25,41,0.95) 0%, rgba(20,25,41,0.88) 22%, rgba(20,25,41,0.65) 48%, rgba(20,25,41,0.4) 72%, rgba(20,25,41,0.25) 100%); z-index: 1; pointer-events: none; }
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; padding: 56px 32px 52px; min-height: 280px; }
+.hero-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+.hero-title { font-family: 'Lora', Georgia, serif; font-size: 42px; font-weight: 700; color: white; line-height: 1.2; margin-bottom: 14px; }
+.hero-title span { color: var(--accent); }
+.hero-subtitle { font-family: 'Lora', Georgia, serif; font-size: 15px; color: rgba(255,255,255,0.38); max-width: 480px; line-height: 1.7; }
+/* Accent gradient line at top of hero */
+.hero-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, var(--brand-gold), var(--brand-blue)); z-index: 4; }
+
+/* Main */
+.main { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+/* Intro Section */
+.intro { margin-top: 56px; margin-bottom: 48px; }
+.intro-title { font-family: 'Lora', Georgia, serif; font-size: 24px; font-weight: 600; color: var(--text); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.intro-text { font-family: 'Lora', Georgia, serif; font-size: 15px; color: var(--text-mid); line-height: 1.9; max-width: 720px; }
+.intro-text p { margin-bottom: 16px; }
+.intro-text p:last-child { margin-bottom: 0; }
+
+/* Principle Cards */
+.principles { display: flex; flex-direction: column; gap: 24px; margin-bottom: 56px; }
+.principle-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 32px; box-shadow: var(--card-shadow); position: relative; overflow: hidden; }
+.principle-card::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 4px; }
+.principle-card:nth-child(1)::before { background: #3B6FA8; }
+.principle-card:nth-child(2)::before { background: #3D8B6E; }
+.principle-card:nth-child(3)::before { background: #7C5295; }
+.principle-card:nth-child(4)::before { background: var(--accent); }
+.principle-card:nth-child(5)::before { background: #B08830; }
+.principle-card:nth-child(6)::before { background: #2D8B7B; }
+.principle-card:nth-child(7)::before { background: var(--slate-mid); }
+
+.principle-header { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.principle-num { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 32px; color: var(--border); line-height: 1; flex-shrink: 0; width: 48px; }
+.principle-title { font-family: 'Lora', Georgia, serif; font-size: 18px; font-weight: 600; color: var(--text); line-height: 1.3; }
+.principle-body { font-size: 14px; color: var(--text-mid); line-height: 1.8; padding-left: 64px; }
+
+/* Pipeline Visual */
+.pipeline-section { margin-bottom: 56px; }
+.pipeline-title { font-family: 'Lora', Georgia, serif; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.pipeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--border-light); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; margin-bottom: 24px; }
+.pipeline-step { background: var(--bg-card); padding: 24px 12px 20px; text-align: center; position: relative; }
+.pipeline-step:not(:last-child)::after { content: '\2192'; position: absolute; right: -6px; top: 50%; transform: translateY(-50%); font-size: 16px; color: var(--accent); z-index: 1; background: var(--bg-card); width: 12px; text-align: center; }
+.pipeline-step-num { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 11px; color: var(--accent); letter-spacing: 1px; margin-bottom: 8px; }
+.pipeline-step-name { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.4; }
+.pipeline-note { font-size: 12px; color: var(--text-muted); text-align: center; font-style: italic; }
+
+/* Output Summary */
+.output-section { margin-bottom: 56px; }
+.output-title { font-family: 'Lora', Georgia, serif; font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.output-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.output-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 24px; text-align: center; box-shadow: var(--card-shadow); }
+.output-icon { font-size: 28px; margin-bottom: 10px; }
+.output-label { font-size: 12px; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.output-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* Footer */
+.footer { background: var(--slate-deep); padding: 28px 32px; margin-top: 0; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }
+.footer-label { font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.45); }
+.footer-text { font-size: 10px; color: rgba(255,255,255,0.45); }
+.footer-credit { font-size: 9px; color: rgba(255,255,255,0.3); text-align: center; max-width: 1100px; margin: 12px auto 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); }
+/* Gradient accent on footer top */
+.footer::before { content: ''; display: block; height: 2px; background: linear-gradient(to right, var(--brand-gold), var(--brand-blue)); margin: -28px -32px 28px; }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .hero-inner { padding: 36px 16px 36px; min-height: auto; }
+  .hero-title { font-size: 32px; }
+  .hero-subtitle { font-size: 14px; }
+  .main { padding: 0 16px; }
+  .principle-body { padding-left: 0; margin-top: 8px; }
+  .principle-num { font-size: 24px; width: 36px; }
+  .pipeline { grid-template-columns: repeat(3, 1fr); }
+  .pipeline-step:nth-child(3)::after { display: none; }
+  .output-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+  .topbar { padding: 0 16px; }
+}
+@media (max-width: 600px) {
+  .topbar-brand { display: none; }
+  .topbar-divider { display: none; }
+  .hero-inner { padding: 28px 16px 28px; }
+  .hero-title { font-size: 26px; }
+  .hero-subtitle { font-size: 13px; }
+  .pipeline { grid-template-columns: repeat(2, 1fr); }
+  .pipeline-step::after { display: none; }
+  .principle-card { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="index.html" class="topbar-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 47 39" fill="none">
+        <path d="M0.163086 11.2658V0.312939H21.8359V5.76329L8.93668 38.335H2.85261L15.7258 5.76329H5.62047V11.2658H0.163086Z" fill="white"/>
+        <path d="M32.5418 21.1494V16.325H34.4219C36.2845 16.325 37.7294 15.8121 38.7564 14.7864C39.7835 13.7954 40.2971 12.5089 40.2971 10.9268C40.2622 9.32732 39.7313 8.01471 38.7042 6.98897C37.6772 5.99799 36.3542 5.48512 34.7352 5.45035C33.5689 5.45035 32.507 5.82414 31.5496 6.57172C30.5399 7.31929 29.861 8.47543 29.5128 10.0401H24.0555C24.334 7.22367 25.4742 4.85055 27.4761 2.92076C29.4432 1.00836 31.7933 0.034771 34.5263 0C37.9905 0.034771 40.7409 1.13875 42.7777 3.31194C44.7274 5.43297 45.7196 7.93648 45.7544 10.8225C45.7544 12.2828 45.4933 13.6911 44.9711 15.0471C44.3618 16.4032 43.2738 17.6115 41.7071 18.672C43.3086 19.7151 44.4662 20.9669 45.18 22.4273C45.8589 23.8877 46.1983 25.4176 46.1983 27.0171C46.1635 30.5811 45.0581 33.3888 42.8821 35.4403C40.741 37.544 37.9905 38.6132 34.6308 38.6479C32.037 38.6479 29.7391 37.8134 27.7372 36.1444C25.7353 34.4754 24.4384 32.0588 23.8466 28.8947H29.3039C29.7914 30.1638 30.479 31.1896 31.3668 31.9719C32.272 32.789 33.4731 33.1976 34.9702 33.1976C36.5718 33.1976 37.9209 32.65 39.0176 31.5547C40.1317 30.5289 40.7061 29.0685 40.741 27.1735C40.7061 25.2437 40.1317 23.7486 39.0176 22.6881C37.9209 21.6623 36.5282 21.1494 34.8397 21.1494H32.5418Z" fill="white"/>
+      </svg>
+      <span class="topbar-logo-text">Intelligence</span>
+    </a>
+    <div class="topbar-divider"></div>
+    <a href="index.html" style="text-decoration:none"><span class="topbar-brand">Business Signal</span></a>
+  </div>
+  <div class="topbar-right">
+    <a class="back-link" href="index.html">&larr; Dashboard</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">How It Works</div>
+    <h1 class="hero-title">Methodology</h1>
+    <p class="hero-subtitle">Narrative signal processing for institutional-grade corporate intelligence &mdash; reducing billions of data points into actionable daily insight on perception, trends, and predictions.</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- How Business Signal Works -->
+  <div class="intro">
+    <h2 class="intro-title">How Business Signal Works</h2>
+    <div class="intro-text">
+      <p>Business Signal is a daily intelligence product that tracks how a named business entity is perceived externally across five corporate arenas: innovation and technology credibility, operational resilience, leadership and governance quality, market reputation and brand standing, and ESG, sustainability and social licence.</p>
+      <p>Unlike survey-based reputation products that rely on predetermined questions and periodic polling, Business Signal processes the live global information environment &mdash; the same signals that investors, analysts, competitors, and regulators respond to every day. It detects what is being said, measures how sentiment is shifting, monitors which narratives are gaining traction, and generates forward-looking predictions about where perception is heading.</p>
+      <p>The system is built on NoahWire, a narrative signal processing engine designed for the complexity of news-grade information &mdash; where tone is mixed, claims compete, and corporate language masks shifting positions.</p>
+    </div>
+  </div>
+
+  <!-- 7 Core Principles -->
+  <div class="principles">
+
+    <div class="principle-card">
+      <div class="principle-header">
+        <div class="principle-num">01</div>
+        <h3 class="principle-title">Global Ingestion at Scale</h3>
+      </div>
+      <p class="principle-body">Continuously ingests open-source public information across news, wire services, public records, regulatory publications, press releases, corporate disclosures, digital media, broadcast transcripts, social media, analyst reports, specialist publications, and academic releases. The system processes billions of data packets from sources spanning every major geography and language.</p>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-header">
+        <div class="principle-num">02</div>
+        <h3 class="principle-title">Evidence Selection: 24-Hour Corpus</h3>
+      </div>
+      <p class="principle-body">Applies multi-stage filtering to reduce the global stream to approximately 2,000 unique, directly relevant items per 24-hour cycle. Uses deduplication, relevance gating, source normalisation, cross-source reinforcement, and time discipline to ensure every item in the corpus earns its place through evidential weight, not volume.</p>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-header">
+        <div class="principle-num">03</div>
+        <h3 class="principle-title">Narrative Signal Processing</h3>
+      </div>
+      <p class="principle-body">Converts evidence into machine-readable narrative structure. Each item is processed for polarity and stance (favourable, adverse, neutral, contested), momentum (rising, fading, stable), discourse temperature, propagation patterns across geographies, authority weighting based on source credibility, and coherence &mdash; whether signals reinforce each other or fragment.</p>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-header">
+        <div class="principle-num">04</div>
+        <h3 class="principle-title">Why Sentiment Is Different</h3>
+      </div>
+      <p class="principle-body">Designed for news-grade complexity, not product reviews. The system handles mixed tone, indirect criticism, corporate language, narrative framing, competing claims, and strategy-driven sentiment. It detects institutional caution &mdash; the gap between what is said officially and what the evidence suggests &mdash; through structured analysis rather than keyword matching.</p>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-header">
+        <div class="principle-num">05</div>
+        <h3 class="principle-title">No Predetermined Answers</h3>
+      </div>
+      <p class="principle-body">The system identifies emerging concerns, shifting perceptions, new threats, and contested topics as they are shaped by the evidence itself. There are no predetermined questionnaires or fixed assumptions. Each daily cycle begins with the information environment as it stands, not as it was expected to be.</p>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-header">
+        <div class="principle-num">06</div>
+        <h3 class="principle-title">From Measurement to Forecast</h3>
+      </div>
+      <p class="principle-body">Models momentum, heat, authority mix, propagation, coherence, and trigger conditions to estimate where narratives are heading. The system forecasts escalation, persistence, fading, fragmentation, and regional migration &mdash; giving decision-makers forward visibility on perception shifts before they become established positions.</p>
+    </div>
+
+    <div class="principle-card">
+      <div class="principle-header">
+        <div class="principle-num">07</div>
+        <h3 class="principle-title">Built for Scrutiny</h3>
+      </div>
+      <p class="principle-body">Every assessment is time-bounded, built on deduplicated evidence, attributed to identifiable narratives, and accompanied by confidence levels that reflect evidence strength rather than opinion. The system is designed to withstand board-level challenge: every number can be traced back to the signals that produced it.</p>
+    </div>
+
+  </div>
+
+  <!-- Intelligence Pipeline -->
+  <div class="pipeline-section">
+    <h2 class="pipeline-title">The Intelligence Pipeline</h2>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">STAGE 1</div>
+        <div class="pipeline-step-name">Global Ingestion</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">STAGE 2</div>
+        <div class="pipeline-step-name">Evidence Selection</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">STAGE 3</div>
+        <div class="pipeline-step-name">Signal Processing</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">STAGE 4</div>
+        <div class="pipeline-step-name">Trend Analysis</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">STAGE 5</div>
+        <div class="pipeline-step-name">Sentiment Scoring</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="pipeline-step-num">STAGE 6</div>
+        <div class="pipeline-step-name">Forward Predictions</div>
+      </div>
+    </div>
+    <p class="pipeline-note">Each stage operates autonomously within a structured pipeline &mdash; no human editorial intervention between ingestion and output.</p>
+  </div>
+
+  <!-- What the System Produces -->
+  <div class="output-section">
+    <h2 class="output-title">What the System Produces</h2>
+    <div class="output-grid">
+      <div class="output-card">
+        <div class="output-icon">&#128200;</div>
+        <div class="output-label">Sentiment</div>
+        <p class="output-desc">Per-arena perception scores calibrated daily against the global information environment.</p>
+      </div>
+      <div class="output-card">
+        <div class="output-icon">&#128202;</div>
+        <div class="output-label">Trends</div>
+        <p class="output-desc">Momentum tracking across 30+ narrative threads per arena &mdash; rising, stable, or fading with geographic propagation data.</p>
+      </div>
+      <div class="output-card">
+        <div class="output-icon">&#128301;</div>
+        <div class="output-label">Predictions</div>
+        <p class="output-desc">Forward-looking probability estimates on narrative intensification, posture shifts, and trigger conditions over 30&ndash;365 day horizons.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">Powered by NOAH</span>
+      <span class="footer-label">73 Intelligence</span>
+    </div>
+    <div class="footer-text">&copy; Noah Wire Services 2026</div>
+  </div>
+  <div class="footer-credit">Intelligence architecture by Noah Wire Services &middot; Prepared for 73 Strings</div>
+</div>
+
+</body>
+</html>
