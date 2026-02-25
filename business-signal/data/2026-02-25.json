@@ -1,0 +1,681 @@
+{
+  "proptech": {
+    "executive_summary": "What is happening\nExternal perception of institutional real-estate data and analytics platforms is running favourable overall (75), with attention concentrated in the United States and spilling into Canada, the United Kingdom, and Europe. The strongest visibility sits in Technology Infrastructure AI And Cyber Risk (AI-enabled platform rollout), Regulation Data Licensing And Compliance (SEC, FinCEN, and California privacy requirements), and Capital Markets Funding And M And A Conditions (Blackstone- and PitchBook-linked funding concentration framing), while CRE Cycle Exposure And Commercial Resilience remains under-covered relative to expected exposure. In the dashboard, Competitive Positioning And Market Structure sits at 87% external perception (Strong signal), anchored in CoStar Group and Compass positioning signals.\nWhy it matters\nThe current perception mix reinforces the category\u2019s \u201cinfrastructure-like\u201d framing: platform scale, compliance readiness, and AI-enabled rollout narratives are acting as credibility markers in enterprise adoption discussions. The main standing boundary is not a negative story but a missing one: limited signal tying CRE-cycle stress directly to platform demand, retention risk, or customer budgets weakens near-term clarity on downside resilience.\nWhat to watch\nOver the next 90 days, the forward outlook is dominated by intensifying trajectories in AI rollout narratives and compliance-driven workflow requirements, with the clearest trigger for cooling being a reduction in repetition across markets and a shift toward more episodic coverage. Watch for whether enforcement and compliance threads broaden from procedural requirements into wider sector risk framing (especially around California privacy enforcement and AML reporting requirements), and whether CRE-cycle stress begins to appear as a direct procurement/renewal driver.",
+    "perception_dashboard": [
+      {
+        "proposition": "Competitive Positioning And Market Structure",
+        "global_view": 87,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Competitive Positioning And Market Structure",
+        "emerging": "",
+        "is_arena_summary": true
+      },
+      {
+        "proposition": "Sector framing: defensible vs commoditising",
+        "global_view": 88,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Competitive Positioning And Market Structure",
+        "emerging": "",
+        "is_arena_summary": false
+      },
+      {
+        "proposition": "Enterprise adoption and market-share momentum",
+        "global_view": 85,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Competitive Positioning And Market Structure",
+        "emerging": "",
+        "is_arena_summary": false
+      },
+      {
+        "proposition": "Regulation Data Licensing And Compliance",
+        "global_view": 85,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Regulation Data Licensing And Compliance",
+        "emerging": "",
+        "is_arena_summary": true
+      },
+      {
+        "proposition": "Regulatory, privacy, licensing, disclosure impacts",
+        "global_view": 85,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Regulation Data Licensing And Compliance",
+        "emerging": "",
+        "is_arena_summary": false
+      },
+      {
+        "proposition": "Cre Cycle Exposure And Commercial Resilience",
+        "global_view": 45,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Cre Cycle Exposure And Commercial Resilience",
+        "emerging": "",
+        "is_arena_summary": true
+      },
+      {
+        "proposition": "CRE-cycle stress linkage to demand and budgets",
+        "global_view": 45,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Cre Cycle Exposure And Commercial Resilience",
+        "emerging": "",
+        "is_arena_summary": false
+      },
+      {
+        "proposition": "Technology Infrastructure Ai And Cyber Risk",
+        "global_view": 80,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Technology Infrastructure Ai And Cyber Risk",
+        "emerging": "",
+        "is_arena_summary": true
+      },
+      {
+        "proposition": "Cloud, API, AI/ML, cyber resilience narratives",
+        "global_view": 80,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Technology Infrastructure Ai And Cyber Risk",
+        "emerging": "",
+        "is_arena_summary": false
+      },
+      {
+        "proposition": "Capital Markets Funding And M And A Conditions",
+        "global_view": 85,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Capital Markets Funding And M And A Conditions",
+        "emerging": "",
+        "is_arena_summary": true
+      },
+      {
+        "proposition": "Venture appetite, valuation discipline, consolidation",
+        "global_view": 85,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Capital Markets Funding And M And A Conditions",
+        "emerging": "",
+        "is_arena_summary": false
+      },
+      {
+        "proposition": "Company And Peer Operating Signals",
+        "global_view": 64,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Company And Peer Operating Signals",
+        "emerging": "",
+        "is_arena_summary": true
+      },
+      {
+        "proposition": "Operating signals across Cherre and named peers",
+        "global_view": 80,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Company And Peer Operating Signals",
+        "emerging": "",
+        "is_arena_summary": false
+      },
+      {
+        "proposition": "30\u201390 day sector trajectory and trigger clarity",
+        "global_view": 48,
+        "sovereign_view": null,
+        "signal_strength": "Strong",
+        "arena": "Company And Peer Operating Signals",
+        "emerging": "",
+        "is_arena_summary": false
+      }
+    ],
+    "trends": [],
+    "arena_context": {
+      "Competitive Positioning And Market Structure": {
+        "name": "Competitive Positioning And Market Structure",
+        "spot_checked_trends": "1",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "United States, Canada, United Kingdom",
+        "discourse": "public commentary is moderate",
+        "echo_risk": "No",
+        "articles_count": "31",
+        "data_sources": "Newsfeed + web check",
+        "summary": "Competitive Positioning And Market Structure standing is Strong, driven by favourable cross-provider framing around CoStar Group + operational + real estate and Compass + operational + real estate \u2014 momentum is Stable.",
+        "posture": "Strong"
+      },
+      "Regulation Data Licensing And Compliance": {
+        "name": "Regulation Data Licensing And Compliance",
+        "spot_checked_trends": "6",
+        "momentum": "Stable",
+        "geo_concentration": "Medium",
+        "geographies": "United States, California, Kentucky",
+        "discourse": "public commentary is moderate",
+        "echo_risk": "No",
+        "articles_count": "111",
+        "data_sources": "Newsfeed + web check",
+        "summary": "Regulation Data Licensing And Compliance standing is Strong, anchored in repeating compliance and reporting narratives tied to SEC + regulatory + real estate, FinCEN + regulatory + real estate, California privacy regulator + regulatory + data privacy, and Nasdaq + financial + finance \u2014 momentum is Stable.",
+        "posture": "Strong"
+      },
+      "Cre Cycle Exposure And Commercial Resilience": {
+        "name": "Cre Cycle Exposure And Commercial Resilience",
+        "spot_checked_trends": "0",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "None",
+        "discourse": "public commentary is muted",
+        "echo_risk": "No",
+        "articles_count": "0",
+        "data_sources": "Newsfeed only",
+        "summary": "Cre Cycle Exposure And Commercial Resilience standing is Insufficient data, with silence on expected transaction slowdown, refinancing pressure, and valuation uncertainty linkages to platform demand \u2014 momentum is Stable.",
+        "posture": "Insufficient data"
+      },
+      "Technology Infrastructure Ai And Cyber Risk": {
+        "name": "Technology Infrastructure Ai And Cyber Risk",
+        "spot_checked_trends": "2",
+        "momentum": "Stable",
+        "geo_concentration": "Medium",
+        "geographies": "United States, Europe, North America",
+        "discourse": "public commentary intensity is elevated",
+        "echo_risk": "No",
+        "articles_count": "39",
+        "data_sources": "Newsfeed + web check",
+        "summary": "Technology Infrastructure Ai And Cyber Risk standing is Strong, driven by rollout and adoption narratives around Homes.com + operational + real estate, with additional episodic visibility tied to TouchSource partnership signalling \u2014 momentum is Stable.",
+        "posture": "Strong"
+      },
+      "Capital Markets Funding And M And A Conditions": {
+        "name": "Capital Markets Funding And M And A Conditions",
+        "spot_checked_trends": "3",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "United States, Europe, Canada",
+        "discourse": "public commentary is moderate",
+        "echo_risk": "No",
+        "articles_count": "99",
+        "data_sources": "Newsfeed + web check",
+        "summary": "Capital Markets Funding And M And A Conditions standing is Strong, led by repeating funding-concentration narratives tied to Blackstone + financial + real estate and PitchBook + financial + real estate; a thin Canada-focused adjunct thread centres on Canadian Imperial Bank of Commerce + financial + real estate \u2014 momentum is Stable.",
+        "posture": "Strong"
+      },
+      "Company And Peer Operating Signals": {
+        "name": "Company And Peer Operating Signals",
+        "spot_checked_trends": "2",
+        "momentum": "Stable",
+        "geo_concentration": "Low",
+        "geographies": "United States, Europe, Canada",
+        "discourse": "public commentary is moderate",
+        "echo_risk": "No",
+        "articles_count": "24",
+        "data_sources": "Newsfeed + web check",
+        "summary": "Company And Peer Operating Signals standing is Strong, with operating-signal visibility skewed toward major platform ecosystems (Homes.com + operational + real estate; CoStar Group + operational + real estate; Compass + operational + real estate) rather than sustained peer-wide reporting, and with limited Cherre-specific prominence in the admitted signals \u2014 momentum is Stable.",
+        "posture": "Strong"
+      }
+    },
+    "strength_signals": [],
+    "strength_signal_details": [],
+    "vulnerability_signals": [],
+    "vuln_signal_details": [
+      {
+        "severity": "Medium",
+        "horizon": "Medium",
+        "description": "Regulatory scrutiny constraining revenue-management tooling increases compliance and litigation exposure in adjacent platform contexts, with permissibility boundaries framed through enforcement and legal commentary in the United States.",
+        "arena": "Regulation Data Licensing And Compliance"
+      }
+    ],
+    "priorities": [
+      {
+        "horizon": "Near-term risks and opportunities",
+        "action": "Risk",
+        "arena": "Cre Cycle Exposure And Commercial Resilience",
+        "trend": "None",
+        "description": "CRE-cycle impact signals remain absent despite expected exposure in transaction slowdown, refinancing pressure, and valuation uncertainty topics"
+      },
+      {
+        "horizon": "Medium-term risks and opportunities",
+        "action": "Opportunity",
+        "arena": "Regulation Data Licensing And Compliance",
+        "trend": "TRU-T13",
+        "description": "Regulation Data Licensing And Compliance standing is favourable but sits alongside an enforcement-risk thread tied to revenue-management tooling scrutiny"
+      },
+      {
+        "horizon": "Medium-term risks and opportunities",
+        "action": "Risk",
+        "arena": "Cre Cycle Exposure And Commercial Resilience",
+        "trend": "None",
+        "description": "CRE-cycle exposure assessment remains unresolved due to limited direct demand, renewal, and budget linkage in the monitoring set"
+      },
+      {
+        "horizon": "Medium-term risks and opportunities",
+        "action": "Risk",
+        "arena": "Company And Peer Operating Signals",
+        "trend": "None",
+        "description": "The 30\u201390 day forward trajectory is not well-resolved beyond general funding and scale narratives, leaving trigger sensitivity unclear"
+      }
+    ],
+    "standing_overview": [
+      {
+        "dimension": "Structural Position",
+        "assessment": "Strong",
+        "driver": "Strong standing across Competitive Positioning And Market Structure, Regulation Data Licensing And Compliance, Technology Infrastructure Ai And Cyber Risk, Capital Markets Funding And M And A Conditions, and Company And Peer Operating Signals; primary named drivers include CoStar Group, Compass, SEC, FinCEN, California privacy enforcement narratives, Blackstone, PitchBook, and Homes.com rollout framing."
+      },
+      {
+        "dimension": "Perception Momentum",
+        "assessment": "Stable",
+        "driver": "Momentum is stable across arenas, with intensification risk concentrated in repeating AI rollout and compliance narratives rather than a shift in direction."
+      },
+      {
+        "dimension": "Vulnerability Concentration",
+        "assessment": "Moderate",
+        "driver": "One medium-severity vulnerability signal sits inside an otherwise favourable compliance arena, centred on enforcement-driven constraints affecting adjacent tooling."
+      },
+      {
+        "dimension": "Evidence Density",
+        "assessment": "High",
+        "driver": "Strong evidence base across monitored arenas."
+      }
+    ],
+    "conclusion": "The perception picture for institutional real-estate data and analytics platforms remains favourable and increasingly infrastructure-framed: compliance readiness (SEC, FinCEN, and California privacy requirements), capital concentration narratives (Blackstone and PitchBook-linked framing), and AI-enabled rollout visibility (Homes.com-led ecosystem discussion) are providing repeated credibility anchors, most visibly in the United States with spillover into Canada, the United Kingdom, and Europe. The most material boundary condition is not a deteriorating arena but an under-resolved one: CRE-cycle stress is not yet clearly linked in external coverage to platform demand, retention, or budget pressure, leaving resilience and downside sensitivity less clearly evidenced than other arenas.\nStanding posture this cycle: Strengthening",
+    "score": 74,
+    "posture": "Strong",
+    "trend_count": 14,
+    "strength_count": 0,
+    "vuln_count": 1,
+    "predictions": [
+      {
+        "title": "Regulation Data Licensing And Compliance",
+        "probability": 68,
+        "horizon": "90 days",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "Across compliance and reporting narratives, the pipeline assesses a 68% probability of intensification over the next 90 days (Strong signal, Intensifying) spanning: regulatory compliance requirements ..."
+      },
+      {
+        "title": "Capital Markets Funding And M And A Conditions",
+        "probability": 68,
+        "horizon": "90 days",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "Capital concentration and private-market funding discipline narratives both sit at 68% probability of intensifying over 90 days (Strong signal, Intensifying)."
+      },
+      {
+        "title": "Competitive Positioning And Market Structure",
+        "probability": 68,
+        "horizon": "90 days",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "Competitive positioning framed through scale and data coverage shows 68% probability of intensifying over 90 days (Strong signal, Intensifying), with the trajectory dependent on continued cross-provid..."
+      },
+      {
+        "title": "Company And Peer Operating Signals",
+        "probability": 68,
+        "horizon": "90 days",
+        "direction": "Intensifying",
+        "signal_strength": "Strong",
+        "trigger": "",
+        "type": "",
+        "narrative": "Reporting-cycle framing that reinforces execution credibility for major operators shows 68% probability of intensifying over 90 days (Strong signal, Intensifying), provided it continues to repeat acro..."
+      }
+    ],
+    "arena_predictions": {
+      "Regulation Data Licensing And Compliance": {
+        "has_outlook": true,
+        "outlook_sentence": "Across compliance and reporting narratives, the pipeline assesses a 68% probability of intensification over the next 90 days (Strong signal, Intensifying) spanning: regulatory compliance requirements reinforcing platform credibility, privacy enforcement keeping compliance narratives active, and AML ",
+        "probability": 68
+      },
+      "Capital Markets Funding And M And A Conditions": {
+        "has_outlook": true,
+        "outlook_sentence": "Capital concentration and private-market funding discipline narratives both sit at 68% probability of intensifying over 90 days (Strong signal, Intensifying). The signal weakens if consolidation framing stops repeating and funding commentary becomes more episodic.",
+        "probability": 68
+      },
+      "Competitive Positioning And Market Structure": {
+        "has_outlook": true,
+        "outlook_sentence": "Competitive positioning framed through scale and data coverage shows 68% probability of intensifying over 90 days (Strong signal, Intensifying), with the trajectory dependent on continued cross-provider comparisons.",
+        "probability": 68
+      },
+      "Company And Peer Operating Signals": {
+        "has_outlook": true,
+        "outlook_sentence": "Reporting-cycle framing that reinforces execution credibility for major operators shows 68% probability of intensifying over 90 days (Strong signal, Intensifying), provided it continues to repeat across sources rather than remaining strictly company-specific.\nOutlook: 9 signals assessed, dominant di",
+        "probability": 68
+      },
+      "Peer Operating Signals": {
+        "has_outlook": true,
+        "outlook_sentence": "68% probability that Peer Operating Signals narratives intensify over the next 90 days (Strong signal)",
+        "probability": 68
+      },
+      "Technology Infrastructure": {
+        "has_outlook": true,
+        "outlook_sentence": "73% probability that Technology Infrastructure narratives intensify over the next 90 days (Strong signal)",
+        "probability": 73
+      },
+      "Capital Markets": {
+        "has_outlook": true,
+        "outlook_sentence": "68% probability that Capital Markets narratives intensify over the next 90 days (Strong signal)",
+        "probability": 68
+      },
+      "Compliance": {
+        "has_outlook": true,
+        "outlook_sentence": "68% probability that Compliance narratives intensify over the next 90 days (Strong signal)",
+        "probability": 68
+      },
+      "Competitive Positioning": {
+        "has_outlook": true,
+        "outlook_sentence": "68% probability that Competitive Positioning narratives intensify over the next 90 days (Strong signal)",
+        "probability": 68
+      }
+    },
+    "exec_what": "External perception of institutional real-estate data and analytics platforms is running favourable overall (75), with attention concentrated in the United States and spilling into Canada, the United Kingdom, and Europe. The strongest visibility sits in Technology Infrastructure AI And Cyber Risk (AI-enabled platform rollout), Regulation Data Licensing And Compliance (SEC, FinCEN, and California privacy requirements), and Capital Markets Funding And M And A Conditions (Blackstone- and PitchBook-linked funding concentration framing), while CRE Cycle Exposure And Commercial Resilience remains under-covered relative to expected exposure. In the dashboard, Competitive Positioning And Market Structure sits at 87% external perception (Strong signal), anchored in CoStar Group and Compass positioning signals.",
+    "exec_why": "The current perception mix reinforces the category\u2019s \u201cinfrastructure-like\u201d framing: platform scale, compliance readiness, and AI-enabled rollout narratives are acting as credibility markers in enterprise adoption discussions. The main standing boundary is not a negative story but a missing one: limited signal tying CRE-cycle stress directly to platform demand, retention risk, or customer budgets weakens near-term clarity on downside resilience.",
+    "exec_watch": "Over the next 90 days, the forward outlook is dominated by intensifying trajectories in AI rollout narratives and compliance-driven workflow requirements, with the clearest trigger for cooling being a reduction in repetition across markets and a shift toward more episodic coverage. Watch for whether enforcement and compliance threads broaden from procedural requirements into wider sector risk framing (especially around California privacy enforcement and AML reporting requirements), and whether CRE-cycle stress begins to appear as a direct procurement/renewal driver.",
+    "profile_snapshot": {
+      "5.1 Sector / Entity Identity": [
+        {
+          "field": "Entity name",
+          "detail": "Institutional / enterprise real estate data and analytics platforms (PropTech infrastructure)"
+        },
+        {
+          "field": "Entity type",
+          "detail": "sector"
+        },
+        {
+          "field": "Sector definition",
+          "detail": "Platforms that aggregate, normalise and deliver property, market and workflow data via software and integrations for institutional CRE use."
+        },
+        {
+          "field": "Market structure",
+          "detail": "Concentrated enterprise platform landscape with scale advantages in data coverage and integrations; ongoing consolidation pressure."
+        },
+        {
+          "field": "Primary geographies",
+          "detail": "North America, Europe, global"
+        }
+      ],
+      "5.2 Operating Environment": [
+        {
+          "field": "Key players",
+          "detail": "CoStar Group, Yardi, MRI Software, Altus Group, Measurabl"
+        },
+        {
+          "field": "Regulatory environment",
+          "detail": "Multi-jurisdiction privacy rules, data-broker regimes, financial reporting obligations, and AML-related real estate reporting requirements."
+        },
+        {
+          "field": "Technology stack",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Recent cycle context",
+          "detail": "not confirmed"
+        },
+        {
+          "field": "Official domains",
+          "detail": "not confirmed"
+        }
+      ],
+      "5.3 Standing Boundaries": [
+        {
+          "field": "What is known",
+          "detail": "What remains to verify"
+        },
+        {
+          "field": "Baseline profile facts were confirmed for entity identity, market structure, key players, and regulatory environment.",
+          "detail": "None"
+        }
+      ]
+    },
+    "structural_contradictions": "No structural contradictions identified. All active trends are internally consistent.",
+    "diagnostic_coverage": [],
+    "sector_monitoring": "Structured sector monitoring data for 6 arenas is available in the accompanying data payload. Top rising entities this cycle: CoStar Group + operational + real estate, Compass + regulatory + real estate, Homes.com + operational + real estate, Blackstone + financial + real estate. Top negative entities: Canadian Imperial Bank of Commerce + financial + real estate.",
+    "evidence_trends": [
+      {
+        "tru_id": "TRU-T1",
+        "cluster_id": "T1",
+        "arena": "regulation_data_licensing_and_compliance",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T2",
+        "cluster_id": "T2",
+        "arena": "capital_markets_funding_and_m_and_a_conditions",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T3",
+        "cluster_id": "T3",
+        "arena": "capital_markets_funding_and_m_and_a_conditions",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T4",
+        "cluster_id": "T4",
+        "arena": "technology_infrastructure_ai_and_cyber_risk",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T5",
+        "cluster_id": "T5",
+        "arena": "competitive_positioning_and_market_structure",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T6",
+        "cluster_id": "T6",
+        "arena": "regulation_data_licensing_and_compliance",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T7",
+        "cluster_id": "T7",
+        "arena": "company_and_peer_operating_signals",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T8",
+        "cluster_id": "T8",
+        "arena": "capital_markets_funding_and_m_and_a_conditions",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T9",
+        "cluster_id": "T9",
+        "arena": "regulation_data_licensing_and_compliance",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T10",
+        "cluster_id": "T10",
+        "arena": "regulation_data_licensing_and_compliance",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T11",
+        "cluster_id": "T11",
+        "arena": "regulation_data_licensing_and_compliance",
+        "signal_strength": "Strong"
+      },
+      {
+        "tru_id": "TRU-T12",
+        "cluster_id": "T12",
+        "arena": "company_and_peer_operating_signals",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T13",
+        "cluster_id": "T13",
+        "arena": "regulation_data_licensing_and_compliance",
+        "signal_strength": "Thin"
+      },
+      {
+        "tru_id": "TRU-T14",
+        "cluster_id": "T14",
+        "arena": "technology_infrastructure_ai_and_cyber_risk",
+        "signal_strength": "Thin"
+      }
+    ],
+    "evidence_keys": {},
+    "evidence_sources": [
+      {
+        "evidence_id": "EVD-7LX-BS-003",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-005",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "capital_markets_funding_and_m_and_a_conditions"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-007",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "capital_markets_funding_and_m_and_a_conditions"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-008",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "capital_markets_funding_and_m_and_a_conditions"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-009",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "technology_infrastructure_ai_and_cyber_risk"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-010",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "technology_infrastructure_ai_and_cyber_risk"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-011",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "competitive_positioning_and_market_structure"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-012",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "competitive_positioning_and_market_structure"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-013",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-014",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-015",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "company_and_peer_operating_signals"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-016",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "company_and_peer_operating_signals"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-017",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_c",
+        "arena": "capital_markets_funding_and_m_and_a_conditions"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-018",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_c",
+        "arena": "capital_markets_funding_and_m_and_a_conditions"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-019",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-020",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-021",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-022",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-023",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-024",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-025",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_c",
+        "arena": "company_and_peer_operating_signals"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-026",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_c",
+        "arena": "company_and_peer_operating_signals"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-027",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-028",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_a",
+        "arena": "regulation_data_licensing_and_compliance"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-030",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "technology_infrastructure_ai_and_cyber_risk"
+      },
+      {
+        "evidence_id": "EVD-7LX-BS-031",
+        "source_workflow": "7LX-BS",
+        "authority_tier": "tier_b",
+        "arena": "technology_infrastructure_ai_and_cyber_risk"
+      }
+    ],
+    "link": "http://73strings.makes.news/gb/en/market-structure/2026/02/25/business-standing-brief-institutional-real-estate-data-and-analytics-platforms-proptech-infrastructure-regulation-data-licensing-and-compliance-prestige-holds-2026-02-25-kjrf",
+    "ref": "KJRF"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "date": "2026-02-25",
+  "composite_score": 74,
+  "composite_posture": "Strong",
+  "composite_delta": null,
+  "pillars": {
+    "proptech": {
+      "name": "PropTech Infrastructure",
+      "score": 74,
+      "posture": "Strong",
+      "delta": null,
+      "trend_count": 14,
+      "strength_count": 0,
+      "vuln_count": 1,
+      "executive_summary": "What is happening\nExternal perception of institutional real-estate data and analytics platforms is running favourable overall (75), with attention concentrated in the United States and spilling into C"
+    }
+  }
+}

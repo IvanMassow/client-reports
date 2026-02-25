@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1200px; height: 630px; overflow: hidden; background: #141929; }
+.card { width: 1200px; height: 630px; background: #141929; position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.flag { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background:
+    radial-gradient(ellipse 120% 80% at 80% 30%, rgba(53,56,255,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 120% at 20% 80%, rgba(207,166,76,0.08) 0%, transparent 50%);
+  opacity: 1; }
+.overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(24,29,53,0.55); }
+.brand { position: relative; z-index: 2; text-align: center; margin-top: -30px; }
+.title { font-family: 'Montserrat', sans-serif; font-size: 160px; font-weight: 700; color: #FFFFFF; letter-spacing: 0.30em; text-transform: uppercase; }
+.subtitle { font-family: 'Lora', Georgia, serif; font-size: 48px; font-weight: 400; font-style: italic; color: rgba(255,255,255,0.7); letter-spacing: 0.12em; margin-top: 16px; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="card">
+  <div class="flag"></div>
+  <div class="overlay"></div>
+  <div class="brand">
+    <div class="title">73</div>
+    <div class="subtitle">Business Signal</div>
+  </div>
+</div>
+</body></html>

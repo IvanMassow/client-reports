@@ -30,12 +30,12 @@ from pathlib import Path
 # ─── Configuration ────────────────────────────────────────────────
 
 # RSS feed URL — to be configured when the business_signal feed goes live
-RSS_URL = ""  # e.g. "https://ENTITY.makes.news/section/XXXXX/rss.xml"
+RSS_URL = "https://73strings.makes.news/rss.xml"
 POLL_INTERVAL = 300  # 5 minutes
 MAX_POLLS = 72       # 6 hours max wait
 
 # Target entity — configurable per deployment
-ENTITY_NAME = ""  # e.g. "Acme Corp" — set when feed is configured
+ENTITY_NAME = "Institutional Real Estate Data & Analytics Platforms"
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
 DATA_DIR = SCRIPT_DIR / "data"
@@ -44,67 +44,33 @@ DATA_DIR.mkdir(exist_ok=True)
 # ─── Arena Definitions (Corporate Standing) ──────────────────────
 
 PILLARS = {
-    "innovation": {
-        "name": "Innovation & Technology Credibility",
-        "short": "Innovation",
-        "headline": "CORPORATE STANDING BRIEF — INNOVATION & TECHNOLOGY CREDIBILITY",
+    "proptech": {
+        "name": "PropTech Infrastructure",
+        "short": "PropTech",
+        "headline": "BUSINESS STANDING BRIEF — INSTITUTIONAL REAL ESTATE DATA & ANALYTICS PLATFORMS",
         "color": "#3B6FA8",
         "color_light": "#E4EDF8",
         "color_mid": "#5688C0",
-        "slug": "innovation",
-        "keywords": ["innovation", "technology", "tech credibility", "R&D"],
-        "gold_word": "Technology",
+        "slug": "proptech",
+        "keywords": ["proptech", "institutional real estate", "data and analytics platforms",
+                     "real estate data", "proptech infrastructure"],
+        "gold_word": "Infrastructure",
         "pillar_num": "A1",
     },
-    "operations": {
-        "name": "Operational Resilience & Execution",
-        "short": "Operations",
-        "headline": "CORPORATE STANDING BRIEF — OPERATIONAL RESILIENCE & EXECUTION",
-        "color": "#3D8B6E",
-        "color_light": "#E2F2EB",
-        "color_mid": "#52A688",
-        "slug": "operations",
-        "keywords": ["operational", "resilience", "execution", "operations"],
-        "gold_word": "Execution",
-        "pillar_num": "A2",
-    },
-    "leadership": {
-        "name": "Leadership & Governance Quality",
-        "short": "Leadership",
-        "headline": "CORPORATE STANDING BRIEF — LEADERSHIP & GOVERNANCE QUALITY",
-        "color": "#7C5295",
-        "color_light": "#F0E6F6",
-        "color_mid": "#9568B0",
-        "slug": "leadership",
-        "keywords": ["leadership", "governance", "board", "management quality"],
-        "gold_word": "Governance",
-        "pillar_num": "A3",
-    },
-    "reputation": {
-        "name": "Market Reputation & Brand Standing",
-        "short": "Reputation",
-        "headline": "CORPORATE STANDING BRIEF — MARKET REPUTATION & BRAND STANDING",
-        "color": "#B08830",
-        "color_light": "#F8F0DA",
-        "color_mid": "#C9A040",
-        "slug": "reputation",
-        "keywords": ["reputation", "brand", "market standing", "brand standing"],
-        "gold_word": "Brand",
-        "pillar_num": "A4",
-    },
-    "esg": {
-        "name": "ESG, Sustainability & Social Licence",
-        "short": "ESG",
-        "headline": "CORPORATE STANDING BRIEF — ESG, SUSTAINABILITY & SOCIAL LICENCE",
-        "color": "#2D8B7B",
-        "color_light": "#E0F2EF",
-        "color_mid": "#44A89A",
-        "slug": "esg",
-        "keywords": ["esg", "sustainability", "social licence", "social license", "environmental"],
-        "gold_word": "Sustainability",
-        "pillar_num": "A5",
-    },
 }
+
+# ─── Sub-Arena Definitions (entity-specific, parsed from report) ─────
+# These are the 6 perception arenas for this entity as defined in the
+# Business Standing Brief. They appear in Section 4 (Perception Dashboard)
+# and Section 6 (Standing Context). The poller parses them dynamically.
+REPORT_ARENAS = [
+    {"key": "competitive", "name": "Competitive Positioning & Market Structure", "short": "Competitive", "color": "#3B6FA8"},
+    {"key": "regulation", "name": "Regulation Data Licensing & Compliance", "short": "Regulation", "color": "#B08830"},
+    {"key": "cre_cycle", "name": "CRE Cycle Exposure & Commercial Resilience", "short": "CRE Cycle", "color": "#7C5295"},
+    {"key": "technology", "name": "Technology Infrastructure AI & Cyber Risk", "short": "Technology", "color": "#3D8B6E"},
+    {"key": "capital", "name": "Capital Markets Funding & M&A Conditions", "short": "Capital", "color": "#2D8B7B"},
+    {"key": "operating", "name": "Company & Peer Operating Signals", "short": "Operating", "color": "#C96B2F"},
+]
 
 
 # ─── RSS Fetching ─────────────────────────────────────────────────
@@ -151,19 +117,24 @@ def extract_ref_from_title(title):
 
 
 PILLAR_ARENA_KEYWORDS = {
-    "innovation": ["R&D pipeline", "technology credibility", "product innovation", "digital transformation", "tech leadership", "patent portfolio"],
-    "operations": ["supply chain", "operational execution", "cost efficiency", "production resilience", "delivery performance", "capacity management"],
-    "leadership": ["board governance", "management quality", "strategic vision", "leadership credibility", "corporate governance", "succession planning"],
-    "reputation": ["brand perception", "market positioning", "customer sentiment", "media coverage", "analyst view", "competitive standing"],
-    "esg": ["sustainability", "carbon footprint", "social impact", "diversity and inclusion", "regulatory compliance", "ethical conduct"],
+    "proptech": ["real estate data", "proptech", "data infrastructure", "analytics platforms",
+                 "commercial real estate", "property technology", "CRE data"],
 }
 
 def classify_pillar(title, desc=""):
-    """Match an RSS item title to one of our 5 pillars.
-    Uses best-match scoring (most keyword hits wins) to avoid false positives
-    from overlapping keywords. Falls back to description arena names."""
+    """Match an RSS item title to one of our pillars.
+    For Business Signal, we look for 'Business Standing Brief' in title
+    and match on entity keywords. Falls back to description arena names."""
     title_lower = title.lower()
-    # Score each pillar by number of keyword matches in title — most wins
+
+    # Primary: match Business Standing Brief items by entity keywords
+    if "business standing brief" in title_lower:
+        for key, pillar in PILLARS.items():
+            count = sum(1 for kw in pillar["keywords"] if kw in title_lower)
+            if count > 0:
+                return key
+
+    # Secondary: general keyword scoring
     scores = {}
     for key, pillar in PILLARS.items():
         count = sum(1 for kw in pillar["keywords"] if kw in title_lower)
@@ -171,6 +142,7 @@ def classify_pillar(title, desc=""):
             scores[key] = count
     if scores:
         return max(scores, key=scores.get)
+
     # Fallback: check description for arena-specific keywords
     if desc:
         desc_lower = desc.lower()
@@ -388,7 +360,7 @@ def parse_report_content(desc_html):
 
     # ─── Perception Dashboard ───
     dashboard_section = re.search(
-        r"Corporate Perception Dashboard.*?</h2>(.*?)(?=<h2|$)",
+        r"(?:Corporate|Entity) Perception Dashboard.*?</h2>(.*?)(?=<h2|$)",
         desc_html, re.DOTALL | re.IGNORECASE
     )
     if dashboard_section:
@@ -546,7 +518,7 @@ def parse_report_content(desc_html):
 
     # ─── Arena Context (Corporate Standing Context) ───
     arena_section = re.search(
-        r"Corporate Standing Context.*?</h2>(.*?)(?=<h2[^3-9]|$)",
+        r"(?:Corporate|Business) Standing Context.*?</h2>(.*?)(?=<h2[^3-9]|$)",
         desc_html, re.DOTALL | re.IGNORECASE
     )
     if arena_section:
@@ -2320,7 +2292,7 @@ def generate_pillar_report(key, pillar, pdata, target_date, report_link):
     pillar_nav_items = ""
     for pk, pv in PILLARS.items():
         active = ' class="pnav-active"' if pk == key else ""
-        report_file = f"uk-{pk}-{target_date}.html"
+        report_file = f"bs-{pk}-{target_date}.html"
         pillar_nav_items += f'<a href="{report_file}"{active}><span class="pnav-num">{pv["pillar_num"]}</span> {html.escape(pv["short"])}</a>\n'
 
     # Handle missing executive summary
@@ -3208,12 +3180,11 @@ body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; col
 
 /* Hero */
 .hero {{ background: var(--slate-deep); position: relative; overflow: hidden; margin-top: -1px; }}
-.hero-bg {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0; background:
-    radial-gradient(ellipse 120% 80% at 85% 40%, rgba(53,56,255,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 120% at 10% 80%, rgba(207,166,76,0.06) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(24,29,53,0.4) 0%, rgba(20,25,41,0.1) 100%);
-  opacity: 1; }}
-.hero::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(24,29,53,0.92) 0%, rgba(24,29,53,0.85) 22%, rgba(24,29,53,0.55) 48%, rgba(24,29,53,0.25) 72%, rgba(24,29,53,0.12) 100%); z-index: 1; pointer-events: none; }}
+.hero-bg {{ position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('images/hero-cityscape.png');
+    background-size: cover; background-position: right center;
+    opacity: 1; }}
+.hero::before {{ content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, rgba(20,25,41,0.97) 0%, rgba(20,25,41,0.94) 25%, rgba(20,25,41,0.78) 45%, rgba(20,25,41,0.45) 65%, rgba(20,25,41,0.15) 82%, rgba(20,25,41,0.05) 100%); z-index: 1; pointer-events: none; }}
 .hero::after {{ content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }}
 .hero-inner {{ max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 60px 32px 0; min-height: 395px; }}
 .hero-left {{ flex: 1; max-width: 540px; padding-top: 12px; }}
@@ -3755,12 +3726,13 @@ def run_once(target_date, require_all=True):
             print(f"    UNMATCHED          -> {item['title'][:60]}...")
 
     found = len(pillar_items)
-    print(f"\n  Matched {found}/5 pillars")
+    needed = len(PILLARS)
+    print(f"\n  Matched {found}/{needed} pillars")
 
-    if require_all and found < 5:
+    if require_all and found < needed:
         missing = [PILLARS[k]["short"] for k in PILLARS if k not in pillar_items]
         print(f"  Missing: {', '.join(missing)}")
-        print("  Waiting for all 5 reports...")
+        print(f"  Waiting for all {needed} reports...")
         return False
 
     if found == 0:

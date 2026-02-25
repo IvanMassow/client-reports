@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PropTech Infrastructure — Business Signal</title>
+<meta property="og:title" content="PropTech Infrastructure — Business Signal">
+<meta property="og:description" content="UK PropTech standing intelligence &mdash; 25 February 2026">
+<meta property="og:image" content="https://ivanmassow.github.io/client-reports/business-signal/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://ivanmassow.github.io/client-reports/business-signal/bs-proptech-2026-02-25.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PropTech Infrastructure — Business Signal">
+<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/business-signal/og-card.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --slate: #181D35; --slate-deep: #141929; --slate-mid: #282D45;
+  --accent: #CFA64C; --accent-light: #EDE0B8;
+  --red: #E53E3E; --green: #22C55E; --amber: #C4920A;
+  --text: #2C2C2C; --text-mid: #555B66; --text-muted: #8A8F98;
+  --bg: #FAFAF8; --bg-card: #FFFFFF; --border: #E8E6E1; --border-light: #F2F0EB;
+  --pillar: #3B6FA8; --pillar-light: #E4EDF8; --pillar-mid: #5688C0;
+  --card-radius: 8px; --card-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+
+/* Topbar */
+.topbar { background: var(--slate); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 52px; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 0 var(--slate); }
+.topbar-left { display: flex; align-items: center; gap: 14px; }
+.topbar-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }
+.topbar-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
+.topbar-brand { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.topbar-right { display: flex; align-items: center; gap: 20px; }
+.topbar-date { font-size: 11px; color: rgba(255,255,255,0.55); }
+.back-link { font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.45); text-decoration: none; padding: 6px 12px; border-radius: 4px; transition: all 0.15s; }
+
+/* Pillar Navigation */
+.pillar-nav { display: flex; align-items: center; gap: 2px; }
+.pillar-nav a { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 500; color: rgba(255,255,255,0.35); text-decoration: none; padding: 4px 8px; border-radius: 3px; transition: all 0.15s; letter-spacing: 0.5px; white-space: nowrap; }
+.pillar-nav a:hover { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
+.pillar-nav a.pnav-active { color: #fff; background: rgba(255,255,255,0.1); }
+.pnav-num { font-size: 8px; font-weight: 700; opacity: 0.5; margin-right: 3px; }
+.pillar-nav a.pnav-active .pnav-num { opacity: 0.8; }
+.back-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+/* Hero accent line */
+.hero-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, #FFD32B, #3538FF); z-index: 4; }
+/* Subtle grid pattern in hero */
+.hero-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px); background-size: 48px 48px; }
+
+/* Hero */
+.hero { background: var(--slate-deep); position: relative; overflow: hidden; margin-top: -1px; }
+.hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('images/hero-cityscape.png');
+    background-size: cover; background-position: right center;
+    opacity: 1; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, rgba(20,25,41,0.97) 0%, rgba(20,25,41,0.94) 25%, rgba(20,25,41,0.78) 45%, rgba(20,25,41,0.45) 65%, rgba(20,25,41,0.15) 82%, rgba(20,25,41,0.05) 100%); z-index: 1; pointer-events: none; }
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }
+.hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 60px 32px 0; min-height: 395px; }
+.hero-left { flex: 1; max-width: 540px; padding-top: 12px; }
+.hero-tag { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; background: var(--pillar-light); color: var(--pillar); display: inline-block; margin-bottom: 14px; }
+.hero-title { font-family: 'Lora', Georgia, serif; font-size: 42px; font-weight: 700; color: rgba(255,255,255,0.92); line-height: 1.12; margin-bottom: 12px; }
+.hero-meta { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 1px; margin-bottom: 20px; }
+.hero-desc { font-family: 'Lora', Georgia, serif; font-size: 14px; color: rgba(255,255,255,0.55); max-width: 440px; line-height: 1.7; }
+.score-block { width: 220px; flex-shrink: 0; margin-top: 8px; }
+.score-block-inner { background: rgba(24,29,53,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 24px 20px 20px; text-align: center; }
+.score-block-label { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 6px; }
+.score-block-num { font-family: 'Montserrat', sans-serif; font-size: 64px; font-weight: 800; color: white; line-height: 1; }
+.score-block-max { font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 4px; margin-bottom: 12px; }
+.posture { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
+.posture-mixed { color: var(--amber); background: rgba(196,146,10,0.12); }
+.posture-strong { color: var(--green); background: rgba(46,155,110,0.12); }
+.posture-weak { color: var(--red); background: rgba(217,64,72,0.12); }
+.posture-stable { color: var(--green); background: rgba(46,155,110,0.08); }
+
+/* Main Content */
+.main { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+.sec { margin-top: 48px; }
+.sec-head { padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 20px; display: flex; align-items: baseline; justify-content: space-between; }
+.sec-num { font-size: 11px; font-weight: 600; color: var(--pillar); letter-spacing: 1px; text-transform: uppercase; }
+.sec-title { font-family: 'Lora', Georgia, serif; font-size: 22px; font-weight: 600; color: var(--text); }
+.exec-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
+.exec-card p { font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
+.exec-card p:last-child { margin-bottom: 0; }
+
+/* Key Statistics */
+.key-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--border-light); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; margin-top: 28px; }
+.key-stat { background: var(--bg-card); padding: 20px 12px; text-align: center; }
+.key-stat-num { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 6px; color: var(--text); }
+.key-stat-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }
+
+/* Arena Strip — gauges below hero on white */
+.arena-strip { display: flex; flex-wrap: wrap; justify-content: center; background: var(--bg); position: relative; z-index: 3; border-bottom: 1px solid var(--border); }
+.arena-gauge { flex: 1; min-width: 120px; max-width: 220px; padding: 20px 12px 18px; text-align: center; border-right: 1px solid var(--border-light); }
+.arena-gauge:last-child { border-right: none; }
+.arena-gauge-name { font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text); margin-bottom: 10px; line-height: 1.3; min-height: 36px; display: flex; align-items: flex-end; justify-content: center; text-align: center; }
+.arena-gauge-score { font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+.arena-gauge-posture { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 4px; }
+.arena-gauge-momentum { font-size: 10px; color: var(--text-mid); }
+
+/* Arena Cards */
+.arena-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 0; box-shadow: var(--card-shadow); overflow: hidden; }
+.arena-card-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px 10px; }
+.arena-card-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.arena-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; flex-shrink: 0; }
+.arena-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border-light); padding: 0; }
+.arena-card-field { background: var(--bg-card); padding: 8px 18px; }
+.arena-field-label { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 2px; }
+.arena-field-val { font-size: 12px; font-weight: 600; color: var(--text); }
+.arena-card-geo { padding: 8px 18px 12px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-light); }
+
+/* Perception Dashboard Table */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: var(--card-radius); }
+.pd-table { width: 100%; min-width: 540px; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.pd-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.pd-table th:nth-child(2), .pd-table td:nth-child(2) { text-align: center; width: 120px; }
+.pd-table th:nth-child(3), .pd-table td:nth-child(3) { text-align: center; width: 120px; }
+.pd-table th:nth-child(4), .pd-table td:nth-child(4) { width: 150px; }
+.pd-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.pd-table tbody tr:last-child td { border-bottom: none; }
+.pd-prop { width: 50%; min-width: 280px; line-height: 1.5; }
+.pd-pct { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; white-space: nowrap; width: 90px; text-align: center; }
+.pd-arena { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+.conf-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; white-space: nowrap; }
+.conf-high { background: rgba(46,155,110,0.1); color: #166534; }
+.conf-medium { background: rgba(146,64,14,0.1); color: #92400e; }
+.conf-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* Signal Cards */
+.signal-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 20px 24px; box-shadow: var(--card-shadow); margin-bottom: 12px; }
+.signal-card-strength { border-left: 4px solid var(--green); }
+.signal-card-vuln { border-left: 4px solid var(--red); }
+.signal-card-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.signal-card-id { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 14px; color: var(--text); padding: 4px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.signal-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; }
+.signal-badge-strength { background: rgba(46,155,110,0.12); color: #166534; }
+.signal-badge-vuln { background: rgba(217,64,72,0.12); color: #991b1b; }
+.signal-badge-arena { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.signal-badge-horizon { background: var(--bg); color: var(--text-mid); border: 1px solid var(--border); }
+.char-reputational { background: rgba(196,146,10,0.1); color: #92400e; }
+.char-structural { background: rgba(46,155,110,0.1); color: #166534; }
+.char-strategic { background: rgba(88,64,14,0.08); color: #553f0e; }
+.char-policy { background: rgba(146,64,14,0.1); color: #92400e; }
+.sev-high { background: rgba(217,64,72,0.12); color: #991b1b; }
+.sev-medium { background: rgba(196,146,10,0.1); color: #92400e; }
+.sev-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+.signal-card-title { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+.signal-card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 10px; }
+.signal-card-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); }
+
+/* Standing Overview Table */
+.overview-table { width: 100%; min-width: 580px; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); overflow: hidden; box-shadow: var(--card-shadow); }
+.overview-table thead th { font-size: 10px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--border); background: var(--bg); }
+.overview-table tbody td { font-size: 13px; color: var(--text-mid); padding: 12px 16px; border-bottom: 1px solid var(--border-light); }
+.overview-table tbody tr:last-child td { border-bottom: none; }
+.ov-dim { font-weight: 600; color: var(--text); white-space: nowrap; }
+.ov-assess { font-weight: 700; white-space: nowrap; }
+
+/* Priorities */
+.priority-horizon { font-size: 14px; font-weight: 600; color: var(--text); margin: 20px 0 10px; text-transform: capitalize; }
+.priority-group { display: flex; flex-direction: column; gap: 8px; }
+.priority-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 14px 18px; box-shadow: var(--card-shadow); }
+.priority-action { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 10px; display: inline-block; margin-bottom: 6px; }
+.pri-address { background: rgba(217,64,72,0.12); color: #991b1b; }
+.pri-monitor { background: rgba(196,146,10,0.1); color: #92400e; }
+.pri-reinforce { background: rgba(46,155,110,0.12); color: #166534; }
+.pri-build { background: rgba(46,155,110,0.08); color: #166534; }
+.priority-arena { font-size: 11px; font-weight: 600; color: var(--pillar); display: block; margin-bottom: 4px; }
+.priority-desc { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
+
+/* Conclusion card */
+.conclusion-card { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--pillar); padding: 28px 32px; border-radius: var(--card-radius); box-shadow: var(--card-shadow); }
+.conclusion-card p { font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; margin-bottom: 14px; }
+.conclusion-card p:last-child { margin-bottom: 0; }
+.conclusion-posture { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 12px; font-weight: 600; }
+.conclusion-posture-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 14px; border-radius: 4px; }
+
+/* Sector Monitoring Panel */
+.sector-intro { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 18px; }
+.sector-group { margin-bottom: 16px; }
+.sector-group:last-child { margin-bottom: 0; }
+.sector-group-label { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; padding: 4px 0; }
+.sector-label-rising { color: var(--green); }
+.sector-label-negative { color: var(--red); }
+.sector-label-neutral { color: var(--text-muted); }
+.sector-entity-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.sector-entity { font-size: 12px; padding: 6px 12px; background: var(--bg); border: 1px solid var(--border-light); border-radius: 4px; display: inline-flex; align-items: center; gap: 6px; }
+.sector-entity-name { font-weight: 600; color: var(--text); }
+.sector-entity-type { font-size: 10px; color: var(--text-muted); font-style: italic; }
+.sector-entity-sector { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); }
+
+/* Evidence Index */
+.evidence-index-sec { margin-top: 32px; }
+.evidence-index-card { padding: 24px 28px; }
+.evidence-sub-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 20px 0 10px; }
+.evidence-sub-title:first-child { margin-top: 0; }
+.evidence-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 16px; }
+.evidence-table th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 6px 8px; text-align: left; border-bottom: 2px solid var(--border); }
+.evidence-table td { padding: 5px 8px; border-bottom: 1px solid var(--border-light); color: var(--text-mid); vertical-align: top; }
+.evd-id { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; font-weight: 600; color: var(--text); white-space: nowrap; }
+.sig-strong { color: var(--green); font-weight: 600; }
+.sig-thin { color: var(--amber); font-weight: 600; }
+.tier-a { color: var(--green); font-weight: 600; }
+.tier-b { color: var(--amber); font-weight: 600; }
+.evidence-key-grid { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+.evidence-key-row { display: flex; gap: 12px; padding: 4px 0; border-bottom: 1px solid var(--border-light); }
+.evidence-key-cluster { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; font-weight: 700; color: var(--text); min-width: 40px; }
+.evidence-key-articles { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; color: var(--text-muted); line-height: 1.6; word-break: break-all; }
+
+/* Profile Snapshot tables */
+.profile-sub-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin: 16px 0 8px; }
+.profile-sub-title:first-child { margin-top: 0; }
+.profile-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.profile-table td { padding: 6px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+.profile-field { font-weight: 600; color: var(--text); width: 30%; white-space: nowrap; }
+.profile-detail { color: var(--text-mid); }
+
+/* Diagnostic Coverage table */
+.diag-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.diag-table th { font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); padding: 8px 10px; text-align: left; border-bottom: 2px solid var(--border); }
+.diag-table td { padding: 8px 10px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-mid); line-height: 1.5; }
+.diag-prompt { font-weight: 600; color: var(--text); }
+.diag-covered { color: var(--green); font-weight: 600; }
+.diag-not-covered { color: var(--red); font-weight: 600; }
+
+/* Executive Summary — What/Why/Watch sub-blocks */
+.exec-sub { margin-bottom: 20px; }
+.exec-sub:last-child { margin-bottom: 0; }
+.exec-sub-head { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--pillar); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.exec-sub-head::before { content: ''; width: 3px; height: 14px; background: var(--pillar); border-radius: 2px; flex-shrink: 0; }
+.exec-sub p { font-family: 'Lora', Georgia, serif; font-size: 14px; color: var(--text-mid); line-height: 1.8; }
+
+/* Arena-grouped Perception Dashboard */
+.pd-arena-row { background: var(--bg) !important; }
+.pd-arena-row td { border-bottom: 2px solid var(--border) !important; padding-top: 14px !important; padding-bottom: 14px !important; }
+.pd-arena-name { font-size: 14px; }
+.pd-prop-row td { padding-left: 20px !important; }
+.pd-indent { color: var(--text-muted); font-size: 11px; margin-right: 4px; }
+.pd-emerging { text-align: center; width: 80px; font-size: 13px; color: var(--green); }
+.pd-footnote { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px; font-style: italic; line-height: 1.5; }
+
+/* Standing Context — unified arena cards */
+.standing-arena-grid { display: flex; flex-direction: column; gap: 16px; }
+.standing-arena-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); box-shadow: var(--card-shadow); overflow: hidden; }
+.arena-narrative { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; padding: 0 18px 12px; }
+
+/* Inline strength/vulnerability signals within standing context */
+.standing-signals { padding: 12px 18px 14px; margin: 10px 0 6px; border-radius: 6px; border-top: none; }
+.standing-signals-strength { background: rgba(46,155,110,0.06); border-left: 3px solid var(--green); }
+.standing-signals-vuln { background: rgba(217,64,72,0.06); border-left: 3px solid var(--red); }
+.standing-signal-head { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+.ss-icon { font-size: 10px; }
+.ss-icon-strength { color: var(--green); }
+.ss-icon-vuln { color: var(--red); }
+.standing-signals ul { list-style: none; padding: 0; }
+.standing-signals li { font-size: 12px; color: var(--text-mid); line-height: 1.65; margin-bottom: 6px; padding-left: 16px; position: relative; }
+.standing-signals-strength li::before { content: '+'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+.standing-signals-vuln li::before { content: '−'; position: absolute; left: 0; color: var(--red); font-weight: 700; font-size: 14px; }
+.standing-signals li strong { color: var(--text); font-weight: 600; }
+.signal-horizon-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); margin-left: 4px; white-space: nowrap; }
+.sev-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; }
+.sev-tag-high { background: rgba(217,64,72,0.12); color: #991b1b; }
+.sev-tag-medium { background: rgba(196,146,10,0.1); color: #92400e; }
+.sev-tag-low { background: var(--bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+/* Redirect sections (Sections 7, 8) — styled as subtle cross-references */
+.sec-redirect { opacity: 1; }
+.sec-redirect .sec-head { border-bottom: none; padding-bottom: 0; margin-bottom: 4px; }
+.sec-redirect .sec-title { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+.sec-redirect .sec-num { font-size: 9px; }
+.redirect-text { font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.5; padding: 8px 14px; background: var(--bg); border-left: 3px solid var(--border); border-radius: 0 4px 4px 0; margin: 0; }
+.redirect-text em { color: var(--pillar); font-style: normal; font-weight: 600; }
+
+/* Strategic Priorities — risk/opportunity framing */
+.priority-type-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.priority-type { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 3px; }
+.pri-risk { background: rgba(217,64,72,0.12); color: #991b1b; }
+.pri-opportunity { background: rgba(46,155,110,0.12); color: #166534; }
+.pri-watch { background: rgba(196,146,10,0.1); color: #92400e; }
+.priority-arena-tag { font-size: 10px; font-weight: 600; color: var(--pillar); background: var(--pillar-light); padding: 3px 10px; border-radius: 3px; }
+.priority-response { font-size: 12px; color: var(--text-mid); line-height: 1.6; margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--border-light); }
+.priority-response strong { color: var(--text); }
+
+/* Forward Outlook / Predictions */
+.pred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.pred-tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--card-radius); padding: 22px 24px; box-shadow: var(--card-shadow); transition: transform 0.15s, box-shadow 0.15s; }
+.pred-tile:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.pred-plain-english { font-family: 'Lora', Georgia, serif; font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light); }
+.pred-prob-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+.pred-prob-number { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; }
+.pred-prob-label { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+.pred-arena { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.pred-narrative { font-family: 'Lora', Georgia, serif; font-size: 12.5px; color: var(--text-mid); line-height: 1.7; margin: 10px 0; padding: 10px 14px; background: rgba(13,118,128,0.03); border-left: 2px solid rgba(13,118,128,0.15); border-radius: 0 4px 4px 0; }
+.pred-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.pred-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; }
+.pred-type-strength { background: #0d7680; color: white; }
+.pred-type-vuln { background: var(--red); color: white; }
+.pred-dir-intensifying { background: #7C3AED; color: white; }
+.pred-dir-stable { background: #374151; color: white; }
+.pred-dir-fading { background: rgba(46,155,110,0.85); color: white; }
+.pred-dir-reversing { background: rgba(74,111,165,0.85); color: white; }
+.pred-signal-strong { background: #166534; color: white; }
+.pred-horizon { background: #f3f4f6; color: #374151; border: 1px solid #d1d5db; }
+.pred-trigger { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-top: 4px; }
+.pred-trigger strong { color: var(--text-mid); font-weight: 600; }
+.pred-summary { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-light); font-style: italic; }
+.arena-outlook { font-family: 'Lora', Georgia, serif; font-size: 12px; font-style: italic; color: var(--accent); padding: 8px 18px 12px; border-top: 1px solid var(--border-light); line-height: 1.6; }
+
+/* Methodology box */
+.methodology-box { max-width: 1100px; margin: 48px auto 0; padding: 0 32px; }
+.methodology-box-inner { background: var(--bg-card); border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--card-radius); padding: 28px 32px; box-shadow: var(--card-shadow); }
+.methodology-box-text { font-family: 'Lora', Georgia, serif; font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
+.methodology-box-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; padding: 10px 20px; border: 1px solid var(--accent); border-radius: 6px; white-space: nowrap; transition: all 0.15s; }
+.methodology-box-cta:hover { background: var(--accent); color: white; }
+
+/* Source section — quiet, at the very bottom */
+.source-section { background: var(--bg); border-top: 1px solid var(--border); padding: 28px 32px; margin-top: 48px; }
+.source-inner { max-width: 1100px; margin: 0 auto; }
+.source-label { font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+.source-text { font-size: 12px; color: var(--text-muted); line-height: 1.6; margin-bottom: 12px; }
+.source-link-quiet { font-size: 11px; font-weight: 600; color: var(--pillar); text-decoration: none; opacity: 0.7; transition: opacity 0.15s; }
+.source-link-quiet:hover { opacity: 1; }
+
+/* Footer */
+.footer { background: var(--slate-deep); padding: 28px 32px; margin-top: 0; }
+.footer::before { content: ''; display: block; height: 2px; background: linear-gradient(to right, #FFD32B, #3538FF); margin: -28px -32px 28px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.footer-left { display: flex; align-items: center; gap: 16px; }
+.footer-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 0.06em; color: rgba(255,255,255,0.9); text-transform: uppercase; }
+.footer-label { font-size: 10px; font-weight: 400; color: rgba(255,255,255,0.45); }
+.footer-text { font-size: 10px; color: rgba(255,255,255,0.45); }
+.footer-credit { font-size: 9px; color: rgba(255,255,255,0.3); text-align: center; max-width: 1100px; margin: 12px auto 0; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-inner { flex-direction: column; padding: 32px 16px 0; min-height: auto; }
+  .hero-left { max-width: 100%; }
+  .hero-title { font-size: 32px; }
+  .score-block { width: 100%; margin-top: 24px; }
+  .score-block-inner { display: flex; align-items: center; gap: 16px; padding: 16px 20px; text-align: left; }
+  .score-block-label { display: none; }
+  .score-block-num { font-size: 48px; }
+  .score-block-max { display: none; }
+  .topbar { padding: 0 16px; height: 48px; }
+  .main { padding: 0 16px; }
+  .key-stats { grid-template-columns: repeat(3, 1fr); }
+  .key-stat-num { font-size: 24px; }
+  .arena-grid { grid-template-columns: 1fr; }
+  .pred-grid { grid-template-columns: 1fr; }
+  .arena-strip { flex-wrap: wrap; }
+  .arena-gauge { min-width: 33%; }
+  .pd-table { font-size: 12px; }
+  .pd-prop { max-width: 250px; }
+  .signal-card { padding: 16px; }
+  .signal-card-header { gap: 6px; }
+  .exec-card { padding: 20px; }
+  .conclusion-card { padding: 20px; }
+  .source-section { padding: 20px 16px; }
+  .footer { padding: 20px 16px; }
+  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+  .pillar-nav a { font-size: 8px; padding: 3px 6px; }
+}
+@media (max-width: 600px) {
+  .topbar-brand { display: none; }
+  .topbar-divider { display: none; }
+  .topbar-logo { font-size: 17px; }
+  .hero-inner { padding: 24px 16px 0; }
+  .hero-title { font-size: 24px; }
+  .hero-desc { display: none; }
+  .key-stats { grid-template-columns: repeat(2, 1fr); }
+  .key-stat-num { font-size: 22px; }
+  .key-stat { padding: 14px 8px; }
+  .signal-table { font-size: 12px; }
+  .signal-table thead th { padding: 8px 12px; }
+  .signal-table tbody td { padding: 8px 12px; }
+  .pred-grid { grid-template-columns: 1fr; }
+  .pred-plain-english { font-size: 14px; }
+  .pred-prob-number { font-size: 26px; }
+  .pillar-nav { display: none; }
+  .back-link { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-left">
+    <a href="index.html" class="topbar-logo" style="text-decoration:none;color:rgba(255,255,255,0.9);display:flex;align-items:center;gap:8px">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 47 39" fill="none"><path d="M0.163086 11.2658V0.312939H21.8359V5.76329L8.93668 38.335H2.85261L15.7258 5.76329H5.62047V11.2658H0.163086Z" fill="white"/><path d="M32.5418 21.1494V16.325H34.4219C36.2845 16.325 37.7294 15.8121 38.7564 14.7864C39.7835 13.7954 40.2971 12.5089 40.2971 10.9268C40.2622 9.32732 39.7313 8.01471 38.7042 6.98897C37.6772 5.99799 36.3542 5.48512 34.7352 5.45035C33.5689 5.45035 32.507 5.82414 31.5496 6.57172C30.5399 7.31929 29.861 8.47543 29.5128 10.0401H24.0555C24.334 7.22367 25.4742 4.85055 27.4761 2.92076C29.4432 1.00836 31.7933 0.034771 34.5263 0C37.9905 0.034771 40.7409 1.13875 42.7777 3.31194C44.7274 5.43297 45.7196 7.93648 45.7544 10.8225C45.7544 12.2828 45.4933 13.6911 44.9711 15.0471C44.3618 16.4032 43.2738 17.6115 41.7071 18.672C43.3086 19.7151 44.4662 20.9669 45.18 22.4273C45.8589 23.8877 46.1983 25.4176 46.1983 27.0171C46.1635 30.5811 45.0581 33.3888 42.8821 35.4403C40.741 37.544 37.9905 38.6132 34.6308 38.6479C32.037 38.6479 29.7391 37.8134 27.7372 36.1444C25.7353 34.4754 24.4384 32.0588 23.8466 28.8947H29.3039C29.7914 30.1638 30.479 31.1896 31.3668 31.9719C32.272 32.789 33.4731 33.1976 34.9702 33.1976C36.5718 33.1976 37.9209 32.65 39.0176 31.5547C40.1317 30.5289 40.7061 29.0685 40.741 27.1735C40.7061 25.2437 40.1317 23.7486 39.0176 22.6881C37.9209 21.6623 36.5282 21.1494 34.8397 21.1494H32.5418Z" fill="white"/></svg>
+      <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:13px;letter-spacing:0.04em;text-transform:uppercase">Intelligence</span>
+    </a>
+    <div class="topbar-divider"></div>
+    <div class="pillar-nav"><a href="bs-proptech-2026-02-25.html" class="pnav-active"><span class="pnav-num">A1</span> PropTech</a>
+</div>
+  </div>
+  <div class="topbar-right">
+    <span class="topbar-date">25 February 2026</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="hero-tag">PropTech</span>
+      <h1 class="hero-title">PropTech Infrastructure</h1>
+      <div class="hero-meta">Institutional Real Estate Data & Analytics Platforms &mdash; 25 February 2026 &middot; Ref: KJRF</div>
+      <p class="hero-desc">What is happening
+External perception of institutional real-estate data and analytics platforms is running favourable overall (75), with attention concentrated in the United States and spilling into C</p>
+    </div>
+    <div class="score-block">
+      <div class="score-block-inner">
+        <div class="score-block-label">Arena Score</div>
+        <div class="score-block-num" style="color:var(--green)">74</div>
+        <div class="score-block-max">of 100</div>
+        <div class="posture posture-strong">Strong</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="arena-strip">
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">COMPETITIVE POSITIONING AND MARKET STRUCTURE</div>
+          <div class="arena-gauge-score" style="color:var(--green)">87 <span style="font-size:0.6em">&#9650;</span></div>
+          <div class="arena-gauge-posture">STRONG</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">REGULATION DATA LICENSING AND COMPLIANCE</div>
+          <div class="arena-gauge-score" style="color:var(--green)">85 <span style="font-size:0.6em">&#9650;</span></div>
+          <div class="arena-gauge-posture">STRONG</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">CRE CYCLE EXPOSURE AND COMMERCIAL RESILIENCE</div>
+          <div class="arena-gauge-score" style="color:var(--red)">45 <span style="font-size:0.6em">&#9660;</span></div>
+          <div class="arena-gauge-posture">INSUFFICIENT DATA</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">TECHNOLOGY INFRASTRUCTURE AI AND CYBER RISK</div>
+          <div class="arena-gauge-score" style="color:var(--green)">80 <span style="font-size:0.6em">&#9650;</span></div>
+          <div class="arena-gauge-posture">STRONG</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">CAPITAL MARKETS FUNDING AND M AND A CONDITIONS</div>
+          <div class="arena-gauge-score" style="color:var(--green)">85 <span style="font-size:0.6em">&#9650;</span></div>
+          <div class="arena-gauge-posture">STRONG</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div>
+        <div class="arena-gauge">
+          <div class="arena-gauge-name">COMPANY AND PEER OPERATING SIGNALS</div>
+          <div class="arena-gauge-score" style="color:var(--green)">64 <span style="font-size:0.6em">&#9650;</span></div>
+          <div class="arena-gauge-posture">STRONG</div>
+          <div class="arena-gauge-momentum" style="color:rgba(255,255,255,0.5)">&#8594; Stable</div>
+        </div></div>
+
+<div class="main">
+
+  <!-- Section 02: Executive Intelligence Summary -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Executive Intelligence Summary</h2>
+      <span class="sec-num">Section 02</span>
+    </div>
+    <div class="exec-card">
+      <div class="exec-sub">
+        <h4 class="exec-sub-head">What is happening</h4>
+        <p>External perception of institutional real-estate data and analytics platforms is running favourable overall (75), with attention concentrated in the United States and spilling into Canada, the United Kingdom, and Europe. The strongest visibility sits in Technology Infrastructure AI And Cyber Risk (AI-enabled platform rollout), Regulation Data Licensing And Compliance (SEC, FinCEN, and California privacy requirements), and Capital Markets Funding And M And A Conditions (Blackstone- and PitchBook-linked funding concentration framing), while CRE Cycle Exposure And Commercial Resilience remains under-covered relative to expected exposure. In the dashboard, Competitive Positioning And Market Structure sits at 87% external perception (Strong signal), anchored in CoStar Group and Compass positioning signals.</p>
+      </div>
+      <div class="exec-sub">
+        <h4 class="exec-sub-head">Why it matters</h4>
+        <p>The current perception mix reinforces the category’s “infrastructure-like” framing: platform scale, compliance readiness, and AI-enabled rollout narratives are acting as credibility markers in enterprise adoption discussions. The main standing boundary is not a negative story but a missing one: limited signal tying CRE-cycle stress directly to platform demand, retention risk, or customer budgets weakens near-term clarity on downside resilience.</p>
+      </div>
+      <div class="exec-sub">
+        <h4 class="exec-sub-head">What to watch</h4>
+        <p>Over the next 90 days, the forward outlook is dominated by intensifying trajectories in AI rollout narratives and compliance-driven workflow requirements, with the clearest trigger for cooling being a reduction in repetition across markets and a shift toward more episodic coverage. Watch for whether enforcement and compliance threads broaden from procedural requirements into wider sector risk framing (especially around California privacy enforcement and AML reporting requirements), and whether CRE-cycle stress begins to appear as a direct procurement/renewal driver.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signal Summary -->
+  
+      <div class="key-stats">
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--pillar)">6</div>
+          <div class="key-stat-label">Arenas Assessed</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--green)">5</div>
+          <div class="key-stat-label">Arenas Strong</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--red)">0</div>
+          <div class="key-stat-label">Arenas Weak</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--green)">0</div>
+          <div class="key-stat-label">Strength Signals</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num" style="color:var(--red)">1</div>
+          <div class="key-stat-label">Vulnerability Signals</div>
+        </div>
+        <div class="key-stat">
+          <div class="key-stat-num">14</div>
+          <div class="key-stat-label">Trends Monitored</div>
+        </div>
+      </div>
+
+  <!-- Section 03: Forward Outlook -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Forward Outlook</h2>
+      <span class="sec-num">Section 03</span>
+    </div>
+    
+      <div class="pred-grid">
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in regulation data licensing and compliance is moderately likely to continue building over the next 90 days.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">68%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Regulation Data Licensing And Compliance</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">90 DAYS</span>
+          </div>
+          <div class="pred-narrative">Across compliance and reporting narratives, the pipeline assesses a 68% probability of intensification over the next 90 days (Strong signal, Intensifying) spanning: regulatory compliance requirements ...</div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in capital markets funding and m and a conditions is moderately likely to continue building over the next 90 days.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">68%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Capital Markets Funding And M And A Conditions</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">90 DAYS</span>
+          </div>
+          <div class="pred-narrative">Capital concentration and private-market funding discipline narratives both sit at 68% probability of intensifying over 90 days (Strong signal, Intensifying).</div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in competitive positioning and market structure is moderately likely to continue building over the next 90 days.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">68%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Competitive Positioning And Market Structure</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">90 DAYS</span>
+          </div>
+          <div class="pred-narrative">Competitive positioning framed through scale and data coverage shows 68% probability of intensifying over 90 days (Strong signal, Intensifying), with the trajectory dependent on continued cross-provid...</div>
+          
+        </div>
+        <div class="pred-tile" style="border-left: 4px solid var(--green)">
+          <div class="pred-plain-english">Positive momentum in company and peer operating signals is moderately likely to continue building over the next 90 days.</div>
+          <div class="pred-prob-row">
+            <span class="pred-prob-number" style="color:var(--green)">68%</span>
+            <span class="pred-prob-label">probability</span>
+          </div>
+          <div class="pred-arena">Company And Peer Operating Signals</div>
+          <div class="pred-badges">
+            
+            <span class="pred-badge pred-dir-intensifying">INTENSIFYING</span>
+            <span class="pred-badge pred-signal-strong">STRONG</span>
+            <span class="pred-badge pred-horizon">90 DAYS</span>
+          </div>
+          <div class="pred-narrative">Reporting-cycle framing that reinforces execution credibility for major operators shows 68% probability of intensifying over 90 days (Strong signal, Intensifying), provided it continues to repeat acro...</div>
+          
+        </div>
+      </div>
+      <div class="pred-summary">Outlook: 4 signals assessed, dominant direction Intensifying. 4 arenas show intensifying predictions.</div>
+  </div>
+
+  <!-- Section 04: Corporate Perception Dashboard -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Corporate Perception Dashboard</h2>
+      <span class="sec-num">Section 04</span>
+    </div>
+    
+      <div class="table-scroll">
+      <table class="pd-table">
+        <thead><tr><th>Arena / Proposition</th><th>External Perception</th><th>Signal Strength</th><th>Emerging</th></tr></thead>
+        <tbody>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Competitive Positioning And Market Structure</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">87% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Sector framing: defensible vs commoditising</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">88% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Enterprise adoption and market-share momentum</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">85% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Regulation Data Licensing And Compliance</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">85% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Regulatory, privacy, licensing, disclosure impacts</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">85% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Cre Cycle Exposure And Commercial Resilience</strong></td>
+          <td class="pd-pct" style="color:var(--red);font-weight:800">45% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> CRE-cycle stress linkage to demand and budgets</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">45% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Technology Infrastructure Ai And Cyber Risk</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">80% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Cloud, API, AI/ML, cyber resilience narratives</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">80% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Capital Markets Funding And M And A Conditions</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">85% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Venture appetite, valuation discipline, consolidation</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">85% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-arena-row">
+          <td class="pd-arena-name"><strong>Company And Peer Operating Signals</strong></td>
+          <td class="pd-pct" style="color:var(--green);font-weight:800">64% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> Operating signals across Cherre and named peers</td>
+          <td class="pd-pct" style="color:var(--green);font-weight:700">80% <span style='font-size:0.7em'>&#9650;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        <tr class="pd-prop-row">
+          <td class="pd-prop"><span class="pd-indent">&lfloor;</span> 30–90 day sector trajectory and trigger clarity</td>
+          <td class="pd-pct" style="color:var(--red);font-weight:700">48% <span style='font-size:0.7em'>&#9660;</span></td>
+          <td><span class="conf-badge conf-high">Strong</span></td>
+          <td class="pd-emerging">—</td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="pd-footnote">External perception reflects monitoring of 1.6 million sources across global media, government communications, and specialist publications.</p>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Corporate Profile Snapshot</h2>
+      <span class="sec-num">Section 05</span>
+    </div>
+    <div class="exec-card">
+      <h4 class="profile-sub-title">5.1 Sector / Entity Identity</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Entity name</td><td class="profile-detail">Institutional / enterprise real estate data and analytics platforms (PropTech infrastructure)</td></tr>
+<tr><td class="profile-field">Entity type</td><td class="profile-detail">sector</td></tr>
+<tr><td class="profile-field">Sector definition</td><td class="profile-detail">Platforms that aggregate, normalise and deliver property, market and workflow data via software and integrations for institutional CRE use.</td></tr>
+<tr><td class="profile-field">Market structure</td><td class="profile-detail">Concentrated enterprise platform landscape with scale advantages in data coverage and integrations; ongoing consolidation pressure.</td></tr>
+<tr><td class="profile-field">Primary geographies</td><td class="profile-detail">North America, Europe, global</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.2 Operating Environment</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">Key players</td><td class="profile-detail">CoStar Group, Yardi, MRI Software, Altus Group, Measurabl</td></tr>
+<tr><td class="profile-field">Regulatory environment</td><td class="profile-detail">Multi-jurisdiction privacy rules, data-broker regimes, financial reporting obligations, and AML-related real estate reporting requirements.</td></tr>
+<tr><td class="profile-field">Technology stack</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Recent cycle context</td><td class="profile-detail">not confirmed</td></tr>
+<tr><td class="profile-field">Official domains</td><td class="profile-detail">not confirmed</td></tr>
+</tbody></table>
+<h4 class="profile-sub-title">5.3 Standing Boundaries</h4>
+<table class="profile-table"><tbody>
+<tr><td class="profile-field">What is known</td><td class="profile-detail">What remains to verify</td></tr>
+<tr><td class="profile-field">Baseline profile facts were confirmed for entity identity, market structure, key players, and regulatory environment.</td><td class="profile-detail">None</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
+  <!-- Section 06: Corporate Standing Context -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Corporate Standing Context</h2>
+      <span class="sec-num">Section 06 &middot; 6 arenas assessed</span>
+    </div>
+    <div class="standing-arena-grid">
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Competitive Positioning And Market Structure</div>
+            <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
+          </div>
+          
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val" >1</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Articles</span><span class="arena-field-val" >31</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val" >Moderate</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
+
+          </div>
+          <p class="arena-narrative">Competitive Positioning And Market Structure standing is Strong, driven by favourable cross-provider framing around CoStar Group + operational + real estate and Compass + operational + real estate — momentum is Stable.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, Canada, United Kingdom</div>
+          
+          
+          <div class="arena-outlook">Competitive positioning framed through scale and data coverage shows 68% probability of intensifying over 90 days (Strong signal, Intensifying), with the trajectory dependent on continued cross-provider comparisons.</div>
+        </div>
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Regulation Data Licensing And Compliance</div>
+            <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
+          </div>
+          
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val" >6</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Articles</span><span class="arena-field-val" >111</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val" >Moderate</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
+
+          </div>
+          <p class="arena-narrative">Regulation Data Licensing And Compliance standing is Strong, anchored in repeating compliance and reporting narratives tied to SEC + regulatory + real estate, FinCEN + regulatory + real estate, California privacy regulator + regulatory + data privacy, and Nasdaq + financial + finance — momentum is Stable.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, California, Kentucky</div>
+          
+          
+          <div class="standing-signals standing-signals-vuln">
+            <h5 class="standing-signal-head"><span class="ss-icon ss-icon-vuln">&#9660;</span> Pressure on this standing</h5>
+            <ul><li><span class="sev-tag sev-tag-medium">MEDIUM</span> <span class="signal-horizon-tag">Medium</span> Regulatory scrutiny constraining revenue-management tooling increases compliance and litigation exposure in adjacent platform contexts, with permissibility boundaries framed through enforcement and legal commentary in the United States.</li>
+</ul>
+          </div>
+          <div class="arena-outlook">Across compliance and reporting narratives, the pipeline assesses a 68% probability of intensification over the next 90 days (Strong signal, Intensifying) spanning: regulatory compliance requirements reinforcing platform credibility, privacy enforcement keeping compliance narratives active, and AML </div>
+        </div>
+        <div class="standing-arena-card" style="border-top:3px solid #999">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Cre Cycle Exposure And Commercial Resilience</div>
+            <span class="arena-badge" style="background:rgba(120,120,120,0.08);color:#666">INSUFFICIENT DATA</span>
+          </div>
+          
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val" >0</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Articles</span><span class="arena-field-val" >0</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val" >Muted</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
+
+          </div>
+          <p class="arena-narrative">Cre Cycle Exposure And Commercial Resilience standing is Insufficient data, with silence on expected transaction slowdown, refinancing pressure, and valuation uncertainty linkages to platform demand — momentum is Stable.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> None</div>
+          
+          
+          
+        </div>
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Technology Infrastructure Ai And Cyber Risk</div>
+            <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
+          </div>
+          
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val" >2</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Articles</span><span class="arena-field-val" >39</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val" >Public Commentary Intensity Is Elevated</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
+
+          </div>
+          <p class="arena-narrative">Technology Infrastructure Ai And Cyber Risk standing is Strong, driven by rollout and adoption narratives around Homes.com + operational + real estate, with additional episodic visibility tied to TouchSource partnership signalling — momentum is Stable.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, Europe, North America</div>
+          
+          
+          
+        </div>
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Capital Markets Funding And M And A Conditions</div>
+            <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
+          </div>
+          
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val" >3</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Articles</span><span class="arena-field-val" >99</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val" >Moderate</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
+
+          </div>
+          <p class="arena-narrative">Capital Markets Funding And M And A Conditions standing is Strong, led by repeating funding-concentration narratives tied to Blackstone + financial + real estate and PitchBook + financial + real estate; a thin Canada-focused adjunct thread centres on Canadian Imperial Bank of Commerce + financial + real estate — momentum is Stable.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, Europe, Canada</div>
+          
+          
+          <div class="arena-outlook">Capital concentration and private-market funding discipline narratives both sit at 68% probability of intensifying over 90 days (Strong signal, Intensifying). The signal weakens if consolidation framing stops repeating and funding commentary becomes more episodic.</div>
+        </div>
+        <div class="standing-arena-card" style="border-top:3px solid var(--green)">
+          <div class="arena-card-header">
+            <div class="arena-card-name">Company And Peer Operating Signals</div>
+            <span class="arena-badge" style="background:rgba(46,155,110,0.1);color:#166534">STRONG</span>
+          </div>
+          
+          <div class="arena-card-grid">
+            <div class="arena-card-field"><span class="arena-field-label">Active trends</span><span class="arena-field-val" >2</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Articles</span><span class="arena-field-val" >24</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Momentum</span><span class="arena-field-val" style="color:var(--text-mid)">Stable</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Discourse</span><span class="arena-field-val" >Moderate</span></div>
+<div class="arena-card-field"><span class="arena-field-label">Echo risk</span><span class="arena-field-val" >No</span></div>
+
+          </div>
+          <p class="arena-narrative">Company And Peer Operating Signals standing is Strong, with operating-signal visibility skewed toward major platform ecosystems (Homes.com + operational + real estate; CoStar Group + operational + real estate; Compass + operational + real estate) rather than sustained peer-wide reporting, and with limited Cherre-specific prominence in the admitted signals — momentum is Stable.</p>
+          <div class="arena-card-geo"><span class="arena-field-label">Top geographies:</span> United States, Europe, Canada</div>
+          
+          
+          <div class="arena-outlook">Reporting-cycle framing that reinforces execution credibility for major operators shows 68% probability of intensifying over 90 days (Strong signal, Intensifying), provided it continues to repeat across sources rather than remaining strictly company-specific.
+Outlook: 9 signals assessed, dominant di</div>
+        </div></div>
+  </div>
+
+  <!-- Section 07: Vulnerability Signals (redirect) -->
+  <div class="sec sec-redirect">
+    <div class="sec-head">
+      <h2 class="sec-title">Vulnerability Signals</h2>
+      <span class="sec-num">Section 07</span>
+    </div>
+    <p class="redirect-text">Vulnerability signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Pressure on this standing&rdquo;</em> blocks for detail.</p>
+  </div>
+
+  <!-- Section 08: Strength Signals (redirect) -->
+  <div class="sec sec-redirect">
+    <div class="sec-head">
+      <h2 class="sec-title">Strength Signals</h2>
+      <span class="sec-num">Section 08</span>
+    </div>
+    <p class="redirect-text">Strength signals are presented inline within each arena in Section 06 above. See <em>&ldquo;Reinforcing this standing&rdquo;</em> blocks for detail.</p>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Structural Contradictions</h2>
+      <span class="sec-num">Section 09</span>
+    </div>
+    <div class="exec-card">
+      <p>No structural contradictions identified. All active trends are internally consistent.</p>
+    </div>
+  </div>
+
+  
+
+  <!-- Section 11: Strategic Priorities -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Strategic Attention Priorities</h2>
+      <span class="sec-num">Section 11</span>
+    </div>
+        <h4 class="priority-horizon">Near-term risks and opportunities</h4>
+    <div class="priority-group">
+      <div class="priority-item priority-item-pri-risk">
+        <div class="priority-type-row">
+          <span class="priority-type pri-risk">Risk</span>
+          <span class="priority-arena-tag">Cre Cycle Exposure And Commercial Resilience</span>
+        </div>
+        <p class="priority-desc">CRE-cycle impact signals remain absent despite expected exposure in transaction slowdown, refinancing pressure, and valuation uncertainty topics</p>
+        
+      </div>
+    </div>
+    <h4 class="priority-horizon">Medium-term risks and opportunities</h4>
+    <div class="priority-group">
+      <div class="priority-item priority-item-pri-opportunity">
+        <div class="priority-type-row">
+          <span class="priority-type pri-opportunity">Opportunity</span>
+          <span class="priority-arena-tag">Regulation Data Licensing And Compliance</span>
+        </div>
+        <p class="priority-desc">Regulation Data Licensing And Compliance standing is favourable but sits alongside an enforcement-risk thread tied to revenue-management tooling scrutiny</p>
+        
+      </div>
+      <div class="priority-item priority-item-pri-risk">
+        <div class="priority-type-row">
+          <span class="priority-type pri-risk">Risk</span>
+          <span class="priority-arena-tag">Cre Cycle Exposure And Commercial Resilience</span>
+        </div>
+        <p class="priority-desc">CRE-cycle exposure assessment remains unresolved due to limited direct demand, renewal, and budget linkage in the monitoring set</p>
+        
+      </div>
+      <div class="priority-item priority-item-pri-risk">
+        <div class="priority-type-row">
+          <span class="priority-type pri-risk">Risk</span>
+          <span class="priority-arena-tag">Company And Peer Operating Signals</span>
+        </div>
+        <p class="priority-desc">The 30–90 day forward trajectory is not well-resolved beyond general funding and scale narratives, leaving trigger sensitivity unclear</p>
+        
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Section 12: Position Summary -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Position Summary</h2>
+      <span class="sec-num">Section 12</span>
+    </div>
+    
+      <div class="table-scroll">
+      <table class="overview-table">
+        <thead><tr><th>Dimension</th><th>Assessment</th><th>What Drives It</th></tr></thead>
+        <tbody>
+        <tr><td class="ov-dim">Structural Position</td><td class="ov-assess">Strong</td><td>Strong standing across Competitive Positioning And Market Structure, Regulation Data Licensing And Compliance, Technology Infrastructure Ai And Cyber Risk, Capital Markets Funding And M And A Conditions, and Company And Peer Operating Signals; primary named drivers include CoStar Group, Compass, SEC, FinCEN, California privacy enforcement narratives, Blackstone, PitchBook, and Homes.com rollout framing.</td></tr>
+        <tr><td class="ov-dim">Perception Momentum</td><td class="ov-assess">Stable</td><td>Momentum is stable across arenas, with intensification risk concentrated in repeating AI rollout and compliance narratives rather than a shift in direction.</td></tr>
+        <tr><td class="ov-dim">Vulnerability Concentration</td><td class="ov-assess">Moderate</td><td>One medium-severity vulnerability signal sits inside an otherwise favourable compliance arena, centred on enforcement-driven constraints affecting adjacent tooling.</td></tr>
+        <tr><td class="ov-dim">Evidence Density</td><td class="ov-assess">High</td><td>Strong evidence base across monitored arenas.</td></tr>
+        </tbody>
+      </table>
+      </div>
+  </div>
+
+  <!-- Section 13: Conclusion -->
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Conclusion</h2>
+      <span class="sec-num">Section 13</span>
+    </div>
+    <div class="conclusion-card">
+      <p>The perception picture for institutional real-estate data and analytics platforms remains favourable and increasingly infrastructure-framed: compliance readiness (SEC, FinCEN, and California privacy requirements), capital concentration narratives (Blackstone and PitchBook-linked framing), and AI-enabled rollout visibility (Homes.com-led ecosystem discussion) are providing repeated credibility anchors, most visibly in the United States with spillover into Canada, the United Kingdom, and Europe. The most material boundary condition is not a deteriorating arena but an under-resolved one: CRE-cycle stress is not yet clearly linked in external coverage to platform demand, retention, or budget pressure, leaving resilience and downside sensitivity less clearly evidenced than other arenas.</p>
+      <div class="conclusion-posture">
+        Standing posture this cycle: <span class="conclusion-posture-badge posture-strong">Strong</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Sector Monitoring Panel</h2>
+      <span class="sec-num">Section 14</span>
+    </div>
+    <div class="exec-card">
+      <p class="sector-intro">Structured sector monitoring data for 6 arenas is available in the accompanying data payload.</p>
+
+    </div>
+  </div>
+
+  
+  <div class="sec evidence-index-sec">
+    <div class="sec-head">
+      <h2 class="sec-title">Evidence Index</h2>
+      <span class="sec-num">14 trends &middot; 26 sources</span>
+    </div>
+    <div class="exec-card evidence-index-card">
+      <h3 class="evidence-sub-title">Trend Analytics Envelope</h3>
+<table class="evidence-table"><thead><tr><th>TRU ID</th><th>Cluster</th><th>Arena</th><th>Signal</th></tr></thead><tbody>
+<tr><td class="evd-id">TRU-T1</td><td>T1</td><td>Regulation Data Licensing And Compliance</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T2</td><td>T2</td><td>Capital Markets Funding And M And A Conditions</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T3</td><td>T3</td><td>Capital Markets Funding And M And A Conditions</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T4</td><td>T4</td><td>Technology Infrastructure Ai And Cyber Risk</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T5</td><td>T5</td><td>Competitive Positioning And Market Structure</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T6</td><td>T6</td><td>Regulation Data Licensing And Compliance</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T7</td><td>T7</td><td>Company And Peer Operating Signals</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T8</td><td>T8</td><td>Capital Markets Funding And M And A Conditions</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T9</td><td>T9</td><td>Regulation Data Licensing And Compliance</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T10</td><td>T10</td><td>Regulation Data Licensing And Compliance</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T11</td><td>T11</td><td>Regulation Data Licensing And Compliance</td><td class="sig-strong">Strong</td></tr>
+<tr><td class="evd-id">TRU-T12</td><td>T12</td><td>Company And Peer Operating Signals</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T13</td><td>T13</td><td>Regulation Data Licensing And Compliance</td><td class="sig-thin">Thin</td></tr>
+<tr><td class="evd-id">TRU-T14</td><td>T14</td><td>Technology Infrastructure Ai And Cyber Risk</td><td class="sig-thin">Thin</td></tr>
+</tbody></table>
+<h3 class="evidence-sub-title">Primary Source Ledger</h3>
+<table class="evidence-table"><thead><tr><th>Evidence ID</th><th>Source</th><th>Tier</th><th>Arena</th></tr></thead><tbody>
+<tr><td class="evd-id">EVD-7LX-BS-003</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-005</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Capital Markets Funding And M And A Conditions</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-007</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Capital Markets Funding And M And A Conditions</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-008</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Capital Markets Funding And M And A Conditions</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-009</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Technology Infrastructure Ai And Cyber Risk</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-010</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Technology Infrastructure Ai And Cyber Risk</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-011</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Competitive Positioning And Market Structure</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-012</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Competitive Positioning And Market Structure</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-013</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-014</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-015</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Company And Peer Operating Signals</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-016</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Company And Peer Operating Signals</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-017</td><td>7LX-BS</td><td class="">Tier C</td><td>Capital Markets Funding And M And A Conditions</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-018</td><td>7LX-BS</td><td class="">Tier C</td><td>Capital Markets Funding And M And A Conditions</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-019</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-020</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-021</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-022</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-023</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-024</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-025</td><td>7LX-BS</td><td class="">Tier C</td><td>Company And Peer Operating Signals</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-026</td><td>7LX-BS</td><td class="">Tier C</td><td>Company And Peer Operating Signals</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-027</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-028</td><td>7LX-BS</td><td class="tier-a">Tier A</td><td>Regulation Data Licensing And Compliance</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-030</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Technology Infrastructure Ai And Cyber Risk</td></tr>
+<tr><td class="evd-id">EVD-7LX-BS-031</td><td>7LX-BS</td><td class="tier-b">Tier B</td><td>Technology Infrastructure Ai And Cyber Risk</td></tr>
+</tbody></table>
+
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="source-section">
+    <div class="source-inner">
+      <div class="source-label">SOURCES &amp; RAW TEMPLATE</div>
+      <p class="source-text">This report was generated from the Corporate Standing Brief intelligence template produced by the Noah analytical pipeline. The raw template used to generate this report is available below.</p>
+      <a class="source-link-quiet" href="http://73strings.makes.news/gb/en/market-structure/2026/02/25/business-standing-brief-institutional-real-estate-data-and-analytics-platforms-proptech-infrastructure-regulation-data-licensing-and-compliance-prestige-holds-2026-02-25-kjrf" target="_blank" rel="noopener">View Raw Intelligence Template &rarr;</a>
+    </div>
+  </div>
+
+<div class="methodology-box">
+  <div class="methodology-box-inner">
+    <div class="methodology-box-text">Business Signal applies narrative signal processing to over 1.6 million sources daily &mdash; reducing billions of data points into actionable intelligence on sentiment, trends, and predictions.</div>
+    <a class="methodology-box-cta" href="methodology.html">See Full Methodology &rarr;</a>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">Powered by NOAH</span>
+      <span class="footer-label">Business Signal</span>
+    </div>
+    <div class="footer-text">Cycle: 25 February 2026 &middot; &copy; Noah Wire Services 2026</div>
+  </div>
+  <div class="footer-credit">Intelligence architecture by Noah Wire Services &middot; Prepared for 73 Strings</div>
+</div>
+
+</body>
+</html>
