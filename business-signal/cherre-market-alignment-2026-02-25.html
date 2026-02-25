@@ -43,13 +43,8 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; colo
 /* Hero */
 .hero { background: var(--slate-deep); position: relative; overflow: hidden; margin-top: -1px; }
 .hero-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, #FFD32B, #3538FF); z-index: 4; }
-.hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background:
-    radial-gradient(ellipse 120% 80% at 85% 40%, rgba(53,56,255,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 120% at 10% 80%, rgba(207,166,76,0.06) 0%, transparent 50%),
-    linear-gradient(135deg, rgba(24,29,53,0.4) 0%, rgba(20,25,41,0.1) 100%);
-  opacity: 1; }
-.hero-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px); background-size: 48px 48px; }
-.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(105deg, rgba(24,29,53,0.92) 0%, rgba(24,29,53,0.85) 22%, rgba(24,29,53,0.55) 48%, rgba(24,29,53,0.25) 72%, rgba(24,29,53,0.12) 100%); z-index: 1; pointer-events: none; }
+.hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('images/hero-london-skyline.png'); background-size: cover; background-position: right center; opacity: 1; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, rgba(20,25,41,0.97) 0%, rgba(20,25,41,0.94) 25%, rgba(20,25,41,0.78) 45%, rgba(20,25,41,0.45) 65%, rgba(20,25,41,0.15) 82%, rgba(20,25,41,0.05) 100%); z-index: 1; pointer-events: none; }
 .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: rgba(255,255,255,0.08); z-index: 3; }
 .hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; display: flex; align-items: flex-start; justify-content: space-between; padding: 60px 32px 48px; min-height: 395px; }
 .hero-left { flex: 1; max-width: 560px; padding-top: 12px; }
