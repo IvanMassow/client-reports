@@ -7,7 +7,7 @@
 <meta property="og:url" content="https://ivanmassow.github.io/client-reports/fuse-pipeline/bionic-cisco-2026-02-26.html">
 <meta property="og:site_name" content="Fuse Pipeline &mdash; Bionic Intelligence">
 <meta property="og:title" content="Secure Remote Access &amp; SASE Pressures in APAC Financial Services">
-<meta property="og:description" content="Market Alignment Assessment &mdash; Cisco Secure Access positioned against 9 pressure vectors in APAC financial services. 436 sources. Persona-based intelligence.">
+<meta property="og:description" content="Market Alignment Assessment &mdash; Cisco Secure Access positioned against 8 pressure vectors in APAC financial services. 436 sources. Persona-based intelligence.">
 <meta property="og:image" content="https://ivanmassow.github.io/client-reports/fuse-pipeline/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -161,6 +161,10 @@ tbody tr:nth-child(even) { background: var(--fp-grey-bg); }
 .tag-longer { background: rgba(107,114,128,0.08); color: var(--fp-grey-500); }
 .tag-critical { background: var(--fp-red-soft); color: var(--fp-red); }
 .tag-high { background: var(--fp-amber-soft); color: var(--fp-amber); }
+.section-dark .tag-critical, .section-deep .tag-critical { background: rgba(220,38,38,0.2); }
+.section-dark .tag-high, .section-deep .tag-high { background: rgba(217,119,6,0.2); }
+.section-dark .tag-rising, .section-deep .tag-rising { background: rgba(217,119,6,0.2); }
+.section-dark .tag-stable, .section-deep .tag-stable { background: rgba(5,150,105,0.2); }
 
 /* === PERSONA SECTIONS === */
 .persona-section { padding: 72px 0; position: relative; overflow: hidden; }
@@ -179,14 +183,14 @@ tbody tr:nth-child(even) { background: var(--fp-grey-bg); }
 .persona-ceo .persona-eyebrow { color: var(--fp-yellow); }
 .persona-cio .persona-eyebrow { color: var(--fp-lime); }
 .persona-sales .persona-eyebrow { color: #60a5fa; }
-.section-dark .persona-name { color: var(--fp-white); }
+.section-dark .persona-name, .section-deep .persona-name { color: var(--fp-white); }
 .persona-name { font-size: 2rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 4px; }
 .persona-role { font-size: 0.95rem; }
-.section-dark .persona-role { color: rgba(255,255,255,0.5); }
+.section-dark .persona-role, .section-deep .persona-role { color: rgba(255,255,255,0.5); }
 .persona-role { color: var(--fp-grey-500); }
 .persona-cares { margin-top: 0; }
 .persona-cares li { font-size: 0.9rem; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); list-style: none; display: flex; align-items: baseline; gap: 10px; }
-.section-dark .persona-cares li { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.06); }
+.section-dark .persona-cares li, .section-deep .persona-cares li { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.06); }
 .persona-cares li { color: var(--fp-grey-600); border-bottom-color: var(--fp-grey-100); }
 .persona-cares li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
 .persona-ceo .persona-cares li::before { background: var(--fp-yellow); }
@@ -203,53 +207,53 @@ tbody tr:nth-child(even) { background: var(--fp-grey-bg); }
 .persona-sales .persona-sub::before { background: #60a5fa; }
 .priority-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .priority-card { border-radius: var(--radius); padding: 24px; position: relative; }
-.section-dark .priority-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.section-dark .priority-card, .section-deep .priority-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
 .priority-card { background: var(--fp-white); border: 1px solid var(--fp-grey-200); box-shadow: var(--shadow-sm); }
 .priority-rank { font-family: var(--font-mono); font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 12px; }
 .persona-ceo .priority-rank { color: var(--fp-yellow); }
 .persona-cio .priority-rank { color: var(--fp-lime); }
 .persona-sales .priority-rank { color: #60a5fa; }
 .priority-signal { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
-.section-dark .priority-signal { color: var(--fp-white); }
+.section-dark .priority-signal, .section-deep .priority-signal { color: var(--fp-white); }
 .priority-signal { color: var(--fp-black); }
 .priority-consequence { font-size: 0.82rem; line-height: 1.6; margin-bottom: 12px; }
-.section-dark .priority-consequence { color: rgba(255,255,255,0.55); }
+.section-dark .priority-consequence, .section-deep .priority-consequence { color: rgba(255,255,255,0.55); }
 .priority-consequence { color: var(--fp-grey-500); }
 .priority-meta { display: flex; gap: 8px; }
 .persona-proof { border-radius: var(--radius); padding: 24px 28px; margin-top: 16px; }
 .persona-ceo .persona-proof { background: rgba(254,224,0,0.08); border-left: 3px solid var(--fp-yellow); }
 .persona-cio .persona-proof { background: rgba(192,211,87,0.08); border-left: 3px solid var(--fp-lime); }
 .persona-sales .persona-proof { background: rgba(96,165,250,0.08); border-left: 3px solid #60a5fa; }
-.section-dark .persona-proof { color: rgba(255,255,255,0.8); }
+.section-dark .persona-proof, .section-deep .persona-proof { color: rgba(255,255,255,0.8); }
 .persona-proof { color: var(--fp-grey-600); }
 .persona-proof p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 10px; }
 .persona-proof p:last-child { margin-bottom: 0; }
 .persona-proof strong { color: var(--fp-black); }
-.section-dark .persona-proof strong { color: var(--fp-white); }
+.section-dark .persona-proof strong, .section-deep .persona-proof strong { color: var(--fp-white); }
 .watch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .watch-card { border-radius: var(--radius); padding: 18px; text-align: center; }
-.section-dark .watch-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.section-dark .watch-card, .section-deep .watch-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
 .watch-card { background: var(--fp-grey-bg); border: 1px solid var(--fp-grey-200); }
 .watch-question { font-size: 0.78rem; line-height: 1.5; margin-bottom: 10px; }
-.section-dark .watch-question { color: rgba(255,255,255,0.55); }
+.section-dark .watch-question, .section-deep .watch-question { color: rgba(255,255,255,0.55); }
 .watch-question { color: var(--fp-grey-500); }
 .watch-prob { font-family: var(--font-mono); font-size: 24px; font-weight: 800; }
 .persona-ceo .watch-prob { color: var(--fp-yellow); }
 .persona-cio .watch-prob { color: var(--fp-lime); }
 .persona-sales .watch-prob { color: #60a5fa; }
 .watch-horizon { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
-.section-dark .watch-horizon { color: rgba(255,255,255,0.35); }
+.section-dark .watch-horizon, .section-deep .watch-horizon { color: rgba(255,255,255,0.35); }
 .watch-horizon { color: var(--fp-grey-400); }
 .action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
 .action-card { border-radius: var(--radius); padding: 20px; }
-.section-dark .action-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.section-dark .action-card, .section-deep .action-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
 .action-card { background: var(--fp-white); border: 1px solid var(--fp-grey-200); box-shadow: var(--shadow-sm); }
 .action-owner { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
 .persona-ceo .action-owner { color: var(--fp-yellow); }
 .persona-cio .action-owner { color: var(--fp-lime); }
 .persona-sales .action-owner { color: #60a5fa; }
 .action-card p { font-size: 0.85rem; line-height: 1.6; }
-.section-dark .action-card p { color: rgba(255,255,255,0.65); }
+.section-dark .action-card p, .section-deep .action-card p { color: rgba(255,255,255,0.65); }
 .action-card p { color: var(--fp-grey-600); }
 
 /* === BASS DIFFUSION === */
@@ -337,7 +341,7 @@ tbody tr:nth-child(even) { background: var(--fp-grey-bg); }
       <div class="hero-label-text">Market Alignment</div>
     </div>
     <h1 class="hero-title">Secure Remote Access &amp; SASE Pressures in APAC Financial Services</h1>
-    <p class="hero-deck">Cisco Secure Access alignment against 9 pressure vectors. 436 sources analysed. Three personas &mdash; CEO, CIO, Sales &mdash; each with their own intelligence, priorities, and proof requirements.</p>
+    <p class="hero-deck">Cisco Secure Access alignment against 8 pressure vectors. 436 sources analysed. Three personas &mdash; CEO, CIO, Sales &mdash; each with their own intelligence, priorities, and proof requirements.</p>
     <div class="hero-meta">
       <div class="hero-meta-pill date">February 2026</div>
       <div class="hero-meta-pill positive">Positive Direction</div>
@@ -393,7 +397,7 @@ tbody tr:nth-child(even) { background: var(--fp-grey-bg); }
   <div class="container">
     <div class="section-eyebrow">Market Forces</div>
     <h2 class="section-title">Pressure Landscape</h2>
-    <div class="section-subtitle">8 distinct pressure vectors evaluated across 436 sources. Three signals are accelerating.</div>
+    <div class="section-subtitle">8 distinct pressure vectors evaluated across 436 sources. Four signals are accelerating.</div>
     <table>
       <thead>
         <tr><th>Pressure</th><th>Severity</th><th>Heat</th><th>Velocity</th><th>Evidence</th><th>Sources</th></tr>
@@ -878,7 +882,7 @@ tbody tr:nth-child(even) { background: var(--fp-grey-bg); }
   <div class="container">
     <div class="section-eyebrow">Evidence &amp; Methodology</div>
     <h2 class="section-title">Source Provenance</h2>
-    <div class="section-subtitle">436 sources processed. 9 pressure vectors. No echo risk detected. Broad signal breadth.</div>
+    <div class="section-subtitle">436 sources processed. 8 pressure vectors. No echo risk detected. Broad signal breadth.</div>
     <ul class="source-list">
       <li><strong>APRA</strong> &mdash; CPS 234 cyber security expectations (2026, web search)</li>
       <li><strong>Deloitte</strong> &mdash; 2026 Asia Pacific Financial Services Regulatory Outlook (2026, web search)</li>
