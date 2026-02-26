@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Remote Access &amp; SASE Pressures in APAC Financial Services | Fuse Pipeline &mdash; Bionic Intelligence</title>
+<meta property="og:url" content="https://ivanmassow.github.io/client-reports/fuse-pipeline/bionic-cisco-2026-02-26.html">
+<meta property="og:site_name" content="Fuse Pipeline &mdash; Bionic Intelligence">
+<meta property="og:title" content="Secure Remote Access &amp; SASE Pressures in APAC Financial Services">
+<meta property="og:description" content="Market Alignment Assessment &mdash; Cisco Secure Access positioned against 9 pressure vectors in APAC financial services. 436 sources. Persona-based intelligence.">
+<meta property="og:image" content="https://ivanmassow.github.io/client-reports/fuse-pipeline/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cisco Secure Access &mdash; APAC Financial Services | Bionic Intelligence">
+<meta name="twitter:image" content="https://ivanmassow.github.io/client-reports/fuse-pipeline/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --fp-yellow: #FEE000;
+  --fp-yellow-soft: rgba(254,224,0,0.12);
+  --fp-yellow-mid: rgba(254,224,0,0.25);
+  --fp-green-dark: #013124;
+  --fp-green-mid: #14342C;
+  --fp-green-deep: #0D2E25;
+  --fp-green-text: #1B4136;
+  --fp-teal: #34584e;
+  --fp-lime: #C0D357;
+  --fp-lime-soft: rgba(192,211,87,0.15);
+  --fp-black: #131313;
+  --fp-charcoal: #30302E;
+  --fp-white: #FFFFFF;
+  --fp-grey-bg: #F7F7F5;
+  --fp-grey-100: #F0F0EE;
+  --fp-grey-200: #E5E5E3;
+  --fp-grey-300: #D1D1CF;
+  --fp-grey-400: #9CA3AF;
+  --fp-grey-500: #6B7280;
+  --fp-grey-600: #4B5563;
+  --fp-red: #DC2626;
+  --fp-red-soft: rgba(220,38,38,0.08);
+  --fp-green: #059669;
+  --fp-green-soft: rgba(5,150,105,0.08);
+  --fp-amber: #D97706;
+  --fp-amber-soft: rgba(217,119,6,0.08);
+  --fp-blue: #1055C9;
+  --fp-blue-soft: rgba(16,85,201,0.08);
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  --radius: 8px;
+  --radius-sm: 4px;
+  --shadow-sm: 0 1px 2px rgba(1,49,36,0.05);
+  --shadow: 0 1px 3px rgba(1,49,36,0.08), 0 1px 2px rgba(1,49,36,0.04);
+  --shadow-md: 0 4px 12px rgba(1,49,36,0.10), 0 2px 4px rgba(1,49,36,0.06);
+  --max-w: 1100px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-sans); color: var(--fp-charcoal); background: var(--fp-white); line-height: 1.65; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+
+/* === TOP BAR === */
+.topbar { background: rgba(1,49,36,0.95); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 54px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.topbar-logo { display: flex; align-items: center; gap: 10px; }
+.topbar-logo-icon { display: flex; flex-direction: column; gap: 3px; width: 26px; height: 22px; }
+.logo-bar { display: flex; height: 9px; border-radius: 5px; overflow: hidden; }
+.logo-bar-top { width: 26px; }
+.logo-bar-bottom { width: 22px; }
+.logo-bar .seg-yellow { flex: 1; background: var(--fp-yellow); }
+.logo-bar .seg-white { width: 14px; background: rgba(255,255,255,0.85); border-radius: 5px 0 0 5px; }
+.topbar-logo-text { font-size: 16px; font-weight: 400; color: var(--fp-white); letter-spacing: 0.01em; }
+.topbar-logo-text strong { font-weight: 700; }
+.topbar-divider { width: 1px; height: 22px; background: rgba(255,255,255,0.15); }
+.topbar-product { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fp-yellow); }
+.topbar-right { display: flex; align-items: center; gap: 16px; }
+.topbar-ref { font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: var(--fp-yellow); background: rgba(254,224,0,0.12); padding: 3px 10px; border-radius: var(--radius-sm); border: 1px solid rgba(254,224,0,0.25); }
+.topbar-date { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; }
+
+/* === HERO === */
+.hero { position: relative; min-height: 420px; overflow: hidden; display: flex; align-items: flex-end; background: var(--fp-green-deep); }
+.hero-bg { position: absolute; inset: 0; background: url('hero-analysts.png') center center / cover no-repeat; opacity: 0.55; filter: saturate(0.3) contrast(1.05); }
+.hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(1,49,36,0.92) 0%, rgba(1,49,36,0.75) 30%, rgba(13,46,37,0.45) 55%, rgba(13,46,37,0.15) 80%, rgba(13,46,37,0.05) 100%); z-index: 1; }
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--fp-yellow); z-index: 2; }
+.hero-inner { position: relative; z-index: 2; max-width: var(--max-w); margin: 0 auto; padding: 64px 32px 52px; width: 100%; }
+.hero-label { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.hero-label-bar { width: 3px; height: 16px; background: var(--fp-yellow); border-radius: 2px; }
+.hero-label-text { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--fp-yellow); }
+.hero-title { font-size: 2.6rem; font-weight: 800; color: var(--fp-white); line-height: 1.12; max-width: 700px; margin-bottom: 16px; letter-spacing: -0.02em; }
+.hero-deck { font-size: 1.05rem; color: rgba(255,255,255,0.7); max-width: 600px; line-height: 1.6; margin-bottom: 20px; font-weight: 400; }
+.hero-meta { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-meta-pill { font-family: var(--font-mono); font-size: 11px; font-weight: 600; padding: 5px 14px; border-radius: var(--radius-sm); letter-spacing: 0.06em; }
+.hero-meta-pill.positive { background: rgba(5,150,105,0.2); color: #6ee7b7; }
+.hero-meta-pill.rising { background: rgba(254,224,0,0.15); color: var(--fp-yellow); }
+.hero-meta-pill.broad { background: rgba(192,211,87,0.15); color: var(--fp-lime); }
+.hero-meta-pill.date { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+
+/* === EXEC STRIP === */
+.exec-strip { background: var(--fp-green-dark); border-top: 2px solid var(--fp-yellow); }
+.exec-strip-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); }
+.exec-strip-item { padding: 18px 24px; border-right: 1px solid rgba(255,255,255,0.06); text-align: center; }
+.exec-strip-item:last-child { border-right: none; }
+.exec-strip-label { font-family: var(--font-mono); font-size: 9px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+.exec-strip-value { font-size: 15px; font-weight: 700; color: var(--fp-yellow); }
+
+/* === SECTIONS === */
+.section { padding: 56px 0; }
+.section-alt { background: var(--fp-grey-bg); }
+.section-dark { background: var(--fp-green-dark); color: var(--fp-white); }
+.section-deep { background: var(--fp-green-deep); color: var(--fp-white); }
+.section-eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fp-green-mid); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.section-eyebrow::before { content: ''; width: 20px; height: 2px; background: var(--fp-yellow); }
+.section-dark .section-eyebrow, .section-deep .section-eyebrow { color: var(--fp-yellow); }
+.section-title { font-size: 1.65rem; font-weight: 800; color: var(--fp-black); margin-bottom: 8px; letter-spacing: -0.01em; }
+.section-dark .section-title, .section-deep .section-title { color: var(--fp-white); }
+.section-subtitle { font-size: 0.95rem; color: var(--fp-grey-500); line-height: 1.6; }
+.section-dark .section-subtitle, .section-deep .section-subtitle { color: rgba(255,255,255,0.5); }
+
+/* === PROSE === */
+.prose { margin-top: 24px; }
+.prose p { font-size: 1rem; line-height: 1.75; color: var(--fp-charcoal); margin-bottom: 18px; }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--fp-black); font-weight: 700; }
+.prose .highlight { background: var(--fp-yellow-soft); border-left: 3px solid var(--fp-yellow); padding: 16px 20px; border-radius: 0 var(--radius) var(--radius) 0; margin: 24px 0; font-size: 0.95rem; color: var(--fp-green-text); line-height: 1.7; }
+.section-dark .prose p, .section-deep .prose p { color: rgba(255,255,255,0.75); }
+.section-dark .prose strong, .section-deep .prose strong { color: var(--fp-white); }
+.section-dark .prose .highlight, .section-deep .prose .highlight { background: rgba(254,224,0,0.08); border-left-color: var(--fp-yellow); color: rgba(255,255,255,0.8); }
+
+/* === CARDS === */
+.card { background: var(--fp-white); border: 1px solid var(--fp-grey-200); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-sm); }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 28px; }
+.card-title { font-size: 0.85rem; font-weight: 700; color: var(--fp-black); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.card-title .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--fp-yellow); flex-shrink: 0; }
+.card p { font-size: 0.9rem; color: var(--fp-grey-600); line-height: 1.65; }
+.card-why { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--fp-grey-200); font-size: 0.85rem; color: var(--fp-grey-500); font-style: italic; }
+
+/* === PULL QUOTE === */
+.pull-quote { border-left: 4px solid var(--fp-yellow); padding: 24px 28px; margin: 32px 0; background: var(--fp-grey-bg); border-radius: 0 var(--radius) var(--radius) 0; }
+.pull-quote p { font-size: 1.15rem; font-weight: 600; color: var(--fp-black); line-height: 1.55; margin: 0; }
+.pull-quote cite { display: block; font-size: 0.8rem; color: var(--fp-grey-400); font-style: normal; margin-top: 8px; font-family: var(--font-mono); letter-spacing: 0.04em; }
+
+/* === TABLES === */
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 20px; }
+thead th { background: var(--fp-green-dark); color: var(--fp-white); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 14px; text-align: left; }
+thead th:first-child { border-radius: var(--radius-sm) 0 0 0; }
+thead th:last-child { border-radius: 0 var(--radius-sm) 0 0; }
+tbody td { padding: 11px 14px; border-bottom: 1px solid var(--fp-grey-200); color: var(--fp-charcoal); }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--fp-grey-bg); }
+.heat-high { color: var(--fp-red); font-weight: 700; }
+.heat-mid { color: var(--fp-amber); font-weight: 700; }
+.tag { display: inline-block; font-family: var(--font-mono); font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.04em; }
+.tag-rising { background: var(--fp-amber-soft); color: var(--fp-amber); }
+.tag-stable { background: var(--fp-green-soft); color: var(--fp-green); }
+.tag-partial { background: var(--fp-amber-soft); color: var(--fp-amber); }
+.tag-gap { background: var(--fp-red-soft); color: var(--fp-red); }
+.tag-immediate { background: var(--fp-yellow-soft); color: var(--fp-green-text); font-weight: 700; }
+.tag-longer { background: rgba(107,114,128,0.08); color: var(--fp-grey-500); }
+.tag-critical { background: var(--fp-red-soft); color: var(--fp-red); }
+.tag-high { background: var(--fp-amber-soft); color: var(--fp-amber); }
+
+/* === PERSONA SECTIONS === */
+.persona-section { padding: 72px 0; position: relative; overflow: hidden; }
+.persona-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+.persona-ceo::before { background: var(--fp-yellow); }
+.persona-cio::before { background: var(--fp-lime); }
+.persona-sales::before { background: #60a5fa; }
+.persona-header { display: flex; align-items: flex-start; gap: 24px; margin-bottom: 40px; }
+.persona-icon { width: 80px; height: 80px; border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.persona-icon svg { width: 40px; height: 40px; }
+.persona-ceo .persona-icon { background: var(--fp-yellow-soft); border: 2px solid rgba(254,224,0,0.3); }
+.persona-cio .persona-icon { background: var(--fp-lime-soft); border: 2px solid rgba(192,211,87,0.3); }
+.persona-sales .persona-icon { background: rgba(96,165,250,0.12); border: 2px solid rgba(96,165,250,0.3); }
+.persona-info { flex: 1; }
+.persona-eyebrow { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 6px; }
+.persona-ceo .persona-eyebrow { color: var(--fp-yellow); }
+.persona-cio .persona-eyebrow { color: var(--fp-lime); }
+.persona-sales .persona-eyebrow { color: #60a5fa; }
+.section-dark .persona-name { color: var(--fp-white); }
+.persona-name { font-size: 2rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 4px; }
+.persona-role { font-size: 0.95rem; }
+.section-dark .persona-role { color: rgba(255,255,255,0.5); }
+.persona-role { color: var(--fp-grey-500); }
+.persona-cares { margin-top: 0; }
+.persona-cares li { font-size: 0.9rem; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); list-style: none; display: flex; align-items: baseline; gap: 10px; }
+.section-dark .persona-cares li { color: rgba(255,255,255,0.7); border-bottom-color: rgba(255,255,255,0.06); }
+.persona-cares li { color: var(--fp-grey-600); border-bottom-color: var(--fp-grey-100); }
+.persona-cares li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+.persona-ceo .persona-cares li::before { background: var(--fp-yellow); }
+.persona-cio .persona-cares li::before { background: var(--fp-lime); }
+.persona-sales .persona-cares li::before { background: #60a5fa; }
+.persona-cares li:last-child { border-bottom: none; }
+.persona-sub { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 16px; margin-top: 36px; display: flex; align-items: center; gap: 10px; }
+.persona-ceo .persona-sub { color: var(--fp-yellow); }
+.persona-cio .persona-sub { color: var(--fp-lime); }
+.persona-sales .persona-sub { color: #60a5fa; }
+.persona-sub::before { content: ''; width: 16px; height: 2px; }
+.persona-ceo .persona-sub::before { background: var(--fp-yellow); }
+.persona-cio .persona-sub::before { background: var(--fp-lime); }
+.persona-sales .persona-sub::before { background: #60a5fa; }
+.priority-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.priority-card { border-radius: var(--radius); padding: 24px; position: relative; }
+.section-dark .priority-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.priority-card { background: var(--fp-white); border: 1px solid var(--fp-grey-200); box-shadow: var(--shadow-sm); }
+.priority-rank { font-family: var(--font-mono); font-size: 32px; font-weight: 800; line-height: 1; margin-bottom: 12px; }
+.persona-ceo .priority-rank { color: var(--fp-yellow); }
+.persona-cio .priority-rank { color: var(--fp-lime); }
+.persona-sales .priority-rank { color: #60a5fa; }
+.priority-signal { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
+.section-dark .priority-signal { color: var(--fp-white); }
+.priority-signal { color: var(--fp-black); }
+.priority-consequence { font-size: 0.82rem; line-height: 1.6; margin-bottom: 12px; }
+.section-dark .priority-consequence { color: rgba(255,255,255,0.55); }
+.priority-consequence { color: var(--fp-grey-500); }
+.priority-meta { display: flex; gap: 8px; }
+.persona-proof { border-radius: var(--radius); padding: 24px 28px; margin-top: 16px; }
+.persona-ceo .persona-proof { background: rgba(254,224,0,0.08); border-left: 3px solid var(--fp-yellow); }
+.persona-cio .persona-proof { background: rgba(192,211,87,0.08); border-left: 3px solid var(--fp-lime); }
+.persona-sales .persona-proof { background: rgba(96,165,250,0.08); border-left: 3px solid #60a5fa; }
+.section-dark .persona-proof { color: rgba(255,255,255,0.8); }
+.persona-proof { color: var(--fp-grey-600); }
+.persona-proof p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 10px; }
+.persona-proof p:last-child { margin-bottom: 0; }
+.persona-proof strong { color: var(--fp-black); }
+.section-dark .persona-proof strong { color: var(--fp-white); }
+.watch-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.watch-card { border-radius: var(--radius); padding: 18px; text-align: center; }
+.section-dark .watch-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.watch-card { background: var(--fp-grey-bg); border: 1px solid var(--fp-grey-200); }
+.watch-question { font-size: 0.78rem; line-height: 1.5; margin-bottom: 10px; }
+.section-dark .watch-question { color: rgba(255,255,255,0.55); }
+.watch-question { color: var(--fp-grey-500); }
+.watch-prob { font-family: var(--font-mono); font-size: 24px; font-weight: 800; }
+.persona-ceo .watch-prob { color: var(--fp-yellow); }
+.persona-cio .watch-prob { color: var(--fp-lime); }
+.persona-sales .watch-prob { color: #60a5fa; }
+.watch-horizon { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+.section-dark .watch-horizon { color: rgba(255,255,255,0.35); }
+.watch-horizon { color: var(--fp-grey-400); }
+.action-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+.action-card { border-radius: var(--radius); padding: 20px; }
+.section-dark .action-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
+.action-card { background: var(--fp-white); border: 1px solid var(--fp-grey-200); box-shadow: var(--shadow-sm); }
+.action-owner { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.persona-ceo .action-owner { color: var(--fp-yellow); }
+.persona-cio .action-owner { color: var(--fp-lime); }
+.persona-sales .action-owner { color: #60a5fa; }
+.action-card p { font-size: 0.85rem; line-height: 1.6; }
+.section-dark .action-card p { color: rgba(255,255,255,0.65); }
+.action-card p { color: var(--fp-grey-600); }
+
+/* === BASS DIFFUSION === */
+.bass-chart { margin-top: 28px; background: var(--fp-green-dark); border-radius: var(--radius); padding: 28px; color: var(--fp-white); }
+.bass-chart-title { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fp-yellow); margin-bottom: 16px; }
+.bass-chart svg { width: 100%; height: auto; }
+.bass-chart-legend { display: flex; gap: 24px; margin-top: 14px; font-size: 12px; color: rgba(255,255,255,0.6); }
+.bass-chart-legend span { display: flex; align-items: center; gap: 6px; }
+.bass-chart-legend .dot-yellow { width: 10px; height: 3px; background: var(--fp-yellow); border-radius: 2px; }
+.bass-chart-legend .dot-lime { width: 10px; height: 3px; background: var(--fp-lime); border-radius: 2px; }
+.bass-chart-legend .dot-white { width: 10px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 2px; }
+
+/* === NEXT STEPS === */
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+.step-card { background: var(--fp-white); border: 1px solid var(--fp-grey-200); border-radius: var(--radius); padding: 24px; border-top: 3px solid var(--fp-yellow); }
+.step-card .timeframe { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fp-green-mid); margin-bottom: 8px; }
+.step-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--fp-black); margin-bottom: 10px; }
+.step-card p { font-size: 0.85rem; color: var(--fp-grey-600); line-height: 1.6; }
+.step-card .step-owner { font-family: var(--font-mono); font-size: 9px; font-weight: 600; color: var(--fp-grey-400); letter-spacing: 0.08em; margin-top: 10px; text-transform: uppercase; }
+.step-card .step-deliverable { font-family: var(--font-mono); font-size: 9px; font-weight: 700; color: var(--fp-green-mid); letter-spacing: 0.06em; margin-top: 6px; }
+
+/* === WATCHLIST === */
+.watchlist-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+.watchlist-item { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 20px; }
+.watchlist-item h4 { font-size: 0.85rem; font-weight: 700; color: var(--fp-yellow); margin-bottom: 8px; }
+.watchlist-item p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+.watchlist-item .prob { font-family: var(--font-mono); font-size: 10px; color: var(--fp-lime); margin-top: 10px; letter-spacing: 0.08em; }
+
+/* === SOURCES === */
+.source-list { margin-top: 20px; }
+.source-list li { font-size: 0.82rem; color: var(--fp-grey-500); padding: 6px 0; border-bottom: 1px solid var(--fp-grey-100); list-style: none; display: flex; align-items: baseline; gap: 8px; }
+.source-list li::before { content: ''; width: 4px; height: 4px; background: var(--fp-yellow); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+
+/* === FOOTER === */
+.footer { background: var(--fp-green-deep); padding: 32px 0; text-align: center; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+.footer-brand { font-size: 14px; color: rgba(255,255,255,0.3); margin-bottom: 4px; }
+.footer-brand strong { color: rgba(255,255,255,0.5); }
+.footer-note { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 0.02em; }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .topbar { padding: 0 16px; height: 48px; }
+  .topbar-divider, .topbar-product, .topbar-date { display: none; }
+  .hero { min-height: 340px; }
+  .hero-inner { padding: 48px 20px 40px; }
+  .hero-title { font-size: 1.7rem; }
+  .exec-strip-inner { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: 40px 0; }
+  .persona-section { padding: 48px 0; }
+  .card-grid, .steps-grid, .watchlist-grid, .priority-grid, .watch-grid, .action-grid { grid-template-columns: 1fr; }
+  .persona-header { flex-direction: column; gap: 16px; }
+  .persona-name { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-logo">
+      <div class="topbar-logo-icon">
+        <div class="logo-bar logo-bar-top"><span class="seg-white"></span><span class="seg-yellow"></span></div>
+        <div class="logo-bar logo-bar-bottom"><span class="seg-white"></span><span class="seg-yellow"></span></div>
+      </div>
+      <div class="topbar-logo-text">Fuse <strong>pipeline</strong></div>
+    </div>
+    <div class="topbar-divider"></div>
+    <div class="topbar-product">Bionic Intelligence</div>
+  </div>
+  <div class="topbar-right">
+    <div class="topbar-ref">REF: FP-BIO-260226-CSA</div>
+    <div class="topbar-date">26 February 2026</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-label">
+      <div class="hero-label-bar"></div>
+      <div class="hero-label-text">Market Alignment</div>
+    </div>
+    <h1 class="hero-title">Secure Remote Access &amp; SASE Pressures in APAC Financial Services</h1>
+    <p class="hero-deck">Cisco Secure Access alignment against 9 pressure vectors. 436 sources analysed. Three personas &mdash; CEO, CIO, Sales &mdash; each with their own intelligence, priorities, and proof requirements.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-pill date">February 2026</div>
+      <div class="hero-meta-pill positive">Positive Direction</div>
+      <div class="hero-meta-pill rising">Rising Momentum</div>
+      <div class="hero-meta-pill broad">436 Sources</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXEC STRIP -->
+<div class="exec-strip">
+  <div class="exec-strip-inner">
+    <div class="exec-strip-item">
+      <div class="exec-strip-label">Direction</div>
+      <div class="exec-strip-value">Positive</div>
+    </div>
+    <div class="exec-strip-item">
+      <div class="exec-strip-label">Momentum</div>
+      <div class="exec-strip-value">Rising</div>
+    </div>
+    <div class="exec-strip-item">
+      <div class="exec-strip-label">Contradiction</div>
+      <div class="exec-strip-value">Low</div>
+    </div>
+    <div class="exec-strip-item">
+      <div class="exec-strip-label">Signal Breadth</div>
+      <div class="exec-strip-value">Broad</div>
+    </div>
+    <div class="exec-strip-item">
+      <div class="exec-strip-label">Alignment</div>
+      <div class="exec-strip-value">50%</div>
+    </div>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="section">
+  <div class="container">
+    <div class="section-eyebrow">Executive Summary</div>
+    <h2 class="section-title">What You Need to Know</h2>
+    <div class="prose">
+      <p>APAC financial services institutions face converging pressure from <strong>APRA CPS 234 expectations</strong>, <strong>CrowdStrike&rsquo;s sub-30-minute breakout times</strong>, <strong>Microsoft 365 data loss prevention expansion</strong>, and <strong>cross-border expansion creating control sprawl</strong>. RBI reviewed Yes Bank after a BookMyForex card data leak; Cloudflare documented a February 20, 2026 outage from routing changes. Each event tightens the buyer&rsquo;s calculation on what counts as defensible access control.</p>
+      <p><strong>Cisco Secure Access aligns where buyers want fewer moving parts and more defensible outputs.</strong> Public scope includes Zero Trust Network Access, Secure Web Gateway, and Cloud Access Security Broker integration &mdash; matching procurement demand for consistent policy enforcement. But the 50% alignment score reflects a proof gap: public sources confirmed category presence against all five buyer requirements, but none showed independently verifiable APAC finance-specific audit mapping, measured containment outcomes, or multi-country performance benchmarks.</p>
+      <div class="highlight">
+        <strong>Bottom line:</strong> The market clearly needs what Cisco describes. But buyer trust in APAC financial services is earned through publishable evidence packs, in-region pilot outcomes, and audit artefacts mapped to MAS, APRA, HKMA, and RBI expectations &mdash; not product scope alone. The constraint is proof threshold rather than category fit.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MARKET FORCES -->
+<div class="section section-alt">
+  <div class="container">
+    <div class="section-eyebrow">Market Forces</div>
+    <h2 class="section-title">Pressure Landscape</h2>
+    <div class="section-subtitle">8 distinct pressure vectors evaluated across 436 sources. Three signals are accelerating.</div>
+    <table>
+      <thead>
+        <tr><th>Pressure</th><th>Severity</th><th>Heat</th><th>Velocity</th><th>Evidence</th><th>Sources</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Threat Environment</strong></td><td><span class="tag tag-critical">Critical</span></td><td class="heat-high">77/100</td><td><span class="tag tag-stable">Flat</span></td><td>Strong</td><td>50</td></tr>
+        <tr><td><strong>Digitisation Expansion</strong></td><td><span class="tag tag-critical">Critical</span></td><td class="heat-high">77/100</td><td><span class="tag tag-stable">Flat</span></td><td>Strong</td><td>50</td></tr>
+        <tr><td><strong>Governance &amp; Risk Management</strong></td><td><span class="tag tag-critical">Critical</span></td><td class="heat-high">74/100</td><td><span class="tag tag-rising">Rising</span></td><td>Strong</td><td>100</td></tr>
+        <tr><td><strong>Regulation &amp; Compliance</strong></td><td><span class="tag tag-critical">Critical</span></td><td class="heat-mid">71/100</td><td><span class="tag tag-stable">Flat</span></td><td>Strong</td><td>50</td></tr>
+        <tr><td><strong>Cloud Security Governance</strong></td><td><span class="tag tag-critical">Critical</span></td><td class="heat-mid">71/100</td><td><span class="tag tag-rising">Rising</span></td><td>Strong</td><td>50</td></tr>
+        <tr><td><strong>Legal Disclosure Liability</strong></td><td><span class="tag tag-critical">Critical</span></td><td class="heat-mid">71/100</td><td><span class="tag tag-rising">Rising</span></td><td>Strong</td><td>50</td></tr>
+        <tr><td><strong>Third-Party Platform Exposure</strong></td><td><span class="tag tag-critical">Critical</span></td><td class="heat-mid">63/100</td><td><span class="tag tag-rising">Rising</span></td><td>Strong</td><td>41</td></tr>
+        <tr><td><strong>Identity &amp; Access Control</strong></td><td><span class="tag tag-high">High</span></td><td>58/100</td><td><span class="tag tag-stable">Flat</span></td><td>Strong</td><td>70</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SUBJECT FIT -->
+<div class="section">
+  <div class="container">
+    <div class="section-eyebrow">Subject Fit Assessment</div>
+    <h2 class="section-title">How Cisco Secure Access Maps to Buyer Requirements</h2>
+    <div class="section-subtitle">All five requirements show category presence with direct evidence pending. Alignment: 50%.</div>
+    <div class="card-grid">
+      <div class="card" style="border-left:3px solid var(--fp-amber)">
+        <div class="card-title"><span class="dot" style="background:var(--fp-amber)"></span>Audit-Ready Compliance &amp; Governance <span class="tag tag-partial">Partial</span></div>
+        <p>Without a publishable audit evidence pack mapped to MAS, APRA, HKMA, and RBI expectations, procurement must rely on vendor assurance &mdash; and may pause before shortlist approval.</p>
+        <div class="card-why"><strong>Validate:</strong> Confirm APAC finance-focused audit pack with sample policy decision logs, reporting outputs, and control mapping for MAS and APRA requirements.</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--fp-amber)">
+        <div class="card-title"><span class="dot" style="background:var(--fp-amber)"></span>Incident Resilience &amp; Exposure Reduction <span class="tag tag-partial">Partial</span></div>
+        <p>Without measured containment steps and exposure reduction results from a controlled test, security leaders cannot justify that the remote access layer reduces blast radius under breakout-time pressure.</p>
+        <div class="card-why"><strong>Validate:</strong> Run incident simulation with time-to-revoke, session constraint behaviour, and before-and-after exposure measurements.</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--fp-amber)">
+        <div class="card-title"><span class="dot" style="background:var(--fp-amber)"></span>Cloud Security Policy Enforcement <span class="tag tag-partial">Partial</span></div>
+        <p>Without clear integration and visibility proof across identity, web access, and logging exports, buyers risk discovering governance gaps during implementation audits rather than evaluation.</p>
+        <div class="card-why"><strong>Validate:</strong> Document policy and telemetry coverage: identity integrations, logging export formats, consistent outcomes across web and application access in pilot.</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--fp-amber)">
+        <div class="card-title"><span class="dot" style="background:var(--fp-amber)"></span>Identity-Centric Access Controls <span class="tag tag-partial">Partial</span></div>
+        <p>Without a demonstrated enforcement model for identity, device, and session risk, operators may face unpredictable access decisions creating directory-driven workflow breakage.</p>
+        <div class="card-why"><strong>Validate:</strong> Collect enforcement artefacts: admin and audit outputs showing access grant/deny reasoning plus pilot results for directory-dependent workflows.</div>
+      </div>
+      <div class="card" style="border-left:3px solid var(--fp-amber)">
+        <div class="card-title"><span class="dot" style="background:var(--fp-amber)"></span>Cross-Border Scalability <span class="tag tag-partial">Partial</span></div>
+        <p>Without multi-country latency, availability, and scaling evidence, CIO teams cannot confirm the platform supports cross-border banking without performance degradation.</p>
+        <div class="card-why"><strong>Validate:</strong> Gather regional scalability proof: measured latency and session stability across Singapore, Australia, Hong Kong, India, and Japan during timeboxed pilot.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- ═══  PERSONA: CEO  ═══ -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="persona-section persona-ceo section-dark">
+  <div class="container">
+    <div class="persona-header">
+      <div class="persona-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#FEE000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="persona-info">
+        <div class="persona-eyebrow">Intelligence by Function</div>
+        <div class="persona-name">CEO</div>
+        <div class="persona-role">Board-level risk and strategic accountability</div>
+      </div>
+    </div>
+
+    <div class="persona-sub">What They Care About</div>
+    <ul class="persona-cares">
+      <li>Regulatory scrutiny and board-level accountability as dominant decision pressure &mdash; APRA CPS 234 expectations and board obligations under cyber rules</li>
+      <li>Defensible evidence, not intent, because incidents trigger governance and disclosure processes that persist after technical recovery</li>
+      <li>Technical remediation alone is insufficient &mdash; governance and disclosure obligations continue regardless</li>
+      <li>SEC cyber rules place boards under stronger expectations for incident response planning and disclosure readiness</li>
+    </ul>
+
+    <div class="persona-sub">Top Priority Signals</div>
+    <div class="priority-grid">
+      <div class="priority-card">
+        <div class="priority-rank">#1</div>
+        <div class="priority-signal">Regulation &amp; Compliance</div>
+        <div class="priority-consequence">Escalating audit expectations reduce control gap tolerance and raise remediation cost when evidence is unavailable</div>
+        <div class="priority-meta"><span class="tag tag-critical">Critical</span> <span class="tag tag-stable">Flat</span></div>
+      </div>
+      <div class="priority-card">
+        <div class="priority-rank">#2</div>
+        <div class="priority-signal">Threat Environment</div>
+        <div class="priority-consequence">Frequent incidents and exploitation raise disruption probability and investigation cost for the board</div>
+        <div class="priority-meta"><span class="tag tag-critical">Critical</span> <span class="tag tag-stable">Flat</span></div>
+      </div>
+      <div class="priority-card">
+        <div class="priority-rank">#3</div>
+        <div class="priority-signal">Legal Disclosure Liability</div>
+        <div class="priority-consequence">Disclosure scrutiny raises control failure downside beyond technical remediation into board-level accountability</div>
+        <div class="priority-meta"><span class="tag tag-critical">Critical</span> <span class="tag tag-rising">Rising</span></div>
+      </div>
+    </div>
+
+    <div class="persona-sub">Proof &amp; Validation Focus</div>
+    <div class="persona-proof">
+      <p><strong>Good proof for the CEO is an executive-ready evidence pack:</strong> control mapping aligned to APRA or MAS expectations, sample audit reports, and a short incident simulation summary showing measurable exposed access path reduction.</p>
+      <p>Decision implication: without publishable evidence, programme risks stalling in governance review even if the technical team is ready to proceed.</p>
+    </div>
+
+    <div class="persona-sub">Watch Questions</div>
+    <div class="watch-grid">
+      <div class="watch-card">
+        <div class="watch-question">Governance scrutiny intensification</div>
+        <div class="watch-prob">55%</div>
+        <div class="watch-horizon">30-Day Probability</div>
+      </div>
+      <div class="watch-card">
+        <div class="watch-question">Governance scrutiny intensification</div>
+        <div class="watch-prob">54%</div>
+        <div class="watch-horizon">90-Day Probability</div>
+      </div>
+      <div class="watch-card">
+        <div class="watch-question">Threat-environment pressure on access surfaces</div>
+        <div class="watch-prob">49%</div>
+        <div class="watch-horizon">30-Day Probability</div>
+      </div>
+    </div>
+
+    <div class="persona-sub">What To Do Next</div>
+    <div class="action-grid">
+      <div class="action-card">
+        <div class="action-owner">CEO Action 1</div>
+        <p>Require publishable audit and governance evidence pack aligned to APRA CPS 234 and MAS before shortlist approval</p>
+      </div>
+      <div class="action-card">
+        <div class="action-owner">CEO Action 2</div>
+        <p>Sponsor timeboxed incident simulation producing measurable access constraint outcomes and board-readable summary</p>
+      </div>
+      <div class="action-card">
+        <div class="action-owner">CEO Action 3</div>
+        <p>Set owner for cross-jurisdiction reporting readiness avoiding late-stage compliance objections</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- ═══  PERSONA: CIO  ═══ -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="persona-section persona-cio section">
+  <div class="container">
+    <div class="persona-header">
+      <div class="persona-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#C0D357" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="7 8 10 11 13 8 17 12"/></svg>
+      </div>
+      <div class="persona-info">
+        <div class="persona-eyebrow">Intelligence by Function</div>
+        <div class="persona-name">CIO</div>
+        <div class="persona-role">Architecture, integration, and operational technology delivery</div>
+      </div>
+    </div>
+
+    <div class="persona-sub">What They Care About</div>
+    <ul class="persona-cares">
+      <li>Cloud governance pressure forcing architecture simplification &mdash; Microsoft governance changes and APRA authentication expectations</li>
+      <li>Inconsistent policy enforcement across web, applications, and user locations creates implementation risk and audit exposure</li>
+      <li>Procurement will not accept manual reporting workarounds as a sustainable control posture</li>
+      <li>Identity layer decisions scrutinised for explainability &mdash; inconsistent session control treated as unauthorised access route</li>
+    </ul>
+
+    <div class="persona-sub">Top Priority Signals</div>
+    <div class="priority-grid">
+      <div class="priority-card">
+        <div class="priority-rank">#1</div>
+        <div class="priority-signal">Cloud Security Governance</div>
+        <div class="priority-consequence">Cloud dependencies create governance drift across policy, identity, and data controls</div>
+        <div class="priority-meta"><span class="tag tag-critical">Critical</span> <span class="tag tag-rising">Rising</span></div>
+      </div>
+      <div class="priority-card">
+        <div class="priority-rank">#2</div>
+        <div class="priority-signal">Identity &amp; Access Control</div>
+        <div class="priority-consequence">Session control gaps in hybrid work raise unauthorised access and lateral movement likelihood</div>
+        <div class="priority-meta"><span class="tag tag-high">High</span> <span class="tag tag-stable">Flat</span></div>
+      </div>
+      <div class="priority-card">
+        <div class="priority-rank">#3</div>
+        <div class="priority-signal">Governance &amp; Risk Management</div>
+        <div class="priority-consequence">Governance scrutiny increases demand for evidence trails under supervisory review</div>
+        <div class="priority-meta"><span class="tag tag-critical">Critical</span> <span class="tag tag-rising">Rising</span></div>
+      </div>
+    </div>
+
+    <div class="persona-sub">Proof &amp; Validation Focus</div>
+    <div class="persona-proof">
+      <p><strong>Good proof for the CIO is technical and operational:</strong> documented identity integrations, telemetry export formats, consistent policy outcomes across applications and locations, and measured latency impact in pilot.</p>
+      <p>Decision implication: architecture must reduce complexity while increasing reporting readiness &mdash; governance teams will not accept gaps requiring ongoing manual reconciliation.</p>
+    </div>
+
+    <div class="persona-sub">Watch Questions</div>
+    <div class="watch-grid">
+      <div class="watch-card">
+        <div class="watch-question">Governance scrutiny intensification</div>
+        <div class="watch-prob">55%</div>
+        <div class="watch-horizon">30-Day Probability</div>
+      </div>
+      <div class="watch-card">
+        <div class="watch-question">Governance scrutiny intensification</div>
+        <div class="watch-prob">54%</div>
+        <div class="watch-horizon">90-Day Probability</div>
+      </div>
+      <div class="watch-card">
+        <div class="watch-question">Cloud-security governance pressure</div>
+        <div class="watch-prob">49%</div>
+        <div class="watch-horizon">30-Day Probability</div>
+      </div>
+    </div>
+
+    <div class="persona-sub">What To Do Next</div>
+    <div class="action-grid">
+      <div class="action-card">
+        <div class="action-owner">CIO Action 1</div>
+        <p>Run pilot testing consistent policy outcomes across web and application access with exportable logs and reporting</p>
+      </div>
+      <div class="action-card">
+        <div class="action-owner">CIO Action 2</div>
+        <p>Confirm identity integration and directory-dependent workflow behaviour early to avoid rollout regressions</p>
+      </div>
+      <div class="action-card">
+        <div class="action-owner">CIO Action 3</div>
+        <p>Define minimum telemetry and reporting export standard satisfying both operations and audit teams</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- ═══  PERSONA: SALES  ═══ -->
+<!-- ══════════════════════════════════════════════════════ -->
+<div class="persona-section persona-sales section-deep">
+  <div class="container">
+    <div class="persona-header">
+      <div class="persona-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/><path d="M2 20h20"/></svg>
+      </div>
+      <div class="persona-info">
+        <div class="persona-eyebrow">Intelligence by Function</div>
+        <div class="persona-name">Sales</div>
+        <div class="persona-role">Revenue realisation and procurement cycle acceleration</div>
+      </div>
+    </div>
+
+    <div class="persona-sub">What They Care About</div>
+    <ul class="persona-cares">
+      <li>Expansion pressure keeping scalable secure connectivity demand active &mdash; Mambu launched Payments Hub across four Asian markets</li>
+      <li>Compliance and incident posture evaluated alongside performance and availability in procurement cycles</li>
+      <li>Proof artefacts shorten security and procurement cycles for multi-jurisdiction banks</li>
+      <li>Strong technical story without evidence pack still fails late-stage procurement gates in financial services</li>
+    </ul>
+
+    <div class="persona-sub">Top Priority Signals</div>
+    <div class="priority-grid">
+      <div class="priority-card">
+        <div class="priority-rank">#1</div>
+        <div class="priority-signal">Digitisation Expansion</div>
+        <div class="priority-consequence">Cross-border growth expands access surfaces and raises consistent monitoring burden</div>
+        <div class="priority-meta"><span class="tag tag-critical">Critical</span> <span class="tag tag-stable">Flat</span></div>
+      </div>
+      <div class="priority-card">
+        <div class="priority-rank">#2</div>
+        <div class="priority-signal">Regulation &amp; Compliance</div>
+        <div class="priority-consequence">Audit expectations reduce control gap tolerance and increase remediation cycles</div>
+        <div class="priority-meta"><span class="tag tag-critical">Critical</span> <span class="tag tag-stable">Flat</span></div>
+      </div>
+      <div class="priority-card">
+        <div class="priority-rank">#3</div>
+        <div class="priority-signal">Threat Environment</div>
+        <div class="priority-consequence">Incident narratives increase disruption risk and stakeholder scrutiny during sales cycle</div>
+        <div class="priority-meta"><span class="tag tag-critical">Critical</span> <span class="tag tag-stable">Flat</span></div>
+      </div>
+    </div>
+
+    <div class="persona-sub">Proof &amp; Validation Focus</div>
+    <div class="persona-proof">
+      <p><strong>Good proof for Sales means buyer-ready artefacts:</strong> regional performance measurements, a publishable case study or reference, and a short audit mapping summary aligned to APRA and MAS expectations.</p>
+      <p>Decision implication: strong technical story without evidence pack still fails late-stage procurement gates in financial services. Artefacts that shorten the security and risk review are the sales accelerator.</p>
+    </div>
+
+    <div class="persona-sub">Watch Questions</div>
+    <div class="watch-grid">
+      <div class="watch-card">
+        <div class="watch-question">Digitisation pressure on scalable connectivity</div>
+        <div class="watch-prob">51%</div>
+        <div class="watch-horizon">30-Day Probability</div>
+      </div>
+      <div class="watch-card">
+        <div class="watch-question">Digitisation pressure on scalable connectivity</div>
+        <div class="watch-prob">51%</div>
+        <div class="watch-horizon">90-Day Probability</div>
+      </div>
+      <div class="watch-card">
+        <div class="watch-question">Threat-environment pressure on access surfaces</div>
+        <div class="watch-prob">49%</div>
+        <div class="watch-horizon">30-Day Probability</div>
+      </div>
+    </div>
+
+    <div class="persona-sub">What To Do Next</div>
+    <div class="action-grid">
+      <div class="action-card">
+        <div class="action-owner">Sales Action 1</div>
+        <p>Prepare APAC finance evidence pack including audit mapping, pilot test plans, and regional availability narrative</p>
+      </div>
+      <div class="action-card">
+        <div class="action-owner">Sales Action 2</div>
+        <p>Secure referenceable deployment outcomes addressing cross-border latency and session stability in APAC</p>
+      </div>
+      <div class="action-card">
+        <div class="action-owner">Sales Action 3</div>
+        <p>Align incident simulation results to buyer language about breakout time and containment supporting security-led evaluation</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STRATEGIC WATCHLIST -->
+<div class="section section-dark">
+  <div class="container">
+    <div class="section-eyebrow">Strategic Watchlist</div>
+    <h2 class="section-title">Critical Trigger Scenarios</h2>
+    <div class="section-subtitle">Conditions that would materially change the assessment</div>
+    <div class="watchlist-grid">
+      <div class="watchlist-item">
+        <h4>Audit Evidence Becomes Gating Factor</h4>
+        <p>Procurement or risk committee requires regulator-mapped evidence packs as a hard precondition for shortlist approval. Create publishable APAC finance evidence pack with sample logs and MAS/APRA control mappings.</p>
+        <div class="prob">TRIGGER: Risk committee hard gate on evidence</div>
+      </div>
+      <div class="watchlist-item">
+        <h4>Containment Proof Required Under Breakout Timelines</h4>
+        <p>Buyers cite breakout-time metrics and ask for measurable time-to-containment outcomes during evaluation. Run incident simulation and document time-to-revoke, session constraints, and exposure reduction.</p>
+        <div class="prob">TRIGGER: Buyer cites CrowdStrike breakout metrics</div>
+      </div>
+      <div class="watchlist-item">
+        <h4>Cloud Policy Drift Creates Audit Exposure</h4>
+        <p>Governance review flags inconsistent policy enforcement across web, applications, and user locations. Validate identity integration and telemetry exports early; document unified policy model.</p>
+        <div class="prob">TRIGGER: Audit finds policy inconsistency</div>
+      </div>
+      <div class="watchlist-item">
+        <h4>Cross-Border Performance Stalls Rollouts</h4>
+        <p>APAC buyers request latency and availability evidence across Singapore, Australia, Hong Kong, India, and Japan. Collect regional performance measurements during pilot.</p>
+        <div class="prob">TRIGGER: Multi-country latency requirement</div>
+      </div>
+      <div class="watchlist-item">
+        <h4>Availability Incidents Become Board-Visible</h4>
+        <p>Service-impact event at a major vendor prompts questions on incident communications and recovery timelines. Prepare operational resilience narrative supported by status history and recovery runbooks.</p>
+        <div class="prob">TRIGGER: Vendor outage reaching board agenda</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADOPTION DYNAMIC -->
+<div class="section section-alt">
+  <div class="container">
+    <div class="section-eyebrow">Adoption Dynamic</div>
+    <h2 class="section-title">Bass Diffusion Model &mdash; Illustrative</h2>
+    <div class="section-subtitle">Flat curve class. Innovation coefficient (p) = 0.07, imitation coefficient (q) = 0.57, estimated days to peak = 89. Illustrative only.</div>
+    <div class="bass-chart">
+      <div class="bass-chart-title">Narrative Diffusion Model</div>
+      <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bellFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#FEE000" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#FEE000" stop-opacity="0.02"/>
+          </linearGradient>
+        </defs>
+        <line x1="80" y1="30" x2="80" y2="270" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <line x1="80" y1="270" x2="750" y2="270" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <line x1="80" y1="210" x2="750" y2="210" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="80" y1="150" x2="750" y2="150" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="80" y1="90" x2="750" y2="90" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4,4"/>
+        <text x="72" y="274" text-anchor="end" fill="rgba(255,255,255,0.4)" font-size="10" font-family="Inter">0%</text>
+        <text x="72" y="214" text-anchor="end" fill="rgba(255,255,255,0.4)" font-size="10" font-family="Inter">25%</text>
+        <text x="72" y="154" text-anchor="end" fill="rgba(255,255,255,0.4)" font-size="10" font-family="Inter">50%</text>
+        <text x="72" y="94" text-anchor="end" fill="rgba(255,255,255,0.4)" font-size="10" font-family="Inter">75%</text>
+        <text x="80" y="290" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter" text-anchor="middle">Day 0</text>
+        <text x="247" y="290" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter" text-anchor="middle">Day 30</text>
+        <text x="415" y="290" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter" text-anchor="middle">Day 60</text>
+        <text x="582" y="290" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter" text-anchor="middle">Day 90</text>
+        <text x="750" y="290" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Inter" text-anchor="middle">Day 120</text>
+        <text x="164" y="262" fill="rgba(255,255,255,0.2)" font-size="8" font-family="Inter" font-weight="600" letter-spacing="1" text-anchor="middle">DETECTION</text>
+        <text x="331" y="262" fill="rgba(255,255,255,0.2)" font-size="8" font-family="Inter" font-weight="600" letter-spacing="1" text-anchor="middle">VALIDATION</text>
+        <text x="498" y="262" fill="rgba(255,255,255,0.2)" font-size="8" font-family="Inter" font-weight="600" letter-spacing="1" text-anchor="middle">PEAK DIFFUSION</text>
+        <text x="665" y="262" fill="rgba(255,255,255,0.2)" font-size="8" font-family="Inter" font-weight="600" letter-spacing="1" text-anchor="middle">SATURATION</text>
+        <line x1="150" y1="30" x2="150" y2="270" stroke="#FEE000" stroke-width="1" stroke-dasharray="6,4" opacity="0.6"/>
+        <rect x="127" y="22" width="46" height="14" rx="3" fill="rgba(254,224,0,0.15)"/>
+        <text x="150" y="32" fill="#FEE000" font-size="7" font-family="Inter" font-weight="700" letter-spacing="0.5" text-anchor="middle">WE ARE HERE</text>
+        <path d="M80,270 C120,270 200,268 280,264 C360,258 420,245 480,220 C540,185 600,130 660,75 C710,42 740,35 750,33" fill="none" stroke="#C0D357" stroke-width="2.5" stroke-linecap="round" opacity="0.7" stroke-dasharray="6,3"/>
+        <path d="M80,270 C140,268 220,265 300,255 C360,242 420,218 470,195 C500,182 510,180 520,182 C560,192 600,218 660,248 C710,262 740,268 750,270 Z" fill="url(#bellFill)"/>
+        <path d="M80,270 C140,268 220,265 300,255 C360,242 420,218 470,195 C500,182 510,180 520,182 C560,192 600,218 660,248 C710,262 740,268 750,270" fill="none" stroke="#FEE000" stroke-width="2" stroke-linecap="round" opacity="0.6" stroke-dasharray="6,3"/>
+        <rect x="560" y="75" width="120" height="22" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="620" y="90" fill="rgba(255,255,255,0.4)" font-size="8" font-family="Inter" font-weight="600" letter-spacing="1" text-anchor="middle">ILLUSTRATIVE ONLY</text>
+      </svg>
+      <div class="bass-chart-legend">
+        <span><span class="dot-lime"></span> Cumulative adoption (S-curve)</span>
+        <span><span class="dot-yellow"></span> Instantaneous rate (bell curve)</span>
+        <span><span class="dot-white"></span> Phase boundaries</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RECOMMENDED NEXT STEPS -->
+<div class="section">
+  <div class="container">
+    <div class="section-eyebrow">Recommended Next Steps</div>
+    <h2 class="section-title">Action Board</h2>
+    <div class="section-subtitle">CEO and risk owners begin with audit-ready evidence. CIO runs parallel pilot. Sales prioritises buyer-facing proof bundle.</div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="timeframe">Immediate &mdash; 30 Days</div>
+        <h4>Audit &amp; Control Mapping Pack</h4>
+        <p>Produce APAC finance audit evidence pack for secure access controls mapped to MAS and APRA requirements.</p>
+        <div class="step-owner">Owner: Security Governance Lead</div>
+        <div class="step-deliverable">Deliverable: Audit &amp; Control Mapping Pack</div>
+      </div>
+      <div class="step-card">
+        <div class="timeframe">Immediate &mdash; 30 Days</div>
+        <h4>Policy Consistency Pilot</h4>
+        <p>Run timeboxed pilot focused on policy consistency across web and application access with exportable logs and reporting.</p>
+        <div class="step-owner">Owner: CIO Office / Network Security</div>
+        <div class="step-deliverable">Deliverable: Pilot Test Plan &amp; Results</div>
+      </div>
+      <div class="step-card">
+        <div class="timeframe">Immediate &mdash; 30 Days</div>
+        <h4>Incident Simulation Steps</h4>
+        <p>Define incident simulation steps for remote access exposure reduction with before-and-after measurements.</p>
+        <div class="step-owner">Owner: Incident Response Lead</div>
+        <div class="step-deliverable">Deliverable: Containment Runbook</div>
+      </div>
+    </div>
+    <div class="steps-grid" style="margin-top:20px;">
+      <div class="step-card" style="border-top-color:var(--fp-lime)">
+        <div class="timeframe">Development &mdash; 60 Days</div>
+        <h4>Regional Performance Evidence</h4>
+        <p>Validate cross-border performance and availability measurements across priority APAC markets.</p>
+        <div class="step-owner">Owner: Network Engineering</div>
+        <div class="step-deliverable">Deliverable: Regional Performance Pack</div>
+      </div>
+      <div class="step-card" style="border-top-color:var(--fp-lime)">
+        <div class="timeframe">Development &mdash; 60 Days</div>
+        <h4>Identity Integration Validation</h4>
+        <p>Document identity integration and directory-dependent workflow behaviour in target environment.</p>
+        <div class="step-owner">Owner: IAM Lead</div>
+        <div class="step-deliverable">Deliverable: Integration Validation Notes</div>
+      </div>
+      <div class="step-card" style="border-top-color:var(--fp-lime)">
+        <div class="timeframe">Development &mdash; 60 Days</div>
+        <h4>Reference Material Preparation</h4>
+        <p>Prepare publishable reference material suitable for bank procurement and risk review.</p>
+        <div class="step-owner">Owner: Customer Advocacy</div>
+        <div class="step-deliverable">Deliverable: Reference Narrative Pack</div>
+      </div>
+    </div>
+    <div class="steps-grid" style="margin-top:20px;">
+      <div class="step-card" style="border-top-color:var(--fp-grey-300)">
+        <div class="timeframe">Market &mdash; 90 Days</div>
+        <h4>APAC Proof Bundle</h4>
+        <p>Create repeatable procurement-ready evidence bundle for APAC financial services.</p>
+        <div class="step-owner">Owner: Regional Product Marketing</div>
+        <div class="step-deliverable">Deliverable: APAC Finance Proof Bundle</div>
+      </div>
+      <div class="step-card" style="border-top-color:var(--fp-grey-300)">
+        <div class="timeframe">Market &mdash; 90 Days</div>
+        <h4>Quarterly Control Mapping Refresh</h4>
+        <p>Track regulatory and supervisory updates and update control mapping quarterly.</p>
+        <div class="step-owner">Owner: Regulatory Affairs</div>
+        <div class="step-deliverable">Deliverable: Quarterly Mapping Update</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EVIDENCE & METHODOLOGY -->
+<div class="section section-alt">
+  <div class="container">
+    <div class="section-eyebrow">Evidence &amp; Methodology</div>
+    <h2 class="section-title">Source Provenance</h2>
+    <div class="section-subtitle">436 sources processed. 9 pressure vectors. No echo risk detected. Broad signal breadth.</div>
+    <ul class="source-list">
+      <li><strong>APRA</strong> &mdash; CPS 234 cyber security expectations (2026, web search)</li>
+      <li><strong>Deloitte</strong> &mdash; 2026 Asia Pacific Financial Services Regulatory Outlook (2026, web search)</li>
+      <li><strong>SC World</strong> &mdash; CrowdStrike reports average cyberattack breakout time under 30 minutes (2026, hydrated)</li>
+      <li><strong>IT News AU</strong> &mdash; Australian businesses paid ransom despite government advice (2026, hydrated)</li>
+      <li><strong>Cloudflare Blog</strong> &mdash; Cloudflare outage on February 20, 2026 (2026, web search)</li>
+      <li><strong>Business Today India</strong> &mdash; Yes Bank under RBI lens after BookMyForex card data leak (2026, hydrated)</li>
+      <li><strong>Cisco</strong> &mdash; Cisco Secure Access Data Sheet (2026, hydrated)</li>
+      <li><strong>Microsoft</strong> &mdash; Data loss prevention and Copilot governance updates (2026, web search)</li>
+      <li><strong>SEC</strong> &mdash; Cyber rules and board-level disclosure expectations (2026, web search)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Fuse <strong>pipeline</strong> &mdash; Bionic Intelligence</div>
+    <div class="footer-note">Prepared by Noah Wire Services &middot; 26 February 2026 &middot; Ref: FP-BIO-260226-CSA &middot; This report does not constitute investment advice.</div>
+  </div>
+</div>
+
+</body>
+</html>
